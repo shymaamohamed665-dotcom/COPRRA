@@ -1,0 +1,6 @@
+./composer.json is valid, but with a few warnings
+See https://getcomposer.org/doc/04-schema.md for details on the schema
+# Lock file errors
+- The lock file is not up to date with the latest changes in composer.json, it is recommended that you run `composer update` or `composer update <package name>`.
+# General warnings
+- Key test is a duplicate in ./composer.json at line 132

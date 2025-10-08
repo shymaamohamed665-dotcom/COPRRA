@@ -1,0 +1,26 @@
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+........                                                            8 / 8 (100%)
+
+Time: 05:38.948, Memory: 36.00 MB
+
+Text Processing (Tests\AI\TextProcessing)
+ ✔ Can process arabic text
+ ✔ Can extract keywords
+ ✔ Can detect sentiment
+ ✔ Can remove stop words
+ ✔ Can normalize text
+ ✔ Can handle mixed languages
+ ✔ Can extract entities
+ ✔ Can summarize text
+
+OK (8 tests, 8 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:08.866]
+
+Generating code coverage report in HTML format ... done [00:39.692]
+
+Generating code coverage report in PHPUnit XML format ... done [00:05.233]

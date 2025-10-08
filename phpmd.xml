@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel Project Rules"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
+
+    <description>Laravel Project PHPMD Rules - Maximum Strictness</description>
+
+    <!-- Include all clean code rules -->
+    <rule ref="rulesets/cleancode.xml"/>
+
+    <!-- Include all unused code rules -->
+    <rule ref="rulesets/unusedcode.xml"/>
+
+    <!-- Include all design rules -->
+    <rule ref="rulesets/design.xml"/>
+
+    <!-- Include all controversial rules -->
+    <rule ref="rulesets/controversial.xml"/>
+
+    <!-- Include all naming rules -->
+    <rule ref="rulesets/naming.xml"/>
+
+    <!-- Include all code size rules -->
+    <rule ref="rulesets/codesize.xml"/>
+
+</ruleset>

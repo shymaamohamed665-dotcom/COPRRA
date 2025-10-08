@@ -1,0 +1,102 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# ==============================================================================
+#  CONTROL SWITCH: Set to "true" to disable all checks and push directly.
+# ==============================================================================
+DISABLE_CHECKS="false"
+
+if [ "$DISABLE_CHECKS" = "true" ]; then
+    echo "✅ Pre-push checks are temporarily disabled by the control switch. Pushing directly."
+    exit 0
+fi
+
+# ==============================================================================
+#  DETAILED CHECKS WITH LOGGING
+# ==============================================================================
+echo "🚀 Running pre-push checks with detailed logging..."
+
+# Variable to track if any check fails
+ANY_CHECK_FAILED=0
+
+# 1. Run PHPStan and log output
+echo "📊 Running PHPStan static analysis... (logs to reports/phpstan.txt)"
+./vendor/bin/phpstan analyse --memory-limit=1G --no-progress > reports/phpstan.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ PHPStan failed. See reports/phpstan.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 1.1 Run Psalm static analysis
+echo "📊 Running Psalm static analysis... (logs to reports/psalm.txt)"
+./vendor/bin/psalm --no-progress > reports/psalm.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ Psalm failed. See reports/psalm.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 2. Run PHPUnit tests and log output
+echo "🧪 Running PHPUnit tests... (logs to reports/phpunit.txt)"
+./vendor/bin/phpunit --configuration=phpunit.xml > reports/phpunit.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ Tests failed. See reports/phpunit.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 3. Run Laravel Pint and log output
+echo "🎨 Running Laravel Pint code style check... (logs to reports/pint.txt)"
+./vendor/bin/pint --test > reports/pint.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ Code style issues found. See reports/pint.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 4. Run PHPMD and log output
+echo "🔍 Running PHPMD code quality check... (logs to reports/phpmd.txt)"
+./vendor/bin/phpmd app,config,database,routes text phpmd.xml > reports/phpmd.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ PHPMD found issues. See reports/phpmd.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 5. Run Deptrac architecture analysis
+echo "🏗️ Running Deptrac architecture analysis... (logs to reports/deptrac.txt)"
+./vendor/bin/deptrac analyse > reports/deptrac.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ Architecture issues found. See reports/deptrac.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 6. Run Frontend quality checks
+echo "🎨 Running Frontend quality checks... (logs to reports/frontend.txt)"
+{
+    echo "Running ESLint..."
+    npx eslint resources/js --ext .js,.vue,.ts
+    echo "Running Stylelint..."
+    npx stylelint "resources/**/*.{css,scss,vue}"
+    echo "Running Prettier check..."
+    npx prettier --check "resources/**/*.{js,css,scss,vue}"
+} > reports/frontend.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ Frontend quality issues found. See reports/frontend.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# 7. Run Composer Audit and log output
+echo "🔒 Running Composer security audit... (logs to reports/composer-audit.txt)"
+composer audit > reports/composer-audit.txt 2>&1
+if [ $? -ne 0 ]; then
+    echo "❌ Security vulnerabilities found. See reports/composer-audit.txt for details."
+    ANY_CHECK_FAILED=1
+fi
+
+# Final check
+if [ $ANY_CHECK_FAILED -ne 0 ]; then
+    echo "--------------------------------------------------------------------"
+    echo "🔥 One or more pre-push checks failed. Push aborted."
+    echo "📂 Detailed error reports have been saved in the 'reports' directory."
+    exit 1
+else
+    echo "✅ All pre-push checks passed! Ready to push."
+    exit 0
+fi

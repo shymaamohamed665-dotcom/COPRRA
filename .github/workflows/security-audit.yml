@@ -1,0 +1,92 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: '0 3 * * *' # Run daily at 3 AM
+  workflow_dispatch:
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Cache NPM Dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-ansi --optimize-autoloader --no-scripts
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Run Composer Security Audit
+        run: composer audit --format=json > composer-security-report.json
+
+      - name: Run NPM Security Audit
+        run: npm audit --json > npm-security-report.json
+
+      - name: Run PHPStan Security Rules
+        run: vendor/bin/phpstan analyse --memory-limit=1G --configuration=phpstan.neon --level=max
+
+      - name: Run Psalm Security Analysis
+        run: vendor/bin/psalm --config=psalm.xml --taint-analysis
+
+      - name: Run PHPMD Security Rules
+        run: vendor/bin/phpmd app text phpmd.xml --rulesets cleancode,unusedcode,design,controversial,naming,codesize
+
+      - name: Run ESLint Security Rules
+        run: npx eslint resources/js --ext .js,.vue,.ts --config=eslint.config.js --rule 'security/detect-object-injection: error'
+
+      - name: Run Stylelint Security Rules
+        run: npx stylelint "resources/**/*.{css,scss,vue}" --config=.stylelintrc.json
+
+      - name: Run Prettier Security Check
+        run: npx prettier --check "resources/**/*.{js,css,scss,vue}"
+
+      - name: Run Laravel Pint Security Check
+        run: vendor/bin/pint --test --configuration=pint.json
+
+      - name: Run Deptrac Security Analysis
+        run: vendor/bin/deptrac analyse --config-file=deptrac.yaml
+
+      - name: Run Infection Security Testing
+        run: vendor/bin/infection --configuration=infection.json.dist --min-msi=80 --min-covered-msi=80
+
+      - name: Upload Security Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-reports
+          path: |
+            composer-security-report.json
+            npm-security-report.json

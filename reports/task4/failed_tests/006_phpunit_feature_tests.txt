@@ -1,0 +1,58 @@
+# اختبار رقم: 6
+# اسم الاختبار: PHPUnit Feature Tests
+# الأمر: vendor/bin/phpunit --testsuite Feature
+# التاريخ: 2025-10-02
+# الحالة: فشل في التشغيل
+
+# المشكلة الرئيسية:
+خطأ في ملف SecurityHeadersMiddleware.php:
+- إعلان strict_types يجب أن يكون أول تعليمة في الملف (سطر 3)
+- نوع الخطأ: PHP Fatal error
+
+# تحليل النمط المتكرر:
+نفس المشكلة ظهرت الآن في ثلاثة ملفات مختلفة:
+1. app/Console/Kernel.php
+2. app/Services/AnalyticsService.php
+3. app/Http/Middleware/SecurityHeadersMiddleware.php
+
+# قائمة الملفات التي تحتاج إلى إصلاح:
+```
+app/
+├── Console/
+│   └── Kernel.php
+├── Services/
+│   └── AnalyticsService.php
+└── Http/
+    └── Middleware/
+        └── SecurityHeadersMiddleware.php
+```
+
+# المشكلة الهيكلية:
+يبدو أن هناك مشكلة منهجية في ترتيب التعليمات في ملفات PHP:
+الترتيب الصحيح يجب أن يكون:
+1. <?php
+2. declare(strict_types=1);
+3. namespace ...
+4. use statements
+5. class definition
+
+# خطة الإصلاح العاجلة:
+1. إصلاح SecurityHeadersMiddleware.php:
+```php
+<?php declare(strict_types=1);
+
+namespace App\Http\Middleware;
+
+// باقي الكود
+```
+
+2. تطبيق نفس الإصلاح على جميع الملفات المتأثرة
+
+# توصية:
+نظراً لتكرار نفس المشكلة في عدة ملفات، يُقترح:
+1. إيقاف تشغيل الاختبارات مؤقتاً
+2. إجراء فحص شامل لجميع ملفات PHP
+3. إصلاح ترتيب التعليمات في جميع الملفات
+4. ثم استئناف الاختبارات
+
+# المخرجات الكاملة محفوظة في الملف

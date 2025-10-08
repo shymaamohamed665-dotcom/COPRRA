@@ -1,0 +1,4 @@
+
+> stylelint
+> stylelint resources/css/**/*.css
+

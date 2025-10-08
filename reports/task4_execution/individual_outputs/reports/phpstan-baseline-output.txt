@@ -1,0 +1,2 @@
+Test #2: PHPStan - تحليل مع Baseline
+Status: TIMEOUT after 300s

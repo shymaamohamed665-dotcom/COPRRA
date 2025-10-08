@@ -1,0 +1,27 @@
+{
+    "permissions": {
+        "allow": [
+            "Bash(done)",
+            "Bash(php:*)",
+            "Bash(powershell:*)",
+            "Bash(cat:*)",
+            "Bash(xxd:*)",
+            "Bash(test:*)",
+            "Bash(./vendor/bin/phpunit --testsuite AI)",
+            "Bash(./vendor/bin/phpunit --testsuite Security)",
+            "Bash(./vendor/bin/phpunit --testsuite Performance)",
+            "Bash(./vendor/bin/phpunit --testsuite Integration)",
+            "Bash(./vendor/bin/phpunit --testsuite Unit)",
+            "Bash(./vendor/bin/phpunit --testsuite Unit --stop-on-failure)",
+            "Bash(./vendor/bin/phpunit tests/Unit/COPRRA)",
+            "Bash(./vendor/bin/phpunit tests/Unit/DataQuality tests/Unit/DataAccuracy)",
+            "Bash(./vendor/bin/phpunit --testsuite Feature)",
+            "Bash(composer test:*)",
+            "Bash(composer require:*)",
+            "Bash(composer:*)",
+            "Bash(tee:*)"
+        ],
+        "deny": [],
+        "ask": []
+    }
+}

@@ -1,0 +1,133 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services\Backup\Services;
+
+use Exception;
+
+final class BackupCompressionService
+{
+    /**
+     * Compress backup directory.
+     *
+     * @return array{path: string, size: int, compression_time: float}
+     *
+     * @throws Exception
+     */
+    public function compressBackup(string $backupDir, string $backupName): array
+    {
+        $startTime = microtime(true);
+
+        $compressedPath = dirname($backupDir).'/'.$backupName.'.tar.gz';
+
+        try {
+            $this->createTarGzArchive($backupDir, $compressedPath);
+
+            $compressionTime = microtime(true) - $startTime;
+            $compressedSize = filesize($compressedPath);
+
+            $this->deleteDirectory($backupDir);
+
+            return [
+                'path' => $compressedPath,
+                'size' => $compressedSize,
+                'compression_time' => $compressionTime,
+            ];
+        } catch (Exception $e) {
+            throw new Exception("Backup compression failed: {$e->getMessage()}", 0, $e);
+        }
+    }
+
+    /**
+     * Extract backup archive.
+     *
+     * @return string The path to the extracted directory
+     *
+     * @throws Exception
+     */
+    public function extractBackup(string $compressedPath): string
+    {
+        $extractDir = dirname($compressedPath).'/extracted_'.uniqid();
+
+        try {
+            $this->extractTarGzArchive($compressedPath, $extractDir);
+
+            return $extractDir;
+        } catch (Exception $e) {
+            throw new Exception("Backup extraction failed: {$e->getMessage()}", 0, $e);
+        }
+    }
+
+    /**
+     * Create tar.gz archive.
+     *
+     * @throws Exception
+     */
+    private function createTarGzArchive(string $sourceDir, string $destPath): void
+    {
+        $command = sprintf(
+            'tar -czf %s -C %s %s',
+            escapeshellarg($destPath),
+            escapeshellarg(dirname($sourceDir)),
+            escapeshellarg(basename($sourceDir))
+        );
+
+        exec($command, $output, $returnCode);
+
+        if ($returnCode !== 0) {
+            throw new Exception("Failed to create tar.gz archive. Command: {$command}");
+        }
+    }
+
+    /**
+     * Extract tar.gz archive.
+     *
+     * @throws Exception
+     */
+    private function extractTarGzArchive(string $archivePath, string $extractDir): void
+    {
+        if (! is_dir($extractDir)) {
+            mkdir($extractDir, 0755, true);
+        }
+
+        $command = sprintf(
+            'tar -xzf %s -C %s',
+            escapeshellarg($archivePath),
+            escapeshellarg($extractDir)
+        );
+
+        exec($command, $output, $returnCode);
+
+        if ($returnCode !== 0) {
+            throw new Exception("Failed to extract tar.gz archive. Command: {$command}");
+        }
+    }
+
+    /**
+     * Delete directory recursively.
+     */
+    private function deleteDirectory(string $dir): void
+    {
+        if (! is_dir($dir)) {
+            return;
+        }
+
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::CHILD_FIRST
+        );
+
+        foreach ($iterator as $file) {
+            if ($file instanceof \SplFileInfo) {
+                if ($file->isDir()) {
+                    rmdir($file->getPathname());
+                } else {
+                    unlink($file->getPathname());
+                }
+            }
+        }
+
+        rmdir($dir);
+    }
+}

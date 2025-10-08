@@ -1,0 +1,456 @@
+name: Comprehensive Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: "0 2 * * *" # Run daily at 2 AM
+  workflow_dispatch:
+
+jobs:
+  # Build and setup
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Cache NPM Dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-ansi --optimize-autoloader --no-scripts
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Build Assets
+        run: npm run build
+
+      - name: Setup Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan config:cache
+        env:
+          APP_ENV: testing
+          CACHE_DRIVER: array
+          SESSION_DRIVER: array
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            vendor/
+            node_modules/
+            public/
+            .env
+
+  # Code quality and static analysis
+  analyze:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Laravel Pint
+        run: ./vendor/bin/pint --test --configuration=pint.json
+
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse --memory-limit=1G --configuration=phpstan.neon
+
+      - name: Run Psalm
+        run: ./vendor/bin/psalm --config=psalm.xml
+
+      - name: Run PHPMD
+        run: ./vendor/bin/phpmd app text phpmd.xml
+
+      - name: Run Deptrac
+        run: ./vendor/bin/deptrac analyse --config-file=deptrac.yaml
+
+      - name: Run Composer Audit
+        run: composer audit
+
+      - name: Run Frontend Quality Checks
+        run: |
+          npx eslint resources/js --ext .js,.vue,.ts --config=eslint.config.js
+          npx stylelint "resources/**/*.{css,scss,vue}" --config=.stylelintrc.json
+          npx prettier --check "resources/**/*.{js,css,scss,vue}"
+
+  # Unit tests
+  test-unit:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Unit Tests
+        run: vendor/bin/phpunit tests/Unit --coverage-clover=coverage-unit.xml --coverage-html=coverage-unit --configuration=phpunit.xml
+
+      - name: Upload Unit Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: |
+            coverage-unit.xml
+            coverage-unit/
+
+  # Feature tests
+  test-feature:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Feature Tests
+        run: vendor/bin/phpunit tests/Feature --coverage-clover=coverage-feature.xml --coverage-html=coverage-feature --configuration=phpunit.xml
+
+      - name: Upload Feature Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: feature-test-results
+          path: |
+            coverage-feature.xml
+            coverage-feature/
+
+  # AI tests
+  test-ai:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run AI Tests
+        run: vendor/bin/phpunit tests/AI/ --coverage-clover=coverage-ai.xml --coverage-html=coverage-ai --configuration=phpunit.xml
+
+      - name: Upload AI Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-test-results
+          path: |
+            coverage-ai.xml
+            coverage-ai/
+
+  # Security tests
+  test-security:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Security Tests
+        run: vendor/bin/phpunit tests/Security/ --coverage-clover=coverage-security.xml --coverage-html=coverage-security --configuration=phpunit.xml
+
+      - name: Upload Security Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-test-results
+          path: |
+            coverage-security.xml
+            coverage-security/
+
+  # Performance tests
+  test-performance:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Performance Tests
+        run: vendor/bin/phpunit tests/Performance/ --coverage-clover=coverage-performance.xml --coverage-html=coverage-performance --configuration=phpunit.xml
+
+      - name: Upload Performance Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-test-results
+          path: |
+            coverage-performance.xml
+            coverage-performance/
+
+  # Integration tests
+  test-integration:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 25
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: testing
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Setup Database
+        run: |
+          php artisan migrate --force
+          php artisan db:seed
+
+      - name: Run Integration Tests
+        run: vendor/bin/phpunit tests/Integration/ --coverage-clover=coverage-integration.xml --coverage-html=coverage-integration --configuration=phpunit.xml
+
+      - name: Upload Integration Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: integration-test-results
+          path: |
+            coverage-integration.xml
+            coverage-integration/
+
+  # Architecture tests
+  test-architecture:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Architecture Tests
+        run: vendor/bin/phpunit tests/Architecture/ --coverage-clover=coverage-architecture.xml --coverage-html=coverage-architecture --configuration=phpunit.xml
+
+      - name: Upload Architecture Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: architecture-test-results
+          path: |
+            coverage-architecture.xml
+            coverage-architecture/
+
+  # Browser tests (Dusk)
+  test-browser:
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Setup Chrome for Browser Tests
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
+
+      - name: Run Browser Tests (Dusk)
+        run: php artisan dusk
+
+      - name: Upload Browser Test Screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-test-screenshots
+          path: tests/Browser/screenshots/
+
+  # Mutation testing
+  test-mutation:
+    runs-on: ubuntu-latest
+    needs: [test-unit, test-feature]
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip, xdebug
+          coverage: xdebug
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts
+
+      - name: Run Mutation Testing
+        run: ./vendor/bin/infection --configuration=infection.json.dist --threads=max --min-msi=80 --min-covered-msi=80
+
+  # Generate final report
+  generate-report:
+    runs-on: ubuntu-latest
+    needs:
+      [
+        analyze,
+        test-unit,
+        test-feature,
+        test-ai,
+        test-security,
+        test-performance,
+        test-integration,
+        test-architecture,
+        test-browser,
+        test-mutation,
+      ]
+    if: always()
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download All Test Results
+        uses: actions/download-artifact@v4
+        with:
+          path: test-results
+
+      - name: Generate Test Summary
+        run: |
+          echo "# Comprehensive Test Results Summary" > test-summary.md
+          echo "Generated: $(date)" >> test-summary.md
+          echo "" >> test-summary.md
+          echo "## Test Suites Status" >> test-summary.md
+          echo "- Code Analysis: ${{ needs.analyze.result }}" >> test-summary.md
+          echo "- Unit Tests: ${{ needs.test-unit.result }}" >> test-summary.md
+          echo "- Feature Tests: ${{ needs.test-feature.result }}" >> test-summary.md
+          echo "- AI Tests: ${{ needs.test-ai.result }}" >> test-summary.md
+          echo "- Security Tests: ${{ needs.test-security.result }}" >> test-summary.md
+          echo "- Performance Tests: ${{ needs.test-performance.result }}" >> test-summary.md
+          echo "- Integration Tests: ${{ needs.test-integration.result }}" >> test-summary.md
+          echo "- Architecture Tests: ${{ needs.test-architecture.result }}" >> test-summary.md
+          echo "- Browser Tests: ${{ needs.test-browser.result }}" >> test-summary.md
+          echo "- Mutation Tests: ${{ needs.test-mutation.result }}" >> test-summary.md
+
+      - name: Upload Test Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-summary
+          path: test-summary.md

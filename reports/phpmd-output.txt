@@ -1,0 +1,957 @@
+/var/www/html/app/Console/Commands/GenerateSitemap.php:73               StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'handle'.
+/var/www/html/app/Console/Commands/OptimizeDatabase.php:39              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'handle'.
+/var/www/html/app/Console/Commands/OptimizeDatabase.php:65              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'addIndexes'.
+/var/www/html/app/Console/Commands/OptimizeDatabase.php:89              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'analyzeTables'.
+/var/www/html/app/Console/Commands/OptimizeDatabase.php:113             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'optimizeTables'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:80           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'clearCaches'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:106          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'optimizeCaches'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:125          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'optimizeDatabase'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:134          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'optimizeDatabase'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:158          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'analyzeDatabasePerformance'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:166          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'analyzeDatabasePerformance'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:176          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'analyzeDatabasePerformance'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:200          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'analyzeDatabasePerformance'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:217          ElseExpression            The method analyzeDatabasePerformance uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:235          UnusedLocalVariable       Avoid unused local variables such as '$output'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:239          ElseExpression            The method optimizeAutoloader uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:257          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'optimizeViews'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:274          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'optimizeRoutes'.
+/var/www/html/app/Console/Commands/OptimizePerformance.php:291          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'optimizeConfig'.
+/var/www/html/app/Console/Commands/SEOAudit.php:51                      ElseExpression            The method handle uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Console/Commands/SEOAudit.php:100                     StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'auditProducts'.
+/var/www/html/app/Console/Commands/SEOAudit.php:117                     StaticAccess              Avoid using static access to class '\App\Models\Category' in method 'auditCategories'.
+/var/www/html/app/Console/Commands/SEOAudit.php:134                     StaticAccess              Avoid using static access to class '\App\Models\Store' in method 'auditStores'.
+/var/www/html/app/Console/Commands/SEOAudit.php:211                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Route' in method 'auditRoutes'.
+/var/www/html/app/Console/Commands/SEOAudit.php:281                     ElseExpression            The method displaySummary uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Console/Commands/UpdatePricesCommand.php:25           CyclomaticComplexity      The method handle() has a Cyclomatic Complexity of 17. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Console/Commands/UpdatePricesCommand.php:25           NPathComplexity           The method handle() has an NPath complexity of 400. The configured NPath complexity threshold is 200.
+/var/www/html/app/Console/Commands/UpdatePricesCommand.php:37           StaticAccess              Avoid using static access to class '\App\Models\PriceOffer' in method 'handle'.
+/var/www/html/app/Console/Kernel.php:27                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:39                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:45                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:51                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:54                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:60                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:63                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:69                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:72                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:78                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:81                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:87                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Console/Kernel.php:90                                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'schedule'.
+/var/www/html/app/Contracts/LoginAttemptService.php:29                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Contracts/LoginAttemptService.php:39                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Contracts/LoginAttemptService.php:49                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Contracts/LoginAttemptService.php:59                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/DTO/AnalysisResult.php:9                              CamelCaseParameterName    The parameter $max_score is not named in camelCase.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:22              CouplingBetweenObjects    The class GlobalExceptionHandler has a coupling between objects value of 18. Consider to reduce the number of dependencies under 13.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:40              UnusedFormalParameter     Avoid unused parameters such as '$e'.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:46              ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:60              NPathComplexity           The method handleApiException() has an NPath complexity of 256. The configured NPath complexity threshold is 200.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:60              ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:104             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:142             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:191             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:194             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handleQueryException'.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:210             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:238             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:251             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:279             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:297             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logException'.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:298             ElseExpression            The method logException uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:299             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logException'.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:306             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:322             ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:328             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Mail' in method 'sendCriticalErrorNotification'.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:344             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendCriticalErrorNotification'.
+/var/www/html/app/Exceptions/Handler.php:28                             CyclomaticComplexity      The method register() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Exceptions/Handler.php:28                             NPathComplexity           The method register() has an NPath complexity of 720. The configured NPath complexity threshold is 200.
+/var/www/html/app/Exceptions/Handler.php:38                             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'register'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:94     StaticAccess              Avoid using static access to class '\App\Models\User' in method 'getUserStatistics'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:112    StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getProductStatistics'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:321    StaticAccess              Avoid using static access to class '\Cache' in method 'getCacheStatus'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:322    StaticAccess              Avoid using static access to class '\Cache' in method 'getCacheStatus'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:323    StaticAccess              Avoid using static access to class '\Cache' in method 'getCacheStatus'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:362    StaticAccess              Avoid using static access to class '\Cache' in method 'checkCacheHealth'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:363    StaticAccess              Avoid using static access to class '\Cache' in method 'checkCacheHealth'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:364    StaticAccess              Avoid using static access to class '\Cache' in method 'checkCacheHealth'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:381    StaticAccess              Avoid using static access to class '\Storage' in method 'checkStorageHealth'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:382    StaticAccess              Avoid using static access to class '\Storage' in method 'checkStorageHealth'.
+/var/www/html/app/Http/Controllers/Admin/DashboardController.php:383    StaticAccess              Avoid using static access to class '\Storage' in method 'checkStorageHealth'.
+/var/www/html/app/Http/Controllers/AnalyticsController.php:13           LongVariable              Avoid excessively long variable names like $behaviorAnalysisService. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/Api/Admin/BrandController.php:16     StaticAccess              Avoid using static access to class '\App\Models\Brand' in method 'index'.
+/var/www/html/app/Http/Controllers/Api/Admin/BrandController.php:29     StaticAccess              Avoid using static access to class '\App\Models\Brand' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/Admin/CategoryController.php:16  StaticAccess              Avoid using static access to class '\App\Models\Category' in method 'index'.
+/var/www/html/app/Http/Controllers/Api/Admin/CategoryController.php:29  StaticAccess              Avoid using static access to class '\App\Models\Category' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/AuthController.php:23            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'login'.
+/var/www/html/app/Http/Controllers/Api/AuthController.php:24            StaticAccess              Avoid using static access to class '\Illuminate\Validation\ValidationException' in method 'login'.
+/var/www/html/app/Http/Controllers/Api/AuthController.php:54            ShortMethodName           Avoid using short method names like AuthController::me(). The configured minimum method name length is 3.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:94         ExcessiveClassComplexity  The class BaseApiController has an overall complexity of 59 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:216        CyclomaticComplexity      The method paginatedResponse() has a Cyclomatic Complexity of 18. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:216        NPathComplexity           The method paginatedResponse() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:257        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Validator' in method 'validateRequest'.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:344        ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:346        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handleApiException'.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:383        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logApiRequest'.
+/var/www/html/app/Http/Controllers/Api/BaseApiController.php:400        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logApiResponse'.
+/var/www/html/app/Http/Controllers/Api/DocumentationController.php:88   StaticAccess              Avoid using static access to class '\DB' in method 'health'.
+/var/www/html/app/Http/Controllers/Api/DocumentationController.php:98   StaticAccess              Avoid using static access to class '\Cache' in method 'health'.
+/var/www/html/app/Http/Controllers/Api/DocumentationController.php:99   StaticAccess              Avoid using static access to class '\Cache' in method 'health'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:25     CyclomaticComplexity      The method bestOffer() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:25     NPathComplexity           The method bestOffer() has an NPath complexity of 1025. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:25     ExcessiveMethodLength     The method bestOffer() has 122 lines of code. Current threshold is set to 100. Avoid really long methods.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:35     StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'bestOffer'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:74     StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'bestOffer'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:88     StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'bestOffer'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:139    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'bestOffer'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:158    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'supportedStores'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:181    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'search'.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:243    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'search'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:22         ExcessiveClassComplexity  The class ProductController has an overall complexity of 55 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:22         CouplingBetweenObjects    The class ProductController has a coupling between objects value of 14. Consider to reduce the number of dependencies under 13.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:108        CyclomaticComplexity      The method index() has a Cyclomatic Complexity of 21. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:108        NPathComplexity           The method index() has an NPath complexity of 10753. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:108        ExcessiveMethodLength     The method index() has 123 lines of code. Current threshold is set to 100. Avoid really long methods.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:153        ElseExpression            The method index uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:267        ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:271        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'show'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:273        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'show'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:364        CyclomaticComplexity      The method store() has a Cyclomatic Complexity of 20. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:364        NPathComplexity           The method store() has an NPath complexity of 11234. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:364        ExcessiveMethodLength     The method store() has 118 lines of code. Current threshold is set to 100. Avoid really long methods.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:371        StaticAccess              Avoid using static access to class '\App\Models\Category' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:376        StaticAccess              Avoid using static access to class '\App\Models\Brand' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:387        StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:401        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:415        StaticAccess              Avoid using static access to class '\App\Models\Store' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:417        StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:427        StaticAccess              Avoid using static access to class '\App\Models\PriceOffer' in method 'store'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:524        ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:527        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'update'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:535        StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'update'.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:610        ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/Api/ProductController.php:613        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'destroy'.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:37      ExcessiveClassComplexity  The class BaseApiController has an overall complexity of 54 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:103     CyclomaticComplexity      The method paginatedResponse() has a Cyclomatic Complexity of 27. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:103     NPathComplexity           The method paginatedResponse() has an NPath complexity of 8192. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:143     UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:151     UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:326     UnusedFormalParameter     Avoid unused parameters such as '$action'.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:329     StaticAccess              Avoid using static access to class '\Log' in method 'logApiRequest'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:22           CouplingBetweenObjects    The class AuthController has a coupling between objects value of 13. Consider to reduce the number of dependencies under 13.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:40           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'login'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:64           StaticAccess              Avoid using static access to class '\App\Models\User' in method 'register'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:67           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'register'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:72           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'register'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:82           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'logout'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:103          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Password' in method 'sendResetLinkEmail'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:125          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Password' in method 'resetPassword'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:129          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'resetPassword'.
+/var/www/html/app/Http/Controllers/Auth/AuthController.php:130          StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'resetPassword'.
+/var/www/html/app/Http/Controllers/BackupController.php:16              ExcessiveClassComplexity  The class BackupController has an overall complexity of 87 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/BackupController.php:39              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'index'.
+/var/www/html/app/Http/Controllers/BackupController.php:77              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'create'.
+/var/www/html/app/Http/Controllers/BackupController.php:90              ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:123             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'download'.
+/var/www/html/app/Http/Controllers/BackupController.php:136             ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:155             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'destroy'.
+/var/www/html/app/Http/Controllers/BackupController.php:162             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'destroy'.
+/var/www/html/app/Http/Controllers/BackupController.php:175             ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:195             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restore'.
+/var/www/html/app/Http/Controllers/BackupController.php:236             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'statistics'.
+/var/www/html/app/Http/Controllers/BackupController.php:251             CyclomaticComplexity      The method getBackupsList() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/BackupController.php:287             ShortVariable             Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:287             ShortVariable             Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:291             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getBackupsList'.
+/var/www/html/app/Http/Controllers/BackupController.php:303             CyclomaticComplexity      The method createBackup() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/BackupController.php:303             NPathComplexity           The method createBackup() has an NPath complexity of 289. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/BackupController.php:332             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createBackup'.
+/var/www/html/app/Http/Controllers/BackupController.php:346             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createBackup'.
+/var/www/html/app/Http/Controllers/BackupController.php:367             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'backupDatabase'.
+/var/www/html/app/Http/Controllers/BackupController.php:376             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'backupDatabase'.
+/var/www/html/app/Http/Controllers/BackupController.php:404             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'backupFiles'.
+/var/www/html/app/Http/Controllers/BackupController.php:438             ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:502             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restoreFromBackup'.
+/var/www/html/app/Http/Controllers/BackupController.php:518             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'restoreDatabase'.
+/var/www/html/app/Http/Controllers/BackupController.php:523             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restoreDatabase'.
+/var/www/html/app/Http/Controllers/BackupController.php:555             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restoreFiles'.
+/var/www/html/app/Http/Controllers/BrandController.php:38               StaticAccess              Avoid using static access to class '\App\Models\Brand' in method 'store'.
+/var/www/html/app/Http/Controllers/Controller.php:11                    NumberOfChildren          The class Controller has 37 children. Consider to rebalance this class hierarchy to keep number of children under 15.
+/var/www/html/app/Http/Controllers/ErrorController.php:13               ExcessiveClassComplexity  The class ErrorController has an overall complexity of 71 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/ErrorController.php:44               ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:80               CyclomaticComplexity      The method getRecentErrors() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/ErrorController.php:99               ShortVariable             Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:99               ShortVariable             Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:108              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getRecentErrors'.
+/var/www/html/app/Http/Controllers/ErrorController.php:122              CyclomaticComplexity      The method getErrorStatistics() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/ErrorController.php:170              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getErrorStatistics'.
+/var/www/html/app/Http/Controllers/ErrorController.php:216              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getSystemHealth'.
+/var/www/html/app/Http/Controllers/ErrorController.php:237              ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:332              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'checkDatabaseHealth'.
+/var/www/html/app/Http/Controllers/ErrorController.php:350              StaticAccess              Avoid using static access to class '\Cache' in method 'checkCacheHealth'.
+/var/www/html/app/Http/Controllers/ErrorController.php:351              StaticAccess              Avoid using static access to class '\Cache' in method 'checkCacheHealth'.
+/var/www/html/app/Http/Controllers/ErrorController.php:352              StaticAccess              Avoid using static access to class '\Cache' in method 'checkCacheHealth'.
+/var/www/html/app/Http/Controllers/HealthController.php:30              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'index'.
+/var/www/html/app/Http/Controllers/HealthController.php:31              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'index'.
+/var/www/html/app/Http/Controllers/LogController.php:27                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'index'.
+/var/www/html/app/Http/Controllers/LogController.php:34                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'index'.
+/var/www/html/app/Http/Controllers/LogController.php:57                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'index'.
+/var/www/html/app/Http/Controllers/LogController.php:73                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'clear'.
+/var/www/html/app/Http/Controllers/LogController.php:74                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clear'.
+/var/www/html/app/Http/Controllers/LogController.php:81                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clear'.
+/var/www/html/app/Http/Controllers/LogController.php:97                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'download'.
+/var/www/html/app/Http/Controllers/LogController.php:107                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'download'.
+/var/www/html/app/Http/Controllers/LogController.php:119                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'download'.
+/var/www/html/app/Http/Controllers/LogController.php:135                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'getStatistics'.
+/var/www/html/app/Http/Controllers/LogController.php:142                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'getStatistics'.
+/var/www/html/app/Http/Controllers/LogController.php:151                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'getStatistics'.
+/var/www/html/app/Http/Controllers/LogController.php:152                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'getStatistics'.
+/var/www/html/app/Http/Controllers/LogController.php:161                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getStatistics'.
+/var/www/html/app/Http/Controllers/LogController.php:180                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'parseLogFile'.
+/var/www/html/app/Http/Controllers/LogController.php:187                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'parseLogFile'.
+/var/www/html/app/Http/Controllers/LogController.php:217                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'parseLogFile'.
+/var/www/html/app/Http/Controllers/LogController.php:237                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'parseAccessLogFile'.
+/var/www/html/app/Http/Controllers/LogController.php:244                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'parseAccessLogFile'.
+/var/www/html/app/Http/Controllers/LogController.php:261                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'parseAccessLogFile'.
+/var/www/html/app/Http/Controllers/LogController.php:296                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getRecentErrors'.
+/var/www/html/app/Http/Controllers/LogController.php:329                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getLogLevels'.
+/var/www/html/app/Http/Controllers/LogController.php:376                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'exportLogsToFile'.
+/var/www/html/app/Http/Controllers/LogController.php:411                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getSystemLogsForExport'.
+/var/www/html/app/Http/Controllers/LogController.php:431                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getAccessLogsForExport'.
+/var/www/html/app/Http/Controllers/OrderController.php:113              MissingImport             Missing class import via use statement (line '113', column '25').
+/var/www/html/app/Http/Controllers/PaymentController.php:25             LongVariable              Avoid excessively long variable names like $paymentMethodIdString. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/PriceComparisonController.php:105    ShortVariable             Avoid variables with short names like $p. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/PriceComparisonController.php:126    UnusedFormalParameter     Avoid unused parameters such as '$product'.
+/var/www/html/app/Http/Controllers/ProfileController.php:20             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'edit'.
+/var/www/html/app/Http/Controllers/ProfileController.php:32             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'update'.
+/var/www/html/app/Http/Controllers/ProfileController.php:55             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'update'.
+/var/www/html/app/Http/Controllers/ProfileController.php:61             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'update'.
+/var/www/html/app/Http/Controllers/RecommendationController.php:14      LongVariable              Avoid excessively long variable names like $recommendationService. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/ReportController.php:21              CyclomaticComplexity      The method generateProductPerformanceReport() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/ReportController.php:26              StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateProductPerformanceReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:27              StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateProductPerformanceReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:43              StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateProductPerformanceReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:44              StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateProductPerformanceReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:88              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'generateProductPerformanceReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:101             CyclomaticComplexity      The method generateUserActivityReport() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/ReportController.php:106             StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateUserActivityReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:107             StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateUserActivityReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:123             StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateUserActivityReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:124             StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateUserActivityReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:166             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'generateUserActivityReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:185             StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateSalesReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:186             StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'generateSalesReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:199             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'generateSalesReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:230             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getSystemOverview'.
+/var/www/html/app/Http/Controllers/ReportController.php:243             UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/ReportController.php:264             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getEngagementMetrics'.
+/var/www/html/app/Http/Controllers/ReportController.php:277             UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/ReportController.php:298             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getPerformanceMetrics'.
+/var/www/html/app/Http/Controllers/ReportController.php:311             UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/ReportController.php:335             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getTopStores'.
+/var/www/html/app/Http/Controllers/ReportController.php:348             UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/ReportController.php:368             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getPriceTrends'.
+/var/www/html/app/Http/Controllers/ReportController.php:381             UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Controllers/ReportController.php:405             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getMostViewedProducts'.
+/var/www/html/app/Http/Controllers/ReportController.php:430             UndefinedVariable         Avoid using undefined variables such as '$filters' which will lead to PHP notices.
+/var/www/html/app/Http/Controllers/ReportController.php:430             UnusedLocalVariable       Avoid unused local variables such as '$filters'.
+/var/www/html/app/Http/Controllers/ReportController.php:440             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'generateCustomReport'.
+/var/www/html/app/Http/Controllers/ReportController.php:473             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'exportReport'.
+/var/www/html/app/Http/Controllers/SettingController.php:22             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:23             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:24             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:25             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:26             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:27             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:28             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'index'.
+/var/www/html/app/Http/Controllers/SettingController.php:41             CyclomaticComplexity      The method update() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/SettingController.php:41             NPathComplexity           The method update() has an NPath complexity of 258. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/SettingController.php:64             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:67             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:70             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:73             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:76             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:79             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:82             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:86             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:88             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:96             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'update'.
+/var/www/html/app/Http/Controllers/SettingController.php:165            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'getGeneralSettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:168            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'getGeneralSettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:200            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'getPerformanceSettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:220            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'resetToDefault'.
+/var/www/html/app/Http/Controllers/SettingController.php:227            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'resetToDefault'.
+/var/www/html/app/Http/Controllers/SettingController.php:267            LongVariable              Avoid excessively long variable names like $settingsWithStringKeys. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/SettingController.php:285            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'importSettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:325            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'exportSettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:357            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getSystemHealth'.
+/var/www/html/app/Http/Controllers/SettingController.php:373            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'resetPasswordPolicySettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:382            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'resetStorageSettings'.
+/var/www/html/app/Http/Controllers/SettingController.php:393            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'processImportedSettings'.
+/var/www/html/app/Http/Controllers/SystemController.php:13              ExcessiveClassComplexity  The class SystemController has an overall complexity of 54 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/SystemController.php:41              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getSystemInfo'.
+/var/www/html/app/Http/Controllers/SystemController.php:57              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'runMigrations'.
+/var/www/html/app/Http/Controllers/SystemController.php:58              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runMigrations'.
+/var/www/html/app/Http/Controllers/SystemController.php:63              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'runMigrations'.
+/var/www/html/app/Http/Controllers/SystemController.php:66              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runMigrations'.
+/var/www/html/app/Http/Controllers/SystemController.php:82              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'clearCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:83              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'clearCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:84              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'clearCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:85              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'clearCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:87              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:94              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:110             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'optimizeApp'.
+/var/www/html/app/Http/Controllers/SystemController.php:111             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'optimizeApp'.
+/var/www/html/app/Http/Controllers/SystemController.php:118             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'optimizeApp'.
+/var/www/html/app/Http/Controllers/SystemController.php:142             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runComposerUpdate'.
+/var/www/html/app/Http/Controllers/SystemController.php:150             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runComposerUpdate'.
+/var/www/html/app/Http/Controllers/SystemController.php:182             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getPerformanceMetrics'.
+/var/www/html/app/Http/Controllers/SystemController.php:211             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Artisan' in method 'runOptimization'.
+/var/www/html/app/Http/Controllers/SystemController.php:227             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runOptimization'.
+/var/www/html/app/Http/Controllers/SystemController.php:272             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runCleanup'.
+/var/www/html/app/Http/Controllers/SystemController.php:291             UnusedLocalVariable       Avoid unused local variables such as '$backupType'.
+/var/www/html/app/Http/Controllers/SystemController.php:313             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runBackup'.
+/var/www/html/app/Http/Controllers/SystemController.php:332             UnusedLocalVariable       Avoid unused local variables such as '$updateType'.
+/var/www/html/app/Http/Controllers/SystemController.php:356             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'runUpdate'.
+/var/www/html/app/Http/Controllers/SystemController.php:400             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'parseLogFile'.
+/var/www/html/app/Http/Controllers/SystemController.php:480             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupTempFiles'.
+/var/www/html/app/Http/Controllers/SystemController.php:489             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupOldLogs'.
+/var/www/html/app/Http/Controllers/SystemController.php:498             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupOldCache'.
+/var/www/html/app/Http/Controllers/SystemController.php:507             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'backupDatabase'.
+/var/www/html/app/Http/Controllers/SystemController.php:516             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'backupFiles'.
+/var/www/html/app/Http/Controllers/SystemController.php:525             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearLogs'.
+/var/www/html/app/Http/Controllers/UserController.php:16                TooManyPublicMethods      The class UserController has 11 public methods. Consider refactoring UserController to keep number of public methods under 10.
+/var/www/html/app/Http/Controllers/UserController.php:20                LongVariable              Avoid excessively long variable names like $passwordPolicyService. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/UserController.php:28                StaticAccess              Avoid using static access to class '\App\Models\User' in method 'index'.
+/var/www/html/app/Http/Controllers/UserController.php:105               StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'changePassword'.
+/var/www/html/app/Http/Controllers/UserController.php:125               StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'changePassword'.
+/var/www/html/app/Http/Controllers/UserController.php:166               StaticAccess              Avoid using static access to class '\App\Models\User' in method 'restore'.
+/var/www/html/app/Http/Controllers/WebhookController.php:49             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handleWebhook'.
+/var/www/html/app/Http/Controllers/WebhookController.php:85             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handleWebhook'.
+/var/www/html/app/Http/Controllers/WebhookController.php:97             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handleWebhook'.
+/var/www/html/app/Http/Controllers/WishlistController.php:62            ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Middleware/AddQueuedCookiesToResponse.php:21     MissingImport             Missing class import via use statement (line '21', column '23').
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:20                CouplingBetweenObjects    The class ApiErrorHandler has a coupling between objects value of 14. Consider to reduce the number of dependencies under 13.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:39                CyclomaticComplexity      The method handleException() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:39                NPathComplexity           The method handleException() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:39                ShortVariable             Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:42                StaticAccess              Avoid using static access to class '\Log' in method 'handleException'.
+/var/www/html/app/Http/Middleware/Authenticate.php:28                   UnusedFormalParameter     Avoid unused parameters such as '$guards'.
+/var/www/html/app/Http/Middleware/AuthenticateSession.php:36            MissingImport             Missing class import via use statement (line '36', column '23').
+/var/www/html/app/Http/Middleware/AuthenticateWithBasicAuth.php:35      MissingImport             Missing class import via use statement (line '35', column '27').
+/var/www/html/app/Http/Middleware/Authorize.php:20                      MissingImport             Missing class import via use statement (line '20', column '27').
+/var/www/html/app/Http/Middleware/CheckUserRole.php:30                  StaticAccess              Avoid using static access to class '\App\Enums\UserRole' in method 'handle'.
+/var/www/html/app/Http/Middleware/CompressionMiddleware.php:21          MissingImport             Missing class import via use statement (line '21', column '23').
+/var/www/html/app/Http/Middleware/ConvertEmptyStringsToNull.php:25      MissingImport             Missing class import via use statement (line '25', column '23').
+/var/www/html/app/Http/Middleware/EnsureEmailIsVerified.php:27          MissingImport             Missing class import via use statement (line '27', column '23').
+/var/www/html/app/Http/Middleware/HandleCors.php:20                     MissingImport             Missing class import via use statement (line '20', column '23').
+/var/www/html/app/Http/Middleware/HandlePrecognitiveRequests.php:23     MissingImport             Missing class import via use statement (line '23', column '23').
+/var/www/html/app/Http/Middleware/InputSanitizationMiddleware.php:24    MissingImport             Missing class import via use statement (line '24', column '23').
+/var/www/html/app/Http/Middleware/LocaleMiddleware.php:37               MissingImport             Missing class import via use statement (line '37', column '23').
+/var/www/html/app/Http/Middleware/LocaleMiddleware.php:74               StaticAccess              Avoid using static access to class '\App\Models\Language' in method 'getBrowserLanguage'.
+/var/www/html/app/Http/Middleware/RTLMiddleware.php:25                  ElseExpression            The method handle uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Middleware/RTLMiddleware.php:32                  MissingImport             Missing class import via use statement (line '32', column '23').
+/var/www/html/app/Http/Middleware/RequirePassword.php:26                MissingImport             Missing class import via use statement (line '26', column '35').
+/var/www/html/app/Http/Middleware/SecurityHeaders.php:37                MissingImport             Missing class import via use statement (line '37', column '23').
+/var/www/html/app/Http/Middleware/SecurityHeaders.php:57                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handle'.
+/var/www/html/app/Http/Middleware/SecurityHeaders.php:93                CyclomaticComplexity      The method isSuspiciousRequest() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SecurityHeaders.php:147               ElseExpression            The method isSuspiciousRequest uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Middleware/SecurityHeadersMiddleware.php:21      MissingImport             Missing class import via use statement (line '21', column '23').
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:32    MissingImport             Missing class import via use statement (line '32', column '23').
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:48    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'preventSessionFixation'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:49    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'preventSessionFixation'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:57    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'preventSessionFixation'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:58    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'preventSessionFixation'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:70    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'regenerateSessionId'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:74    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'regenerateSessionId'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:75    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'regenerateSessionId'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:77    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'regenerateSessionId'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:89    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'cleanupInactiveSessions'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:93    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'cleanupInactiveSessions'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:95    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupInactiveSessions'.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:100   ElseExpression            The method cleanupInactiveSessions uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Middleware/SessionManagementMiddleware.php:101   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'cleanupInactiveSessions'.
+/var/www/html/app/Http/Middleware/SetCacheHeaders.php:20                MissingImport             Missing class import via use statement (line '20', column '23').
+/var/www/html/app/Http/Middleware/SetLocale.php:17                      CyclomaticComplexity      The method handle() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocale.php:20                      StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'handle'.
+/var/www/html/app/Http/Middleware/SetLocale.php:41                      StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\App' in method 'handle'.
+/var/www/html/app/Http/Middleware/SetLocale.php:42                      StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'handle'.
+/var/www/html/app/Http/Middleware/SetLocale.php:46                      MissingImport             Missing class import via use statement (line '46', column '23').
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:36           CyclomaticComplexity      The method configureLocale() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:36           NPathComplexity           The method configureLocale() has an NPath complexity of 540. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:47           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureLocale'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:48           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureLocale'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:72           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\App' in method 'configureLocale'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:73           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureLocale'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:74           ElseExpression            The method configureLocale uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:78           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\App' in method 'configureLocale'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:79           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureLocale'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:87           CyclomaticComplexity      The method configureCurrency() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:87           NPathComplexity           The method configureCurrency() has an NPath complexity of 270. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:98           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureCurrency'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:99           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureCurrency'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:118          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureCurrency'.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:120          ElseExpression            The method configureCurrency uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:124          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Session' in method 'configureCurrency'.
+/var/www/html/app/Http/Middleware/ShareErrorsFromSession.php:20         MissingImport             Missing class import via use statement (line '20', column '23').
+/var/www/html/app/Http/Middleware/StartSession.php:25                   MissingImport             Missing class import via use statement (line '25', column '23').
+/var/www/html/app/Http/Middleware/SubstituteBindings.php:30             MissingImport             Missing class import via use statement (line '30', column '23').
+/var/www/html/app/Http/Middleware/ThrottleRequests.php:30               ElseExpression            The method handle uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Http/Middleware/ThrottleRequests.php:36               MissingImport             Missing class import via use statement (line '36', column '23').
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:26    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\RateLimiter' in method 'handle'.
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:27    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\RateLimiter' in method 'handle'.
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:29    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handle'.
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:42    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\RateLimiter' in method 'handle'.
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:46    MissingImport             Missing class import via use statement (line '46', column '23').
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:58    ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Http/Middleware/ValidateApiRequest.php:22             MissingImport             Missing class import via use statement (line '22', column '27').
+/var/www/html/app/Http/Middleware/ValidateApiRequest.php:34             MissingImport             Missing class import via use statement (line '34', column '27').
+/var/www/html/app/Http/Middleware/ValidateApiRequest.php:41             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Validator' in method 'handle'.
+/var/www/html/app/Http/Middleware/ValidateApiRequest.php:53             MissingImport             Missing class import via use statement (line '53', column '23').
+/var/www/html/app/Http/Middleware/ValidateApiRequest.php:64             CyclomaticComplexity      The method getValidationRules() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/ValidatePostSize.php:26               MissingImport             Missing class import via use statement (line '26', column '23').
+/var/www/html/app/Http/Requests/ProductCreateRequest.php:208            StaticAccess              Avoid using static access to class '\Log' in method 'withValidator'.
+/var/www/html/app/Http/Requests/ProductCreateRequest.php:226            StaticAccess              Avoid using static access to class '\Str' in method 'validated'.
+/var/www/html/app/Http/Requests/ProductRequest.php:66                   StaticAccess              Avoid using static access to class '\Str' in method 'prepareForValidation'.
+/var/www/html/app/Http/Requests/ProductSearchRequest.php:153            UnusedFormalParameter     Avoid unused parameters such as '$validator'.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:28             ExcessiveMethodLength     The method rules() has 102 lines of code. Current threshold is set to 100. Avoid really long methods.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:187            CyclomaticComplexity      The method withValidator() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:214            StaticAccess              Avoid using static access to class '\Log' in method 'withValidator'.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:234            StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'validated'.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:247            CyclomaticComplexity      The method prepareForValidation() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:247            NPathComplexity           The method prepareForValidation() has an NPath complexity of 270. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Resources/OrderItemResource.php:20               UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Resources/OrderResource.php:20                   UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Resources/OrderResource.php:43                   StaticAccess              Avoid using static access to class 'App\Http\Resources\OrderItemResource' in method 'toArray'.
+/var/www/html/app/Http/Resources/ProductResource.php:20                 UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Http/Resources/UserResource.php:20                    UnusedFormalParameter     Avoid unused parameters such as '$request'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:67                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handle'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:84                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handle'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:93                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'handle'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:109                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'failed'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:128                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getJobStatus'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:147                    UnusedFormalParameter     Avoid unused parameters such as '$userId'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:163                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cancel'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:170                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cancel'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:209                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Carbon' in method 'generateReport'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:218                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Carbon' in method 'generateReport'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:234                    UnusedLocalVariable       Avoid unused local variables such as '$imageId'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:280                    UnusedLocalVariable       Avoid unused local variables such as '$userId'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:306                    UnusedLocalVariable       Avoid unused local variables such as '$statType'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:397                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Carbon' in method 'updateJobStatus'.
+/var/www/html/app/Jobs/ProcessHeavyOperation.php:401                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'updateJobStatus'.
+/var/www/html/app/Listeners/SendOrderStatusNotification.php:24          StaticAccess              Avoid using static access to class '\App\Models\Notification' in method 'handle'.
+/var/www/html/app/Models/AuditLog.php:130                               CyclomaticComplexity      The method getChangesSummaryAttribute() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Models/AuditLog.php:130                               NPathComplexity           The method getChangesSummaryAttribute() has an NPath complexity of 1188. The configured NPath complexity threshold is 200.
+/var/www/html/app/Models/Brand.php:161                                  StaticAccess              Avoid using static access to class '\Str' in method 'boot'.
+/var/www/html/app/Models/Brand.php:167                                  StaticAccess              Avoid using static access to class '\Str' in method 'boot'.
+/var/www/html/app/Models/Category.php:104                               StaticAccess              Avoid using static access to class '\Database\Factories\CategoryFactory' in method 'factory'.
+/var/www/html/app/Models/Category.php:179                               StaticAccess              Avoid using static access to class '\Str' in method 'boot'.
+/var/www/html/app/Models/Category.php:190                               StaticAccess              Avoid using static access to class '\Str' in method 'boot'.
+/var/www/html/app/Models/Notification.php:33                            ExcessivePublicCount      The class Notification has 51 public methods and attributes. Consider reducing the number of public items to less than 45.
+/var/www/html/app/Models/Notification.php:33                            TooManyPublicMethods      The class Notification has 24 public methods. Consider refactoring Notification to keep number of public methods under 10.
+/var/www/html/app/Models/Notification.php:33                            ExcessiveClassComplexity  The class Notification has an overall complexity of 75 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Models/Notification.php:658                           ShortVariable             Avoid variables with short names like $t. Configured minimum length is 3.
+/var/www/html/app/Models/Notification.php:676                           StaticAccess              Avoid using static access to class '\Database\Factories\NotificationFactory' in method 'newFactory'.
+/var/www/html/app/Models/Product.php:42                                 TooManyPublicMethods      The class Product has 13 public methods. Consider refactoring Product to keep number of public methods under 10.
+/var/www/html/app/Models/Product.php:42                                 CouplingBetweenObjects    The class Product has a coupling between objects value of 15. Consider to reduce the number of dependencies under 13.
+/var/www/html/app/Models/Product.php:102                                StaticAccess              Avoid using static access to class '\Database\Factories\ProductFactory' in method 'factory'.
+/var/www/html/app/Models/Product.php:170                                CyclomaticComplexity      The method validate() has a Cyclomatic Complexity of 23. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Models/Product.php:196                                UnusedLocalVariable       Avoid unused local variables such as '$column'.
+/var/www/html/app/Models/Product.php:251                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getAverageRating'.
+/var/www/html/app/Models/Product.php:266                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getTotalReviews'.
+/var/www/html/app/Models/Product.php:279                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'isInWishlist'.
+/var/www/html/app/Models/Product.php:292                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getCurrentPrice'.
+/var/www/html/app/Models/Product.php:313                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Product.php:314                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Product.php:315                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Product.php:322                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Product.php:335                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Product.php:336                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Product.php:337                                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'booted'.
+/var/www/html/app/Models/Reward.php:48                                  StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'scopeActive'.
+/var/www/html/app/Models/Reward.php:52                                  StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'scopeActive'.
+/var/www/html/app/Models/Reward.php:65                                  StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'scopeAvailableForPoints'.
+/var/www/html/app/Models/Reward.php:69                                  StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'scopeAvailableForPoints'.
+/var/www/html/app/Models/Store.php:185                                  StaticAccess              Avoid using static access to class '\Str' in method 'boot'.
+/var/www/html/app/Models/Store.php:191                                  StaticAccess              Avoid using static access to class '\Str' in method 'boot'.
+/var/www/html/app/Models/ValidatableModel.php:22                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Validator' in method 'validate'.
+/var/www/html/app/Models/Webhook.php:26                                 TooManyPublicMethods      The class Webhook has 11 public methods. Consider refactoring Webhook to keep number of public methods under 10.
+/var/www/html/app/Notifications/OrderConfirmationNotification.php:23    UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/OrderConfirmationNotification.php:50    UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/OrderStatusUpdateNotification.php:23    UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/OrderStatusUpdateNotification.php:71    UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/PaymentConfirmationNotification.php:23  UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/PaymentConfirmationNotification.php:47  ElseExpression            The method toMail uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Notifications/PaymentConfirmationNotification.php:62  UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/PriceDropNotification.php:28            UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/PriceDropNotification.php:36            UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/PriceDropNotification.php:55            UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/ProductAddedNotification.php:35         UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/ProductAddedNotification.php:43         UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/ProductAddedNotification.php:60         UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/ReviewNotification.php:74               UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/SystemNotification.php:41               UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/SystemNotification.php:49               UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Notifications/SystemNotification.php:66               UnusedFormalParameter     Avoid unused parameters such as '$notifiable'.
+/var/www/html/app/Policies/ProductPolicy.php:15                         UnusedFormalParameter     Avoid unused parameters such as '$user'.
+/var/www/html/app/Policies/ProductPolicy.php:39                         UnusedFormalParameter     Avoid unused parameters such as '$product'.
+/var/www/html/app/Policies/ProductPolicy.php:47                         UnusedFormalParameter     Avoid unused parameters such as '$product'.
+/var/www/html/app/Policies/ProductPolicy.php:55                         UnusedFormalParameter     Avoid unused parameters such as '$product'.
+/var/www/html/app/Policies/ProductPolicy.php:63                         UnusedFormalParameter     Avoid unused parameters such as '$product'.
+/var/www/html/app/Providers/AppServiceProvider.php:25                   MissingImport             Missing class import via use statement (line '25', column '27').
+/var/www/html/app/Providers/AppServiceProvider.php:38                   MissingImport             Missing class import via use statement (line '38', column '27').
+/var/www/html/app/Providers/AppServiceProvider.php:42                   MissingImport             Missing class import via use statement (line '42', column '27').
+/var/www/html/app/Providers/AppServiceProvider.php:58                   StaticAccess              Avoid using static access to class '\Laravel\Telescope\Telescope' in method 'boot'.
+/var/www/html/app/Providers/CoprraServiceProvider.php:31                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\View' in method 'boot'.
+/var/www/html/app/Providers/CoprraServiceProvider.php:51                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Blade' in method 'registerBladeDirectives'.
+/var/www/html/app/Providers/CoprraServiceProvider.php:58                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Blade' in method 'registerBladeDirectives'.
+/var/www/html/app/Providers/CoprraServiceProvider.php:65                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Blade' in method 'registerBladeDirectives'.
+/var/www/html/app/Providers/TelescopeServiceProvider.php:19             StaticAccess              Avoid using static access to class '\Laravel\Telescope\Telescope' in method 'register'.
+/var/www/html/app/Providers/TelescopeServiceProvider.php:25             StaticAccess              Avoid using static access to class '\Laravel\Telescope\Telescope' in method 'register'.
+/var/www/html/app/Providers/TelescopeServiceProvider.php:44             StaticAccess              Avoid using static access to class '\Laravel\Telescope\Telescope' in method 'hideSensitiveRequestDetails'.
+/var/www/html/app/Providers/TelescopeServiceProvider.php:46             StaticAccess              Avoid using static access to class '\Laravel\Telescope\Telescope' in method 'hideSensitiveRequestDetails'.
+/var/www/html/app/Providers/TelescopeServiceProvider.php:60             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Gate' in method 'gate'.
+/var/www/html/app/Providers/ViewServiceProvider.php:24                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\View' in method 'boot'.
+/var/www/html/app/Providers/ViewServiceProvider.php:27                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\View' in method 'boot'.
+/var/www/html/app/Providers/ViewServiceProvider.php:32                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\View' in method 'boot'.
+/var/www/html/app/Providers/ViewServiceProvider.php:43                  CyclomaticComplexity      The method getBreadcrumbs() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Repositories/ProductRepository.php:48                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'findBySlug'.
+/var/www/html/app/Repositories/ProductRepository.php:75                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRelated'.
+/var/www/html/app/Repositories/ProductRepository.php:96                 CyclomaticComplexity      The method search() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Repositories/ProductRepository.php:96                 NPathComplexity           The method search() has an NPath complexity of 2592. The configured NPath complexity threshold is 200.
+/var/www/html/app/Repositories/ProductRepository.php:103                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Validator' in method 'search'.
+/var/www/html/app/Repositories/ProductRepository.php:127                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'search'.
+/var/www/html/app/Repositories/ProductRepository.php:182                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Validator' in method 'updatePrice'.
+/var/www/html/app/Repositories/ProductRepository.php:201                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'updatePrice'.
+/var/www/html/app/Repositories/ProductRepository.php:210                MissingImport             Missing class import via use statement (line '210', column '31').
+/var/www/html/app/Repositories/ProductRepository.php:216                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePrice'.
+/var/www/html/app/Repositories/ProductRepository.php:238                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'updatePrice'.
+/var/www/html/app/Repositories/ProductRepository.php:244                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePrice'.
+/var/www/html/app/Rules/PasswordValidator.php:47                        CyclomaticComplexity      The method validatePassword() has a Cyclomatic Complexity of 15. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Rules/PasswordValidator.php:47                        NPathComplexity           The method validatePassword() has an NPath complexity of 1620. The configured NPath complexity threshold is 200.
+/var/www/html/app/Rules/ValidOrderStatus.php:18                         UnusedFormalParameter     Avoid unused parameters such as '$attribute'.
+/var/www/html/app/Rules/ValidOrderStatus.php:25                         StaticAccess              Avoid using static access to class '\App\Enums\OrderStatus' in method 'validate'.
+/var/www/html/app/Rules/ValidOrderStatusTransition.php:46               UnusedFormalParameter     Avoid unused parameters such as '$attribute'.
+/var/www/html/app/Rules/ValidOrderStatusTransition.php:54               StaticAccess              Avoid using static access to class '\App\Enums\OrderStatus' in method 'validate'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:12           ExcessiveClassComplexity  The class ContinuousQualityMonitor has an overall complexity of 53 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:32           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'startMonitoring'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:72           ElseExpression            The method performQualityCheck uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:96           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:97           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:98           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:132          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearAlerts'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:187          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'checkRule'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:193          ElseExpression            The method checkRule uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:339          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'triggerCriticalAlert'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:361          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'triggerWarningAlert'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:371          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'updateHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:372          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'updateHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:373          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'updateHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:375          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updateHealthStatus'.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:387          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendNotification'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:59                 ElseExpression            The method executeAllStages uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:89                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'autoFixIssues'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:96                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'autoFixIssues'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:111                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'autoFixIssues'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:301                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'executeFileBasedStage'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:327                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'executeCommandStage'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:347                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'getPhpFiles'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:348                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'getPhpFiles'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:369                ShortVariable             Avoid variables with short names like $r. Configured minimum length is 3.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:379                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\File' in method 'generateFinalReport'.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:390                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'log'.
+/var/www/html/app/Services/AIService.php:24                             BooleanArgumentFlag       The method __construct has a boolean flag argument $isTesting, which is a certain sign of a Single Responsibility Principle violation.
+/var/www/html/app/Services/AnalyticsService.php:32                      StaticAccess              Avoid using static access to class '\App\Models\AnalyticsEvent' in method 'track'.
+/var/www/html/app/Services/AnalyticsService.php:45                      StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'track'.
+/var/www/html/app/Services/AnalyticsService.php:125                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getMostViewedProducts'.
+/var/www/html/app/Services/AnalyticsService.php:157                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getMostPopularStores'.
+/var/www/html/app/Services/AnalyticsService.php:192                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getDailyEventCounts'.
+/var/www/html/app/Services/AnalyticsService.php:192                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getDailyEventCounts'.
+/var/www/html/app/Services/AnalyticsService.php:229                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanOldData'.
+/var/www/html/app/Services/AnalyticsService.php:243                     StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getEventTypeStatistics'.
+/var/www/html/app/Services/AuditService.php:29                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'log'.
+/var/www/html/app/Services/AuditService.php:32                          StaticAccess              Avoid using static access to class '\App\Models\AuditLog' in method 'log'.
+/var/www/html/app/Services/AuditService.php:108                         StaticAccess              Avoid using static access to class '\App\Models\User' in method 'logAuthEvent'.
+/var/www/html/app/Services/AuditService.php:108                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'logAuthEvent'.
+/var/www/html/app/Services/AuditService.php:126                         StaticAccess              Avoid using static access to class '\App\Models\User' in method 'logApiAccess'.
+/var/www/html/app/Services/AuditService.php:126                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'logApiAccess'.
+/var/www/html/app/Services/BackupService.php:14                         ExcessiveClassComplexity  The class BackupService has an overall complexity of 102 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/BackupService.php:35                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createFullBackup'.
+/var/www/html/app/Services/BackupService.php:68                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createFullBackup'.
+/var/www/html/app/Services/BackupService.php:76                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createFullBackup'.
+/var/www/html/app/Services/BackupService.php:98                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createDatabaseBackup'.
+/var/www/html/app/Services/BackupService.php:110                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createDatabaseBackup'.
+/var/www/html/app/Services/BackupService.php:117                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createDatabaseBackup'.
+/var/www/html/app/Services/BackupService.php:138                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createFilesBackup'.
+/var/www/html/app/Services/BackupService.php:150                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createFilesBackup'.
+/var/www/html/app/Services/BackupService.php:157                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createFilesBackup'.
+/var/www/html/app/Services/BackupService.php:172                        CyclomaticComplexity      The method restoreFromBackup() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/BackupService.php:175                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restoreFromBackup'.
+/var/www/html/app/Services/BackupService.php:218                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restoreFromBackup'.
+/var/www/html/app/Services/BackupService.php:225                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'restoreFromBackup'.
+/var/www/html/app/Services/BackupService.php:240                        CyclomaticComplexity      The method listBackups() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/BackupService.php:275                        ShortVariable             Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/BackupService.php:275                        ShortVariable             Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Services/BackupService.php:299                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'deleteBackup'.
+/var/www/html/app/Services/BackupService.php:303                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'deleteBackup'.
+/var/www/html/app/Services/BackupService.php:324                        StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'cleanOldBackups'.
+/var/www/html/app/Services/BackupService.php:334                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanOldBackups'.
+/var/www/html/app/Services/BackupService.php:371                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'backupDatabase'.
+/var/www/html/app/Services/BackupService.php:491                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'compressBackup'.
+/var/www/html/app/Services/BackupService.php:539                        CyclomaticComplexity      The method restoreDatabase() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/BackupService.php:539                        NPathComplexity           The method restoreDatabase() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/BackupService.php:566                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Process' in method 'restoreDatabase'.
+/var/www/html/app/Services/BackupService.php:702                        ElseExpression            The method copyDirectory uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/BackupService.php:727                        ElseExpression            The method deleteDirectory uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/BehaviorAnalysisService.php:40               StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getUserAnalytics'.
+/var/www/html/app/Services/BehaviorAnalysisService.php:60               StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getSiteAnalytics'.
+/var/www/html/app/Services/BehaviorAnalysisService.php:62               StaticAccess              Avoid using static access to class '\App\Models\User' in method 'getSiteAnalytics'.
+/var/www/html/app/Services/BehaviorAnalysisService.php:64               StaticAccess              Avoid using static access to class '\App\Models\Order' in method 'getSiteAnalytics'.
+/var/www/html/app/Services/BehaviorAnalysisService.php:65               StaticAccess              Avoid using static access to class '\App\Models\Order' in method 'getSiteAnalytics'.
+/var/www/html/app/Services/BehaviorAnalysisService.php:66               StaticAccess              Avoid using static access to class '\App\Models\Order' in method 'getSiteAnalytics'.
+/var/www/html/app/Services/BehaviorAnalysisService.php:240              LongVariable              Avoid excessively long variable names like $daysSinceFirstPurchase. Keep variable name length under 20.
+/var/www/html/app/Services/BehaviorAnalysisService.php:272              StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getTopProducts'.
+/var/www/html/app/Services/CDNService.php:12                            ExcessiveClassComplexity  The class CDNService has an overall complexity of 67 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/CDNService.php:48                            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'uploadFile'.
+/var/www/html/app/Services/CDNService.php:57                            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'uploadFile'.
+/var/www/html/app/Services/CDNService.php:101                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'deleteFile'.
+/var/www/html/app/Services/CDNService.php:108                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'deleteFile'.
+/var/www/html/app/Services/CDNService.php:129                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'purgeCache'.
+/var/www/html/app/Services/CDNService.php:136                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'purgeCache'.
+/var/www/html/app/Services/CDNService.php:163                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Http' in method 'fileExists'.
+/var/www/html/app/Services/CDNService.php:167                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fileExists'.
+/var/www/html/app/Services/CDNService.php:186                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Http' in method 'getFileMetadata'.
+/var/www/html/app/Services/CDNService.php:201                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getFileMetadata'.
+/var/www/html/app/Services/CDNService.php:226                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getStatistics'.
+/var/www/html/app/Services/CDNService.php:254                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'testConnection'.
+/var/www/html/app/Services/CDNService.php:285                           CyclomaticComplexity      The method uploadToCloudflare() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/CDNService.php:285                           NPathComplexity           The method uploadToCloudflare() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/CDNService.php:308                           ShortVariable             Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Services/CacheService.php:24                          TooManyPublicMethods      The class CacheService has 11 public methods. Consider refactoring CacheService to keep number of public methods under 10.
+/var/www/html/app/Services/CacheService.php:32                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'cacheProductRecommendations'.
+/var/www/html/app/Services/CacheService.php:41                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getCachedRecommendations'.
+/var/www/html/app/Services/CacheService.php:53                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'cacheUserAnalytics'.
+/var/www/html/app/Services/CacheService.php:62                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getCachedUserAnalytics'.
+/var/www/html/app/Services/CacheService.php:73                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'cacheSiteAnalytics'.
+/var/www/html/app/Services/CacheService.php:81                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getCachedSiteAnalytics'.
+/var/www/html/app/Services/CacheService.php:93                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'cacheProductDetails'.
+/var/www/html/app/Services/CacheService.php:102                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getCachedProductDetails'.
+/var/www/html/app/Services/CacheService.php:116                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'invalidateUserCache'.
+/var/www/html/app/Services/CacheService.php:122                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'invalidateProductCache'.
+/var/www/html/app/Services/CacheService.php:138                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Redis' in method 'getCacheStats'.
+/var/www/html/app/Services/CacheService.php:172                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'remember'.
+/var/www/html/app/Services/CacheService.php:179                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'remember'.
+/var/www/html/app/Services/CacheService.php:180                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'remember'.
+/var/www/html/app/Services/CacheService.php:185                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'remember'.
+/var/www/html/app/Services/CacheService.php:199                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'get'.
+/var/www/html/app/Services/CacheService.php:207                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'forget'.
+/var/www/html/app/Services/CacheService.php:219                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'forgetByTags'.
+/var/www/html/app/Services/CacheService.php:264                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpFrequentlyAccessedData'.
+/var/www/html/app/Services/CacheService.php:275                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpFrequentlyAccessedData'.
+/var/www/html/app/Services/CacheService.php:277                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpFrequentlyAccessedData'.
+/var/www/html/app/Services/CacheService.php:310                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpPopularProducts'.
+/var/www/html/app/Services/CacheService.php:312                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpPopularProducts'.
+/var/www/html/app/Services/CacheService.php:335                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpSiteAnalytics'.
+/var/www/html/app/Services/CacheService.php:337                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpSiteAnalytics'.
+/var/www/html/app/Services/CacheService.php:356                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpCategories'.
+/var/www/html/app/Services/CacheService.php:358                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'warmUpCategories'.
+/var/www/html/app/Services/ExchangeRateService.php:41                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRate'.
+/var/www/html/app/Services/ExchangeRateService.php:48                   StaticAccess              Avoid using static access to class '\App\Models\ExchangeRate' in method 'getRate'.
+/var/www/html/app/Services/ExchangeRateService.php:52                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRate'.
+/var/www/html/app/Services/ExchangeRateService.php:61                   StaticAccess              Avoid using static access to class '\App\Models\ExchangeRate' in method 'getRate'.
+/var/www/html/app/Services/ExchangeRateService.php:64                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRate'.
+/var/www/html/app/Services/ExchangeRateService.php:102                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:113                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:131                  StaticAccess              Avoid using static access to class '\App\Models\ExchangeRate' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:144                  StaticAccess              Avoid using static access to class '\App\Models\ExchangeRate' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:159                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:160                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:163                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:165                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fetchAndStoreRates'.
+/var/www/html/app/Services/ExchangeRateService.php:177                  UnusedFormalParameter     Avoid unused parameters such as '$fromCurrency'.
+/var/www/html/app/Services/ExchangeRateService.php:177                  UnusedFormalParameter     Avoid unused parameters such as '$toCurrency'.
+/var/www/html/app/Services/ExchangeRateService.php:205                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updateStaleRates'.
+/var/www/html/app/Services/ExchangeRateService.php:234                  StaticAccess              Avoid using static access to class '\App\Models\ExchangeRate' in method 'seedFromConfig'.
+/var/www/html/app/Services/ExchangeRateService.php:247                  StaticAccess              Avoid using static access to class '\App\Models\ExchangeRate' in method 'seedFromConfig'.
+/var/www/html/app/Services/ExchangeRateService.php:262                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'seedFromConfig'.
+/var/www/html/app/Services/ExternalStoreService.php:23                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method '__construct'.
+/var/www/html/app/Services/ExternalStoreService.php:37                  UnusedLocalVariable       Avoid unused local variables such as '$config'.
+/var/www/html/app/Services/ExternalStoreService.php:42                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'searchProducts'.
+/var/www/html/app/Services/ExternalStoreService.php:59                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getProductDetails'.
+/var/www/html/app/Services/ExternalStoreService.php:91                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'getProductDetails'.
+/var/www/html/app/Services/ExternalStoreService.php:104                 CyclomaticComplexity      The method syncStoreProducts() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/ExternalStoreService.php:153                 ElseExpression            The method syncStoreProducts uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/ExternalStoreService.php:157                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'syncStoreProducts'.
+/var/www/html/app/Services/ExternalStoreService.php:236                 MissingImport             Missing class import via use statement (line '236', column '23').
+/var/www/html/app/Services/ExternalStoreService.php:293                 ShortVariable             Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/ExternalStoreService.php:293                 ShortVariable             Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Services/ExternalStoreService.php:331                 StaticAccess              Avoid using static access to class '\App\Models\Store' in method 'syncProduct'.
+/var/www/html/app/Services/ExternalStoreService.php:333                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Config' in method 'syncProduct'.
+/var/www/html/app/Services/ExternalStoreService.php:337                 StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'syncProduct'.
+/var/www/html/app/Services/FileCleanupService.php:13                    ExcessiveClassComplexity  The class FileCleanupService has an overall complexity of 62 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/FileCleanupService.php:67                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupTempFiles'.
+/var/www/html/app/Services/FileCleanupService.php:70                    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupTempFiles'.
+/var/www/html/app/Services/FileCleanupService.php:115                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupLogFiles'.
+/var/www/html/app/Services/FileCleanupService.php:118                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupLogFiles'.
+/var/www/html/app/Services/FileCleanupService.php:157                   StaticAccess              Avoid using static access to class '\Artisan' in method 'cleanupCacheFiles'.
+/var/www/html/app/Services/FileCleanupService.php:158                   StaticAccess              Avoid using static access to class '\Artisan' in method 'cleanupCacheFiles'.
+/var/www/html/app/Services/FileCleanupService.php:159                   StaticAccess              Avoid using static access to class '\Artisan' in method 'cleanupCacheFiles'.
+/var/www/html/app/Services/FileCleanupService.php:161                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupCacheFiles'.
+/var/www/html/app/Services/FileCleanupService.php:164                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupCacheFiles'.
+/var/www/html/app/Services/FileCleanupService.php:190                   UnusedLocalVariable       Avoid unused local variables such as '$cutoffDate'.
+/var/www/html/app/Services/FileCleanupService.php:198                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupBackupFiles'.
+/var/www/html/app/Services/FileCleanupService.php:201                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupBackupFiles'.
+/var/www/html/app/Services/FileCleanupService.php:237                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupUploadedFiles'.
+/var/www/html/app/Services/FileCleanupService.php:240                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupUploadedFiles'.
+/var/www/html/app/Services/FileCleanupService.php:276                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'performCompleteCleanup'.
+/var/www/html/app/Services/FileCleanupService.php:331                   StaticAccess              Avoid using static access to class '\Artisan' in method 'scheduleCleanup'.
+/var/www/html/app/Services/FileCleanupService.php:335                   StaticAccess              Avoid using static access to class '\Artisan' in method 'scheduleCleanup'.
+/var/www/html/app/Services/FileCleanupService.php:427                   StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'getNextCleanupTime'.
+/var/www/html/app/Services/FinancialTransactionService.php:22           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'updateProductPrice'.
+/var/www/html/app/Services/FinancialTransactionService.php:50           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updateProductPrice'.
+/var/www/html/app/Services/FinancialTransactionService.php:59           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updateProductPrice'.
+/var/www/html/app/Services/FinancialTransactionService.php:81           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'createPriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:87           StaticAccess              Avoid using static access to class '\App\Models\PriceOffer' in method 'createPriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:99           StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createPriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:108          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'createPriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:126          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'updatePriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:148          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:155          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:172          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'deletePriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:191          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'deletePriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:198          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'deletePriceOffer'.
+/var/www/html/app/Services/FinancialTransactionService.php:224          StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'validateOfferData'.
+/var/www/html/app/Services/ImageOptimizationService.php:17              CyclomaticComplexity      The method optimizeImage() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/ImageOptimizationService.php:17              NPathComplexity           The method optimizeImage() has an NPath complexity of 218. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/ImageOptimizationService.php:30              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'optimizeImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:31              StaticAccess              Avoid using static access to class '\Intervention\Image\Facades\Image' in method 'optimizeImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:54              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'optimizeImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:56              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'optimizeImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:60              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'optimizeImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:69              StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'optimizeImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:104             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'lazyLoadImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:105             ElseExpression            The method lazyLoadImage uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/ImageOptimizationService.php:106             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'lazyLoadImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:133             StaticAccess              Avoid using static access to class '\Intervention\Image\Facades\Image' in method 'compressImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:133             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'compressImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:138             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'compressImage'.
+/var/www/html/app/Services/ImageOptimizationService.php:162             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Storage' in method 'generatePlaceholder'.
+/var/www/html/app/Services/ImageOptimizationService.php:167             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'generatePlaceholder'.
+/var/www/html/app/Services/LoginAttemptService.php:27                   ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:38                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'recordFailedAttempt'.
+/var/www/html/app/Services/LoginAttemptService.php:51                   ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:59                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'recordSuccessfulAttempt'.
+/var/www/html/app/Services/LoginAttemptService.php:72                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'isEmailBlocked'.
+/var/www/html/app/Services/LoginAttemptService.php:80                   ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:83                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'isIpBlocked'.
+/var/www/html/app/Services/LoginAttemptService.php:94                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRemainingAttempts'.
+/var/www/html/app/Services/LoginAttemptService.php:102                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:105                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRemainingIpAttempts'.
+/var/www/html/app/Services/LoginAttemptService.php:116                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getLockoutTimeRemaining'.
+/var/www/html/app/Services/LoginAttemptService.php:135                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:138                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getIpLockoutTimeRemaining'.
+/var/www/html/app/Services/LoginAttemptService.php:185                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'unblockEmail'.
+/var/www/html/app/Services/LoginAttemptService.php:194                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:198                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'unblockIp'.
+/var/www/html/app/Services/LoginAttemptService.php:222                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:225                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'recordIpAttempt'.
+/var/www/html/app/Services/LoginAttemptService.php:239                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'recordIpAttempt'.
+/var/www/html/app/Services/LoginAttemptService.php:245                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:248                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'recordEmailAttempt'.
+/var/www/html/app/Services/LoginAttemptService.php:263                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'recordEmailAttempt'.
+/var/www/html/app/Services/LoginAttemptService.php:272                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'clearEmailAttempts'.
+/var/www/html/app/Services/LoginAttemptService.php:278                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:281                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'clearIpAttempts'.
+/var/www/html/app/Services/NotificationService.php:50                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendPriceDropNotification'.
+/var/www/html/app/Services/NotificationService.php:57                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendPriceDropNotification'.
+/var/www/html/app/Services/NotificationService.php:77                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendProductAddedNotification'.
+/var/www/html/app/Services/NotificationService.php:82                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendProductAddedNotification'.
+/var/www/html/app/Services/NotificationService.php:109                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendReviewNotification'.
+/var/www/html/app/Services/NotificationService.php:115                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendReviewNotification'.
+/var/www/html/app/Services/NotificationService.php:130                  StaticAccess              Avoid using static access to class '\App\Models\User' in method 'sendSystemNotification'.
+/var/www/html/app/Services/NotificationService.php:136                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendSystemNotification'.
+/var/www/html/app/Services/NotificationService.php:141                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendSystemNotification'.
+/var/www/html/app/Services/NotificationService.php:159                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendWelcomeNotification'.
+/var/www/html/app/Services/NotificationService.php:163                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendWelcomeNotification'.
+/var/www/html/app/Services/NotificationService.php:185                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendPriceAlertConfirmation'.
+/var/www/html/app/Services/NotificationService.php:190                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendPriceAlertConfirmation'.
+/var/www/html/app/Services/NotificationService.php:232                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendDailyPriceSummary'.
+/var/www/html/app/Services/NotificationService.php:250                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'markAsRead'.
+/var/www/html/app/Services/NotificationService.php:260                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'markAsRead'.
+/var/www/html/app/Services/NotificationService.php:278                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'markAllAsRead'.
+/var/www/html/app/Services/NotificationService.php:285                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'markAllAsRead'.
+/var/www/html/app/Services/OptimizedQueryService.php:36                 CyclomaticComplexity      The method getProductsWithDetails() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/OptimizedQueryService.php:36                 NPathComplexity           The method getProductsWithDetails() has an NPath complexity of 12960. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/OptimizedQueryService.php:38                 StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getProductsWithDetails'.
+/var/www/html/app/Services/OptimizedQueryService.php:193                CyclomaticComplexity      The method getDashboardAnalytics() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/OptimizedQueryService.php:196                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getDashboardAnalytics'.
+/var/www/html/app/Services/OrderService.php:28                          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'createOrder'.
+/var/www/html/app/Services/OrderService.php:29                          StaticAccess              Avoid using static access to class '\App\Models\Order' in method 'createOrder'.
+/var/www/html/app/Services/OrderService.php:51                          StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'createOrder'.
+/var/www/html/app/Services/OrderService.php:57                          StaticAccess              Avoid using static access to class '\App\Models\OrderItem' in method 'createOrder'.
+/var/www/html/app/Services/OrderService.php:78                          StaticAccess              Avoid using static access to class '\App\Enums\OrderStatus' in method 'updateOrderStatus'.
+/var/www/html/app/Services/OrderService.php:141                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'generateOrderNumber'.
+/var/www/html/app/Services/OrderService.php:153                         StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'calculateSubtotal'.
+/var/www/html/app/Services/PasswordHistoryService.php:35                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'isPasswordInHistory'.
+/var/www/html/app/Services/PasswordHistoryService.php:42                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'isPasswordInHistory'.
+/var/www/html/app/Services/PasswordHistoryService.php:54                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'savePasswordToHistory'.
+/var/www/html/app/Services/PasswordHistoryService.php:67                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'savePasswordToHistory'.
+/var/www/html/app/Services/PasswordHistoryService.php:69                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'savePasswordToHistory'.
+/var/www/html/app/Services/PasswordHistoryService.php:79                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearPasswordHistory'.
+/var/www/html/app/Services/PasswordPolicyService.php:10                 ExcessiveClassComplexity  The class PasswordPolicyService has an overall complexity of 57 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/PasswordPolicyService.php:17                 LongVariable              Avoid excessively long variable names like $passwordHistoryService. Keep variable name length under 20.
+/var/www/html/app/Services/PasswordPolicyService.php:19                 LongVariable              Avoid excessively long variable names like $passwordHistoryService. Keep variable name length under 20.
+/var/www/html/app/Services/PasswordPolicyService.php:52                 CyclomaticComplexity      The method validatePassword() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PasswordPolicyService.php:52                 NPathComplexity           The method validatePassword() has an NPath complexity of 19440. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/PasswordPolicyService.php:141                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'isPasswordExpired'.
+/var/www/html/app/Services/PasswordPolicyService.php:163                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'isAccountLocked'.
+/var/www/html/app/Services/PasswordPolicyService.php:179                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'recordFailedAttempt'.
+/var/www/html/app/Services/PasswordPolicyService.php:185                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'recordFailedAttempt'.
+/var/www/html/app/Services/PasswordPolicyService.php:200                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearFailedAttempts'.
+/var/www/html/app/Services/PasswordPolicyService.php:205                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'clearFailedAttempts'.
+/var/www/html/app/Services/PasswordPolicyService.php:275                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePolicy'.
+/var/www/html/app/Services/PasswordPolicyService.php:279                StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePolicy'.
+/var/www/html/app/Services/PasswordPolicyService.php:351                CyclomaticComplexity      The method calculatePasswordStrength() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PasswordPolicyService.php:351                NPathComplexity           The method calculatePasswordStrength() has an NPath complexity of 2048. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/PasswordResetService.php:26                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/PasswordResetService.php:31                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendResetEmail'.
+/var/www/html/app/Services/PasswordResetService.php:41                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendResetEmail'.
+/var/www/html/app/Services/PasswordResetService.php:57                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Mail' in method 'sendResetEmail'.
+/var/www/html/app/Services/PasswordResetService.php:66                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendResetEmail'.
+/var/www/html/app/Services/PasswordResetService.php:73                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendResetEmail'.
+/var/www/html/app/Services/PasswordResetService.php:85                  ShortVariable             Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/PasswordResetService.php:89                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'resetPassword'.
+/var/www/html/app/Services/PasswordResetService.php:105                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Hash' in method 'resetPassword'.
+/var/www/html/app/Services/PasswordResetService.php:112                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'resetPassword'.
+/var/www/html/app/Services/PasswordResetService.php:128                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'hasResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:139                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getResetTokenInfo'.
+/var/www/html/app/Services/PasswordResetService.php:185                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'generateResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:201                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'storeResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:210                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'validateResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:221                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'validateResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:225                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'validateResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:234                 StaticAccess              Avoid using static access to class '\Carbon\Carbon' in method 'validateResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:236                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'validateResetToken'.
+/var/www/html/app/Services/PasswordResetService.php:251                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'clearResetToken'.
+/var/www/html/app/Services/PaymentService.php:32                        StaticAccess              Avoid using static access to class '\App\Models\PaymentMethod' in method 'processPayment'.
+/var/www/html/app/Services/PaymentService.php:34                        StaticAccess              Avoid using static access to class '\App\Models\Payment' in method 'processPayment'.
+/var/www/html/app/Services/PaymentService.php:52                        MissingImport             Missing class import via use statement (line '52', column '31').
+/var/www/html/app/Services/PaymentService.php:65                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'processPayment'.
+/var/www/html/app/Services/PaymentService.php:85                        MissingImport             Missing class import via use statement (line '85', column '27').
+/var/www/html/app/Services/PaymentService.php:107                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'refundPayment'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:35          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'startOperation'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:69          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'endOperation'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:70          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'endOperation'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:95          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getOverallMetrics'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:96          StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getOverallMetrics'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:109         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'monitorDatabase'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:202         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logMetrics'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:217         CyclomaticComplexity      The method checkThresholds() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PerformanceMonitoringService.php:217         NPathComplexity           The method checkThresholds() has an NPath complexity of 216. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/PerformanceMonitoringService.php:226         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'checkThresholds'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:238         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'checkThresholds'.
+/var/www/html/app/Services/PerformanceMonitoringService.php:250         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'checkThresholds'.
+/var/www/html/app/Services/PointsService.php:18                         StaticAccess              Avoid using static access to class '\App\Models\UserPoint' in method 'addPoints'.
+/var/www/html/app/Services/PointsService.php:37                         StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'redeemPoints'.
+/var/www/html/app/Services/PointsService.php:133                        StaticAccess              Avoid using static access to class '\App\Models\Reward' in method 'redeemReward'.
+/var/www/html/app/Services/PointsService.php:140                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'redeemReward'.
+/var/www/html/app/Services/PointsService.php:161                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'applyReward'.
+/var/www/html/app/Services/PointsService.php:165                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'applyReward'.
+/var/www/html/app/Services/PointsService.php:169                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'applyReward'.
+/var/www/html/app/Services/PointsService.php:173                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'applyReward'.
+/var/www/html/app/Services/PriceSearchService.php:60                    CyclomaticComplexity      The method searchProducts() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/ProcessService.php:72                        ElseExpression            The method run uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/ProcessService.php:76                        ElseExpression            The method run uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/ProcessService.php:173                       ElseExpression            The method clean uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/ProductService.php:110                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePrice'.
+/var/www/html/app/Services/ProductService.php:119                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updatePrice'.
+/var/www/html/app/Services/RecommendationService.php:23                 StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getRecommendations'.
+/var/www/html/app/Services/RecommendationService.php:140                StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getContentBasedRecommendations'.
+/var/www/html/app/Services/ReportService.php:17                         ExcessiveClassComplexity  The class ReportService has an overall complexity of 62 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/ReportService.php:29                         StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'generateProductPerformanceReport'.
+/var/www/html/app/Services/ReportService.php:60                         StaticAccess              Avoid using static access to class '\App\Models\User' in method 'generateUserActivityReport'.
+/var/www/html/app/Services/ReportService.php:181                        CountInLoopExpression     Avoid using App\Services\count() function in for loops.
+/var/www/html/app/Services/ReportService.php:382                        StaticAccess              Avoid using static access to class '\App\Models\User' in method 'getSystemOverview'.
+/var/www/html/app/Services/ReportService.php:384                        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getSystemOverview'.
+/var/www/html/app/Services/ReportService.php:386                        StaticAccess              Avoid using static access to class '\App\Models\PriceOffer' in method 'getSystemOverview'.
+/var/www/html/app/Services/ReportService.php:388                        StaticAccess              Avoid using static access to class '\App\Models\Review' in method 'getSystemOverview'.
+/var/www/html/app/Services/ReportService.php:427                        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getProductMetrics'.
+/var/www/html/app/Services/ReportService.php:429                        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getProductMetrics'.
+/var/www/html/app/Services/ReportService.php:430                        StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'getProductMetrics'.
+/var/www/html/app/Services/ReportService.php:443                        StaticAccess              Avoid using static access to class '\App\Models\Wishlist' in method 'getEngagementMetrics'.
+/var/www/html/app/Services/ReportService.php:445                        StaticAccess              Avoid using static access to class '\App\Models\PriceAlert' in method 'getEngagementMetrics'.
+/var/www/html/app/Services/ReportService.php:447                        StaticAccess              Avoid using static access to class '\App\Models\Review' in method 'getEngagementMetrics'.
+/var/www/html/app/Services/ReportService.php:449                        StaticAccess              Avoid using static access to class '\App\Models\Review' in method 'getEngagementMetrics'.
+/var/www/html/app/Services/ReportService.php:461                        StaticAccess              Avoid using static access to class '\App\Models\AuditLog' in method 'getPerformanceMetrics'.
+/var/www/html/app/Services/ReportService.php:540                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getTopStores'.
+/var/www/html/app/Services/ReportService.php:557                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getPriceTrends'.
+/var/www/html/app/Services/ReportService.php:557                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getPriceTrends'.
+/var/www/html/app/Services/ReportService.php:624                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\DB' in method 'getMostViewedProducts'.
+/var/www/html/app/Services/SEOService.php:133                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'generateTitle'.
+/var/www/html/app/Services/SEOService.php:151                           StaticAccess              Avoid using static access to class '\Illuminate\Support\Str' in method 'generateDescription'.
+/var/www/html/app/Services/StorageManagementService.php:13              ExcessiveClassComplexity  The class StorageManagementService has an overall complexity of 99 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/StorageManagementService.php:153             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'compressOldFiles'.
+/var/www/html/app/Services/StorageManagementService.php:156             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'compressOldFiles'.
+/var/www/html/app/Services/StorageManagementService.php:195             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'archiveOldFiles'.
+/var/www/html/app/Services/StorageManagementService.php:198             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'archiveOldFiles'.
+/var/www/html/app/Services/StorageManagementService.php:209             CyclomaticComplexity      The method getStorageRecommendations() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/StorageManagementService.php:209             NPathComplexity           The method getStorageRecommendations() has an NPath complexity of 357. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/StorageManagementService.php:217             ShortVariable             Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/StorageManagementService.php:217             ShortVariable             Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Services/StorageManagementService.php:282             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updateStorageLimits'.
+/var/www/html/app/Services/StorageManagementService.php:286             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'updateStorageLimits'.
+/var/www/html/app/Services/StorageManagementService.php:412             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logStorageUsage'.
+/var/www/html/app/Services/StorageManagementService.php:414             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'logStorageUsage'.
+/var/www/html/app/Services/StorageManagementService.php:508             UnusedLocalVariable       Avoid unused local variables such as '$output'.
+/var/www/html/app/Services/StorageManagementService.php:576             ElseExpression            The method removeDirectory uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/var/www/html/app/Services/StoreAdapterManager.php:85                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fetchProduct'.
+/var/www/html/app/Services/StoreAdapterManager.php:92                   StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'fetchProduct'.
+/var/www/html/app/Services/StoreAdapterManager.php:133                  StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'searchAcrossStores'.
+/var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php:40    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'makeRequest'.
+/var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php:50    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'makeRequest'.
+/var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php:74    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'cacheProduct'.
+/var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php:83    StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'getCachedProduct'.
+/var/www/html/app/Services/StoreAdapters/AmazonAdapter.php:84           UnusedFormalParameter     Avoid unused parameters such as '$asin'.
+/var/www/html/app/Services/SuspiciousActivityService.php:12             ExcessiveClassComplexity  The class SuspiciousActivityService has an overall complexity of 86 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/SuspiciousActivityService.php:84             StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'monitorActivity'.
+/var/www/html/app/Services/SuspiciousActivityService.php:197            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'incrementFailedLoginCount'.
+/var/www/html/app/Services/SuspiciousActivityService.php:200            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'incrementFailedLoginCount'.
+/var/www/html/app/Services/SuspiciousActivityService.php:274            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'checkRapidApiRequests'.
+/var/www/html/app/Services/SuspiciousActivityService.php:277            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'checkRapidApiRequests'.
+/var/www/html/app/Services/SuspiciousActivityService.php:305            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'checkUnusualDataAccess'.
+/var/www/html/app/Services/SuspiciousActivityService.php:308            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Cache' in method 'checkUnusualDataAccess'.
+/var/www/html/app/Services/SuspiciousActivityService.php:429            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'processSuspiciousActivity'.
+/var/www/html/app/Services/SuspiciousActivityService.php:440            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'processSuspiciousActivity'.
+/var/www/html/app/Services/SuspiciousActivityService.php:456            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'storeSuspiciousActivity'.
+/var/www/html/app/Services/SuspiciousActivityService.php:496            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Mail' in method 'sendEmailNotification'.
+/var/www/html/app/Services/SuspiciousActivityService.php:501            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendEmailNotification'.
+/var/www/html/app/Services/SuspiciousActivityService.php:517            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendSlackNotification'.
+/var/www/html/app/Services/SuspiciousActivityService.php:529            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'sendWebhookNotification'.
+/var/www/html/app/Services/SuspiciousActivityService.php:565            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'lockUserAccount'.
+/var/www/html/app/Services/SuspiciousActivityService.php:570            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'lockUserAccount'.
+/var/www/html/app/Services/SuspiciousActivityService.php:584            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'suspendUserAccount'.
+/var/www/html/app/Services/SuspiciousActivityService.php:589            StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'suspendUserAccount'.
+/var/www/html/app/Services/SuspiciousActivityService.php:700            ShortVariable             Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/SuspiciousActivityService.php:704            ShortVariable             Avoid variables with short names like $c. Configured minimum length is 3.
+/var/www/html/app/Services/TestAnalysisService.php:12                   BooleanArgumentFlag       The method __construct has a boolean flag argument $coverageEnabled, which is a certain sign of a Single Responsibility Principle violation.
+/var/www/html/app/Services/UserBanService.php:41                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'banUser'.
+/var/www/html/app/Services/UserBanService.php:47                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'banUser'.
+/var/www/html/app/Services/UserBanService.php:66                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'unbanUser'.
+/var/www/html/app/Services/UserBanService.php:70                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'unbanUser'.
+/var/www/html/app/Services/UserBanService.php:146                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'cleanupExpiredBans'.
+/var/www/html/app/Services/UserBanService.php:160                       StaticAccess              Avoid using static access to class '\App\Models\User' in method 'getBanStatistics'.
+/var/www/html/app/Services/UserBanService.php:235                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'extendBan'.
+/var/www/html/app/Services/UserBanService.php:240                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'extendBan'.
+/var/www/html/app/Services/UserBanService.php:258                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'reduceBan'.
+/var/www/html/app/Services/UserBanService.php:263                       StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Auth' in method 'reduceBan'.
+/var/www/html/app/Services/WebhookService.php:27                        StaticAccess              Avoid using static access to class '\App\Models\Webhook' in method 'handleWebhook'.
+/var/www/html/app/Services/WebhookService.php:60                        MissingImport             Missing class import via use statement (line '60', column '27').
+/var/www/html/app/Services/WebhookService.php:75                        MissingImport             Missing class import via use statement (line '75', column '38').
+/var/www/html/app/Services/WebhookService.php:88                        StaticAccess              Avoid using static access to class '\Illuminate\Support\Facades\Log' in method 'processWebhook'.
+/var/www/html/app/Services/WebhookService.php:101                       MissingImport             Missing class import via use statement (line '101', column '23').
+/var/www/html/app/Services/WebhookService.php:108                       MissingImport             Missing class import via use statement (line '108', column '23').
+/var/www/html/app/Services/WebhookService.php:138                       MissingImport             Missing class import via use statement (line '138', column '23').
+/var/www/html/app/Services/WebhookService.php:145                       MissingImport             Missing class import via use statement (line '145', column '23').
+/var/www/html/app/Services/WebhookService.php:173                       MissingImport             Missing class import via use statement (line '173', column '23').
+/var/www/html/app/Services/WebhookService.php:218                       StaticAccess              Avoid using static access to class '\App\Models\Product' in method 'findOrCreateProduct'.

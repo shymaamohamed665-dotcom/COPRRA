@@ -1,0 +1,27 @@
+Test #26: PHPUnit - All Unit Tests
+Command: ./vendor/bin/phpunit --testsuite=Unit
+Execution Time: 63.67s
+Exit Code: 255
+================================================================================
+STDOUT:
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+
+In AnalyticsService.php line 3:
+                                                                           
+  strict_types declaration must be the very first statement in the script  
+                                                                           
+
+
+In AnalyticsService.php line 3:
+                                                                           
+  strict_types declaration must be the very first statement in the script  
+                                                                           
+
+
+================================================================================
+STDERR:
+PHP Fatal error:  strict_types declaration must be the very first statement in the script in /var/www/html/app/Services/AnalyticsService.php on line 3

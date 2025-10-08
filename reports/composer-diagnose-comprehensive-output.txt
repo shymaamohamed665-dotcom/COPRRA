@@ -1,0 +1,21 @@
+Checking composer.json: WARNING
+Key test is a duplicate in ./composer.json at line 132
+Checking composer.lock: OK
+Checking platform settings: OK
+Checking git settings: OK git version 2.47.3
+Checking http connectivity to packagist: OK
+Checking https connectivity to packagist: OK
+Checking github.com rate limit: OK
+Checking disk free space: OK
+Checking pubkeys: FAIL
+Missing pubkey for tags verification
+Missing pubkey for dev verification
+Run composer self-update --update-keys to set them up
+Checking Composer version: OK
+Checking Composer and its dependencies for vulnerabilities: OK
+Composer version: 2.8.12
+PHP version: 8.2.29
+PHP binary path: /usr/local/bin/php
+OpenSSL version: OpenSSL 3.5.1 1 Jul 2025
+curl version: 8.14.1 libz 1.3.1 brotli brotli/1.1.0 zstd supported ssl OpenSSL/3.5.1
+zip: extension present, unzip present, 7-Zip not available

@@ -1,0 +1,99 @@
+name: Deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Cache Composer Dependencies
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-ansi --optimize-autoloader --no-scripts --no-dev
+
+      - name: Install NPM Dependencies
+        run: npm ci
+
+      - name: Build Assets
+        run: npm run build
+
+      - name: Setup Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+          php artisan config:cache
+        env:
+          APP_ENV: production
+          CACHE_DRIVER: redis
+          SESSION_DRIVER: redis
+
+      - name: Run Pre-deployment Tests
+        run: |
+          vendor/bin/phpunit tests/Unit --configuration=phpunit.xml
+          vendor/bin/phpunit tests/Feature --configuration=phpunit.xml
+          vendor/bin/phpunit tests/Integration --configuration=phpunit.xml
+
+      - name: Run Security Audit
+        run: |
+          composer audit
+          npm audit --audit-level=moderate
+
+      - name: Run Code Quality Checks
+        run: |
+          vendor/bin/pint --test --configuration=pint.json
+          vendor/bin/phpstan analyse --memory-limit=1G --configuration=phpstan.neon
+          vendor/bin/psalm --config=psalm.xml
+          vendor/bin/phpmd app text phpmd.xml
+
+      - name: Run Frontend Quality Checks
+        run: |
+          npx eslint resources/js --ext .js,.vue,.ts --config=eslint.config.js
+          npx stylelint "resources/**/*.{css,scss,vue}" --config=.stylelintrc.json
+          npx prettier --check "resources/**/*.{js,css,scss,vue}"
+
+      - name: Run Architecture Analysis
+        run: vendor/bin/deptrac analyse --config-file=deptrac.yaml
+
+      - name: Run Mutation Testing
+        run: vendor/bin/infection --configuration=infection.json.dist --min-msi=80 --min-covered-msi=80
+
+      - name: Deploy to Production
+        run: php scripts/deploy-to-hostinger.php
+        env:
+          HOSTINGER_DB_HOST: ${{ secrets.HOSTINGER_DB_HOST }}
+          HOSTINGER_DB_DATABASE: ${{ secrets.HOSTINGER_DB_DATABASE }}
+          HOSTINGER_DB_USERNAME: ${{ secrets.HOSTINGER_DB_USERNAME }}
+          HOSTINGER_DB_PASSWORD: ${{ secrets.HOSTINGER_DB_PASSWORD }}
+          HOSTINGER_MAIL_HOST: ${{ secrets.HOSTINGER_MAIL_HOST }}
+          HOSTINGER_MAIL_USERNAME: ${{ secrets.HOSTINGER_MAIL_USERNAME }}
+          HOSTINGER_MAIL_PASSWORD: ${{ secrets.HOSTINGER_MAIL_PASSWORD }}
+
+      - name: Post-deployment Verification
+        run: |
+          echo "Post-deployment verification completed via deploy script"
+          # Additional verification can be added here if needed

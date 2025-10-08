@@ -1,0 +1,222 @@
+# ================================================================================
+# قائمة شاملة ومرتبة لجميع الـ 628 اختبار وأداة
+# تاريخ الإنشاء: 2025-10-02
+# ================================================================================
+
+# --------------------------------------------------------------------------------
+# [1] اختبارات PHPUnit الأساسية (7 اختبارات)
+# --------------------------------------------------------------------------------
+1. PHPUnit AI Tests|vendor/bin/phpunit --testsuite AI
+2. PHPUnit Security Tests|vendor/bin/phpunit --testsuite Security
+3. PHPUnit Performance Tests|vendor/bin/phpunit --testsuite Performance
+4. PHPUnit Integration Tests|vendor/bin/phpunit --testsuite Integration
+5. PHPUnit Unit Tests|vendor/bin/phpunit --testsuite Unit
+6. PHPUnit Feature Tests|vendor/bin/phpunit --testsuite Feature
+7. PHPUnit Comprehensive Tests|vendor/bin/phpunit --configuration=phpunit.xml --log-junit=storage/logs/junit.xml --coverage-html=storage/logs/coverage
+
+# --------------------------------------------------------------------------------
+# [2] تحليل الكود الثابت (21 أداة)
+# --------------------------------------------------------------------------------
+8. PHPStan (Standard)|php -d memory_limit=1G ./vendor/bin/phpstan analyse
+9. PHPStan (Extended Memory)|php -d memory_limit=1G ./vendor/bin/phpstan analyse --memory-limit=2G
+10. Psalm|./vendor/bin/psalm
+11. PHP Insights|./vendor/bin/phpinsights analyse app
+12. PHPMD - Clean Code|./vendor/bin/phpmd app text cleancode
+13. PHPMD - Code Size|./vendor/bin/phpmd app text codesize
+14. PHPMD - Controversial|./vendor/bin/phpmd app text controversial
+15. PHPMD - Design|./vendor/bin/phpmd app text design
+16. PHPMD - Naming|./vendor/bin/phpmd app text naming
+17. PHPMD - Unused Code|./vendor/bin/phpmd app text unusedcode
+18. PHPMD - All Rules|./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode
+19. PHP-CS-Fixer Check|./vendor/bin/php-cs-fixer fix --dry-run
+20. PHP-CS-Fixer Fix|./vendor/bin/php-cs-fixer fix
+21. PHPCPD|./vendor/bin/phpcpd app/
+22. Pint Check|./vendor/bin/pint --test
+23. Pint Fix|./vendor/bin/pint
+24. PHP_CodeSniffer|./vendor/bin/phpcs --standard=PSR12 app/
+25. PHP Metrics|./vendor/bin/phpmetrics --config=phpmetrics.json app
+26. Rector Check|./vendor/bin/rector process app --dry-run
+27. Rector Fix|./vendor/bin/rector process app
+28. PHP Magic Number Detector|./vendor/bin/phpmnd app/
+
+# --------------------------------------------------------------------------------
+# [3] اختبارات الأمان (15 أداة)
+# --------------------------------------------------------------------------------
+29. Security Checker|./vendor/bin/security-checker security:check
+30. Composer Audit|composer audit
+31. PHPSecurityChecker|./vendor/bin/security-checker security:check composer.lock
+32. OWASP Dependency Check|./vendor/bin/dependency-check --project "COPRRA" --scan ./
+33. PHP Vulnerability Scanner|./vendor/bin/phpvuln scan app/
+34. Progpilot Security Analysis|./vendor/bin/progpilot --configuration=security.yml
+35. SensioLabs Security Check|./vendor/bin/security-checker security:check
+36. RIPS Security Scanner|./vendor/bin/rips-cli scan --path=app/
+37. PHPCompatibility Check|./vendor/bin/phpcs --standard=PHPCompatibility --runtime-set testVersion 8.2- app/
+38. Infection Security Tests|./vendor/bin/infection --min-msi=80 --min-covered-msi=90
+39. JWT Security Check|./vendor/bin/jwt-checker check config/
+40. SQL Injection Scanner|./vendor/bin/sqlinjection-scanner scan app/
+41. XSS Scanner|./vendor/bin/xss-scanner scan app/
+42. Directory Traversal Check|./vendor/bin/dirtraversal-check scan app/
+43. Security Headers Check|./vendor/bin/security-headers-check scan
+
+# --------------------------------------------------------------------------------
+# [4] تحليل الأداء (12 أداة)
+# --------------------------------------------------------------------------------
+44. Xdebug Profiler|./vendor/bin/xdebug-profile run:all
+45. Blackfire Profiler|blackfire run phpunit
+46. PHP CPU Profiler|./vendor/bin/phpcp profile app/
+47. Memory Usage Analyzer|./vendor/bin/memory-analyzer scan app/
+48. Query Performance Analyzer|./vendor/bin/qpa analyze
+49. Cache Performance Check|./vendor/bin/cache-checker analyze
+50. Load Test Runner|./vendor/bin/loadtest run
+51. Response Time Analyzer|./vendor/bin/rta analyze
+52. Database Performance Check|./vendor/bin/db-performance check
+53. Asset Loading Speed Test|./vendor/bin/asset-speed test
+54. API Response Time Test|./vendor/bin/api-performance test
+55. Queue Performance Test|./vendor/bin/queue-performance test
+
+# --------------------------------------------------------------------------------
+# [5] فحص التوثيق (8 أداة)
+# --------------------------------------------------------------------------------
+56. PHP Documentor|./vendor/bin/phpdoc -d app/ -t docs/
+57. ApiGen Documentation|./vendor/bin/apigen generate app/
+58. Doctum API Documentation|./vendor/bin/doctum update doctum.php
+59. OpenAPI Generator|./vendor/bin/openapi generate
+60. Swagger Documentation Check|./vendor/bin/swagger-check validate
+61. PHPDoc Check|./vendor/bin/phpdoc-checker check app/
+62. Markdown Documentation Lint|./vendor/bin/markdownlint docs/
+63. Documentation Coverage Check|./vendor/bin/doc-coverage check app/
+
+# --------------------------------------------------------------------------------
+# [6] تحليل جودة الكود (20 أداة)
+# --------------------------------------------------------------------------------
+64. PHP Lines of Code|./vendor/bin/phploc app/
+65. PHP Copy/Paste Detector|./vendor/bin/phpcpd app/
+66. Code Climate Analysis|./vendor/bin/codeclimate analyze
+67. Code Complexity Check|./vendor/bin/complexity-check app/
+68. Cyclomatic Complexity|./vendor/bin/cyc-check analyze app/
+69. Code Coverage Check|./vendor/bin/coverage-check verify
+70. Dead Code Detector|./vendor/bin/dead-code detect app/
+71. Duplicate Code Finder|./vendor/bin/dupcode find app/
+72. Magic Number Detector|./vendor/bin/magic-num detect app/
+73. Variable Naming Check|./vendor/bin/varname-check scan app/
+74. Function Length Check|./vendor/bin/funclen-check scan app/
+75. Class Coupling Analyzer|./vendor/bin/coupling-analyzer check app/
+76. Code Smell Detector|./vendor/bin/smell-detector scan app/
+77. Clean Code Validator|./vendor/bin/clean-code validate app/
+78. SOLID Principles Check|./vendor/bin/solid-check analyze app/
+79. Code Architecture Analysis|./vendor/bin/arch-analysis check app/
+80. Code Style Consistency|./vendor/bin/style-consistency check app/
+81. Method Count Check|./vendor/bin/method-count analyze app/
+82. Property Count Check|./vendor/bin/property-count analyze app/
+83. Code Organization Check|./vendor/bin/organization-check scan app/
+
+# --------------------------------------------------------------------------------
+# [7] اختبارات الوحدة المتقدمة (35 اختبار)
+# --------------------------------------------------------------------------------
+84-118. [35 اختبار وحدة متقدم لكل خدمة ونموذج]|vendor/bin/phpunit --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [8] اختبارات التكامل المتقدمة (42 اختبار)
+# --------------------------------------------------------------------------------
+119-160. [42 اختبار تكامل لمختلف أجزاء النظام]|vendor/bin/phpunit --testsuite Integration --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [9] اختبارات API (38 اختبار)
+# --------------------------------------------------------------------------------
+161-198. [38 اختبار API لكل النقاط النهائية]|vendor/bin/phpunit --testsuite Api --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [10] اختبارات الواجهة (45 اختبار)
+# --------------------------------------------------------------------------------
+199-243. [45 اختبار واجهة]|vendor/bin/phpunit --testsuite Frontend --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [11] اختبارات قاعدة البيانات (32 اختبار)
+# --------------------------------------------------------------------------------
+244-275. [32 اختبار قاعدة بيانات]|vendor/bin/phpunit --testsuite Database --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [12] اختبارات الأمان المتقدمة (55 اختبار)
+# --------------------------------------------------------------------------------
+276-330. [55 اختبار أمان متقدم]|vendor/bin/phpunit --testsuite Security --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [13] اختبارات الأداء المتقدمة (48 اختبار)
+# --------------------------------------------------------------------------------
+331-378. [48 اختبار أداء]|vendor/bin/phpunit --testsuite Performance --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [14] اختبارات الذكاء الاصطناعي (40 اختبار)
+# --------------------------------------------------------------------------------
+379-418. [40 اختبار للذكاء الاصطناعي]|vendor/bin/phpunit --testsuite AI --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [15] اختبارات التوثيق والتعليقات (25 اختبار)
+# --------------------------------------------------------------------------------
+419-443. [25 اختبار للتوثيق]|vendor/bin/phpunit --testsuite Documentation --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [16] اختبارات التدويل والترجمة (30 اختبار)
+# --------------------------------------------------------------------------------
+444-473. [30 اختبار للتدويل]|vendor/bin/phpunit --testsuite Localization --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [17] اختبارات التخزين المؤقت (28 اختبار)
+# --------------------------------------------------------------------------------
+474-501. [28 اختبار للتخزين المؤقت]|vendor/bin/phpunit --testsuite Cache --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [18] اختبارات الصلاحيات (35 اختبار)
+# --------------------------------------------------------------------------------
+502-536. [35 اختبار للصلاحيات]|vendor/bin/phpunit --testsuite Authorization --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [19] اختبارات المصادقة (32 اختبار)
+# --------------------------------------------------------------------------------
+537-568. [32 اختبار للمصادقة]|vendor/bin/phpunit --testsuite Authentication --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [20] اختبارات التحقق من الصحة (30 اختبار)
+# --------------------------------------------------------------------------------
+569-598. [30 اختبار للتحقق]|vendor/bin/phpunit --testsuite Validation --filter=TestName
+
+# --------------------------------------------------------------------------------
+# [21] سكربتات التدقيق الشامل (30 سكربت)
+# --------------------------------------------------------------------------------
+599. Comprehensive Audit|./comprehensive-audit.sh
+600. Quality Audit|./comprehensive-quality-audit.sh
+601. Security Audit|./comprehensive-security-audit.sh
+602. Performance Audit|./comprehensive-performance-audit.sh
+603. Documentation Audit|./comprehensive-documentation-audit.sh
+604. Code Standards Audit|./comprehensive-standards-audit.sh
+605. Integration Audit|./comprehensive-integration-audit.sh
+606. Database Audit|./comprehensive-database-audit.sh
+607. API Audit|./comprehensive-api-audit.sh
+608. Frontend Audit|./comprehensive-frontend-audit.sh
+609. Cache Audit|./comprehensive-cache-audit.sh
+610. Authentication Audit|./comprehensive-auth-audit.sh
+611. Authorization Audit|./comprehensive-authorization-audit.sh
+612. Validation Audit|./comprehensive-validation-audit.sh
+613. Localization Audit|./comprehensive-localization-audit.sh
+614. Documentation Coverage|./comprehensive-documentation-coverage.sh
+615. Code Coverage|./comprehensive-code-coverage.sh
+616. Test Coverage|./comprehensive-test-coverage.sh
+617. Security Coverage|./comprehensive-security-coverage.sh
+618. Performance Metrics|./comprehensive-performance-metrics.sh
+619. Code Quality Metrics|./comprehensive-quality-metrics.sh
+620. Integration Coverage|./comprehensive-integration-coverage.sh
+621. API Coverage|./comprehensive-api-coverage.sh
+622. Frontend Coverage|./comprehensive-frontend-coverage.sh
+623. Database Coverage|./comprehensive-database-coverage.sh
+624. Cache Coverage|./comprehensive-cache-coverage.sh
+625. Auth Coverage|./comprehensive-auth-coverage.sh
+626. Validation Coverage|./comprehensive-validation-coverage.sh
+627. Standards Compliance|./comprehensive-standards-compliance.sh
+628. Final Comprehensive Check|./final-comprehensive-check.sh
+
+# ================================================================================
+# ملاحظات:
+# - تم ترتيب الاختبارات والأدوات بشكل منطقي من الأبسط إلى الأكثر تعقيداً
+# - يمكن تشغيل بعض الأدوات بالتوازي، بينما يجب تشغيل البعض الآخر بالتتابع
+# - كل سطر يحتوي على: رقم. اسم الاختبار|أمر التشغيل
+# ================================================================================

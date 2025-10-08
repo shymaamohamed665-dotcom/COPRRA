@@ -1,0 +1,48 @@
+parameters:
+    paths:
+        - app
+        - config
+        - database
+        - routes
+
+    excludePaths:
+        - bootstrap/cache
+        - storage
+        - vendor
+        - app/Services/PayPalService.php (?)
+        - app/Services/StripeService.php (?)
+
+    stubFiles:
+        - phpstan/App/Models/Currency.stub
+        - phpstan/Srmklive/PayPal/Services/PayPal.stub
+        # - phpstan/App/Models/User.stub
+        # - phpstan/App/Models/Product.stub
+        # - phpstan/Illuminate/Support/Facades/Cache.stub
+
+        # - phpstan/Illuminate/Support/Facades/Storage.stub
+        # - phpstan/FakerGenerator.stub
+        # - phpstan/CartFacade.stub
+
+    level: max
+
+    reportUnmatchedIgnoredErrors: false
+
+    tmpDir: storage/framework/phpstan
+
+    treatPhpDocTypesAsCertain: false
+
+
+
+    fileExtensions:
+        - php
+        - stub
+
+    ignoreErrors: []
+
+    # Memory optimization
+    parallel:
+        processTimeout: 300.0
+        maximumNumberOfProcesses: 4
+
+includes:
+    - vendor/larastan/larastan/extension.neon

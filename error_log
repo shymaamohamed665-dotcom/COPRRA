@@ -1,0 +1,3 @@
+[29-Sep-2025 16:20:22 UTC] PHP Warning:  Zend OPcache can't be temporary enabled (it may be only disabled till the end of request) in Unknown on line 0
+[29-Sep-2025 16:42:04 UTC] PHP Warning:  Zend OPcache can't be temporary enabled (it may be only disabled till the end of request) in Unknown on line 0
+[29-Sep-2025 18:20:09 UTC] PHP Warning:  Zend OPcache can't be temporary enabled (it may be only disabled till the end of request) in Unknown on line 0

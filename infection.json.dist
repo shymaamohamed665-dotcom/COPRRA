@@ -1,0 +1,63 @@
+{
+    "timeout": 10,
+    "source": {
+        "directories": [
+            "app"
+        ],
+        "excludes": [
+            "app/Console/Kernel.php",
+            "app/Exceptions",
+            "app/Http/Kernel.php",
+            "app/Http/Middleware",
+            "app/Providers"
+        ]
+    },
+    "logs": {
+        "text": "infection.log",
+        "summary": "infection-summary.log",
+        "debug": "infection-debug.log"
+    },
+    "mutators": {
+        "@default": true,
+        "ArrayItem": true,
+        "Assignment": true,
+        "BooleanNot": true,
+        "Break_": true,
+        "Cast": true,
+        "Continue_": true,
+        "Equal": true,
+        "FalseValue": true,
+        "Float": true,
+        "FunctionCall": true,
+        "Identical": true,
+        "Integer": true,
+        "LogicalAnd": true,
+        "LogicalNot": true,
+        "LogicalOr": true,
+        "MethodCall": true,
+        "Minus": true,
+        "Mul": true,
+        "NotEqual": true,
+        "NotIdentical": true,
+        "Plus": true,
+        "Pow": true,
+        "Remainder": true,
+        "ReturnValue": true,
+        "ShiftLeft": true,
+        "ShiftRight": true,
+        "Smaller": true,
+        "SmallerOrEqual": true,
+        "String_": true,
+        "TrueValue": true,
+        "Yield_": true
+    },
+    "testFramework": "phpunit",
+    "testFrameworkOptions": "--configuration=phpunit.xml",
+    "minMsi": 80,
+    "minCoveredMsi": 80,
+    "threads": 4,
+    "ignoreMsiWithNoMutations": true,
+    "initialTestsPhpOptions": "-d zend_extension=xdebug.so",
+    "skipInitialTests": false,
+    "onlyCoveringTestCases": true
+}

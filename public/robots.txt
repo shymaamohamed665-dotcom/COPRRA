@@ -1,0 +1,86 @@
+# COPRRA - Price Comparison Platform
+# robots.txt
+
+# Allow all search engines
+User-agent: *
+
+# Allow access to main content
+Allow: /
+Allow: /products
+Allow: /categories
+Allow: /stores
+Allow: /deals
+Allow: /search
+
+# Disallow admin and private areas
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /dashboard
+Disallow: /dashboard/*
+Disallow: /api
+Disallow: /api/*
+
+# Disallow user-specific pages
+Disallow: /cart
+Disallow: /cart/*
+Disallow: /checkout
+Disallow: /checkout/*
+Disallow: /account
+Disallow: /account/*
+Disallow: /wishlist
+Disallow: /wishlist/*
+Disallow: /orders
+Disallow: /orders/*
+
+# Disallow authentication pages
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /password/*
+
+# Disallow search result pages with parameters
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*page=
+
+# Disallow duplicate content
+Disallow: /*?*utm_
+Disallow: /*?*ref=
+Disallow: /*?*source=
+
+# Allow CSS and JS files
+Allow: /css
+Allow: /js
+Allow: /build
+
+# Sitemap location
+Sitemap: https://coprra.com/sitemap.xml
+
+# Crawl delay (optional, adjust as needed)
+# Crawl-delay: 1
+
+# Specific rules for major search engines
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin
+Disallow: /api

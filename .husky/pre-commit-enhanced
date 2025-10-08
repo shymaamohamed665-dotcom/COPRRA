@@ -1,0 +1,74 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🚀 Running enhanced pre-commit checks..."
+
+# Create reports directory if it doesn't exist
+mkdir -p reports
+
+# Variable to track if any check fails
+ANY_CHECK_FAILED=0
+
+# 1. Run lint-staged for staged files
+echo "📝 Running lint-staged on staged files..."
+npx lint-staged
+if [ $? -ne 0 ]; then
+    echo "❌ Lint-staged failed. Please fix the issues and try again."
+    ANY_CHECK_FAILED=1
+fi
+
+# 2. Run PHPStan on staged PHP files
+echo "📊 Running PHPStan on staged PHP files..."
+STAGED_PHP_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.php$' | head -10)
+if [ -n "$STAGED_PHP_FILES" ]; then
+    echo "Analyzing: $STAGED_PHP_FILES"
+    ./vendor/bin/phpstan analyse --memory-limit=1G --no-progress $STAGED_PHP_FILES
+    if [ $? -ne 0 ]; then
+        echo "❌ PHPStan found issues in staged PHP files."
+        ANY_CHECK_FAILED=1
+    fi
+fi
+
+# 3. Run ESLint on staged JS/Vue files
+echo "🎨 Running ESLint on staged JS/Vue files..."
+STAGED_JS_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|vue|ts)$' | head -10)
+if [ -n "$STAGED_JS_FILES" ]; then
+    echo "Analyzing: $STAGED_JS_FILES"
+    npx eslint $STAGED_JS_FILES
+    if [ $? -ne 0 ]; then
+        echo "❌ ESLint found issues in staged JS/Vue files."
+        ANY_CHECK_FAILED=1
+    fi
+fi
+
+# 4. Run Stylelint on staged CSS files
+echo "🎨 Running Stylelint on staged CSS files..."
+STAGED_CSS_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(css|scss)$' | head -10)
+if [ -n "$STAGED_CSS_FILES" ]; then
+    echo "Analyzing: $STAGED_CSS_FILES"
+    npx stylelint $STAGED_CSS_FILES
+    if [ $? -ne 0 ]; then
+        echo "❌ Stylelint found issues in staged CSS files."
+        ANY_CHECK_FAILED=1
+    fi
+fi
+
+# 5. Check for sensitive data
+echo "🔒 Checking for sensitive data..."
+SENSITIVE_PATTERNS="password|secret|key|token|api_key|private_key"
+if git diff --cached | grep -i -E "$SENSITIVE_PATTERNS" | grep -v "test\|example\|fake\|dummy"; then
+    echo "❌ Potential sensitive data detected in staged files."
+    echo "Please remove or replace sensitive information before committing."
+    ANY_CHECK_FAILED=1
+fi
+
+# Final check
+if [ $ANY_CHECK_FAILED -ne 0 ]; then
+    echo "--------------------------------------------------------------------"
+    echo "🔥 Pre-commit checks failed. Please fix the issues and try again."
+    echo "💡 Tip: Use 'git add' to stage fixes, then commit again."
+    exit 1
+else
+    echo "✅ All pre-commit checks passed! Proceeding with commit."
+    exit 0
+fi

@@ -1,0 +1,4 @@
+{
+    "command": "./vendor/bin/psalm --show-info=true",
+    "start": "2025-10-02T03:51:50+00:00"
+}
