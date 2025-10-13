@@ -25,6 +25,7 @@ class Authenticate extends Middleware
 
     /**
      * @param  array<int, string>  $guards
+     * @return never
      */
     #[\Override]
     protected function unauthenticated($request, array $guards): void

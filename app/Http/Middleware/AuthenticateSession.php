@@ -33,7 +33,7 @@ class AuthenticateSession
     /**
      * Validate the session and log out if necessary.
      */
-    private function validateSession(Request $request): ?Response
+    private function validateSession(Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|null
     {
         $user = auth()->user();
         $sessionId = $request->session()->getId();

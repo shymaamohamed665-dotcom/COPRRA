@@ -67,7 +67,9 @@ class ThrottleSensitiveOperations
     /**
      * Get rate limits for different operations.
      *
-     * @return array{max_attempts: int, decay_seconds: int}
+     * @return int[]
+     *
+     * @psalm-return array{max_attempts: int, decay_seconds: 60|300|600}
      */
     protected function getRateLimits(string $operation): array
     {

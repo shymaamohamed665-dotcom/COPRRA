@@ -17,8 +17,24 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->user() || !$request->user()->is_admin) {
-            abort(403, 'Unauthorized access.');
+        $user = $request->user();
+
+        // Check if user is not authenticated
+        if (! $user) {
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Unauthenticated'], 401);
+            }
+
+            return redirect('/login');
+        }
+
+        // Check if user is not an admin
+        if (! $user->is_admin) {
+            if ($request->expectsJson()) {
+                return response()->json(['message' => 'Forbidden'], 403);
+            }
+
+            return redirect('/');
         }
 
         return $next($request);

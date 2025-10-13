@@ -11,7 +11,9 @@ class TrustHosts extends Middleware
     /**
      * Get the host patterns that should be trusted.
      *
-     * @return array<int, string|null>
+     * @return (null|string)[]
+     *
+     * @psalm-return list{null|string}
      */
     #[\Override]
     public function hosts(): array

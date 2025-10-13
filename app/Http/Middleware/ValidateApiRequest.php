@@ -82,12 +82,17 @@ class ValidateApiRequest
      */
     private function normalizeRules(array $rules): array
     {
-        return array_map(static function ($value): string|array {
-            if (is_array($value)) {
-                return array_map(strval(...), $value);
-            }
+        return array_map(/**
+         * @return string|string[]
+         *
+         * @psalm-return array<int, string>|string
+         */
+            static function ($value): array|string|array {
+                if (is_array($value)) {
+                    return array_map(strval(...), $value);
+                }
 
-            return is_string($value) || is_numeric($value) ? (string) $value : '';
-        }, $rules);
+                return is_string($value) || is_numeric($value) ? (string) $value : '';
+            }, $rules);
     }
 }

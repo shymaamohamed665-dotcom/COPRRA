@@ -36,17 +36,17 @@ class RequirePassword
         return time() - $lastConfirmation <= $timeout;
     }
 
-    private function hasConfirmedPassword(\App\Models\User $user): bool
+    private function hasConfirmedPassword(?\App\Models\User $user): bool
     {
         return $user && isset($user->password_confirmed_at) && $user->password_confirmed_at;
     }
 
-    private function responseForMissingPasswordConfirmation(Request $request): Response
+    private function responseForMissingPasswordConfirmation(Request $request): \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
     {
         if ($request->expectsJson()) {
             return response()->json(['message' => 'Password confirmation required'], 423);
         }
 
-        return redirect()->route('password.confirm');
+        return redirect('/password/confirm');
     }
 }

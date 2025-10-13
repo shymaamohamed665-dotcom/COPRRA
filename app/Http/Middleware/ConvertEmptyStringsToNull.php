@@ -29,12 +29,8 @@ class ConvertEmptyStringsToNull
     /**
      * Convert empty strings to null recursively.
      */
-    private function convertEmptyStringsToNull(mixed $input): mixed
+    private function convertEmptyStringsToNull(array $input): array
     {
-        if (! is_array($input)) {
-            return $input;
-        }
-
         foreach ($input as $key => $value) {
             if (is_string($value) && $value === '') {
                 $input[$key] = null;
