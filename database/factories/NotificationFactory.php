@@ -22,13 +22,15 @@ class NotificationFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return (array|int|mixed|null|string)[]
+     *
+     * @psalm-return array{user_id: 1, type: mixed, title: string, message: string, data: array{key: string, value: string}, read_at: null, sent_at: null, priority: int, channel: mixed, status: mixed, metadata: array{source: string, timestamp: int}, tags: array|string}
      */
     #[\Override]
     public function definition(): array
     {
         return [
-            'user_id' => 1,
+            'user_id' => \App\Models\User::factory(),
             'type' => $this->faker->randomElement(['info', 'warning', 'error', 'success']),
             'title' => $this->faker->sentence(3),
             'message' => $this->faker->paragraph(2),

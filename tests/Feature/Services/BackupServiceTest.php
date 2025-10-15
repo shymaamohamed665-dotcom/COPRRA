@@ -6,6 +6,7 @@ namespace Tests\Feature\Services;
 
 use App\Services\BackupService;
 use Exception;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
@@ -14,6 +15,8 @@ use Tests\TestCase;
 
 class BackupServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private BackupService $service;
 
     private string $backupPath;
@@ -35,7 +38,8 @@ class BackupServiceTest extends TestCase
                 'database' => 'test_db',
             ]);
 
-        $this->service = new BackupService;
+        // استخدم الحاوية لإنشاء الخدمة مع حقن الاعتماديات تلقائيًا
+        $this->service = $this->app->make(BackupService::class);
     }
 
     protected function tearDown(): void
@@ -43,6 +47,7 @@ class BackupServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_creates_full_backup_successfully()
     {
         // Arrange
@@ -125,6 +130,7 @@ class BackupServiceTest extends TestCase
             $this->deleteDirectory($backupDir);
         }
     }
+
     public function test_handles_full_backup_exception()
     {
         // Arrange
@@ -149,6 +155,7 @@ class BackupServiceTest extends TestCase
         $this->expectException(Exception::class);
         $this->service->createFullBackup();
     }
+
     public function test_creates_database_backup_successfully()
     {
         // Arrange
@@ -221,8 +228,14 @@ class BackupServiceTest extends TestCase
             $this->deleteDirectory($backupDir);
         }
     }
+
     public function test_creates_files_backup_successfully()
     {
+        // Skip on Windows - tar command doesn't work reliably on Windows
+        if (PHP_OS_FAMILY === 'Windows') {
+            $this->markTestSkipped('Tar compression not supported on Windows');
+        }
+
         // Arrange
         $timestamp = now()->format('Y-m-d_H-i-s');
         $backupName = "files_backup_{$timestamp}";
@@ -257,6 +270,7 @@ class BackupServiceTest extends TestCase
             $this->deleteDirectory($backupDir);
         }
     }
+
     public function test_restores_from_backup_successfully()
     {
         // Arrange
@@ -324,6 +338,7 @@ class BackupServiceTest extends TestCase
             $this->deleteDirectory($backupPath);
         }
     }
+
     public function test_handles_restore_with_nonexistent_backup()
     {
         // Arrange
@@ -339,6 +354,7 @@ class BackupServiceTest extends TestCase
         $this->expectException(Exception::class);
         $this->service->restoreFromBackup($backupName);
     }
+
     public function test_lists_backups_successfully()
     {
         // Arrange - clean up any existing backups first
@@ -377,6 +393,7 @@ class BackupServiceTest extends TestCase
         $this->deleteDirectory($backup1Path);
         $this->deleteDirectory($backup2Path);
     }
+
     public function test_returns_empty_list_when_no_backup_directory()
     {
         // Arrange - ensure backup directory doesn't exist
@@ -391,6 +408,7 @@ class BackupServiceTest extends TestCase
         $this->assertIsArray($result);
         $this->assertEmpty($result);
     }
+
     public function test_deletes_backup_successfully()
     {
         // Arrange
@@ -411,6 +429,7 @@ class BackupServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_delete_nonexistent_backup()
     {
         // Arrange
@@ -425,6 +444,7 @@ class BackupServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_cleans_old_backups()
     {
         // Arrange
