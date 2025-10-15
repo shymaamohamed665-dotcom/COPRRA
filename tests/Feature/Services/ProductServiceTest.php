@@ -6,8 +6,9 @@ namespace Tests\Feature\Services;
 
 use App\Models\Product;
 use App\Repositories\ProductRepository;
-use App\Services\CacheService;
+use App\Services\Contracts\CacheServiceContract;
 use App\Services\ProductService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Mockery;
@@ -15,6 +16,8 @@ use Tests\TestCase;
 
 class ProductServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private ProductService $service;
 
     private \Mockery\MockInterface $repository;
@@ -26,7 +29,7 @@ class ProductServiceTest extends TestCase
         parent::setUp();
 
         $this->repository = Mockery::mock(ProductRepository::class);
-        $this->cache = Mockery::mock(CacheService::class);
+        $this->cache = Mockery::mock(CacheServiceContract::class);
         $this->service = new ProductService($this->repository, $this->cache);
     }
 
@@ -35,6 +38,7 @@ class ProductServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_returns_paginated_products_from_cache(): void
     {
         // Arrange
@@ -66,6 +70,7 @@ class ProductServiceTest extends TestCase
         $this->assertEquals(2, $result->total());
         $this->assertEquals($perPage, $result->perPage());
     }
+
     public function test_returns_empty_paginator_when_cache_returns_null(): void
     {
         // Arrange
@@ -85,6 +90,7 @@ class ProductServiceTest extends TestCase
         $this->assertEquals(0, $result->total());
         $this->assertEquals($perPage, $result->perPage());
     }
+
     public function test_handles_invalid_page_number(): void
     {
         // Arrange
@@ -95,6 +101,8 @@ class ProductServiceTest extends TestCase
         $request = Mockery::mock(Request::class);
         $request->shouldReceive('get')->with('page', 1)->andReturn($invalidPage);
         $request->shouldReceive('url')->andReturn('http://localhost');
+        // Allow framework to call setUserResolver on mocked request
+        $request->shouldReceive('setUserResolver')->andReturnNull();
         $this->app->instance('request', $request);
 
         $this->cache->shouldReceive('remember')
@@ -109,6 +117,7 @@ class ProductServiceTest extends TestCase
         $this->assertInstanceOf(LengthAwarePaginator::class, $result);
         $this->assertEquals(0, $result->total());
     }
+
     public function test_uses_default_per_page_when_not_specified(): void
     {
         // Arrange
@@ -127,6 +136,7 @@ class ProductServiceTest extends TestCase
         $this->assertInstanceOf(LengthAwarePaginator::class, $result);
         $this->assertEquals($defaultPerPage, $result->perPage());
     }
+
     public function test_calls_repository_when_cache_miss(): void
     {
         // Arrange

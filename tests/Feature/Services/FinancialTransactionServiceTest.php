@@ -5,11 +5,14 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\FinancialTransactionService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 use Tests\TestCase;
 
 class FinancialTransactionServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private FinancialTransactionService $service;
 
     protected function setUp(): void
@@ -25,6 +28,7 @@ class FinancialTransactionServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_processes_payment_successfully()
     {
         // Arrange
@@ -54,6 +58,7 @@ class FinancialTransactionServiceTest extends TestCase
         $product->refresh();
         $this->assertEquals($newPrice, $product->price);
     }
+
     public function test_handles_payment_failure()
     {
         // Arrange
@@ -77,6 +82,7 @@ class FinancialTransactionServiceTest extends TestCase
             'price' => $newPrice,
         ]);
     }
+
     public function test_refunds_transaction()
     {
         // Arrange
@@ -107,6 +113,7 @@ class FinancialTransactionServiceTest extends TestCase
         $this->assertLessThan(100.50, $product->price);
         $this->assertEquals($newPrice, $product->price);
     }
+
     public function test_gets_transaction_history()
     {
         // Arrange
@@ -120,6 +127,7 @@ class FinancialTransactionServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_calculates_tax()
     {
         // Arrange
@@ -133,6 +141,7 @@ class FinancialTransactionServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_validates_payment_method()
     {
         // Arrange
@@ -146,6 +155,7 @@ class FinancialTransactionServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_invalid_payment_method()
     {
         // Arrange

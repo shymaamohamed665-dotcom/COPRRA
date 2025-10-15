@@ -30,6 +30,7 @@ final class S3Provider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function upload(string $content, string $path, string $mimeType): array
     {
         // This would use AWS SDK in a real implementation
@@ -41,6 +42,10 @@ final class S3Provider implements CDNProviderInterface
         ];
     }
 
+    /**
+     * @return true
+     */
+    #[\Override]
     public function delete(string $path): bool
     {
         // This would use AWS SDK in a real implementation
@@ -50,6 +55,7 @@ final class S3Provider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function purgeCache(array $urls): bool
     {
         // S3 doesn't have built-in cache purging
@@ -60,23 +66,33 @@ final class S3Provider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function getStatistics(): array
     {
         // This would use AWS SDK in a real implementation
         return [];
     }
 
+    /**
+     * @return true
+     */
+    #[\Override]
     public function testConnection(): bool
     {
         // This would use AWS SDK in a real implementation
         return true;
     }
 
+    /**
+     * @psalm-return 'aws_s3'
+     */
+    #[\Override]
     public function getName(): string
     {
         return 'aws_s3';
     }
 
+    #[\Override]
     public function getUrl(string $path): string
     {
         if (! empty($this->baseUrl)) {

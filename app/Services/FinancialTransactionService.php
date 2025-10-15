@@ -12,24 +12,25 @@ use Illuminate\Support\Facades\Log;
 
 final class FinancialTransactionService
 {
-    public function __construct(private readonly AuditService $auditService)
-    {
-    }
+    public function __construct(private readonly AuditService $auditService) {}
 
     public function updateProductPrice(Product $product, float $newPrice, ?string $reason = null): bool
     {
-        return DB::transaction(function () use ($product, $newPrice, $reason): bool {
-            $oldPrice = $product->price;
-            $this->validatePrice($newPrice);
+        return DB::transaction(/**
+         * @return true
+         */
+            function () use ($product, $newPrice, $reason): bool {
+                $oldPrice = (float) $product->price;
+                $this->validatePrice($newPrice);
 
-            $product->update(['price' => $newPrice]);
+                $product->update(['price' => $newPrice]);
 
-            $this->logPriceUpdate($product, $oldPrice, $newPrice, $reason);
+                $this->logPriceUpdate($product, $oldPrice, $newPrice, $reason);
 
-            $this->checkPriceAlerts();
+                $this->checkPriceAlerts();
 
-            return true;
-        });
+                return true;
+            });
     }
 
     private function validatePrice(float $price): void
@@ -83,11 +84,11 @@ final class FinancialTransactionService
             throw new Exception('Missing required offer data');
         }
 
-        if (!is_numeric($offerData['new_price']) || $offerData['new_price'] < 0) {
+        if (! is_numeric($offerData['new_price']) || $offerData['new_price'] < 0) {
             throw new Exception('Invalid price for offer');
         }
 
-        if (isset($offerData['expires_at']) && !strtotime($offerData['expires_at'])) {
+        if (isset($offerData['expires_at']) && ! strtotime($offerData['expires_at'])) {
             throw new Exception('Invalid expiration date for offer');
         }
     }
@@ -117,11 +118,11 @@ final class FinancialTransactionService
 
     private function validateOfferUpdateData(array $updateData): void
     {
-        if (isset($updateData['new_price']) && (!is_numeric($updateData['new_price']) || $updateData['new_price'] < 0)) {
+        if (isset($updateData['new_price']) && (! is_numeric($updateData['new_price']) || $updateData['new_price'] < 0)) {
             throw new Exception('Invalid price for offer');
         }
 
-        if (isset($updateData['expires_at']) && !strtotime($updateData['expires_at'])) {
+        if (isset($updateData['expires_at']) && ! strtotime($updateData['expires_at'])) {
             throw new Exception('Invalid expiration date for offer');
         }
     }
@@ -164,7 +165,7 @@ final class FinancialTransactionService
     private function updateProductPriceFromOffer(PriceOffer $priceOffer): void
     {
         $product = $priceOffer->product;
-        if (!$product) {
+        if (! $product) {
             return;
         }
 

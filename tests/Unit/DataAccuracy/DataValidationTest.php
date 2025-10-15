@@ -5,9 +5,6 @@ namespace Tests\Unit\DataAccuracy;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataValidationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

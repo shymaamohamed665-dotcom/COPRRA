@@ -14,10 +14,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\PaymentMethod
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class PaymentMethodTest extends TestCase
 {
     /**

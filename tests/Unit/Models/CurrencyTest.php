@@ -16,10 +16,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Currency
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class CurrencyTest extends TestCase
 {
     /**

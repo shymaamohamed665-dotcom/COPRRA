@@ -77,7 +77,8 @@ class ExchangeRate extends Model
      * Scope for fresh exchange rates (not stale).
      *
      * @param  \Illuminate\Database\Eloquent\Builder<ExchangeRate>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<ExchangeRate>
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function scopeFresh(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {
@@ -91,7 +92,8 @@ class ExchangeRate extends Model
      * Scope for stale exchange rates.
      *
      * @param  \Illuminate\Database\Eloquent\Builder<ExchangeRate>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<ExchangeRate>
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function scopeStale(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {

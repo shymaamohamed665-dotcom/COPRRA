@@ -6,12 +6,15 @@ namespace Tests\Feature\Services;
 
 use App\DTO\ProcessResult;
 use App\Services\ProcessService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Process;
 use Mockery;
 use Tests\TestCase;
 
 class ProcessServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private ProcessService $service;
 
     protected function setUp(): void
@@ -25,6 +28,7 @@ class ProcessServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_runs_process_command_successfully()
     {
         // Arrange
@@ -37,6 +41,11 @@ class ProcessServiceTest extends TestCase
         $processResult->shouldReceive('exitCode')->andReturn($exitCode);
         $processResult->shouldReceive('output')->andReturn($output);
         $processResult->shouldReceive('errorOutput')->andReturn($errorOutput);
+
+        // Support chaining: Process::timeout(...)->run($command)
+        Process::shouldReceive('timeout')
+            ->with(Mockery::type('int'))
+            ->andReturnSelf();
 
         Process::shouldReceive('run')
             ->with($command)
@@ -51,6 +60,7 @@ class ProcessServiceTest extends TestCase
         $this->assertEquals($output, $result->output);
         $this->assertEquals($errorOutput, $result->errorOutput);
     }
+
     public function test_processes_data_successfully()
     {
         // Arrange
@@ -67,6 +77,7 @@ class ProcessServiceTest extends TestCase
         $this->assertTrue($result['processed']);
         $this->assertArrayHasKey('data', $result);
     }
+
     public function test_handles_null_data()
     {
         // Act
@@ -77,6 +88,7 @@ class ProcessServiceTest extends TestCase
         $this->assertTrue($result['error']);
         $this->assertEquals('Invalid data provided', $result['message']);
     }
+
     public function test_validates_data_successfully()
     {
         // Arrange
@@ -91,6 +103,7 @@ class ProcessServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_validates_data_with_empty_name()
     {
         // Arrange
@@ -107,6 +120,7 @@ class ProcessServiceTest extends TestCase
         $errors = $this->service->getErrors();
         $this->assertArrayHasKey('name', $errors);
     }
+
     public function test_cleans_data_successfully()
     {
         // Arrange
@@ -122,6 +136,7 @@ class ProcessServiceTest extends TestCase
         $this->assertEquals('John Doe', $result['name']);
         $this->assertEquals('john@example.com', $result['email']);
     }
+
     public function test_transforms_data_successfully()
     {
         // Arrange
@@ -137,6 +152,7 @@ class ProcessServiceTest extends TestCase
         $this->assertEquals('John doe', $result['name']);
         $this->assertEquals('John@example.com', $result['email']);
     }
+
     public function test_gets_processing_status()
     {
         // Act
@@ -145,6 +161,7 @@ class ProcessServiceTest extends TestCase
         // Assert
         $this->assertEquals('idle', $status);
     }
+
     public function test_resets_service()
     {
         // Arrange
@@ -158,6 +175,7 @@ class ProcessServiceTest extends TestCase
         $this->assertEquals('idle', $this->service->getStatus());
         $this->assertEmpty($this->service->getErrors());
     }
+
     public function test_gets_processing_metrics()
     {
         // Arrange

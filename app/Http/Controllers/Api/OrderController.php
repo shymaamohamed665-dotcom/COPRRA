@@ -10,6 +10,7 @@ use App\Models\Order;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class OrderController extends BaseApiController
 {
@@ -33,11 +34,13 @@ class OrderController extends BaseApiController
             ->paginate($perPage);
 
         $collection = OrderResource::collection($orders);
+        $payload = $collection->response()->getData(true);
 
         return response()->json([
             'success' => true,
             'message' => 'Orders retrieved successfully',
-            'data' => $collection->response()->getData(),
+            'data' => $payload,
+            'meta' => $payload['meta'] ?? null,
         ]);
     }
 
@@ -58,7 +61,7 @@ class OrderController extends BaseApiController
         /** @var array<string, mixed> $validated */
         $validated = $request->validate([
             'items' => 'required|array|min:1',
-            'items.*.product_id' => 'required|exists:products,id',
+            'items.*.product_id' => ['required', Rule::exists('products', 'id')->whereNull('deleted_at')],
             'items.*.quantity' => 'required|integer|min:1',
             'shipping_address' => 'required|array',
             'shipping_address.street' => 'required|string|max:255',
@@ -94,14 +97,11 @@ class OrderController extends BaseApiController
         /** @var array<array<string, int>> $items */
         $items = $validated['items'];
         foreach ($items as $item) {
-            /** @var int $productId */
             $productId = $item['product_id'];
-            /** @var int $quantity */
             $quantity = $item['quantity'];
 
             $product = \App\Models\Product::find($productId);
             if ($product) {
-                /** @var float $price */
                 $price = (float) $product->price;
                 $subtotal = $price * $quantity;
                 $totalAmount += $subtotal;

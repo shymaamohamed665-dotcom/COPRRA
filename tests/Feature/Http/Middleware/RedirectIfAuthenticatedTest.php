@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class RedirectIfAuthenticatedTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_redirect_if_authenticated_middleware_redirects_authenticated_users(): void
     {
         $user = User::factory()->create();
@@ -48,6 +51,7 @@ class RedirectIfAuthenticatedTest extends TestCase
 
         $request = Request::create('/api/login', 'GET');
         $request->headers->set('Accept', 'application/json');
+        $request->setUserResolver(fn () => $user);
 
         $middleware = new \App\Http\Middleware\RedirectIfAuthenticated;
         $response = $middleware->handle($request, function ($req) {

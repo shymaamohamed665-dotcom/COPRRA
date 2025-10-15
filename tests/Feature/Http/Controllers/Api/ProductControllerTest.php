@@ -26,6 +26,7 @@ class ProductControllerTest extends TestCase
         $this->tearDownDatabase();
         parent::tearDown();
     }
+
     public function test_can_list_products()
     {
         $products = Product::factory()->count(3)->create();
@@ -57,6 +58,7 @@ class ProductControllerTest extends TestCase
                 'name' => $products->first()->name,
             ]);
     }
+
     public function test_can_show_specific_product()
     {
         $product = Product::factory()->create();
@@ -87,12 +89,14 @@ class ProductControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_returns_404_for_nonexistent_product()
     {
         $response = $this->getJson('/api/products/999');
 
         $response->assertStatus(404);
     }
+
     public function test_can_search_products()
     {
         $product = Product::factory()->create(['name' => 'Test Product']);
@@ -113,6 +117,7 @@ class ProductControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_can_filter_products_by_category()
     {
         $product = Product::factory()->create();
@@ -133,6 +138,7 @@ class ProductControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_can_sort_products()
     {
         $response = $this->getJson('/api/products', [
@@ -151,6 +157,7 @@ class ProductControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_can_paginate_products()
     {
         Product::factory()->count(15)->create();
@@ -166,6 +173,7 @@ class ProductControllerTest extends TestCase
                 'meta',
             ]);
     }
+
     public function test_handles_invalid_pagination_parameters()
     {
         $response = $this->getJson('/api/products?per_page=invalid');
@@ -173,6 +181,7 @@ class ProductControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['per_page']);
     }
+
     public function test_handles_invalid_sort_parameters()
     {
         $response = $this->getJson('/api/products?sort=invalid_sort');

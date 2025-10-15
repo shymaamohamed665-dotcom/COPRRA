@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,30 +14,111 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     /**
+     * Show the profile edit page.
+     */
+    public function edit(): \Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
+    {
+        $user = Auth::user();
+
+        if (! $user) {
+            return redirect()->route('login');
+        }
+
+        return view('user.profile', [
+            'user' => $user,
+        ]);
+    }
+
+    /**
      * Update the user profile.
      */
-    public function update(Request $request): RedirectResponse
+    public function update(Request $request): JsonResponse
     {
         /** @var User|null $user */
         $user = Auth::user();
 
         if (! $user) {
-            return back()->withErrors(['error' => 'User not authenticated.']);
+            return response()->json([
+                'success' => false,
+                'message' => 'User not authenticated.',
+            ], 401);
         }
 
-        $this->validateRequest($request, $user);
+        try {
+            $this->validateRequest($request, $user);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'message' => 'The given data was invalid.',
+                'errors' => $e->errors(),
+            ], 422);
+        }
         $this->updateProfileData($request, $user);
 
         if ($request->filled('new_password')) {
             $passwordUpdateResult = $this->updatePassword($request, $user);
             if ($passwordUpdateResult) {
-                return $passwordUpdateResult;
+                // Convert redirect with errors to JSON format
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Failed to update password.',
+                ], 422);
             }
         }
 
         $user->save();
 
-        return back()->with('status', 'Profile updated successfully!');
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile updated successfully.',
+        ]);
+    }
+
+    /**
+     * Change the user's password.
+     */
+    public function changePassword(Request $request): JsonResponse
+    {
+        /** @var User|null $user */
+        $user = Auth::user();
+
+        if (! $user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'User not authenticated.',
+            ], 401);
+        }
+
+        try {
+            $request->validate([
+                'current_password' => 'required',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'message' => 'The given data was invalid.',
+                'errors' => $e->errors(),
+            ], 422);
+        }
+
+        $currentPassword = $request->input('current_password');
+        $newPassword = $request->input('password');
+
+        if (! is_string($currentPassword) || ! Hash::check($currentPassword, $user->password)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The current password is incorrect.',
+            ], 422);
+        }
+
+        if (is_string($newPassword)) {
+            $user->password = Hash::make($newPassword);
+            $user->save();
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Password changed successfully.',
+        ]);
     }
 
     /**

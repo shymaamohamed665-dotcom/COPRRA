@@ -4,9 +4,6 @@ namespace Tests\Unit\Deployment;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class CloudDeploymentTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

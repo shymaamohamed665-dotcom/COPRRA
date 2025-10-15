@@ -32,48 +32,42 @@ class CacheServiceTest extends TestCase
         parent::tearDown();
     }
 
-    /** @test */
-    public function it_generates_correct_product_cache_key(): void
+    public function test_it_generates_correct_product_cache_key(): void
     {
         $key = $this->cacheService->getProductKey(123);
 
         $this->assertEquals('product:123', $key);
     }
 
-    /** @test */
-    public function it_generates_correct_category_cache_key(): void
+    public function test_it_generates_correct_category_cache_key(): void
     {
         $key = $this->cacheService->getCategoryKey(456);
 
         $this->assertEquals('category:456', $key);
     }
 
-    /** @test */
-    public function it_generates_correct_store_cache_key(): void
+    public function test_it_generates_correct_store_cache_key(): void
     {
         $key = $this->cacheService->getStoreKey(789);
 
         $this->assertEquals('store:789', $key);
     }
 
-    /** @test */
-    public function it_generates_correct_price_comparison_cache_key(): void
+    public function test_it_generates_correct_price_comparison_cache_key(): void
     {
         $key = $this->cacheService->getPriceComparisonKey(123);
 
         $this->assertEquals('price_comparison:123', $key);
     }
 
-    /** @test */
-    public function it_generates_correct_exchange_rate_cache_key(): void
+    public function test_it_generates_correct_exchange_rate_cache_key(): void
     {
         $key = $this->cacheService->getExchangeRateKey('USD', 'EUR');
 
         $this->assertEquals('exchange_rate:USD_EUR', $key);
     }
 
-    /** @test */
-    public function it_generates_correct_search_cache_key(): void
+    public function test_it_generates_correct_search_cache_key(): void
     {
         $key = $this->cacheService->getSearchKey('laptop');
 
@@ -81,8 +75,7 @@ class CacheServiceTest extends TestCase
         $this->assertStringContainsString(md5('laptop'), $key);
     }
 
-    /** @test */
-    public function it_generates_search_cache_key_with_filters(): void
+    public function test_it_generates_search_cache_key_with_filters(): void
     {
         $filters = ['category' => 'electronics', 'price_min' => 100];
         $key = $this->cacheService->getSearchKey('laptop', $filters);
@@ -91,8 +84,7 @@ class CacheServiceTest extends TestCase
         $this->assertStringContainsString(md5('laptop'), $key);
     }
 
-    /** @test */
-    public function it_caches_product_data(): void
+    public function test_it_caches_product_data(): void
     {
         $productData = ['id' => 123, 'name' => 'Test Product'];
 
@@ -104,8 +96,7 @@ class CacheServiceTest extends TestCase
         $this->assertEquals($productData, $cached);
     }
 
-    /** @test */
-    public function it_caches_price_comparison_data(): void
+    public function test_it_caches_price_comparison_data(): void
     {
         $priceData = [
             'product_id' => 123,
@@ -123,8 +114,7 @@ class CacheServiceTest extends TestCase
         $this->assertEquals($priceData, $cached);
     }
 
-    /** @test */
-    public function it_caches_search_results(): void
+    public function test_it_caches_search_results(): void
     {
         $searchResults = [
             ['id' => 1, 'name' => 'Product 1'],
@@ -139,8 +129,7 @@ class CacheServiceTest extends TestCase
         $this->assertEquals($searchResults, $cached);
     }
 
-    /** @test */
-    public function it_invalidates_product_cache(): void
+    public function test_it_invalidates_product_cache(): void
     {
         $productData = ['id' => 123, 'name' => 'Test Product'];
         $this->cacheService->cacheProduct(123, $productData);
@@ -152,8 +141,7 @@ class CacheServiceTest extends TestCase
         $this->assertNull($this->cacheService->getCachedProduct(123));
     }
 
-    /** @test */
-    public function it_invalidates_category_cache(): void
+    public function test_it_invalidates_category_cache(): void
     {
         $key = $this->cacheService->getCategoryKey(456);
         Cache::put($key, ['id' => 456, 'name' => 'Test Category'], 3600);
@@ -165,8 +153,7 @@ class CacheServiceTest extends TestCase
         $this->assertNull(Cache::get($key));
     }
 
-    /** @test */
-    public function it_invalidates_store_cache(): void
+    public function test_it_invalidates_store_cache(): void
     {
         $key = $this->cacheService->getStoreKey(789);
         Cache::put($key, ['id' => 789, 'name' => 'Test Store'], 3600);
@@ -178,16 +165,14 @@ class CacheServiceTest extends TestCase
         $this->assertNull(Cache::get($key));
     }
 
-    /** @test */
-    public function it_returns_null_for_non_existent_cache(): void
+    public function test_it_returns_null_for_non_existent_cache(): void
     {
         $cached = $this->cacheService->getCachedProduct(999);
 
         $this->assertNull($cached);
     }
 
-    /** @test */
-    public function it_returns_cache_statistics(): void
+    public function test_it_returns_cache_statistics(): void
     {
         $stats = $this->cacheService->getStatistics();
 
@@ -197,8 +182,7 @@ class CacheServiceTest extends TestCase
         $this->assertArrayHasKey('durations', $stats);
     }
 
-    /** @test */
-    public function it_uses_remember_method_correctly(): void
+    public function test_it_uses_remember_method_correctly(): void
     {
         $key = 'test_remember_key';
         $value = 'test_value';
@@ -217,8 +201,7 @@ class CacheServiceTest extends TestCase
         $this->assertEquals($value, $result2);
     }
 
-    /** @test */
-    public function it_clears_all_cache(): void
+    public function test_it_clears_all_cache(): void
     {
         // Add some cache entries
         $this->cacheService->cacheProduct(1, ['name' => 'Product 1']);
@@ -234,8 +217,7 @@ class CacheServiceTest extends TestCase
         $this->assertNull($this->cacheService->getCachedProduct(2));
     }
 
-    /** @test */
-    public function it_respects_custom_cache_duration(): void
+    public function test_it_respects_custom_cache_duration(): void
     {
         $productData = ['id' => 123, 'name' => 'Test Product'];
         $customDuration = 60; // 1 minute
@@ -246,8 +228,7 @@ class CacheServiceTest extends TestCase
         $this->assertEquals($productData, $cached);
     }
 
-    /** @test */
-    public function it_handles_search_with_different_filters(): void
+    public function test_it_handles_search_with_different_filters(): void
     {
         $results1 = [['id' => 1]];
         $results2 = [['id' => 2]];

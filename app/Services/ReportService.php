@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\PriceAlert;
 use App\Models\PriceOffer;
 use App\Models\Product;
@@ -25,7 +27,9 @@ final class ReportService
     /**
      * Generate a comprehensive performance report for a single product.
      *
-     * @return array<string, array<string, float|int|string>|string>
+     * @return array<string, mixed>
+     *
+     * @psalm-return array{product: array{id: mixed, name: mixed, current_price: mixed, category: 'N/A'|mixed, brand: 'N/A'|mixed}, period: array{start_date: string, end_date: string}, price_analysis: array<string, array<string, float|int>|float|int>, offer_analysis: array<string, array<int, int>|int>, user_engagement: array{wishlist_adds: int, price_alerts: int, reviews: int, total_engagement: int}, reviews_analysis: array<string, array<int, int>|int>}
      */
     public function generateProductPerformanceReport(
         int $productId,
@@ -59,7 +63,9 @@ final class ReportService
     /**
      * Generate user activity report.
      *
-     * @return array<string, array<string, int|string>|string>
+     * @return array<string, mixed>
+     *
+     * @psalm-return array{user: array{id: mixed, name: mixed, email: mixed, created_at: 'N/A'|mixed}, period: array{start_date: string, end_date: string}, activity_summary: array{wishlist_adds: int, price_alerts_created: int, reviews_written: int, total_activity: int}, wishlist_activity: array<int, array<string, int|null|string>>, price_alerts: array<int, array<string, float|int|null|string>>, reviews_activity: array<int, array<string, int|null|string>>}
      */
     public function generateUserActivityReport(int $userId, ?Carbon $startDate = null, ?Carbon $endDate = null): array
     {
@@ -119,7 +125,9 @@ final class ReportService
     /**
      * Get price analysis for a product.
      *
-     * @return array<string, array<string, float|int>|float|int>
+     * @return ((float|int)[]|float|int)[]
+     *
+     * @psalm-return array{total_offers: int<0, max>, price_range: array{min: 0|float, max: 0|float}, average_price: 0|float, price_volatility: 0|float}
      */
     private function getPriceAnalysis(int $productId, Carbon $startDate, Carbon $endDate): array
     {
@@ -142,7 +150,9 @@ final class ReportService
 
     /**
      * @param  \Illuminate\Database\Eloquent\Collection<int, \App\Models\PriceOffer>  $offers
-     * @return array<string, array<string, float|int>|float|int>
+     * @return ((float|int)[]|float|int)[]
+     *
+     * @psalm-return array{total_offers: int<0, max>, price_range: array{min: 0|float, max: 0|float}, average_price: 0|float, price_volatility: 0|float}
      */
     private function calculatePriceStatistics(
         \Illuminate\Database\Eloquent\Collection $offers
@@ -178,13 +188,18 @@ final class ReportService
      */
     private function calculatePriceVolatility(array $prices, float $averagePrice): float
     {
+        $pricesCount = count($prices);
+        if ($pricesCount === 0) {
+            return 0.0;
+        }
+
         $variance = array_reduce(
             $prices,
             static function (float $carry, float $price) use ($averagePrice): float {
                 return $carry + ($price - $averagePrice) ** 2;
             },
             0.0
-        ) / count($prices);
+        ) / $pricesCount;
 
         return sqrt($variance);
     }
@@ -214,7 +229,9 @@ final class ReportService
     /**
      * Get user engagement for a product.
      *
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{wishlist_adds: int, price_alerts: int, reviews: int, total_engagement: int}
      */
     private function getUserEngagement(int $productId, Carbon $startDate, Carbon $endDate): array
     {
@@ -287,7 +304,9 @@ final class ReportService
     /**
      * Get user activity summary.
      *
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{wishlist_adds: int, price_alerts_created: int, reviews_written: int, total_activity: int}
      */
     private function getUserActivitySummary(int $userId, Carbon $startDate, Carbon $endDate): array
     {
@@ -325,16 +344,21 @@ final class ReportService
             ->get();
 
         /** @var array<int, array<string, int|string|null>> $result */
-        $result = $wishlists->map(static function (Wishlist $wishlist): array {
-            $createdAt = $wishlist->created_at;
+        $result = $wishlists->map(/**
+         * @return (int|null|string)[]
+         *
+         * @psalm-return array{user_id: int, product_id: int, product_name: string, created_at: null|string}
+         */
+            static function (Wishlist $wishlist): array {
+                $createdAt = $wishlist->created_at;
 
-            return [
-                'user_id' => $wishlist->user_id,
-                'product_id' => $wishlist->product_id,
-                'product_name' => $wishlist->product->name,
-                'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
-            ];
-        })->toArray();
+                return [
+                    'user_id' => $wishlist->user_id,
+                    'product_id' => $wishlist->product_id,
+                    'product_name' => $wishlist->product->name,
+                    'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
+                ];
+            })->toArray();
 
         return $result;
     }
@@ -351,17 +375,22 @@ final class ReportService
             ->get();
 
         /** @var array<int, array<string, float|int|string|null>> $result */
-        $result = $alerts->map(static function (PriceAlert $alert): array {
-            $createdAt = $alert->created_at;
+        $result = $alerts->map(/**
+         * @return (float|int|null|string)[]
+         *
+         * @psalm-return array{user_id: int, product_id: int, product_name: string, target_price: float, created_at: null|string}
+         */
+            static function (PriceAlert $alert): array {
+                $createdAt = $alert->created_at;
 
-            return [
-                'user_id' => $alert->user_id,
-                'product_id' => $alert->product_id,
-                'product_name' => $alert->product->name,
-                'target_price' => $alert->target_price,
-                'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
-            ];
-        })->toArray();
+                return [
+                    'user_id' => $alert->user_id,
+                    'product_id' => $alert->product_id,
+                    'product_name' => $alert->product->name,
+                    'target_price' => $alert->target_price,
+                    'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
+                ];
+            })->toArray();
 
         return $result;
     }
@@ -378,18 +407,23 @@ final class ReportService
             ->get();
 
         /** @var array<int, array<string, int|string|null>> $result */
-        $result = $reviews->map(static function (Review $review): array {
-            $createdAt = $review->created_at;
+        $result = $reviews->map(/**
+         * @return (int|mixed|null|string)[]
+         *
+         * @psalm-return array{user_id: int, product_id: int, product_name: string, rating: int, comment: string, created_at: mixed|null}
+         */
+            static function (Review $review): array {
+                $createdAt = $review->created_at;
 
-            return [
-                'user_id' => $review->user_id,
-                'product_id' => $review->product_id,
-                'product_name' => $review->product->name,
-                'rating' => $review->rating,
-                'comment' => $review->content,
-                'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
-            ];
-        })->toArray();
+                return [
+                    'user_id' => $review->user_id,
+                    'product_id' => $review->product_id,
+                    'product_name' => $review->product->name,
+                    'rating' => $review->rating,
+                    'comment' => $review->content,
+                    'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
+                ];
+            })->toArray();
 
         return $result;
     }
@@ -397,7 +431,9 @@ final class ReportService
     /**
      * Get price changes.
      *
-     * @return array<string, float|int>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{total_changes: int<0, max>, average_daily_changes: float}
      */
     private function getPriceChanges(Carbon $startDate, Carbon $endDate): array
     {
@@ -411,6 +447,8 @@ final class ReportService
 
     /**
      * Count price changes from audit logs.
+     *
+     * @psalm-return int<0, max>
      */
     private function countPriceChanges(Carbon $startDate, Carbon $endDate): int
     {
@@ -438,9 +476,14 @@ final class ReportService
             ->take(10)
             ->get();
 
-        return $products->map(function (Product $product): array {
-            return $this->formatTopProduct($product);
-        })->toArray();
+        return $products->map(/**
+         * @return (int|null|string)[]
+         *
+         * @psalm-return array<string, int|null|string>
+         */
+            function (Product $product): array {
+                return $this->formatTopProduct($product);
+            })->toArray();
     }
 
     /**
@@ -485,8 +528,11 @@ final class ReportService
 
     /**
      * Get product property with fallback value.
+     *
+     *
+     * @psalm-param ''|0|float $default
      */
-    private function getProductProperty(Product $product, string $property, mixed $default): mixed
+    private function getProductProperty(Product $product, string $property, string|int|float $default): mixed
     {
         return property_exists($product, $property) ? $product->$property : $default;
     }
@@ -498,7 +544,7 @@ final class ReportService
      */
     private function getPriceTrends(Carbon $startDate, Carbon $endDate): array
     {
-        $trends = $this->priceOfferModel->where('product_id', $productId)
+        $trends = $this->priceOfferModel
             ->whereBetween('created_at', [$startDate, $endDate])
             ->orderBy('created_at')
             ->select(
@@ -508,16 +554,28 @@ final class ReportService
             ->groupBy('date')
             ->get();
 
-        return $trends->map(function ($trend): array {
-            return $this->formatTrendData($trend);
-        })->toArray();
+        return $trends->map(/**
+         * @return (float|string)[]
+         *
+         * @psalm-return array<string, float|string>
+         */
+            /**
+             * @return (float|string)[]
+             *
+             * @psalm-return array{date: string, average_price: float}
+             */
+            function ($trend): array {
+                return $this->formatTrendData($trend);
+            })->toArray();
     }
 
     /**
      * Format trend data.
      *
      * @param  object{trend: string|null, average_price: float|null, date: string|null}  $trend
-     * @return array<string, string|float>
+     * @return (float|string)[]
+     *
+     * @psalm-return array{date: string, average_price: float}
      */
     private function formatTrendData(object $trend): array
     {
@@ -536,6 +594,8 @@ final class ReportService
      * Calculate price trend.
      *
      * @param  array<float>  $prices
+     *
+     * @psalm-return 'decreasing'|'increasing'|'stable'
      */
     private function calculatePriceTrend(array $prices): string
     {
@@ -564,6 +624,8 @@ final class ReportService
 
     /**
      * Determine trend direction based on percentage.
+     *
+     * @psalm-return 'decreasing'|'increasing'|'stable'
      */
     private function determineTrendDirection(float $percentage): string
     {

@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Config\Repository as ConfigRepository;
+use Illuminate\Database\DatabaseManager;
 
 final class AnalyzeDatabaseCommand extends Command
 {
@@ -22,6 +23,17 @@ final class AnalyzeDatabaseCommand extends Command
      * @var string
      */
     protected $description = 'Analyze database performance and provide insights';
+
+    private DatabaseManager $database;
+
+    private ConfigRepository $config;
+
+    public function __construct(DatabaseManager $database, ConfigRepository $config)
+    {
+        parent::__construct();
+        $this->database = $database;
+        $this->config = $config;
+    }
 
     /**
      * Execute the console command.
@@ -51,12 +63,12 @@ final class AnalyzeDatabaseCommand extends Command
     private function getMySQLVariable(string $variableName, string $default = 'OFF'): string
     {
         try {
-            $result = DB::select('SHOW VARIABLES LIKE ?', [$variableName]);
+            $result = $this->database->select('SHOW VARIABLES LIKE ?', [$variableName]);
             if (isset($result[0]->Value) && is_string($result[0]->Value)) {
                 return $result[0]->Value;
             }
-        } catch (\Exception $e) {
-            $this->warn("Could not retrieve MySQL variable: {$variableName}. Error: ".$e->getMessage());
+        } catch (\Throwable $exception) {
+            $this->warn("Could not retrieve MySQL variable: {$variableName}. Error: ".$exception->getMessage());
         }
 
         return $default;
@@ -80,7 +92,7 @@ final class AnalyzeDatabaseCommand extends Command
         try {
             $value = $this->getMySQLVariable('query_cache_type');
             $this->line('  Query cache: '.$value);
-        } catch (\Exception $e) {
+        } catch (\Throwable $exception) {
             $this->line('  Query cache: Not available (MySQL 8.0+)');
         }
     }
@@ -129,7 +141,10 @@ final class AnalyzeDatabaseCommand extends Command
      */
     private function getDatabaseName(): string
     {
-        return config('database.connections.mysql.database');
+        /** @var string $databaseName */
+        $databaseName = (string) $this->config->get('database.connections.mysql.database');
+
+        return $databaseName;
     }
 
     /**
@@ -140,7 +155,7 @@ final class AnalyzeDatabaseCommand extends Command
      */
     private function executeDatabaseQuery(string $query): ?array
     {
-        return DB::select($query, [$this->getDatabaseName()]);
+        return $this->database->select($query, [$this->getDatabaseName()]);
     }
 
     private function checkForMissingIndexes(): void
@@ -160,12 +175,14 @@ final class AnalyzeDatabaseCommand extends Command
                 AND s.index_name IS NULL
         ");
 
-        if ($tablesWithoutIndexes !== null) {
-            $this->warn('  ⚠ Tables without indexes:');
-            $this->displayTablesWithoutIndexes($tablesWithoutIndexes);
-        } else {
+        if ($tablesWithoutIndexes === null) {
             $this->line('  ✓ All tables have indexes');
+
+            return;
         }
+
+        $this->warn('  ⚠ Tables without indexes:');
+        $this->displayTablesWithoutIndexes($tablesWithoutIndexes);
     }
 
     /**

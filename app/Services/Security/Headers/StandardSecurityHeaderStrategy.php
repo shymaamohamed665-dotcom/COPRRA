@@ -18,11 +18,13 @@ class StandardSecurityHeaderStrategy implements SecurityHeaderStrategyInterface
         $this->defaultValue = $defaultValue;
     }
 
+    #[\Override]
     public function getHeaderName(): string
     {
         return $this->headerName;
     }
 
+    #[\Override]
     public function getValue(Request $request, array $config): ?string
     {
         // Check for route-specific overrides
@@ -37,6 +39,7 @@ class StandardSecurityHeaderStrategy implements SecurityHeaderStrategyInterface
         return $config['value'] ?? $this->defaultValue;
     }
 
+    #[\Override]
     public function shouldApply(Request $request, array $config): bool
     {
         // Check if header is enabled
@@ -56,6 +59,10 @@ class StandardSecurityHeaderStrategy implements SecurityHeaderStrategyInterface
         return true;
     }
 
+    /**
+     * @return false
+     */
+    #[\Override]
     public function supportsDynamicValues(): bool
     {
         return false;

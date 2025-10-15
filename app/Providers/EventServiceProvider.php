@@ -12,6 +12,8 @@ final class EventServiceProvider extends ServiceProvider
 {
     /**
      * Determine if events and listeners should be automatically discovered.
+     *
+     * @return false
      */
     #[\Override]
     public function shouldDiscoverEvents(): bool

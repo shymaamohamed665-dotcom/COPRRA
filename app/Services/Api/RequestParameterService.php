@@ -38,7 +38,9 @@ class RequestParameterService
     /**
      * Get include parameters for relationships
      *
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array<string, int<0, max>>
      */
     public function getIncludeParams(Request $request): array
     {
@@ -56,7 +58,9 @@ class RequestParameterService
     /**
      * Get fields parameter for field selection
      *
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array<string, int<0, max>>
      */
     public function getFieldsParams(Request $request): array
     {
@@ -115,7 +119,9 @@ class RequestParameterService
     /**
      * Get rate limit information for v2
      *
-     * @return array<string, int|string>
+     * @return (float|int|string)[]
+     *
+     * @psalm-return array{limit: 2000, remaining: 1999, reset: float|int|string, version: '2.0'}
      */
     public function getRateLimitInfo(): array
     {

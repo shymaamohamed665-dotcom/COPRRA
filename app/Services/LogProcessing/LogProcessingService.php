@@ -98,13 +98,15 @@ class LogProcessingService
     /**
      * Calculate overall health from individual health checks
      *
-     * @param  array{
+     * @param array{
      *     database: array{status: string},
      *     cache: array{status: string},
      *     storage: array{status: string},
      *     memory: array{status: string},
      *     disk_space: array{status: string}
      * }  $health
+     *
+     * @psalm-return 'critical'|'healthy'|'warning'
      */
     public function calculateOverallHealth(array $health): string
     {

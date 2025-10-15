@@ -22,15 +22,13 @@ class CoprraServiceProviderTest extends TestCase
         $provider->boot();
     }
 
-    /** @test */
-    public function it_registers_coprra_configuration(): void
+    public function test_it_registers_coprra_configuration(): void
     {
         $this->assertNotNull(config('coprra'));
         $this->assertIsArray(config('coprra'));
     }
 
-    /** @test */
-    public function it_has_coprra_name_configuration(): void
+    public function test_it_has_coprra_name_configuration(): void
     {
         $name = config('coprra.name');
 
@@ -39,8 +37,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertEquals('COPRRA', $name);
     }
 
-    /** @test */
-    public function it_has_coprra_version_configuration(): void
+    public function test_it_has_coprra_version_configuration(): void
     {
         $version = config('coprra.version');
 
@@ -49,8 +46,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertEquals('1.0.0', $version);
     }
 
-    /** @test */
-    public function it_has_default_currency_configuration(): void
+    public function test_it_has_default_currency_configuration(): void
     {
         $currency = config('coprra.default_currency');
 
@@ -59,8 +55,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertEquals('USD', $currency);
     }
 
-    /** @test */
-    public function it_has_default_language_configuration(): void
+    public function test_it_has_default_language_configuration(): void
     {
         $language = config('coprra.default_language');
 
@@ -69,8 +64,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertEquals('en', $language);
     }
 
-    /** @test */
-    public function it_has_price_comparison_settings(): void
+    public function test_it_has_price_comparison_settings(): void
     {
         $settings = config('coprra.price_comparison');
 
@@ -80,8 +74,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('price_update_interval', $settings);
     }
 
-    /** @test */
-    public function it_has_search_settings(): void
+    public function test_it_has_search_settings(): void
     {
         $settings = config('coprra.search');
 
@@ -91,8 +84,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('enable_autocomplete', $settings);
     }
 
-    /** @test */
-    public function it_has_exchange_rates_configuration(): void
+    public function test_it_has_exchange_rates_configuration(): void
     {
         $rates = config('coprra.exchange_rates');
 
@@ -103,8 +95,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertEquals(1.0, $rates['USD']);
     }
 
-    /** @test */
-    public function it_has_pagination_settings(): void
+    public function test_it_has_pagination_settings(): void
     {
         $settings = config('coprra.pagination');
 
@@ -114,8 +105,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('max_price_alerts', $settings);
     }
 
-    /** @test */
-    public function it_has_api_configuration(): void
+    public function test_it_has_api_configuration(): void
     {
         $api = config('coprra.api');
 
@@ -125,8 +115,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('enable_docs', $api);
     }
 
-    /** @test */
-    public function it_has_media_settings(): void
+    public function test_it_has_media_settings(): void
     {
         $media = config('coprra.media');
 
@@ -137,8 +126,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('default_store_logo', $media);
     }
 
-    /** @test */
-    public function it_has_analytics_settings(): void
+    public function test_it_has_analytics_settings(): void
     {
         $analytics = config('coprra.analytics');
 
@@ -147,8 +135,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('track_price_clicks', $analytics);
     }
 
-    /** @test */
-    public function it_has_security_settings(): void
+    public function test_it_has_security_settings(): void
     {
         $security = config('coprra.security');
 
@@ -158,8 +145,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('session_timeout', $security);
     }
 
-    /** @test */
-    public function it_has_performance_settings(): void
+    public function test_it_has_performance_settings(): void
     {
         $performance = config('coprra.performance');
 
@@ -169,32 +155,27 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertArrayHasKey('enable_compression', $performance);
     }
 
-    /** @test */
-    public function it_shares_coprra_name_with_views(): void
+    public function test_it_shares_coprra_name_with_views(): void
     {
         $this->assertEquals('COPRRA', View::shared('coprraName'));
     }
 
-    /** @test */
-    public function it_shares_coprra_version_with_views(): void
+    public function test_it_shares_coprra_version_with_views(): void
     {
         $this->assertEquals('1.0.0', View::shared('coprraVersion'));
     }
 
-    /** @test */
-    public function it_shares_default_currency_with_views(): void
+    public function test_it_shares_default_currency_with_views(): void
     {
         $this->assertEquals('USD', View::shared('defaultCurrency'));
     }
 
-    /** @test */
-    public function it_shares_default_language_with_views(): void
+    public function test_it_shares_default_language_with_views(): void
     {
         $this->assertEquals('en', View::shared('defaultLanguage'));
     }
 
-    /** @test */
-    public function it_registers_currency_blade_directive(): void
+    public function test_it_registers_currency_blade_directive(): void
     {
         $directives = Blade::getCustomDirectives();
 
@@ -202,8 +183,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertIsCallable($directives['currency']);
     }
 
-    /** @test */
-    public function it_registers_pricecompare_blade_directive(): void
+    public function test_it_registers_pricecompare_blade_directive(): void
     {
         $directives = Blade::getCustomDirectives();
 
@@ -211,8 +191,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertIsCallable($directives['pricecompare']);
     }
 
-    /** @test */
-    public function it_registers_rtl_blade_directive(): void
+    public function test_it_registers_rtl_blade_directive(): void
     {
         $directives = Blade::getCustomDirectives();
 
@@ -260,8 +239,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertStringContainsString('ltr', $result);
     }
 
-    /** @test */
-    public function it_validates_price_cache_duration_is_numeric(): void
+    public function test_it_validates_price_cache_duration_is_numeric(): void
     {
         $duration = config('coprra.price_comparison.cache_duration');
 
@@ -269,8 +247,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertGreaterThan(0, $duration);
     }
 
-    /** @test */
-    public function it_validates_max_stores_per_product_is_numeric(): void
+    public function test_it_validates_max_stores_per_product_is_numeric(): void
     {
         $max = config('coprra.price_comparison.max_stores_per_product');
 
@@ -278,8 +255,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertGreaterThan(0, $max);
     }
 
-    /** @test */
-    public function it_validates_search_max_results_is_numeric(): void
+    public function test_it_validates_search_max_results_is_numeric(): void
     {
         $max = config('coprra.search.max_results');
 
@@ -287,8 +263,7 @@ class CoprraServiceProviderTest extends TestCase
         $this->assertGreaterThan(0, $max);
     }
 
-    /** @test */
-    public function it_validates_api_rate_limit_is_numeric(): void
+    public function test_it_validates_api_rate_limit_is_numeric(): void
     {
         $limit = config('coprra.api.rate_limit');
 

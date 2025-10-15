@@ -33,7 +33,7 @@ final class PriceFetcherService
     /**
      * Simulate an API call to fetch the price.
      */
-    private function simulateApiCall(PriceOffer $priceOffer): ?float
+    private function simulateApiCall(PriceOffer $priceOffer): float
     {
         // Simulate API call with random price fluctuation
         $fluctuation = random_int(-10, 10) / 100; // ±10%

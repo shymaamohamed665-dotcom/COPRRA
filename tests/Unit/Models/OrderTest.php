@@ -18,10 +18,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Order
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class OrderTest extends TestCase
 {
     /**
@@ -73,7 +69,7 @@ class OrderTest extends TestCase
         $query->shouldReceive('where')->once()->with('status', $status)->andReturnSelf();
 
         $order = new Order;
-        $result = $order->newQuery()->byStatus($status);
+        $result = $order->scopeByStatus($query, $status);
 
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Builder::class, $result);
     }
@@ -88,7 +84,7 @@ class OrderTest extends TestCase
         $query->shouldReceive('where')->once()->with('user_id', $userId)->andReturnSelf();
 
         $order = new Order;
-        $result = $order->newQuery()->forUser($userId);
+        $result = $order->scopeForUser($query, $userId);
 
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Builder::class, $result);
     }

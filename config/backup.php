@@ -1,6 +1,8 @@
 <?php
 
 return [
+    // Toggle backups via config instead of runtime env() checks
+    'enabled' => env('BACKUP_ENABLED', true),
     'backup' => [
         'name' => env('APP_NAME', 'Laravel'),
         'source' => [
@@ -16,7 +18,8 @@ return [
                 'follow_links' => false,
                 'ignore_unreadable_directories' => false,
             ],
-            'databases' => [],
+            // Include MySQL database in backups via Spatie package
+            'databases' => ['mysql'],
         ],
         'destination' => [
             'filename_prefix' => '',

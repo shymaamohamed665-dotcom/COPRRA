@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class UserBehaviorRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_analyzes_user_browsing_patterns(): void
     {
         $browsingHistory = [
@@ -30,7 +25,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_tracks_user_purchase_frequency(): void
     {
         $purchaseHistory = [
@@ -47,7 +41,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_user_preferences_from_behavior(): void
     {
         $userBehavior = [
@@ -66,7 +59,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_predicts_user_intent(): void
     {
         $recentBehavior = [
@@ -85,7 +77,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_analyzes_user_engagement_level(): void
     {
         $userMetrics = [
@@ -104,7 +95,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_tracks_user_price_sensitivity(): void
     {
         $priceBehavior = [
@@ -126,7 +116,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_analyzes_user_device_preferences(): void
     {
         $deviceUsage = [
@@ -144,7 +133,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_tracks_user_seasonal_patterns(): void
     {
         $seasonalData = [
@@ -162,7 +150,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_predicts_user_churn_risk(): void
     {
         $userMetrics = [
@@ -181,7 +168,6 @@ class UserBehaviorRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_generates_personalized_recommendations(): void
     {
         $userProfile = [

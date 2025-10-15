@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class ProcessHeavyOperationTest extends TestCase
 {
     use RefreshDatabase;

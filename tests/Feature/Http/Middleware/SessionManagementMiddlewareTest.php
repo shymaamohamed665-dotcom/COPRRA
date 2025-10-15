@@ -21,7 +21,7 @@ class SessionManagementMiddlewareTest extends TestCase
         );
         $request->setLaravelSession($session = new Store('test', $sessionHandler));
 
-        $middleware = new \App\Http\Middleware\SessionManagementMiddleware;
+        $middleware = $this->app->make(\App\Http\Middleware\SessionManagementMiddleware::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -42,7 +42,7 @@ class SessionManagementMiddlewareTest extends TestCase
         $session->put('user_id', 123);
         $session->put('last_activity', now());
 
-        $middleware = new \App\Http\Middleware\SessionManagementMiddleware;
+        $middleware = $this->app->make(\App\Http\Middleware\SessionManagementMiddleware::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -63,7 +63,7 @@ class SessionManagementMiddlewareTest extends TestCase
         );
         $request->setLaravelSession($session = new Store('test', $sessionHandler));
 
-        $middleware = new \App\Http\Middleware\SessionManagementMiddleware;
+        $middleware = $this->app->make(\App\Http\Middleware\SessionManagementMiddleware::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -83,7 +83,7 @@ class SessionManagementMiddlewareTest extends TestCase
         );
         $request->setLaravelSession($session = new Store('test', $sessionHandler));
 
-        $middleware = new \App\Http\Middleware\SessionManagementMiddleware;
+        $middleware = $this->app->make(\App\Http\Middleware\SessionManagementMiddleware::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

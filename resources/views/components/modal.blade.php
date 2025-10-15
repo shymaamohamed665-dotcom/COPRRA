@@ -84,7 +84,7 @@
     </div>
 </div>
 
-<script>
+<script nonce="{{ $cspNonce ?? '' }}">
     // Modal control functions
     window.openModal = function(modalId) {
         const modal = document.getElementById(modalId);

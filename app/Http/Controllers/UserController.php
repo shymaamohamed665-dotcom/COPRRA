@@ -18,8 +18,7 @@ class UserController extends Controller
     public function __construct(
         private readonly UserBanService $userBanService,
         private readonly PasswordPolicyService $passwordPolicyService
-    ) {
-    }
+    ) {}
 
     /**
      * Display a listing of users.
@@ -44,8 +43,8 @@ class UserController extends Controller
             $searchInput = $request->get('search');
             $search = is_string($searchInput) ? $searchInput : '';
             $query->where(static function ($q) use ($search): void {
-                $q->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%');
+                $q->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('email', 'like', '%'.$search.'%');
             });
         }
 
@@ -107,7 +106,7 @@ class UserController extends Controller
     public function changePassword(ChangePasswordRequest $request, User $user): JsonResponse
     {
         // Verify current password
-        $currentPassword = $request->current_password;
+        $currentPassword = $request->input('current_password');
         if (! Hash::check(is_string($currentPassword) ? $currentPassword : '', $user->password)) {
             return response()->json([
                 'success' => false,
@@ -116,7 +115,7 @@ class UserController extends Controller
         }
 
         // Validate new password against policy
-        $newPassword = $request->new_password;
+        $newPassword = $request->input('new_password');
         $emptyString = '';
         $passwordValidation = $this->passwordPolicyService->validatePassword(is_string($newPassword) ? $newPassword : $emptyString, $user->id);
         if (! isset($passwordValidation['valid']) || ! $passwordValidation['valid']) {

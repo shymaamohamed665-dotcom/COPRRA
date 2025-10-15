@@ -61,8 +61,8 @@ class PriceAlertTest extends TestCase
             'is_active' => 0,
         ]);
 
-        $this->assertIsFloat($alert->target_price);
-        $this->assertEquals(99.99, $alert->target_price);
+        $this->assertIsString($alert->target_price);
+        $this->assertSame('99.99', $alert->target_price);
         $this->assertIsBool($alert->repeat_alert);
         $this->assertIsBool($alert->is_active);
         $this->assertTrue($alert->repeat_alert);
@@ -252,7 +252,7 @@ class PriceAlertTest extends TestCase
         $this->assertInstanceOf(PriceAlert::class, $alert);
         $this->assertIsInt($alert->user_id);
         $this->assertIsInt($alert->product_id);
-        $this->assertIsFloat($alert->target_price);
+        $this->assertIsString($alert->target_price);
         $this->assertIsBool($alert->repeat_alert);
         $this->assertIsBool($alert->is_active);
     }

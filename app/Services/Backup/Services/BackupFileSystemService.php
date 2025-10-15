@@ -23,7 +23,7 @@ final class BackupFileSystemService
      */
     public function backupFiles(string $backupDir): array
     {
-        $filesDir = $backupDir.'/files';
+        $filesDir = $this->joinPaths($backupDir, 'files');
         mkdir($filesDir, 0755, true);
 
         $sourceDirs = [
@@ -82,7 +82,7 @@ final class BackupFileSystemService
     private function processSingleFileBackup(string $name, string $sourcePath, string $filesDir, array &$backedUpDirs): void
     {
         if (is_dir($sourcePath)) {
-            $destPath = $filesDir.'/'.$name;
+            $destPath = $this->joinPaths($filesDir, $name);
             $this->copyDirectory($sourcePath, $destPath);
             $backedUpDirs[] = $name;
         }
@@ -94,7 +94,7 @@ final class BackupFileSystemService
     private function processSingleFileRestore(string $filesDir, string $dir, array &$restoredDirs): void
     {
         if (is_string($dir)) {
-            $sourcePath = $filesDir.'/'.$dir;
+            $sourcePath = $this->joinPaths($filesDir, $dir);
             $destPath = $this->getDestinationPath($dir);
 
             if (is_dir($sourcePath)) {
@@ -102,6 +102,16 @@ final class BackupFileSystemService
                 $restoredDirs[] = $dir;
             }
         }
+    }
+
+    /**
+     * Normalize and join path parts using platform-specific separator.
+     */
+    private function joinPaths(string ...$parts): string
+    {
+        $trimmed = array_map(static fn (string $p) => trim($p, '\\/'), $parts);
+
+        return implode(DIRECTORY_SEPARATOR, $trimmed);
     }
 
     /**
@@ -155,6 +165,8 @@ final class BackupFileSystemService
 
     /**
      * Get directory size.
+     *
+     * @psalm-return int<min, max>
      */
     private function getDirectorySize(string $dir): int
     {

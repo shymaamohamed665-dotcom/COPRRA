@@ -18,6 +18,7 @@ enum UserRole: string
     /**
      * Get the display name for the role.
      */
+    #[\Override]
     public function label(): string
     {
         return match ($this) {
@@ -31,8 +32,11 @@ enum UserRole: string
     /**
      * Get permissions for this role.
      *
-     * @return array<int, string>
+     * @return string[]
+     *
+     * @psalm-return list{0: string, 1: string, 2?: 'manage_orders'|'manage_wishlist'|'view_analytics', 3?: 'manage_categories'|'write_reviews', 4?: 'manage_brands', 5?: 'view_analytics', 6?: 'manage_settings'}
      */
+    #[\Override]
     public function permissions(): array
     {
         return match ($this) {
@@ -66,6 +70,7 @@ enum UserRole: string
     /**
      * Check if role has a specific permission.
      */
+    #[\Override]
     public function hasPermission(string $permission): bool
     {
         return in_array($permission, $this->permissions(), true);
@@ -74,6 +79,7 @@ enum UserRole: string
     /**
      * Get the color for the role (for UI).
      */
+    #[\Override]
     public function color(): string
     {
         return match ($this) {
@@ -87,8 +93,11 @@ enum UserRole: string
     /**
      * Get allowed role transitions.
      *
-     * @return array<int, self>
+     * @return (App\Enums\UserRole::ADMIN|App\Enums\UserRole::MODERATOR|App\Enums\UserRole::USER)[]
+     *
+     * @psalm-return list{0?: App\Enums\UserRole::ADMIN|App\Enums\UserRole::MODERATOR|App\Enums\UserRole::USER}
      */
+    #[\Override]
     public function allowedTransitions(): array
     {
         return match ($this) {
@@ -101,7 +110,10 @@ enum UserRole: string
 
     /**
      * Check if role can transition to target role.
+     *
+     * @return false
      */
+    #[\Override]
     public function canTransitionTo(self $targetRole): bool
     {
         return in_array($targetRole, $this->allowedTransitions(), true);
@@ -110,8 +122,34 @@ enum UserRole: string
     /**
      * Check if role is admin.
      */
+    #[\Override]
     public function isAdmin(): bool
     {
         return $this === self::ADMIN;
+    }
+
+    /**
+     * Determine if the role has moderator-level privileges.
+     */
+    public function isModerator(): bool
+    {
+        return $this === self::ADMIN || $this === self::MODERATOR;
+    }
+
+    /**
+     * Get associative array of value => label pairs for options.
+     *
+     * @return string[]
+     *
+     * @psalm-return array{admin: string, user: string, moderator: string, guest: string}
+     */
+    public static function options(): array
+    {
+        $options = [];
+        foreach (self::cases() as $case) {
+            $options[$case->value] = $case->label();
+        }
+
+        return $options;
     }
 }

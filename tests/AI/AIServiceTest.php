@@ -7,7 +7,7 @@ namespace Tests\AI;
 use App\Services\AIService;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Comprehensive AIService Test Suite

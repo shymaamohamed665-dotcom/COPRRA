@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class AuthorizeTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_authorize_middleware_allows_authorized_requests(): void
     {
         $user = \Mockery::mock(User::class);

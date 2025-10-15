@@ -23,14 +23,13 @@ final class PasswordResetService
     /**
      * Send password reset email.
      */
-    public function sendResetEmail(string $email, ?string $ip = null): bool
+    public function sendResetEmail(string $email): bool
     {
         $user = User::where('email', $email)->first();
 
         if (! $user) {
             Log::warning('Password reset requested for non-existent email', [
                 'email' => $email,
-                'ip' => $ip,
             ]);
 
             return false;
@@ -82,14 +81,13 @@ final class PasswordResetService
     /**
      * Reset password with token.
      */
-    public function resetPassword(string $email, string $token, string $newPassword, ?string $ip = null): bool
+    public function resetPassword(string $email, string $token, string $newPassword): bool
     {
         // Validate token
         if (! $this->validateResetToken($email, $token)) {
             Log::warning('Invalid password reset token', [
                 'email' => $email,
                 'token' => $token,
-                'ip' => $ip,
             ]);
 
             return false;
@@ -112,7 +110,6 @@ final class PasswordResetService
         Log::info('Password reset successful', [
             'email' => $email,
             'user_id' => $user->id,
-            'ip' => $ip,
         ]);
 
         return true;
@@ -166,7 +163,9 @@ final class PasswordResetService
     /**
      * Get password reset statistics.
      *
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{token_expiry_minutes: 60, max_attempts: 3, expired_tokens_cleaned: int}
      */
     public function getStatistics(): array
     {

@@ -4,9 +4,6 @@ namespace Tests\Unit\DataAccuracy;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class OrderAccuracyTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

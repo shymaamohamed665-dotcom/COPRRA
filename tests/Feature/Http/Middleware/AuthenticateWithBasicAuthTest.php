@@ -2,7 +2,10 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 /**
@@ -10,56 +13,77 @@ use Tests\TestCase;
  */
 class AuthenticateWithBasicAuthTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_authenticate_with_basic_auth_middleware_handles_requests(): void
     {
-        $request = Request::create('/test', 'GET');
-        $request->headers->set('Authorization', 'Basic '.base64_encode('test@example.com:password123'));
+        // إنشاء مستخدم ببيانات اعتماد صحيحة
+        $user = User::factory()->create([
+            'email' => 'test@example.com',
+            'password' => Hash::make('password123'),
+        ]);
 
-        $middleware = new \App\Http\Middleware\AuthenticateWithBasicAuth;
+        $request = Request::create('/test', 'GET');
+        // اضبط بيانات اعتماد Basic Auth عبر ترويسات PHP_AUTH_*
+        $request->headers->set('PHP_AUTH_USER', 'test@example.com');
+        $request->headers->set('PHP_AUTH_PW', 'password123');
+
+        // اربط الطلب داخل الحاوية ليستخدمه الحارس أثناء basic auth
+        $this->app->instance('request', $request);
+
+        $middleware = $this->app->make(\App\Http\Middleware\AuthenticateWithBasicAuth::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
 
-        // Basic auth middleware typically returns 401 for invalid credentials
-        $this->assertEquals(401, $response->getStatusCode());
+        // يعتمد نجاح التوثيق على وجود المستخدم وبيانات الاعتماد الصحيحة
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
     public function test_authenticate_with_basic_auth_middleware_handles_invalid_credentials(): void
     {
         $request = Request::create('/test', 'GET');
-        $request->headers->set('Authorization', 'Basic '.base64_encode('test@example.com:wrongpassword'));
+        $request->headers->set('PHP_AUTH_USER', 'test@example.com');
+        $request->headers->set('PHP_AUTH_PW', 'wrongpassword');
 
-        $middleware = new \App\Http\Middleware\AuthenticateWithBasicAuth;
-        $response = $middleware->handle($request, function ($req) {
+        // اربط الطلب داخل الحاوية ليستخدمه الحارس أثناء basic auth
+        $this->app->instance('request', $request);
+
+        $middleware = $this->app->make(\App\Http\Middleware\AuthenticateWithBasicAuth::class);
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException::class);
+        $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
-
-        $this->assertEquals(401, $response->getStatusCode());
     }
 
     public function test_authenticate_with_basic_auth_middleware_handles_missing_authorization(): void
     {
         $request = Request::create('/test', 'GET');
 
-        $middleware = new \App\Http\Middleware\AuthenticateWithBasicAuth;
-        $response = $middleware->handle($request, function ($req) {
+        // اربط الطلب داخل الحاوية ليستخدمه الحارس أثناء basic auth
+        $this->app->instance('request', $request);
+
+        $middleware = $this->app->make(\App\Http\Middleware\AuthenticateWithBasicAuth::class);
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException::class);
+        $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
-
-        $this->assertEquals(401, $response->getStatusCode());
     }
 
     public function test_authenticate_with_basic_auth_middleware_handles_malformed_authorization(): void
     {
         $request = Request::create('/test', 'GET');
+        // إعداد ترويسة غير صحيحة (لن تُقرأ غالبًا بواسطة الحارس، وسيفشل التوثيق)
         $request->headers->set('Authorization', 'InvalidFormat');
 
-        $middleware = new \App\Http\Middleware\AuthenticateWithBasicAuth;
-        $response = $middleware->handle($request, function ($req) {
+        // اربط الطلب داخل الحاوية ليستخدمه الحارس أثناء basic auth
+        $this->app->instance('request', $request);
+
+        $middleware = $this->app->make(\App\Http\Middleware\AuthenticateWithBasicAuth::class);
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException::class);
+        $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
-
-        $this->assertEquals(401, $response->getStatusCode());
     }
 
     public function test_authenticate_with_basic_auth_middleware_handles_post_requests(): void
@@ -67,14 +91,17 @@ class AuthenticateWithBasicAuthTest extends TestCase
         $request = Request::create('/test', 'POST', [
             'name' => 'John Doe',
         ]);
-        $request->headers->set('Authorization', 'Basic '.base64_encode('test@example.com:password123'));
+        $request->headers->set('PHP_AUTH_USER', 'test@example.com');
+        $request->headers->set('PHP_AUTH_PW', 'password123');
 
-        $middleware = new \App\Http\Middleware\AuthenticateWithBasicAuth;
-        $response = $middleware->handle($request, function ($req) {
+        // اربط الطلب داخل الحاوية ليستخدمه الحارس أثناء basic auth
+        $this->app->instance('request', $request);
+
+        $middleware = $this->app->make(\App\Http\Middleware\AuthenticateWithBasicAuth::class);
+        $this->expectException(\Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException::class);
+
+        $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
-
-        // Basic auth middleware typically returns 401 for invalid credentials
-        $this->assertEquals(401, $response->getStatusCode());
     }
 }

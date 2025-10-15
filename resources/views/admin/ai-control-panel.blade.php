@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة تحكم الذكاء الاصطناعي</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" nonce="{{ $cspNonce ?? '' }}"></script>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <script>
+    <script nonce="{{ $cspNonce ?? '' }}">
         // تحقق من حالة النظام
         async function checkStatus() {
             try {

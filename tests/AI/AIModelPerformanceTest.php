@@ -3,13 +3,14 @@
 namespace Tests\AI;
 
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-class AIModelPerformanceTest extends AIBaseTestCase
+class AIModelPerformanceTest extends TestCase
 {
     #[Test]
     public function ai_model_response_time_is_acceptable(): void
     {
-        $aiService = new MockAIService();
+        $aiService = new MockAIService;
 
         $startTime = microtime(true);
         $response = $aiService->analyzeText('This is a test prompt.');
@@ -24,7 +25,7 @@ class AIModelPerformanceTest extends AIBaseTestCase
     #[Test]
     public function ai_model_handles_large_input(): void
     {
-        $aiService = new MockAIService();
+        $aiService = new MockAIService;
         $largeInput = str_repeat('This is a large input string. ', 1000);
 
         $response = $aiService->analyzeText($largeInput);
@@ -39,7 +40,7 @@ class AIModelPerformanceTest extends AIBaseTestCase
     #[Test]
     public function ai_model_memory_usage_is_reasonable(): void
     {
-        $aiService = new MockAIService();
+        $aiService = new MockAIService;
 
         $initialMemory = memory_get_usage();
         $aiService->analyzeText('This is a test for memory usage.');
@@ -53,7 +54,7 @@ class AIModelPerformanceTest extends AIBaseTestCase
     #[Test]
     public function ai_model_handles_concurrent_requests(): void
     {
-        $aiService = new MockAIService();
+        $aiService = new MockAIService;
 
         // This is a simplified simulation. For real-world scenarios, consider asynchronous testing.
         $responses = [];
@@ -70,7 +71,7 @@ class AIModelPerformanceTest extends AIBaseTestCase
     #[Test]
     public function ai_model_accuracy_remains_consistent(): void
     {
-        $aiService = new MockAIService();
+        $aiService = new MockAIService;
 
         $prompt = 'What is the capital of France?';
         $expectedResponse = 'Paris';

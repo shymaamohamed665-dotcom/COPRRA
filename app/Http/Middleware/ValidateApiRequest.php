@@ -87,7 +87,7 @@ class ValidateApiRequest
          *
          * @psalm-return array<int, string>|string
          */
-            static function ($value): array|string|array {
+            static function ($value): string|array {
                 if (is_array($value)) {
                     return array_map(strval(...), $value);
                 }

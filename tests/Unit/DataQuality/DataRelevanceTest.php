@@ -4,9 +4,6 @@ namespace Tests\Unit\DataQuality;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataRelevanceTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

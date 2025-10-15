@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Security;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 /**
@@ -9,6 +10,8 @@ use Tests\TestCase;
  */
 class SecurityTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_basic_functionality(): void
     {

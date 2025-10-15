@@ -41,15 +41,16 @@ return [
     |
     */
 
-    'cdn_url' => env('CDN_URL', 'https://coprra.com.cdn.hstgr.net'),
+    'cdn_url' => env('CDN_URL'),
 
     /*
     |--------------------------------------------------------------------------
-    | PHP Configuration
+    | PHP Configuration (Informational)
     |--------------------------------------------------------------------------
     |
-    | These values are optimized for Hostinger hosting environment.
-    | Based on the current PHP configuration in Hostinger.
+    | These keys are documentation-only to reflect preferred PHP limits for
+    | certain hosting environments. They are NOT applied to the PHP engine.
+    | Engine-level configuration must be set in `php.ini` (Docker/dev-docker).
     |
     */
 
@@ -170,7 +171,22 @@ return [
 
     'faker_locale' => 'en_US',
 
-    'asset_url' => env('ASSET_URL'),
+    // Prefer ASSET_URL; fall back to CDN_URL when set. When neither is set,
+    // Laravel serves assets relative to APP_URL.
+    'asset_url' => env('ASSET_URL', env('CDN_URL')),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Trusted Proxies
+    |--------------------------------------------------------------------------
+    |
+    | Configure trusted proxies for the application. Accepts a comma-separated
+    | string or an array of IP addresses/CIDR. Using env() here is safe because
+    | configuration is cached via `php artisan config:cache`.
+    |
+    */
+
+    'trust_proxies' => env('TRUSTED_PROXIES'),
 
     /*
     |--------------------------------------------------------------------------

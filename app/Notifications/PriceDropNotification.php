@@ -23,7 +23,9 @@ class PriceDropNotification extends Notification implements ShouldQueue
     ) {}
 
     /**
-     * @return array<string, int|float>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{product_id: int, old_price: float, new_price: float, target_price: float}
      */
     public function toArray(): array
     {
@@ -33,5 +35,16 @@ class PriceDropNotification extends Notification implements ShouldQueue
             'new_price' => $this->newPrice,
             'target_price' => $this->targetPrice,
         ];
+    }
+
+    /**
+     * Determine notification delivery channels.
+     *
+     * @return string[]
+     */
+    public function via($notifiable): array
+    {
+        // Use database channel for testing; Notification::fake intercepts delivery
+        return ['database'];
     }
 }

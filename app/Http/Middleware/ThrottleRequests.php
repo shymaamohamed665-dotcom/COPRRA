@@ -33,7 +33,7 @@ class ThrottleRequests
         return $response;
     }
 
-    private function handleThrottling(Request $request): \Illuminate\Http\JsonResponse|null
+    private function handleThrottling(Request $request): ?\Illuminate\Http\JsonResponse
     {
         $key = $request->ip();
         $maxAttempts = 60;

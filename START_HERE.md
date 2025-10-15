@@ -244,8 +244,9 @@ npm run build
 ## 🆘 تحتاج مساعدة؟
 
 ### الوثائق:
-- [QUICK_START.md](QUICK_START.md) - للبدء
-- [README.md](README.md) - نظرة عامة
+- ابدأ بـ `QUICK_START.md` للتهيئة السريعة، ثم راجع `README.md` للسياق الكامل.
+- استخدم `DOCUMENTATION_INDEX.md` كدليل شامل للتنقل بين جميع الملفات التوثيقية.
+- راجع المراجع المعمارية: `docs/COPRRA.md` و`docs/COPRRA_STRUCTURE.md` و`CLAUDE.md`.
 - [API_DOCUMENTATION.md](API_DOCUMENTATION.md) - API
 - [DEPLOYMENT.md](DEPLOYMENT.md) - النشر
 

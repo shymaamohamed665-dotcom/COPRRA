@@ -6,22 +6,21 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Repositories\ProductRepository;
+use App\Services\Contracts\CacheServiceContract;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-final class ProductService
+class ProductService
 {
     public function __construct(
         private readonly ProductRepository $repository,
-        private readonly CacheService $cache
+        private readonly CacheServiceContract $cache
     ) {}
 
     /**
      * Get paginated active products.
-     *
-     * @return \Illuminate\Pagination\LengthAwarePaginator<int, \App\Models\Product>
      */
-    public function getPaginatedProducts(int $perPage = 15): \Illuminate\Pagination\LengthAwarePaginator
+    public function getPaginatedProducts(int $perPage = 15): LengthAwarePaginator
     {
         $page = request()->get('page', 1);
         $pageNumber = is_numeric($page) ? (int) $page : 1;
@@ -29,6 +28,9 @@ final class ProductService
         $result = $this->cache->remember(
             'products.page.'.$pageNumber,
             3600,
+            /**
+             * @psalm-return \Illuminate\Pagination\LengthAwarePaginator<int, \App\Models\Product>
+             */
             fn (): \Illuminate\Pagination\LengthAwarePaginator => $this->repository->getPaginatedActive($perPage),
             ['products']
         );
@@ -73,7 +75,10 @@ final class ProductService
         $result = $this->cache->remember(
             'product.related.'.$product->id,
             3600,
-            fn (): Collection => $this->repository->getRelated($product, $limit),
+            /**
+             * @psalm-return \Illuminate\Database\Eloquent\Collection<int, \App\Models\Product>
+             */
+            fn (): \Illuminate\Database\Eloquent\Collection => $this->repository->getRelated($product, $limit),
             ['products']
         );
 

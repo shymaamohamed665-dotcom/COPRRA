@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class TrendingProductTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_identifies_trending_products(): void
     {
         $products = [
@@ -28,7 +23,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_trending_score(): void
     {
         $product = [
@@ -46,7 +40,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_rising_trends(): void
     {
         $products = [
@@ -61,7 +54,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_falling_trends(): void
     {
         $products = [
@@ -76,7 +68,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_seasonal_trends(): void
     {
         $products = [
@@ -91,7 +82,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_category_trends(): void
     {
         $products = [
@@ -107,7 +97,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_brand_trends(): void
     {
         $products = [
@@ -123,7 +112,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_price_range_trends(): void
     {
         $products = [
@@ -139,7 +127,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_time_based_trends(): void
     {
         $products = [
@@ -154,7 +141,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_geographic_trends(): void
     {
         $products = [
@@ -170,7 +156,6 @@ class TrendingProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_demographic_trends(): void
     {
         $products = [

@@ -14,7 +14,7 @@ final class AgentFixerFactory
         private readonly OutputStyle $output
     ) {}
 
-    public function create(string $type): AgentFixerInterface
+    public function create(string $type): StyleFixer|AnalysisFixer
     {
         return match ($type) {
             'style' => new StyleFixer($this->processService, $this->output),

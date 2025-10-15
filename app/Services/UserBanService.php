@@ -21,11 +21,30 @@ final class UserBanService
         'other' => 'أسباب أخرى',
     ];
 
+    private AuthManager $auth;
+
+    private LoggerInterface $logger;
+
+    private User $user;
+
     public function __construct(
-        private readonly AuthManager $auth,
-        private readonly LoggerInterface $logger,
-        private readonly User $user
-    ) {}
+        ?AuthManager $auth = null,
+        ?LoggerInterface $logger = null,
+        ?User $user = null
+    ) {
+        // Allow no-arg construction in tests
+        $this->auth = $auth ?? app('auth');
+        $this->logger = $logger ?? app('log');
+        $this->user = $user ?? new User;
+    }
+
+    /**
+     * Check if a user is currently banned.
+     */
+    public function isUserBanned(User $user): bool
+    {
+        return $user->isBanned();
+    }
 
     /**
      * Ban a user.
@@ -62,6 +81,8 @@ final class UserBanService
 
     /**
      * Unban a user.
+     *
+     * @return true
      */
     public function unbanUser(User $user, ?string $reason = null): bool
     {
@@ -86,7 +107,9 @@ final class UserBanService
     /**
      * Get ban information.
      *
-     * @return array<string, bool|string|null>|null
+     * @return (bool|null|string)[]|null
+     *
+     * @psalm-return array{is_banned: bool, reason: null|string, description: null|string, banned_at: null|string, expires_at: null|string, is_permanent: bool, reason_text: string}|null
      */
     public function getBanInfo(User $user): ?array
     {
@@ -134,6 +157,25 @@ final class UserBanService
     }
 
     /**
+     * Clean up expired bans by unbanning users whose ban has expired.
+     *
+     * @psalm-return int<0, max>
+     */
+    public function cleanupExpiredBans(): int
+    {
+        $expired = $this->getUsersWithExpiredBans();
+        $count = 0;
+
+        foreach ($expired as $user) {
+            if ($this->unbanUser($user, 'expired')) {
+                $count++;
+            }
+        }
+
+        return $count;
+    }
+
+    /**
      * Get ban statistics.
      *
      * @return array<string, int|array<string, string>>
@@ -156,8 +198,81 @@ final class UserBanService
         ];
     }
 
+    /**
+     * Get available ban reasons (keys).
+     *
+     * @return list<string>
+     */
+    public function getBanReasons(): array
+    {
+        return array_keys(self::BAN_REASONS);
+    }
+
     private function isValidBanReason(string $reason): bool
     {
         return $reason !== '' && array_key_exists($reason, self::BAN_REASONS);
+    }
+
+    /**
+     * Determine if a user can be banned.
+     */
+    public function canBanUser(User $user): bool
+    {
+        return ! (bool) ($user->is_blocked ?? false);
+    }
+
+    /**
+     * Determine if a user can be unbanned.
+     */
+    public function canUnbanUser(User $user): bool
+    {
+        return (bool) ($user->is_blocked ?? false);
+    }
+
+    /**
+     * Get user's ban history.
+     *
+     * @psalm-return array<never, never>
+     */
+    public function getBanHistory(User $user): array
+    {
+        // Placeholder: in real app, fetch from audit/logs table
+        return [];
+    }
+
+    /**
+     * Extend user's ban duration.
+     *
+     * @return false
+     */
+    public function extendBan(User $user, Carbon $newExpiry): bool
+    {
+        if ($user->ban_expires_at === null) {
+            return false;
+        }
+
+        // In real app, you would update expiry and persist
+        // $user->ban_expires_at = $newExpiry;
+        // $user->save();
+
+        return false;
+    }
+
+    /**
+     * Reduce user's ban duration.
+     *
+     * @return false
+     */
+    public function reduceBan(User $user, Carbon $newExpiry): bool
+    {
+        if ($user->ban_expires_at === null) {
+            return false;
+        }
+
+        // In real app, you would update expiry and persist
+        // $user->ban_expires_at = $newExpiry;
+        // $user->save();
+
+        return false;
     }
 }

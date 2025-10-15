@@ -78,7 +78,9 @@ final class StrictQualityAgent
     /**
      * Auto-fix issues when possible.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{formatting?: 'تم إصلاح تنسيق الكود', dependencies?: 'تم إصلاح التبعيات', caches: 'تم مسح الذاكرة المؤقتة'}
      */
     public function autoFixIssues(): array
     {
@@ -290,7 +292,9 @@ final class StrictQualityAgent
     /**
      * Execute file-based stage (like syntax check).
      *
-     * @return array{success: bool, output: string, errors: list<string>}
+     * @return (bool|string|string[])[]
+     *
+     * @psalm-return array{success: bool, output: 'تم العثور على أخطاء'|'جميع الملفات صحيحة', errors: list<string>}
      */
     private function executeFileBasedStage(Stage $stage): array
     {
@@ -327,7 +331,9 @@ final class StrictQualityAgent
     /**
      * Execute command-based stage.
      *
-     * @return array{success: bool, output: string, errors: list<string>}
+     * @return (bool|string|string[])[]
+     *
+     * @psalm-return array{success: bool, output: string, errors: list{0?: string}}
      */
     private function executeCommandStage(Stage $stage): array
     {

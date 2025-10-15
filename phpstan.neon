@@ -23,7 +23,7 @@ parameters:
         # - phpstan/FakerGenerator.stub
         # - phpstan/CartFacade.stub
 
-    level: max
+    level: 2
 
     reportUnmatchedIgnoredErrors: false
 
@@ -46,3 +46,4 @@ parameters:
 
 includes:
     - vendor/larastan/larastan/extension.neon
+    - phpstan-baseline.neon

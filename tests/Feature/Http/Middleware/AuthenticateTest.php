@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class AuthenticateTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected function setUp(): void
     {
         parent::setUp();

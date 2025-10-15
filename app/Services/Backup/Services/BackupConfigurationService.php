@@ -120,6 +120,8 @@ final class BackupConfigurationService
 
     /**
      * Get directory size.
+     *
+     * @psalm-return int<min, max>
      */
     private function getDirectorySize(string $dir): int
     {

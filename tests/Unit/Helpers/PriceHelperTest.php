@@ -4,9 +4,6 @@ namespace Tests\Unit\Helpers;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class PriceHelperTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

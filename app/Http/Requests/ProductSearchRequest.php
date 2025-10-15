@@ -10,6 +10,8 @@ class ProductSearchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return true
      */
     public function authorize(): bool
     {
@@ -19,7 +21,9 @@ class ProductSearchRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{q: list{'required', 'string', 'min:2', 'max:255'}, category_id: list{'nullable', 'integer', 'exists:categories,id'}, brand_id: list{'nullable', 'integer', 'exists:brands,id'}, min_price: list{'nullable', 'numeric', 'min:0', 'max:999999.99'}, max_price: list{'nullable', 'numeric', 'min:0', 'max:999999.99', 'gte:min_price'}, sort: list{'nullable', 'string', 'in:name,price,created_at,updated_at,popularity'}, order: list{'nullable', 'string', 'in:asc,desc'}, page: list{'nullable', 'integer', 'min:1', 'max:1000'}, per_page: list{'nullable', 'integer', 'min:1', 'max:100'}, tags: list{'nullable', 'array', 'max:10'}, 'tags.*': list{'string', 'max:50'}, in_stock: list{'nullable', 'boolean'}, featured: list{'nullable', 'boolean'}}
      */
     public function rules(): array
     {
@@ -38,8 +42,11 @@ class ProductSearchRequest extends FormRequest
     /**
      * Get custom messages for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{'q.required': 'كلمة البحث مطلوبة', 'q.min': 'كلمة البحث يجب أن تكون على الأقل حرفين', 'q.max': 'كلمة البحث لا يمكن أن تتجاوز 255 حرف', 'category_id.exists': 'فئة المنتج المحددة غير موجودة', 'brand_id.exists': 'علامة المنتج التجارية المحددة غير موجودة', 'min_price.numeric': 'الحد الأدنى للسعر يجب أن يكون رقماً', 'min_price.min': 'الحد الأدنى للسعر لا يمكن أن يكون سالباً', 'max_price.numeric': 'الحد الأقصى للسعر يجب أن يكون رقماً', 'max_price.min': 'الحد الأقصى للسعر لا يمكن أن يكون سالباً', 'max_price.gte': 'الحد الأقصى للسعر يجب أن يكون أكبر من أو يساوي الحد الأدنى', 'sort.in': 'نوع الترتيب غير صحيح', 'order.in': 'اتجاه الترتيب غير صحيح', 'page.min': 'رقم الصفحة يجب أن يكون أكبر من 0', 'page.max': 'رقم الصفحة لا يمكن أن يتجاوز 1000', 'per_page.min': 'عدد العناصر في الصفحة يجب أن يكون أكبر من 0', 'per_page.max': 'عدد العناصر في الصفحة لا يمكن أن يتجاوز 100', 'tags.max': 'يمكن البحث بـ 10 علامات كحد أقصى', 'tags.*.max': 'العلامة لا يمكن أن تتجاوز 50 حرف'}
      */
+    #[\Override]
     public function messages(): array
     {
         return [
@@ -67,8 +74,11 @@ class ProductSearchRequest extends FormRequest
     /**
      * Get custom attributes for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{q: 'كلمة البحث', category_id: 'فئة المنتج', brand_id: 'علامة المنتج التجارية', min_price: 'الحد الأدنى للسعر', max_price: 'الحد الأقصى للسعر', sort: 'نوع الترتيب', order: 'اتجاه الترتيب', page: 'رقم الصفحة', per_page: 'عدد العناصر في الصفحة', tags: 'العلامات', in_stock: 'متوفر في المخزون', featured: 'منتج مميز'}
      */
+    #[\Override]
     public function attributes(): array
     {
         return [
@@ -119,7 +129,9 @@ class ProductSearchRequest extends FormRequest
     /**
      * Get pagination parameters.
      *
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{page: int, per_page: int}
      */
     public function getPagination(): array
     {
@@ -159,7 +171,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{q: string}
      */
     private function mergeQueryForValidation(): array
     {
@@ -169,7 +183,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{tags: array<int, string>}
      */
     private function mergeTagsForValidation(): array
     {
@@ -205,7 +221,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{category_id: list{'nullable', 'integer', 'exists:categories,id'}}
      */
     private function getCategoryIdRules(): array
     {
@@ -219,7 +237,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{q: list{'required', 'string', 'min:2', 'max:255'}}
      */
     private function getQueryRules(): array
     {
@@ -234,7 +254,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{brand_id: list{'nullable', 'integer', 'exists:brands,id'}}
      */
     private function getBrandIdRules(): array
     {
@@ -248,7 +270,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{min_price: list{'nullable', 'numeric', 'min:0', 'max:999999.99'}, max_price: list{'nullable', 'numeric', 'min:0', 'max:999999.99', 'gte:min_price'}}
      */
     private function getPriceRules(): array
     {
@@ -270,7 +294,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{sort: list{'nullable', 'string', 'in:name,price,created_at,updated_at,popularity'}, order: list{'nullable', 'string', 'in:asc,desc'}}
      */
     private function getSortingRules(): array
     {
@@ -289,7 +315,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{page: list{'nullable', 'integer', 'min:1', 'max:1000'}, per_page: list{'nullable', 'integer', 'min:1', 'max:100'}}
      */
     private function getPaginationRules(): array
     {
@@ -310,7 +338,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{tags: list{'nullable', 'array', 'max:10'}, 'tags.*': list{'string', 'max:50'}}
      */
     private function getTagsRules(): array
     {
@@ -328,7 +358,9 @@ class ProductSearchRequest extends FormRequest
     }
 
     /**
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{in_stock: list{'nullable', 'boolean'}, featured: list{'nullable', 'boolean'}}
      */
     private function getStatusRules(): array
     {

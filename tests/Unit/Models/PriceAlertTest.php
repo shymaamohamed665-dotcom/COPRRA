@@ -15,10 +15,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\PriceAlert
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class PriceAlertTest extends TestCase
 {
     /**

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class ValidatePostSizeTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_validate_post_size_middleware_allows_valid_post_size(): void
     {
         $request = Request::create('/test', 'POST', [

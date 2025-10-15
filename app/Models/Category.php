@@ -43,10 +43,7 @@ class Category extends ValidatableModel
      */
     protected static $factory = \Database\Factories\CategoryFactory::class;
 
-    /**
-     * Validation errors.
-     */
-    protected ?\Illuminate\Support\MessageBag $errors = null;
+    // Use $errors from ValidatableModel (MessageBag). Do not redeclare here.
 
     /**
      * @var array<int, string>
@@ -73,7 +70,7 @@ class Category extends ValidatableModel
      *
      * @var array<string, string>
      */
-    protected $rules = [
+    protected array $rules = [
         'name' => 'required|string|max:255',
         'slug' => 'nullable|string|max:255|unique:categories,slug',
         'description' => 'nullable|string|max:1000',
@@ -112,9 +109,25 @@ class Category extends ValidatableModel
         return $this->hasMany(self::class, 'parent_id');
     }
 
+    // --- Scopes ---
+
     /**
-     * Get validation rules for the model.
+     * @param  \Illuminate\Database\Eloquent\Builder<Category>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Category>
      */
+    public function scopeActive(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withTrashed()->where('is_active', true);
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Category>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Category>
+     */
+    public function scopeSearch(\Illuminate\Database\Eloquent\Builder $query, string $searchTerm): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withTrashed()->where('name', 'like', "%{$searchTerm}%");
+    }
 
     /**
      * Boot the model.
@@ -124,23 +137,38 @@ class Category extends ValidatableModel
     {
         parent::boot();
 
-        static::creating(static fn (Category $category): bool => $category->handleCreatingEvent());
+        static::creating(/**
+         * @return true
+         */
+            static fn (Category $category): bool => $category->handleCreatingEvent());
 
-        static::updating(static fn (Category $category): bool => $category->handleUpdatingEvent());
+        static::updating(/**
+         * @return true
+         */
+            static fn (Category $category): bool => $category->handleUpdatingEvent());
     }
 
+    /**
+     * @return true
+     */
     private function handleCreatingEvent(): bool
     {
         $this->generateSlug();
-        $this->calculateLevel();
+        // Respect explicitly provided level when no parent is set
+        if ($this->parent_id !== null || $this->level === null) {
+            $this->calculateLevel();
+        }
 
         return true;
     }
 
+    /**
+     * @return true
+     */
     private function handleUpdatingEvent(): bool
     {
         if ($this->isDirty('name')) {
-            $this->generateSlug();
+            $this->slug = \Str::slug($this->name);
         }
 
         if ($this->isDirty('parent_id')) {
@@ -159,10 +187,46 @@ class Category extends ValidatableModel
 
     private function calculateLevel(): void
     {
-        if ($this->level === null || $this->level === 0) {
+        // Recalculate level based on parent when applicable
+        if ($this->parent_id !== null) {
             $this->load('parent');
             $parent = $this->parent;
             $this->level = $parent ? $parent->level + 1 : 0;
+
+            return;
         }
+
+        // No parent: set default only if not explicitly provided
+        if ($this->level === null) {
+            $this->level = 0;
+        }
+    }
+
+    /**
+     * Validate the category instance against its rules.
+     */
+    public function validate(): bool
+    {
+        $validator = \Illuminate\Support\Facades\Validator::make($this->getAttributes(), $this->rules);
+
+        if ($validator->fails()) {
+            $this->errors = $validator->errors();
+
+            return false;
+        }
+
+        $this->errors = new \Illuminate\Support\MessageBag;
+
+        return true;
+    }
+
+    /**
+     * Get validation errors.
+     *
+     * @return array<string, array<int, string>>
+     */
+    public function getErrors(): array
+    {
+        return $this->errors ? $this->errors->toArray() : [];
     }
 }

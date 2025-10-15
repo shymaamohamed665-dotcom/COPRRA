@@ -16,6 +16,7 @@ class LogProcessingServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
+    #[\Override]
     public function register(): void
     {
         $this->app->singleton(LogFileReader::class);

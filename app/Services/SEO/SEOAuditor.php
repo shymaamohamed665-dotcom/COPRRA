@@ -23,7 +23,9 @@ final class SEOAuditor
     /**
      * Get the model map for auditing.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{'App\\Models\\Product'::class: 'Products', 'App\\Models\\Category'::class: 'Categories', 'App\\Models\\Store'::class: 'Stores'}
      */
     public function getModelMap(): array
     {
@@ -57,7 +59,7 @@ final class SEOAuditor
         return new SEOAuditResult(
             model: $model,
             metaData: $metaData,
-            issues: $issues ?? []
+            issues: $issues
         );
     }
 
@@ -75,9 +77,11 @@ final class SEOAuditor
      * Validate metadata for SEO issues.
      *
      * @param  array<string, string>  $metaData
-     * @return array<int, string>|null
+     * @return string[]
+     *
+     * @psalm-return array<int, string>
      */
-    private function validateModelMetaData(array $metaData): ?array
+    private function validateModelMetaData(array $metaData): array
     {
         return $this->seoService->validateMetaData($metaData);
     }

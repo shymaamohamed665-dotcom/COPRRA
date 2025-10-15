@@ -6,6 +6,17 @@ echo "🚀 Running enhanced pre-commit checks..."
 # Create reports directory if it doesn't exist
 mkdir -p reports
 
+# Check if vendor directory exists
+if [ ! -d "vendor" ]; then
+    echo "⚠️  WARNING: vendor directory not found!"
+    echo "📦 Installing dependencies with composer..."
+    composer install --no-interaction --prefer-dist --optimize-autoloader
+    if [ $? -ne 0 ]; then
+        echo "❌ Failed to install composer dependencies. Skipping PHP checks."
+        echo "💡 Please run 'composer install' manually."
+    fi
+fi
+
 # Variable to track if any check fails
 ANY_CHECK_FAILED=0
 

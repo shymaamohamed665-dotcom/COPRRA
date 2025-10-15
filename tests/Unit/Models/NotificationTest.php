@@ -15,10 +15,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Notification
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class NotificationTest extends TestCase
 {
     /**

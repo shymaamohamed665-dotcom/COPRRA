@@ -17,7 +17,9 @@ class ReviewFactory extends Factory
     protected $model = Review::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (ProductFactory|UserFactory|array|bool|int|string)[]
+     *
+     * @psalm-return array{user_id: UserFactory, product_id: ProductFactory, title: string, content: string, rating: int, is_verified_purchase: bool, is_approved: true, helpful_votes: array<never, never>, helpful_count: int}
      */
     #[\Override]
     public function definition(): array

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\DatabaseManager;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor, UnusedClass
@@ -27,6 +26,14 @@ final class OptimizeDatabase extends Command
      */
     protected $description = 'Optimize database performance by adding indexes and analyzing tables';
 
+    private DatabaseManager $database;
+
+    public function __construct(DatabaseManager $database)
+    {
+        parent::__construct();
+        $this->database = $database;
+    }
+
     public function handle(): int
     {
         $this->info('Starting database optimization...');
@@ -34,7 +41,7 @@ final class OptimizeDatabase extends Command
         $this->addIndexes();
         $this->analyzeAndOptimizeTables();
 
-        Artisan::call('cache:clear');
+        $this->call('cache:clear');
 
         $this->info('Database optimization completed!');
 
@@ -60,10 +67,10 @@ final class OptimizeDatabase extends Command
 
         foreach ($indexes as $index) {
             try {
-                DB::statement($index);
+                $this->database->statement($index);
                 $this->line('✓ Added index: '.substr($index, 0, 50).'...');
-            } catch (\Exception $e) {
-                $this->warn('⚠ Index may already exist: '.$e->getMessage());
+            } catch (\Throwable $exception) {
+                $this->warn('⚠ Index may already exist: '.$exception->getMessage());
             }
         }
     }
@@ -75,18 +82,20 @@ final class OptimizeDatabase extends Command
 
         foreach ($tables as $table) {
             try {
-                DB::statement("ANALYZE TABLE {$table}");
+                $this->database->statement("ANALYZE TABLE {$table}");
                 $this->line("✓ Analyzed table: {$table}");
-                DB::statement("OPTIMIZE TABLE {$table}");
+                $this->database->statement("OPTIMIZE TABLE {$table}");
                 $this->line("✓ Optimized table: {$table}");
-            } catch (\Exception $e) {
-                $this->warn("⚠ Failed to analyze or optimize {$table}: ".$e->getMessage());
+            } catch (\Throwable $exception) {
+                $this->warn("⚠ Failed to analyze or optimize {$table}: ".$exception->getMessage());
             }
         }
     }
 
     /**
-     * @return array<int, string>
+     * @return string[]
+     *
+     * @psalm-return list{'products', 'orders', 'order_items', 'users', 'user_behaviors', 'user_points', 'payments'}
      */
     private function getTables(): array
     {

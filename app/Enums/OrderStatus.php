@@ -20,6 +20,7 @@ enum OrderStatus: string
     /**
      * Get the display name for the status.
      */
+    #[\Override]
     public function label(): string
     {
         return match ($this) {
@@ -35,6 +36,7 @@ enum OrderStatus: string
     /**
      * Get the color for the status (for UI).
      */
+    #[\Override]
     public function color(): string
     {
         return match ($this) {
@@ -50,8 +52,11 @@ enum OrderStatus: string
     /**
      * Get allowed status transitions.
      *
-     * @return array<int, self>
+     * @return (App\Enums\OrderStatus::CANCELLED|App\Enums\OrderStatus::DELIVERED|App\Enums\OrderStatus::PROCESSING|App\Enums\OrderStatus::SHIPPED)[]
+     *
+     * @psalm-return list{0?: App\Enums\OrderStatus::DELIVERED|App\Enums\OrderStatus::PROCESSING|App\Enums\OrderStatus::SHIPPED, 1?: App\Enums\OrderStatus::CANCELLED}
      */
+    #[\Override]
     public function allowedTransitions(): array
     {
         return match ($this) {
@@ -66,7 +71,10 @@ enum OrderStatus: string
 
     /**
      * Check if status can transition to target status.
+     *
+     * @return false
      */
+    #[\Override]
     public function canTransitionTo(self $targetStatus): bool
     {
         return in_array($targetStatus, $this->allowedTransitions(), true);
@@ -75,8 +83,10 @@ enum OrderStatus: string
     /**
      * Get permissions for the status (not applicable for order statuses).
      *
-     * @return array<string, string>
+     *
+     * @psalm-return array<never, never>
      */
+    #[\Override]
     public function permissions(): array
     {
         return [];
@@ -84,7 +94,13 @@ enum OrderStatus: string
 
     /**
      * Check if status has a specific permission (not applicable for order statuses).
+     *
+     * @return false
      */
+    /**
+     * @SuppressWarnings("UnusedFormalParameter")
+     */
+    #[\Override]
     public function hasPermission(string $permission): bool
     {
         return false;
@@ -92,9 +108,29 @@ enum OrderStatus: string
 
     /**
      * Check if status is admin (not applicable for order statuses).
+     *
+     * @return false
      */
+    #[\Override]
     public function isAdmin(): bool
     {
         return false;
+    }
+
+    /**
+     * Get associative array of value => label pairs for options.
+     *
+     * @return string[]
+     *
+     * @psalm-return array{pending: string, processing: string, shipped: string, delivered: string, cancelled: string, refunded: string}
+     */
+    public static function options(): array
+    {
+        $options = [];
+        foreach (self::cases() as $case) {
+            $options[$case->value] = $case->label();
+        }
+
+        return $options;
     }
 }

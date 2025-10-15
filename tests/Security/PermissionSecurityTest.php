@@ -4,9 +4,6 @@ namespace Tests\Security;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class PermissionSecurityTest extends TestCase
 {
     public function test_permission_security(): void

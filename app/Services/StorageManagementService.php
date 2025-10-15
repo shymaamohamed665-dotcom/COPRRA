@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\DataObjects\StorageBreakdown;
+use App\DataObjects\StorageStatistics;
 use App\DataObjects\StorageUsage;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Contracts\Log\Logger;
+use Illuminate\Support\Facades\Log;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -36,8 +38,6 @@ final class StorageManagementService
 
     /**
      * Monitor storage usage.
-     *
-     * @return array<string, array{size_mb: float, size_bytes: int, path: string}>
      */
     public function monitorStorageUsage(): StorageUsage
     {
@@ -66,7 +66,7 @@ final class StorageManagementService
     /**
      * Get storage breakdown by directory.
      *
-     * @return array<string, StorageBreakdown>}
+     * @return array<string, StorageBreakdown>
      */
     public function getStorageBreakdown(): array
     {
@@ -85,20 +85,6 @@ final class StorageManagementService
         }
 
         return $breakdown;
-    }
-
-    private function getBreakdownDirectories(): array
-    {
-        return [
-            'logs' => storage_path('logs'),
-            'cache' => storage_path('framework/cache'),
-            'sessions' => storage_path('framework/sessions'),
-            'views' => storage_path('framework/views'),
-            'temp' => storage_path('app/temp'),
-            'backups' => storage_path('backups'),
-            'uploads' => storage_path('app/public/uploads'),
-            'other' => storage_path('app'),
-        ];
     }
 
     /**
@@ -134,7 +120,7 @@ final class StorageManagementService
     private function performAndReportCleanup(StorageUsage $usage): array
     {
         $usageBefore = $usage->toArray();
-        $cleanupResults = $this->performCleanup();
+        $cleanupResults = $this->performCleanup($this->config['cleanup_priority'] ?? []);
         $usageAfter = $this->monitorStorageUsage()->toArray();
 
         return [
@@ -292,7 +278,7 @@ final class StorageManagementService
     {
         $usage = $this->monitorStorageUsage();
         /** @var array<string, StorageBreakdown> $breakdown */
-        $breakdown = $usage->breakdown;
+        $breakdown = $this->getStorageBreakdown();
 
         $fileStats = $this->getFileStats($breakdown);
 
@@ -315,188 +301,133 @@ final class StorageManagementService
     }
 
     /**
-     * @param  array<string, mixed>  $breakdown
-     * @return array{total_files: int, oldest_file: ?string, newest_file: ?string}
+     * Build monitoring result as a structured data object.
      */
-    private function getFileStats(?array $breakdown): array
+    private function buildMonitoringResult(int $totalSize, int $maxSize, float $usagePercentage, string $status): StorageUsage
     {
-        $totalFiles = 0;
-        $oldestFile = null;
-        $newestFile = null;
-
-        if (is_array($breakdown)) {
-            foreach ($breakdown as $data) {
-                $this->processDirectoryStats($data, $totalFiles, $oldestFile, $newestFile);
+        $breakdown = [];
+        foreach ($this->getBreakdownDirectories() as $name => $path) {
+            if (! is_string($name) || ! is_string($path)) {
+                continue;
             }
+            if (! is_dir($path)) {
+                continue;
+            }
+
+            $size = $this->getDirectorySize($path);
+            $breakdown[$name] = [
+                'size_mb' => round($size / 1024 / 1024, 2),
+                'size_bytes' => $size,
+                'path' => $path,
+            ];
         }
 
-        return [
-            'total_files' => $totalFiles,
-            'oldest_file' => $oldestFile ? date('Y-m-d H:i:s', $oldestFile) : null,
-            'newest_file' => $newestFile ? date('Y-m-d H:i:s', $newestFile) : null,
+        return new StorageUsage(
+            currentSizeMb: round($totalSize / 1024 / 1024, 2),
+            maxSizeMb: round($maxSize / 1024 / 1024, 2),
+            usagePercentage: round($usagePercentage, 2),
+            status: $status,
+            needsCleanup: $totalSize > $maxSize,
+            breakdown: $breakdown,
+        );
+    }
+
+    /**
+     * Return maximum allowed storage size in bytes from config.
+     */
+    private function getMaxStorageSize(): int
+    {
+        $maxMb = (float) ($this->config['max_storage_size_mb'] ?? 1024.0);
+
+        return (int) round($maxMb * 1024 * 1024);
+    }
+
+    /**
+     * Determine if a cleanup should be performed based on usage and config.
+     */
+    private function isCleanupNeeded(StorageUsage $usage): bool
+    {
+        if (! ($this->config['auto_cleanup'] ?? true)) {
+            return false;
+        }
+
+        return $usage->needsCleanup || $usage->status !== 'healthy';
+    }
+
+    /**
+     * Execute compression across selected directories.
+     *
+     * @return array{files_compressed: int, space_saved_mb: float}
+     */
+    private function executeCompression(): array
+    {
+        $targets = [
+            'logs' => storage_path('logs'),
+            'temp' => storage_path('app/temp'),
         ];
-    }
 
-    /**
-     * @param  array<string, mixed>  $data
-     */
-    private function processDirectoryStats(array $data, int &$totalFiles, ?int &$oldestFile, ?int &$newestFile): void
-    {
-        if (! is_array($data) || ! isset($data['path']) || ! is_string($data['path'])) {
-            return;
-        }
+        $total = ['files_compressed' => 0, 'space_saved_mb' => 0.0];
 
-        $files = $this->getFilesInDirectory($data['path']);
-        $totalFiles += count($files);
-
-        $this->updateFileTimeStats($files, $oldestFile, $newestFile);
-    }
-
-    /**
-     * @param  list<string>  $files
-     */
-    private function updateFileTimeStats(array $files, ?int &$oldestFile, ?int &$newestFile): void
-    {
-        foreach ($files as $file) {
-            if (! is_string($file)) {
+        foreach ($targets as $path) {
+            if (! is_dir($path)) {
                 continue;
             }
-            $fileTime = filemtime($file);
-            if ($fileTime === false) {
-                continue;
-            }
-
-            $this->updateMinMaxFileTime($fileTime, $oldestFile, $newestFile);
+            $result = $this->compressFilesInDirectory($path);
+            $total['files_compressed'] += $result['files_compressed'];
+            $total['space_saved_mb'] += $result['space_saved_mb'];
         }
+
+        return $total;
     }
 
     /**
-     * @param-out int $oldestFile
-     * @param-out int $newestFile
-     */
-    private function updateMinMaxFileTime(int $fileTime, ?int &$oldestFile, ?int &$newestFile): void
-    {
-        if ($oldestFile === null || $fileTime < $oldestFile) {
-            $oldestFile = $fileTime;
-        }
-
-        if ($newestFile === null || $fileTime > $newestFile) {
-            $newestFile = $fileTime;
-        }
-    }
-
-    /**
+     * Execute archival across selected directories.
+     *
      * @return array{files_archived: int, archives_created: int, space_saved_mb: float}
      */
-    private function createArchiveAndGetResult(string $directory, string $name): array
+    private function executeArchival(): array
     {
-        $archivePath = storage_path("app/archives/{$name}_".date('Y-m-d').'.zip');
-        $this->createArchive($directory, $archivePath);
-
-        return [
-            'files_archived' => count($this->getFilesInDirectory($directory)),
-            'archives_created' => 1,
-            'space_saved_mb' => $this->getDirectorySize($directory) / 1024 / 1024,
-        ];
-    }
-
-    private function createArchive(string $directory, string $archivePath): void
-    {
-        $zip = new ZipArchive;
-
-        if ($zip->open($archivePath, ZipArchive::CREATE) !== true) {
-            throw new Exception("Cannot open <{$archivePath}> for writing");
+        $archivesDir = storage_path('app/archives');
+        if (! is_dir($archivesDir)) {
+            @mkdir($archivesDir, 0755, true);
         }
 
-        $files = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($directory),
-            RecursiveIteratorIterator::LEAVES_ONLY
-        );
-
-        foreach ($files as $name => $file) {
-            if (! $file->isDir()) {
-                $filePath = $file->getRealPath();
-                $relativePath = substr($filePath, strlen($directory) + 1);
-                $zip->addFile($filePath, $relativePath);
-            }
-        }
-
-        $zip->close();
-    }
-
-    /**
-     * @param  array<string, mixed>  $config
-     */
-    private function getStorageStatus(float $usagePercentage): string
-    {
-        $criticalThreshold = $this->config['critical_threshold'] ?? 95;
-        if ($usagePercentage >= $criticalThreshold) {
-            return 'critical';
-        }
-
-        if ($usagePercentage >= ($this->config['warning_threshold'] ?? 80)) {
-            return 'warning';
-        }
-
-        return 'healthy';
-    }
-
-    private function getBreakdownDirectories(): array
-    {
-        return [
+        $total = ['files_archived' => 0, 'archives_created' => 0, 'space_saved_mb' => 0.0];
+        $targets = [
             'logs' => storage_path('logs'),
-            'cache' => storage_path('framework/cache'),
-            'sessions' => storage_path('framework/sessions'),
-            'views' => storage_path('framework/views'),
-            'temp' => storage_path('app/temp'),
             'backups' => storage_path('backups'),
-            'uploads' => storage_path('app/public/uploads'),
-            'other' => storage_path('app'),
         ];
-    }
 
-    /**
-     * Auto cleanup if needed.
-     *
-     * @return array{
-     *     deleted_files: int,
-     *     space_freed_mb: float,
-     *     errors: list<string>
-     * }
-     */
-    private function performCleanup(array $priority): array
-    {
-        $cleanupResults = [];
-
-        foreach ($priority as $type) {
-            $this->executeCleanupType($type, $cleanupResults);
-
-            if ($this->isStorageUsageHealthy()) {
-                break;
+        foreach ($targets as $name => $path) {
+            if (! is_dir($path)) {
+                continue;
             }
+
+            $result = $this->createArchiveAndGetResult($path, (string) $name);
+            $total['files_archived'] += $result['files_archived'];
+            $total['archives_created'] += $result['archives_created'];
+            $total['space_saved_mb'] += $result['space_saved_mb'];
+
+            // Remove original directory to reclaim space after archiving
+            $this->removeDirectory($path);
+            @mkdir($path, 0755, true);
         }
 
-        return $cleanupResults;
+        return $total;
     }
 
     /**
-     * @param array<string, array{
-     *     deleted_files: int,
-     *     space_freed_mb: float,
-     *     errors: list<string>
-     * }> $cleanupResults
+     * Sort helper for directories by size descending.
+     *
+     * @param  array<string, mixed>  $a
+     * @param  array<string, mixed>  $b
      */
-    private function executeCleanupType(string $type, array &$cleanupResults): void
+    private static function sortDirectoriesBySize(array $a, array $b): int
     {
-        $cleanupMethod = 'cleanup'.ucfirst($type).'Files';
-        if (method_exists($this->cleanupService, $cleanupMethod)) {
-            $cleanupResults[$type] = $this->cleanupService->{$cleanupMethod}();
-        }
-    }
+        $aSize = isset($a['size_bytes']) && is_int($a['size_bytes']) ? $a['size_bytes'] : 0;
+        $bSize = isset($b['size_bytes']) && is_int($b['size_bytes']) ? $b['size_bytes'] : 0;
 
-    private function isStorageUsageHealthy(): bool
-    {
-        return $this->monitorStorageUsage()->status === 'healthy';
+        return $bSize <=> $aSize;
     }
 
     private function compressFilesInDirectory(string $directory): array
@@ -741,153 +672,6 @@ final class StorageManagementService
     private function isStorageUsageHealthy(): bool
     {
         return $this->monitorStorageUsage()->status === 'healthy';
-    }
-
-    private function compressFile(string $file): int
-    {
-        $originalSize = filesize($file);
-        if ($originalSize === false) {
-            return 0;
-        }
-
-        $compressedFile = $file.'.gz';
-        $fileContent = file_get_contents($file);
-        if ($fileContent === false) {
-            return 0;
-        }
-
-        $compressedContent = gzencode($fileContent);
-        if ($compressedContent === false) {
-            return 0;
-        }
-
-        if ($this->isDryRun) {
-            $this->logger->info(
-                '[Dry Run] Skipped writing compressed file.',
-                [
-                    'file' => $file,
-                    'compressed_file' => $compressedFile,
-                ]
-            );
-
-            return 0;
-        }
-
-        $bytesWritten = file_put_contents($compressedFile, $compressedContent);
-        if ($bytesWritten === false) {
-            return 0;
-        }
-
-        unlink($file);
-
-        return $originalSize - $bytesWritten;
-    }
-
-    /**
-     * Compress files in a directory.
-     *
-     * @return array{files_compressed: int, space_saved_mb: float}
-     */
-    private function compressFilesInDirectory(string $directory): array
-    {
-        $filesCompressed = 0;
-        $spaceSaved = 0;
-
-        $files = glob($directory.'/*');
-        if ($files === false) {
-            return ['files_compressed' => 0, 'space_saved_mb' => 0];
-        }
-
-        foreach ($files as $file) {
-            $this->compressFileAndTrackStats($file, $filesCompressed, $spaceSaved);
-        }
-
-        return [
-            'files_compressed' => $filesCompressed,
-            'space_saved_mb' => round($spaceSaved / 1024 / 1024, 2),
-        ];
-    }
-
-    private function compressFileAndTrackStats(string $file, int &$filesCompressed, int &$spaceSaved): void
-    {
-        if (is_file($file) && ! str_ends_with($file, '.gz')) {
-            $spaceSaved += $this->compressFile($file);
-            $filesCompressed++;
-        }
-    }
-
-    private function createArchiveDirectory(string $archiveDirectory): void
-    {
-        if (! is_dir($archiveDirectory)) {
-            mkdir($archiveDirectory, 0755, true);
-        }
-    }
-
-    private function executeArchiveCommand(string $archivePath, string $directory): int
-    {
-        $command = "tar -czf {$archivePath} -C ".dirname($directory).' '.basename($directory);
-        exec($command, $output, $returnCode);
-
-        return $returnCode;
-    }
-
-    private function getArchivePath(string $name): string
-    {
-        $archiveName = $name.'_'.Carbon::now()->format('Y-m-d').'.tar.gz';
-
-        return storage_path('archives/'.$archiveName);
-    }
-
-    /**
-     * Create archive.
-     *
-     * @return array{files_archived: int, archives_created: int, space_saved_mb: float}
-     */
-    private function createArchive(string $directory, string $name): array
-    {
-        $archivePath = $this->getArchivePath($name);
-
-        $this->createArchiveDirectory(dirname($archivePath));
-
-        $returnCode = $this->executeArchiveCommand($archivePath, $directory);
-
-        if ($returnCode === 0) {
-            return $this->handleSuccessfulArchive($directory, $archivePath);
-        }
-
-        return [
-            'files_archived' => 0,
-            'archives_created' => 0,
-            'space_saved_mb' => 0,
-        ];
-    }
-
-    private function handleSuccessfulArchive(string $directory, string $archivePath): array
-    {
-        $originalSize = $this->getDirectorySize($directory);
-        $archiveSize = filesize($archivePath);
-        $spaceSaved = $originalSize - ($archiveSize ?: 0);
-
-        $files = glob($directory.'/*') ?: [];
-
-        if ($this->isDryRun) {
-            $this->logger->info(
-                '[Dry Run] Skipped deletion of files in directory.',
-                [
-                    'directory' => $directory,
-                    'files_to_delete' => $files,
-                ]
-            );
-        } else {
-            // Remove original directory
-            $this->removeDirectory($directory);
-        }
-
-        return [
-            'files_archived' => count($files),
-            'archives_created' => 1,
-            'space_saved_mb' => round($spaceSaved / 1024 / 1024, 2),
-        ];
     }
 
     /**

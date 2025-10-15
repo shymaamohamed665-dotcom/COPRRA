@@ -15,18 +15,8 @@ use Tests\TestCase;
 class BrandControllerTest extends TestCase
 {
     use RefreshDatabase;
+    // Rely on RefreshDatabase migrations; avoid manual DB setup to prevent conflicts
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->setUpDatabase();
-    }
-
-    protected function tearDown(): void
-    {
-        $this->tearDownDatabase();
-        parent::tearDown();
-    }
     public function test_can_list_brands()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -50,12 +40,14 @@ class BrandControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_requires_admin_authentication_to_list_brands()
     {
         $response = $this->getJson('/api/admin/brands');
 
         $response->assertStatus(401);
     }
+
     public function test_requires_admin_role_to_list_brands()
     {
         $user = User::factory()->create(['is_admin' => false]);
@@ -65,6 +57,7 @@ class BrandControllerTest extends TestCase
 
         $response->assertStatus(403);
     }
+
     public function test_can_show_specific_brand()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -84,6 +77,7 @@ class BrandControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_returns_404_for_nonexistent_brand()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -93,6 +87,7 @@ class BrandControllerTest extends TestCase
 
         $response->assertStatus(404);
     }
+
     public function test_can_create_brand()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -119,6 +114,7 @@ class BrandControllerTest extends TestCase
             'description' => $brandData['description'],
         ]);
     }
+
     public function test_validates_brand_creation_request()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -129,6 +125,7 @@ class BrandControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['name']);
     }
+
     public function test_requires_admin_authentication_to_create_brand()
     {
         $brandData = [
@@ -140,6 +137,7 @@ class BrandControllerTest extends TestCase
 
         $response->assertStatus(401);
     }
+
     public function test_can_update_brand()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -170,6 +168,7 @@ class BrandControllerTest extends TestCase
             'description' => $updateData['description'],
         ]);
     }
+
     public function test_validates_brand_update_request()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -182,6 +181,7 @@ class BrandControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['name']);
     }
+
     public function test_requires_admin_authentication_to_update_brand()
     {
         $brand = Brand::factory()->create();
@@ -195,6 +195,7 @@ class BrandControllerTest extends TestCase
 
         $response->assertStatus(401);
     }
+
     public function test_can_delete_brand()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -211,6 +212,7 @@ class BrandControllerTest extends TestCase
             'id' => $brand->id,
         ]);
     }
+
     public function test_returns_404_when_deleting_nonexistent_brand()
     {
         $admin = User::factory()->create(['is_admin' => true]);
@@ -220,6 +222,7 @@ class BrandControllerTest extends TestCase
 
         $response->assertStatus(404);
     }
+
     public function test_requires_admin_authentication_to_delete_brand()
     {
         $brand = Brand::factory()->create();

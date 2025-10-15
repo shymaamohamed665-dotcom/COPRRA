@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\CacheService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Mockery;
@@ -12,6 +13,8 @@ use Tests\TestCase;
 
 class CacheServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private CacheService $service;
 
     protected function setUp(): void
@@ -25,6 +28,7 @@ class CacheServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_remembers_data_with_cache_hit(): void
     {
         // Arrange
@@ -43,6 +47,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertEquals($expectedData, $result);
     }
+
     public function test_executes_callback_on_cache_miss(): void
     {
         // Arrange
@@ -65,6 +70,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertEquals($expectedData, $result);
     }
+
     public function test_handles_cache_exception_gracefully(): void
     {
         // Arrange
@@ -82,6 +88,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertEquals($expectedData, $result);
     }
+
     public function test_builds_cache_key_correctly(): void
     {
         // Arrange
@@ -98,6 +105,7 @@ class CacheServiceTest extends TestCase
 
         $this->service->get($key);
     }
+
     public function test_handles_tags_when_supported(): void
     {
         // Arrange
@@ -124,6 +132,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertEquals($expectedData, $result);
     }
+
     public function test_logs_cache_miss_with_execution_time(): void
     {
         // Arrange
@@ -152,6 +161,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertEquals($expectedData, $result);
     }
+
     public function test_forgets_cache_by_key(): void
     {
         // Arrange
@@ -167,6 +177,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_forgets_cache_by_tags(): void
     {
         // Arrange
@@ -191,6 +202,7 @@ class CacheServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_forget_exception(): void
     {
         // Arrange

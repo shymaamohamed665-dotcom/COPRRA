@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\PasswordHistoryService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -13,12 +14,16 @@ use Tests\TestCase;
 
 class PasswordHistoryServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private PasswordHistoryService $service;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->service = new PasswordHistoryService;
+        // Provide a safe default for error logging across tests to prevent Mockery exceptions
+        Log::shouldReceive('error')->byDefault()->andReturnNull();
     }
 
     protected function tearDown(): void
@@ -26,6 +31,7 @@ class PasswordHistoryServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_checks_password_not_in_history()
     {
         // Arrange
@@ -42,6 +48,7 @@ class PasswordHistoryServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_checks_password_in_history()
     {
         // Arrange
@@ -59,6 +66,7 @@ class PasswordHistoryServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_saves_password_to_history()
     {
         // Arrange
@@ -82,6 +90,7 @@ class PasswordHistoryServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_clears_password_history()
     {
         // Arrange
@@ -100,6 +109,7 @@ class PasswordHistoryServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_handles_password_history_check_exception()
     {
         // Arrange
@@ -118,6 +128,7 @@ class PasswordHistoryServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_save_password_history_exception()
     {
         // Arrange
@@ -136,6 +147,7 @@ class PasswordHistoryServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_limits_password_history_count()
     {
         // Arrange

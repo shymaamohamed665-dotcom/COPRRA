@@ -58,7 +58,9 @@ final class TestAnalysisService
     /**
      * Build test command.
      *
-     * @return array<string>
+     * @return string[]
+     *
+     * @psalm-return list{0: './vendor/bin/pest', 1?: '--coverage'}
      */
     private function buildTestCommand(): array
     {
@@ -88,6 +90,8 @@ final class TestAnalysisService
      * Analyze test results.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return 0|70
      */
     private function analyzeTestResults(Process $process, string $output, array &$issues): int
     {

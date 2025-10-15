@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\LoginAttemptService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -13,6 +14,8 @@ use Tests\TestCase;
 
 class LoginAttemptServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private LoginAttemptService $service;
 
     private Request $request;
@@ -33,6 +36,7 @@ class LoginAttemptServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_records_failed_attempt_with_email()
     {
         // Arrange
@@ -83,6 +87,7 @@ class LoginAttemptServiceTest extends TestCase
         // Verify that logging was called
         Log::shouldHaveReceived('warning')->with('Failed login attempt', Mockery::type('array'))->once();
     }
+
     public function test_records_failed_attempt_without_email()
     {
         // Arrange
@@ -112,6 +117,7 @@ class LoginAttemptServiceTest extends TestCase
         // Verify that logging was called
         Log::shouldHaveReceived('warning')->with('Failed login attempt', Mockery::type('array'))->once();
     }
+
     public function test_records_successful_attempt()
     {
         // Arrange
@@ -147,6 +153,7 @@ class LoginAttemptServiceTest extends TestCase
         // Verify that logging was called for successful login
         Log::shouldHaveReceived('info')->with('Successful login', Mockery::type('array'))->once();
     }
+
     public function test_checks_email_blocked_when_under_limit()
     {
         // Arrange
@@ -163,6 +170,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_checks_email_blocked_when_over_limit()
     {
         // Arrange
@@ -179,6 +187,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_checks_ip_blocked_when_under_limit()
     {
         // Arrange
@@ -195,6 +204,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_checks_ip_blocked_when_over_limit()
     {
         // Arrange
@@ -211,6 +221,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_gets_remaining_attempts_for_email()
     {
         // Arrange
@@ -227,6 +238,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertEquals(4, $result);
     }
+
     public function test_gets_remaining_attempts_for_ip()
     {
         // Arrange
@@ -243,6 +255,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertEquals(4, $result);
     }
+
     public function test_gets_lockout_time_remaining_for_email()
     {
         // Arrange
@@ -261,6 +274,7 @@ class LoginAttemptServiceTest extends TestCase
         $this->assertIsInt($result);
         $this->assertNotNull($result);
     }
+
     public function test_gets_lockout_time_remaining_for_ip()
     {
         // Arrange
@@ -279,6 +293,7 @@ class LoginAttemptServiceTest extends TestCase
         $this->assertIsInt($result);
         $this->assertNotNull($result);
     }
+
     public function test_returns_null_when_no_lockout()
     {
         // Arrange
@@ -295,6 +310,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertNull($result);
     }
+
     public function test_handles_invalid_attempts_data()
     {
         // Arrange
@@ -311,6 +327,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_null_attempts_data()
     {
         // Arrange
@@ -326,6 +343,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_unblocks_email()
     {
         // Arrange
@@ -344,6 +362,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_unblocks_ip()
     {
         // Arrange
@@ -362,6 +381,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_gets_statistics()
     {
         // Arrange
@@ -381,6 +401,7 @@ class LoginAttemptServiceTest extends TestCase
         $this->assertEquals(5, $result['max_attempts']);
         $this->assertEquals(15, $result['lockout_duration']);
     }
+
     public function test_handles_expired_lockout()
     {
         // Arrange
@@ -397,6 +418,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertNull($result);
     }
+
     public function test_handles_malformed_timestamp()
     {
         // Arrange
@@ -411,6 +433,7 @@ class LoginAttemptServiceTest extends TestCase
         $this->expectException(\Carbon\Exceptions\InvalidFormatException::class);
         $this->service->getLockoutTimeRemaining($email);
     }
+
     public function test_handles_empty_attempts_array()
     {
         // Arrange
@@ -427,6 +450,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_non_array_attempts_data()
     {
         // Arrange
@@ -443,6 +467,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_missing_timestamp_in_attempt()
     {
         // Arrange
@@ -459,6 +484,7 @@ class LoginAttemptServiceTest extends TestCase
         // Assert
         $this->assertNull($result);
     }
+
     public function test_handles_non_string_timestamp()
     {
         // Arrange

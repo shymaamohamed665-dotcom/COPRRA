@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,13 +11,15 @@ use Tests\TestCase;
  */
 class ThrottleSensitiveOperationsTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_throttle_sensitive_operations_middleware_allows_requests_within_limit(): void
     {
         $request = Request::create('/test', 'POST', [
             'password' => 'newpassword123',
         ]);
 
-        $middleware = new \App\Http\Middleware\ThrottleSensitiveOperations;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleSensitiveOperations::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -33,7 +36,7 @@ class ThrottleSensitiveOperationsTest extends TestCase
             'new_password_confirmation' => 'newpassword123',
         ]);
 
-        $middleware = new \App\Http\Middleware\ThrottleSensitiveOperations;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleSensitiveOperations::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

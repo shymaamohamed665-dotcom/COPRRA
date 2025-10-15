@@ -18,7 +18,9 @@ class UserLocaleSettingFactory extends Factory
     protected $model = UserLocaleSetting::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (CurrencyFactory|LanguageFactory|UserFactory)[]
+     *
+     * @psalm-return array{user_id: UserFactory, language_id: LanguageFactory, currency_id: CurrencyFactory}
      */
     #[\Override]
     public function definition(): array

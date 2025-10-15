@@ -18,7 +18,11 @@ class UserResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @return (int|mixed|null|string)[]
+     *
+     * @SuppressWarnings("UnusedFormalParameter")
+     *
+     * @psalm-return array{id: int, name: string, email: string, role: string, avatar: null|string, phone: null|string, email_verified_at: null|string, created_at: mixed|null, updated_at: mixed|null}
      */
     #[\Override]
     public function toArray(Request $request): array

@@ -4,11 +4,17 @@ namespace Tests\Security;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use Tests\TestCase;
 
 /**
  * @runTestsInSeparateProcesses
+ *
+ * @preserveGlobalState disabled
  */
+#[RunTestsInSeparateProcesses]
+#[PreserveGlobalState(false)]
 class CSRFTest extends TestCase
 {
     use RefreshDatabase;

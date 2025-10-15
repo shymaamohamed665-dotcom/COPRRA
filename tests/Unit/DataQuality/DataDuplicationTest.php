@@ -4,9 +4,6 @@ namespace Tests\Unit\DataQuality;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataDuplicationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

@@ -10,6 +10,8 @@ class ProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return true
      */
     public function authorize(): bool
     {
@@ -19,7 +21,9 @@ class ProductRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, array<int, string>>
+     * @return string[][]
+     *
+     * @psalm-return array{name: list{'required', 'string', 'max:255'}, slug: list{'required', 'string', 'max:255', string}, description: list{'required', 'string'}, price: list{'required', 'numeric', 'min:0'}, image: list{'nullable', 'image', 'max:2048'}, category_id: list{'required', 'exists:categories,id'}, brand_id: list{'required', 'exists:brands,id'}, store_id: list{'required', 'exists:stores,id'}, is_active: list{'boolean'}}
      */
     public function rules(): array
     {
@@ -39,8 +43,11 @@ class ProductRequest extends FormRequest
     /**
      * Get custom messages for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{'name.required': 'Product name is required', 'name.max': 'Product name cannot exceed 255 characters', 'slug.unique': 'This URL slug is already in use', 'price.min': 'Price must be greater than or equal to 0', 'image.image': 'The file must be an image', 'image.max': 'Image size cannot exceed 2MB', 'category_id.exists': 'Selected category does not exist', 'brand_id.exists': 'Selected brand does not exist', 'store_id.exists': 'Selected store does not exist'}
      */
+    #[\Override]
     public function messages(): array
     {
         return [

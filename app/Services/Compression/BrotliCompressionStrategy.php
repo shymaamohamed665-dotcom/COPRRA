@@ -8,16 +8,19 @@ class BrotliCompressionStrategy implements CompressionStrategyInterface
 {
     private const COMPRESSION_LEVEL = 6;
 
+    #[\Override]
     public function isSupported(): bool
     {
         return function_exists('brotli_compress');
     }
 
+    #[\Override]
     public function clientAccepts(string $acceptEncoding): bool
     {
         return str_contains($acceptEncoding, 'br');
     }
 
+    #[\Override]
     public function compress(string $content): ?array
     {
         if (! $this->isSupported()) {
@@ -36,6 +39,10 @@ class BrotliCompressionStrategy implements CompressionStrategyInterface
         ];
     }
 
+    /**
+     * @psalm-return 'br'
+     */
+    #[\Override]
     public function getEncoding(): string
     {
         return 'br';

@@ -2,12 +2,15 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Tests\SafeMiddlewareTestBase;
 
 class ShareErrorsFromSessionTest extends SafeMiddlewareTestBase
 {
+    use RefreshDatabase;
+
     public function test_share_errors_from_session_middleware_shares_errors(): void
     {
         $request = Request::create('/test', 'GET');
@@ -15,7 +18,7 @@ class ShareErrorsFromSessionTest extends SafeMiddlewareTestBase
         $request->setLaravelSession($session = new Store('test', $handler));
         $session->put('errors', ['name' => ['The name field is required.']]);
 
-        $middleware = new \App\Http\Middleware\ShareErrorsFromSession;
+        $middleware = $this->app->make(\App\Http\Middleware\ShareErrorsFromSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -30,7 +33,7 @@ class ShareErrorsFromSessionTest extends SafeMiddlewareTestBase
         $handler = new \Illuminate\Session\NullSessionHandler;
         $request->setLaravelSession($session = new Store('test', $handler));
 
-        $middleware = new \App\Http\Middleware\ShareErrorsFromSession;
+        $middleware = $this->app->make(\App\Http\Middleware\ShareErrorsFromSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -49,7 +52,7 @@ class ShareErrorsFromSessionTest extends SafeMiddlewareTestBase
             'email' => ['The email field is required.', 'The email must be a valid email address.'],
         ]);
 
-        $middleware = new \App\Http\Middleware\ShareErrorsFromSession;
+        $middleware = $this->app->make(\App\Http\Middleware\ShareErrorsFromSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -66,7 +69,7 @@ class ShareErrorsFromSessionTest extends SafeMiddlewareTestBase
         $handler = new \Illuminate\Session\NullSessionHandler;
         $request->setLaravelSession($session = new Store('test', $handler));
 
-        $middleware = new \App\Http\Middleware\ShareErrorsFromSession;
+        $middleware = $this->app->make(\App\Http\Middleware\ShareErrorsFromSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -82,7 +85,7 @@ class ShareErrorsFromSessionTest extends SafeMiddlewareTestBase
         $handler = new \Illuminate\Session\NullSessionHandler;
         $request->setLaravelSession($session = new Store('test', $handler));
 
-        $middleware = new \App\Http\Middleware\ShareErrorsFromSession;
+        $middleware = $this->app->make(\App\Http\Middleware\ShareErrorsFromSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

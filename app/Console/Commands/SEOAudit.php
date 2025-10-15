@@ -140,13 +140,14 @@ final class SEOAudit extends Command
     protected function auditSpecificModel(string $model): void
     {
         $modelClass = $this->issueFixer->getModelClassFromType($model);
-
-        if ($modelClass !== null) {
-            $label = $this->getModelLabel($modelClass);
-            $this->auditModels($modelClass, $label);
-        } else {
+        if ($modelClass === null) {
             $this->error("Unknown model: {$model}");
+
+            return;
         }
+
+        $label = $this->getModelLabel($modelClass);
+        $this->auditModels($modelClass, $label);
     }
 
     /**

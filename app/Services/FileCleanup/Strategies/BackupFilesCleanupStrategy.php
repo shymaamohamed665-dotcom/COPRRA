@@ -22,10 +22,19 @@ final class BackupFilesCleanupStrategy implements CleanupStrategy
     }
 
     /**
-     * @return array<string, int>
+     * @return array<string, int|string|string[]>
+     *
+     * @psalm-return array<string, int|string|list<string>>
      */
+    #[\Override]
     public function cleanup(): array
     {
-        return $this->cleaner->cleanup($this->directory, $this->retentionDays);
+        $result = $this->cleaner->cleanup($this->directory, $this->retentionDays);
+
+        return [
+            'backup_files' => $result['files_deleted'] ?? 0,
+            'deleted_size' => $result['size_deleted'] ?? 0,
+            'errors' => [],
+        ];
     }
 }

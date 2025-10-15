@@ -15,7 +15,9 @@ class CategoryFactory extends Factory
     protected $model = Category::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (int|null|string|true)[]
+     *
+     * @psalm-return array{name: string, slug: string, description: string, parent_id: null, level: 0, is_active: true}
      */
     #[\Override]
     public function definition(): array
@@ -24,7 +26,7 @@ class CategoryFactory extends Factory
 
         return [
             'name' => (is_string($words) ? $words : '').' Category',
-            'slug' => $this->faker->slug(2),
+            'slug' => $this->faker->unique()->slug(2).'-'.$this->faker->unique()->numberBetween(1000, 9999),
             'description' => $this->faker->sentence(),
             'parent_id' => null,
             'level' => 0,

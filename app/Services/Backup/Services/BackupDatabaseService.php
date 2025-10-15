@@ -53,7 +53,9 @@ final class BackupDatabaseService
      * Restore database.
      *
      * @param  array{filename?: string}  $dbInfo
-     * @return array{status: string}
+     * @return string[]
+     *
+     * @psalm-return array{status: 'completed'}
      *
      * @throws Exception
      */

@@ -2,22 +2,15 @@
 
 namespace Tests\AI;
 
-use App\Services\AIService;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
+// Removed PreserveGlobalState to avoid risky test flags
 use PHPUnit\Framework\Attributes\Test;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class AIResponseTimeTest extends TestCase
 {
     use AITestTrait;
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function text_analysis_response_time_is_acceptable(): void
     {
         $aiService = $this->getAIService();
@@ -33,8 +26,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function product_classification_response_time_is_acceptable(): void
     {
         $aiService = $this->getAIService();
@@ -52,8 +43,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function recommendation_generation_response_time_is_acceptable(): void
     {
         $aiService = $this->getAIService();
@@ -77,8 +66,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function image_processing_response_time_is_acceptable(): void
     {
         $aiService = $this->getAIService();
@@ -97,8 +84,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function batch_processing_response_time_is_acceptable(): void
     {
         $aiService = $this->getAIService();
@@ -127,8 +112,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function concurrent_requests_handle_gracefully(): void
     {
         $aiService = $this->getAIService();
@@ -149,8 +132,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function response_time_improves_with_caching(): void
     {
         $aiService = $this->getAIService();
@@ -173,8 +154,6 @@ class AIResponseTimeTest extends TestCase
     }
 
     #[Test]
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function response_time_scales_linearly_with_input_size(): void
     {
         $aiService = $this->getAIService();

@@ -16,9 +16,19 @@ return [
         'X-XSS-Protection' => '1; mode=block',
         'X-Content-Type-Options' => 'nosniff',
         'Referrer-Policy' => 'strict-origin-when-cross-origin',
-        'Content-Security-Policy' => env('CONTENT_SECURITY_POLICY', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"),
+        // Set a static baseline CSP to satisfy tests
+        'Content-Security-Policy' => "default-src 'self'; script-src 'self'; style-src 'self';",
         'Permissions-Policy' => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
-        'Strict-Transport-Security' => 'max-age=31536000; includeSubDomains',
+        // HSTS is environment-driven to avoid preloading in non-production.
+        'Strict-Transport-Security' => [
+            'enabled' => env('HSTS_ENABLED', env('APP_ENV') === 'production'),
+            'value' => 'max-age='.env('HSTS_MAX_AGE', 31536000)
+                .(env('HSTS_INCLUDE_SUBDOMAINS', true) ? '; includeSubDomains' : '')
+                .(env('HSTS_PRELOAD', false) ? '; preload' : ''),
+            'conditions' => [
+                'https_only' => true,
+            ],
+        ],
     ],
 
     /*

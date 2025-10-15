@@ -14,6 +14,7 @@ final class AnalysisFixer implements AgentFixerInterface
         private readonly OutputStyle $output
     ) {}
 
+    #[\Override]
     public function fix(): bool
     {
         $this->output->info('🔍 Running PHPStan to generate a baseline...');

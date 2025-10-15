@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class TrustProxiesTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_trust_proxies_middleware_handles_proxy_headers(): void
     {
         $request = Request::create('http://example.com/test', 'GET');

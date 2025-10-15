@@ -107,7 +107,9 @@ final class CDNFileService
      * Get file metadata from CDN
      *
      * @param  string  $remotePath  Remote path
-     * @return array<string, string|null>
+     * @return string[]
+     *
+     * @psalm-return array{url?: string, size?: string, mime_type?: string, last_modified?: string, etag?: string, cache_control?: string}
      */
     public function getMetadata(string $remotePath): array
     {

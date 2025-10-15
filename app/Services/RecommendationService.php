@@ -21,11 +21,14 @@ final class RecommendationService
     {
         $cacheKey = "recommendations_user_{$user->id}";
 
-        return Cache::remember($cacheKey, 3600, function () use ($user, $limit): array {
-            $recommendations = $this->collectRecommendations($user, $limit);
+        return Cache::remember($cacheKey, 3600, /**
+         * @psalm-return array<int, mixed>
+         */
+            function () use ($user, $limit): array {
+                $recommendations = $this->collectRecommendations($user, $limit);
 
-            return $this->filterAndLimitRecommendations($recommendations, $user, $limit);
-        });
+                return $this->filterAndLimitRecommendations($recommendations, $user, $limit);
+            });
     }
 
     /**
@@ -57,6 +60,8 @@ final class RecommendationService
 
     /**
      * Collect recommendations from different sources
+     *
+     * @psalm-return \Illuminate\Support\Collection<never, never>
      */
     private function collectRecommendations(User $user, int $limit): \Illuminate\Support\Collection
     {
@@ -151,6 +156,8 @@ final class RecommendationService
 
     /**
      * Extract category preferences from purchases
+     *
+     * @psalm-return \Illuminate\Support\Collection<int, int>
      */
     private function extractCategoryPreferences(\Illuminate\Support\Collection $purchases): \Illuminate\Support\Collection
     {
@@ -168,6 +175,8 @@ final class RecommendationService
 
     /**
      * Extract brand preferences from purchases
+     *
+     * @psalm-return \Illuminate\Support\Collection<int, int>
      */
     private function extractBrandPreferences(\Illuminate\Support\Collection $purchases): \Illuminate\Support\Collection
     {
@@ -185,6 +194,10 @@ final class RecommendationService
 
     /**
      * Extract price range from purchases
+     *
+     * @return (float|int|mixed|null)[]
+     *
+     * @psalm-return array{min: mixed, max: mixed, average: float|int|null}
      */
     private function extractPriceRange(\Illuminate\Support\Collection $purchases): array
     {
@@ -334,6 +347,8 @@ final class RecommendationService
 
     /**
      * Get query for recent purchases (last 7 days)
+     *
+     * @psalm-return \Closure(\Illuminate\Database\Eloquent\Builder):void
      */
     private function getRecentPurchasesQuery(): \Closure
     {
@@ -362,6 +377,8 @@ final class RecommendationService
 
     /**
      * Query for finding similar users based on common products
+     *
+     * @psalm-return \Illuminate\Support\Collection<int, \stdClass>
      */
     private function querySimilarUsers(int $userId, array $productIds): \Illuminate\Support\Collection
     {

@@ -15,10 +15,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\OrderItem
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class OrderItemTest extends TestCase
 {
     /**

@@ -89,9 +89,9 @@ final class ProcessPendingWebhooks extends Command
             try {
                 $webhookService->processWebhook($webhook);
                 $processed++;
-            } catch (\Exception $e) {
+            } catch (\Throwable $exception) {
                 $failed++;
-                $this->error("\nFailed to process webhook {$webhook->id}: {$e->getMessage()}");
+                $this->error("\nFailed to process webhook {$webhook->id}: {$exception->getMessage()}");
             }
 
             $progressBar->advance();

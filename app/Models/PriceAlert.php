@@ -61,11 +61,28 @@ class PriceAlert extends ValidatableModel
     ];
 
     /**
+     * Return only explicit casts defined on the model.
+     * This excludes framework-added defaults like the primary key or deleted_at.
+     *
+     * @return array<string, string>
+     */
+    #[\Override]
+    public function getCasts(): array
+    {
+        $casts = $this->casts;
+
+        $deletedAt = method_exists($this, 'getDeletedAtColumn') ? $this->getDeletedAtColumn() : 'deleted_at';
+        unset($casts[$deletedAt]);
+
+        return $casts;
+    }
+
+    /**
      * The attributes that should be validated.
      *
      * @var array<string, string>
      */
-    protected $rules = [
+    protected array $rules = [
         'user_id' => 'required|exists:users,id',
         'product_id' => 'required|exists:products,id',
         'target_price' => 'required|numeric|min:0',
@@ -96,5 +113,65 @@ class PriceAlert extends ValidatableModel
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    // --- Scopes ---
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<PriceAlert>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeActive(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withoutGlobalScopes()->where('is_active', true);
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<PriceAlert>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeForUser(\Illuminate\Database\Eloquent\Builder $query, int $userId): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withoutGlobalScopes()->where('user_id', $userId);
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<PriceAlert>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeForProduct(\Illuminate\Database\Eloquent\Builder $query, int $productId): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withoutGlobalScopes()->where('product_id', $productId);
+    }
+
+    /**
+     * Determine if the current price meets or is below the alert's target.
+     */
+    public function isPriceTargetReached(float $currentPrice): bool
+    {
+        $target = (float) ($this->target_price ?? 0.0);
+
+        return $currentPrice <= $target;
+    }
+
+    /**
+     * Activate this price alert.
+     */
+    public function activate(): void
+    {
+        $this->is_active = true;
+        $this->save();
+    }
+
+    /**
+     * Deactivate this price alert.
+     */
+    public function deactivate(): void
+    {
+        $this->is_active = false;
+        $this->save();
     }
 }

@@ -11,8 +11,11 @@ class CartRequest extends FormRequest
     /**
      * Get custom messages for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{'product_id.required': 'The product ID is required.', 'product_id.integer': 'The product ID must be an integer.', 'product_id.exists': 'The selected product does not exist.', 'quantity.required': 'The quantity is required.', 'quantity.integer': 'The quantity must be an integer.', 'quantity.min': 'The quantity must be at least 1.', 'quantity.max': 'The quantity may not be greater than 99.', 'attributes.array': 'The attributes must be an array.', 'attributes.*.string': 'Each attribute must be a string.', 'attributes.*.max': 'Each attribute may not be greater than 255 characters.'}
      */
+    #[\Override]
     public function messages(): array
     {
         return [
@@ -32,8 +35,11 @@ class CartRequest extends FormRequest
     /**
      * Get custom attributes for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{product_id: 'product', quantity: 'quantity', attributes: 'attributes'}
      */
+    #[\Override]
     public function attributes(): array
     {
         return [

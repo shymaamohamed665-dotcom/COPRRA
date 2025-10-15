@@ -27,6 +27,7 @@ final class GoogleCloudProvider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function upload(string $content, string $path, string $mimeType): array
     {
         // This would use Google Cloud SDK in a real implementation
@@ -38,6 +39,10 @@ final class GoogleCloudProvider implements CDNProviderInterface
         ];
     }
 
+    /**
+     * @return true
+     */
+    #[\Override]
     public function delete(string $path): bool
     {
         // This would use Google Cloud SDK in a real implementation
@@ -47,6 +52,7 @@ final class GoogleCloudProvider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function purgeCache(array $urls): bool
     {
         // This would use Google Cloud SDK in a real implementation
@@ -56,23 +62,33 @@ final class GoogleCloudProvider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function getStatistics(): array
     {
         // This would use Google Cloud SDK in a real implementation
         return [];
     }
 
+    /**
+     * @return true
+     */
+    #[\Override]
     public function testConnection(): bool
     {
         // This would use Google Cloud SDK in a real implementation
         return true;
     }
 
+    /**
+     * @psalm-return 'google_cloud'
+     */
+    #[\Override]
     public function getName(): string
     {
         return 'google_cloud';
     }
 
+    #[\Override]
     public function getUrl(string $path): string
     {
         if (! empty($this->baseUrl)) {

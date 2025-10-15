@@ -4,11 +4,12 @@ namespace Tests\AI;
 
 use App\Services\AIService;
 use PHPUnit\Framework\Attributes\Test;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class AIModelTest extends TestCase
 {
     use AITestTrait;
+
     #[Test]
     public function ai_model_initializes_correctly(): void
     {

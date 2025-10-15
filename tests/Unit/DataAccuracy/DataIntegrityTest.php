@@ -4,9 +4,6 @@ namespace Tests\Unit\DataAccuracy;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataIntegrityTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

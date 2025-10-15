@@ -23,7 +23,9 @@ final class ExternalStoreService
 
     /**
      * @param  array<string, mixed>  $filters
-     * @return array<int, array<string, mixed>>
+     * @return array[]
+     *
+     * @psalm-return list<array<string, mixed>>
      */
     public function searchProducts(string $query, array $filters = []): array
     {
@@ -64,6 +66,9 @@ final class ExternalStoreService
         });
     }
 
+    /**
+     * @psalm-return int<0, max>
+     */
     public function syncStoreProducts(string $storeName): int
     {
         $syncedCount = 0;
@@ -83,7 +88,9 @@ final class ExternalStoreService
     }
 
     /**
-     * @return array<string, array<string, mixed>>
+     * @return (float|int|null|string)[][]
+     *
+     * @psalm-return array<string, array<string, float|int|null|string>>
      */
     public function getStoreStatus(): array
     {
@@ -103,7 +110,9 @@ final class ExternalStoreService
 
     /**
      * @param  array<int, array<string, mixed>>  $products
-     * @return array<int, array<string, mixed>>
+     * @return (array|int|mixed|null|string)[][]
+     *
+     * @psalm-return array<int, array{external_id: mixed|null, name: ''|mixed, description: ''|mixed, price: 0|mixed, currency: 'USD'|mixed, image_url: ''|mixed, store_name: string, store_url: ''|mixed, rating: 0|mixed, reviews_count: 0|mixed, availability: 'in_stock'|mixed, shipping_info: array<never, never>|mixed, category: ''|mixed, brand: ''|mixed}>
      */
     private function normalizeProducts(array $products, string $storeName): array
     {
@@ -112,7 +121,9 @@ final class ExternalStoreService
 
     /**
      * @param  array<string, mixed>  $productData
-     * @return array<string, mixed>
+     * @return (array|int|mixed|null|string)[]
+     *
+     * @psalm-return array{external_id: mixed|null, name: ''|mixed, description: ''|mixed, price: 0|mixed, currency: 'USD'|mixed, image_url: ''|mixed, store_name: string, store_url: ''|mixed, rating: 0|mixed, reviews_count: 0|mixed, availability: 'in_stock'|mixed, shipping_info: array<never, never>|mixed, category: ''|mixed, brand: ''|mixed}
      */
     private function normalizeProductData(array $productData, string $storeName): array
     {
@@ -137,7 +148,9 @@ final class ExternalStoreService
     /**
      * @param  array<int, array<string, mixed>>  $results
      * @param  array<string, mixed>  $filters
-     * @return array<int, array<string, mixed>>
+     * @return array[]
+     *
+     * @psalm-return list<array<string, mixed>>
      */
     private function sortAndFilterResults(array $results, array $filters): array
     {

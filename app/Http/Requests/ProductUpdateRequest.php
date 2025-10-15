@@ -33,7 +33,9 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, array<int, string|\Illuminate\Validation\Rules\Unique>>
+     * @return (Rule|string)[][]
+     *
+     * @psalm-return array<string, array<Rule|string>>
      */
     public function rules(): array
     {
@@ -51,8 +53,11 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get custom messages for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{'name.min': 'اسم المنتج يجب أن يكون على الأقل 3 أحرف', 'name.max': 'اسم المنتج لا يمكن أن يتجاوز 255 حرف', 'description.min': 'وصف المنتج يجب أن يكون على الأقل 10 أحرف', 'description.max': 'وصف المنتج لا يمكن أن يتجاوز 5000 حرف', 'price.numeric': 'سعر المنتج يجب أن يكون رقماً', 'price.min': 'سعر المنتج يجب أن يكون أكبر من 0', 'price.max': 'سعر المنتج لا يمكن أن يتجاوز 999999.99', 'category_id.exists': 'فئة المنتج المحددة غير موجودة', 'brand_id.exists': 'علامة المنتج التجارية المحددة غير موجودة', 'sku.unique': 'رمز المنتج (SKU) مستخدم بالفعل', 'stock_quantity.integer': 'كمية المخزون يجب أن تكون رقماً صحيحاً', 'stock_quantity.min': 'كمية المخزون لا يمكن أن تكون سالبة', 'images.max': 'يمكن رفع 10 صور كحد أقصى', 'images.*.image': 'الملف يجب أن يكون صورة', 'images.*.mimes': 'نوع الصورة يجب أن يكون: jpeg, png, jpg, gif, webp', 'images.*.max': 'حجم الصورة لا يمكن أن يتجاوز 5 ميجابايت', 'tags.max': 'يمكن إضافة 20 علامة كحد أقصى', 'tags.*.max': 'العلامة لا يمكن أن تتجاوز 50 حرف'}
      */
+    #[\Override]
     public function messages(): array
     {
         return [
@@ -80,8 +85,11 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get custom attributes for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{name: 'اسم المنتج', description: 'وصف المنتج', price: 'سعر المنتج', category_id: 'فئة المنتج', brand_id: 'علامة المنتج التجارية', sku: 'رمز المنتج', stock_quantity: 'كمية المخزون', weight: 'الوزن', dimensions: 'الأبعاد', images: 'الصور', tags: 'العلامات', is_active: 'حالة النشاط', is_featured: 'المنتج المميز'}
      */
+    #[\Override]
     public function attributes(): array
     {
         return [
@@ -117,7 +125,7 @@ class ProductUpdateRequest extends FormRequest
      * Get the validated data from the request.
      */
     #[\Override]
-    public function validated(?string $key = null, mixed $default = null): mixed
+    public function validated(mixed $key = null, mixed $default = null): mixed
     {
         $validated = parent::validated($key, $default);
 
@@ -158,7 +166,9 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get base validation rules.
      *
-     * @return array<string, array<string|Rule>>
+     * @return string[][]
+     *
+     * @psalm-return array{name: list{'sometimes', 'string', 'max:255', 'min:3'}, description: list{'sometimes', 'string', 'max:5000', 'min:10'}, price: list{'sometimes', 'numeric', 'min:0.01', 'max:999999.99'}, category_id: list{'sometimes', 'integer', 'exists:categories,id'}, brand_id: list{'sometimes', 'integer', 'exists:brands,id'}, stock_quantity: list{'sometimes', 'integer', 'min:0', 'max:999999'}, weight: list{'nullable', 'numeric', 'min:0', 'max:999.99'}, is_active: list{'boolean'}, is_featured: list{'boolean'}}
      */
     private function getBaseRules(): array
     {
@@ -216,7 +226,9 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get SKU validation rules.
      *
-     * @return array<string, array<string|Rule>>
+     * @return (\Illuminate\Validation\Rules\Unique|string)[][]
+     *
+     * @psalm-return array{sku: list{'sometimes', 'string', 'max:100', \Illuminate\Validation\Rules\Unique}}
      */
     private function getSkuRules(?int $productId): array
     {
@@ -234,7 +246,9 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get dimension validation rules.
      *
-     * @return array<string, array<string|Rule>>
+     * @return (DimensionSum|string)[][]
+     *
+     * @psalm-return array{dimensions: list{'nullable', 'array', 'size:3', DimensionSum}, 'dimensions.length': list{'nullable', 'numeric', 'min:0', 'max:999.99'}, 'dimensions.width': list{'nullable', 'numeric', 'min:0', 'max:999.99'}, 'dimensions.height': list{'nullable', 'numeric', 'min:0', 'max:999.99'}}
      */
     private function getDimensionRules(): array
     {
@@ -270,7 +284,9 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get image validation rules.
      *
-     * @return array<string, array<string|Rule>>
+     * @return string[][]
+     *
+     * @psalm-return array{images: list{'nullable', 'array', 'max:10'}, 'images.*': list{'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'}}
      */
     private function getImageRules(): array
     {
@@ -292,7 +308,9 @@ class ProductUpdateRequest extends FormRequest
     /**
      * Get tag validation rules.
      *
-     * @return array<string, array<string|Rule>>
+     * @return string[][]
+     *
+     * @psalm-return array{tags: list{'nullable', 'array', 'max:20'}, 'tags.*': list{'string', 'max:50'}}
      */
     private function getTagRules(): array
     {

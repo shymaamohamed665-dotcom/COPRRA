@@ -40,6 +40,8 @@ final class OptimizedQueryService
 
     /**
      * @param  array<string, string|int>  $filters
+     *
+     * @psalm-return Collection<int, Order>
      */
     public function getUserOrders(int $userId, array $filters = []): Collection
     {
@@ -50,7 +52,9 @@ final class OptimizedQueryService
     }
 
     /**
-     * @return array<string, int|float>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{total_users: int, total_products: int, recent_orders: int, monthly_revenue: float}
      */
     public function getDashboardAnalytics(): array
     {
@@ -70,6 +74,9 @@ final class OptimizedQueryService
         return $this->formatAnalyticsResult($analyticsResult[0] ?? null);
     }
 
+    /**
+     * @psalm-return Builder<Product>
+     */
     private function buildProductQuery(): Builder
     {
         return Product::query()
@@ -117,6 +124,9 @@ final class OptimizedQueryService
         }
     }
 
+    /**
+     * @psalm-return Closure(Builder):void
+     */
     private function getReviewsQuery(): Closure
     {
         return static function (Builder $q): void {
@@ -127,6 +137,9 @@ final class OptimizedQueryService
         };
     }
 
+    /**
+     * @psalm-return Closure(Builder):void
+     */
     private function getPriceOffersQuery(): Closure
     {
         return static function (Builder $q): void {
@@ -135,6 +148,9 @@ final class OptimizedQueryService
         };
     }
 
+    /**
+     * @psalm-return Builder<Order>
+     */
     private function buildUserOrdersQuery(int $userId): Builder
     {
         return Order::with([
@@ -175,7 +191,9 @@ final class OptimizedQueryService
     }
 
     /**
-     * @return array<string, int|float>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{total_users: int, total_products: int, recent_orders: int, monthly_revenue: float}
      */
     private function formatAnalyticsResult(?object $analytics): array
     {

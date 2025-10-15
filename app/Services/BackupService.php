@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Log;
  * This service now acts as a facade that delegates to specialized services,
  * reducing cyclomatic complexity from 76 to ~8.
  */
-final class BackupService
+class BackupService
 {
     private BackupManagerService $backupManager;
 
@@ -54,14 +54,9 @@ final class BackupService
     /**
      * Create full backup.
      *
-     * @return array{
-     *     backup_name: string,
-     *     started_at: \Carbon\Carbon,
-     *     components: array<string, array<string, int|string|list<string>>|string>,
-     *     completed_at?: \Carbon\Carbon,
-     *     status?: string,
-     *     size?: int
-     * }
+     * @return (((int|string|string[])[]|string)[]|Carbon|int|string)[]
+     *
+     * @psalm-return array{backup_name: string, started_at: Carbon, components: array<string, array<string, int|list<string>|string>|string>, completed_at: Carbon, status: string, size: int}
      *
      * @throws Exception
      */
@@ -102,13 +97,9 @@ final class BackupService
     /**
      * Create database backup.
      *
-     * @return array{
-     *     filename: string,
-     *     size: int,
-     *     backup_name?: string,
-     *     completed_at?: \Carbon\Carbon,
-     *     status?: string
-     * }
+     * @return (Carbon|int|string)[]
+     *
+     * @psalm-return array{filename: string, size: int, backup_name: string, completed_at: Carbon, status: 'completed'}
      *
      * @throws Exception
      */
@@ -153,14 +144,9 @@ final class BackupService
     /**
      * Create files backup.
      *
-     * @return array{
-     *     filename: string,
-     *     size: int,
-     *     files_count: int,
-     *     backup_name?: string,
-     *     completed_at?: \Carbon\Carbon,
-     *     status?: string
-     * }
+     * @return (Carbon|int|string)[]
+     *
+     * @psalm-return array{filename: string, size: int, files_count: int<0, max>, backup_name: string, completed_at: Carbon, status: 'completed'}
      *
      * @throws Exception
      */
@@ -206,19 +192,9 @@ final class BackupService
     /**
      * Restore from backup.
      *
-     * @return array{
-     *     backup_name: string,
-     *     started_at: \Carbon\Carbon,
-     *     manifest: array{
-     *         type?: string,
-     *         created_at?: string,
-     *         version?: string,
-     *         components?: array<string, array<string, int|string|list<string>>|string>
-     *     },
-     *     components: array<string, array<string, int|string|list<string>>|string>,
-     *     completed_at?: \Carbon\Carbon,
-     *     status?: string
-     * }
+     * @return ((((int|string|string[])[]|int|string)[]|string)[]|Carbon|string)[]
+     *
+     * @psalm-return array{backup_name: string, started_at: Carbon, manifest: array{type?: string, created_at?: string, version?: string, components?: array<string, array<string, int|list<string>|string>|string>}, components: array<string, array<string, int|list<string>|string>|string>, completed_at: Carbon, status?: string}
      *
      * @throws Exception
      */
@@ -227,7 +203,7 @@ final class BackupService
         try {
             Log::info('Starting restore from backup', ['backup_name' => $backupName]);
 
-            $backupPath = storage_path("app/backups/{$backupName}");
+            $backupPath = storage_path("backups/{$backupName}");
 
             $result = $this->backupManager->restoreBackup($backupPath, [
                 'components' => [], // Restore all components
@@ -266,7 +242,7 @@ final class BackupService
     public function listBackups(): array
     {
         $backups = [];
-        $backupPath = storage_path('app/backups');
+        $backupPath = storage_path('backups');
 
         if (! is_dir($backupPath)) {
             return $backups;
@@ -315,7 +291,7 @@ final class BackupService
     public function deleteBackup(string $backupName): bool
     {
         try {
-            $backupPath = storage_path("app/backups/{$backupName}");
+            $backupPath = storage_path("backups/{$backupName}");
 
             if (! is_dir($backupPath)) {
                 throw new Exception("Backup not found: {$backupName}");
@@ -333,6 +309,67 @@ final class BackupService
             ]);
 
             return false;
+        }
+    }
+
+    /**
+     * Clean backups older than the given number of days.
+     */
+    public function cleanOldBackups(int $daysOld = 30): int
+    {
+        try {
+            $backups = $this->listBackups();
+            $cutoffDate = Carbon::now()->subDays($daysOld);
+
+            $deletedCount = 0;
+
+            foreach ($backups as $backup) {
+                $createdAt = $backup['created_at'] ?? null;
+
+                if (! is_string($createdAt) || $createdAt === '') {
+                    continue;
+                }
+
+                try {
+                    $created = Carbon::parse($createdAt);
+                } catch (\Exception $e) {
+                    Log::error('Invalid backup creation date', [
+                        'backup_name' => $backup['name'] ?? 'unknown',
+                        'created_at' => $createdAt,
+                        'error' => $e->getMessage(),
+                    ]);
+
+                    continue;
+                }
+
+                if ($created->lessThan($cutoffDate)) {
+                    $name = is_string($backup['name'] ?? null) ? $backup['name'] : '';
+
+                    if ($name === '') {
+                        continue;
+                    }
+
+                    $deleted = $this->deleteBackup($name);
+
+                    if ($deleted) {
+                        $deletedCount++;
+                    } else {
+                        Log::error('Failed to delete old backup', ['backup_name' => $name]);
+                    }
+                }
+            }
+
+            Log::info('Old backups cleaned', [
+                'days_old' => $daysOld,
+                'deleted' => $deletedCount,
+                'total' => count($backups),
+            ]);
+
+            return $deletedCount;
+        } catch (Exception $e) {
+            Log::error('Error cleaning old backups', ['error' => $e->getMessage()]);
+
+            return 0;
         }
     }
 
@@ -417,6 +454,8 @@ final class BackupService
 
     /**
      * Get backup size.
+     *
+     * @psalm-return int<min, max>
      */
     private function getBackupSize(string $backupPath): int
     {

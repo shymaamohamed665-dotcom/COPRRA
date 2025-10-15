@@ -20,7 +20,8 @@ class UpdateExchangeRates extends Command
      */
     protected $signature = 'exchange-rates:update
                         {--provider= : Exchange rate provider (ecb, fixer, exchangerate-api)}
-                        {--base=EUR : Base currency for rates}';
+                        {--base=EUR : Base currency for rates}
+                        {--seed : Seed initial exchange rates from config}';
 
     /**
      * The console command description.
@@ -31,6 +32,8 @@ class UpdateExchangeRates extends Command
 
     /**
      * Execute the console command.
+     *
+     * @psalm-return 0|1
      */
     public function handle(ExchangeRateService $service): int
     {

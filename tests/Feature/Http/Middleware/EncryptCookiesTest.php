@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Tests\TestCase;
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class EncryptCookiesTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_encrypt_cookies_middleware_encrypts_cookies(): void
     {
         $request = Request::create('/test', 'GET');

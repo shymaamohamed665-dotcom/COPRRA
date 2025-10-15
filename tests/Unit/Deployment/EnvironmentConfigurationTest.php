@@ -4,9 +4,6 @@ namespace Tests\Unit\Deployment;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class EnvironmentConfigurationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

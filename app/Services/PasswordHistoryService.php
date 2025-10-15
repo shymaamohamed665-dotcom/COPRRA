@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Exception;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
@@ -54,7 +55,7 @@ final class PasswordHistoryService
             $history = array_slice($history, 0, $historyCount);
 
             // حفظ التاريخ
-            cache()->put("password_history_{$userId}", $history, 86400 * 30); // 30 يوم
+            Cache::put("password_history_{$userId}", $history, 86400 * 30); // 30 يوم
 
             Log::info("Password saved to history for user {$userId}");
         } catch (Exception $e) {
@@ -65,11 +66,13 @@ final class PasswordHistoryService
     /**
      * الحصول على تاريخ كلمات المرور.
      *
-     * @return array<int, string>
+     * @return string[]
+     *
+     * @psalm-return list<string>
      */
     private function getPasswordHistory(int $userId): array
     {
-        $history = cache()->get("password_history_{$userId}", []);
+        $history = Cache::get("password_history_{$userId}", []);
 
         // تأكيد أن كل عنصر نصي فقط
         if (! is_array($history)) {
@@ -77,5 +80,18 @@ final class PasswordHistoryService
         }
 
         return array_values(array_filter($history, 'is_string'));
+    }
+
+    /**
+     * مسح تاريخ كلمات المرور للمستخدم.
+     */
+    public function clearPasswordHistory(int $userId): void
+    {
+        try {
+            Cache::forget("password_history_{$userId}");
+            Log::info("Password history cleared for user {$userId}");
+        } catch (Exception $e) {
+            Log::error('Failed to clear password history: '.$e->getMessage());
+        }
     }
 }

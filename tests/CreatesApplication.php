@@ -18,7 +18,8 @@ trait CreatesApplication
         putenv('APP_KEY=base64:mAkbpuXF7OVTRIDCIMkD8+xw6xVi7pge9CFImeqZaxE=');
 
         // Force the test database connection BEFORE creating the application
-        putenv('DB_CONNECTION=testing');
+        // Use in-memory SQLite for fast and isolated testing
+        putenv('DB_CONNECTION=sqlite');
         putenv('DB_DATABASE=:memory:');
         putenv('DB_HOST=');
         putenv('DB_PORT=');
@@ -47,17 +48,11 @@ trait CreatesApplication
 
         // Ensure database is properly configured for testing
         if ($app->environment('testing')) {
-            $app->useDatabasePath(':memory:');
+            $app->useDatabasePath(database_path());
         }
 
-        // Load configuration for testing
-        $app->make('config')->set('database.default', 'testing');
-        $app->make('config')->set('database.connections.testing', [
-            'driver' => 'sqlite',
-            'database' => ':memory:',
-            'prefix' => '',
-            'foreign_key_constraints' => true,
-        ]);
+        // Load configuration for testing (keep default sqlite only)
+        $app->make('config')->set('database.default', 'sqlite');
 
         // Bind silent mocks for console input and output to prevent interactive prompts during tests
         $app->bind(\Symfony\Component\Console\Input\InputInterface::class, function ($app) {

@@ -10,10 +10,13 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return never
      */
-    public function up(): void
+    public function up()
     {
-        $teams = config('permission.teams');
+        // Determine if teams feature is enabled in permission config
+        $teams = (bool) (config('permission.teams') ?? false);
         $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
 
@@ -25,6 +28,7 @@ return new class extends Migration
             $tableNames = [];
         }
 
+        // Resolve pivot column names for role/permission relations
         $pivotRole = is_string($columnNames['role_pivot_key'] ?? null) ? $columnNames['role_pivot_key'] : 'role_id';
         $pivotPermission = is_string($columnNames['permission_pivot_key'] ?? null) ? $columnNames['permission_pivot_key'] : 'permission_id';
 

@@ -30,8 +30,11 @@ final class CacheFilesCleanupStrategy implements CleanupStrategy
     }
 
     /**
-     * @return array<string, int|array<int, string>>
+     * @return array<string, int|string|string[]>
+     *
+     * @psalm-return array<string, int|string|list<string>>
      */
+    #[\Override]
     public function cleanup(): array
     {
         $totalResults = [

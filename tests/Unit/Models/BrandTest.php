@@ -15,10 +15,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Brand
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class BrandTest extends TestCase
 {
     use WithFaker;

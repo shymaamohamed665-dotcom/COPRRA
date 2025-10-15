@@ -118,7 +118,7 @@ class EnvironmentChecker
     private function checkRequiredExtensions(): void
     {
         $this->printInfo('Checking required PHP extensions...');
-        $requiredExtensions = ['pdo', 'pdo_mysql', 'mbstring', 'openssl', 'tokenizer', 'xml', 'json', 'bcmath', 'ctype', 'fileinfo'];
+        $requiredExtensions = ['pdo', 'pdo_mysql', 'mbstring', 'openssl', 'tokenizer', 'xml', 'json', 'bcmath', 'ctype', 'fileinfo', 'intl', 'gd'];
 
         foreach ($requiredExtensions as $extension) {
             if (extension_loaded($extension)) {
@@ -209,7 +209,7 @@ class EnvironmentChecker
     private function checkDirectoryPermissions(): void
     {
         $this->printInfo('Checking directory permissions...');
-        $directories = ['storage', 'bootstrap/cache', 'storage/logs', 'storage/app', 'storage/framework'];
+        $directories = ['storage', 'bootstrap/cache', 'storage/logs', 'storage/app', 'storage/framework', 'public/build', 'public/build/assets'];
 
         foreach ($directories as $directory) {
             $path = base_path($directory);

@@ -4,9 +4,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class StrictMockeryTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

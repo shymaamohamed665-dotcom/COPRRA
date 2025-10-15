@@ -5,9 +5,6 @@ namespace Tests\Unit;
 use Mockery;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class SimpleMockeryTest extends TestCase
 {
     protected function tearDown(): void

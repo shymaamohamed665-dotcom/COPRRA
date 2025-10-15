@@ -37,6 +37,8 @@ final class QualityAnalysisService
      * Run PHPMD analysis.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return int<0, max>
      */
     private function runPhpmdAnalysis(array &$issues): int
     {
@@ -63,6 +65,8 @@ final class QualityAnalysisService
      * Run PHPCPD analysis.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return int<0, max>
      */
     private function runPhpcpdAnalysis(array &$issues): int
     {

@@ -1,26 +1,29 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PriceHistory extends Model
 {
-    /** @use HasFactory<\Database\Factories\PriceHistoryFactory> */
     use HasFactory;
 
-    /**
-     * @var array<int, string>
-     */
-    protected $fillable = ['product_id', 'price', 'effective_date'];
+    public $timestamps = false;
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Product, PriceHistory>
-     */
-    public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    protected $fillable = [
+        'product_id',
+        'price',
+        'effective_date',
+    ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
+        'effective_date' => 'datetime',
+    ];
+
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }

@@ -54,7 +54,9 @@ final class SuspiciousActivityService
     }
 
     /**
-     * @return array<string, int>
+     * @return (array|int)[]
+     *
+     * @psalm-return array{total_activities: 0, activities_by_type: array<never, never>, activities_by_severity: array<never, never>, recent_activities: array<never, never>}
      */
     public function getStatistics(): array
     {

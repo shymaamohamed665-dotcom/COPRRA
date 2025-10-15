@@ -15,7 +15,7 @@ final class PriceQueryBuilderService
     /**
      * Build the query for price offers.
      *
-     * @param  array{storeId: string|null, productId: string|null, dryRun: bool}  $options
+     * @param  array{storeId: int|string|null, productId: int|string|null, dryRun: bool}  $options
      * @return Builder<PriceOffer>
      */
     public function buildQuery(array $options): Builder
@@ -34,7 +34,7 @@ final class PriceQueryBuilderService
      * Apply multiple filters to query.
      *
      * @param  Builder<PriceOffer>  $query
-     * @param  array<string, string|null>  $filters
+     * @param  array<string, int|string|null>  $filters
      */
     private function applyFilters(Builder $query, array $filters): void
     {
@@ -48,7 +48,7 @@ final class PriceQueryBuilderService
      *
      * @param  Builder<PriceOffer>  $query
      */
-    private function applyFilter(Builder $query, string $relation, ?string $id): void
+    private function applyFilter(Builder $query, string $relation, int|string|null $id): void
     {
         if ($id === null) {
             return;
@@ -63,10 +63,10 @@ final class PriceQueryBuilderService
     }
 
     /**
-     * Parse a numeric ID from a string.
+     * Parse a numeric ID from int or string.
      */
-    private function parseNumericId(string $id): ?int
+    private function parseNumericId(int|string $id): ?int
     {
-        return is_numeric($id) ? (int) $id : null;
+        return is_int($id) ? $id : (is_numeric($id) ? (int) $id : null);
     }
 }

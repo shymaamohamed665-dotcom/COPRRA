@@ -7,8 +7,8 @@ namespace App\DataObjects;
 final class StorageBreakdown
 {
     public function __construct(
-        public readonly float $size_mb,
-        public readonly int $size_bytes,
-        public readonly string $path
+        public readonly float $sizeMb,
+        public readonly int $sizeBytes,
+        public readonly string $path,
     ) {}
 }

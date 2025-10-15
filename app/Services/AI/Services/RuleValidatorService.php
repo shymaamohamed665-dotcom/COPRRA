@@ -24,6 +24,8 @@ class RuleValidatorService
 
     /**
      * Validate health score value
+     *
+     * @psalm-return int<0, 100>
      */
     public function validateHealthScore(mixed $score): int
     {

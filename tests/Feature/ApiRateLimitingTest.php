@@ -2,10 +2,13 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Unit\PureUnitTest;
 
 class ApiRateLimitingTest extends PureUnitTest
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_basic_functionality(): void
     {

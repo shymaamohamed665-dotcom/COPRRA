@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class ValidateSignatureTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_validate_signature_middleware_validates_correct_signature(): void
     {
         $request = Request::create('/test', 'GET');

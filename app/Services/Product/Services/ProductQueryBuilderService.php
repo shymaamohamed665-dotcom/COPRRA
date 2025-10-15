@@ -47,7 +47,7 @@ final class ProductQueryBuilderService
     /**
      * Build related products query
      *
-     * @return Builder<Product>
+     * @psalm-return Builder<Product>
      */
     public function buildRelatedQuery(Product $product, int $limit): Builder
     {
@@ -63,7 +63,7 @@ final class ProductQueryBuilderService
     /**
      * Build active products query
      *
-     * @return Builder<Product>
+     * @psalm-return Builder<Product>
      */
     public function buildActiveProductsQuery(): Builder
     {
@@ -76,7 +76,7 @@ final class ProductQueryBuilderService
     /**
      * Build product by slug query
      *
-     * @return Builder<Product>
+     * @psalm-return Builder<Product>
      */
     public function buildProductBySlugQuery(string $slug): Builder
     {
@@ -118,7 +118,8 @@ final class ProductQueryBuilderService
      * Apply sorting to query
      *
      * @param  Builder<Product>  $query
-     * @return Builder<Product>
+     *
+     * @psalm-return Builder<Product>
      */
     private function applySorting(Builder $query, string $sortBy): Builder
     {

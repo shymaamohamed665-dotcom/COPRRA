@@ -62,7 +62,9 @@ abstract class BaseApiController extends Controller
 
     /**
      * @param  \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection|array<int, array|object>  $data
-     * @return array<string, int|null>
+     * @return ((null|string)[]|bool|int|null|string)[]
+     *
+     * @psalm-return array{current_page: bool|int|null|string, per_page: bool|int|null|string, total: bool|int|null|string, last_page: bool|int|null|string, from: bool|int|null|string, to: bool|int|null|string, has_more_pages: bool|int|null|string, links: array<string, null|string>}
      */
     protected function getPaginationData(\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection|array $data): array
     {
@@ -83,6 +85,10 @@ abstract class BaseApiController extends Controller
      * Get pagination links
      *
      * @deprecated Use PaginationService directly
+     *
+     * @return (bool|int|mixed|null|string)[]
+     *
+     * @psalm-return array{first: mixed|null|string, last: mixed|null|string, prev: bool|int|null|string, next: bool|int|null|string}
      */
     protected function getPaginationLinks(array|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Support\Collection $data, bool $isPaginator): array
     {
@@ -106,8 +112,8 @@ abstract class BaseApiController extends Controller
      */
     protected function errorResponse(
         string $message = 'Error',
-        array|string|null $errors = null,
         int $statusCode = 400,
+        array|string|null $errors = null,
         array $meta = []
     ): JsonResponse {
         return $this->responseBuilder->errorResponse($message, $errors, $statusCode, $meta);
@@ -126,6 +132,8 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get API version from request.
+     *
+     * @psalm-return '2.0'
      */
     protected function getApiVersion(): string
     {
@@ -134,6 +142,8 @@ abstract class BaseApiController extends Controller
 
     /**
      * Check API version compatibility.
+     *
+     * @return true
      */
     protected function checkApiVersion(): bool
     {
@@ -142,6 +152,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get rate limit information for v2.
+     *
+     * @return (float|int|string)[]
+     *
+     * @psalm-return array{limit: 2000, remaining: 1999, reset: float|int|string, version: '2.0'}
      */
     protected function getRateLimitInfo(): array
     {
@@ -150,6 +164,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Enhanced filtering with v2 features.
+     *
+     * @return string[]
+     *
+     * @psalm-return array<string, string>
      */
     protected function getFilteringParams(Request $request): array
     {
@@ -158,6 +176,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get include parameters for relationships.
+     *
+     * @return int[]
+     *
+     * @psalm-return array<string, int<0, max>>
      */
     protected function getIncludeParams(Request $request): array
     {
@@ -166,6 +188,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get fields parameter for field selection.
+     *
+     * @return int[]
+     *
+     * @psalm-return array<string, int<0, max>>
      */
     protected function getFieldsParams(Request $request): array
     {
@@ -174,6 +200,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Enhanced search with v2 features.
+     *
+     * @return (array|string)[]
+     *
+     * @psalm-return array<string, array|string>
      */
     protected function getSearchParams(Request $request): array
     {
@@ -182,6 +212,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get sorting parameters with v2 enhancements.
+     *
+     * @return string[]
+     *
+     * @psalm-return array<string, string>
      */
     protected function getSortingParams(Request $request): array
     {
@@ -214,6 +248,10 @@ abstract class BaseApiController extends Controller
 
     /**
      * Get API deprecation notices.
+     *
+     * @return string[]
+     *
+     * @psalm-return array{v1_endpoint: 'Some v1 endpoints will be deprecated in v3.0', migration_guide: string}
      */
     protected function getApiDeprecationNotices(): array
     {

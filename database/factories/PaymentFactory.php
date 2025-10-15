@@ -23,7 +23,9 @@ class PaymentFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return (Factory|false|float|mixed|string)[]
+     *
+     * @psalm-return array{order_id: Factory, amount: float, currency: 'USD', status: mixed, method: mixed, transaction_id: string, gateway: mixed, metadata: false|string}
      */
     #[\Override]
     public function definition(): array

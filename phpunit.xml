@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="tests/bootstrap.php"
          colors="true"
          processIsolation="false"
          stopOnFailure="false"
-         backupGlobals="false"
+         backupGlobals="true"
          cacheDirectory=".phpunit.cache"
-         beStrictAboutChangesToGlobalState="false"
+         beStrictAboutChangesToGlobalState="true"
+         executionOrder="random"
+         resolveDependencies="true"
          beStrictAboutTestsThatDoNotTestAnything="false"
          beStrictAboutOutputDuringTests="false"
          failOnRisky="false"
          failOnWarning="false"
-         displayDetailsOnTestsThatTriggerDeprecations="true"
+         failOnDeprecation="false"
+         displayDetailsOnTestsThatTriggerDeprecations="false"
          displayDetailsOnTestsThatTriggerErrors="true"
-         displayDetailsOnTestsThatTriggerNotices="true"
-         displayDetailsOnTestsThatTriggerWarnings="true">
+         displayDetailsOnTestsThatTriggerNotices="false"
+         displayDetailsOnTestsThatTriggerWarnings="false">
   <testsuites>
     <testsuite name="Unit">
       <directory suffix="Test.php">./tests/Unit</directory>
@@ -46,8 +48,8 @@
     <env name="APP_KEY" value="base64:2fl+K+k3WPMO+QrdnDWEbVjQo7EjXQYWmYNgayUk5P0="/>
     <env name="BCRYPT_ROUNDS" value="4"/>
     <env name="CACHE_DRIVER" value="array"/>
-    <server name="DB_CONNECTION" value="sqlite"/>
-    <server name="DB_DATABASE" value=":memory:"/>
+    <env name="DB_CONNECTION" value="sqlite"/>
+    <env name="DB_DATABASE" value=":memory:"/>
     <env name="DB_FOREIGN_KEYS" value="true"/>
     <env name="DB_HOST" value=""/>
     <env name="DB_PORT" value=""/>
@@ -59,6 +61,8 @@
     <env name="TELESCOPE_ENABLED" value="false"/>
     <env name="TELESCOPE_STORAGE_DRIVER" value="array"/>
     <env name="TELESCOPE_DB_CONNECTION" value="testing"/>
+    <env name="REDIS_CLIENT" value="predis"/>
+    <env name="BROADCAST_DRIVER" value="null"/>
 
     <!-- Test credentials - safe fake values for testing -->
     <env name="TEST_BLOCKCHAIN_VERIFICATION_KEY" value="fake-verification-key"/>
@@ -73,30 +77,5 @@
     <ini name="display_errors" value="0"/>
     <ini name="log_errors" value="1"/>
   </php>
-  <source>
-    <include>
-      <directory>./app</directory>
-    </include>
-    <exclude>
-      <directory>./app/Console/Kernel.php</directory>
-      <directory>./app/Exceptions</directory>
-      <directory>./app/Http/Kernel.php</directory>
-      <directory>./app/Http/Middleware</directory>
-      <directory>./app/Providers</directory>
-      <file>./app/helpers.php</file>
-    </exclude>
-  </source>
-  <coverage>
-    <report>
-      <clover outputFile="build/logs/clover.xml"/>
-      <html outputDirectory="build/coverage"/>
-      <text outputFile="build/coverage.txt"/>
-      <xml outputDirectory="build/logs"/>
-    </report>
-  </coverage>
-  <logging>
-    <junit outputFile="build/logs/junit.xml"/>
-    <testdoxHtml outputFile="build/logs/testdox.html"/>
-    <testdoxText outputFile="build/logs/testdox.txt"/>
-  </logging>
+  <!-- Simplified configuration to reduce XML parsing and memory usage -->
 </phpunit>

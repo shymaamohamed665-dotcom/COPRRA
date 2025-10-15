@@ -72,7 +72,7 @@ class PriceComparisonController extends Controller
     /**
      * Get price history for product.
      *
-     * @return array<int, array<string, string|float|bool|null>>
+     * @psalm-return array<never, never>
      */
     private function getPriceHistory(): array
     {

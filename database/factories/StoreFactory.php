@@ -16,7 +16,9 @@ class StoreFactory extends Factory
     protected $model = Store::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (CurrencyFactory|bool|int|mixed|string|string[])[]
+     *
+     * @psalm-return array{name: string, slug: string, description: string, logo_url: string, website_url: string, country_code: string, supported_countries: list<'AU'|'CA'|'DE'|'ES'|'FR'|'IT'|'UK'|'US'>, is_active: bool, priority: int, affiliate_base_url: string, affiliate_code: string, api_config: mixed, currency_id: CurrencyFactory}
      */
     #[\Override]
     public function definition(): array

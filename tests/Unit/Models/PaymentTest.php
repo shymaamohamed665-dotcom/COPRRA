@@ -16,10 +16,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Payment
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class PaymentTest extends TestCase
 {
     /**
@@ -58,7 +54,7 @@ class PaymentTest extends TestCase
         $query->shouldReceive('where')->once()->with('status', $status)->andReturnSelf();
 
         $payment = new Payment;
-        $result = $payment->newQuery()->byStatus($status);
+        $result = $payment->scopeByStatus($query, $status);
 
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Builder::class, $result);
     }

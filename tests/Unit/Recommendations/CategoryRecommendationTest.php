@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class CategoryRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_recommends_categories_based_on_user_history(): void
     {
         $userHistory = [
@@ -29,7 +24,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_popular_categories(): void
     {
         $categoryStats = [
@@ -49,7 +43,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_related_categories(): void
     {
         $currentCategory = 'Electronics';
@@ -67,7 +60,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_seasonal_category_recommendations(): void
     {
         $currentSeason = 'Winter';
@@ -86,7 +78,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_categories_based_on_demographics(): void
     {
         $userProfile = [
@@ -108,7 +99,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_filters_categories_by_availability(): void
     {
         $allCategories = ['Electronics', 'Clothing', 'Books', 'Sports'];
@@ -122,7 +112,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_ranks_categories_by_relevance_score(): void
     {
         $categories = [
@@ -145,7 +134,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_empty_category_data(): void
     {
         $emptyHistory = [];
@@ -155,7 +143,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_category_affinity_score(): void
     {
         $userPurchases = [
@@ -171,7 +158,6 @@ class CategoryRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_trending_categories(): void
     {
         $categoryTrends = [

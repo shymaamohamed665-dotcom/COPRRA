@@ -60,26 +60,9 @@ final class ContinuousQualityMonitor
     /**
      * Perform quality check.
      *
-     * @return array{
-     *     overall_health: int,
-     *     rules: array<string, array{
-     *         name: string,
-     *         success: bool,
-     *         health_score: int,
-     *         duration: float,
-     *         output: string,
-     *         errors: array<int, string>,
-     *         timestamp: string,
-     *         critical: bool
-     *     }>,
-     *     alerts: list<array{
-     *         type: string,
-     *         rule: string,
-     *         message: string,
-     *         details: array<int, string>,
-     *         timestamp: string
-     *     }>
-     * }
+     * @return ((scalar|string[])[][]|int)[]
+     *
+     * @psalm-return array{overall_health: int<min, 100>, rules: array<string, array{name: string, success: bool, health_score: int, duration: float, output: string, errors: array<int, string>, timestamp: string, critical: bool}>, alerts: list<array{details: array<int, string>, message: string, rule: string, timestamp: string, type: string}>}
      */
     public function performQualityCheck(): array
     {
@@ -137,18 +120,9 @@ final class ContinuousQualityMonitor
     /**
      * Get alerts summary.
      *
-     * @return array{
-     *     total: int,
-     *     critical: int,
-     *     warnings: int,
-     *     alerts: list<array{
-     *         type: string,
-     *         rule: string,
-     *         message: string,
-     *         details: array<int, string>,
-     *         timestamp: string
-     *     }>
-     * }
+     * @return ((string|string[])[][]|int)[]
+     *
+     * @psalm-return array{total: int<0, max>, critical: int<0, max>, warnings: int<0, max>, alerts: list<array{details: array<int, string>, message: string, rule: string, timestamp: string, type: string}>}
      */
     public function getAlertsSummary(): array
     {
@@ -237,6 +211,8 @@ final class ContinuousQualityMonitor
      *     timestamp: string,
      *     critical: bool
      * }> $results
+     *
+     * @psalm-return int<min, 100>
      */
     private function calculateOverallHealth(array $results): int
     {
@@ -311,6 +287,8 @@ final class ContinuousQualityMonitor
 
     /**
      * Validate health score value.
+     *
+     * @psalm-return int<0, 100>
      */
     private function validateHealthScore(mixed $score): int
     {
@@ -358,7 +336,9 @@ final class ContinuousQualityMonitor
     /**
      * Create monitoring rules configuration.
      *
-     * @return array<string, array{name: string, threshold: int, command: string, critical: bool}>
+     * @return (bool|int|string)[][]
+     *
+     * @psalm-return array{code_quality: array{name: 'جودة الكود', threshold: 95, command: './vendor/bin/phpstan analyse --memory-limit=1G --configuration=phpstan.strict.neon', critical: true}, test_coverage: array{name: 'تغطية الاختبارات', threshold: 90, command: 'php artisan test --configuration=phpunit.strict.xml --coverage-text', critical: true}, security_scan: array{name: 'فحص الأمان', threshold: 100, command: 'composer audit', critical: true}, performance: array{name: 'الأداء', threshold: 80, command: 'php artisan test tests/Performance/ --configuration=phpunit.strict.xml', critical: false}, memory_usage: array{name: 'استهلاك الذاكرة', threshold: 512, command: 'php -d memory_limit=512M artisan test --configuration=phpunit.strict.xml', critical: true}}
      */
     private function createMonitoringRules(): array
     {
@@ -459,7 +439,9 @@ final class ContinuousQualityMonitor
      *     command: string,
      *     critical: bool
      * } $rule
-     * @return array<string, mixed>
+     * @return (array|null|scalar)[]
+     *
+     * @psalm-return array{name: string, success: bool, health_score: int, duration: float, output: string, errors: array<never, never>|string, timestamp: null|string, critical: bool}
      */
     private function createRuleResult(
         array $rule,
@@ -491,7 +473,9 @@ final class ContinuousQualityMonitor
      *     command: string,
      *     critical: bool
      * } $rule
-     * @return array<string, mixed>
+     * @return (bool|int|null|string|string[])[]
+     *
+     * @psalm-return array{name: string, success: false, health_score: 0, duration: 0, output: '', errors: list{string}, timestamp: null|string, critical: bool}
      */
     private function createErrorResult(array $rule, string $errorMessage): array
     {

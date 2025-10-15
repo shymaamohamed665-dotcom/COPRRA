@@ -28,7 +28,9 @@ class ProductAddedNotification extends Notification
     /**
      * Get the array representation of the notification.
      *
-     * @return array<string, int|string>
+     * @return (int|string)[]
+     *
+     * @psalm-return array{product_id: int, product_name: string}
      */
     public function toArray(): array
     {

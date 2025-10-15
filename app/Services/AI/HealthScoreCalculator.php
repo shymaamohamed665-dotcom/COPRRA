@@ -32,6 +32,8 @@ final class HealthScoreCalculator
 
     /**
      * Calculate code quality score from PHPStan output.
+     *
+     * @psalm-return int<0, max>
      */
     private function calculateCodeQualityScore(string $output): int
     {
@@ -60,6 +62,8 @@ final class HealthScoreCalculator
 
     /**
      * Calculate security score from audit output.
+     *
+     * @psalm-return int<0, max>
      */
     private function calculateSecurityScore(string $output): int
     {
@@ -74,6 +78,8 @@ final class HealthScoreCalculator
 
     /**
      * Calculate performance score from test results.
+     *
+     * @psalm-return 50|100
      */
     private function calculatePerformanceScore(string $output): int
     {

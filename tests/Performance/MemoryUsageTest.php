@@ -4,9 +4,6 @@ namespace Tests\Performance;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class MemoryUsageTest extends TestCase
 {
     public function test_memory_usage_is_reasonable(): void

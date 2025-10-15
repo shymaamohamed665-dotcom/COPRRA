@@ -17,7 +17,9 @@ class PriceOfferFactory extends Factory
     protected $model = PriceOffer::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (ProductFactory|StoreFactory|scalar|string[])[]
+     *
+     * @psalm-return array{product_id: ProductFactory, product_sku: string, store_id: StoreFactory, price: float, currency: string, product_url: string, affiliate_url: string, in_stock: bool, stock_quantity: int, condition: 'new'|'refurbished'|'used', rating: float, reviews_count: int, image_url: string, specifications: array{brand: string, model: string, color: string, weight: string}}
      */
     #[\Override]
     public function definition(): array

@@ -19,10 +19,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\User
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class UserTest extends TestCase
 {
     /**

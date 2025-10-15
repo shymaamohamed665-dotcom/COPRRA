@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class UpsellRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_recommends_higher_tier_products(): void
     {
         $currentProduct = [
@@ -33,7 +28,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_premium_versions(): void
     {
         $currentProduct = [
@@ -55,7 +49,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_more_features(): void
     {
         $currentProduct = [
@@ -77,7 +70,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_specifications(): void
     {
         $currentProduct = [
@@ -99,7 +91,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_extended_warranty(): void
     {
         $currentProduct = [
@@ -121,7 +112,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_premium_materials(): void
     {
         $currentProduct = [
@@ -143,7 +133,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_brand(): void
     {
         $currentProduct = [
@@ -165,7 +154,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_higher_capacity(): void
     {
         $currentProduct = [
@@ -187,7 +175,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_performance(): void
     {
         $currentProduct = [
@@ -209,7 +196,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_more_storage(): void
     {
         $currentProduct = [
@@ -231,7 +217,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_display(): void
     {
         $currentProduct = [
@@ -253,7 +238,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_connectivity(): void
     {
         $currentProduct = [
@@ -275,7 +259,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_battery_life(): void
     {
         $currentProduct = [
@@ -297,7 +280,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_camera(): void
     {
         $currentProduct = [
@@ -319,7 +301,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_audio(): void
     {
         $currentProduct = [
@@ -341,7 +322,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_security(): void
     {
         $currentProduct = [
@@ -363,7 +343,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_with_better_support(): void
     {
         $currentProduct = [
@@ -385,7 +364,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_upsell_potential(): void
     {
         $currentProduct = [
@@ -409,7 +387,6 @@ class UpsellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_generates_upsell_report(): void
     {
         $currentProduct = [

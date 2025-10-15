@@ -15,7 +15,7 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
-    protected array $middleware = [
+    protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
@@ -23,7 +23,10 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        // Generate CSP nonce before applying security headers
+        \App\Http\Middleware\AddCspNonce::class,
         \App\Http\Middleware\SecurityHeadersMiddleware::class,
+        // Session middleware is included in the 'web' group
     ];
 
     /**
@@ -32,7 +35,7 @@ class Kernel extends HttpKernel
      * @var array<string, array<int, class-string|string>>
      */
     // Correct middleware group typing
-    protected array $middlewareGroups = [
+    protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -58,7 +61,7 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
-    protected array $middlewareAliases = [
+    protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
@@ -73,4 +76,15 @@ class Kernel extends HttpKernel
         'locale' => \App\Http\Middleware\LocaleMiddleware::class, // ✅ تم إضافة هذا السطر
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
+
+    /**
+     * Override bootstrappers to skip HandleExceptions during tests.
+     */
+    #[\Override]
+    protected function bootstrappers(): array
+    {
+        // Ensure standard exception handling is active in all environments,
+        // including testing, to prevent raw PHP warnings/notices from polluting responses.
+        return parent::bootstrappers();
+    }
 }

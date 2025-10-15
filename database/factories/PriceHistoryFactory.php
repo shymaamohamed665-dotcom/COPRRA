@@ -14,6 +14,12 @@ class PriceHistoryFactory extends Factory
 {
     protected $model = PriceHistory::class;
 
+    /**
+     * @return (ProductFactory|\DateTime|float)[]
+     *
+     * @psalm-return array{product_id: ProductFactory, price: float, effective_date: \DateTime}
+     */
+    #[\Override]
     public function definition()
     {
         return [

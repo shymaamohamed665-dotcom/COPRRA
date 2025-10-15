@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class PreventRequestsDuringMaintenanceTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_prevent_requests_during_maintenance_middleware_allows_requests_when_not_in_maintenance(): void
     {
         $request = Request::create('/test', 'GET');

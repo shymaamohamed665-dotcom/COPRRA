@@ -15,7 +15,11 @@ class ProductResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @return (\Illuminate\Http\Resources\MissingValue|array|int|mixed|null|string)[]
+     *
+     * @SuppressWarnings("UnusedFormalParameter")
+     *
+     * @psalm-return array{id: int, name: string, slug: string, description: string, price: string, compare_price: mixed|null, cost_price: mixed|null, barcode: mixed|null, quantity: int, is_featured: mixed|null, images: array<never, never>|mixed, rating: mixed|null, reviews_count: mixed, category: \Illuminate\Http\Resources\MissingValue|mixed}
      */
     #[\Override]
     public function toArray(Request $request): array

@@ -13,6 +13,8 @@ class ApiInfoService
 {
     /**
      * Get API version from request
+     *
+     * @psalm-return '2.0'
      */
     public function getApiVersion(): string
     {
@@ -21,6 +23,8 @@ class ApiInfoService
 
     /**
      * Check API version compatibility
+     *
+     * @return true
      */
     public function checkApiVersion(): bool
     {
@@ -54,7 +58,9 @@ class ApiInfoService
     /**
      * Get API deprecation notices
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{v1_endpoint: 'Some v1 endpoints will be deprecated in v3.0', migration_guide: string}
      */
     public function getApiDeprecationNotices(): array
     {
@@ -69,7 +75,7 @@ class ApiInfoService
      */
     public function logApiRequest(Request $request): void
     {
-        $requestParameterService = app(RequestParameterService::class);
+        app(RequestParameterService::class);
 
         // Add v2 specific logging
         \Log::info('API v2 Request', [

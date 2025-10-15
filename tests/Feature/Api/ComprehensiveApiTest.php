@@ -2,10 +2,13 @@
 
 namespace Tests\Feature\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ComprehensiveApiTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_basic_functionality(): void
     {
@@ -31,7 +34,7 @@ class ComprehensiveApiTest extends TestCase
             'timestamp',
             'version',
         ]);
-        $response->assertJson(['status' => 'ok']);
+        $response->assertJson(['status' => 'healthy']);
     }
 
     #[\PHPUnit\Framework\Attributes\Test]

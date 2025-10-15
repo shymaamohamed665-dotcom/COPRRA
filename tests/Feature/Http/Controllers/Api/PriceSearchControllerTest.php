@@ -43,6 +43,7 @@ class PriceSearchControllerTest extends TestCase
             'is_available' => true,
         ]);
     }
+
     public function test_can_get_best_offer_by_product_id()
     {
         $product = Product::first();
@@ -74,6 +75,7 @@ class PriceSearchControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_can_get_best_offer_by_product_name()
     {
         $product = Product::first();
@@ -95,6 +97,7 @@ class PriceSearchControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_returns_404_for_nonexistent_product_by_id()
     {
         $response = $this->getJson('/api/price-search/best-offer', [
@@ -106,6 +109,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Product not found',
             ]);
     }
+
     public function test_returns_404_for_nonexistent_product_by_name()
     {
         $response = $this->getJson('/api/price-search/best-offer', [
@@ -117,6 +121,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Product not found',
             ]);
     }
+
     public function test_returns_404_when_no_offers_available()
     {
         $product = Product::factory()->create(['is_active' => true]);
@@ -132,6 +137,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'No offers available for this product',
             ]);
     }
+
     public function test_returns_all_products_when_no_parameters_provided()
     {
         $response = $this->getJson('/api/price-search/best-offer');
@@ -149,6 +155,7 @@ class PriceSearchControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_returns_404_when_no_products_exist()
     {
         // Delete all products
@@ -161,6 +168,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'No products available',
             ]);
     }
+
     public function test_can_get_supported_stores()
     {
         $response = $this->getJson('/api/price-search/supported-stores');
@@ -175,6 +183,7 @@ class PriceSearchControllerTest extends TestCase
                 ],
             ]);
     }
+
     public function test_can_search_products()
     {
         $product = Product::first();
@@ -192,6 +201,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_can_search_products_with_query_parameter()
     {
         $product = Product::first();
@@ -209,6 +219,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_can_search_products_with_name_parameter()
     {
         $product = Product::first();
@@ -226,6 +237,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_returns_400_when_search_query_is_empty()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -237,6 +249,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_returns_400_when_search_query_is_missing()
     {
         $response = $this->getJson('/api/price-search/search');
@@ -246,6 +259,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_special_characters()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -261,6 +275,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_sql_injection_attempt()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -276,6 +291,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_xss_attempt()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -291,6 +307,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_very_long_query()
     {
         $longQuery = str_repeat('a', 1000);
@@ -308,6 +325,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_unicode_characters()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -323,6 +341,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_multiple_words()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -338,6 +357,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_numbers()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -353,6 +373,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_mixed_content()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -368,6 +389,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_empty_results()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -387,6 +409,7 @@ class PriceSearchControllerTest extends TestCase
         $this->assertIsArray($data);
         $this->assertEmpty($data);
     }
+
     public function test_handles_search_with_whitespace_only()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -398,6 +421,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_tabs_and_newlines()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -409,6 +433,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_null_parameter()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -420,6 +445,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_array_parameter()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -431,10 +457,11 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_object_parameter()
     {
-        $response = $this->getJson('/api/price-search/search', [
-            'q' => (object) ['test' => 'product'],
+        $response = $this->json('GET', '/api/price-search/search', [
+            'q' => ['test' => 'product'], // Pass as array (will be treated as object/invalid)
         ]);
 
         $response->assertStatus(400)
@@ -442,6 +469,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_boolean_parameter()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -453,6 +481,7 @@ class PriceSearchControllerTest extends TestCase
                 'message' => 'Search query is required. Use parameter: q, query, or name',
             ]);
     }
+
     public function test_handles_search_with_numeric_parameter()
     {
         $response = $this->getJson('/api/price-search/search', [
@@ -468,6 +497,7 @@ class PriceSearchControllerTest extends TestCase
                 'query',
             ]);
     }
+
     public function test_handles_search_with_float_parameter()
     {
         $response = $this->getJson('/api/price-search/search', [

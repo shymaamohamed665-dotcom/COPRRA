@@ -23,6 +23,9 @@ class LocationCheckService
      *
      * @param  array{enabled: bool, time_window: int, threshold: int}  $rule
      * @param  array<string, float>  $location
+     * @return float[][]|null
+     *
+     * @psalm-return array{current_location: array<string, float>, previous_locations: never}|null
      */
     public function checkUnusualLoginLocation(int $userId, array $location, string $ipAddress, array $rule): ?array
     {
@@ -65,7 +68,7 @@ class LocationCheckService
     /**
      * Get user's previous locations
      *
-     * @return list<array<string, float>>
+     * @psalm-return array<never, never>
      */
     private function getUserPreviousLocations(int $userId): array
     {
@@ -78,7 +81,9 @@ class LocationCheckService
      * Validate location data
      *
      * @param  array<string, mixed>  $location
-     * @return array<string, float>
+     * @return float[]
+     *
+     * @psalm-return array{latitude?: float, longitude?: float}
      */
     public function validateLocation(array $location): array
     {

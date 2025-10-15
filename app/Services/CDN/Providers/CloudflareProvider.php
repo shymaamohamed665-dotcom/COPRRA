@@ -36,6 +36,7 @@ final class CloudflareProvider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function upload(string $content, string $path, string $mimeType): array
     {
         $url = "https://api.cloudflare.com/client/v4/accounts/{$this->accountId}/images/v1/{$path}";
@@ -63,6 +64,7 @@ final class CloudflareProvider implements CDNProviderInterface
         ];
     }
 
+    #[\Override]
     public function delete(string $path): bool
     {
         $response = Http::withHeaders([
@@ -75,6 +77,7 @@ final class CloudflareProvider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function purgeCache(array $urls): bool
     {
         $response = Http::withHeaders([
@@ -91,6 +94,7 @@ final class CloudflareProvider implements CDNProviderInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function getStatistics(): array
     {
         $response = Http::withHeaders([
@@ -107,6 +111,7 @@ final class CloudflareProvider implements CDNProviderInterface
         return is_array($result) ? $result : [];
     }
 
+    #[\Override]
     public function testConnection(): bool
     {
         $testPath = 'test/connection.txt';
@@ -131,11 +136,16 @@ final class CloudflareProvider implements CDNProviderInterface
         }
     }
 
+    /**
+     * @psalm-return 'cloudflare'
+     */
+    #[\Override]
     public function getName(): string
     {
         return 'cloudflare';
     }
 
+    #[\Override]
     public function getUrl(string $path): string
     {
         return rtrim($this->baseUrl, '/').'/'.ltrim($path, '/');

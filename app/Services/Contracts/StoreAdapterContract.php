@@ -27,7 +27,22 @@ interface StoreAdapterContract
     /**
      * Fetch product data by identifier.
      *
-     * @return array<string, string|int|float|bool|null>|null
+     * @return array<string, null|scalar|array>|null
+     *
+     * @psalm-return array{
+     *   name: array|scalar,
+     *   price: float,
+     *   currency: array|scalar,
+     *   url: array|scalar,
+     *   image_url: array|null|scalar,
+     *   availability: array|scalar,
+     *   rating: float|null,
+     *   reviews_count: int|null,
+     *   description: array|null|scalar,
+     *   brand: array|null|scalar,
+     *   category: array|null|scalar,
+     *   metadata: array|scalar
+     * }|null
      */
     public function fetchProduct(string $productIdentifier): ?array;
 
@@ -35,7 +50,9 @@ interface StoreAdapterContract
      * Search for products.
      *
      * @param  array<string, string|int|float|bool|null>  $options
-     * @return array<int, array<string, string|int|float|bool|null>>
+     * @return array<int, array<string, null|scalar|array>>
+     *
+     * @psalm-return list<non-empty-array<string, null|scalar|array>>
      */
     public function searchProducts(string $query, array $options = []): array;
 

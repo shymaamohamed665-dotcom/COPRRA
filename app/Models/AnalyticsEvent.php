@@ -110,7 +110,8 @@ class AnalyticsEvent extends Model
      * Scopes.
      *
      * @param  \Illuminate\Database\Eloquent\Builder<AnalyticsEvent>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<AnalyticsEvent>
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function scopeOfType(\Illuminate\Database\Eloquent\Builder $query, string $type): \Illuminate\Database\Eloquent\Builder
     {
@@ -119,7 +120,8 @@ class AnalyticsEvent extends Model
 
     /**
      * @param  \Illuminate\Database\Eloquent\Builder<AnalyticsEvent>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<AnalyticsEvent>
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function scopeRecent(\Illuminate\Database\Eloquent\Builder $query, int $days): \Illuminate\Database\Eloquent\Builder
     {

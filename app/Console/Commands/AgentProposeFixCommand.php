@@ -41,7 +41,7 @@ final class AgentProposeFixCommand extends Command
 
     private PullRequestService $pullRequestService;
 
-    private MessageGeneratorService $messageGeneratorService;
+    private MessageGeneratorService $messageGenerator;
 
     private FixExecutionService $fixExecutionService;
 
@@ -58,6 +58,8 @@ final class AgentProposeFixCommand extends Command
 
     /**
      * Execute the console command.
+     *
+     * @psalm-return 0|1
      */
     public function handle(): int
     {
@@ -87,7 +89,7 @@ final class AgentProposeFixCommand extends Command
     {
         $this->gitWorkflowService = new GitWorkflowService($this->processService, $this->output);
         $this->pullRequestService = new PullRequestService($this->processService, $this->output);
-        $this->messageGeneratorService = new MessageGeneratorService;
+        $this->messageGenerator = new MessageGeneratorService;
         $this->fixExecutionService = new FixExecutionService($this->processService, $this->output);
         $this->agentFixerFactory = new AgentFixerFactory($this->processService, $this->output);
     }
@@ -123,7 +125,7 @@ final class AgentProposeFixCommand extends Command
             return false;
         }
 
-        $commitMessage = $this->messageGeneratorService->getCommitMessage($type);
+        $commitMessage = $this->messageGenerator->getCommitMessage($type);
         $this->gitWorkflowService->commitChanges($commitMessage);
 
         return true;
@@ -138,8 +140,8 @@ final class AgentProposeFixCommand extends Command
             return false;
         }
 
-        $prTitle = $this->messageGeneratorService->getPullRequestTitle($type);
-        $prBody = $this->messageGeneratorService->getPullRequestBody($type);
+        $prTitle = $this->messageGenerator->getPullRequestTitle($type);
+        $prBody = $this->messageGenerator->getPullRequestBody($type);
 
         return $this->pullRequestService->createPullRequest($branchName, $prTitle, $prBody);
     }

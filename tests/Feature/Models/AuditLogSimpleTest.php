@@ -3,10 +3,13 @@
 namespace Tests\Feature\Models;
 
 use App\Models\AuditLog;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class AuditLogSimpleTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_it_has_correct_fillable_attributes(): void
     {

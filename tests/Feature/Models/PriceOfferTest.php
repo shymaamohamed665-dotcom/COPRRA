@@ -3,10 +3,13 @@
 namespace Tests\Feature\Models;
 
 use App\Models\PriceOffer;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PriceOfferTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_it_can_create_a_price_offer(): void
     {

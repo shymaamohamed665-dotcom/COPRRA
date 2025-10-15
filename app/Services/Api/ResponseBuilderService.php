@@ -15,7 +15,9 @@ class ResponseBuilderService
      * Build API response with common structure
      *
      * @param  array<string|int|float|bool|array|object|null>  $meta
-     * @return array<string, array|object|string|int|bool|null>
+     * @return ((array|mixed|null|object|scalar)[]|bool|int|null|object|string)[]
+     *
+     * @psalm-return array{success: bool, message: string, version: '2.0', timestamp: null|string, data?: array|int|object|string, meta?: array<array|null|object|scalar>}
      */
     public function buildApiResponse(
         bool $success,

@@ -2,11 +2,9 @@
 
 namespace Tests\Browser;
 
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\DuskTestCase;
 
-#[PreserveGlobalState(false)]
 class ExampleTest extends DuskTestCase
 {
     #[Test]

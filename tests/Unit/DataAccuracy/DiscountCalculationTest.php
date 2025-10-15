@@ -3,15 +3,12 @@
 namespace Tests\Unit\DataAccuracy;
 
 use App\Models\Product;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\DatabaseSetup;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DiscountCalculationTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseSetup;
 
     // \[\PHPUnit\Framework\Attributes\Test]
     public function test_percentage_discount(): void
@@ -49,5 +46,17 @@ class DiscountCalculationTest extends TestCase
         // Since the product model doesn't have activeDiscount method,
         // we test if the discount has expired
         $this->assertTrue($discountExpiresAt->isPast());
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->setUpDatabase();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->tearDownDatabase();
+        parent::tearDown();
     }
 }

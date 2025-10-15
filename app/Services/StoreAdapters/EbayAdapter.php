@@ -5,29 +5,35 @@ declare(strict_types=1);
 namespace App\Services\StoreAdapters;
 
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Illuminate\Contracts\Log\Logger;
 use Illuminate\Http\Client\Factory as HttpFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * eBay store adapter.
  */
-final class EbayAdapter extends AbstractStoreAdapter
+final class EbayAdapter extends StoreAdapter
 {
     private string $appId;
 
-    public function __construct(HttpFactory $http, CacheRepository $cache, Logger $logger)
+    public function __construct(HttpFactory $http, CacheRepository $cache, LoggerInterface $logger)
     {
         parent::__construct($http, $cache, $logger);
         $appId = config('services.ebay.app_id', '');
         $this->appId = is_string($appId) ? $appId : '';
     }
 
+    /**
+     * @psalm-return 'eBay'
+     */
     #[\Override]
     public function getStoreName(): string
     {
         return 'eBay';
     }
 
+    /**
+     * @psalm-return 'ebay'
+     */
     #[\Override]
     public function getStoreIdentifier(): string
     {
@@ -53,7 +59,7 @@ final class EbayAdapter extends AbstractStoreAdapter
         }
 
         // Check cache first
-        /** @var array<string, string|int|float|null>|null $cached */
+        /** @var array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}|null $cached */
         $cached = $this->getCachedProduct($productIdentifier);
         if ($cached) {
             return $cached;
@@ -85,10 +91,12 @@ final class EbayAdapter extends AbstractStoreAdapter
     /**
      * {@inheritdoc}
      *
-     * @return array<int, array<string, string|int|float|null>>
+     * @return array<int, array<string, null|scalar|array>>
+     *
+     * @psalm-return list<non-empty-array<string, null|scalar|array>>
      */
     #[\Override]
-    public function searchProducts(string $query): array
+    public function searchProducts(string $query, array $options = []): array
     {
         if (! $this->isAvailable()) {
             return [];
@@ -172,9 +180,11 @@ final class EbayAdapter extends AbstractStoreAdapter
      * Normalize eBay product data.
      *
      * @param  array<string, array>  $item
-     * @return array<string, array>
+     * @return (array|null|scalar)[]
      *
      * @phpstan-ignore-next-line
+     *
+     * @psalm-return array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}
      */
     private function normalizeEbayData(array $item): array
     {
@@ -206,6 +216,8 @@ final class EbayAdapter extends AbstractStoreAdapter
      * Map eBay availability status.
      *
      * @phpstan-ignore-next-line
+     *
+     * @psalm-return 'in_stock'|'out_of_stock'
      */
     private function mapEbayAvailability(?string $status): string
     {
@@ -220,9 +232,11 @@ final class EbayAdapter extends AbstractStoreAdapter
      * Normalize eBay search result item.
      *
      * @param  array<string, array>  $item
-     * @return array<string, array>
+     * @return (array|null|scalar)[]
      *
      * @phpstan-ignore-next-line
+     *
+     * @psalm-return array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}
      */
     private function normalizeEbaySearchResult(array $item): array
     {

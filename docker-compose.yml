@@ -1,12 +1,9 @@
 version: "3.8"
-
 services:
   app:
-    image: php:8.2-apache
-    container_name: coprra-dev-app
-    working_dir: /var/www/html
+    container_name: "coprra-dev-app"
+    image: "mcr.microsoft.com/windows/servercore:ltsc2019"
+    isolation: "hyperv"
     volumes:
-      - "C:/Users/Gaser/Desktop/COPRRA:/var/www/html"
-    ports:
-      - "8090:80"
-    restart: always
+      - "C:\\Users\\Gaser\\Desktop\\COPRRA:C:\\app"
+    command: ["powershell", "-NoProfile", "-Command", "$null = New-Item -ItemType Directory -Path 'C:\\app' -Force; Set-Content -Path 'C:\\app\\container_to_local.txt' -Value 'ContainerToLocal' -Encoding ASCII; while ($true) { if (Test-Path 'C:\\app\\local_to_container.txt') { Set-Content -Path 'C:\\app\\local_detected.txt' -Value 'DETECTED' -Encoding ASCII }; Start-Sleep -Seconds 2 }" ]

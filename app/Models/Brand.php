@@ -70,7 +70,7 @@ class Brand extends ValidatableModel
      *
      * @var array<string, string>
      */
-    protected $rules = [
+    protected array $rules = [
         'name' => 'required|string|max:255',
         'slug' => 'nullable|string|max:255|unique:brands,slug',
         'description' => 'nullable|string|max:1000',
@@ -89,9 +89,25 @@ class Brand extends ValidatableModel
         return $this->hasMany(Product::class);
     }
 
+    // --- Scopes ---
+
     /**
-     * Get validation rules for the model.
+     * @param  \Illuminate\Database\Eloquent\Builder<Brand>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Brand>
      */
+    public function scopeActive(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withTrashed()->where('is_active', true);
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Brand>  $query
+     * @return \Illuminate\Database\Eloquent\Builder<Brand>
+     */
+    public function scopeSearch(\Illuminate\Database\Eloquent\Builder $query, string $searchTerm): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->withTrashed()->where('name', 'like', "%{$searchTerm}%");
+    }
 
     /**
      * Boot the model.

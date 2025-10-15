@@ -16,11 +16,13 @@ class TrustProxies extends Middleware
 
     public function __construct()
     {
-        $envValue = env('TRUSTED_PROXIES');
+        $configured = config('app.trust_proxies');
 
-        if (is_string($envValue) && trim($envValue) !== '') {
-            $list = array_filter(array_map('trim', explode(',', $envValue)));
+        if (is_string($configured) && trim($configured) !== '') {
+            $list = array_filter(array_map('trim', explode(',', $configured)));
             $this->proxies = $list ?: null;
+        } elseif (is_array($configured) && ! empty($configured)) {
+            $this->proxies = $configured;
         } else {
             $this->proxies = app()->environment('production') ? null : '*';
         }

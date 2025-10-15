@@ -5,6 +5,7 @@ namespace Tests\Unit\Controllers;
 use App\Http\Controllers\AnalyticsController;
 use App\Models\User;
 use App\Services\BehaviorAnalysisService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,6 +15,8 @@ use Tests\TestCase;
 
 class AnalyticsControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     private AnalyticsController $controller;
 
     private BehaviorAnalysisService|Mockery\MockInterface $serviceMock;

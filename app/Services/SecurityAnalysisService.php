@@ -11,7 +11,9 @@ final class SecurityAnalysisService
     /**
      * Run comprehensive security analysis.
      *
-     * @return array<string, int|string|list<string>>
+     * @return (int|string|string[])[]
+     *
+     * @psalm-return array{score: int, max_score: 100, issues: list<string>, category: 'Security'}
      */
     public function analyze(): array
     {
@@ -40,6 +42,8 @@ final class SecurityAnalysisService
      * Check for outdated dependencies.
      *
      * @param  list<string>  $issues
+     *
+     * @psalm-return 0|30
      */
     private function checkDependencies(array &$issues): int
     {
@@ -67,6 +71,8 @@ final class SecurityAnalysisService
      * Check if .env.example file exists.
      *
      * @param  list<string>  $issues
+     *
+     * @psalm-return 0|10
      */
     private function checkEnvironmentFile(array &$issues): int
     {
@@ -83,6 +89,8 @@ final class SecurityAnalysisService
      * Check if debug mode is disabled.
      *
      * @param  list<string>  $issues
+     *
+     * @psalm-return 0|20
      */
     private function checkDebugMode(array &$issues): int
     {
@@ -99,6 +107,8 @@ final class SecurityAnalysisService
      * Check if HTTPS is configured.
      *
      * @param  list<string>  $issues
+     *
+     * @psalm-return 0|20
      */
     private function checkHttpsConfiguration(array &$issues): int
     {
@@ -116,6 +126,8 @@ final class SecurityAnalysisService
      * Check if SecurityHeadersMiddleware is registered.
      *
      * @param  list<string>  $issues
+     *
+     * @psalm-return 0|20
      */
     private function checkSecurityMiddleware(array &$issues): int
     {

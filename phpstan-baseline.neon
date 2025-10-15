@@ -1,0 +1,655 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Console/Commands/ProcessPendingWebhooks.php
+
+		-
+			message: '#^PHPDoc tag @var above a method has no effect\.$#'
+			identifier: varTag.misplaced
+			count: 1
+			path: app/Console/Kernel.php
+
+		-
+			message: '#^PHPDoc tag @var does not specify variable name\.$#'
+			identifier: varTag.noVariable
+			count: 1
+			path: app/Console/Kernel.php
+
+		-
+			message: '#^PHPDoc tag @return contains unresolvable type\.$#'
+			identifier: return.unresolvableType
+			count: 1
+			path: app/Enums/NotificationStatus.php
+
+		-
+			message: '#^PHPDoc tag @return contains unresolvable type\.$#'
+			identifier: return.unresolvableType
+			count: 1
+			path: app/Enums/OrderStatus.php
+
+		-
+			message: '#^PHPDoc tag @return contains unresolvable type\.$#'
+			identifier: return.unresolvableType
+			count: 1
+			path: app/Enums/UserRole.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Cache\\Factory\:\:forget\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Http/Controllers/Admin/DashboardController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Cache\\Factory\:\:get\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Http/Controllers/Admin/DashboardController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Cache\\Factory\:\:put\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Http/Controllers/Admin/DashboardController.php
+
+		-
+			message: '#^Method App\\Services\\AIService\:\:classifyProduct\(\) invoked with 3 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Http/Controllers/Api/AIController.php
+
+		-
+			message: '#^Method Symfony\\Component\\HttpFoundation\\HeaderBag\:\:get\(\) invoked with 3 parameters, 1\-2 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Http/Controllers/Api/PriceSearchController.php
+
+		-
+			message: '#^Call to protected method getMethodValue\(\) of class App\\Services\\Api\\PaginationService\.$#'
+			identifier: method.protected
+			count: 1
+			path: app/Http/Controllers/Api/V2/BaseApiController.php
+
+		-
+			message: '#^Call to protected method getPaginationLinks\(\) of class App\\Services\\Api\\PaginationService\.$#'
+			identifier: method.protected
+			count: 1
+			path: app/Http/Controllers/Api/V2/BaseApiController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:calculateOverallHealth\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:checkCacheHealth\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:checkDatabaseHealth\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:checkDiskSpaceHealth\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:checkMemoryHealth\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:checkStorageHealth\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:processErrorStatistics\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Http\\Controllers\\ErrorController\:\:processLogFilesForRecentErrors\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\LogProcessing\\LogProcessingService\:\:getLogFiles\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Http/Controllers/ErrorController.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$id$#'
+			identifier: parameter.notFound
+			count: 3
+			path: app/Http/Controllers/OrderController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\PriceComparisonController\:\:getPriceHistory\(\) invoked with 1 parameter, 0 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Http/Controllers/PriceComparisonController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Contracts\\Auth\\Authenticatable\:\:\$role\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Middleware/CheckPermission.php
+
+		-
+			message: '#^Cannot access property \$timestamp on null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: app/Http/Middleware/RequirePassword.php
+
+		-
+			message: '#^PHPDoc tag @return has invalid value \(Currency&object\|null\)\: Unexpected token "\|", expected TOKEN_OTHER at offset 92 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Models/Language.php
+
+		-
+			message: '#^Type string in generic type Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany\<App\\Models\\Store, Illuminate\\Database\\Eloquent\\Relations\\Pivot, string\> in PHPDoc tag @return is not subtype of template type TPivotModel of Illuminate\\Database\\Eloquent\\Relations\\Pivot \= Illuminate\\Database\\Eloquent\\Relations\\Pivot of class Illuminate\\Database\\Eloquent\\Relations\\BelongsToMany\.$#'
+			identifier: generics.notSubtype
+			count: 1
+			path: app/Models/Product.php
+
+		-
+			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\HasMany\<App\\Models\\PriceOffer\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\HasMany\: TRelatedModel, TDeclaringModel$#'
+			identifier: generics.lessTypes
+			count: 1
+			path: app/Models/Store.php
+
+		-
+			message: '#^Generic type Illuminate\\Database\\Eloquent\\Relations\\HasMany\<App\\Models\\Product\> in PHPDoc tag @return does not specify all template types of class Illuminate\\Database\\Eloquent\\Relations\\HasMany\: TRelatedModel, TDeclaringModel$#'
+			identifier: generics.lessTypes
+			count: 1
+			path: app/Models/Store.php
+
+		-
+			message: '#^Method App\\Services\\Product\\Services\\ProductQueryBuilderService\:\:buildProductBySlugQuery\(\) invoked with 0 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Repositories/ProductRepository.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Services/AI/Services/AIRequestService.php
+
+		-
+			message: '#^Call to method store\(\) on an unknown class Illuminate\\Contracts\\Cache\\Manager\.$#'
+			identifier: class.notFound
+			count: 3
+			path: app/Services/Activity/Services/ActivityThresholdService.php
+
+		-
+			message: '#^Parameter \$cache of method App\\Services\\Activity\\Services\\ActivityThresholdService\:\:__construct\(\) has invalid type Illuminate\\Contracts\\Cache\\Manager\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/Activity/Services/ActivityThresholdService.php
+
+		-
+			message: '#^Property App\\Services\\Activity\\Services\\ActivityThresholdService\:\:\$cache has unknown class Illuminate\\Contracts\\Cache\\Manager as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/Activity/Services/ActivityThresholdService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\GeolocationService\:\:isWithinProximity\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/Activity/Services/LocationCheckService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\GeolocationService\:\:isWithinProximity\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^Call to method store\(\) on an unknown class Illuminate\\Contracts\\Cache\\Manager\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^Method App\\Services\\ActivityChecker\:\:getActivityCheckers\(\) has invalid return type App\\Services\\App\\Services\\SuspiciousActivity\.$#'
+			identifier: class.notFound
+			count: 5
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^Method App\\Services\\ActivityChecker\:\:getSuspiciousActivities\(\) has invalid return type App\\Services\\App\\Services\\SuspiciousActivity\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^PHPDoc tag @param for parameter \$data with type iterable\<string, array\<string, int\|string\>\|bool\|float\|int\|string\|null\> is not subtype of native type array\.$#'
+			identifier: parameter.phpDocType
+			count: 2
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^Parameter \$cache of method App\\Services\\ActivityChecker\:\:__construct\(\) has invalid type Illuminate\\Contracts\\Cache\\Manager\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^Property App\\Services\\ActivityChecker\:\:\$cache has unknown class Illuminate\\Contracts\\Cache\\Manager as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/ActivityChecker.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/AgentFixer/GitWorkflowService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/AgentFixer/PullRequestService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/AgentFixer/StyleFixer.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 3
+			path: app/Services/Amazon/AmazonClient.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalyticsEvent\:\:\$click_count\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/AnalyticsService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\AnalyticsEvent\:\:\$views\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/AnalyticsService.php
+
+		-
+			message: '#^Undefined variable\: \$requestParameterService$#'
+			identifier: variable.undefined
+			count: 2
+			path: app/Services/Api/ApiInfoService.php
+
+		-
+			message: '#^Call to an undefined method RecursiveIteratorIterator\:\:getSubPathName\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/Backup/Services/BackupFileSystemService.php
+
+		-
+			message: '#^Template type T of method App\\Services\\CacheService\:\:getCachedPriceComparison\(\) is not referenced in a parameter\.$#'
+			identifier: method.templateTypeNotInParameter
+			count: 1
+			path: app/Services/CacheService.php
+
+		-
+			message: '#^Template type T of method App\\Services\\CacheService\:\:getCachedProduct\(\) is not referenced in a parameter\.$#'
+			identifier: method.templateTypeNotInParameter
+			count: 1
+			path: app/Services/CacheService.php
+
+		-
+			message: '#^Template type T of method App\\Services\\CacheService\:\:getCachedSearchResults\(\) is not referenced in a parameter\.$#'
+			identifier: method.templateTypeNotInParameter
+			count: 1
+			path: app/Services/CacheService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Services/CacheStatisticsDisplayer.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 14
+			path: app/Services/EnvironmentChecker.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 5
+			path: app/Services/Performance/AppOptimizer.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 3
+			path: app/Services/Performance/AppOptimizer.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/Performance/CacheOptimizer.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/Performance/CacheOptimizer.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/Performance/CacheOptimizerService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 8
+			path: app/Services/Performance/DatabaseOptimizer.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: app/Services/Performance/DatabaseOptimizer.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/Performance/DatabaseOptimizerService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/Performance/DatabaseOptimizerService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 5
+			path: app/Services/Performance/PerformanceReporter.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/Performance/PerformanceReporter.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/Performance/PerformanceReporterService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:line\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/Performance/SystemOptimizerService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Console\\OutputStyle\:\:warn\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/Performance/SystemOptimizerService.php
+
+		-
+			message: '#^Access to an undefined property App\\Services\\PerformanceMonitoringService\:\:\$operations\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/PerformanceMonitoringService.php
+
+		-
+			message: '#^Undefined variable\: \$operation$#'
+			identifier: variable.undefined
+			count: 3
+			path: app/Services/PerformanceMonitoringService.php
+
+		-
+			message: '#^Access to an undefined property App\\Services\\ReportService\:\:\$userModel\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/ReportService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\ReportService\:\:getTopStores\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/ReportService.php
+
+		-
+			message: '#^Cannot call method map\(\) on array\<int, array\<string, int\|string\|null\>\>\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/ReportService.php
+
+		-
+			message: '#^Undefined variable\: \$productId$#'
+			identifier: variable.undefined
+			count: 1
+			path: app/Services/ReportService.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\Product\:\:\$image_url\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Services/SEOService.php
+
+		-
+			message: '#^Called ''env'' outside of the config directory which returns null when the config is cached, use ''config''\.$#'
+			identifier: larastan.noEnvCallsOutsideOfConfig
+			count: 1
+			path: app/Services/Security/VirusScanner.php
+
+		-
+			message: '#^Access to an undefined property App\\Services\\StorageManagementService\:\:\$isDryRun\.$#'
+			identifier: property.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Access to constant CREATE on an unknown class App\\Services\\ZipArchive\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\StorageManagementService\:\:buildMonitoringResult\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\StorageManagementService\:\:executeArchival\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\StorageManagementService\:\:executeCompression\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\StorageManagementService\:\:getMaxStorageSize\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to an undefined method App\\Services\\StorageManagementService\:\:isCleanupNeeded\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to method addFile\(\) on an unknown class App\\Services\\ZipArchive\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to method close\(\) on an unknown class App\\Services\\ZipArchive\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to method error\(\) on an unknown class Illuminate\\Contracts\\Log\\Logger\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to method info\(\) on an unknown class Illuminate\\Contracts\\Log\\Logger\.$#'
+			identifier: class.notFound
+			count: 4
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to method open\(\) on an unknown class App\\Services\\ZipArchive\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Call to static method warning\(\) on an unknown class App\\Services\\Log\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Instantiated class App\\Services\\StorageBreakdown not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Instantiated class App\\Services\\StorageStatistics not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Instantiated class App\\Services\\ZipArchive not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Method App\\Services\\StorageManagementService\:\:buildStorageStatisticsResponse\(\) has invalid return type App\\Services\\StorageStatistics\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Method App\\Services\\StorageManagementService\:\:compressFile\(\) invoked with 1 parameter, 2 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Method App\\Services\\StorageManagementService\:\:getStorageStatistics\(\) has invalid return type App\\Services\\StorageStatistics\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Method App\\Services\\StorageManagementService\:\:performCleanup\(\) invoked with 0 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^PHPDoc tag @param references unknown parameter\: \$config$#'
+			identifier: parameter.notFound
+			count: 2
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^PHPDoc tag @return has invalid value \(array\<string, StorageBreakdown\>\}\)\: Unexpected token "\}", expected TOKEN_HORIZONTAL_WS at offset 100 on line 4$#'
+			identifier: phpDoc.parseError
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^PHPDoc tag @return with type array\<string, array\<string, float\|int\|string\>\> is incompatible with native type App\\DataObjects\\StorageUsage\.$#'
+			identifier: return.phpDocType
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$breakdown contains unknown class App\\Services\\StorageBreakdown\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Parameter \$breakdown of method App\\Services\\StorageManagementService\:\:buildStorageStatisticsResponse\(\) has invalid type App\\Services\\StorageBreakdown\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Parameter \$logger of method App\\Services\\StorageManagementService\:\:__construct\(\) has invalid type Illuminate\\Contracts\\Log\\Logger\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Property App\\Services\\StorageManagementService\:\:\$logger has unknown class Illuminate\\Contracts\\Log\\Logger as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Result of method App\\Services\\StorageManagementService\:\:compressFile\(\) \(void\) is used\.$#'
+			identifier: method.void
+			count: 1
+			path: app/Services/StorageManagementService.php
+
+		-
+			message: '#^Variable \$rateLimits in PHPDoc tag @var does not exist\.$#'
+			identifier: varTag.variableNotFound
+			count: 1
+			path: app/Services/StoreAdapters/EbayAdapter.php
+
+		-
+			message: '#^PHPDoc tag @return contains unresolvable type\.$#'
+			identifier: return.unresolvableType
+			count: 1
+			path: database/factories/UserFactory.php
+
+		-
+			message: '#^Method Illuminate\\Database\\Migrations\\Migration@anonymous/database/migrations/2025_09_14_065423_create_permission_tables\.php\:9\:\:up\(\) should always throw an exception or terminate script execution but doesn''t do that\.$#'
+			identifier: return.never
+			count: 1
+			path: database/migrations/2025_09_14_065423_create_permission_tables.php

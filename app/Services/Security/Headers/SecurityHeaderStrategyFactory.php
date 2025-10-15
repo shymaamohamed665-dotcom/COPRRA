@@ -62,7 +62,7 @@ class SecurityHeaderStrategyFactory
     /**
      * Create a standard strategy for headers without specific implementations.
      */
-    private function createStandardStrategy(string $header): SecurityHeaderStrategyInterface
+    private function createStandardStrategy(string $header): StandardSecurityHeaderStrategy
     {
         return new StandardSecurityHeaderStrategy($header, '');
     }

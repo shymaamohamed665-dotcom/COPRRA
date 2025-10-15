@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services\StoreClients;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 
 abstract class BaseStoreClient
@@ -58,7 +57,7 @@ abstract class BaseStoreClient
     /**
      * @param  array<string, string|int|float|bool|array<string, string>>  $data
      */
-    protected function makeRequest(string $method, string $endpoint, array $data = []): Response
+    protected function makeRequest(string $method, string $endpoint, array $data = [])
     {
         return Http::withHeaders([
             'Authorization' => 'Bearer '.$this->apiKey,

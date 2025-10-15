@@ -2,7 +2,10 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use App\Services\Security\SecurityHeadersService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Mockery;
 use Tests\TestCase;
 
 /**
@@ -10,11 +13,20 @@ use Tests\TestCase;
  */
 class SecurityHeadersMiddlewareTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_security_headers_middleware_adds_security_headers(): void
     {
         $request = Request::create('/test', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware;
+        $service = Mockery::mock(SecurityHeadersService::class);
+        $service->shouldReceive('applySecurityHeaders')->once()->andReturnUsing(function ($response, $request) {
+            $response->headers->set('X-Content-Type-Options', 'nosniff');
+            $response->headers->set('X-Frame-Options', 'DENY');
+            $response->headers->set('X-XSS-Protection', '1; mode=block');
+        });
+
+        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware($service);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -29,7 +41,12 @@ class SecurityHeadersMiddlewareTest extends TestCase
     {
         $request = Request::create('/admin/sensitive', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware;
+        $service = Mockery::mock(SecurityHeadersService::class);
+        $service->shouldReceive('applySecurityHeaders')->once()->andReturnUsing(function ($response, $request) {
+            $response->headers->set('X-Content-Type-Options', 'nosniff');
+        });
+
+        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware($service);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -44,7 +61,12 @@ class SecurityHeadersMiddlewareTest extends TestCase
             'name' => 'John Doe',
         ]);
 
-        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware;
+        $service = Mockery::mock(SecurityHeadersService::class);
+        $service->shouldReceive('applySecurityHeaders')->once()->andReturnUsing(function ($response, $request) {
+            $response->headers->set('X-Content-Type-Options', 'nosniff');
+        });
+
+        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware($service);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -58,7 +80,12 @@ class SecurityHeadersMiddlewareTest extends TestCase
         $request = Request::create('/api/test', 'GET');
         $request->headers->set('Accept', 'application/json');
 
-        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware;
+        $service = Mockery::mock(SecurityHeadersService::class);
+        $service->shouldReceive('applySecurityHeaders')->once()->andReturnUsing(function ($response, $request) {
+            $response->headers->set('X-Content-Type-Options', 'nosniff');
+        });
+
+        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware($service);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -71,7 +98,12 @@ class SecurityHeadersMiddlewareTest extends TestCase
     {
         $request = Request::create('http://example.com/test', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware;
+        $service = Mockery::mock(SecurityHeadersService::class);
+        $service->shouldReceive('applySecurityHeaders')->once()->andReturnUsing(function ($response, $request) {
+            $response->headers->set('X-Content-Type-Options', 'nosniff');
+        });
+
+        $middleware = new \App\Http\Middleware\SecurityHeadersMiddleware($service);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

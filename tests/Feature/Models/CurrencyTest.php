@@ -3,10 +3,13 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Currency;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class CurrencyTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_it_can_validate_required_fields(): void
     {

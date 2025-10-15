@@ -2,11 +2,14 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\SafeMiddlewareTestBase;
 
 class SetLocaleAndCurrencyTest extends SafeMiddlewareTestBase
 {
+    use RefreshDatabase;
+
     public function test_set_locale_and_currency_middleware_sets_locale_and_currency(): void
     {
         $request = Request::create('/test', 'GET');
@@ -14,7 +17,7 @@ class SetLocaleAndCurrencyTest extends SafeMiddlewareTestBase
 
         $middleware = new \App\Http\Middleware\SetLocaleAndCurrency;
         $response = $middleware->handle($request, function ($req) {
-            return response('OK', 200);
+            return new \Illuminate\Http\Response('OK', 200);
         });
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -27,7 +30,7 @@ class SetLocaleAndCurrencyTest extends SafeMiddlewareTestBase
 
         $middleware = new \App\Http\Middleware\SetLocaleAndCurrency;
         $response = $middleware->handle($request, function ($req) {
-            return response('OK', 200);
+            return new \Illuminate\Http\Response('OK', 200);
         });
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -37,14 +40,16 @@ class SetLocaleAndCurrencyTest extends SafeMiddlewareTestBase
     public function test_set_locale_and_currency_middleware_handles_session_values(): void
     {
         $request = Request::create('/test', 'GET');
-        $session = new \Illuminate\Session\Store('test', new \Illuminate\Session\NullSessionHandler);
+        $session = new \Symfony\Component\HttpFoundation\Session\Session(
+            new \Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage
+        );
         $request->setSession($session);
-        $request->session()->put('locale', 'es');
-        $request->session()->put('currency', 'EUR');
+        $session->set('locale', 'es');
+        $session->set('currency', 'EUR');
 
         $middleware = new \App\Http\Middleware\SetLocaleAndCurrency;
         $response = $middleware->handle($request, function ($req) {
-            return response('OK', 200);
+            return new \Illuminate\Http\Response('OK', 200);
         });
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -59,7 +64,7 @@ class SetLocaleAndCurrencyTest extends SafeMiddlewareTestBase
 
         $middleware = new \App\Http\Middleware\SetLocaleAndCurrency;
         $response = $middleware->handle($request, function ($req) {
-            return response('OK', 200);
+            return new \Illuminate\Http\Response('OK', 200);
         });
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -74,7 +79,7 @@ class SetLocaleAndCurrencyTest extends SafeMiddlewareTestBase
 
         $middleware = new \App\Http\Middleware\SetLocaleAndCurrency;
         $response = $middleware->handle($request, function ($req) {
-            return response('OK', 200);
+            return new \Illuminate\Http\Response('OK', 200);
         });
 
         $this->assertEquals(200, $response->getStatusCode());

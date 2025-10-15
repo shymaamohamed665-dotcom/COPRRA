@@ -18,6 +18,7 @@ class ApiServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
+    #[\Override]
     public function register(): void
     {
         $this->app->singleton(ResponseBuilderService::class);

@@ -16,10 +16,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Language
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class LanguageTest extends TestCase
 {
     /**

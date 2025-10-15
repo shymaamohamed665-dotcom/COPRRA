@@ -14,10 +14,16 @@ trait AITestTrait
     {
         parent::setUp();
 
-        // Bind MockAIService to AIService in testing environment
-        $this->app->singleton(AIService::class, function ($app) {
-            return new MockAIService();
-        });
+        // Bind MockAIService to AIService in testing environment when Laravel app exists
+        if (function_exists('app')) {
+            try {
+                app()->singleton(AIService::class, function ($app) {
+                    return new MockAIService;
+                });
+            } catch (\Throwable $e) {
+                // Non-Laravel context; ignore binding
+            }
+        }
     }
 
     protected function tearDown(): void
@@ -27,13 +33,23 @@ trait AITestTrait
 
     protected function getAIService(): AIService
     {
-        // في بيئة الاختبار، استخدم Mock Service
-        if (app()->environment('testing')) {
-            return new MockAIService;
+        // في بيئة الاختبار، استخدم Mock Service إذا كانت Laravel متاحة
+        if (function_exists('app')) {
+            try {
+                if (app()->environment('testing')) {
+                    return new MockAIService;
+                }
+
+                // في البيئة الحقيقية، استخدم الخدمة الحقيقية
+                return app()->make(AIService::class);
+            } catch (\Throwable $e) {
+                // Non-Laravel or container not ready; fallback to Mock
+                return new MockAIService;
+            }
         }
 
-        // في البيئة الحقيقية، استخدم الخدمة الحقيقية
-        return app()->make(AIService::class);
+        // بدون Laravel، استخدم Mock مباشرةً
+        return new MockAIService;
     }
 
     /**

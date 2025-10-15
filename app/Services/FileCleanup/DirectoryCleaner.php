@@ -11,7 +11,9 @@ use RecursiveIteratorIterator;
 final class DirectoryCleaner
 {
     /**
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{files_deleted: int<0, max>, size_deleted: int<min, max>}
      */
     public function cleanup(string $directory, int $retentionDays): array
     {

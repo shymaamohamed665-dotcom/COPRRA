@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table): void {
-            $table->string('logo_url', 500)->nullable()->after('description');
-        });
+        if (! Schema::hasColumn('stores', 'logo_url')) {
+            Schema::table('stores', function (Blueprint $table): void {
+                $table->string('logo_url', 500)->nullable()->after('description');
+            });
+        }
     }
 
     /**
@@ -23,8 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table): void {
-            $table->dropColumn('logo_url');
-        });
+        if (Schema::hasColumn('stores', 'logo_url')) {
+            Schema::table('stores', function (Blueprint $table): void {
+                $table->dropColumn('logo_url');
+            });
+        }
     }
 };

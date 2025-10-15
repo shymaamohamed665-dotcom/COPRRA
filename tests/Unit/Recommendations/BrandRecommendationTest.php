@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class BrandRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_recommends_brands_based_on_user_preferences(): void
     {
         $userPreferences = [
@@ -31,7 +26,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_popular_brands_in_category(): void
     {
         $category = 'Electronics';
@@ -57,7 +51,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_similar_brands(): void
     {
         $currentBrand = 'Apple';
@@ -75,7 +68,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_brands_based_on_price_range(): void
     {
         $userBudget = 500;
@@ -94,7 +86,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_brands_based_on_quality_rating(): void
     {
         $brandRatings = [
@@ -116,7 +107,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_brand_availability_by_region(): void
     {
         $userRegion = 'US';
@@ -136,7 +126,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_brands_based_on_user_purchase_history(): void
     {
         $purchaseHistory = [
@@ -154,7 +143,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_brand_loyalty_score(): void
     {
         $userPurchases = [
@@ -170,7 +158,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_trending_brands(): void
     {
         $brandTrends = [
@@ -188,7 +175,6 @@ class BrandRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_brand_recommendation_weights(): void
     {
         $brands = [

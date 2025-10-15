@@ -19,15 +19,8 @@ class SafeTestBase extends TestCase
      */
     protected $app;
 
-    /**
-     * Original error handler.
-     */
-    private $originalErrorHandler;
-
-    /**
-     * Original exception handler.
-     */
-    private $originalExceptionHandler;
+    /** @var bool */
+    private $handlersRestored = false; // kept for BC, no longer used
 
     /**
      * Set up the test environment with proper error handler management.
@@ -35,18 +28,6 @@ class SafeTestBase extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        // Store original handlers
-        $this->originalErrorHandler = set_error_handler(null);
-        $this->originalExceptionHandler = set_exception_handler(null);
-
-        // Restore original handlers
-        if ($this->originalErrorHandler) {
-            set_error_handler($this->originalErrorHandler);
-        }
-        if ($this->originalExceptionHandler) {
-            set_exception_handler($this->originalExceptionHandler);
-        }
     }
 
     /**
@@ -54,12 +35,16 @@ class SafeTestBase extends TestCase
      */
     protected function tearDown(): void
     {
-        // Restore original handlers
-        if ($this->originalErrorHandler) {
-            set_error_handler($this->originalErrorHandler);
+        // Restore global error/exception handlers that may have been set during app bootstrap
+        try {
+            restore_error_handler();
+        } catch (\Throwable $e) {
+            // ignore
         }
-        if ($this->originalExceptionHandler) {
-            set_exception_handler($this->originalExceptionHandler);
+        try {
+            restore_exception_handler();
+        } catch (\Throwable $e) {
+            // ignore
         }
 
         // Clean up Laravel app if it exists
@@ -79,8 +64,8 @@ class SafeTestBase extends TestCase
      */
     public function createApplication()
     {
+        // Build the application and bootstrap the Kernel to ensure all providers are registered
         $app = require __DIR__.'/../bootstrap/app.php';
-
         $app->make(Kernel::class)->bootstrap();
 
         return $app;

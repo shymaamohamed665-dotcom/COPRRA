@@ -17,14 +17,9 @@ class LogLineParser
     /**
      * Parse log line
      *
-     * @return array{
-     *     id: string,
-     *     timestamp: string,
-     *     level: string,
-     *     type: string,
-     *     message: string,
-     *     context: array<string, string>
-     * }
+     * @return (string|string[])[]
+     *
+     * @psalm-return array{id: string, timestamp: string, level: string, type: string, message: string, context: array<string, string>}
      */
     public function parseLogLine(string $line): array
     {
@@ -68,7 +63,9 @@ class LogLineParser
     /**
      * Extract context from log line
      *
-     * @return array<string, string>
+     * @return (array|null|object|scalar)[]
+     *
+     * @psalm-return array<string, array|null|object|scalar>
      */
     private function extractContext(string $line): array
     {

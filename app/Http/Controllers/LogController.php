@@ -40,17 +40,13 @@ class LogController extends Controller
 
     /**
      * Execute a callback with unified error handling.
-     *
-     * @param callable $callback
-     * @param string $operation
-     * @return JsonResponse
      */
     private function executeWithErrorHandling(callable $callback, string $operation): JsonResponse
     {
         try {
             return $callback();
         } catch (\Exception $e) {
-            Log::error("Error {$operation}: " . $e->getMessage());
+            Log::error("Error {$operation}: ".$e->getMessage());
 
             return response()->json([
                 'success' => false,
@@ -152,7 +148,6 @@ class LogController extends Controller
      * Parse log file with filters.
      *
      * @param  array<string>  $allowedLevels
-     *
      * @return array<string, bool|string|array>
      */
     public function parseLogFile(array $allowedLevels = []): array
@@ -187,8 +182,8 @@ class LogController extends Controller
     /**
      * Filter log lines by allowed levels.
      *
-     * @param array<string> $lines
-     * @param array<string> $allowedLevels
+     * @param  array<string>  $lines
+     * @param  array<string>  $allowedLevels
      * @return array<string>
      */
     private function filterLinesByLevels(array $lines, array $allowedLevels): array
@@ -211,8 +206,6 @@ class LogController extends Controller
     /**
      * Execute log operation with error handling.
      *
-     * @param callable $callback
-     * @param string $operation
      * @return array<string, bool|string|array>
      */
     private function executeLogOperation(callable $callback, string $operation): array
@@ -220,7 +213,7 @@ class LogController extends Controller
         try {
             return $callback();
         } catch (\Exception $e) {
-            Log::error("Error {$operation}: " . $e->getMessage());
+            Log::error("Error {$operation}: ".$e->getMessage());
 
             return [
                 'success' => false,
@@ -293,14 +286,6 @@ class LogController extends Controller
         }, 'getting recent errors');
     }
 
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to get recent errors',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
-    }
-
     /**
      * Get log levels.
      */
@@ -334,14 +319,6 @@ class LogController extends Controller
         ];
     }
 
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to get log levels',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
-    }
-
     /**
      * Export logs to file.
      *
@@ -358,7 +335,7 @@ class LogController extends Controller
                 'message' => 'Logs exported successfully',
                 'data' => [
                     'filename' => basename($filePath),
-                    'download_url' => url('storage/' . basename($filePath)),
+                    'download_url' => url('storage/'.basename($filePath)),
                     'expires_at' => now()->addHours(24)->toISOString(),
                 ],
             ]);
@@ -370,8 +347,9 @@ class LogController extends Controller
      */
     private function prepareExportFilePath(): string
     {
-        $filename = 'logs_export_' . now()->format('Y-m-d_H-i-s') . '.csv';
-        return storage_path('app/' . $filename);
+        $filename = 'logs_export_'.now()->format('Y-m-d_H-i-s').'.csv';
+
+        return storage_path('app/'.$filename);
     }
 
     /**
@@ -391,14 +369,6 @@ class LogController extends Controller
             fputcsv($file, array_values(array_map(static fn ($log) => is_string($log) ? $log : 'log', $logs)));
         } finally {
             fclose($file);
-        }
-    }
-
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to export logs',
-                'error' => $e->getMessage(),
-            ], 500);
         }
     }
 
@@ -472,17 +442,17 @@ class LogController extends Controller
     /**
      * Apply level filter to log lines.
      *
-     * @param array<string> $lines
+     * @param  array<string>  $lines
      * @return array<string>
      */
     private function applyLevelFilter(array $lines, Request $request): array
     {
-        if (!$request->has('level')) {
+        if (! $request->has('level')) {
             return $lines;
         }
 
         $level = $request->get('level');
-        if (!is_string($level)) {
+        if (! is_string($level)) {
             return $lines;
         }
 
@@ -492,14 +462,14 @@ class LogController extends Controller
     /**
      * Apply limit filter to log lines.
      *
-     * @param array<string> $lines
+     * @param  array<string>  $lines
      * @return array<string>
      */
     private function applyLimitFilter(array $lines, Request $request): array
     {
         $limitInput = $request->get('limit', 100);
         $limit = is_numeric($limitInput) ? (int) $limitInput : 100;
-        
+
         return array_slice($lines, 0, $limit);
     }
 

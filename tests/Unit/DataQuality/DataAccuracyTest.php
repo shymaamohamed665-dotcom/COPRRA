@@ -53,19 +53,19 @@ class DataAccuracyTest extends TestCase
             ->each(fn ($product) => $order->items()->create([
                 'product_id' => $product->id,
                 'quantity' => 3,
-                'price' => $product->price,
+                'unit_price' => $product->price,
             ]));
 
         Product::factory()->create(['price' => 149.50])
             ->each(fn ($product) => $order->items()->create([
                 'product_id' => $product->id,
                 'quantity' => 2,
-                'price' => $product->price,
+                'unit_price' => $product->price,
             ]));
 
         // التحقق من المجموع الكلي
         $expectedTotal = (75.99 * 3) + (149.50 * 2);
-        $this->assertEquals(577.97, round($order->total, 2));
+        $this->assertEquals($expectedTotal, round($order->fresh()->total, 2));
     }
 
     // \PHPUnit\Framework\Attributes\Test

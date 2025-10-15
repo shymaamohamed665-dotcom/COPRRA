@@ -24,11 +24,18 @@ final class AppComposer
     /**
      * Get active languages.
      *
-     * @return list<array<string, string|bool>>
+     * @return (int|string)[][][]
+     *
+     * @psalm-return list<array<string, array<string, int|string>>>
      */
     private function getLanguages(): array
     {
-        $mapper = static fn (Language $language): array => [
+        $mapper = /**
+         * @return (bool|string)[]
+         *
+         * @psalm-return array{code: string, name: string, native_name: string, direction: string, is_current: bool}
+         */
+        static fn (Language $language): array => [
             'code' => $language->code ?? '',
             'name' => $language->name ?? '',
             'native_name' => $language->native_name ?? '',
@@ -42,11 +49,18 @@ final class AppComposer
     /**
      * Get active categories.
      *
-     * @return list<array<string, int|string>>
+     * @return (int|string)[][][]
+     *
+     * @psalm-return list<array<string, array<string, int|string>>>
      */
     private function getCategories(): array
     {
-        $mapper = static fn (Category $category): array => [
+        $mapper = /**
+         * @return (int|string)[]
+         *
+         * @psalm-return array{id: int, name: string, slug: string, url: string}
+         */
+        static fn (Category $category): array => [
             'id' => (int) $category->id,
             'name' => $category->name ?? '',
             'slug' => $category->slug ?? '',
@@ -59,11 +73,18 @@ final class AppComposer
     /**
      * Get active brands.
      *
-     * @return list<array<string, int|string|null>>
+     * @return (int|string)[][][]
+     *
+     * @psalm-return list<array<string, array<string, int|string>>>
      */
     private function getBrands(): array
     {
-        $mapper = static fn (Brand $brand): array => [
+        $mapper = /**
+         * @return (int|null|string)[]
+         *
+         * @psalm-return array{id: int, name: string, slug: string, logo: null|string, url: string}
+         */
+        static fn (Brand $brand): array => [
             'id' => (int) $brand->id,
             'name' => $brand->name ?? '',
             'slug' => $brand->slug ?? '',
@@ -99,6 +120,9 @@ final class AppComposer
         $result = cache()->remember(
             $key,
             $ttl,
+            /**
+             * @psalm-return array<int, mixed>
+             */
             static function () use ($modelClass, $orderBy, $mapper): array {
                 /** @var \Illuminate\Database\Eloquent\Builder<
                  *     \Illuminate\Database\Eloquent\Model

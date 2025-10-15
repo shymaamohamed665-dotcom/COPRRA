@@ -18,17 +18,52 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['*'],
+    // Methods: Restrict to those actually needed (REST + preflight)
+    'allowed_methods' => array_filter(array_map('trim', explode(',', (string) env('CORS_ALLOWED_METHODS', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')))),
 
-    'allowed_origins' => [env('APP_URL', 'http://localhost')],
+    // Origins: Environment-based. Defaults:
+    // - local: common dev origins (Vite/SPA)
+    // - production: APP_URL and FRONTEND_URL only
+    'allowed_origins' => (static function (): array {
+        $env = (string) env('APP_ENV', 'production');
+        $fromEnv = array_filter(array_map('trim', explode(',', (string) env('CORS_ALLOWED_ORIGINS', ''))));
+
+        if ($fromEnv !== []) {
+            return $fromEnv;
+        }
+
+        if ($env === 'local' || $env === 'development') {
+            return [
+                'http://localhost:5173',
+                'http://127.0.0.1:5173',
+                'http://localhost:3000',
+                'http://127.0.0.1:3000',
+                (string) env('APP_URL'),
+            ];
+        }
+
+        $defaults = [];
+        if (env('APP_URL')) {
+            $defaults[] = (string) env('APP_URL');
+        }
+        if (env('FRONTEND_URL')) {
+            $defaults[] = (string) env('FRONTEND_URL');
+        }
+
+        return $defaults;
+    })(),
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    // Headers: Only those required by the app
+    'allowed_headers' => array_filter(array_map('trim', explode(',', (string) env('CORS_ALLOWED_HEADERS', 'Accept,Authorization,Content-Type,X-Requested-With,X-CSRF-TOKEN')))),
 
-    'exposed_headers' => [],
+    // Exposed headers: usually none; configurable via env
+    'exposed_headers' => array_filter(array_map('trim', explode(',', (string) env('CORS_EXPOSED_HEADERS', '')))),
 
-    'max_age' => 0,
+    // Cache preflight responses
+    'max_age' => (int) env('CORS_MAX_AGE', 600),
 
-    'supports_credentials' => false,
+    // Credentials: only enable when required (e.g., Sanctum SPA)
+    'supports_credentials' => (bool) env('CORS_SUPPORTS_CREDENTIALS', false),
 ];

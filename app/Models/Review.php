@@ -84,4 +84,12 @@ class Review extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    /**
+     * Accessor to get review text (content).
+     */
+    public function getReviewTextAttribute(): string
+    {
+        return (string) ($this->content ?? '');
+    }
 }

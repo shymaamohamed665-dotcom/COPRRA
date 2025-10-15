@@ -58,7 +58,9 @@ final class FileSecurityService
      * Get file security statistics.
      */
     /**
-     * @return array<string, int|float|array<int, string>>
+     * @return (int|string[])[]
+     *
+     * @psalm-return array{allowed_extensions: list{'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'pdf', 'doc', 'docx', 'txt', 'rtf', 'xls', 'xlsx', 'csv', 'zip', 'rar', '7z'}, dangerous_extensions: list{'exe', 'bat', 'cmd', 'com', 'pif', 'scr', 'vbs', 'js', 'jar', 'php', 'asp', 'aspx', 'jsp', 'py', 'rb', 'pl', 'sh', 'ps1', 'psm1', 'psd1', 'ps1xml', 'psc1', 'psc2'}, max_file_size: 10485760, max_file_size_mb: 10}
      */
     public function getStatistics(): array
     {

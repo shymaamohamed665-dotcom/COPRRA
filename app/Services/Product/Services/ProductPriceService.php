@@ -21,34 +21,37 @@ final class ProductPriceService
     public function updatePrice(Product $product, float $newPrice): bool
     {
         try {
-            return DB::transaction(function () use ($product, $newPrice): bool {
-                $oldPrice = $product->price;
+            return DB::transaction(/**
+             * @return true
+             */
+                function () use ($product, $newPrice): bool {
+                    $oldPrice = $product->price;
 
-                // Lock the row for update
-                $lockedProduct = Product::where('id', $product->id)->lockForUpdate()->firstOrFail();
+                    // Lock the row for update
+                    $lockedProduct = Product::where('id', $product->id)->lockForUpdate()->firstOrFail();
 
-                $updated = $lockedProduct->update(['price' => $newPrice]);
+                    $updated = $lockedProduct->update(['price' => $newPrice]);
 
-                if (! $updated) {
-                    throw new \RuntimeException('Failed to update product price');
-                }
+                    if (! $updated) {
+                        throw new \RuntimeException('Failed to update product price');
+                    }
 
-                $userId = auth()->id();
+                    $userId = auth()->id();
 
-                // Log price change
-                Log::info('Product price updated', [
-                    'product_id' => $lockedProduct->id,
-                    'old_price' => $oldPrice,
-                    'new_price' => $newPrice,
-                    'user_id' => $userId,
-                    'ip' => request()->ip(),
-                ]);
+                    // Log price change
+                    Log::info('Product price updated', [
+                        'product_id' => $lockedProduct->id,
+                        'old_price' => $oldPrice,
+                        'new_price' => $newPrice,
+                        'user_id' => $userId,
+                        'ip' => request()->ip(),
+                    ]);
 
-                // Create price history record (if priceHistory method exists)
-                $this->createPriceHistory($lockedProduct, $oldPrice, $newPrice, $userId);
+                    // Create price history record (if priceHistory method exists)
+                    $this->createPriceHistory($lockedProduct, $oldPrice, $newPrice, $userId);
 
-                return true;
-            });
+                    return true;
+                });
         } catch (\Exception $e) {
             Log::error('Price update failed', [
                 'product_id' => $product->id,
@@ -72,9 +75,8 @@ final class ProductPriceService
         $priceHistory = $product->priceHistory();
         if (is_object($priceHistory) && method_exists($priceHistory, 'create')) {
             $priceHistory->create([
-                'old_price' => $oldPrice,
-                'new_price' => $newPrice,
-                'changed_by' => $userId,
+                'price' => $newPrice,
+                'effective_date' => now(),
             ]);
         }
     }

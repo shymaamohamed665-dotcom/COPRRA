@@ -6,8 +6,8 @@ namespace App\Services\StoreAdapters;
 
 use App\Services\Contracts\StoreAdapterContract;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Illuminate\Contracts\Log\Logger;
 use Illuminate\Http\Client\Factory as HttpFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Abstract base class for store adapters.
@@ -23,7 +23,7 @@ abstract class StoreAdapter implements StoreAdapterContract
     public function __construct(
         protected readonly HttpFactory $http,
         protected readonly CacheRepository $cache,
-        protected readonly Logger $logger
+        protected readonly LoggerInterface $logger
     ) {}
 
     public function getLastError(): ?string
@@ -131,7 +131,9 @@ abstract class StoreAdapter implements StoreAdapterContract
      * Normalize product data to standard format.
      *
      * @param  array<string, string|int|float|bool|array|null>  $rawData
-     * @return array<string, string|int|float|bool|null>
+     * @return (array|null|scalar)[]
+     *
+     * @psalm-return array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}
      */
     protected function normalizeProductData(array $rawData): array
     {

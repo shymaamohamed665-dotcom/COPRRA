@@ -4,8 +4,7 @@
  * Script to migrate PHPUnit test annotations to PHPUnit 12 format
  * Converts @test annotations to test_ prefix
  */
-
-$directory = __DIR__ . '/tests/Feature';
+$directory = __DIR__.'/tests/Feature';
 
 function processDirectory($dir)
 {
@@ -39,9 +38,9 @@ function processFile($filePath)
 
         // If function starts with 'it_', convert to 'test_'
         if (strpos($functionName, 'it_') === 0) {
-            $newName = 'test_' . substr($functionName, 3);
+            $newName = 'test_'.substr($functionName, 3);
         } else {
-            $newName = 'test_' . $functionName;
+            $newName = 'test_'.$functionName;
         }
 
         // Return without the @test annotation
@@ -51,6 +50,7 @@ function processFile($filePath)
     if ($content !== $originalContent) {
         file_put_contents($filePath, $content);
         echo "Updated: $filePath\n";
+
         return true;
     }
 

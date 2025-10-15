@@ -6,9 +6,6 @@ use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class PriceHistoryAccuracyTest extends TestCase
 {
     use RefreshDatabase;

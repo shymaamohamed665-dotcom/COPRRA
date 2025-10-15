@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class SimilarProductTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_finds_similar_products_by_category(): void
     {
         $targetProduct = [
@@ -37,7 +35,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_finds_similar_products_by_brand(): void
     {
         $targetProduct = [
@@ -63,7 +60,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_finds_similar_products_by_price_range(): void
     {
         $targetProduct = [
@@ -90,7 +86,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_finds_similar_products_by_specifications(): void
     {
         $targetProduct = [
@@ -135,7 +130,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_similarity_score(): void
     {
         $product1 = [
@@ -158,7 +152,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_empty_product_list(): void
     {
         $targetProduct = [
@@ -175,7 +168,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_ranks_similar_products_by_relevance(): void
     {
         $targetProduct = [
@@ -200,7 +192,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_user_preferences(): void
     {
         $targetProduct = [
@@ -231,7 +222,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_case_insensitive_matching(): void
     {
         $targetProduct = [
@@ -257,7 +247,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_limits_number_of_similar_products(): void
     {
         $targetProduct = [
@@ -277,7 +266,6 @@ class SimilarProductTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_products_with_missing_attributes(): void
     {
         $targetProduct = [

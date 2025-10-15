@@ -10,6 +10,21 @@ use Illuminate\Support\Facades\Process;
 final class ProcessService
 {
     /**
+     * Current processing status.
+     */
+    private string $status = 'idle';
+
+    /**
+     * Processed items counter.
+     */
+    private int $processedCount = 0;
+
+    /**
+     * Error counter.
+     */
+    private int $errorCount = 0;
+
+    /**
      * Validation errors.
      *
      * @var array<string, string>
@@ -31,29 +46,25 @@ final class ProcessService
 
         $result = Process::timeout($timeout)->run($command);
 
+        // Pre-populate defaults
+        $output = $result->output();
+        $errorOutput = $result->errorOutput();
+        $exitCode = $result->exitCode() ?? 0;
+
         // For git commands, stderr often contains success messages, not errors
         $isGitCommand = is_string($command) && str_starts_with($command, 'git');
 
         if ($isGitCommand) {
-            // For git commands, check if the stderr contains success messages
-            $errorOutput = $result->errorOutput();
+            // Check if the stderr contains success messages and normalize accordingly
             $isSuccessMessage = str_contains($errorOutput, 'Switched to a new branch') ||
                 str_contains($errorOutput, 'Branch created') ||
                 str_contains($errorOutput, 'successfully');
 
             if ($isSuccessMessage) {
-                // Treat stderr as output for successful git commands, and force success
-                $output = $result->output() ? $result->output() : $errorOutput;
+                $output = $output !== '' ? $output : $errorOutput;
                 $errorOutput = '';
-                $exitCode = 0; // Force success for git commands with success messages
-            } else {
-                $output = $result->output();
-                $exitCode = $result->exitCode() ?? 0;
+                $exitCode = 0;
             }
-        } else {
-            $output = $result->output();
-            $errorOutput = $result->errorOutput();
-            $exitCode = $result->exitCode() ?? 0;
         }
 
         return new ProcessResult(
@@ -61,6 +72,83 @@ final class ProcessService
             $output,
             $errorOutput
         );
+    }
+
+    /**
+     * Process input data and return a structured result.
+     *
+     * @param  array<string, mixed>|null  $data
+     * @return ((array|null|scalar)[]|bool|null|string)[]
+     *
+     * @psalm-return array{processed: bool, error: bool, message: ''|'Invalid data provided'|'Validation failed', data: array<string, array|null|scalar>|null}
+     */
+    public function process(?array $data): array
+    {
+        if ($data === null) {
+            $this->status = 'idle';
+            $this->errorCount++;
+
+            return [
+                'processed' => false,
+                'error' => true,
+                'message' => 'Invalid data provided',
+                'data' => null,
+            ];
+        }
+
+        $isValid = $this->validate($data);
+        if (! $isValid) {
+            $this->status = 'error';
+            $this->errorCount++;
+
+            return [
+                'processed' => false,
+                'error' => true,
+                'message' => 'Validation failed',
+                'data' => null,
+            ];
+        }
+
+        $cleaned = $this->clean($data);
+        $this->status = 'completed';
+        $this->processedCount++;
+
+        return [
+            'processed' => true,
+            'error' => false,
+            'message' => '',
+            'data' => $cleaned,
+        ];
+    }
+
+    /**
+     * Get current processing status.
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * Reset service state.
+     */
+    public function reset(): void
+    {
+        $this->status = 'idle';
+        $this->errors = [];
+    }
+
+    /**
+     * Get processing metrics.
+     *
+     * @return array{processed_count: int, error_count: int}
+     */
+    public function getMetrics(): array
+    {
+        return [
+            'processed_count' => $this->processedCount,
+            'error_count' => $this->errorCount,
+        ];
     }
 
     /**

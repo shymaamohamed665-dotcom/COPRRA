@@ -23,4 +23,23 @@ return [
         'js' => 'max-age=31536000',
         'fonts' => 'max-age=31536000',
     ],
+
+    // Asset delivery configuration (environment-driven)
+    'asset' => [
+        // Toggle custom CDN asset logic (reserved for future use)
+        'enabled' => env('CDN_ENABLED', false),
+
+        // Primary CDN base URL for assets
+        'primary_url' => env('CDN_URL'),
+
+        // Optional: multiple CDN base URLs (comma-separated) for failover/rotation
+        // e.g. "https://cdn1.example.com,https://cdn2.example.com"
+        'urls' => array_filter(array_map('trim', explode(',', env('CDN_URLS', '')))),
+
+        // Whether to attempt failover to secondary URLs if primary is unreachable
+        'failover' => (bool) env('CDN_FAILOVER', true),
+
+        // Timeout for health checks or URL head requests (in milliseconds)
+        'timeout_ms' => (int) env('CDN_TIMEOUT_MS', 500),
+    ],
 ];

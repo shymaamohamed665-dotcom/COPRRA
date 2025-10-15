@@ -35,10 +35,12 @@ class AuditServiceTest extends TestCase
         app()->instance(Request::class, $mockRequest);
         app()->instance('request', $mockRequest);
     }
+
     public function test_can_be_instantiated(): void
     {
         $this->assertInstanceOf(AuditService::class, $this->service);
     }
+
     public function test_logs_created_event(): void
     {
         $user = User::factory()->create();
@@ -62,6 +64,7 @@ class AuditServiceTest extends TestCase
         $this->assertEquals($user->getAttributes(), $log->new_values);
         $this->assertNull($log->old_values);
     }
+
     public function test_logs_updated_event(): void
     {
         $user = User::factory()->create();
@@ -82,6 +85,7 @@ class AuditServiceTest extends TestCase
         $this->assertEquals($oldValues, $log->old_values);
         $this->assertEquals($user->getChanges(), $log->new_values);
     }
+
     public function test_logs_deleted_event(): void
     {
         $user = User::factory()->create();
@@ -101,6 +105,7 @@ class AuditServiceTest extends TestCase
         $this->assertEquals($user->getAttributes(), $log->old_values);
         $this->assertNull($log->new_values);
     }
+
     public function test_logs_viewed_event(): void
     {
         $user = User::factory()->create();
@@ -120,6 +125,7 @@ class AuditServiceTest extends TestCase
         $this->assertNull($log->old_values);
         $this->assertNull($log->new_values);
     }
+
     public function test_logs_sensitive_operation(): void
     {
         $user = User::factory()->create();
@@ -135,6 +141,7 @@ class AuditServiceTest extends TestCase
             'user_id' => $user->id,
         ]);
     }
+
     public function test_logs_auth_event_with_user_id(): void
     {
         $performer = User::factory()->create(['email' => 'performer@example.com']);
@@ -151,6 +158,7 @@ class AuditServiceTest extends TestCase
             'user_id' => $performer->id,
         ]);
     }
+
     public function test_logs_auth_event_without_user_id(): void
     {
         $user = User::factory()->create();
@@ -166,6 +174,7 @@ class AuditServiceTest extends TestCase
             'user_id' => $user->id,
         ]);
     }
+
     public function test_logs_api_access(): void
     {
         $performer = User::factory()->create(['email' => 'performer2@example.com']);
@@ -185,6 +194,7 @@ class AuditServiceTest extends TestCase
         $log = AuditLog::first();
         $this->assertEquals(['endpoint' => '/api/test', 'method' => 'GET', 'response_time' => 150], $log->metadata);
     }
+
     public function test_gets_model_logs(): void
     {
         $user = User::factory()->create();
@@ -200,6 +210,7 @@ class AuditServiceTest extends TestCase
         $this->assertEquals('viewed', $logs->first()->event);
         $this->assertEquals('created', $logs->last()->event);
     }
+
     public function test_gets_user_logs(): void
     {
         $user = User::factory()->create();
@@ -212,6 +223,7 @@ class AuditServiceTest extends TestCase
         $this->assertCount(1, $logs);
         $this->assertEquals('created', $logs->first()->event);
     }
+
     public function test_gets_event_logs(): void
     {
         $user = User::factory()->create();
@@ -224,6 +236,7 @@ class AuditServiceTest extends TestCase
         $this->assertCount(1, $logs);
         $this->assertEquals('created', $logs->first()->event);
     }
+
     public function test_cleans_old_logs(): void
     {
         $user = User::factory()->create();

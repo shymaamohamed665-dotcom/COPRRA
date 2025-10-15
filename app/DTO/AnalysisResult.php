@@ -9,7 +9,7 @@ class AnalysisResult
     public function __construct(
         public string $category,
         public int $score,
-        public int $max_score,
+        public int $maxScore,
         /** @var array<string> */
         public array $issues
     ) {}

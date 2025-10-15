@@ -219,7 +219,9 @@ abstract class BaseApiController extends Controller
      * Get rate limit information.
      */
     /**
-     * @return array<string, int>
+     * @return (float|int|string)[]
+     *
+     * @psalm-return array{limit: 1000, remaining: 999, reset: float|int|string}
      */
     protected function getRateLimitInfo(): array
     {

@@ -28,7 +28,6 @@ final class PriceComparisonService
 
         foreach ($storeMappings as $storeIdentifier => $productIdentifier) {
             /** @var string $storeIdentifier */
-            /** @var string $productIdentifier */
             $productData = $this->storeAdapterManager->fetchProduct(
                 $storeIdentifier,
                 $productIdentifier

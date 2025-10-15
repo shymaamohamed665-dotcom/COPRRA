@@ -90,7 +90,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<string, array<string, int|string>|int|string>|array<string, int|array<string, int>>|array<string, int>>
+     * @return (((int|string)[]|int|string)[]|int|string)[][]
+     *
+     * @psalm-return array{users: array<string, array<string, int>|int>, products: array<string, int>, orders: array<string, int>, revenue: array<string, int>, security: array<string, array<string, int|string>|int|string>, system: array<string, array<string, int|string>|int|string>, recent_activities: array<string, array<string, int|string>|int|string>, charts: array<string, array<int, array<string, int|string>>>}
      */
     private function getDashboardStatistics(): array
     {
@@ -98,7 +100,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<string, int>|int>
+     * @return (((int|string)[]|int|string)[]|int|string)[][]
+     *
+     * @psalm-return array{users: array<string, array<string, int>|int>, products: array<string, int>, orders: array<string, int>, revenue: array<string, int>, security: array<string, array<string, int|string>|int|string>, system: array<string, array<string, int|string>|int|string>, recent_activities: array<string, array<string, int|string>|int|string>, charts: array<string, array<int, array<string, int|string>>>}
      */
     private function compileDashboardStatistics(): array
     {
@@ -116,9 +120,6 @@ final class DashboardController extends Controller
 
     /**
      * Get count of users based on a condition.
-     *
-     * @param  \Closure  $condition
-     * @return int
      */
     private function getUserCount(\Closure $condition): int
     {
@@ -126,7 +127,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, int|array<string, int>>
+     * @return int[]
+     *
+     * @psalm-return array{total_users: int, active_users: int, blocked_users: 0, verified_users: int, new_users_today: int, new_users_this_week: int, new_users_this_month: int}
      */
     private function getUserStatistics(): array
     {
@@ -143,9 +146,6 @@ final class DashboardController extends Controller
 
     /**
      * Get count of products based on a condition.
-     *
-     * @param  \Closure  $condition
-     * @return int
      */
     private function getProductCount(\Closure $condition): int
     {
@@ -153,7 +153,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{total_products: int, active_products: int, featured_products: int, out_of_stock: int, low_stock: int, new_products_today: int}
      */
     private function getProductStatistics(): array
     {
@@ -168,7 +170,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{total_orders: 0, pending_orders: 0, completed_orders: 0, cancelled_orders: 0, orders_today: 0, orders_this_week: 0, orders_this_month: 0}
      */
     private function getOrderStatistics(): array
     {
@@ -184,7 +188,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array{total_revenue: 0, revenue_today: 0, revenue_this_week: 0, revenue_this_month: 0, average_order_value: 0, revenue_growth: 0}
      */
     private function getRevenueStatistics(): array
     {
@@ -199,7 +205,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<string, int|string>|int|string>
+     * @return ((int|string[])[]|int)[]
+     *
+     * @psalm-return array{login_attempts: array{max_attempts: 5, lockout_duration: 15, blocked_emails_count: int<0, max>, blocked_ips_count: int<0, max>}, banned_users: array<string, array<string, string>|int>, file_security: array{allowed_extensions: list{'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'pdf', 'doc', 'docx', 'txt', 'rtf', 'xls', 'xlsx', 'csv', 'zip', 'rar', '7z'}, dangerous_extensions: list{'exe', 'bat', 'cmd', 'com', 'pif', 'scr', 'vbs', 'js', 'jar', 'php', 'asp', 'aspx', 'jsp', 'py', 'rb', 'pl', 'sh', 'ps1', 'psm1', 'psd1', 'ps1xml', 'psc1', 'psc2'}, max_file_size: 10485760, max_file_size_mb: 10}, failed_logins_today: int, security_incidents: array<never, never>}
      */
     private function getSecurityStatistics(): array
     {
@@ -213,7 +221,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<string, int|string>|int|string>
+     * @return ((float|int|string)[]|int|string)[]
+     *
+     * @psalm-return array{php_version: string, laravel_version: string, memory_usage: int, memory_peak: int, disk_usage: array{total: 0|float, used: 0|float, free: 0|float, percentage: float}, database_size: int, cache_status: array<string, string>}
      */
     private function getSystemStatistics(): array
     {
@@ -229,7 +239,7 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<string, int|string>|int|string>
+     * @psalm-return array<never, never>
      */
     private function getRecentActivities(): array
     {
@@ -238,7 +248,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<int, array<string, int|string>>|array<empty, empty>>
+     * @return (int|string)[][][]
+     *
+     * @psalm-return array{user_registrations: array<int, array<string, int|string>>, product_views: array<never, never>, revenue_chart: array<never, never>, security_incidents: array<never, never>}
      */
     private function getChartData(): array
     {
@@ -257,7 +269,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, array<string, string>>
+     * @return (float|int|string)[][]
+     *
+     * @psalm-return array{database: array<string, string>, cache: array<string, string>, storage: array<string, string>, memory: array{status: 'healthy'|'warning', usage: int, limit: int, percentage: float}}
      */
     private function getSystemHealth(): array
     {
@@ -270,7 +284,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, int|array<empty, empty>>
+     * @return (array|int)[]
+     *
+     * @psalm-return array{failed_logins: int, blocked_ips: 0, banned_users: int<0, max>, security_incidents: array<never, never>}
      */
     private function getSecurityAlerts(): array
     {
@@ -298,7 +314,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, float|int>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{total: 0|float, used: 0|float, free: 0|float, percentage: float}
      */
     private function getDiskUsage(): array
     {
@@ -356,17 +374,18 @@ final class DashboardController extends Controller
     /**
      * Perform a health check and return standardized result.
      *
-     * @param  \Closure  $checkFunction
-     * @param  string  $successMessage
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'error'|'healthy', message: string}
      */
     private function performHealthCheck(\Closure $checkFunction, string $successMessage): array
     {
         try {
             $result = $checkFunction();
+
             return [
                 'status' => $result ? 'healthy' : 'error',
-                'message' => $successMessage
+                'message' => $successMessage,
             ];
         } catch (\Exception $e) {
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -374,13 +393,16 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'error'|'healthy', message: string}
      */
     private function checkDatabaseHealth(): array
     {
         return $this->performHealthCheck(
             function () {
                 $this->db->connection()->getPdo();
+
                 return true;
             },
             'Database connection successful'
@@ -388,7 +410,9 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'error'|'healthy', message: string}
      */
     private function checkCacheHealth(): array
     {
@@ -397,6 +421,7 @@ final class DashboardController extends Controller
                 $this->cache->put('health_check', 'ok', 1);
                 $result = $this->cache->get('health_check');
                 $this->cache->forget('health_check');
+
                 return $result === 'ok';
             },
             'Cache test completed'
@@ -404,24 +429,29 @@ final class DashboardController extends Controller
     }
 
     /**
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'error'|'healthy', message: string}
      */
     private function checkStorageHealth(): array
     {
         return $this->performHealthCheck(
             function () {
-                $testFile = 'health_check_' . time() . '.txt';
+                $testFile = 'health_check_'.time().'.txt';
                 $this->storage->put($testFile, 'test');
                 $result = $this->storage->get($testFile);
                 $this->storage->delete($testFile);
+
                 return is_string($result) && $result === 'test';
             },
             'Storage test completed'
-         );
-     }
+        );
+    }
 
     /**
-     * @return array<string, float|int|string>
+     * @return (float|int|string)[]
+     *
+     * @psalm-return array{status: 'healthy'|'warning', usage: int, limit: int, percentage: float}
      */
     private function checkMemoryHealth(): array
     {

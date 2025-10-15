@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
-use Illuminate\Session\Store;
 use Tests\TestCase;
 
 /**
@@ -11,11 +11,13 @@ use Tests\TestCase;
  */
 class StartSessionTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_start_session_middleware_starts_session(): void
     {
         $request = Request::create('/test', 'GET');
 
-        $middleware = new \App\Http\Middleware\StartSession;
+        $middleware = $this->app->make(\App\Http\Middleware\StartSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -27,9 +29,9 @@ class StartSessionTest extends TestCase
     public function test_start_session_middleware_handles_session_data(): void
     {
         $request = Request::create('/test', 'GET');
-        $request->setLaravelSession($session = new Store('test'));
+        $request->setLaravelSession(app('session.store'));
 
-        $middleware = new \App\Http\Middleware\StartSession;
+        $middleware = $this->app->make(\App\Http\Middleware\StartSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -44,7 +46,7 @@ class StartSessionTest extends TestCase
             'name' => 'John Doe',
         ]);
 
-        $middleware = new \App\Http\Middleware\StartSession;
+        $middleware = $this->app->make(\App\Http\Middleware\StartSession::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

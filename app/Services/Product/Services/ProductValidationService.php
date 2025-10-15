@@ -17,7 +17,9 @@ final class ProductValidationService
      * Validate search query and filters
      *
      * @param  array<string, string|int|float>  $filters
-     * @return array{query: string, filters: array<string, mixed>, perPage: int}
+     * @return ((float|int|string)[]|int|string)[]
+     *
+     * @psalm-return array{query: string, filters: array<string, float|int|string>, perPage: int<1, 50>}
      *
      * @throws ValidationException
      * @throws InvalidArgumentException
@@ -97,7 +99,9 @@ final class ProductValidationService
      * Sanitize filter values
      *
      * @param  array<string, string|int|float>  $filters
-     * @return array<string, mixed>
+     * @return (float|int|string)[]
+     *
+     * @psalm-return array<string, float|int|string>
      */
     private function sanitizeFilters(array $filters): array
     {

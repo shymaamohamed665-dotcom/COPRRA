@@ -14,6 +14,7 @@ class CompressionServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
+    #[\Override]
     public function register(): void
     {
         $this->app->singleton(ContentTypeService::class);

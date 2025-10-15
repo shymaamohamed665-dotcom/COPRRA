@@ -7,16 +7,16 @@ use App\Models\Order;
 use App\Models\User;
 use App\Services\OrderService;
 use App\Services\PointsService;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Mockery;
 use Mockery\MockInterface;
+use Tests\DatabaseSetup;
 use Tests\TestCase;
 
 class OrderControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseSetup;
 
     private OrderController $controller;
 
@@ -31,6 +31,7 @@ class OrderControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->setUpDatabase();
         $this->orderServiceMock = Mockery::mock(OrderService::class);
         $this->pointsServiceMock = Mockery::mock(PointsService::class);
         $this->controller = Mockery::mock(OrderController::class, [$this->orderServiceMock, $this->pointsServiceMock])->makePartial();
@@ -41,6 +42,7 @@ class OrderControllerTest extends TestCase
     protected function tearDown(): void
     {
         Mockery::close();
+        $this->tearDownDatabase();
         parent::tearDown();
     }
 
@@ -60,7 +62,9 @@ class OrderControllerTest extends TestCase
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals(200, $response->getStatusCode());
-        $this->assertEquals(['orders' => $orders->toArray()], $response->getData(true));
+        $data = $response->getData(true);
+        $this->assertArrayHasKey('orders', $data);
+        $this->assertEquals($orders->toArray(), $data['orders']);
     }
 
     public function test_index_returns_unauthorized_for_unauthenticated_user(): void
@@ -83,12 +87,14 @@ class OrderControllerTest extends TestCase
         $order = Mockery::mock(Order::class);
         $order->shouldReceive('load')->with(['items.product', 'payments.paymentMethod'])->andReturnSelf();
         $order->shouldReceive('jsonSerialize')->andReturn(['id' => 1]);
+        $order->shouldReceive('getAttribute')->with('user_id')->andReturn($this->user->id);
+        $this->requestMock->shouldReceive('user')->andReturn($this->user);
 
-        // Mock authorize
-        $this->controller->shouldReceive('authorize')->with('view', $order);
+        // Mock authorize (not used in controller but kept for compatibility)
+        $this->controller->shouldReceive('authorize')->with('view', $order)->byDefault();
 
         // Act
-        $response = $this->controller->show($order);
+        $response = $this->controller->show($this->requestMock, $order);
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -153,17 +159,17 @@ class OrderControllerTest extends TestCase
     {
         // Arrange
         $order = Mockery::mock(Order::class);
-        $user = Mockery::mock(User::class);
+        $user = User::factory()->create();
         $validated = ['status' => 'processing'];
         $this->requestMock->shouldReceive('validate')
             ->with(['status' => 'required|in:pending,processing,shipped,delivered,cancelled,refunded'])
             ->andReturn($validated);
         $order->shouldReceive('getAttribute')->with('status')->andReturn('pending');
+        $order->shouldReceive('getAttribute')->with('id')->andReturn(1);
         $this->orderServiceMock->shouldReceive('updateOrderStatus')
             ->with($order, 'processing')
             ->andReturn(true);
         $order->shouldReceive('getAttribute')->with('user')->andReturn($user);
-        $user->shouldReceive('notify')->once();
 
         // Act
         $response = $this->controller->updateStatus($this->requestMock, $order);
@@ -175,6 +181,7 @@ class OrderControllerTest extends TestCase
             'success' => true,
             'message' => 'تم تحديث حالة الطلب بنجاح',
         ], $response->getData(true));
+        $this->assertTrue(\Illuminate\Support\Facades\DB::table('notifications')->where('user_id', $user->id)->exists());
     }
 
     public function test_update_status_returns_error_when_update_fails(): void
@@ -239,7 +246,7 @@ class OrderControllerTest extends TestCase
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals(400, $response->getStatusCode());
+        $this->assertEquals(422, $response->getStatusCode());
         $this->assertEquals([
             'success' => false,
             'message' => 'لا يمكن إلغاء الطلب',
@@ -250,11 +257,16 @@ class OrderControllerTest extends TestCase
     {
         // Arrange
         $order = Mockery::mock(Order::class);
-        $this->controller->shouldReceive('authorize')->with('view', $order)->andThrow(new \Illuminate\Auth\Access\AuthorizationException);
+        $order->shouldReceive('getAttribute')->with('user_id')->andReturn(999);
+        $this->requestMock->shouldReceive('user')->andReturn($this->user);
 
-        // Act & Assert
-        $this->expectException(\Illuminate\Auth\Access\AuthorizationException::class);
-        $this->controller->show($order);
+        // Act
+        $response = $this->controller->show($this->requestMock, $order);
+
+        // Assert
+        $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals(403, $response->getStatusCode());
+        $this->assertEquals(['error' => 'Unauthorized'], $response->getData(true));
     }
 
     public function test_update_status_returns_error_for_invalid_transition(): void
@@ -300,7 +312,7 @@ class OrderControllerTest extends TestCase
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals(400, $response->getStatusCode());
+        $this->assertEquals(422, $response->getStatusCode());
         $this->assertEquals([
             'success' => false,
             'message' => 'لا يمكن إلغاء الطلب',

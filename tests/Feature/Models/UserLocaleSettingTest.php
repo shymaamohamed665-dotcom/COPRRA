@@ -21,7 +21,11 @@ class UserLocaleSettingTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        \Config::shouldReceive('get')->with('app.timezone')->andReturn('UTC');
+        // Set explicit config values needed by factories and hashing without mocking the repository
+        \Config::set('app.timezone', 'UTC');
+        \Config::set('app.faker_locale', 'en_US');
+        \Config::set('hashing.driver', 'bcrypt');
+        \Config::set('hashing.bcrypt', []);
     }
 
     #[\PHPUnit\Framework\Attributes\Test]

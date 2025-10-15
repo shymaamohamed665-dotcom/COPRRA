@@ -7,7 +7,9 @@ namespace App\Services\FileCleanup\Strategies;
 interface CleanupStrategy
 {
     /**
-     * @return array<string, bool|string|int|null>
+     * @return array<string, int|string|string[]>
+     *
+     * @psalm-return array<string, int|string|list<string>>
      */
     public function cleanup(): array;
 }

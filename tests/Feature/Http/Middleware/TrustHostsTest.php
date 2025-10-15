@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class TrustHostsTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_trust_hosts_middleware_trusts_valid_hosts(): void
     {
         $request = Request::create('https://example.com/test', 'GET');

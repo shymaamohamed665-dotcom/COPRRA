@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 
 class StrictTransportSecurityHeaderStrategy implements SecurityHeaderStrategyInterface
 {
+    /**
+     * @psalm-return 'Strict-Transport-Security'
+     */
+    #[\Override]
     public function getHeaderName(): string
     {
         return 'Strict-Transport-Security';
     }
 
+    #[\Override]
     public function getValue(Request $request, array $config): ?string
     {
         if (! $request->isSecure()) {
@@ -25,6 +30,7 @@ class StrictTransportSecurityHeaderStrategy implements SecurityHeaderStrategyInt
         );
     }
 
+    #[\Override]
     public function shouldApply(Request $request, array $config): bool
     {
         // Only apply on HTTPS requests
@@ -35,6 +41,10 @@ class StrictTransportSecurityHeaderStrategy implements SecurityHeaderStrategyInt
         return $config['enabled'] ?? true;
     }
 
+    /**
+     * @return true
+     */
+    #[\Override]
     public function supportsDynamicValues(): bool
     {
         return true;

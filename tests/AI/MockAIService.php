@@ -80,14 +80,14 @@ class MockAIService extends AIService
         $positiveWords = ['ممتاز', 'رائع', 'جيد', 'مفيد', 'مثالي', 'ممتازة', 'رائعة', 'جيدة', 'مفيدة', 'مثالية'];
         // English positive words
         $positiveWords = array_merge($positiveWords, [
-            'excellent', 'great', 'good', 'amazing', 'wonderful', 'fantastic', 'perfect', 'outstanding', 'superb', 'brilliant'
+            'excellent', 'great', 'good', 'amazing', 'wonderful', 'fantastic', 'perfect', 'outstanding', 'superb', 'brilliant',
         ]);
 
         // Arabic negative words
         $negativeWords = ['سيء', 'رديء', 'مشكلة', 'خطأ', 'فاشل', 'سيئة', 'رديئة', 'مشاكل', 'أخطاء', 'فاشلة'];
         // English negative words
         $negativeWords = array_merge($negativeWords, [
-            'bad', 'poor', 'terrible', 'awful', 'horrible', 'disappointing', 'worst', 'useless', 'defective', 'broken'
+            'bad', 'poor', 'terrible', 'awful', 'horrible', 'disappointing', 'worst', 'useless', 'defective', 'broken',
         ]);
 
         $text = strtolower($text);

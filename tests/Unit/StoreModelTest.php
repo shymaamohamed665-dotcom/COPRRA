@@ -9,9 +9,6 @@ use App\Models\Store;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class StoreModelTest extends TestCase
 {
     use RefreshDatabase;

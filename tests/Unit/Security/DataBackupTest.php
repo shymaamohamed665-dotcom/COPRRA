@@ -4,9 +4,6 @@ namespace Tests\Unit\Security;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataBackupTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

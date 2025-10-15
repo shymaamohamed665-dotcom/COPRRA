@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Config;
 
 class StoreClientFactory
 {
-    public static function create(string $storeName): ?BaseStoreClient
+    public static function create(string $storeName): ?GenericStoreClient
     {
         $config = Config::get("external_stores.{$storeName}");
 

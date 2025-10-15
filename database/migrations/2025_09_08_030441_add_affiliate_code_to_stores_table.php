@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table): void {
-            $table->string('affiliate_code', 100)->nullable()->after('affiliate_base_url');
-        });
+        if (! Schema::hasColumn('stores', 'affiliate_code')) {
+            Schema::table('stores', function (Blueprint $table): void {
+                $table->string('affiliate_code', 100)->nullable()->after('affiliate_base_url');
+            });
+        }
     }
 
     /**
@@ -23,8 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table): void {
-            $table->dropColumn('affiliate_code');
-        });
+        if (Schema::hasColumn('stores', 'affiliate_code')) {
+            Schema::table('stores', function (Blueprint $table): void {
+                $table->dropColumn('affiliate_code');
+            });
+        }
     }
 };

@@ -19,10 +19,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Store
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class StoreTest extends TestCase
 {
     use WithFaker;
@@ -81,7 +77,7 @@ class StoreTest extends TestCase
         $query->shouldReceive('where')->once()->with('is_active', true)->andReturnSelf();
 
         $store = new Store;
-        $result = $store->newQuery()->active();
+        $result = $store->scopeActive($query);
 
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Builder::class, $result);
     }
@@ -96,7 +92,7 @@ class StoreTest extends TestCase
         $query->shouldReceive('where')->once()->with('name', 'like', "%{$search}%")->andReturnSelf();
 
         $store = new Store;
-        $result = $store->newQuery()->search($search);
+        $result = $store->scopeSearch($query, $search);
 
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Builder::class, $result);
     }

@@ -4,9 +4,6 @@ namespace Tests\Unit\DataAccuracy;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class TaxCalculationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

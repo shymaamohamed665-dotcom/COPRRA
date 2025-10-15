@@ -4,9 +4,6 @@ namespace Tests\Performance;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class LoadTimeTest extends TestCase
 {
     public function test_page_load_time(): void

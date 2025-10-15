@@ -4,9 +4,6 @@ namespace Tests\Performance;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class LoadTestingTest extends TestCase
 {
     public function test_load_testing_basic(): void

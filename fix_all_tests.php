@@ -4,20 +4,21 @@
  * Automated test fixer script
  * Analyzes test output and fixes common patterns
  */
-
 class TestFixer
 {
     private array $fixes = [];
+
     private int $fixCount = 0;
 
     public function analyzeAndFix(string $testOutputFile): void
     {
-        if (!file_exists($testOutputFile)) {
+        if (! file_exists($testOutputFile)) {
             echo "Waiting for test output file...\n";
             sleep(60);
-            if (!file_exists($testOutputFile)) {
+            if (! file_exists($testOutputFile)) {
                 echo "Test output file not found. Proceeding with known fixes...\n";
                 $this->applyKnownFixes();
+
                 return;
             }
         }
@@ -134,9 +135,10 @@ class TestFixer
 
     private function addFieldToResource(string $file, string $fieldName, string $line): void
     {
-        $fullPath = __DIR__ . '/' . $file;
-        if (!file_exists($fullPath)) {
+        $fullPath = __DIR__.'/'.$file;
+        if (! file_exists($fullPath)) {
             echo "File not found: $fullPath\n";
+
             return;
         }
 
@@ -145,6 +147,7 @@ class TestFixer
         // Check if field already exists
         if (strpos($content, "'$fieldName'") !== false) {
             echo "Field $fieldName already exists in $file\n";
+
             return;
         }
 
@@ -163,5 +166,5 @@ class TestFixer
 }
 
 // Run the fixer
-$fixer = new TestFixer();
+$fixer = new TestFixer;
 $fixer->analyzeAndFix('feature_tests_output.txt');

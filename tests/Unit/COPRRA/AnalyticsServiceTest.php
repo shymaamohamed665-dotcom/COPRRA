@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit;
+namespace Tests\Unit\COPRRA;
 
 use App\Models\AnalyticsEvent;
 use App\Models\Product;
@@ -20,8 +20,7 @@ class AnalyticsServiceTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function it_tracks_price_comparison_event(): void
+    public function test_it_tracks_price_comparison_event(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -35,8 +34,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals($user->id, $event->user_id);
     }
 
-    /** @test */
-    public function it_tracks_product_view_event(): void
+    public function test_it_tracks_product_view_event(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -48,8 +46,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals($product->id, $event->product_id);
     }
 
-    /** @test */
-    public function it_tracks_search_event(): void
+    public function test_it_tracks_search_event(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $query = 'laptop';
@@ -63,8 +60,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals($filters, $event->metadata['filters']);
     }
 
-    /** @test */
-    public function it_tracks_store_click_event(): void
+    public function test_it_tracks_store_click_event(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -78,8 +74,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals($product->id, $event->product_id);
     }
 
-    /** @test */
-    public function it_gets_most_viewed_products(): void
+    public function test_it_gets_most_viewed_products(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product1 = Product::factory()->create();
@@ -101,8 +96,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals(5, $mostViewed[0]['view_count']);
     }
 
-    /** @test */
-    public function it_gets_most_searched_queries(): void
+    public function test_it_gets_most_searched_queries(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $analyticsService->trackSearch('laptop');
@@ -117,8 +111,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals(1, $mostSearched['phone']);
     }
 
-    /** @test */
-    public function it_gets_most_popular_stores(): void
+    public function test_it_gets_most_popular_stores(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -141,8 +134,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertEquals(4, $mostPopular[0]['click_count']);
     }
 
-    /** @test */
-    public function it_gets_price_comparison_statistics(): void
+    public function test_it_gets_price_comparison_statistics(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -160,8 +152,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertIsFloat($stats['average_per_day']);
     }
 
-    /** @test */
-    public function it_gets_dashboard_data(): void
+    public function test_it_gets_dashboard_data(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -179,8 +170,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertArrayHasKey('most_popular_stores', $dashboardData);
     }
 
-    /** @test */
-    public function it_cleans_old_analytics_data(): void
+    public function test_it_cleans_old_analytics_data(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         // Create old and recent events
@@ -199,8 +189,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertDatabaseHas('analytics_events', ['id' => $recentEvent->id]);
     }
 
-    /** @test */
-    public function it_does_not_track_when_disabled(): void
+    public function test_it_does_not_track_when_disabled(): void
     {
         // Disable tracking
         config(['coprra.analytics.track_user_behavior' => false]);
@@ -214,8 +203,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertDatabaseCount('analytics_events', 0);
     }
 
-    /** @test */
-    public function it_handles_null_user_id(): void
+    public function test_it_handles_null_user_id(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();
@@ -226,8 +214,7 @@ class AnalyticsServiceTest extends TestCase
         $this->assertNull($event->user_id);
     }
 
-    /** @test */
-    public function it_handles_empty_metadata(): void
+    public function test_it_handles_empty_metadata(): void
     {
         $analyticsService = $this->app->make(AnalyticsService::class);
         $product = Product::factory()->create();

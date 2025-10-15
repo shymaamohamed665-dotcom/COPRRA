@@ -24,7 +24,9 @@ class BackupService
      * Create backup with given configuration.
      *
      * @param  array<string, string>  $config
-     * @return array<string, string|array>
+     * @return (int|string)[]
+     *
+     * @psalm-return array<string, int|string>
      */
     public function createBackup(array $config): array
     {
@@ -44,7 +46,9 @@ class BackupService
      * Prepare backup configuration from options.
      *
      * @param  array<string, string>  $options
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{type: string, name: string, description: string, filename: string}
      */
     private function prepareBackupConfiguration(array $options): array
     {
@@ -81,7 +85,9 @@ class BackupService
      * Finalize backup and return result.
      *
      * @param  array<string, string>  $config
-     * @return array<string, string|array>
+     * @return (int|null|string)[]
+     *
+     * @psalm-return array{id: string, filename: string, type: string, size: int, size_formatted: string, created_at: null|string, description: string}
      */
     private function finalizeBackup(array $config): array
     {
@@ -140,7 +146,9 @@ class BackupService
     /**
      * Create backup result array.
      *
-     * @return array<string, string|int>
+     * @return (int|null|string)[]
+     *
+     * @psalm-return array{id: string, filename: string, type: string, size: int, size_formatted: string, created_at: null|string, description: string}
      */
     private function createBackupResult(string $filename, string $type, string $description): array
     {

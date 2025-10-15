@@ -26,6 +26,7 @@ class UserControllerTest extends TestCase
         $this->tearDownDatabase();
         parent::tearDown();
     }
+
     public function test_can_display_user_profile()
     {
         $user = User::factory()->create();
@@ -37,6 +38,7 @@ class UserControllerTest extends TestCase
             ->assertViewIs('user.profile')
             ->assertViewHas('user', $user);
     }
+
     public function test_requires_authentication_to_view_profile()
     {
         $response = $this->get('/profile');
@@ -44,6 +46,7 @@ class UserControllerTest extends TestCase
         $response->assertStatus(302)
             ->assertRedirect('/login');
     }
+
     public function test_can_update_user_profile()
     {
         $user = User::factory()->create();
@@ -60,6 +63,7 @@ class UserControllerTest extends TestCase
                 'message' => 'Profile updated successfully.',
             ]);
     }
+
     public function test_validates_profile_update_request()
     {
         $user = User::factory()->create();
@@ -70,6 +74,7 @@ class UserControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['name', 'email']);
     }
+
     public function test_requires_authentication_to_update_profile()
     {
         $response = $this->put('/profile', [
@@ -80,6 +85,7 @@ class UserControllerTest extends TestCase
         $response->assertStatus(302)
             ->assertRedirect('/login');
     }
+
     public function test_can_change_user_password()
     {
         $user = User::factory()->create();
@@ -97,6 +103,7 @@ class UserControllerTest extends TestCase
                 'message' => 'Password changed successfully.',
             ]);
     }
+
     public function test_validates_password_change_request()
     {
         $user = User::factory()->create();
@@ -107,6 +114,7 @@ class UserControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['current_password', 'password']);
     }
+
     public function test_requires_authentication_to_change_password()
     {
         $response = $this->put('/profile/password', [

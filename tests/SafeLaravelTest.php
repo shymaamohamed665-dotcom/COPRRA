@@ -8,10 +8,6 @@ use PHPUnit\Framework\TestCase;
  * Safe Laravel test base that preserves error handlers
  * to prevent PHPUnit risky test warnings.
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class SafeLaravelTest extends TestCase
 {
     use \Tests\DatabaseSetup;

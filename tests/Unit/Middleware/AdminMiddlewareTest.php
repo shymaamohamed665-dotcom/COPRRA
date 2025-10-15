@@ -4,9 +4,6 @@ namespace Tests\Unit\Middleware;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class AdminMiddlewareTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

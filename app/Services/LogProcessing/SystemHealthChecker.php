@@ -12,13 +12,9 @@ class SystemHealthChecker
     /**
      * Check all system health components
      *
-     * @return array{
-     *     database: array{status: string, message: string},
-     *     cache: array{status: string, message: string},
-     *     storage: array{status: string, message: string},
-     *     memory: array{status: string, message: string},
-     *     disk_space: array{status: string, message: string}
-     * }
+     * @return string[][]
+     *
+     * @psalm-return array{database: array{status: 'critical'|'healthy', message: string}, cache: array{status: 'critical'|'healthy'|'warning', message: string}, storage: array{status: 'critical'|'healthy'|'warning', message: string}, memory: array{status: 'critical'|'healthy'|'warning', message: string}, disk_space: array{status: 'critical'|'healthy'|'warning', message: string}}
      */
     public function checkAll(): array
     {
@@ -34,7 +30,9 @@ class SystemHealthChecker
     /**
      * Check database health
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'critical'|'healthy', message: string}
      */
     private function checkDatabaseHealth(): array
     {
@@ -50,7 +48,9 @@ class SystemHealthChecker
     /**
      * Check cache health
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'critical'|'healthy'|'warning', message: string}
      */
     private function checkCacheHealth(): array
     {
@@ -73,7 +73,9 @@ class SystemHealthChecker
     /**
      * Check storage health
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'critical'|'healthy'|'warning', message: string}
      */
     private function checkStorageHealth(): array
     {
@@ -110,7 +112,9 @@ class SystemHealthChecker
     /**
      * Check memory health
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'critical'|'healthy'|'warning', message: string}
      */
     private function checkMemoryHealth(): array
     {
@@ -142,7 +146,9 @@ class SystemHealthChecker
     /**
      * Check disk space health
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{status: 'critical'|'healthy'|'warning', message: string}
      */
     private function checkDiskSpaceHealth(): array
     {

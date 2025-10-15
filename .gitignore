@@ -56,6 +56,10 @@ secrets.json
 credentials.json
 auth.json
 
+# Secrets directories
+secrets/
+.secrets/
+
 # ===================================================================
 #  Other General Ignores
 # ===================================================================
@@ -76,3 +80,6 @@ auth.json
 # Coverage reports
 coverage/
 .coverage
+NUL
+@php
+IlluminateFoundation*

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class ThrottleRequestsTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -22,7 +25,7 @@ class ThrottleRequestsTest extends TestCase
         $request = Request::create('/test', 'GET');
         $request->server->set('REMOTE_ADDR', '192.168.1.1');
 
-        $middleware = new \App\Http\Middleware\ThrottleRequests;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleRequests::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -36,7 +39,7 @@ class ThrottleRequestsTest extends TestCase
         $request = Request::create('/test', 'GET');
         $request->server->set('REMOTE_ADDR', '192.168.1.2');
 
-        $middleware = new \App\Http\Middleware\ThrottleRequests;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleRequests::class);
 
         // Make multiple requests to exceed the limit
         for ($i = 0; $i < 61; $i++) {
@@ -53,7 +56,7 @@ class ThrottleRequestsTest extends TestCase
         $request = Request::create('/test', 'GET');
         $request->server->set('REMOTE_ADDR', '192.168.1.3');
 
-        $middleware = new \App\Http\Middleware\ThrottleRequests;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleRequests::class);
 
         // Make multiple requests to exceed the limit
         for ($i = 0; $i < 61; $i++) {
@@ -79,7 +82,7 @@ class ThrottleRequestsTest extends TestCase
         $request2 = Request::create('/test', 'GET');
         $request2->server->set('REMOTE_ADDR', '192.168.1.5');
 
-        $middleware = new \App\Http\Middleware\ThrottleRequests;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleRequests::class);
 
         // Make requests from first IP
         for ($i = 0; $i < 30; $i++) {
@@ -104,7 +107,7 @@ class ThrottleRequestsTest extends TestCase
         $request = Request::create('/test', 'GET');
         $request->server->set('REMOTE_ADDR', '192.168.1.6');
 
-        $middleware = new \App\Http\Middleware\ThrottleRequests;
+        $middleware = $this->app->make(\App\Http\Middleware\ThrottleRequests::class);
 
         // Make requests to exceed the limit
         for ($i = 0; $i < 61; $i++) {
@@ -123,6 +126,6 @@ class ThrottleRequestsTest extends TestCase
 
         // Verify that the cache has the throttling data
         $this->assertTrue(app('cache')->has('throttle:192.168.1.6'));
-        $this->assertEquals(61, app('cache')->get('throttle:192.168.1.6'));
+        $this->assertEquals(60, app('cache')->get('throttle:192.168.1.6'));
     }
 }

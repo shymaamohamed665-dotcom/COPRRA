@@ -7,6 +7,8 @@ namespace App\Models;
 use Database\Factories\CurrencyFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -34,4 +36,26 @@ class Currency extends Model
      * @var array<int, string>
      */
     protected $guarded = [];
+
+    /**
+     * Stores using this currency.
+     *
+     * @return HasMany<Store, Currency>
+     */
+    public function stores(): HasMany
+    {
+        return $this->hasMany(Store::class, 'currency_id');
+    }
+
+    /**
+     * Languages associated with this currency.
+     *
+     * @return BelongsToMany<Language, Currency>
+     */
+    public function languages(): BelongsToMany
+    {
+        return $this->belongsToMany(Language::class, 'currency_language')
+            ->withPivot('is_default')
+            ->withTimestamps();
+    }
 }

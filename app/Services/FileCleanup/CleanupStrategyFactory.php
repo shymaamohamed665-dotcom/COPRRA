@@ -6,7 +6,6 @@ namespace App\Services\FileCleanup;
 
 use App\Services\FileCleanup\Strategies\BackupFilesCleanupStrategy;
 use App\Services\FileCleanup\Strategies\CacheFilesCleanupStrategy;
-use App\Services\FileCleanup\Strategies\CleanupStrategy;
 use App\Services\FileCleanup\Strategies\LogFilesCleanupStrategy;
 use App\Services\FileCleanup\Strategies\TempFilesCleanupStrategy;
 use App\Services\FileCleanup\Strategies\UploadedFilesCleanupStrategy;
@@ -16,7 +15,7 @@ final class CleanupStrategyFactory
     /**
      * @param  array<string>  $config
      */
-    public static function create(string $type, DirectoryCleaner $cleaner, array $config): ?CleanupStrategy
+    public static function create(string $type, DirectoryCleaner $cleaner, array $config): TempFilesCleanupStrategy|LogFilesCleanupStrategy|CacheFilesCleanupStrategy|BackupFilesCleanupStrategy|UploadedFilesCleanupStrategy|null
     {
         switch ($type) {
             case 'temp':

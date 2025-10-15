@@ -34,6 +34,7 @@ class AuthController extends Controller
         $token = $user->createToken('api-token')->plainTextToken;
 
         return response()->json([
+            'message' => __('auth.login_success'),
             'token' => $token,
             'user' => $user,
         ]);
@@ -53,11 +54,8 @@ class AuthController extends Controller
         /** @var array<string, string> $validatedData */
         $validatedData = $validated;
 
-        /** @var string $name */
         $name = $validatedData['name'] ?? '';
-        /** @var string $email */
         $email = $validatedData['email'] ?? '';
-        /** @var string $password */
         $password = $validatedData['password'] ?? '';
 
         $user = User::create([
@@ -72,5 +70,38 @@ class AuthController extends Controller
             'token' => $token,
             'user' => $user,
         ], 201);
+    }
+
+    /**
+     * Handle user logout by revoking the current access token.
+     */
+    public function logout(Request $request): JsonResponse
+    {
+        /** @var \App\Models\User|null $user */
+        $user = $request->user();
+
+        if ($user !== null) {
+            // Delete only the current access token
+            $user->currentAccessToken()?->delete();
+        }
+
+        return response()->json([
+            'message' => __('auth.logout_success'),
+        ]);
+    }
+
+    /**
+     * Return the authenticated user's basic information.
+     */
+    public function me(Request $request): JsonResponse
+    {
+        /** @var \App\Models\User|null $user */
+        $user = $request->user();
+
+        return response()->json([
+            'id' => $user?->id,
+            'name' => $user?->name,
+            'email' => $user?->email,
+        ]);
     }
 }

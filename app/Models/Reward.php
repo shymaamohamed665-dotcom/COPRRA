@@ -41,8 +41,26 @@ class Reward extends Model
     ];
 
     /**
+     * Scope active rewards that are currently within the valid date range.
+     *
      * @param  \Illuminate\Database\Eloquent\Builder<Reward>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<Reward>
+     * @return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeActive(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('is_active', true)
+            ->where(function ($q): void {
+                $q->whereNull('valid_from')->orWhere('valid_from', '<=', now());
+            })
+            ->where(function ($q): void {
+                $q->whereNull('valid_until')->orWhere('valid_until', '>=', now());
+            });
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Reward>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function scopeAvailableForPoints(\Illuminate\Database\Eloquent\Builder $query, int $points): \Illuminate\Database\Eloquent\Builder
     {

@@ -2,14 +2,17 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 /**
  * @runTestsInSeparateProcesses
  */
 class TrimStringsTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_trim_strings_middleware_trims_string_input(): void
     {
         $request = Request::create('/test', 'POST', [

@@ -17,6 +17,7 @@ class DocumentationControllerTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
+
     public function test_can_get_api_status()
     {
         $response = $this->getJson('/api/');
@@ -34,6 +35,7 @@ class DocumentationControllerTest extends TestCase
                 'version' => '1.0.0',
             ]);
     }
+
     public function test_can_get_health_status()
     {
         $response = $this->getJson('/api/health');
@@ -55,6 +57,7 @@ class DocumentationControllerTest extends TestCase
                 'storage' => 'writable',
             ]);
     }
+
     public function test_returns_unhealthy_status_when_database_fails()
     {
         // Mock database connection failure
@@ -69,6 +72,7 @@ class DocumentationControllerTest extends TestCase
                 'database' => 'disconnected',
             ]);
     }
+
     public function test_returns_unhealthy_status_when_cache_fails()
     {
         // Mock cache failure
@@ -83,6 +87,7 @@ class DocumentationControllerTest extends TestCase
                 'cache' => 'not_working',
             ]);
     }
+
     public function test_returns_unhealthy_status_when_storage_is_not_writable()
     {
         // Mock storage as not writable
@@ -104,6 +109,7 @@ class DocumentationControllerTest extends TestCase
                 'storage' => 'not_writable',
             ]);
     }
+
     public function test_includes_timestamp_in_status_response()
     {
         $response = $this->getJson('/api/');
@@ -118,6 +124,7 @@ class DocumentationControllerTest extends TestCase
         $this->assertIsString($timestamp);
         $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z$/', $timestamp);
     }
+
     public function test_includes_timestamp_in_health_response()
     {
         $response = $this->getJson('/api/health');
@@ -132,6 +139,7 @@ class DocumentationControllerTest extends TestCase
         $this->assertIsString($timestamp);
         $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z$/', $timestamp);
     }
+
     public function test_includes_version_in_status_response()
     {
         $response = $this->getJson('/api/');
@@ -145,6 +153,7 @@ class DocumentationControllerTest extends TestCase
         $this->assertIsString($version);
         $this->assertEquals('1.0.0', $version);
     }
+
     public function test_includes_version_in_health_response()
     {
         $response = $this->getJson('/api/health');
@@ -158,6 +167,7 @@ class DocumentationControllerTest extends TestCase
         $this->assertIsString($version);
         $this->assertNotEmpty($version);
     }
+
     public function test_includes_environment_in_health_response()
     {
         $response = $this->getJson('/api/health');
@@ -171,6 +181,7 @@ class DocumentationControllerTest extends TestCase
         $this->assertIsString($environment);
         $this->assertContains($environment, ['local', 'testing', 'staging', 'production']);
     }
+
     public function test_tests_database_connection_in_health_check()
     {
         $response = $this->getJson('/api/health');
@@ -180,6 +191,7 @@ class DocumentationControllerTest extends TestCase
         $database = $response->json('database');
         $this->assertContains($database, ['connected', 'disconnected']);
     }
+
     public function test_tests_cache_functionality_in_health_check()
     {
         $response = $this->getJson('/api/health');
@@ -189,6 +201,7 @@ class DocumentationControllerTest extends TestCase
         $cache = $response->json('cache');
         $this->assertContains($cache, ['working', 'not_working']);
     }
+
     public function test_tests_storage_writability_in_health_check()
     {
         $response = $this->getJson('/api/health');
@@ -198,6 +211,7 @@ class DocumentationControllerTest extends TestCase
         $storage = $response->json('storage');
         $this->assertContains($storage, ['writable', 'not_writable']);
     }
+
     public function test_handles_multiple_system_failures_in_health_check()
     {
         // Mock both database and cache failures
@@ -216,12 +230,14 @@ class DocumentationControllerTest extends TestCase
                 'cache' => 'not_working',
             ]);
     }
+
     public function test_returns_200_for_healthy_systems()
     {
         $response = $this->getJson('/api/health');
 
         $response->assertStatus(200);
     }
+
     public function test_returns_503_for_unhealthy_systems()
     {
         // Mock database failure
@@ -232,6 +248,7 @@ class DocumentationControllerTest extends TestCase
 
         $response->assertStatus(503);
     }
+
     public function test_handles_cache_test_successfully()
     {
         // Mock successful cache test
@@ -250,6 +267,7 @@ class DocumentationControllerTest extends TestCase
                 'cache' => 'working',
             ]);
     }
+
     public function test_handles_cache_test_failure()
     {
         // Mock cache test failure
@@ -268,6 +286,7 @@ class DocumentationControllerTest extends TestCase
                 'cache' => 'not_working',
             ]);
     }
+
     public function test_handles_database_connection_exception()
     {
         // Mock database connection exception
@@ -282,6 +301,7 @@ class DocumentationControllerTest extends TestCase
                 'database' => 'disconnected',
             ]);
     }
+
     public function test_handles_cache_exception()
     {
         // Mock cache exception
@@ -296,6 +316,7 @@ class DocumentationControllerTest extends TestCase
                 'cache' => 'not_working',
             ]);
     }
+
     public function test_handles_storage_exception()
     {
         // Mock storage exception
@@ -311,6 +332,7 @@ class DocumentationControllerTest extends TestCase
                 'storage' => 'not_writable',
             ]);
     }
+
     public function test_returns_consistent_status_message()
     {
         $response = $this->getJson('/api/');
@@ -321,6 +343,7 @@ class DocumentationControllerTest extends TestCase
                 'message' => 'COPRRA API is running',
             ]);
     }
+
     public function test_returns_consistent_health_message_for_healthy_systems()
     {
         $response = $this->getJson('/api/health');
@@ -330,6 +353,7 @@ class DocumentationControllerTest extends TestCase
                 'status' => 'healthy',
             ]);
     }
+
     public function test_returns_consistent_health_message_for_unhealthy_systems()
     {
         // Mock database failure

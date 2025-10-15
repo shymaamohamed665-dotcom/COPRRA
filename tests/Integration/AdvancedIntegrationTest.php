@@ -2,15 +2,9 @@
 
 namespace Tests\Integration;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-#[CoversNothing]
-
-/**
- * @runTestsInSeparateProcesses
- */
 class AdvancedIntegrationTest extends TestCase
 {
     #[Test]

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Services\StoreAdapters;
 
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Illuminate\Contracts\Log\Logger;
 use Illuminate\Http\Client\Factory as HttpFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Noon store adapter (Middle East e-commerce).
@@ -17,7 +17,7 @@ final class NoonAdapter extends StoreAdapter
 
     private string $country;
 
-    public function __construct(HttpFactory $http, CacheRepository $cache, Logger $logger)
+    public function __construct(HttpFactory $http, CacheRepository $cache, LoggerInterface $logger)
     {
         parent::__construct($http, $cache, $logger);
         $apiKey = config()->get('services.noon.api_key');
@@ -27,12 +27,18 @@ final class NoonAdapter extends StoreAdapter
         $this->country = is_string($country) ? $country : 'ae'; // ae, sa, eg
     }
 
+    /**
+     * @psalm-return 'Noon'
+     */
     #[\Override]
     public function getStoreName(): string
     {
         return 'Noon';
     }
 
+    /**
+     * @psalm-return 'noon'
+     */
     #[\Override]
     public function getStoreIdentifier(): string
     {
@@ -58,6 +64,7 @@ final class NoonAdapter extends StoreAdapter
         }
 
         // Check cache first
+        /** @var array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}|null $cached */
         $cached = $this->getCachedProduct($productIdentifier);
         if (is_array($cached)) {
             return $cached;
@@ -84,10 +91,12 @@ final class NoonAdapter extends StoreAdapter
     /**
      * {@inheritdoc}
      *
-     * @return array<int, array<string, array>>
+     * @return array<int, array<string, null|scalar|array>>
+     *
+     * @psalm-return list<non-empty-array<string, null|scalar|array>>
      */
     #[\Override]
-    public function searchProducts(string $query): array
+    public function searchProducts(string $query, array $options = []): array
     {
         if (! $this->isAvailable()) {
             return [];
@@ -160,9 +169,11 @@ final class NoonAdapter extends StoreAdapter
      * Normalize Noon product data.
      *
      * @param  array<string, array<string, string|int|float|bool|array|null>|string|int|float|bool|null>  $noonData
-     * @return array<string, string|int|float|bool|null>
+     * @return (array|null|scalar)[]
      *
      * @phpstan-ignore-next-line
+     *
+     * @psalm-return array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}
      */
     private function normalizeNoonData(array $noonData): array
     {
@@ -193,6 +204,8 @@ final class NoonAdapter extends StoreAdapter
      * Get currency based on country.
      *
      * @phpstan-ignore-next-line
+     *
+     * @psalm-return 'AED'|'EGP'|'SAR'
      */
     private function getCurrency(): string
     {

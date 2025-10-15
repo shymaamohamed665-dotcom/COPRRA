@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class HandlePrecognitiveRequestsTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_handle_precognitive_requests_middleware_passes_regular_requests(): void
     {
         $request = Request::create('/test', 'GET');

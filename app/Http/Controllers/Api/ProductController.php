@@ -7,18 +7,20 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 final class ProductController extends Controller
 {
-    public function __construct(private readonly ProductService $productService)
-    {
-    }
+    public function __construct(private readonly ProductService $productService) {}
 
     /**
      * @OA\Post(
@@ -56,9 +58,8 @@ final class ProductController extends Controller
     /**
      * Handle common API exceptions and return appropriate responses.
      *
-     * @param \Exception $e The exception to handle
-     * @param string $defaultMessage Default error message
-     * @return JsonResponse
+     * @param  \Exception  $e  The exception to handle
+     * @param  string  $defaultMessage  Default error message
      */
     private function handleApiException(\Exception $e, string $defaultMessage): JsonResponse
     {
@@ -68,17 +69,17 @@ final class ProductController extends Controller
                 'errors' => $e->errors(),
             ], 422);
         }
-        
+
         if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
             return response()->json(['message' => 'Resource not found'], 404);
         }
-        
+
         return response()->json([
             'message' => $defaultMessage,
             'error' => $e->getMessage(),
         ], 500);
     }
-    
+
     public function store(StoreProductRequest $request): JsonResponse
     {
         try {
@@ -137,46 +138,164 @@ final class ProductController extends Controller
      * Display a listing of products.
      *
      * @param  Request  $request  The request containing query parameters.
-     *
      * @return JsonResponse The JSON response with the list of products.
      */
     public function index(Request $request): JsonResponse
     {
-        $products = $this->getFilteredProducts($request);
+        // Validate query parameters and return 422 on invalid inputs
+        $validator = \Validator::make($request->query(), [
+            // لا نرفض القيم الأكبر من 100، سنقوم بتقنينها لاحقًا
+            'per_page' => 'sometimes|integer|min:1',
+            'sort' => 'sometimes|in:price_asc,price_desc',
+            'category_id' => 'sometimes|integer',
+            'brand_id' => 'sometimes|integer',
+            'min_price' => 'sometimes|numeric|min:0',
+            'max_price' => 'sometimes|numeric|min:0',
+            'search' => 'sometimes|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Invalid parameters',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
+
+        $query = Product::query()
+            ->with(['category:id,name', 'brand:id,name', 'stores:id,name'])
+            ->where('is_active', true);
+        $query = $this->applySearchFilter($query, $request, 'search', 'name');
+
+        // Apply filters
+        $categoryId = $request->input('category_id');
+        if ($categoryId !== null && is_numeric($categoryId)) {
+            $query->where('category_id', (int) $categoryId);
+        }
+
+        $brandId = $request->input('brand_id');
+        if ($brandId !== null && is_numeric($brandId)) {
+            $query->where('brand_id', (int) $brandId);
+        }
+
+        $isFeatured = $request->input('is_featured');
+        if ($isFeatured !== null) {
+            $flag = in_array(strtolower((string) $isFeatured), ['1', 'true', 'on', 'yes'], true);
+            $query->where('is_featured', $flag);
+        }
+
+        $minPrice = $request->input('min_price');
+        if ($minPrice !== null && is_numeric($minPrice)) {
+            $query->where('price', '>=', (float) $minPrice);
+        }
+        $maxPrice = $request->input('max_price');
+        if ($maxPrice !== null && is_numeric($maxPrice)) {
+            $query->where('price', '<=', (float) $maxPrice);
+        }
+
+        $sort = $request->input('sort');
+        if ($sort === 'price_asc') {
+            $query->orderBy('price', 'asc');
+        } elseif ($sort === 'price_desc') {
+            $query->orderBy('price', 'desc');
+        }
+
+        // Pagination (limit per_page to 100)
+        $perPageRaw = $request->input('per_page', 15);
+        $perPage = is_numeric($perPageRaw) ? (int) $perPageRaw : 15;
+        $perPage = max(1, min(100, $perPage));
+
+        $paginator = $query->paginate($perPage);
+
+        $data = collect($paginator->items())->map(function (Product $product) {
+            return $this->formatProductResponse($product);
+        });
 
         return response()->json([
-            'data' => $products->map(function ($product) {
-                return $this->formatProductResponse($product);
-            }),
+            'data' => $data,
+            'links' => [
+                'first' => $paginator->url(1),
+                'last' => $paginator->url($paginator->lastPage()),
+                'prev' => $paginator->previousPageUrl(),
+                'next' => $paginator->nextPageUrl(),
+            ],
+            'meta' => [
+                'current_page' => $paginator->currentPage(),
+                'per_page' => $paginator->perPage(),
+                'total' => $paginator->total(),
+                'last_page' => $paginator->lastPage(),
+            ],
             'message' => 'Products retrieved successfully',
         ]);
     }
 
     /**
      * Apply filter to query based on request parameter
-     * 
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param Request $request
-     * @param string $paramName
-     * @param string $fieldName
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     private function applySearchFilter($query, Request $request, string $paramName, string $fieldName)
     {
-        if ($request->has($paramName) && $request->$paramName !== null && $request->$paramName !== '') {
-            $value = $request->$paramName;
-            $query->where($fieldName, 'like', '%' . $value . '%');
+        if ($request->has($paramName)) {
+            $value = $request->input($paramName);
+            if ($value !== null && $value !== '') {
+                $query->where($fieldName, 'like', '%'.(string) $value.'%');
+            }
         }
-        
+
         return $query;
     }
-    
+
+    /**
+     * @psalm-return \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model>
+     */
+    /**
+     * @SuppressWarnings("UnusedPrivateMethod")
+     */
     private function getFilteredProducts(Request $request): \Illuminate\Database\Eloquent\Collection
     {
-        $query = Product::query();
-        
-        $query = $this->applySearchFilter($query, $request, 'name', 'name');
-        
+        $query = Product::query()->where('is_active', true);
+
+        // Search by name using `search` query param
+        $query = $this->applySearchFilter($query, $request, 'search', 'name');
+
+        // Filter by category_id
+        $categoryId = $request->input('category_id');
+        if ($categoryId !== null && is_numeric($categoryId)) {
+            $query->where('category_id', (int) $categoryId);
+        }
+
+        // Filter by brand_id
+        $brandId = $request->input('brand_id');
+        if ($brandId !== null && is_numeric($brandId)) {
+            $query->where('brand_id', (int) $brandId);
+        }
+
+        // Filter by featured flag
+        $isFeatured = $request->input('is_featured');
+        if ($isFeatured !== null) {
+            $flag = in_array(strtolower((string) $isFeatured), ['1', 'true', 'on', 'yes'], true);
+            $query->where('is_featured', $flag);
+        }
+
+        // Filter by price range
+        $minPrice = $request->input('min_price');
+        if ($minPrice !== null && is_numeric($minPrice)) {
+            $query->where('price', '>=', (float) $minPrice);
+        }
+        $maxPrice = $request->input('max_price');
+        if ($maxPrice !== null && is_numeric($maxPrice)) {
+            $query->where('price', '<=', (float) $maxPrice);
+        }
+
+        // Sorting
+        $sort = $request->input('sort');
+        if ($sort === 'price_asc') {
+            $query->orderBy('price', 'asc');
+        } elseif ($sort === 'price_desc') {
+            $query->orderBy('price', 'desc');
+        }
+
         return $query->get();
     }
 
@@ -221,7 +340,7 @@ final class ProductController extends Controller
 
     private function getProductAndRespond(int $id): JsonResponse
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with(['category:id,name', 'brand:id,name', 'stores:id,name'])->findOrFail($id);
 
         return response()->json([
             'data' => $this->formatProductResponse($product),
@@ -313,7 +432,7 @@ final class ProductController extends Controller
         $counter = 1;
 
         while (Product::where('slug', $slug)->where('id', '!=', $id)->exists()) {
-            $slug = $baseSlug . '-' . $counter;
+            $slug = $baseSlug.'-'.$counter;
             $counter++;
         }
 
@@ -330,7 +449,7 @@ final class ProductController extends Controller
         $counter = 1;
 
         while (Product::where('slug', $slug)->exists()) {
-            $slug = $baseSlug . '-' . $counter;
+            $slug = $baseSlug.'-'.$counter;
             $counter++;
         }
 
@@ -340,19 +459,52 @@ final class ProductController extends Controller
     /**
      * Format product data for response.
      *
-     * @return array<string, int|string|float|bool|null>
+     * @return ((int|string)[]|bool|int|mixed|null|string)[]
+     *
+     * @psalm-return array{id: int, name: string, slug: string, description: string, price: string, created_at: mixed|null, updated_at: mixed|null, image_url: null|string, is_active: bool, category_id: int, brand_id: int, category: array{id: int, name: string}|null, brand: array{id: int, name: string}|null, stores: array<never, never>|mixed}
      */
     private function formatProductResponse(Product $product): array
     {
-        return [
+        $response = [
             'id' => $product->id,
             'name' => htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'),
+            'slug' => $product->slug,
             'description' => htmlspecialchars($product->description, ENT_QUOTES, 'UTF-8'),
             'price' => $product->price,
-            'image_url' => $product->image ? asset('storage/' . $product->image) : null,
+            'created_at' => $product->created_at ? $product->created_at->toIso8601String() : null,
+            'updated_at' => $product->updated_at ? $product->updated_at->toIso8601String() : null,
+            'image_url' => $product->image ? asset('storage/'.$product->image) : null,
             'is_active' => $product->is_active,
             'category_id' => $product->category_id,
             'brand_id' => $product->brand_id,
+            'category' => null,
+            'brand' => null,
+            'stores' => [],
         ];
+
+        if ($product->relationLoaded('category') && $product->category) {
+            $response['category'] = [
+                'id' => $product->category->id,
+                'name' => $product->category->name,
+            ];
+        }
+
+        if ($product->relationLoaded('brand') && $product->brand) {
+            $response['brand'] = [
+                'id' => $product->brand->id,
+                'name' => $product->brand->name,
+            ];
+        }
+
+        if ($product->relationLoaded('stores') && $product->stores) {
+            $response['stores'] = $product->stores->map(function ($store) {
+                return [
+                    'id' => $store->id,
+                    'name' => $store->name,
+                ];
+            })->all();
+        }
+
+        return $response;
     }
 }

@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class ContentBasedFilteringTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_analyzes_item_features(): void
     {
         $items = [
@@ -43,7 +38,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_item_similarity(): void
     {
         $item1 = [
@@ -66,7 +60,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_builds_user_profile(): void
     {
         $userInteractions = [
@@ -84,7 +77,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_items_based_on_content(): void
     {
         $userProfile = [
@@ -118,7 +110,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_text_similarity(): void
     {
         $text1 = 'iPhone 15 Pro Max with advanced camera system';
@@ -130,7 +121,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_extracts_keywords_from_text(): void
     {
         $text = 'iPhone 15 Pro Max smartphone with advanced camera system and long battery life';
@@ -142,7 +132,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_tf_idf_scores(): void
     {
         $documents = [
@@ -160,7 +149,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_categorical_features(): void
     {
         $item1 = ['category' => 'Electronics', 'brand' => 'Apple'];
@@ -174,7 +162,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_numerical_features(): void
     {
         $item1 = ['price' => 1000, 'rating' => 4.5];
@@ -188,7 +175,6 @@ class ContentBasedFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_combines_multiple_similarity_measures(): void
     {
         $item1 = [

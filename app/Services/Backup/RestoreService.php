@@ -23,7 +23,9 @@ class RestoreService
      * Restore from backup.
      *
      * @param  array<string, string|int|null>  $backup
-     * @return array<string, string>
+     * @return (ZipArchive|bool|string)[]
+     *
+     * @psalm-return array<string, ZipArchive|bool|string>
      */
     public function restoreFromBackup(array $backup): array
     {
@@ -47,7 +49,9 @@ class RestoreService
     /**
      * Perform the actual restore operation.
      *
-     * @return array<string, string>
+     * @return (ZipArchive|bool|string)[]
+     *
+     * @psalm-return array{success: bool, message?: 'Backup file not found'|'Backup restored successfully'|'Cannot open backup file', zip?: ZipArchive}
      */
     private function performRestore(string $filePath): array
     {
@@ -62,7 +66,9 @@ class RestoreService
     /**
      * Prepare backup for restore by checking file existence and opening the zip archive.
      *
-     * @return array<string, bool|string|\ZipArchive>
+     * @return (ZipArchive|bool|string)[]
+     *
+     * @psalm-return array{success: bool, zip?: ZipArchive, message?: 'Backup file not found'|'Cannot open backup file'}
      */
     private function prepareBackupForRestore(string $filePath): array
     {
@@ -90,7 +96,9 @@ class RestoreService
     /**
      * Execute the restore process with prepared zip archive.
      *
-     * @return array<string, string>
+     * @return (string|true)[]
+     *
+     * @psalm-return array{success: true, message: 'Backup restored successfully'}
      */
     private function executeRestoreProcess(ZipArchive $zip): array
     {
@@ -170,6 +178,8 @@ class RestoreService
 
     /**
      * Get files to restore from temporary directory.
+     *
+     * @psalm-return RecursiveIteratorIterator<RecursiveDirectoryIterator>
      */
     private function getFilesToRestore(string $tempDir): RecursiveIteratorIterator
     {

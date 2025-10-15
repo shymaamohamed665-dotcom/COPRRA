@@ -14,7 +14,7 @@ use App\Notifications\SystemNotification;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
-final class NotificationService
+class NotificationService
 {
     public function __construct(private readonly AuditService $auditService) {}
 
@@ -35,14 +35,14 @@ final class NotificationService
 
                 if ($user instanceof \App\Models\User && $user->email) {
                     // Send email notification
-                    $user->notify(new PriceDropNotification($product, $oldPrice, $newPrice, $alert->target_price));
+                    $user->notify(new PriceDropNotification($product, $oldPrice, $newPrice, (float) $alert->target_price));
 
                     // Log the notification
                     $this->auditService->logSensitiveOperation('price_drop_notification', $user, [
                         'product_id' => $product->id,
                         'old_price' => $oldPrice,
                         'new_price' => $newPrice,
-                        'target_price' => $alert->target_price,
+                        'target_price' => (float) $alert->target_price,
                     ]);
                 }
             }
@@ -240,6 +240,8 @@ final class NotificationService
 
     /**
      * Mark all notifications as read for user.
+     *
+     * @psalm-return int<0, max>
      */
     public function markAllAsRead(User $user): int
     {

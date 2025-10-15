@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class CollaborativeFilteringTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_finds_similar_users(): void
     {
         $userRatings = [
@@ -31,7 +26,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_cosine_similarity(): void
     {
         $user1 = ['item1' => 5, 'item2' => 3, 'item3' => 4];
@@ -43,7 +37,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_predicts_ratings_for_items(): void
     {
         $userRatings = [
@@ -63,7 +56,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_cold_start_problem(): void
     {
         $newUser = [];
@@ -83,7 +75,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_pearson_correlation(): void
     {
         $user1 = ['item1' => 5, 'item2' => 3, 'item3' => 4, 'item4' => 2];
@@ -95,7 +86,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_filters_items_by_user_preferences(): void
     {
         $allItems = ['item1', 'item2', 'item3', 'item4', 'item5'];
@@ -112,7 +102,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_item_based_similarity(): void
     {
         $itemRatings = [
@@ -127,7 +116,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_sparse_data(): void
     {
         $sparseRatings = [
@@ -146,7 +134,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_confidence_scores(): void
     {
         $userRatings = [
@@ -166,7 +153,6 @@ class CollaborativeFilteringTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_matrix_factorization(): void
     {
         $ratingsMatrix = [

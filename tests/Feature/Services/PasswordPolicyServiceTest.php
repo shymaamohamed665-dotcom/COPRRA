@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\PasswordPolicyService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Mockery;
@@ -12,6 +13,8 @@ use Tests\TestCase;
 
 class PasswordPolicyServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private PasswordPolicyService $service;
 
     protected function setUp(): void
@@ -25,6 +28,7 @@ class PasswordPolicyServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_validates_strong_password()
     {
         // Arrange
@@ -38,6 +42,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertEmpty($result['errors']);
         $this->assertArrayHasKey('strength', $result);
     }
+
     public function test_validates_weak_password()
     {
         // Arrange
@@ -51,6 +56,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertNotEmpty($result['errors']);
         $this->assertContains('Password must be at least 10 characters long', $result['errors']);
     }
+
     public function test_validates_password_without_uppercase()
     {
         // Arrange
@@ -63,6 +69,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password must contain at least one uppercase letter', $result['errors']);
     }
+
     public function test_validates_password_without_lowercase()
     {
         // Arrange
@@ -75,6 +82,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password must contain at least one lowercase letter', $result['errors']);
     }
+
     public function test_validates_password_without_numbers()
     {
         // Arrange
@@ -87,6 +95,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password must contain at least one number', $result['errors']);
     }
+
     public function test_validates_password_without_symbols()
     {
         // Arrange
@@ -99,6 +108,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertTrue($result['valid']);
         $this->assertEmpty($result['errors']);
     }
+
     public function test_validates_forbidden_password()
     {
         // Arrange
@@ -111,6 +121,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password is too common and not allowed', $result['errors']);
     }
+
     public function test_validates_password_with_repeated_characters()
     {
         // Arrange
@@ -123,6 +134,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password contains repeated characters', $result['errors']);
     }
+
     public function test_validates_password_with_keyboard_patterns()
     {
         // Arrange
@@ -135,6 +147,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password contains keyboard patterns', $result['errors']);
     }
+
     public function test_validates_password_with_common_substitutions()
     {
         // Arrange
@@ -147,6 +160,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password contains common character substitutions', $result['errors']);
     }
+
     public function test_calculates_password_strength_weak()
     {
         // Arrange
@@ -158,6 +172,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertEquals('weak', $result['strength']);
     }
+
     public function test_calculates_password_strength_medium()
     {
         // Arrange
@@ -169,6 +184,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertEquals('medium', $result['strength']);
     }
+
     public function test_calculates_password_strength_strong()
     {
         // Arrange
@@ -180,6 +196,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertEquals('strong', $result['strength']);
     }
+
     public function test_calculates_password_strength_very_strong()
     {
         // Arrange
@@ -191,6 +208,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertEquals('very_strong', $result['strength']);
     }
+
     public function test_checks_password_not_in_history()
     {
         // Arrange
@@ -203,6 +221,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue($result['valid']);
     }
+
     public function test_saves_password_to_history()
     {
         // Arrange
@@ -218,6 +237,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_save_password_history_exception()
     {
         // Arrange
@@ -237,6 +257,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_checks_password_expired()
     {
         // Arrange
@@ -248,6 +269,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_password_expiry_check_exception()
     {
         // Arrange
@@ -263,6 +285,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_checks_account_not_locked()
     {
         // Arrange
@@ -274,6 +297,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_account_lock_check_exception()
     {
         // Arrange
@@ -289,6 +313,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_records_failed_attempt()
     {
         // Arrange
@@ -304,6 +329,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_handles_record_failed_attempt_exception()
     {
         // Arrange
@@ -324,6 +350,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_clears_failed_attempts()
     {
         // Arrange
@@ -338,6 +365,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_generates_secure_password()
     {
         // Act
@@ -351,6 +379,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertMatchesRegularExpression('/[0-9]/', $password);
         $this->assertMatchesRegularExpression('/[^A-Za-z0-9]/', $password);
     }
+
     public function test_generates_secure_password_with_default_length()
     {
         // Act
@@ -360,6 +389,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertIsString($password);
         $this->assertEquals(12, strlen($password));
     }
+
     public function test_gets_policy_requirements()
     {
         // Act
@@ -376,6 +406,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertArrayHasKey('expiry_days', $requirements);
         $this->assertArrayHasKey('history_count', $requirements);
     }
+
     public function test_updates_policy()
     {
         // Arrange
@@ -398,6 +429,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_update_policy_exception()
     {
         // Arrange
@@ -419,6 +451,7 @@ class PasswordPolicyServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_validates_password_with_maximum_length()
     {
         // Arrange
@@ -431,6 +464,7 @@ class PasswordPolicyServiceTest extends TestCase
         $this->assertFalse($result['valid']);
         $this->assertContains('Password must not exceed 128 characters', $result['errors']);
     }
+
     public function test_validates_password_with_case_insensitive_forbidden()
     {
         // Arrange

@@ -34,7 +34,9 @@ class BackupListService
     /**
      * Get backup by ID.
      *
-     * @return array<string, string|int|null>|null
+     * @return (int|string)[]|null
+     *
+     * @psalm-return array<string, int|string>|null
      */
     public function getBackupById(string $id): ?array
     {
@@ -52,7 +54,9 @@ class BackupListService
     /**
      * Calculate backup statistics.
      *
-     * @return array<string, int|string|null>
+     * @return (int|null|string)[]
+     *
+     * @psalm-return array{total_backups: int<0, max>, total_size: int, total_size_formatted: string, oldest_backup: null, newest_backup: null}
      */
     public function calculateBackupStatistics(): array
     {
@@ -94,7 +98,9 @@ class BackupListService
     /**
      * Get list of files in backup directory.
      *
-     * @return array<int, string>
+     * @return string[]
+     *
+     * @psalm-return list<string>
      */
     private function getBackupFiles(): array
     {
@@ -138,7 +144,9 @@ class BackupListService
     /**
      * Process a single backup file and return metadata if valid.
      *
-     * @return array<string, int|string>|null
+     * @return (int|string)[]|null
+     *
+     * @psalm-return array{id: string, filename: string, size: int, size_formatted: string, created_at: string, type: string}|null
      */
     private function processSingleBackupFile(string $file): ?array
     {
@@ -160,7 +168,9 @@ class BackupListService
     /**
      * Create backup metadata for a file.
      *
-     * @return array<string, int|string>|null
+     * @return (int|string)[]|null
+     *
+     * @psalm-return array{id: string, filename: string, size: int, size_formatted: string, created_at: string, type: 'database'|'files'|'full'}|null
      */
     private function createBackupMetadata(string $file): ?array
     {
@@ -199,6 +209,8 @@ class BackupListService
      * Calculate total size of all backups.
      *
      * @param  list<array<string, int|string>>  $backups
+     *
+     * @psalm-return int<min, max>
      */
     private function calculateTotalSize(array $backups): int
     {
@@ -216,6 +228,8 @@ class BackupListService
 
     /**
      * Get backup type from filename.
+     *
+     * @psalm-return 'database'|'files'|'full'
      */
     private function getBackupType(string $filename): string
     {

@@ -14,6 +14,10 @@ final class StyleFixer implements AgentFixerInterface
         private readonly OutputStyle $output
     ) {}
 
+    /**
+     * @return true
+     */
+    #[\Override]
     public function fix(): bool
     {
         $this->output->info('🎨 Running Laravel Pint code style fixer...');

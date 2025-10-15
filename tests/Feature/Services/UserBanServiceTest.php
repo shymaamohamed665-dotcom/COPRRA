@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\UserBanService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class UserBanServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private UserBanService $service;
 
     protected function setUp(): void
@@ -43,11 +41,13 @@ class UserBanServiceTest extends TestCase
 
         return $user;
     }
+
     public function test_can_be_instantiated()
     {
         // Act & Assert
         $this->assertInstanceOf(UserBanService::class, $this->service);
     }
+
     public function test_checks_user_is_not_banned_by_default()
     {
         // Arrange
@@ -59,6 +59,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_ban_user_with_valid_reason()
     {
         // Arrange
@@ -72,6 +73,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_ban_user_with_invalid_reason()
     {
         // Arrange
@@ -85,6 +87,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertFalse($result);
     }
+
     public function test_handles_permanent_ban()
     {
         // Arrange
@@ -98,6 +101,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_handles_unban_user()
     {
         // Arrange
@@ -109,6 +113,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertTrue($result);
     }
+
     public function test_gets_ban_info_for_user()
     {
         // Arrange
@@ -120,6 +125,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertNull($result); // No ban info by default
     }
+
     public function test_handles_auto_unban_expired_user()
     {
         // Arrange
@@ -131,6 +137,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertIsInt($result);
     }
+
     public function test_gets_banned_users()
     {
         // Act
@@ -139,6 +146,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class, $result);
     }
+
     public function test_gets_users_with_expired_bans()
     {
         // Act
@@ -147,6 +155,7 @@ class UserBanServiceTest extends TestCase
         // Assert
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class, $result);
     }
+
     public function test_cleans_up_expired_bans()
     {
         // Act
@@ -156,6 +165,7 @@ class UserBanServiceTest extends TestCase
         $this->assertIsInt($result);
         $this->assertGreaterThanOrEqual(0, $result);
     }
+
     public function test_gets_ban_statistics()
     {
         // Act
@@ -168,6 +178,7 @@ class UserBanServiceTest extends TestCase
         $this->assertArrayHasKey('temporary_bans', $result);
         $this->assertArrayHasKey('expired_bans', $result);
     }
+
     public function test_gets_ban_reasons()
     {
         // Act
@@ -177,8 +188,6 @@ class UserBanServiceTest extends TestCase
         $this->assertIsArray($result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_checks_can_ban_user()
     {
         // Arrange
@@ -191,8 +200,6 @@ class UserBanServiceTest extends TestCase
         $this->assertTrue($result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_checks_can_unban_user()
     {
         // Arrange
@@ -205,8 +212,6 @@ class UserBanServiceTest extends TestCase
         $this->assertFalse($result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_gets_ban_history()
     {
         // Arrange
@@ -219,8 +224,6 @@ class UserBanServiceTest extends TestCase
         $this->assertIsArray($result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_handles_extend_ban()
     {
         // Arrange
@@ -234,8 +237,6 @@ class UserBanServiceTest extends TestCase
         $this->assertFalse($result);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_handles_reduce_ban()
     {
         // Arrange

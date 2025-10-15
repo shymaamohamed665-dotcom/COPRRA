@@ -31,7 +31,9 @@ class SystemNotification extends Notification
     /**
      * Get the array representation of the notification.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{title: string, message: string}
      */
     public function toArray(): array
     {

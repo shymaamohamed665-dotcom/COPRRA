@@ -14,6 +14,12 @@ class ExchangeRateFactory extends Factory
 {
     protected $model = ExchangeRate::class;
 
+    /**
+     * @return (\Illuminate\Support\Carbon|float|string)[]
+     *
+     * @psalm-return array{from_currency: string, to_currency: string, rate: float, source: 'test', fetched_at: \Illuminate\Support\Carbon}
+     */
+    #[\Override]
     public function definition()
     {
         return [

@@ -2,15 +2,9 @@
 
 namespace Tests\Architecture;
 
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-#[PreserveGlobalState(false)]
-
-/**
- * @runTestsInSeparateProcesses
- */
 class ArchTest extends TestCase
 {
     #[Test]

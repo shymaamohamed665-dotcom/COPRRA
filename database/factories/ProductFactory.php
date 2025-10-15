@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -15,7 +17,9 @@ class ProductFactory extends Factory
     protected $model = Product::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (BrandFactory|CategoryFactory|float|int|null|string|true)[]
+     *
+     * @psalm-return array{name: string, slug: string, description: string, price: float, image: string, brand_id: BrandFactory, category_id: CategoryFactory, store_id: null, is_active: true, stock_quantity: int}
      */
     #[\Override]
     public function definition(): array
@@ -26,14 +30,15 @@ class ProductFactory extends Factory
 
         return [
             'name' => (is_string($words) ? $words : '').' Product',
-            'slug' => $faker->slug(3),
+            'slug' => $faker->unique()->slug(3).'-'.$faker->unique()->numberBetween(1000, 9999),
             'description' => $faker->paragraph(),
             'price' => $faker->randomFloat(2, 10, 1000),
             'image' => $faker->imageUrl(400, 400),
-            'brand_id' => 1,
-            'category_id' => 1,
-            'store_id' => 1,
+            'brand_id' => Brand::factory(),
+            'category_id' => Category::factory(),
+            'store_id' => null,
             'is_active' => true,
+            'stock_quantity' => $faker->numberBetween(0, 100),
         ];
     }
 }

@@ -21,7 +21,7 @@ final class UpdatePricesCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'coprra:update-prices {--store= : Update prices for specific store} {--product= : Update prices for specific product} {--dry-run : Show what would be updated without making changes}';
+    protected $signature = 'prices:update {--store= : Update prices for specific store} {--product= : Update prices for specific product} {--dry-run : Show what would be updated without making changes}';
 
     /**
      * The console command description.
@@ -32,7 +32,7 @@ final class UpdatePricesCommand extends Command
 
     private PriceQueryBuilderService $queryBuilderService;
 
-    private PriceUpdateProcessorService $updateProcessorService;
+    private PriceUpdateProcessorService $priceProcessor;
 
     private PriceUpdateDisplayService $displayService;
 
@@ -40,6 +40,8 @@ final class UpdatePricesCommand extends Command
 
     /**
      * Execute the console command.
+     *
+     * @psalm-return 0|1
      */
     public function handle(): int
     {
@@ -60,6 +62,7 @@ final class UpdatePricesCommand extends Command
      *
      * @return array{storeId: string|null, productId: string|null, dryRun: bool}
      */
+    #[\Override]
     protected function getOptions(): array
     {
         return [
@@ -76,7 +79,7 @@ final class UpdatePricesCommand extends Command
     {
         $this->displayService = new PriceUpdateDisplayService($this);
         $this->queryBuilderService = new PriceQueryBuilderService;
-        $this->updateProcessorService = new PriceUpdateProcessorService($this->displayService);
+        $this->priceProcessor = new PriceUpdateProcessorService($this->displayService);
         $this->priceFetcherService = new PriceFetcherService;
     }
 
@@ -104,7 +107,6 @@ final class UpdatePricesCommand extends Command
     private function fetchPriceOffers(array $options): \Illuminate\Database\Eloquent\Collection
     {
         $query = $this->queryBuilderService->buildQuery($options);
-        /** @var \Illuminate\Database\Eloquent\Collection<int, \App\Models\PriceOffer> $priceOffers */
         $priceOffers = $query->get();
         $this->displayService->displayFoundPriceOffers($priceOffers->count());
 
@@ -128,7 +130,7 @@ final class UpdatePricesCommand extends Command
         $progressBar->start();
 
         foreach ($priceOffers as $priceOffer) {
-            $results = $this->updateProcessorService->processIndividualOffer($priceOffer, $dryRun, $results);
+            $results = $this->priceProcessor->processIndividualOffer($priceOffer, $dryRun, $results);
             $progressBar->advance();
         }
 

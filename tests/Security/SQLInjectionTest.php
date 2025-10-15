@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 /**
- * @runTestsInSeparateProcesses
+ * Security SQL injection tests.
  */
 class SQLInjectionTest extends TestCase
 {
@@ -33,7 +33,7 @@ class SQLInjectionTest extends TestCase
             // Should not return sensitive data or execute injection
             // Accept success (200), validation error (422), or server error (500) - all better than SQL injection
             $this->assertContains($response->status(), [200, 422, 500]);
-            
+
             if ($response->status() === 200) {
                 $data = $response->json();
 
@@ -78,7 +78,7 @@ class SQLInjectionTest extends TestCase
             // Should not cause errors or return unexpected results
             // Accept success (200), validation error (422), or server error (500) - all better than SQL injection
             $this->assertContains($response->status(), [200, 422, 500]);
-            
+
             if ($response->status() === 200) {
                 $data = $response->json();
                 $this->assertIsArray($data);
@@ -99,10 +99,10 @@ class SQLInjectionTest extends TestCase
 
         // Should not return sensitive data or execute injection
         $this->assertContains($response->status(), [422, 500]); // Validation error or server error expected
-        
+
         // Verify users table still exists and wasn't dropped
         $this->assertDatabaseCount('users', 0);
-        
+
         // Try with valid data to ensure registration still works
         $validData = [
             'name' => 'Valid User',
@@ -110,89 +110,89 @@ class SQLInjectionTest extends TestCase
             'password' => 'password123',
             'password_confirmation' => 'password123',
         ];
-        
+
         $validResponse = $this->postJson('/api/register', $validData);
         $validResponse->assertStatus(201); // Created status expected for successful registration
     }
-    
+
     public function test_sql_injection_in_order_processing(): void
     {
         // Create test user
         $user = User::factory()->create();
-        
+
         // Login to get authentication token
         $loginResponse = $this->postJson('/api/login', [
             'email' => $user->email,
             'password' => 'password', // Assuming default password
         ]);
-        
+
         $token = $loginResponse->json('token');
-        
+
         // Test malicious order data
         $maliciousOrderData = [
             'product_id' => "1; UPDATE users SET is_admin = 1 WHERE id = {$user->id}; --",
             'quantity' => 1,
-            'shipping_address' => '123 Test St'
+            'shipping_address' => '123 Test St',
         ];
-        
+
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->postJson('/api/orders', $maliciousOrderData);
-        
+
         // Should not execute the malicious SQL
         $this->assertContains($response->status(), [422, 500]);
-        
+
         // Verify user is still not admin
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
-            'is_admin' => 0
+            'is_admin' => 0,
         ]);
     }
-    
+
     public function test_sql_injection_in_profile_update(): void
     {
         // Create test user
         $user = User::factory()->create();
-        
+
         // Login to get authentication token
         $loginResponse = $this->postJson('/api/login', [
             'email' => $user->email,
             'password' => 'password', // Assuming default password
         ]);
-        
+
         $token = $loginResponse->json('token');
-        
+
         // Test malicious profile update
         $maliciousData = [
             'name' => "Hacker', email='admin@system.com', is_admin=1 WHERE id={$user->id}; --",
-            'email' => $user->email
+            'email' => $user->email,
         ];
-        
+
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->putJson("/api/users/{$user->id}", $maliciousData);
-        
+
         // Should not execute the malicious SQL
         $status = $response->status();
         $this->assertTrue(in_array($status, [200, 404, 422, 500]), "Response status {$status} is not acceptable");
-        
+
         // Refresh user from database
         $user->refresh();
-        
+
         // Verify user data wasn't maliciously changed
         $this->assertNotEquals('admin@system.com', $user->email);
-        $this->assertFalse((bool)$user->is_admin);
-        
+        $this->assertFalse((bool) $user->is_admin);
+
         // Test with valid data to ensure profile update still works
         $validData = [
             'name' => 'Updated Name',
-            'email' => $user->email
+            'email' => $user->email,
         ];
-        
+
         $validResponse = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer '.$token,
         ])->putJson("/api/users/{$user->id}", $validData);
-        
+
         // Accept either success or validation error
         $status = $validResponse->status();
         $this->assertTrue(in_array($status, [200, 404, 422]), "Response status {$status} is not acceptable");

@@ -35,7 +35,9 @@ class ReviewNotification extends Mailable implements ShouldQueue
     /**
      * Get the array representation of the notification.
      *
-     * @return array<string, int|float>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{product_id: int, reviewer_id: int, rating: float|int}
      */
     public function toArray(): array
     {

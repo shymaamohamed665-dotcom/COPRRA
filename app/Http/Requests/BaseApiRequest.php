@@ -12,6 +12,8 @@ class BaseApiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return true
      */
     public function authorize(): bool
     {
@@ -21,7 +23,7 @@ class BaseApiRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<string|int>|string>
+     * @psalm-return array<never, never>
      */
     public function rules(): array
     {
@@ -30,6 +32,8 @@ class BaseApiRequest extends FormRequest
 
     /**
      * Handle a failed validation attempt.
+     *
+     * @return never
      */
     #[\Override]
     protected function failedValidation(Validator $validator): void
@@ -47,7 +51,9 @@ class BaseApiRequest extends FormRequest
     /**
      * Get common validation rules for pagination.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{page: 'sometimes|integer|min:1', per_page: 'sometimes|integer|min:1|max:100'}
      */
     protected function paginationRules(): array
     {
@@ -60,7 +66,9 @@ class BaseApiRequest extends FormRequest
     /**
      * Get common validation rules for search.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{search: 'sometimes|string|max:255', q: 'sometimes|string|max:255', query: 'sometimes|string|max:255'}
      */
     protected function searchRules(): array
     {
@@ -74,7 +82,9 @@ class BaseApiRequest extends FormRequest
     /**
      * Get common validation rules for sorting.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{sort: 'sometimes|string|in:name,price,created_at,updated_at', order: 'sometimes|string|in:asc,desc'}
      */
     protected function sortingRules(): array
     {
@@ -87,7 +97,9 @@ class BaseApiRequest extends FormRequest
     /**
      * Get common validation rules for filtering.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{category_id: 'sometimes|integer|exists:categories,id', brand_id: 'sometimes|integer|exists:brands,id', min_price: 'sometimes|numeric|min:0', max_price: 'sometimes|numeric|min:0|gte:min_price', is_active: 'sometimes|boolean'}
      */
     protected function filteringRules(): array
     {

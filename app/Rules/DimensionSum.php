@@ -15,20 +15,38 @@ class DimensionSum implements Rule
         $this->maxSum = $maxSum;
     }
 
-    /**
-     * @param  array<int, int>  $value
-     */
-    public function passes(array $value): bool
+    #[\Override]
+    public function passes(mixed $attribute, mixed $value): bool
     {
         if (! is_array($value) || count($value) !== 3) {
             return false;
         }
 
-        $total = array_sum($value);
+        // Support both indexed and associative arrays (length, width, height)
+        $values = [];
+        if (array_is_list($value)) {
+            $values = $value;
+        } else {
+            $values = [
+                $value['length'] ?? null,
+                $value['width'] ?? null,
+                $value['height'] ?? null,
+            ];
+        }
+
+        // Ensure all values are numeric
+        foreach ($values as $v) {
+            if (! is_numeric($v)) {
+                return false;
+            }
+        }
+
+        $total = array_sum(array_map(static fn ($v) => (float) $v, $values));
 
         return $total <= $this->maxSum;
     }
 
+    #[\Override]
     public function message(): string
     {
         return 'The sum of dimensions cannot exceed '.$this->maxSum.' cm.';

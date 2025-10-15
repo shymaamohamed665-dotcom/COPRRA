@@ -4,9 +4,6 @@ namespace Tests\Performance;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class PerformanceBenchmarkTest extends TestCase
 {
     public function test_performance_benchmark(): void

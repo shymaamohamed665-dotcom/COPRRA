@@ -3,12 +3,12 @@
 namespace Tests\Unit\DataAccuracy;
 
 use App\Models\Currency;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\DatabaseSetup;
 use Tests\TestCase;
 
 class CurrencyConversionTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseSetup;
 
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_basic_conversion(): void
@@ -55,10 +55,12 @@ class CurrencyConversionTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+        $this->setUpDatabase();
     }
 
     protected function tearDown(): void
     {
+        $this->tearDownDatabase();
         parent::tearDown();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class InputSanitizationMiddlewareTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_input_sanitization_middleware_sanitizes_input(): void
     {
         $request = Request::create('/test', 'POST', [

@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class HybridRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_combines_collaborative_and_content_based_filtering(): void
     {
         $collaborativeScore = 0.8;
@@ -26,7 +21,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_weighted_ensemble_method(): void
     {
         $recommendations = [
@@ -43,7 +37,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_switching_hybrid_approach(): void
     {
         $userProfile = [
@@ -58,7 +51,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_mixed_hybrid_approach(): void
     {
         $collaborativeRecommendations = [
@@ -80,7 +72,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_cascade_hybrid_approach(): void
     {
         $primaryRecommendations = [
@@ -101,7 +92,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_feature_combination_hybrid(): void
     {
         $collaborativeFeatures = ['user_similarity' => 0.8, 'item_popularity' => 0.6];
@@ -115,7 +105,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_meta_learning_hybrid(): void
     {
         $userHistory = [
@@ -130,7 +119,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_dynamic_weight_adjustment(): void
     {
         $userProfile = [
@@ -147,7 +135,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_confidence_weighted_hybrid(): void
     {
         $recommendations = [
@@ -162,7 +149,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_temporal_hybrid_approach(): void
     {
         $recentRecommendations = [
@@ -181,7 +167,6 @@ class HybridRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_evaluates_hybrid_recommendation_quality(): void
     {
         $recommendations = [

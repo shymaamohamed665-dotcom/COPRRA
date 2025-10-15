@@ -5,6 +5,7 @@ namespace Tests\Feature\Http\Middleware;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -18,6 +19,8 @@ use Tests\TestCase;
  */
 class ApiErrorHandlerTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[RunInSeparateProcess]
     #[PreserveGlobalState(false)]
     public function test_api_error_handler_passes_request_successfully(): void

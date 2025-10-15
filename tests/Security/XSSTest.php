@@ -37,7 +37,7 @@ class XSSTest extends TestCase
             // Should either reject or sanitize the input
             // Accept various status codes: 201 (created), 422 (validation), 500 (server error)
             $this->assertContains($response->status(), [201, 422, 500]);
-            
+
             if ($response->status() === 201) {
                 $product = $response->json();
                 // Ensure XSS payload is not in the response
@@ -69,14 +69,14 @@ class XSSTest extends TestCase
 
         // Accept various status codes: 201 (created), 422 (validation/already reviewed), 500 (server error)
         $this->assertContains($response->status(), [201, 422, 500]);
-        
+
         if ($response->status() === 201) {
             $review = $response->json();
             // Ensure XSS is escaped or removed (check both comment and content fields)
             $reviewContent = $review['comment'] ?? $review['content'] ?? '';
             $this->assertStringNotContainsString('<script>', $reviewContent);
             $this->assertStringNotContainsString('onerror=', $reviewContent);
-        } else if ($response->status() === 422) {
+        } elseif ($response->status() === 422) {
             // This could be validation error or already reviewed - both are acceptable
             $data = $response->json();
             // Ensure error messages don't contain XSS
@@ -104,7 +104,7 @@ class XSSTest extends TestCase
         // Should be escaped or removed - check if description exists first
         if (isset($data['description'])) {
             $this->assertStringNotContainsString('<script>', $data['description']);
-        } else if (isset($data['data']['description'])) {
+        } elseif (isset($data['data']['description'])) {
             // Handle nested response structure
             $this->assertStringNotContainsString('<script>', $data['data']['description']);
         } else {
@@ -126,7 +126,7 @@ class XSSTest extends TestCase
 
             // Accept various status codes: 200 (success), 500 (server error)
             $this->assertContains($response->status(), [200, 500]);
-            
+
             if ($response->status() === 200) {
                 $data = $response->json();
 

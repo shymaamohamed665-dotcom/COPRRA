@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
+use Illuminate\Filesystem\Filesystem;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor, UnusedClass
@@ -30,6 +30,14 @@ final class GenerateSitemap extends Command
      */
     protected $description = 'Generate XML sitemap for SEO optimization';
 
+    private Filesystem $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        parent::__construct();
+        $this->filesystem = $filesystem;
+    }
+
     public function handle(): int
     {
         $this->info('Generating sitemap...');
@@ -44,7 +52,7 @@ final class GenerateSitemap extends Command
         Product::query()->chunk(100, function (\Illuminate\Support\Collection $products) use (&$sitemap): void {
             foreach ($products as $product) {
                 $sitemap .= $this->addUrl(
-                    route('products.show', $product->id),
+                    route('products.show', $product->slug),
                     '0.8',
                     'weekly'
                 );
@@ -75,7 +83,7 @@ final class GenerateSitemap extends Command
 
         $sitemap .= '</urlset>';
 
-        File::put(public_path('sitemap.xml'), $sitemap);
+        $this->filesystem->put(public_path('sitemap.xml'), $sitemap);
 
         $this->info('Sitemap generated successfully at '.public_path('sitemap.xml'));
 

@@ -18,7 +18,9 @@ class AnalyticsEventFactory extends Factory
     protected $model = AnalyticsEvent::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (ProductFactory|StoreFactory|UserFactory|mixed|null|string)[]
+     *
+     * @psalm-return array{event_type: mixed, event_name: string, user_id: UserFactory, product_id: ProductFactory, category_id: null, store_id: StoreFactory, metadata: mixed, ip_address: string, user_agent: string, session_id: string}
      */
     #[\Override]
     public function definition(): array

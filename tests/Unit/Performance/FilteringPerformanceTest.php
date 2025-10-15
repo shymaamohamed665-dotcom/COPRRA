@@ -4,9 +4,6 @@ namespace Tests\Unit\Performance;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class FilteringPerformanceTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

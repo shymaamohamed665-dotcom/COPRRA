@@ -15,7 +15,8 @@ class SecurityHeadersTest extends TestCase
     {
         $request = Request::create('/test', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        // استخدم الحاوية لإنشاء الوسيط ليتم حقن الخدمة تلقائيًا
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -35,7 +36,7 @@ class SecurityHeadersTest extends TestCase
     {
         $request = Request::create('/admin/dashboard', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -48,7 +49,7 @@ class SecurityHeadersTest extends TestCase
     {
         $request = Request::create('/settings/profile', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -61,7 +62,7 @@ class SecurityHeadersTest extends TestCase
     {
         $request = Request::create('/profile/edit', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -74,7 +75,7 @@ class SecurityHeadersTest extends TestCase
     {
         $request = Request::create('/billing/payment', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -87,7 +88,7 @@ class SecurityHeadersTest extends TestCase
     {
         $request = Request::create('/api/v1/admin/users', 'GET');
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -104,7 +105,7 @@ class SecurityHeadersTest extends TestCase
             'query' => 'SELECT * FROM users WHERE id = 1; DROP TABLE users; --',
         ]);
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -120,7 +121,7 @@ class SecurityHeadersTest extends TestCase
             'comment' => '<script>alert("XSS")</script>',
         ]);
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -149,7 +150,7 @@ class SecurityHeadersTest extends TestCase
 
         $request->files->set('upload', $file);
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -166,7 +167,7 @@ class SecurityHeadersTest extends TestCase
             'email' => 'john@example.com',
         ]);
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -181,7 +182,7 @@ class SecurityHeadersTest extends TestCase
         $request = Request::create('http://example.com/test', 'GET');
         $request->server->set('HTTPS', false);
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -197,7 +198,7 @@ class SecurityHeadersTest extends TestCase
         $request = Request::create('http://example.com/test', 'GET');
         $request->server->set('HTTPS', false);
 
-        $middleware = new \App\Http\Middleware\SecurityHeaders;
+        $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

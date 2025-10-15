@@ -31,7 +31,9 @@ final class PasswordValidator
     /**
      * Validate the password.
      *
-     * @return array{valid: bool, errors: array<int, string>, strength: int}
+     * @return (bool|int|string[])[]
+     *
+     * @psalm-return array{valid: bool, errors: array<int, string>, strength: int<min, 10>}
      */
     public function validatePassword(string $password): array
     {
@@ -52,15 +54,9 @@ final class PasswordValidator
     }
 
     /**
-     * @return array{
-     *   min_length: int,
-     *   require_uppercase: bool,
-     *   require_lowercase: bool,
-     *   require_numbers: bool,
-     *   require_symbols: bool,
-     *   forbidden_patterns: array<int, string>,
-     *   history_count: int
-     * }
+     * @return (array|int|mixed|true)[]
+     *
+     * @psalm-return array{min_length: 8|mixed, require_uppercase: mixed|true, require_lowercase: mixed|true, require_numbers: mixed|true, require_symbols: mixed|true, forbidden_patterns: array<never, never>|mixed, history_count: 5|mixed,...}
      */
     private function loadConfig(ConfigRepository $configRepository): array
     {
@@ -150,6 +146,8 @@ final class PasswordValidator
 
     /**
      * Calculate password strength.
+     *
+     * @psalm-return int<min, 10>
      */
     private function calculatePasswordStrength(string $password): int
     {
@@ -163,6 +161,9 @@ final class PasswordValidator
         return (int) min($score, 10);
     }
 
+    /**
+     * @psalm-return int<0, max>
+     */
     private function calculateDiversity(string $password): int
     {
         $patterns = [

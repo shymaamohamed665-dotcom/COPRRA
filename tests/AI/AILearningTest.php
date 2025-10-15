@@ -3,7 +3,7 @@
 namespace Tests\AI;
 
 use PHPUnit\Framework\Attributes\Test;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class AILearningTest extends TestCase
 {

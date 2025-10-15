@@ -19,6 +19,7 @@ final class DatabaseBackupStrategy implements BackupStrategyInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function backup(string $backupDir, string $backupName): array
     {
         try {
@@ -31,6 +32,7 @@ final class DatabaseBackupStrategy implements BackupStrategyInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function restore(string $backupPath, array $backupInfo): array
     {
         try {
@@ -40,6 +42,10 @@ final class DatabaseBackupStrategy implements BackupStrategyInterface
         }
     }
 
+    /**
+     * @psalm-return 'database'
+     */
+    #[\Override]
     public function getComponentName(): string
     {
         return 'database';
@@ -48,6 +54,7 @@ final class DatabaseBackupStrategy implements BackupStrategyInterface
     /**
      * {@inheritdoc}
      */
+    #[\Override]
     public function canHandle(array $backupInfo): bool
     {
         return isset($backupInfo['filename']) &&

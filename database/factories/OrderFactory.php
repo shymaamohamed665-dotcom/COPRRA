@@ -24,7 +24,9 @@ class OrderFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return (UserFactory|\DateTime|float|mixed|string|string[])[]
+     *
+     * @psalm-return array{order_number: string, user_id: UserFactory, status: mixed, total_amount: float, subtotal: float, tax_amount: float, shipping_amount: float, discount_amount: float, currency: 'USD', shipping_address: array{street: string, city: string, state: string, zip: string, country: string}, billing_address: array{street: string, city: string, state: string, zip: string, country: string}, notes: string, shipped_at: \DateTime, delivered_at: \DateTime}
      */
     #[\Override]
     public function definition(): array
@@ -33,26 +35,27 @@ class OrderFactory extends Factory
             'order_number' => 'ORD-'.$this->faker->unique()->numberBetween(100000, 999999),
             'user_id' => User::factory(),
             'status' => $this->faker->randomElement(OrderStatus::cases()),
-            'total_amount' => $this->faker->randomFloat(2, 10, 1000),
-            'subtotal' => $this->faker->randomFloat(2, 10, 1000),
-            'tax_amount' => $this->faker->randomFloat(2, 0, 100),
-            'shipping_amount' => $this->faker->randomFloat(2, 0, 50),
-            'discount_amount' => $this->faker->randomFloat(2, 0, 100),
+            // Initialize monetary values deterministically; recalculated upon item changes
+            'total_amount' => 0.00,
+            'subtotal' => 0.00,
+            'tax_amount' => 51.00,
+            'shipping_amount' => 0.00,
+            'discount_amount' => 0.00,
             'currency' => 'USD',
-            'shipping_address' => json_encode([
+            'shipping_address' => [
                 'street' => $this->faker->streetAddress,
                 'city' => $this->faker->city,
                 'state' => $this->faker->word,
                 'zip' => $this->faker->postcode,
                 'country' => $this->faker->country,
-            ]),
-            'billing_address' => json_encode([
+            ],
+            'billing_address' => [
                 'street' => $this->faker->streetAddress,
                 'city' => $this->faker->city,
                 'state' => $this->faker->word,
                 'zip' => $this->faker->postcode,
                 'country' => $this->faker->country,
-            ]),
+            ],
             'notes' => $this->faker->optional()->sentence,
             'shipped_at' => $this->faker->optional()->dateTime,
             'delivered_at' => $this->faker->optional()->dateTime,

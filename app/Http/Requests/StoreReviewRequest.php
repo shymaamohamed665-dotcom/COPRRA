@@ -19,7 +19,9 @@ class StoreReviewRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<string>|string>
+     * @return string[]
+     *
+     * @psalm-return array{rating: 'required|integer|min:1|max:5', comment: 'required|string|max:1000'}
      */
     public function rules(): array
     {

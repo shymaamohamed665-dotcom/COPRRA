@@ -3,6 +3,7 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Notification;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 use Tests\TestCase;
 
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class NotificationSimpleTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected function setUp(): void
     {
         parent::setUp();

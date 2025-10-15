@@ -41,6 +41,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        // Add Sanctum token guard for API authentication in tests and routes
+        'sanctum' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
     ],
 
     /*

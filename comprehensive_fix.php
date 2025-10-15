@@ -4,22 +4,21 @@
  * Comprehensive automated fixer for all test issues
  * This script applies all known fixes in one batch
  */
-
 echo "Starting comprehensive fixes...\n\n";
 
 $fixesApplied = 0;
 
 // Fix 1: Update phpunit.xml to disable ALL strict modes to avoid risky test warnings
 echo "1. Configuring PHPUnit for maximum compatibility...\n";
-$phpunitXml = file_get_contents(__DIR__ . '/phpunit.xml');
+$phpunitXml = file_get_contents(__DIR__.'/phpunit.xml');
 $phpunitXml = preg_replace('/processIsolation="false"/', 'processIsolation="false"', $phpunitXml);
 $phpunitXml = preg_replace('/beStrictAboutResourceUsageDuringSmallTests="[^"]*"/', '', $phpunitXml);
-file_put_contents(__DIR__ . '/phpunit.xml', $phpunitXml);
+file_put_contents(__DIR__.'/phpunit.xml', $phpunitXml);
 $fixesApplied++;
 
 // Fix 2: Add default values to all model factories for required fields
 echo "2. Adding default factory values...\n";
-$factoryFiles = glob(__DIR__ . '/database/factories/*Factory.php');
+$factoryFiles = glob(__DIR__.'/database/factories/*Factory.php');
 foreach ($factoryFiles as $file) {
     $content = file_get_contents($file);
     // This would be extended based on specific needs
@@ -28,10 +27,10 @@ foreach ($factoryFiles as $file) {
 
 // Fix 3: Disable error handler modifications in tests to prevent "risky" warnings
 echo "3. Creating test bootstrap enhancements...\n";
-$bootstrapContent = file_get_contents(__DIR__ . '/tests/bootstrap.php');
+$bootstrapContent = file_get_contents(__DIR__.'/tests/bootstrap.php');
 if (strpos($bootstrapContent, 'restore_error_handler()') === false) {
     $bootstrapContent .= "\n\n// Restore error handlers to prevent risky test warnings\nset_error_handler(null);\nrestore_error_handler();\n";
-    file_put_contents(__DIR__ . '/tests/bootstrap.php', $bootstrapContent);
+    file_put_contents(__DIR__.'/tests/bootstrap.php', $bootstrapContent);
     $fixesApplied++;
 }
 
@@ -41,7 +40,7 @@ echo "4. Enhancing Form Request validations...\n";
 
 // Fix 5: Fix all middleware type declarations
 echo "5. Fixing middleware compatibilities...\n";
-$middlewareFiles = glob(__DIR__ . '/app/Http/Middleware/*.php');
+$middlewareFiles = glob(__DIR__.'/app/Http/Middleware/*.php');
 foreach ($middlewareFiles as $file) {
     $content = file_get_contents($file);
     $originalContent = $content;
@@ -73,7 +72,7 @@ foreach ($middlewareFiles as $file) {
 
     if ($content !== $originalContent) {
         file_put_contents($file, $content);
-        echo "  - Fixed " . basename($file) . "\n";
+        echo '  - Fixed '.basename($file)."\n";
         $fixesApplied++;
     }
 }
@@ -88,7 +87,7 @@ echo "7. Creating missing resources and DTOs...\n";
 
 // Fix 8: Fix database seeders to provide all required data
 echo "8. Enhancing database seeders...\n";
-$seederFiles = glob(__DIR__ . '/database/seeders/*.php');
+$seederFiles = glob(__DIR__.'/database/seeders/*.php');
 foreach ($seederFiles as $file) {
     // Ensure seeders have all required fields
     $fixesApplied++;
@@ -104,11 +103,11 @@ echo "10. Validating test database schema...\n";
 
 // Fix 11: Add missing translations
 echo "11. Adding missing language files...\n";
-$langDir = __DIR__ . '/resources/lang';
-if (!is_dir($langDir . '/en')) {
-    mkdir($langDir . '/en', 0755, true);
+$langDir = __DIR__.'/resources/lang';
+if (! is_dir($langDir.'/en')) {
+    mkdir($langDir.'/en', 0755, true);
 }
-if (!file_exists($langDir . '/en/auth.php')) {
+if (! file_exists($langDir.'/en/auth.php')) {
     // Create minimal auth translation file
     $fixesApplied++;
 }
@@ -121,9 +120,9 @@ exec('php artisan view:clear 2>&1');
 exec('php artisan cache:clear 2>&1');
 $fixesApplied++;
 
-echo "\n" . str_repeat('=', 60) . "\n";
+echo "\n".str_repeat('=', 60)."\n";
 echo "COMPREHENSIVE FIXES COMPLETED\n";
 echo "Total fixes applied: $fixesApplied\n";
-echo str_repeat('=', 60) . "\n\n";
+echo str_repeat('=', 60)."\n\n";
 
 echo "Now running tests...\n";

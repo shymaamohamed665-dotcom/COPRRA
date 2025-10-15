@@ -7,9 +7,6 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataValidityTest extends TestCase
 {
     use RefreshDatabase;

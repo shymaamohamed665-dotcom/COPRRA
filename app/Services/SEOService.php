@@ -10,6 +10,7 @@ use App\Models\Store;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 final class SEOService
@@ -18,13 +19,14 @@ final class SEOService
         private readonly UrlGenerator $urlGenerator,
         private readonly Repository $configRepository,
         private readonly Str $str
-    ) {
-    }
+    ) {}
 
     /**
      * Generate SEO meta data for a model.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{title: string, description: string, keywords: string, og_title: string, og_description: string, og_image: string, og_type: 'product'|'website', og_url: string, canonical: string, robots: 'index, follow'}
      */
     public function generateMetaData(Model $model, ?string $type = null): array
     {
@@ -44,8 +46,9 @@ final class SEOService
      * Validate SEO meta data.
      *
      * @param  array<string, string|null>  $metaData
+     * @return string[]
      *
-     * @return array<string>
+     * @psalm-return array<int, string>
      */
     public function validateMetaData(array $metaData): array
     {
@@ -60,9 +63,56 @@ final class SEOService
     }
 
     /**
+     * Generate JSON-LD structured data for a product.
+     *
+     * @return array<string, mixed>
+     */
+    public function generateStructuredData(Product $product): array
+    {
+        $url = $this->urlGenerator->route('products.show', $product->slug);
+
+        return [
+            '@context' => 'https://schema.org/',
+            '@type' => 'Product',
+            'name' => $this->safeCastToString($product->name),
+            'offers' => [
+                '@type' => 'Offer',
+                'url' => $this->safeCastToString($url),
+            ],
+        ];
+    }
+
+    /**
+     * Generate JSON-LD breadcrumb structured data.
+     *
+     * @param  array<int, array{name: string, url: string}>  $breadcrumbs
+     * @return array<string, mixed>
+     */
+    public function generateBreadcrumbData(array $breadcrumbs): array
+    {
+        $items = [];
+        foreach ($breadcrumbs as $index => $crumb) {
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $crumb['name'],
+                'item' => $crumb['url'],
+            ];
+        }
+
+        return [
+            '@context' => 'https://schema.org/',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $items,
+        ];
+    }
+
+    /**
      * Generate meta data for a product.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{title: string, description: string, keywords: string, og_title: string, og_description: string, og_image: string, og_type: 'product', og_url: string, canonical: string, robots: 'index, follow'}
      */
     protected function generateProductMeta(Product $product): array
     {
@@ -78,7 +128,7 @@ final class SEOService
             : $this->urlGenerator->asset('images/default-product.png');
 
         return [
-            'title' => $this->generateTitle($product),
+            'title' => $title,
             'description' => $description,
             'keywords' => $keywords,
             'og_title' => $title,
@@ -98,7 +148,9 @@ final class SEOService
     /**
      * Generate meta data for a category.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{title: string, description: string, keywords: string, og_title: string, og_description: string, og_image: string, og_type: 'website', og_url: string, canonical: string, robots: 'index, follow'}
      */
     protected function generateCategoryMeta(Category $category): array
     {
@@ -133,7 +185,9 @@ final class SEOService
     /**
      * Generate meta data for a store.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{title: string, description: string, keywords: string, og_title: string, og_description: string, og_image: string, og_type: 'website', og_url: string, canonical: string, robots: 'index, follow'}
      */
     protected function generateStoreMeta(Store $store): array
     {
@@ -147,6 +201,10 @@ final class SEOService
             ? $store->logo_url
             : $this->urlGenerator->asset('images/default-store.png');
 
+        $storeUrl = Route::has('stores.show')
+            ? $this->urlGenerator->route('stores.show', $store->slug)
+            : $this->urlGenerator->to('stores/'.$this->safeCastToString($store->slug));
+
         return [
             'title' => $title,
             'description' => $description,
@@ -155,12 +213,8 @@ final class SEOService
             'og_description' => $description,
             'og_image' => $this->safeCastToString($imageUrl),
             'og_type' => 'website',
-            'og_url' => $this->safeCastToString(
-                $this->urlGenerator->route('stores.show', $store->slug)
-            ),
-            'canonical' => $this->safeCastToString(
-                $this->urlGenerator->route('stores.show', $store->slug)
-            ),
+            'og_url' => $this->safeCastToString($storeUrl),
+            'canonical' => $this->safeCastToString($storeUrl),
             'robots' => 'index, follow',
         ];
     }
@@ -168,7 +222,9 @@ final class SEOService
     /**
      * Generate default meta data.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{title: string, description: 'Compare prices across multiple stores and find the best deals', keywords: 'price comparison, shopping, deals, best prices, online shopping', og_title: string, og_description: 'Compare prices across multiple stores and find the best deals', og_image: string, og_type: 'website', og_url: string, canonical: string, robots: 'index, follow'}
      */
     protected function generateDefaultMeta(): array
     {
@@ -252,6 +308,7 @@ final class SEOService
     {
         $data = $this->generateBasicProductData($product);
         $data = $this->addProductOffersData($product, $data);
+
         return $this->addProductRatingData($product, $data);
     }
 
@@ -265,6 +322,7 @@ final class SEOService
     {
         if (($metaData['title'] ?? '') === '') {
             $issues[] = 'Title is missing';
+
             return;
         }
 
@@ -287,6 +345,7 @@ final class SEOService
     {
         if (($metaData['description'] ?? '') === '') {
             $issues[] = 'Description is missing';
+
             return;
         }
 
@@ -396,11 +455,16 @@ final class SEOService
     private function formatKeywords(array $keywords): string
     {
         $keywords = array_unique($keywords);
+
         return implode(', ', $keywords);
     }
 
     /**
      * Generate basic product data.
+     *
+     * @return string[]
+     *
+     * @psalm-return array{'@context': 'https://schema.org/', '@type': 'Product', name: string, description: string, image: string, url: string}
      */
     private function generateBasicProductData(Product $product): array
     {
@@ -464,7 +528,9 @@ final class SEOService
     }
 
     /**
-     * @return array<string, string|float>
+     * @return (float|string)[]
+     *
+     * @psalm-return array{'@type': 'AggregateOffer', lowPrice: float|string, priceCurrency: string, availability: 'https://schema.org/InStock'}
      */
     private function generateProductOffers(Product $product): array
     {

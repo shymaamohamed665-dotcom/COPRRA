@@ -10,11 +10,15 @@ return [
     |
     */
 
-    'api_key' => env('AI_API_KEY'),
+    // Prefer AI_API_KEY, fall back to OPENAI_API_KEY if present
+    'api_key' => env('AI_API_KEY', env('OPENAI_API_KEY', '')),
     'base_url' => env('AI_BASE_URL', 'https://api.openai.com/v1'),
     'timeout' => env('AI_TIMEOUT', 30),
     'max_tokens' => env('AI_MAX_TOKENS', 2000),
     'temperature' => env('AI_TEMPERATURE', 0.5),
+
+    // Disable external AI calls in testing to avoid real network requests
+    'disable_external_calls' => env('AI_DISABLE_EXTERNAL_CALLS', env('APP_ENV') === 'testing'),
 
     /*
     |--------------------------------------------------------------------------

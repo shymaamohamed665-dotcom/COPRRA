@@ -86,6 +86,7 @@ class PriceComparisonTest extends TestCase
             'currency_id' => $this->usd->id,
         ]);
     }
+
     public function test_compares_prices_across_multiple_stores(): void
     {
         // Create price entries for different stores
@@ -114,6 +115,7 @@ class PriceComparisonTest extends TestCase
         $bestPrice = PriceHelper::getBestPrice($prices);
         $this->assertEquals(95.00, $bestPrice);
     }
+
     public function test_identifies_best_deal_among_stores(): void
     {
         $this->product->stores()->attach($this->store1->id, [
@@ -140,6 +142,7 @@ class PriceComparisonTest extends TestCase
         $isNotGoodDeal = PriceHelper::isGoodDeal(100.00, $prices);
         $this->assertFalse($isNotGoodDeal);
     }
+
     public function test_calculates_savings_percentage(): void
     {
         $originalPrice = 100.00;
@@ -153,6 +156,7 @@ class PriceComparisonTest extends TestCase
         $this->assertStringContainsString('-20.0', $differenceString);
         $this->assertStringContainsString('%', $differenceString);
     }
+
     public function test_formats_price_with_correct_currency_symbol(): void
     {
         $formattedUSD = PriceHelper::formatPrice(100.00, 'USD');
@@ -163,6 +167,7 @@ class PriceComparisonTest extends TestCase
         $this->assertStringContainsString('ر.س', $formattedSAR);
         $this->assertStringContainsString('375.00', $formattedSAR);
     }
+
     public function test_converts_prices_between_currencies(): void
     {
         $usdPrice = 100.00;
@@ -174,6 +179,7 @@ class PriceComparisonTest extends TestCase
         $convertedBack = PriceHelper::convertCurrency($sarPrice, 'SAR', 'USD');
         $this->assertEquals($usdPrice, $convertedBack);
     }
+
     public function test_displays_price_range_for_product(): void
     {
         $this->product->stores()->attach($this->store1->id, [
@@ -203,6 +209,7 @@ class PriceComparisonTest extends TestCase
         $this->assertStringContainsString('120.00', $priceRange);
         $this->assertStringContainsString('-', $priceRange);
     }
+
     public function test_handles_unavailable_products_in_stores(): void
     {
         $this->product->stores()->attach($this->store1->id, [
@@ -227,6 +234,7 @@ class PriceComparisonTest extends TestCase
         $this->assertContains(100.00, $availablePrices);
         $this->assertNotContains(80.00, $availablePrices);
     }
+
     public function test_respects_max_stores_per_product_configuration(): void
     {
         $maxStores = config('coprra.price_comparison.max_stores_per_product', 10);
@@ -257,6 +265,7 @@ class PriceComparisonTest extends TestCase
 
         $this->assertCount($maxStores, $limitedStores);
     }
+
     public function test_caches_price_comparison_results(): void
     {
         $cacheKey = "price_comparison_{$this->product->id}";
@@ -273,6 +282,7 @@ class PriceComparisonTest extends TestCase
         $this->assertArrayHasKey('prices', $cached);
         $this->assertCount(2, $cached['prices']);
     }
+
     public function test_tracks_price_comparison_analytics(): void
     {
         $trackBehavior = config('coprra.analytics.track_user_behavior', true);
@@ -286,6 +296,7 @@ class PriceComparisonTest extends TestCase
             $this->assertTrue(true);
         }
     }
+
     public function test_handles_multiple_currencies_in_comparison(): void
     {
         $this->product->stores()->attach($this->store1->id, [
@@ -305,6 +316,7 @@ class PriceComparisonTest extends TestCase
 
         $this->assertEquals(100.00, $sarPriceInUSD);
     }
+
     public function test_validates_price_update_interval(): void
     {
         $updateInterval = config('coprra.price_comparison.price_update_interval', 6);

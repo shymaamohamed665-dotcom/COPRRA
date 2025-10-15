@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Tests\TestCase;
@@ -12,6 +13,8 @@ use Tests\TestCase;
  */
 class LocaleMiddlewareTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected function setUp(): void
     {
         parent::setUp();

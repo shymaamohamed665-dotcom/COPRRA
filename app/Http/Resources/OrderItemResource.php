@@ -15,7 +15,11 @@ class OrderItemResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @return (mixed|null)[]
+     *
+     * @SuppressWarnings("UnusedFormalParameter")
+     *
+     * @psalm-return array{id: mixed, product_id: mixed, quantity: mixed, price: mixed|null, subtotal: mixed|null}
      */
     #[\Override]
     public function toArray(Request $request): array

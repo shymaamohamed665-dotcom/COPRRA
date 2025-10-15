@@ -9,9 +9,6 @@ use App\Models\Product;
 use Tests\DatabaseSetup;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataConsistencyTest extends TestCase
 {
     use DatabaseSetup;
@@ -23,6 +20,10 @@ class DataConsistencyTest extends TestCase
         $order = Order::factory()->create([
             'total_amount' => 200,
             'subtotal' => 200,
+            // Neutralize extras to test pure items sum
+            'tax_amount' => 0,
+            'shipping_amount' => 0,
+            'discount_amount' => 0,
         ]);
 
         OrderItem::factory()->create([

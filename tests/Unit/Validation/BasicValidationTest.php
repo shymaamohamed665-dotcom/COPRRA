@@ -4,9 +4,6 @@ namespace Tests\Unit\Validation;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class BasicValidationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

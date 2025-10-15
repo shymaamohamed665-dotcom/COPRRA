@@ -32,9 +32,10 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 1440), // 24 hours (Hostinger optimized)
+    'lifetime' => env('SESSION_LIFETIME', 480), // 8 hours (security baseline)
 
     'expire_on_close' => false,
+    'inactivity_timeout' => env('SESSION_INACTIVITY_TIMEOUT', 1800), // 30 minutes
 
     /*
     |--------------------------------------------------------------------------
@@ -207,7 +208,7 @@ return [
     |
     */
 
-    'same_site' => env('SESSION_SAME_SITE', 'lax'),
+    'same_site' => env('SESSION_SAME_SITE', 'strict'),
 
     /*
     |--------------------------------------------------------------------------

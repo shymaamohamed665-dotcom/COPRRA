@@ -17,7 +17,9 @@ class LoginRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{email: 'required|email|max:255', password: 'required|string|min:8', remember: 'boolean'}
      */
     public function rules(): array
     {
@@ -31,8 +33,11 @@ class LoginRequest extends FormRequest
     /**
      * Get custom messages for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{'email.required': 'The email field is required.', 'email.email': 'The email must be a valid email address.', 'email.max': 'The email may not be greater than 255 characters.', 'password.required': 'The password field is required.', 'password.string': 'The password must be a string.', 'password.min': 'The password must be at least 8 characters.'}
      */
+    #[\Override]
     public function messages(): array
     {
         return [
@@ -48,8 +53,11 @@ class LoginRequest extends FormRequest
     /**
      * Get custom attributes for validator errors.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{email: 'email address', password: 'password', remember: 'remember me'}
      */
+    #[\Override]
     public function attributes(): array
     {
         return [

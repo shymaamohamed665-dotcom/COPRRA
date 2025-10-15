@@ -17,10 +17,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Category
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class CategoryTest extends TestCase
 {
     use WithFaker;

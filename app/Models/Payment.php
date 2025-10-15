@@ -49,4 +49,16 @@ class Payment extends Model
     {
         return $this->belongsTo(PaymentMethod::class);
     }
+
+    // --- Scopes ---
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<Payment>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeByStatus(\Illuminate\Database\Eloquent\Builder $query, string $status): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('status', $status);
+    }
 }

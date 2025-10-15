@@ -32,4 +32,46 @@ class PaymentMethod extends Model
         'is_active' => 'boolean',
         'is_default' => 'boolean',
     ];
+
+    /**
+     * Return only explicit casts defined on the model.
+     * This excludes framework-added defaults like the primary key cast.
+     *
+     * @return array<string, string>
+     */
+    #[\Override]
+    public function getCasts(): array
+    {
+        return $this->casts;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Payment, PaymentMethod>
+     */
+    public function payments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Payment::class);
+    }
+
+    // --- Scopes ---
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<PaymentMethod>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeActive(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('is_active', true);
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<PaymentMethod>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeDefault(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('is_default', true);
+    }
 }

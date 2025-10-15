@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\Unit\COPRRA;
 
 use App\Models\ExchangeRate;
-use App\Services\ExchangeRateService;
 use App\Services\ExchangeRates\RateProvider;
+use App\Services\ExchangeRateService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 use Tests\TestCase;
@@ -25,20 +25,18 @@ class ExchangeRateServiceTest extends TestCase
     {
         parent::setUp();
 
-        $this->service = new ExchangeRateService(new RateProvider());
+        $this->service = new ExchangeRateService(new RateProvider);
         Cache::flush();
     }
 
-    /** @test */
-    public function it_returns_one_for_same_currency(): void
+    public function test_it_returns_one_for_same_currency(): void
     {
         $rate = $this->service->getRate('USD', 'USD');
 
         $this->assertEquals(1.0, $rate);
     }
 
-    /** @test */
-    public function it_seeds_exchange_rates_from_config(): void
+    public function test_it_seeds_exchange_rates_from_config(): void
     {
         $count = $this->service->seedFromConfig();
 
@@ -52,8 +50,7 @@ class ExchangeRateServiceTest extends TestCase
         ]);
     }
 
-    /** @test */
-    public function it_gets_rate_from_database(): void
+    public function test_it_gets_rate_from_database(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',
@@ -68,8 +65,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertEquals(0.85, $rate);
     }
 
-    /** @test */
-    public function it_caches_exchange_rates(): void
+    public function test_it_caches_exchange_rates(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',
@@ -93,8 +89,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertEquals($rate1, $rate2);
     }
 
-    /** @test */
-    public function it_converts_currency_correctly(): void
+    public function test_it_converts_currency_correctly(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',
@@ -109,8 +104,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertEquals(85.0, $converted);
     }
 
-    /** @test */
-    public function it_identifies_stale_rates(): void
+    public function test_it_identifies_stale_rates(): void
     {
         $freshRate = ExchangeRate::create([
             'from_currency' => 'USD',
@@ -132,8 +126,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertTrue($staleRate->isStale());
     }
 
-    /** @test */
-    public function it_gets_fresh_rates_only(): void
+    public function test_it_gets_fresh_rates_only(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',
@@ -157,8 +150,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertEquals('EUR', $freshRates->first()->to_currency);
     }
 
-    /** @test */
-    public function it_gets_stale_rates_only(): void
+    public function test_it_gets_stale_rates_only(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',
@@ -182,8 +174,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertEquals('GBP', $staleRates->first()->to_currency);
     }
 
-    /** @test */
-    public function it_returns_supported_currencies(): void
+    public function test_it_returns_supported_currencies(): void
     {
         $currencies = $this->service->getSupportedCurrencies();
 
@@ -193,8 +184,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertContains('SAR', $currencies);
     }
 
-    /** @test */
-    public function it_uses_fallback_rate_when_not_in_database(): void
+    public function test_it_uses_fallback_rate_when_not_in_database(): void
     {
         // Don't seed any rates
         $rate = $this->service->getRate('USD', 'EUR');
@@ -204,8 +194,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertGreaterThan(0, $rate);
     }
 
-    /** @test */
-    public function it_handles_reverse_conversion(): void
+    public function test_it_handles_reverse_conversion(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',
@@ -230,8 +219,7 @@ class ExchangeRateServiceTest extends TestCase
         $this->assertEqualsWithDelta(100.0, $eurToUsd, 0.1);
     }
 
-    /** @test */
-    public function it_updates_existing_rates(): void
+    public function test_it_updates_existing_rates(): void
     {
         ExchangeRate::create([
             'from_currency' => 'USD',

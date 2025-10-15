@@ -55,7 +55,9 @@ final class PriceUpdateProcessorService
     /**
      * Attempt to update price if changed.
      *
-     * @return array{updated: bool, error: bool}
+     * @return bool[]
+     *
+     * @psalm-return array{updated: bool, error: false}
      */
     private function attemptPriceUpdate(PriceOffer $priceOffer, bool $dryRun): array
     {

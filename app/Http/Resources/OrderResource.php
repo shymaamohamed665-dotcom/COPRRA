@@ -15,7 +15,11 @@ class OrderResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @return array<string, mixed>
+     * @return (\Illuminate\Http\Resources\MissingValue|array|mixed|null)[]
+     *
+     * @SuppressWarnings("UnusedFormalParameter")
+     *
+     * @psalm-return array{id: mixed, order_number: mixed, user_id: mixed, status: array{value: mixed, label: mixed, color: mixed}, total_amount: mixed, subtotal: mixed, tax_amount: mixed, shipping_amount: mixed, discount_amount: mixed, currency: mixed, shipping_address: mixed, billing_address: mixed, notes: mixed, created_at: mixed|null, updated_at: mixed|null, shipped_at: \Illuminate\Http\Resources\MissingValue|mixed, delivered_at: \Illuminate\Http\Resources\MissingValue|mixed}
      */
     #[\Override]
     public function toArray(Request $request): array
@@ -25,9 +29,9 @@ class OrderResource extends JsonResource
             'order_number' => $this->order_number,
             'user_id' => $this->user_id,
             'status' => [
-                'value' => $this->status->value,
-                'label' => $this->status->label(),
-                'color' => $this->status->color(),
+                'value' => $this->status_enum->value,
+                'label' => $this->status_enum->label(),
+                'color' => $this->status_enum->color(),
             ],
             'total_amount' => $this->total_amount,
             'subtotal' => $this->subtotal,

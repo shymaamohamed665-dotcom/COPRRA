@@ -1,0 +1,27 @@
+services:
+  app:
+    environment:
+      APP_ENV: development
+      APP_DEBUG: "true"
+    volumes:
+      - .:/var/www/html
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+        compress: "true"
+  nginx:
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+      - ./dev-docker/nginx.conf:/etc/nginx/conf.d/default.conf
+  db:
+    ports:
+      - "127.0.0.1:33061:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_DATABASE:-coprra}
+      MYSQL_USER: ${DB_USERNAME:-coprra}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-coprra}

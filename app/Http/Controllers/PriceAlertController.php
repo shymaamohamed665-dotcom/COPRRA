@@ -18,7 +18,7 @@ class PriceAlertController extends Controller
     {
         $product = null;
         if ($request->has('product_id')) {
-            $product = app(Product::class)->findOrFail($request->product_id);
+            $product = app(Product::class)->findOrFail($request->input('product_id'));
         }
 
         return view('price-alerts.create', ['product' => $product]);
@@ -34,7 +34,7 @@ class PriceAlertController extends Controller
         }
 
         $priceAlert->update([
-            'target_price' => $request->target_price,
+            'target_price' => $request->input('target_price'),
             'repeat_alert' => $request->boolean('repeat_alert'),
         ]);
 

@@ -65,6 +65,8 @@ final class ExchangeRateService
 
     /**
      * Fetch exchange rates from external API and store in database.
+     *
+     * @psalm-return int<0, max>
      */
     public function fetchAndStoreRates(): int
     {
@@ -88,7 +90,9 @@ final class ExchangeRateService
     /**
      * Get supported currencies.
      *
-     * @return array<int, string>
+     * @return string[]
+     *
+     * @psalm-return list{'USD', 'EUR', 'GBP', 'JPY', 'SAR', 'AED', 'EGP'}
      */
     public function getSupportedCurrencies(): array
     {
@@ -97,6 +101,8 @@ final class ExchangeRateService
 
     /**
      * Seed initial exchange rates from config.
+     *
+     * @psalm-return int<0, max>
      */
     public function seedFromConfig(): int
     {
@@ -212,6 +218,8 @@ final class ExchangeRateService
 
     /**
      * @param  array<string, array<string, float>|string>  $data
+     *
+     * @psalm-return int<0, max>
      */
     private function handleApiResponse(array $data): int
     {

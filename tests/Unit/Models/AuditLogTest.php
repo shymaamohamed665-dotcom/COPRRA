@@ -15,10 +15,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\AuditLog
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class AuditLogTest extends TestCase
 {
     /**

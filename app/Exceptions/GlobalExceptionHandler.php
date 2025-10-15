@@ -6,27 +6,41 @@ namespace App\Exceptions;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class GlobalExceptionHandler extends ExceptionHandler
 {
+    private LoggerInterface $logger;
+
+    private Mailer $mailer;
+
+    public function __construct($app, ?LoggerInterface $logger = null, ?Mailer $mailer = null)
+    {
+        parent::__construct($app);
+        $this->logger = $logger ?? app(LoggerInterface::class);
+        $this->mailer = $mailer ?? app(Mailer::class);
+    }
+
     /**
      * The list of the inputs that are never flashed to the session on validation exceptions.
      *
      * @var array<int, string>
      */
-    protected array $dontFlash = [
+    protected $dontFlash = [
         'current_password',
         'password',
         'password_confirmation',
@@ -45,81 +59,88 @@ class GlobalExceptionHandler extends ExceptionHandler
      * Render an exception into an HTTP response.
      */
     #[\Override]
-    public function render(\Illuminate\Http\Request $request, Throwable $e): JsonResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function render($request, Throwable $exception): JsonResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
     {
         // Handle API requests
         if ($request->is('api/*') || $request->expectsJson()) {
-            return $this->handleApiException($request, $e);
+            return $this->handleApiException($request, $exception);
         }
 
         // Handle web requests
-        return $this->handleWebException($request, $e);
+        return $this->handleWebException($request, $exception);
     }
 
     /**
      * Handle API exceptions.
      */
-    private function handleApiException(Request $request, Throwable $e): JsonResponse
+    private function handleApiException(Request $request, Throwable $exception): JsonResponse
     {
-        $this->logException($e, $request);
+        $this->logException($exception, $request);
 
         $exceptionHandlers = $this->getExceptionHandlers();
 
         foreach ($exceptionHandlers as $exceptionClass => $handler) {
-            if ($e instanceof $exceptionClass) {
-                return $handler($e);
+            if ($exception instanceof $exceptionClass) {
+                return $handler($exception);
             }
         }
 
-        return $this->handleGenericException($e);
+        return $this->handleGenericException($exception);
     }
 
     /**
      * Get exception handlers mapping.
      *
-     * @return array<class-string, callable>
+     * @return (\Closure)[]
+     *
+     * @psalm-return array{'Illuminate\\Validation\\ValidationException'::class: \Closure(mixed):JsonResponse, 'Illuminate\\Auth\\AuthenticationException'::class: \Closure():JsonResponse, 'Illuminate\\Auth\\Access\\AuthorizationException'::class: \Closure():JsonResponse, 'Illuminate\\Database\\Eloquent\\ModelNotFoundException'::class: \Closure():JsonResponse, 'Illuminate\\Database\\QueryException'::class: \Closure(mixed):JsonResponse, 'Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException'::class: \Closure():JsonResponse, 'Symfony\\Component\\HttpKernel\\Exception\\MethodNotAllowedHttpException'::class: \Closure(mixed):JsonResponse, 'Symfony\\Component\\HttpKernel\\Exception\\HttpException'::class: \Closure(mixed):JsonResponse}
      */
     private function getExceptionHandlers(): array
     {
         return [
-            ValidationException::class => fn ($e) => $this->handleValidationException($e),
+            ValidationException::class => fn ($exception) => $this->handleValidationException($exception),
             AuthenticationException::class => fn () => $this->handleAuthenticationException(),
             AuthorizationException::class => fn () => $this->handleAuthorizationException(),
             ModelNotFoundException::class => fn () => $this->handleModelNotFoundException(),
-            QueryException::class => fn ($e) => $this->handleQueryException($e),
+            QueryException::class => fn ($exception) => $this->handleQueryException($exception),
             NotFoundHttpException::class => fn () => $this->handleNotFoundHttpException(),
-            MethodNotAllowedHttpException::class => fn ($e) => $this->handleMethodNotAllowedHttpException($e),
-            HttpException::class => fn ($e) => $this->handleHttpException($e),
+            MethodNotAllowedHttpException::class => fn ($exception) => $this->handleMethodNotAllowedHttpException($exception),
+            HttpException::class => fn ($exception) => $this->handleHttpException($exception),
         ];
     }
 
     /**
      * Handle web exceptions.
      */
-    private function handleWebException(Request $request, Throwable $e): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+    private function handleWebException(Request $request, Throwable $exception): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse|\Symfony\Component\HttpFoundation\Response
     {
-        $this->logException($e, $request);
+        $this->logException($exception, $request);
 
         $webExceptionHandlers = $this->getWebExceptionHandlers();
 
         foreach ($webExceptionHandlers as $exceptionClass => $handler) {
-            if ($e instanceof $exceptionClass) {
-                return $handler($e, $request);
+            if ($exception instanceof $exceptionClass) {
+                return $handler($exception, $request);
             }
         }
 
-        return $this->handleGenericWebException($request, $e);
+        return $this->handleGenericWebException($request, $exception);
     }
 
     /**
      * Get web exception handlers mapping.
      *
-     * @return array<class-string, callable>
+     * @return (\Closure)[]
+     *
+     * @psalm-return array{'Illuminate\\Validation\\ValidationException'::class: \Closure(mixed):\Illuminate\Http\RedirectResponse, 'Illuminate\\Auth\\AuthenticationException'::class: \Closure():\Illuminate\Http\RedirectResponse, 'Illuminate\\Auth\\Access\\AuthorizationException'::class: \Closure():\Illuminate\Http\Response, 'Illuminate\\Database\\Eloquent\\ModelNotFoundException'::class: \Closure():\Illuminate\Http\Response, 'Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException'::class: \Closure():\Illuminate\Http\Response}
      */
     private function getWebExceptionHandlers(): array
     {
         return [
-            ValidationException::class => fn ($e) => redirect()->back()->withErrors($e->errors())->withInput(),
+            ValidationException::class => fn (ValidationException $exception) => redirect()->back()->withErrors($exception->errors())->withInput(),
             AuthenticationException::class => fn () => redirect()->guest(route('login')),
             AuthorizationException::class => fn () => response()->view('errors.403', [], 403),
             ModelNotFoundException::class => fn () => response()->view('errors.404', [], 404),
@@ -130,18 +151,18 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Handle generic web exceptions.
      */
-    private function handleGenericWebException(Request $request, Throwable $e): \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+    private function handleGenericWebException(Request $request, Throwable $exception): \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
     {
-        return $this->handleWebDebugMode($request, $e);
+        return $this->handleWebDebugMode($request, $exception);
     }
 
     /**
      * Handle web debug mode.
      */
-    private function handleWebDebugMode(Request $request, Throwable $e): \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+    private function handleWebDebugMode(Request $request, Throwable $exception): \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
     {
         if (config('app.debug')) {
-            return parent::render($request, $e);
+            return parent::render($request, $exception);
         }
 
         return response()->view('errors.500', [], 500);
@@ -169,13 +190,13 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Handle validation exceptions.
      */
-    private function handleValidationException(ValidationException $e): JsonResponse
+    private function handleValidationException(ValidationException $exception): JsonResponse
     {
         return $this->createErrorResponse(
             'Validation failed',
             'VALIDATION_ERROR',
             422,
-            ['errors' => $e->errors()]
+            ['errors' => $exception->errors()]
         );
     }
 
@@ -218,13 +239,13 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Handle query exceptions.
      */
-    private function handleQueryException(QueryException $e): JsonResponse
+    private function handleQueryException(QueryException $exception): JsonResponse
     {
         // Log the actual database error for debugging
-        Log::error('Database query error', [
-            'error' => $e->getMessage(),
-            'sql' => $e->getSql(),
-            'bindings' => $e->getBindings(),
+        $this->logger->error('Database query error', [
+            'error' => $exception->getMessage(),
+            'sql' => $exception->getSql(),
+            'bindings' => $exception->getBindings(),
         ]);
 
         return $this->createErrorResponse(
@@ -237,10 +258,10 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Handle HTTP exceptions.
      */
-    private function handleHttpException(HttpException $e): JsonResponse
+    private function handleHttpException(HttpException $exception): JsonResponse
     {
-        $statusCode = $e->getStatusCode();
-        $message = $e->getMessage() ? $e->getMessage() : $this->getHttpStatusMessage($statusCode);
+        $statusCode = $exception->getStatusCode();
+        $message = $exception->getMessage() ? $exception->getMessage() : $this->getHttpStatusMessage($statusCode);
 
         return $this->createErrorResponse(
             $message,
@@ -265,27 +286,27 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Handle method not allowed HTTP exceptions.
      */
-    private function handleMethodNotAllowedHttpException(MethodNotAllowedHttpException $e): JsonResponse
+    private function handleMethodNotAllowedHttpException(MethodNotAllowedHttpException $exception): JsonResponse
     {
         return $this->createErrorResponse(
             'Method not allowed',
             'METHOD_NOT_ALLOWED',
             405,
-            ['allowed_methods' => $e->getHeaders()['Allow'] ?? []]
+            ['allowed_methods' => $exception->getHeaders()['Allow'] ?? []]
         );
     }
 
     /**
      * Handle generic exceptions.
      */
-    private function handleGenericException(Throwable $e): JsonResponse
+    private function handleGenericException(Throwable $exception): JsonResponse
     {
         $statusCode = 500;
         $message = 'Internal server error';
         $errorCode = 'INTERNAL_ERROR';
 
-        $this->handleCriticalErrorCheck($e);
-        [$message, $errorCode] = $this->handleDebugMode($e, $message, $errorCode);
+        $this->handleCriticalErrorCheck($exception);
+        [$message, $errorCode] = $this->handleDebugMode($exception, $message, $errorCode);
 
         return $this->createErrorResponse(
             $message,
@@ -298,22 +319,24 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Handle critical error check.
      */
-    private function handleCriticalErrorCheck(Throwable $e): void
+    private function handleCriticalErrorCheck(Throwable $exception): void
     {
-        if ($this->isCriticalError($e)) {
-            $this->sendCriticalErrorNotification($e);
+        if ($this->isCriticalError($exception)) {
+            $this->sendCriticalErrorNotification($exception);
         }
     }
 
     /**
      * Handle debug mode.
      *
-     * @return array{0: string, 1: string}
+     * @return string[]
+     *
+     * @psalm-return list{string, string}
      */
-    private function handleDebugMode(Throwable $e, string $message, string $errorCode): array
+    private function handleDebugMode(Throwable $exception, string $message, string $errorCode): array
     {
         if (config('app.debug')) {
-            $message = $e->getMessage();
+            $message = $exception->getMessage();
             $errorCode = 'DEBUG_ERROR';
         }
 
@@ -323,14 +346,14 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Log exception with context.
      */
-    private function logException(Throwable $e, Request $request): void
+    private function logException(Throwable $exception, Request $request): void
     {
         $context = [
-            'exception' => $e::class,
-            'message' => $e->getMessage(),
-            'file' => $e->getFile(),
-            'line' => $e->getLine(),
-            'trace' => $e->getTraceAsString(),
+            'exception' => $exception::class,
+            'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'trace' => $exception->getTraceAsString(),
             'request' => [
                 'url' => $request->fullUrl(),
                 'method' => $request->method(),
@@ -340,17 +363,19 @@ class GlobalExceptionHandler extends ExceptionHandler
             ],
         ];
 
-        if ($this->isCriticalError($e)) {
-            Log::critical('Critical error occurred', $context);
-        } else {
-            Log::error('Exception occurred', $context);
+        if ($this->isCriticalError($exception)) {
+            $this->logger->critical('Critical error occurred', $context);
+
+            return;
         }
+
+        $this->logger->error('Exception occurred', $context);
     }
 
     /**
      * Check if error is critical.
      */
-    private function isCriticalError(Throwable $e): bool
+    private function isCriticalError(Throwable $exception): bool
     {
         $criticalErrors = [
             'PDOException',
@@ -360,20 +385,20 @@ class GlobalExceptionHandler extends ExceptionHandler
             \Illuminate\Database\QueryException::class,
         ];
 
-        return in_array($e::class, $criticalErrors) || $e->getCode() >= 500;
+        return in_array($exception::class, $criticalErrors, true) || $exception->getCode() >= 500;
     }
 
     /**
      * Send critical error notification.
      */
-    private function sendCriticalErrorNotification(Throwable $e): void
+    private function sendCriticalErrorNotification(Throwable $exception): void
     {
         try {
             $adminEmails = config('app.admin_emails', []);
 
             if ($adminEmails !== []) {
-                Mail::raw(
-                    $this->createCriticalErrorMessage($e),
+                $this->mailer->raw(
+                    $this->createCriticalErrorMessage($exception),
                     static function (\Illuminate\Mail\Message $message) use ($adminEmails): void {
                         $emailsArray = is_array($adminEmails) ? $adminEmails : (is_string($adminEmails) ? [$adminEmails] : []);
                         if ($emailsArray !== []) {
@@ -384,8 +409,8 @@ class GlobalExceptionHandler extends ExceptionHandler
                 );
             }
         } catch (Throwable $mailException) {
-            Log::error('Failed to send critical error notification', [
-                'original_error' => $e->getMessage(),
+            $this->logger->error('Failed to send critical error notification', [
+                'original_error' => $exception->getMessage(),
                 'mail_error' => $mailException->getMessage(),
             ]);
         }
@@ -394,11 +419,11 @@ class GlobalExceptionHandler extends ExceptionHandler
     /**
      * Create critical error message.
      */
-    private function createCriticalErrorMessage(Throwable $e): string
+    private function createCriticalErrorMessage(Throwable $exception): string
     {
         return "Critical error occurred in COPRRA application:\n\n".
-            'Error: '.$e->getMessage()."\n".
-            'File: '.$e->getFile().':'.$e->getLine()."\n".
+            'Error: '.$exception->getMessage()."\n".
+            'File: '.$exception->getFile().':'.$exception->getLine()."\n".
             'Time: '.now()->toISOString()."\n".
             'URL: '.request()->fullUrl();
     }

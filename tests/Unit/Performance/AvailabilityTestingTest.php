@@ -4,9 +4,6 @@ namespace Tests\Unit\Performance;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class AvailabilityTestingTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

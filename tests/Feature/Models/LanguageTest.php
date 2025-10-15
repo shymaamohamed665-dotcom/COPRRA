@@ -3,10 +3,13 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Language;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class LanguageTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[\PHPUnit\Framework\Attributes\Test]
     public function test_it_can_create_a_language(): void
     {

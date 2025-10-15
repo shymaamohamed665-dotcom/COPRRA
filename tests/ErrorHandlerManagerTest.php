@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\Test;
 
-#[PreserveGlobalState(false)]
-
-/**
- * @runTestsInSeparateProcesses
- */
 class ErrorHandlerManagerTest extends TestCase
 {
     #[Test]

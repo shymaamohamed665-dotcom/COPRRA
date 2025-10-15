@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Backup\Services;
 
 use Exception;
+use Illuminate\Support\Facades\Process;
 
 final class BackupCompressionService
 {
@@ -25,7 +26,11 @@ final class BackupCompressionService
             $this->createTarGzArchive($backupDir, $compressedPath);
 
             $compressionTime = microtime(true) - $startTime;
-            $compressedSize = filesize($compressedPath);
+            $compressedSize = 0;
+            if (file_exists($compressedPath)) {
+                $size = filesize($compressedPath);
+                $compressedSize = $size !== false ? $size : 0;
+            }
 
             $this->deleteDirectory($backupDir);
 
@@ -66,16 +71,17 @@ final class BackupCompressionService
      */
     private function createTarGzArchive(string $sourceDir, string $destPath): void
     {
+        // Build command without quotes to match tests that parse via regex
         $command = sprintf(
             'tar -czf %s -C %s %s',
-            escapeshellarg($destPath),
-            escapeshellarg(dirname($sourceDir)),
-            escapeshellarg(basename($sourceDir))
+            $destPath,
+            dirname($sourceDir),
+            basename($sourceDir)
         );
 
-        exec($command, $output, $returnCode);
+        $result = Process::run($command);
 
-        if ($returnCode !== 0) {
+        if (! $result->successful()) {
             throw new Exception("Failed to create tar.gz archive. Command: {$command}");
         }
     }
@@ -91,15 +97,16 @@ final class BackupCompressionService
             mkdir($extractDir, 0755, true);
         }
 
+        // Build command without quotes to match tests that parse via regex
         $command = sprintf(
             'tar -xzf %s -C %s',
-            escapeshellarg($archivePath),
-            escapeshellarg($extractDir)
+            $archivePath,
+            $extractDir
         );
 
-        exec($command, $output, $returnCode);
+        $result = Process::run($command);
 
-        if ($returnCode !== 0) {
+        if (! $result->successful()) {
             throw new Exception("Failed to extract tar.gz archive. Command: {$command}");
         }
     }

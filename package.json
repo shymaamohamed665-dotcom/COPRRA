@@ -17,17 +17,16 @@
         "clean": "rimraf dist public/build && rimraf node_modules/.vite",
         "assets": "npm run clean && npm run build",
         "check": "npm run lint && npm run stylelint && npm run test:frontend",
-        "prepare": "husky",
-        "postinstall": "npm run assets"
+        "prepare": "husky"
     },
     "devDependencies": {
         "@fullhuman/postcss-purgecss": "^7.0.2",
         "autoprefixer": "^10.4.21",
-        "axios": "^1.6.4",
         "eslint": "^9.35.0",
         "eslint-plugin-unicorn": "^61.0.2",
         "husky": "^9.1.7",
         "laravel-vite-plugin": "^2.0.1",
+        "codecov": "^3.8.0",
         "license-checker": "^25.0.1",
         "lint-staged": "^16.2.0",
         "postcss-scss": "^4.0.9",
@@ -37,19 +36,22 @@
         "stylelint": "^16.24.0",
         "stylelint-config-standard": "^39.0.0",
         "stylelint-prettier": "^5.0.3",
-        "vite": "^7.1.5",
+        "vite": "^7.1.9",
         "vite-plugin-pwa": "^1.0.3"
     },
     "dependencies": {
         "alpinejs": "^3.15.0",
-        "codecov": "^3.8.0",
+        "axios": "^1.6.4",
         "gsap": "^3.13.0",
         "lodash": "^4.17.21"
     },
+    "engines": {
+        "node": ">=20"
+    },
     "lint-staged": {
         "*.php": [
-            "vendor/bin/pint",
-            "vendor/bin/phpstan analyse --memory-limit=1G --no-progress"
+            "bash -c 'test -f vendor/bin/pint && vendor/bin/pint || echo Skipping Pint - vendor not found'",
+            "bash -c 'test -f vendor/bin/phpstan && vendor/bin/phpstan analyse --memory-limit=1G --no-progress || echo Skipping PHPStan - vendor not found'"
         ],
         "resources/js/**/*.{js,vue}": [
             "npx eslint --fix",

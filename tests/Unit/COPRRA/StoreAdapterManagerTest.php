@@ -22,8 +22,7 @@ class StoreAdapterManagerTest extends TestCase
         $this->manager = new StoreAdapterManager([]);
     }
 
-    /** @test */
-    public function it_registers_default_adapters(): void
+    public function test_it_registers_default_adapters(): void
     {
         $adapters = $this->manager->getAllAdapters();
 
@@ -33,8 +32,7 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertArrayHasKey('noon', $adapters);
     }
 
-    /** @test */
-    public function it_gets_adapter_by_identifier(): void
+    public function test_it_gets_adapter_by_identifier(): void
     {
         $adapter = $this->manager->getAdapter('amazon');
 
@@ -42,16 +40,14 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertEquals('Amazon', $adapter->getStoreName());
     }
 
-    /** @test */
-    public function it_returns_null_for_unknown_adapter(): void
+    public function test_it_returns_null_for_unknown_adapter(): void
     {
         $adapter = $this->manager->getAdapter('unknown_store');
 
         $this->assertNull($adapter);
     }
 
-    /** @test */
-    public function it_checks_if_store_is_supported(): void
+    public function test_it_checks_if_store_is_supported(): void
     {
         $this->assertTrue($this->manager->isStoreSupported('amazon'));
         $this->assertTrue($this->manager->isStoreSupported('ebay'));
@@ -59,8 +55,7 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertFalse($this->manager->isStoreSupported('unknown'));
     }
 
-    /** @test */
-    public function it_gets_supported_stores(): void
+    public function test_it_gets_supported_stores(): void
     {
         $stores = $this->manager->getSupportedStores();
 
@@ -70,32 +65,28 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertContains('noon', $stores);
     }
 
-    /** @test */
-    public function it_validates_amazon_identifier(): void
+    public function test_it_validates_amazon_identifier(): void
     {
         $this->assertTrue($this->manager->validateIdentifier('amazon', 'B08N5WRWNW'));
         $this->assertFalse($this->manager->validateIdentifier('amazon', 'invalid'));
         $this->assertFalse($this->manager->validateIdentifier('amazon', '123'));
     }
 
-    /** @test */
-    public function it_validates_ebay_identifier(): void
+    public function test_it_validates_ebay_identifier(): void
     {
         $this->assertTrue($this->manager->validateIdentifier('ebay', '123456789012'));
         $this->assertFalse($this->manager->validateIdentifier('ebay', 'abc'));
         $this->assertFalse($this->manager->validateIdentifier('ebay', '123'));
     }
 
-    /** @test */
-    public function it_validates_noon_identifier(): void
+    public function test_it_validates_noon_identifier(): void
     {
         $this->assertTrue($this->manager->validateIdentifier('noon', 'N12345678'));
         $this->assertFalse($this->manager->validateIdentifier('noon', '12345678'));
         $this->assertFalse($this->manager->validateIdentifier('noon', 'ABC123'));
     }
 
-    /** @test */
-    public function it_gets_product_url_for_amazon(): void
+    public function test_it_gets_product_url_for_amazon(): void
     {
         $url = $this->manager->getProductUrl('amazon', 'B08N5WRWNW');
 
@@ -103,8 +94,7 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertStringContainsString('B08N5WRWNW', $url);
     }
 
-    /** @test */
-    public function it_gets_product_url_for_ebay(): void
+    public function test_it_gets_product_url_for_ebay(): void
     {
         $url = $this->manager->getProductUrl('ebay', '123456789012');
 
@@ -112,8 +102,7 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertStringContainsString('123456789012', $url);
     }
 
-    /** @test */
-    public function it_gets_product_url_for_noon(): void
+    public function test_it_gets_product_url_for_noon(): void
     {
         $url = $this->manager->getProductUrl('noon', 'N12345678');
 
@@ -121,16 +110,14 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertStringContainsString('N12345678', $url);
     }
 
-    /** @test */
-    public function it_returns_null_for_unknown_store_url(): void
+    public function test_it_returns_null_for_unknown_store_url(): void
     {
         $url = $this->manager->getProductUrl('unknown', '123');
 
         $this->assertNull($url);
     }
 
-    /** @test */
-    public function it_gets_statistics(): void
+    public function test_it_gets_statistics(): void
     {
         $stats = $this->manager->getStatistics();
 
@@ -141,8 +128,7 @@ class StoreAdapterManagerTest extends TestCase
         $this->assertEquals(3, $stats['total_adapters']);
     }
 
-    /** @test */
-    public function it_gets_adapter_rate_limits(): void
+    public function test_it_gets_adapter_rate_limits(): void
     {
         $adapter = $this->manager->getAdapter('amazon');
         $limits = $adapter->getRateLimits();

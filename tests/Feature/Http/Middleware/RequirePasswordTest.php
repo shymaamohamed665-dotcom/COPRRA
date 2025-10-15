@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
@@ -12,6 +13,8 @@ use Tests\TestCase;
  */
 class RequirePasswordTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_require_password_middleware_allows_requests_with_valid_password(): void
     {
         $user = User::factory()->create([

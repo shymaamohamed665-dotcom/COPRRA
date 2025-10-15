@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class BestDealRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_identifies_best_deals(): void
     {
         $products = [
@@ -28,7 +23,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_deal_score(): void
     {
         $product = [
@@ -47,7 +41,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_percentage_discounts(): void
     {
         $products = [
@@ -62,7 +55,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_absolute_discounts(): void
     {
         $products = [
@@ -77,7 +69,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_value_for_money_deals(): void
     {
         $products = [
@@ -92,7 +83,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_limited_time_deals(): void
     {
         $deals = [
@@ -107,7 +97,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_bulk_deals(): void
     {
         $products = [
@@ -122,7 +111,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_bundle_deals(): void
     {
         $bundles = [
@@ -137,7 +125,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_cashback_deals(): void
     {
         $products = [
@@ -152,7 +139,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_free_shipping_deals(): void
     {
         $products = [
@@ -167,7 +153,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_clearance_deals(): void
     {
         $products = [
@@ -182,7 +167,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_seasonal_deals(): void
     {
         $products = [
@@ -197,7 +181,6 @@ class BestDealRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_identifies_best_overall_deals(): void
     {
         $products = [

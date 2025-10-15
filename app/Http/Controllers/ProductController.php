@@ -16,6 +16,20 @@ class ProductController extends Controller
         private readonly SearchFilterBuilder $searchFilterBuilder
     ) {}
 
+    public function index(Request $request): View
+    {
+        // Check if search parameters are present
+        if ($request->has('search') || $request->has('category') || $request->has('sort') || $request->has('order')) {
+            return $this->search($request);
+        }
+
+        $products = $this->productService->getPaginatedProducts();
+
+        return view('products.index', [
+            'products' => $products,
+        ]);
+    }
+
     public function search(Request $request): View
     {
         $query = $request->get('search', '');
@@ -27,6 +41,22 @@ class ProductController extends Controller
 
         return view('products.index', [
             'products' => $products,
+        ]);
+    }
+
+    public function show(string $slug): View
+    {
+        $product = $this->productService->getBySlug($slug);
+
+        if ($product === null) {
+            abort(404);
+        }
+
+        $relatedProducts = $this->productService->getRelatedProducts($product);
+
+        return view('products.show', [
+            'product' => $product,
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 }

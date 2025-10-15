@@ -14,15 +14,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('logo')->nullable();
+            $table->string('logo_url')->nullable();
             $table->string('website_url')->nullable();
-            $table->string('country_code', 2);
+            $table->string('country_code', 2)->nullable();
             $table->json('supported_countries')->nullable();
             $table->boolean('is_active')->default(true);
             $table->integer('priority')->default(0);
             $table->text('affiliate_base_url')->nullable();
+            $table->string('affiliate_code')->nullable();
             $table->json('api_config')->nullable();
-            $table->foreignId('currency_id')->constrained()->onDelete('cascade');
+            $table->foreignId('currency_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

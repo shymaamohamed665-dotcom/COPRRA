@@ -35,7 +35,8 @@ return new class extends Migration
                     $table->index('brand_id', 'products_brand_id_index');
                 }
 
-                if (! $this->indexExists('products', 'products_status_index')) {
+                // Guard: only index 'status' if the column exists
+                if (Schema::hasColumn('products', 'status') && ! $this->indexExists('products', 'products_status_index')) {
                     $table->index('status', 'products_status_index');
                 }
 
@@ -44,7 +45,8 @@ return new class extends Migration
                 }
 
                 // Composite index for common queries
-                if (! $this->indexExists('products', 'products_status_category_index')) {
+                // Guard: only create composite index if both columns exist
+                if (Schema::hasColumn('products', 'status') && Schema::hasColumn('products', 'category_id') && ! $this->indexExists('products', 'products_status_category_index')) {
                     $table->index(['status', 'category_id'], 'products_status_category_index');
                 }
 
@@ -61,7 +63,8 @@ return new class extends Migration
                     $table->index('user_id', 'orders_user_id_index');
                 }
 
-                if (! $this->indexExists('orders', 'orders_status_index')) {
+                // Guard: only index 'status' if the column exists
+                if (Schema::hasColumn('orders', 'status') && ! $this->indexExists('orders', 'orders_status_index')) {
                     $table->index('status', 'orders_status_index');
                 }
 
@@ -70,7 +73,7 @@ return new class extends Migration
                 }
 
                 // Composite index for user orders by status
-                if (! $this->indexExists('orders', 'orders_user_status_index')) {
+                if (Schema::hasColumn('orders', 'user_id') && Schema::hasColumn('orders', 'status') && ! $this->indexExists('orders', 'orders_user_status_index')) {
                     $table->index(['user_id', 'status'], 'orders_user_status_index');
                 }
 
@@ -100,7 +103,8 @@ return new class extends Migration
                     $table->index('email', 'users_email_index');
                 }
 
-                if (! $this->indexExists('users', 'users_status_index')) {
+                // Guard: only index 'status' if the column exists
+                if (Schema::hasColumn('users', 'status') && ! $this->indexExists('users', 'users_status_index')) {
                     $table->index('status', 'users_status_index');
                 }
 
@@ -121,7 +125,8 @@ return new class extends Migration
                     $table->index('parent_id', 'categories_parent_id_index');
                 }
 
-                if (! $this->indexExists('categories', 'categories_status_index')) {
+                // Guard: only index 'status' if the column exists
+                if (Schema::hasColumn('categories', 'status') && ! $this->indexExists('categories', 'categories_status_index')) {
                     $table->index('status', 'categories_status_index');
                 }
             });
@@ -191,7 +196,8 @@ return new class extends Migration
                     $table->index('transaction_id', 'payments_transaction_id_index');
                 }
 
-                if (! $this->indexExists('payments', 'payments_status_index')) {
+                // Guard: only index 'status' if the column exists
+                if (Schema::hasColumn('payments', 'status') && ! $this->indexExists('payments', 'payments_status_index')) {
                     $table->index('status', 'payments_status_index');
                 }
             });

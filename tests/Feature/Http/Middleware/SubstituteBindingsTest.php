@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -11,19 +12,21 @@ use Tests\TestCase;
  */
 class SubstituteBindingsTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_substitute_bindings_middleware_substitutes_route_bindings(): void
     {
         $user = User::factory()->create();
         $request = Request::create("/users/{$user->id}", 'GET');
-        $request->setRouteResolver(function () use ($user) {
-            $route = new \Illuminate\Routing\Route(['GET'], '/users/{user}', []);
+        $request->setRouteResolver(function () use ($user, $request) {
+            $route = new \Illuminate\Routing\Route(['GET'], '/users/{user}', ['uses' => function () {}]);
             $route->bind($request);
             $route->setParameter('user', $user);
 
             return $route;
         });
 
-        $middleware = new \App\Http\Middleware\SubstituteBindings;
+        $middleware = $this->app->make(\App\Http\Middleware\SubstituteBindings::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -35,14 +38,14 @@ class SubstituteBindingsTest extends TestCase
     public function test_substitute_bindings_middleware_handles_missing_bindings(): void
     {
         $request = Request::create('/users/999', 'GET');
-        $request->setRouteResolver(function () {
-            $route = new \Illuminate\Routing\Route(['GET'], '/users/{user}', []);
+        $request->setRouteResolver(function () use ($request) {
+            $route = new \Illuminate\Routing\Route(['GET'], '/users/{user}', ['uses' => function () {}]);
             $route->bind($request);
 
             return $route;
         });
 
-        $middleware = new \App\Http\Middleware\SubstituteBindings;
+        $middleware = $this->app->make(\App\Http\Middleware\SubstituteBindings::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -55,7 +58,15 @@ class SubstituteBindingsTest extends TestCase
     {
         $request = Request::create('/test', 'GET');
 
-        $middleware = new \App\Http\Middleware\SubstituteBindings;
+        // وفّر Route فارغ لضمان عدم فشل الوسيط عند عدم وجود Route فعلي
+        $request->setRouteResolver(function () use ($request) {
+            $route = new \Illuminate\Routing\Route(['GET'], '/test', ['uses' => function () {}]);
+            $route->bind($request);
+
+            return $route;
+        });
+
+        $middleware = $this->app->make(\App\Http\Middleware\SubstituteBindings::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -70,7 +81,14 @@ class SubstituteBindingsTest extends TestCase
             'name' => 'John Doe',
         ]);
 
-        $middleware = new \App\Http\Middleware\SubstituteBindings;
+        $request->setRouteResolver(function () use ($request) {
+            $route = new \Illuminate\Routing\Route(['POST'], '/test', ['uses' => function () {}]);
+            $route->bind($request);
+
+            return $route;
+        });
+
+        $middleware = $this->app->make(\App\Http\Middleware\SubstituteBindings::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });
@@ -84,7 +102,14 @@ class SubstituteBindingsTest extends TestCase
         $request = Request::create('/api/test', 'GET');
         $request->headers->set('Accept', 'application/json');
 
-        $middleware = new \App\Http\Middleware\SubstituteBindings;
+        $request->setRouteResolver(function () use ($request) {
+            $route = new \Illuminate\Routing\Route(['GET'], '/api/test', ['uses' => function () {}]);
+            $route->bind($request);
+
+            return $route;
+        });
+
+        $middleware = $this->app->make(\App\Http\Middleware\SubstituteBindings::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);
         });

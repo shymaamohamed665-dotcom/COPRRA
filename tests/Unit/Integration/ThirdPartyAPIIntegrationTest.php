@@ -4,9 +4,6 @@ namespace Tests\Unit\Integration;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class ThirdPartyAPIIntegrationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

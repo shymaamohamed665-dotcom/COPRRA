@@ -2,17 +2,16 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+// Disabled process isolation on Windows to avoid batch execution issues
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class AddQueuedCookiesToResponseTest extends TestCase
 {
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
+    use RefreshDatabase;
+
     public function test_add_queued_cookies_middleware_adds_cookies_to_response(): void
     {
         $request = Request::create('/test', 'GET');
@@ -29,8 +28,6 @@ class AddQueuedCookiesToResponseTest extends TestCase
         $this->assertTrue($response->headers->has('Set-Cookie'));
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_add_queued_cookies_middleware_passes_request_successfully(): void
     {
         $request = Request::create('/test', 'GET');
@@ -44,8 +41,6 @@ class AddQueuedCookiesToResponseTest extends TestCase
         $this->assertEquals('OK', $response->getContent());
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function test_add_queued_cookies_middleware_handles_multiple_cookies(): void
     {
         $request = Request::create('/test', 'GET');

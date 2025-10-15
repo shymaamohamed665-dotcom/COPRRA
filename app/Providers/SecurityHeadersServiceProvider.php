@@ -14,6 +14,7 @@ class SecurityHeadersServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
+    #[\Override]
     public function register(): void
     {
         // Register SecurityHeaderStrategyFactory as singleton
@@ -32,7 +33,8 @@ class SecurityHeadersServiceProvider extends ServiceProvider
         // Register SecurityHeadersService as singleton
         $this->app->singleton(SecurityHeadersService::class, function ($app) {
             return new SecurityHeadersService(
-                $app->make(SecurityHeaderConfiguration::class)
+                $app->make(SecurityHeaderConfiguration::class),
+                $app->make(SecurityHeaderStrategyFactory::class)
             );
         });
     }

@@ -92,8 +92,8 @@ class AIImageAnalysisService
      */
     private function extractCategory(string $content): string
     {
-        if (preg_match('/category[\s:]+(\w+)/i', $content, $matches)) {
-            return strtolower($matches[1]);
+        if (preg_match('/category[\s:]+(.+?)(?:\n|$)/iu', $content, $matches)) {
+            return trim($matches[1]);
         }
 
         return 'general';

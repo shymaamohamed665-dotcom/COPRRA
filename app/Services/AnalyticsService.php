@@ -29,24 +29,7 @@ final class AnalyticsService
         }
 
         try {
-            $ipAddress = null;
-            $userAgent = null;
-            $sessionId = null;
-
-            // Safely get request data if available
-            if (app()->bound('request')) {
-                $request = app('request');
-                $ipAddress = $request->ip();
-                $userAgent = $request->userAgent();
-            }
-
-            // Safely get session data if available
-            if (app()->bound('session')) {
-                $session = app('session');
-                $sessionId = $session->getId();
-            }
-
-            return AnalyticsEvent::create([
+            $event = AnalyticsEvent::create([
                 'event_type' => $eventType,
                 'event_name' => $eventName,
                 'user_id' => $userId,
@@ -54,13 +37,12 @@ final class AnalyticsService
                 'category_id' => $categoryId,
                 'store_id' => $storeId,
                 'metadata' => $metadata,
-                'ip_address' => $ipAddress,
-                'user_agent' => $userAgent,
-                'session_id' => $sessionId,
             ]);
-        } catch (\Illuminate\Database\QueryException $e) {
-            Log::error('Failed to track analytics event', [
-                'exception' => $e->getMessage(),
+
+            return $event;
+        } catch (\Throwable $e) {
+            Log::warning('Failed to track analytics event', [
+                'error' => $e->getMessage(),
             ]);
 
             return null;
@@ -69,8 +51,6 @@ final class AnalyticsService
 
     /**
      * Track price comparison event.
-     *
-     * @param  array<string, string|int|float|bool|null>  $metadata
      */
     public function trackPriceComparison(int $productId, ?int $userId = null, array $metadata = []): ?AnalyticsEvent
     {
@@ -88,20 +68,21 @@ final class AnalyticsService
     /**
      * Track product view event.
      */
-    public function trackProductView(int $productId, ?int $userId = null): ?AnalyticsEvent
+    public function trackProductView(int $productId, ?int $userId = null, array $metadata = []): ?AnalyticsEvent
     {
         return $this->track(
             AnalyticsEvent::TYPE_PRODUCT_VIEW,
             'Product Viewed',
             $userId,
-            $productId
+            $productId,
+            null,
+            null,
+            $metadata
         );
     }
 
     /**
      * Track search event.
-     *
-     * @param  array<string, string|int|float|bool|null>  $filters
      */
     public function trackSearch(string $query, ?int $userId = null, array $filters = []): ?AnalyticsEvent
     {
@@ -112,102 +93,31 @@ final class AnalyticsService
             null,
             null,
             null,
-            ['query' => $query, 'filters' => $filters]
+            [
+                'query' => $query,
+                'filters' => $filters,
+            ]
         );
     }
 
     /**
      * Track store click event.
      */
-    public function trackStoreClick(int $storeId, int $productId, ?int $userId = null): ?AnalyticsEvent
+    public function trackStoreClick(int $storeId, ?int $productId = null, array $metadata = []): ?AnalyticsEvent
     {
         return $this->track(
             AnalyticsEvent::TYPE_STORE_CLICK,
             'Store Clicked',
-            $userId,
+            null,
             $productId,
             null,
-            $storeId
+            $storeId,
+            $metadata
         );
     }
 
     /**
-     * Get most viewed products.
-     *
-     * @return array<int, array<string, string|int|null>>
-     */
-    public function getMostViewedProducts(int $limit = 10, int $days = 30): array
-    {
-        return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_PRODUCT_VIEW)
-            ->recent($days)
-            ->select('product_id', DB::raw('COUNT(*) as view_count'))
-            ->groupBy('product_id')
-            ->orderByDesc('view_count')
-            ->limit($limit)
-            ->with('product')
-            ->get()
-            ->toArray();
-    }
-
-    /**
-     * Get most searched queries.
-     *
-     * @return array<string, int>
-     */
-    public function getMostSearchedQueries(int $limit = 10, int $days = 30): array
-    {
-        return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_SEARCH)
-            ->recent($days)
-            ->get()
-            ->pluck('metadata.query')
-            ->filter()
-            ->countBy()
-            ->sortDesc()
-            ->take($limit)
-            ->toArray();
-    }
-
-    /**
-     * Get most popular stores.
-     *
-     * @return array<int, array<string, string|int|null>>
-     */
-    public function getMostPopularStores(int $limit = 10, int $days = 30): array
-    {
-        return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_STORE_CLICK)
-            ->recent($days)
-            ->select('store_id', DB::raw('COUNT(*) as click_count'))
-            ->groupBy('store_id')
-            ->orderByDesc('click_count')
-            ->limit($limit)
-            ->with('store')
-            ->get()
-            ->toArray();
-    }
-
-    /**
-     * Get price comparison statistics.
-     *
-     * @return array<string, int|float>
-     */
-    public function getPriceComparisonStats(int $days = 30): array
-    {
-        $events = AnalyticsEvent::ofType(AnalyticsEvent::TYPE_PRICE_COMPARISON)
-            ->recent($days)
-            ->get();
-
-        return [
-            'total_comparisons' => $events->count(),
-            'unique_products' => $events->pluck('product_id')->unique()->count(),
-            'unique_users' => $events->pluck('user_id')->filter()->unique()->count(),
-            'average_per_day' => round($events->count() / max($days, 1), 2),
-        ];
-    }
-
-    /**
-     * Get dashboard data.
-     *
-     * @return array<string, array<string, int|array<string, int>|array<int, array<string, string|int|null>>>|int>
+     * Dashboard aggregates and top lists.
      */
     public function getDashboardData(int $days = 30): array
     {
@@ -259,10 +169,95 @@ final class AnalyticsService
             'records_deleted' => $count,
         ]);
 
-        if (! is_int($count)) {
-            return 0;
+        return is_int($count) ? $count : 0;
+    }
+
+    /**
+     * Price comparison statistics summary.
+     */
+    public function getPriceComparisonStats(int $days): array
+    {
+        $query = AnalyticsEvent::recent($days)->ofType(AnalyticsEvent::TYPE_PRICE_COMPARISON);
+
+        $total = (int) $query->count();
+        $uniqueProducts = (int) $query->whereNotNull('product_id')->distinct('product_id')->count('product_id');
+        $uniqueUsers = (int) $query->whereNotNull('user_id')->distinct('user_id')->count('user_id');
+
+        return [
+            'total_comparisons' => $total,
+            'unique_products' => $uniqueProducts,
+            'unique_users' => $uniqueUsers,
+            'average_per_day' => $days > 0 ? ($total / $days) : 0.0,
+        ];
+    }
+
+    public function getMostViewedProducts(int $limit, int $days): array
+    {
+        return AnalyticsEvent::recent($days)
+            ->ofType(AnalyticsEvent::TYPE_PRODUCT_VIEW)
+            ->select('product_id', DB::raw('COUNT(*) as views'))
+            ->whereNotNull('product_id')
+            ->groupBy('product_id')
+            ->orderByDesc('views')
+            ->limit($limit)
+            ->get()
+            ->map(fn ($row) => ['product_id' => $row->product_id, 'view_count' => (int) $row->views])
+            ->toArray();
+    }
+
+    /**
+     * Most searched queries: returns associative array [query => count].
+     */
+    public function getMostSearchedQueries(int $limit, int $days): array
+    {
+        // Use application-level aggregation to ensure portability across DB drivers
+        $events = AnalyticsEvent::recent($days)
+            ->ofType(AnalyticsEvent::TYPE_SEARCH)
+            ->get(['metadata']);
+
+        $counts = [];
+        foreach ($events as $event) {
+            $query = null;
+            $meta = $event->metadata;
+            if (is_array($meta) && array_key_exists('query', $meta)) {
+                $query = (string) $meta['query'];
+            }
+
+            if ($query !== null && $query !== '') {
+                $counts[$query] = ($counts[$query] ?? 0) + 1;
+            }
         }
 
-        return $count;
+        // Sort by count desc, then by query asc for stability
+        uasort($counts, function ($a, $b) {
+            if ($a === $b) {
+                return 0;
+            }
+
+            return ($a > $b) ? -1 : 1;
+        });
+
+        // Limit results
+        $limited = array_slice($counts, 0, $limit, true);
+
+        // Ensure integer values
+        return array_map(fn ($c) => (int) $c, $limited);
+    }
+
+    /**
+     * Most popular stores: returns array of ['store_id' => int, 'click_count' => int].
+     */
+    public function getMostPopularStores(int $limit, int $days): array
+    {
+        return AnalyticsEvent::recent($days)
+            ->ofType(AnalyticsEvent::TYPE_STORE_CLICK)
+            ->select('store_id', DB::raw('COUNT(*) as click_count'))
+            ->whereNotNull('store_id')
+            ->groupBy('store_id')
+            ->orderByDesc('click_count')
+            ->limit($limit)
+            ->get()
+            ->map(fn ($row) => ['store_id' => $row->store_id, 'click_count' => (int) $row->click_count])
+            ->toArray();
     }
 }

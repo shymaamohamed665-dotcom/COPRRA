@@ -44,6 +44,9 @@ final class SEOAuditResult
         return $this->issues !== [];
     }
 
+    /**
+     * @psalm-return int<0, max>
+     */
     public function getIssueCount(): int
     {
         return count($this->issues);

@@ -72,7 +72,9 @@ final class CDNService
      * Upload multiple files to CDN
      *
      * @param  array<string, string>  $files
-     * @return array<string, array<string, string|bool|null>>
+     * @return (false|null|string)[][]
+     *
+     * @psalm-return array<string, array<string, false|null|string>>
      */
     public function uploadMultipleFiles(array $files): array
     {
@@ -129,7 +131,9 @@ final class CDNService
     /**
      * Get file metadata from CDN
      *
-     * @return array<string, string|null>
+     * @return string[]
+     *
+     * @psalm-return array{url?: string, size?: string, mime_type?: string, last_modified?: string, etag?: string, cache_control?: string}
      */
     public function getFileMetadata(string $remotePath): array
     {

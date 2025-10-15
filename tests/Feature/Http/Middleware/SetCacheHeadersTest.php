@@ -5,9 +5,6 @@ namespace Tests\Feature\Http\Middleware;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class SetCacheHeadersTest extends TestCase
 {
     public function test_set_cache_headers_middleware_adds_cache_headers(): void

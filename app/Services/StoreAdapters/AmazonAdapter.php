@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Services\StoreAdapters;
 
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Illuminate\Contracts\Log\Logger;
 use Illuminate\Http\Client\Factory as HttpFactory;
+use Psr\Log\LoggerInterface;
 
 /**
  * Amazon store adapter.
@@ -22,7 +22,7 @@ final class AmazonAdapter extends StoreAdapter
 
     private string $region;
 
-    public function __construct(HttpFactory $http, CacheRepository $cache, Logger $logger)
+    public function __construct(HttpFactory $http, CacheRepository $cache, LoggerInterface $logger)
     {
         parent::__construct($http, $cache, $logger);
         $apiKey = config('services.amazon.api_key', '');
@@ -35,12 +35,18 @@ final class AmazonAdapter extends StoreAdapter
         $this->region = is_string($region) ? $region : 'us-east-1';
     }
 
+    /**
+     * @psalm-return 'Amazon'
+     */
     #[\Override]
     public function getStoreName(): string
     {
         return 'Amazon';
     }
 
+    /**
+     * @psalm-return 'amazon'
+     */
     #[\Override]
     public function getStoreIdentifier(): string
     {
@@ -92,7 +98,7 @@ final class AmazonAdapter extends StoreAdapter
      * {@inheritdoc}
      */
     #[\Override]
-    public function searchProducts(string $query): array
+    public function searchProducts(string $query, array $options = []): array
     {
         if (! $this->isAvailable()) {
             return [];
@@ -133,7 +139,9 @@ final class AmazonAdapter extends StoreAdapter
     /**
      * Fetch product from Amazon API.
      *
-     * @return array<string, mixed>|null
+     * @return (((((float|string)[]|string)[]|float|string)[]|int)[]|string)[]|null
+     *
+     * @psalm-return array{ASIN: 'B07VGRJDFY', DetailPageURL: 'https://www.amazon.com/dp/B07VGRJDFY', ItemInfo: array{Title: array{DisplayValues: list{'Echo Dot (4th Gen) | Smart speaker with Alexa'}}, Features: array{DisplayValues: list{'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small spaces.'}}}, Images: array{Primary: array{Large: array{URL: 'https://m.media-amazon.com/images/I/6182S7MYC2L._AC_SL1000_.jpg'}}}, ByLineInfo: array{Brand: array{DisplayValue: 'Amazon'}}, Offers: array{Listings: list{array{Price: array{Amount: float, Currency: 'USD'}, Availability: array{Type: 'InStock'}}}}, CustomerReviews: array{StarRating: array{Value: float}, Count: 1054231}, BrowseNodeInfo: array{BrowseNodes: list{array{DisplayName: 'Electronics'}}}, ParentASIN: 'B07VGRJDFY'}|null
      */
     private function fetchFromAmazonAPI(string $asin): ?array
     {
@@ -183,8 +191,9 @@ final class AmazonAdapter extends StoreAdapter
      * Normalize Amazon product data.
      *
      * @param  array<string, mixed>  $amazonData
+     * @return (array|null|scalar)[]
      *
-     * @return array<string, mixed>
+     * @psalm-return array{name: array|scalar, price: float, currency: array|scalar, url: array|scalar, image_url: array|null|scalar, availability: array|scalar, rating: float|null, reviews_count: int|null, description: array|null|scalar, brand: array|null|scalar, category: array|null|scalar, metadata: array|scalar}
      */
     private function normalizeAmazonData(array $amazonData): array
     {
@@ -220,9 +229,14 @@ final class AmazonAdapter extends StoreAdapter
             default => 'amazon.com',
         };
     }
+
+    /**
+     * @psalm-return 'Amazon API integration not yet implemented. Please configure Amazon Product Advertising API.'
+     */
+    #[\Override]
     public function getLastError(): ?string
     {
-        $this->lastError = 'Amazon API integration not yet implemented. ' .
+        $this->lastError = 'Amazon API integration not yet implemented. '.
             'Please configure Amazon Product Advertising API.';
 
         return $this->lastError;

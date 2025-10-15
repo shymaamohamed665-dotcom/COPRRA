@@ -6,6 +6,7 @@ namespace Tests\Feature\Services;
 
 use App\Services\FileCleanupService;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,8 @@ use Tests\TestCase;
 
 class FileCleanupServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private FileCleanupService $service;
 
     protected function setUp(): void
@@ -27,6 +30,7 @@ class FileCleanupServiceTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_cleans_up_temp_files()
     {
         // Arrange
@@ -83,6 +87,7 @@ class FileCleanupServiceTest extends TestCase
             }
         }
     }
+
     public function test_handles_temp_files_cleanup_exception()
     {
         // Arrange
@@ -100,6 +105,7 @@ class FileCleanupServiceTest extends TestCase
         $this->assertArrayHasKey('errors', $result);
         $this->assertNotEmpty($result['errors']);
     }
+
     public function test_cleans_up_log_files()
     {
         // Arrange
@@ -145,6 +151,7 @@ class FileCleanupServiceTest extends TestCase
             }
         }
     }
+
     public function test_handles_log_files_cleanup_exception()
     {
         // Arrange
@@ -165,6 +172,7 @@ class FileCleanupServiceTest extends TestCase
         $this->assertIsArray($result);
         $this->assertEquals(0, $result['log_files']);
     }
+
     public function test_cleans_up_cache_files()
     {
         // Arrange
@@ -223,6 +231,7 @@ class FileCleanupServiceTest extends TestCase
             }
         }
     }
+
     public function test_cleans_up_backup_files()
     {
         // Arrange
@@ -268,6 +277,7 @@ class FileCleanupServiceTest extends TestCase
             }
         }
     }
+
     public function test_cleans_up_uploaded_files()
     {
         // Arrange
@@ -316,6 +326,7 @@ class FileCleanupServiceTest extends TestCase
             }
         }
     }
+
     public function test_performs_complete_cleanup()
     {
         // Arrange
@@ -340,6 +351,7 @@ class FileCleanupServiceTest extends TestCase
         $this->assertArrayHasKey('total_files_deleted', $result);
         $this->assertArrayHasKey('total_size_deleted', $result);
     }
+
     public function test_checks_storage_usage()
     {
         // Arrange
@@ -376,6 +388,7 @@ class FileCleanupServiceTest extends TestCase
             rmdir($testDir);
         }
     }
+
     public function test_checks_storage_usage_over_limit()
     {
         // Arrange
@@ -410,6 +423,7 @@ class FileCleanupServiceTest extends TestCase
             rmdir($testDir);
         }
     }
+
     public function test_gets_cleanup_statistics()
     {
         // Arrange
@@ -429,6 +443,7 @@ class FileCleanupServiceTest extends TestCase
         $this->assertArrayHasKey('last_cleanup', $result);
         $this->assertArrayHasKey('next_cleanup', $result);
     }
+
     public function test_schedules_cleanup_daily()
     {
         // Arrange
@@ -442,6 +457,7 @@ class FileCleanupServiceTest extends TestCase
         // Assert
         $this->assertTrue(true);
     }
+
     public function test_schedules_cleanup_weekly_on_sunday()
     {
         // Arrange

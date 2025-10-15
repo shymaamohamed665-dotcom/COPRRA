@@ -18,12 +18,12 @@ class Handler extends ExceptionHandler
     /**
      * @var array<int, class-string<\Throwable>>
      */
-    protected array $dontReport = [];
+    protected $dontReport = [];
 
     /**
      * @var array<int, string>
      */
-    protected array $dontFlash = ['current_password', 'password', 'password_confirmation'];
+    protected $dontFlash = ['current_password', 'password', 'password_confirmation'];
 
     #[\Override]
     public function register(): void

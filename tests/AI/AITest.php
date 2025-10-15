@@ -6,7 +6,9 @@ namespace Tests\AI;
  * Main AI Test Runner
  * This class will contain a basic test to ensure the AI test suite is running.
  */
-class AITest extends AIBaseTestCase
+use PHPUnit\Framework\TestCase;
+
+class AITest extends TestCase
 {
     /**
      * A basic test to ensure PHPUnit is working for this suite.

@@ -33,8 +33,49 @@ class UserPoint extends Model
     ];
 
     /**
+     * Get the user that owns the user point.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<User, UserPoint>
+     */
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the order associated with the user point.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Order, UserPoint>
+     */
+    public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    /**
      * @param  \Illuminate\Database\Eloquent\Builder<UserPoint>  $query
-     * @return \Illuminate\Database\Eloquent\Builder<UserPoint>
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeEarned(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('type', 'earned');
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<UserPoint>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeRedeemed(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('type', 'redeemed');
+    }
+
+    /**
+     * @param  \Illuminate\Database\Eloquent\Builder<UserPoint>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function scopeValid(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
     {

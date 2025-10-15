@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Http\Middleware;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -10,6 +11,8 @@ use Tests\TestCase;
  */
 class ConvertEmptyStringsToNullTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_convert_empty_strings_middleware_converts_empty_strings_to_null(): void
     {
         $request = Request::create('/test', 'POST', [

@@ -93,6 +93,7 @@ class AdminMiddlewareTest extends TestCase
 
         $request = Request::create('/api/admin/dashboard', 'GET');
         $request->headers->set('Accept', 'application/json');
+        $request->setUserResolver(fn () => $user);
 
         $middleware = new \App\Http\Middleware\AdminMiddleware;
         $response = $middleware->handle($request, function ($req) {

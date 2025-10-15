@@ -5,8 +5,9 @@ namespace Tests\AI;
 use Mockery;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-class AIAccuracyTest extends AIBaseTestCase
+class AIAccuracyTest extends TestCase
 {
     use AITestTrait;
 

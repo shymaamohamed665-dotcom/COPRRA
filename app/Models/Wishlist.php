@@ -54,11 +54,94 @@ class Wishlist extends ValidatableModel
      *
      * @var array<string, string>
      */
-    protected $rules = [
+    protected array $rules = [
         'user_id' => 'required|exists:users,id',
         'product_id' => 'required|exists:products,id',
         'notes' => 'nullable|string|max:1000',
     ];
+
+    /**
+     * Validate the wishlist instance against its rules.
+     */
+    public function validate(): bool
+    {
+        $validator = \Illuminate\Support\Facades\Validator::make($this->getAttributes(), $this->rules);
+
+        if ($validator->fails()) {
+            $this->errors = $validator->errors();
+
+            return false;
+        }
+
+        $this->errors = new \Illuminate\Support\MessageBag;
+
+        return true;
+    }
+
+    /**
+     * Get validation errors.
+     *
+     * @return array<string, array<int, string>>
+     */
+    public function getErrors(): array
+    {
+        return $this->errors ? $this->errors->toArray() : [];
+    }
+
+    /**
+     * Check if a product is in the user's wishlist.
+     */
+    public static function isProductInWishlist(int $userId, int $productId): bool
+    {
+        return self::query()->where('user_id', $userId)->where('product_id', $productId)->exists();
+    }
+
+    /**
+     * Add a product to the user's wishlist.
+     */
+    public static function addToWishlist(int $userId, int $productId, ?string $notes = null): self
+    {
+        return self::query()->create([
+            'user_id' => $userId,
+            'product_id' => $productId,
+            'notes' => $notes ?? '',
+        ]);
+    }
+
+    /**
+     * Remove a product from the user's wishlist.
+     */
+    public static function removeFromWishlist(int $userId, int $productId): bool
+    {
+        return (bool) self::query()
+            ->where('user_id', $userId)
+            ->where('product_id', $productId)
+            ->delete();
+    }
+
+    /**
+     * Get the count of wishlist items for a user.
+     */
+    public static function getWishlistCount(int $userId): int
+    {
+        return (int) self::query()->where('user_id', $userId)->count();
+    }
+
+    /**
+     * Scope: filter wishlists by user.
+     */
+    public function scopeForUser(\Illuminate\Database\Eloquent\Builder $query, int $userId): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('user_id', $userId);
+    }
+
+    /**
+     * Scope: filter wishlists by product.
+     */
+    public function scopeForProduct(\Illuminate\Database\Eloquent\Builder $query, int $productId): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('product_id', $productId);
+    }
 
     /**
      * Get the user that owns the wishlist.

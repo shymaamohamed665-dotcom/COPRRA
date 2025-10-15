@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Illuminate\Session\Store;
 use Tests\TestCase;
@@ -12,6 +13,8 @@ use Tests\TestCase;
  */
 class AuthenticateSessionTest extends TestCase
 {
+    use RefreshDatabase;
+
     #[RunInSeparateProcess]
     #[PreserveGlobalState(false)]
     public function test_authenticate_session_middleware_allows_authenticated_users(): void

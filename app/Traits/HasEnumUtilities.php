@@ -9,7 +9,9 @@ trait HasEnumUtilities
     /**
      * Get all statuses as array.
      *
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array<string, string>
      */
     public static function toArray(): array
     {

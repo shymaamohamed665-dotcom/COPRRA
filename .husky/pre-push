@@ -12,6 +12,42 @@ if [ "$DISABLE_CHECKS" = "true" ]; then
 fi
 
 # ==============================================================================
+#  VENDOR DEPENDENCY CHECK
+# ==============================================================================
+echo "🔍 Checking for vendor directory..."
+if [ ! -d "vendor" ]; then
+    echo "⚠️  WARNING: vendor directory not found!"
+    echo "📦 Installing dependencies with composer..."
+    composer install --no-interaction --prefer-dist --optimize-autoloader
+    if [ $? -ne 0 ]; then
+        echo "❌ Failed to install composer dependencies."
+        echo "💡 Please run 'composer install' manually before pushing."
+        exit 1
+    fi
+    echo "✅ Dependencies installed successfully."
+fi
+
+# ==============================================================================
+#  NODE MODULES DEPENDENCY CHECK
+# ==============================================================================
+echo "🔍 Checking for node_modules directory..."
+if [ ! -d "node_modules" ]; then
+    echo "⚠️  WARNING: node_modules directory not found!"
+    echo "📦 Installing NPM dependencies..."
+    if [ -f "package-lock.json" ]; then
+        npm ci --prefer-offline || npm install
+    else
+        npm install
+    fi
+    if [ $? -ne 0 ]; then
+        echo "❌ Failed to install NPM dependencies."
+        echo "💡 Please run 'npm install' manually before pushing."
+        exit 1
+    fi
+    echo "✅ NPM dependencies installed successfully."
+fi
+
+# ==============================================================================
 #  DETAILED CHECKS WITH LOGGING
 # ==============================================================================
 echo "🚀 Running pre-push checks with detailed logging..."

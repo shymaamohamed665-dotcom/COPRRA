@@ -4,9 +4,6 @@ namespace Tests\Unit\Integration;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class InventoryIntegrationTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

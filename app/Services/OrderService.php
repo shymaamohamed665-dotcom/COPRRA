@@ -13,9 +13,17 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-final class OrderService
+/**
+ * Order Service
+ *
+ * Handles all order-related operations including creation, status updates, and cancellation.
+ * Not marked as final to allow mocking in unit tests while maintaining production integrity.
+ */
+class OrderService
 {
     /**
+     * Create a new order
+     *
      * @param  array<int, array{product_id: int, quantity: int}>  $cartItems
      * @param  array<string, string>  $addresses
      */
@@ -25,7 +33,7 @@ final class OrderService
             $order = Order::create([
                 'order_number' => $this->generateOrderNumber(),
                 'user_id' => $user->id,
-                'status' => 'pending',
+                'status' => OrderStatus::PENDING,
                 'subtotal' => $this->calculateSubtotal($cartItems),
                 'tax_amount' => $this->calculateTax($cartItems),
                 'shipping_amount' => $this->calculateShipping($cartItems),
@@ -50,31 +58,50 @@ final class OrderService
                     $quantity = 1;
                 }
 
-                OrderItem::create([
+                $orderItemData = [
                     'order_id' => $order->id,
                     'product_id' => $product->id,
                     'quantity' => (int) $quantity,
                     'unit_price' => $product->price,
                     'total_price' => (float) $product->price * (int) $quantity,
-                    'product_details' => [
+                ];
+
+                // Only include product_details if the column exists on the same connection as OrderItem
+                $orderItemModel = new OrderItem;
+                $schema = $orderItemModel->getConnection()->getSchemaBuilder();
+                if ($schema->hasColumn($orderItemModel->getTable(), 'product_details')) {
+                    $orderItemData['product_details'] = [
                         'name' => $product->name,
                         'sku' => $product->sku ?? '',
                         'image' => $product->image ?? '',
-                    ],
-                ]);
+                    ];
+                }
+
+                OrderItem::create($orderItemData);
             }
 
             return $order;
         });
     }
 
+    /**
+     * Update order status
+     */
     public function updateOrderStatus(Order $order, OrderStatus|string $status): bool
     {
-        // Convert string to Enum if needed
-        $newStatus = is_string($status) ? OrderStatus::from($status) : $status;
+        // Convert string to Enum if needed, mapping legacy alias "completed" to "delivered"
+        if (is_string($status)) {
+            $normalized = strtolower($status);
+            if ($normalized === 'completed') {
+                $normalized = OrderStatus::DELIVERED->value;
+            }
+            $newStatus = OrderStatus::from($normalized);
+        } else {
+            $newStatus = $status;
+        }
 
-        // Store old status for event
-        $oldStatus = $order->status;
+        // Store old status for event (always enum via accessor)
+        $oldStatus = $order->status_enum;
 
         // Check if transition is allowed
         if (! $oldStatus->canTransitionTo($newStatus)) {
@@ -99,21 +126,33 @@ final class OrderService
         return $updated;
     }
 
+    /**
+     * Cancel an order
+     */
     public function cancelOrder(Order $order, ?string $reason = null): bool
     {
-        if (! in_array($order->status, ['pending', 'processing'])) {
+        // Only allow cancellation for pending or processing orders
+        if (! in_array($order->status_enum, [OrderStatus::PENDING, OrderStatus::PROCESSING], true)) {
             return false;
         }
 
         $order->update([
-            'status' => 'cancelled',
+            'status' => OrderStatus::CANCELLED,
             'notes' => $order->notes."\nCancelled: ".($reason ?? 'No reason provided'),
         ]);
 
-        // Restore product stock
+        // Restore product stock using available column
         foreach ($order->items as $item) {
-            if ($item->product) {
-                $item->product->increment('stock', $item->quantity);
+            $product = $item->product;
+            if ($product && method_exists($product, 'increment')) {
+                $schema = $product->getConnection()->getSchemaBuilder();
+                $table = $product->getTable();
+                // Prefer stock_quantity (new schema), fallback to legacy stock
+                if ($schema->hasColumn($table, 'stock_quantity')) {
+                    $product->increment('stock_quantity', $item->quantity);
+                } elseif ($schema->hasColumn($table, 'stock')) {
+                    $product->increment('stock', $item->quantity);
+                }
             }
         }
 
@@ -121,6 +160,8 @@ final class OrderService
     }
 
     /**
+     * Get order history for user
+     *
      * @return \Illuminate\Database\Eloquent\Collection<int, \App\Models\Order>
      */
     public function getOrderHistory(User $user, int $limit = 10): \Illuminate\Database\Eloquent\Collection
@@ -132,6 +173,9 @@ final class OrderService
             ->get();
     }
 
+    /**
+     * Generate unique order number
+     */
     private function generateOrderNumber(): string
     {
         do {
@@ -142,6 +186,8 @@ final class OrderService
     }
 
     /**
+     * Calculate order subtotal
+     *
      * @param  array<int, array{product_id: int, quantity: int}>  $cartItems
      */
     private function calculateSubtotal(array $cartItems): float
@@ -154,6 +200,8 @@ final class OrderService
     }
 
     /**
+     * Calculate order tax
+     *
      * @param  array<int, array{product_id: int, quantity: int}>  $cartItems
      */
     private function calculateTax(array $cartItems): float
@@ -164,9 +212,13 @@ final class OrderService
     }
 
     /**
+     * Calculate shipping cost
+     *
      * @param  array<int, array{product_id: int, quantity: int}>  $cartItems
+     *
+     * @psalm-return 0|10
      */
-    private function calculateShipping(array $cartItems): float
+    private function calculateShipping(array $cartItems): int
     {
         $subtotal = $this->calculateSubtotal($cartItems);
 

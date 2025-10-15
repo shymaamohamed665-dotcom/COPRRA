@@ -27,9 +27,10 @@ class SEOTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->seoService = new SEOService;
+        // استخدم الحاوية لإنشاء الخدمة مع حقن الاعتماديات تلقائيًا
+        $this->seoService = $this->app->make(SEOService::class);
     }
+
     public function test_generates_meta_data_for_product(): void
     {
         $product = Product::factory()->create([
@@ -51,6 +52,7 @@ class SEOTest extends TestCase
         $this->assertStringContainsString('Test Product', $metaData['title']);
         $this->assertStringContainsString('test product description', $metaData['description']);
     }
+
     public function test_generates_meta_data_for_category(): void
     {
         $category = Category::factory()->create([
@@ -64,6 +66,7 @@ class SEOTest extends TestCase
         $this->assertStringContainsString('Electronics', $metaData['title']);
         $this->assertStringContainsString('electronics', strtolower($metaData['description']));
     }
+
     public function test_generates_meta_data_for_store(): void
     {
         $store = Store::factory()->create([
@@ -77,6 +80,7 @@ class SEOTest extends TestCase
         $this->assertStringContainsString('Amazon', $metaData['title']);
         $this->assertStringContainsString('Amazon', $metaData['description']);
     }
+
     public function test_generates_title_with_correct_length(): void
     {
         $product = Product::factory()->create([
@@ -87,6 +91,7 @@ class SEOTest extends TestCase
 
         $this->assertLessThanOrEqual(60, strlen($metaData['title']));
     }
+
     public function test_generates_description_with_correct_length(): void
     {
         $product = Product::factory()->create([
@@ -97,6 +102,7 @@ class SEOTest extends TestCase
 
         $this->assertLessThanOrEqual(160, strlen($metaData['description']));
     }
+
     public function test_validates_meta_data_correctly(): void
     {
         $validMetaData = [
@@ -110,6 +116,7 @@ class SEOTest extends TestCase
 
         $this->assertEmpty($issues);
     }
+
     public function test_detects_missing_title(): void
     {
         $invalidMetaData = [
@@ -124,6 +131,7 @@ class SEOTest extends TestCase
         $this->assertNotEmpty($issues);
         $this->assertStringContainsString('Title', implode(' ', $issues));
     }
+
     public function test_detects_short_title(): void
     {
         $invalidMetaData = [
@@ -138,6 +146,7 @@ class SEOTest extends TestCase
         $this->assertNotEmpty($issues);
         $this->assertStringContainsString('too short', implode(' ', $issues));
     }
+
     public function test_detects_long_title(): void
     {
         $invalidMetaData = [
@@ -152,6 +161,7 @@ class SEOTest extends TestCase
         $this->assertNotEmpty($issues);
         $this->assertStringContainsString('too long', implode(' ', $issues));
     }
+
     public function test_detects_missing_description(): void
     {
         $invalidMetaData = [
@@ -166,6 +176,7 @@ class SEOTest extends TestCase
         $this->assertNotEmpty($issues);
         $this->assertStringContainsString('Description', implode(' ', $issues));
     }
+
     public function test_generates_structured_data_for_product(): void
     {
         $product = Product::factory()->create([
@@ -182,6 +193,7 @@ class SEOTest extends TestCase
         $this->assertEquals('Test Product', $structuredData['name']);
         $this->assertArrayHasKey('offers', $structuredData);
     }
+
     public function test_generates_breadcrumb_structured_data(): void
     {
         $breadcrumbs = [
@@ -197,6 +209,7 @@ class SEOTest extends TestCase
         $this->assertEquals('BreadcrumbList', $structuredData['@type']);
         $this->assertCount(3, $structuredData['itemListElement']);
     }
+
     public function test_generates_sitemap_successfully(): void
     {
         // Create test data
@@ -219,6 +232,7 @@ class SEOTest extends TestCase
         // Clean up
         File::delete(public_path('sitemap.xml'));
     }
+
     public function test_sitemap_includes_products(): void
     {
         $product = Product::factory()->create([
@@ -234,6 +248,7 @@ class SEOTest extends TestCase
 
         File::delete(public_path('sitemap.xml'));
     }
+
     public function test_seo_audit_command_runs_successfully(): void
     {
         Product::factory()->count(3)->create();
@@ -242,6 +257,7 @@ class SEOTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
     }
+
     public function test_seo_audit_can_fix_issues(): void
     {
         $product = Product::factory()->create([
@@ -258,10 +274,12 @@ class SEOTest extends TestCase
         $this->assertNotNull($product->meta_title);
         $this->assertNotNull($product->meta_description);
     }
+
     public function test_robots_txt_file_exists(): void
     {
         $this->assertTrue(File::exists(public_path('robots.txt')));
     }
+
     public function test_robots_txt_has_correct_content(): void
     {
         $content = File::get(public_path('robots.txt'));

@@ -2,17 +2,12 @@
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class CrossSellRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_recommends_cross_sell_products(): void
     {
         $currentProduct = [
@@ -31,7 +26,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_complementary_products(): void
     {
         $currentProduct = [
@@ -52,7 +46,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_related_accessories(): void
     {
         $currentProduct = [
@@ -73,7 +66,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_bundled_products(): void
     {
         $currentProduct = [
@@ -94,7 +86,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_purchase_history(): void
     {
         $currentProduct = [
@@ -116,7 +107,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_user_behavior(): void
     {
         $currentProduct = [
@@ -138,7 +128,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_season(): void
     {
         $currentProduct = [
@@ -160,7 +149,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_price_range(): void
     {
         $currentProduct = [
@@ -181,7 +169,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_brand_preference(): void
     {
         $currentProduct = [
@@ -205,7 +192,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_ratings(): void
     {
         $currentProduct = [
@@ -228,7 +214,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_availability(): void
     {
         $currentProduct = [
@@ -250,7 +235,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_popularity(): void
     {
         $currentProduct = [
@@ -272,7 +256,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_customer_segments(): void
     {
         $currentProduct = [
@@ -294,7 +277,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_geographic_location(): void
     {
         $currentProduct = [
@@ -320,7 +302,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_time_of_day(): void
     {
         $currentProduct = [
@@ -342,7 +323,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_weather(): void
     {
         $currentProduct = [
@@ -364,7 +344,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_recommends_products_based_on_events(): void
     {
         $currentProduct = [
@@ -386,7 +365,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_calculates_recommendation_confidence(): void
     {
         $currentProduct = [
@@ -410,7 +388,6 @@ class CrossSellRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_generates_cross_sell_report(): void
     {
         $currentProduct = [

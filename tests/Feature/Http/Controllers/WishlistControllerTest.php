@@ -27,6 +27,7 @@ class WishlistControllerTest extends TestCase
         $this->tearDownDatabase();
         parent::tearDown();
     }
+
     public function test_can_display_wishlist()
     {
         $user = User::factory()->create();
@@ -37,6 +38,7 @@ class WishlistControllerTest extends TestCase
         $response->assertStatus(200)
             ->assertViewIs('wishlist.index');
     }
+
     public function test_requires_authentication_to_view_wishlist()
     {
         $response = $this->get('/wishlist');
@@ -44,6 +46,7 @@ class WishlistControllerTest extends TestCase
         $response->assertStatus(302)
             ->assertRedirect('/login');
     }
+
     public function test_can_add_product_to_wishlist()
     {
         $user = User::factory()->create();
@@ -67,6 +70,7 @@ class WishlistControllerTest extends TestCase
             'product_id' => $product->id,
         ]);
     }
+
     public function test_validates_add_to_wishlist_request()
     {
         $user = User::factory()->create();
@@ -77,6 +81,7 @@ class WishlistControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['product_id']);
     }
+
     public function test_requires_authentication_to_add_to_wishlist()
     {
         $product = Product::factory()->create();
@@ -88,6 +93,7 @@ class WishlistControllerTest extends TestCase
         $response->assertStatus(302)
             ->assertRedirect('/login');
     }
+
     public function test_can_remove_product_from_wishlist()
     {
         $user = User::factory()->create();
@@ -122,6 +128,7 @@ class WishlistControllerTest extends TestCase
             'product_id' => $product->id,
         ]);
     }
+
     public function test_validates_remove_from_wishlist_request()
     {
         $user = User::factory()->create();
@@ -132,6 +139,7 @@ class WishlistControllerTest extends TestCase
         $response->assertStatus(422)
             ->assertJsonValidationErrors(['product_id']);
     }
+
     public function test_requires_authentication_to_remove_from_wishlist()
     {
         $product = Product::factory()->create();
@@ -143,6 +151,7 @@ class WishlistControllerTest extends TestCase
         $response->assertStatus(302)
             ->assertRedirect('/login');
     }
+
     public function test_can_clear_entire_wishlist()
     {
         $user = User::factory()->create();
@@ -167,6 +176,7 @@ class WishlistControllerTest extends TestCase
                 'message' => 'Wishlist cleared successfully.',
             ]);
     }
+
     public function test_requires_authentication_to_clear_wishlist()
     {
         $response = $this->delete('/wishlist/clear');

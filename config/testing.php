@@ -44,7 +44,8 @@ return [
     ],
 
     'session' => [
-        'driver' => 'array',
+        // Allow overriding via .env.testing; default to 'file' to persist across requests
+        'driver' => env('SESSION_DRIVER', 'file'),
     ],
 
     'queue' => [

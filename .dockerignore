@@ -21,6 +21,7 @@ LICENSE.md
 *.md
 
 # Development dependencies
+vendor
 node_modules
 npm-debug.log*
 yarn-debug.log*
@@ -93,9 +94,13 @@ setup_hostinger.sh
 test_deployment.sh
 crontab.txt
 
-# Nginx and PHP configs
-nginx.conf
-php.ini
+# Nginx and PHP configs (exclude only root-level files)
+/nginx.conf
+/php.ini
+
+# Secrets directory must never be sent to build context
+secrets/
+.secrets/
 
 # Lock files (keep composer.lock for reproducible builds)
 *.lock

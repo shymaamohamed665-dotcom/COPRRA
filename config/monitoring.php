@@ -170,7 +170,7 @@ return [
     */
     'health_checks' => [
         'enabled' => env('HEALTH_CHECKS_ENABLED', true),
-        'endpoint' => env('HEALTH_CHECKS_ENDPOINT', '/health'),
+        'endpoint' => env('HEALTH_CHECKS_ENDPOINT', '/api/health'),
         'checks' => [
             'database' => env('HEALTH_CHECK_DATABASE', true),
             'cache' => env('HEALTH_CHECK_CACHE', true),

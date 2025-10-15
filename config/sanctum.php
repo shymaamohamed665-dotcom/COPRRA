@@ -11,7 +11,9 @@ return [
         Sanctum::currentApplicationUrlWithPort()
     ))),
 
-    'guard' => ['sanctum'],
+    // Sanctum should fall back to the session-based 'web' guard to resolve users
+    // Avoid using 'sanctum' here as it causes recursive guard resolution
+    'guard' => ['web'],
 
     'expiration' => null,
 

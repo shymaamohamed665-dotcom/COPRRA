@@ -15,14 +15,18 @@ class BrandFactory extends Factory
     protected $model = Brand::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (string|true)[]
+     *
+     * @psalm-return array{name: string, slug: string, description: string, logo_url: string, website_url: string, is_active: true}
      */
     #[\Override]
     public function definition(): array
     {
+        $name = $this->faker->company.' Brand';
+
         return [
-            'name' => $this->faker->company.' Brand',
-            'slug' => $this->faker->slug(2),
+            'name' => $name,
+            'slug' => $this->faker->unique()->slug(2).'-'.$this->faker->unique()->numberBetween(1000, 9999),
             'description' => $this->faker->sentence(),
             'logo_url' => $this->faker->imageUrl(200, 200),
             'website_url' => $this->faker->url(),

@@ -15,7 +15,9 @@ class CurrencyFactory extends Factory
     protected $model = Currency::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (array|bool|float|int|string)[]
+     *
+     * @psalm-return array{code: string, name: array|string, symbol: string, is_active: true, is_default: false, exchange_rate: float, decimal_places: 2}
      */
     #[\Override]
     public function definition(): array

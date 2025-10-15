@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Tests\Feature\Services;
 
 use App\Services\PasswordResetService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\TestCase;
 
 class PasswordResetServiceTest extends TestCase
 {
+    use RefreshDatabase;
+
     private PasswordResetService $service;
 
     protected function setUp(): void
@@ -16,11 +19,13 @@ class PasswordResetServiceTest extends TestCase
         parent::setUp();
         $this->service = new PasswordResetService;
     }
+
     public function test_can_be_instantiated(): void
     {
         // Act & Assert
         $this->assertInstanceOf(PasswordResetService::class, $this->service);
     }
+
     public function test_handles_send_reset_email_with_valid_email(): void
     {
         // Test service instantiation and method existence
@@ -36,6 +41,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[0]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_handles_send_reset_email_with_nonexistent_email(): void
     {
         // Test service instantiation and method existence
@@ -51,6 +57,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[0]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_handles_reset_password_with_valid_token(): void
     {
         // Test service instantiation and method existence
@@ -68,6 +75,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[2]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_handles_reset_password_with_invalid_token(): void
     {
         // Test service instantiation and method existence
@@ -85,6 +93,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[2]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_checks_reset_token_exists(): void
     {
         // Test service instantiation and method existence
@@ -100,6 +109,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[0]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_gets_reset_token_info(): void
     {
         // Test service instantiation and method existence
@@ -115,6 +125,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[0]->getType()->getName());
         $this->assertTrue($reflection->getReturnType()->allowsNull());
     }
+
     public function test_handles_expired_token(): void
     {
         // Test service instantiation and method existence
@@ -132,6 +143,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[2]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_handles_too_many_attempts(): void
     {
         // Test service instantiation and method existence
@@ -149,6 +161,7 @@ class PasswordResetServiceTest extends TestCase
         $this->assertEquals('string', $reflection->getParameters()[2]->getType()->getName());
         $this->assertEquals('bool', $reflection->getReturnType()->getName());
     }
+
     public function test_gets_statistics(): void
     {
         // Test service instantiation and method existence

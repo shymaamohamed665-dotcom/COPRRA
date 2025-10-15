@@ -31,15 +31,15 @@ class BehaviorAnalysisServiceTest extends TestCase
             ->andReturnSelf();
         DB::shouldReceive('insert')
             ->once()
-            ->with([
-                'user_id' => $user->id,
-                'action' => $action,
-                'data' => json_encode($data),
-                'ip_address' => request()->ip(),
-                'user_agent' => request()->userAgent(),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            ->with(\Mockery::on(function ($arg) use ($user, $action, $data) {
+                return $arg['user_id'] === $user->id
+                    && $arg['action'] === $action
+                    && $arg['data'] === json_encode($data)
+                    && isset($arg['ip_address'])
+                    && isset($arg['user_agent'])
+                    && isset($arg['created_at'])
+                    && isset($arg['updated_at']);
+            }));
 
         // Act
         $this->service->trackUserBehavior($user, $action, $data);

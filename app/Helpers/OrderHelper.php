@@ -60,11 +60,9 @@ final class OrderHelper
      */
     public static function canBeCancelled(Order $order): bool
     {
-        return in_array(
-            $order->status,
-            [OrderStatus::PENDING, OrderStatus::PROCESSING],
-            true
-        );
+        $status = $order->status_enum;
+
+        return in_array($status, [OrderStatus::PENDING, OrderStatus::PROCESSING], true);
     }
 
     /**
@@ -72,7 +70,7 @@ final class OrderHelper
      */
     public static function canBeRefunded(Order $order): bool
     {
-        return $order->status === OrderStatus::DELIVERED;
+        return $order->status_enum === OrderStatus::DELIVERED;
     }
 
     /**
@@ -104,11 +102,13 @@ final class OrderHelper
      */
     public static function getEstimatedDeliveryDate(Order $order): ?\DateTimeInterface
     {
-        if ($order->status === OrderStatus::SHIPPED && $order->shipped_at) {
+        $status = $order->status_enum;
+
+        if ($status === OrderStatus::SHIPPED && $order->shipped_at) {
             return $order->shipped_at->addDays(3);
         }
 
-        if ($order->status === OrderStatus::PROCESSING) {
+        if ($status === OrderStatus::PROCESSING) {
             return now()->addDays(5);
         }
 
@@ -120,7 +120,7 @@ final class OrderHelper
      */
     public static function isOverdue(Order $order): bool
     {
-        if ($order->status !== OrderStatus::SHIPPED) {
+        if ($order->status_enum !== OrderStatus::SHIPPED) {
             return false;
         }
 

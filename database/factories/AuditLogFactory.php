@@ -18,7 +18,9 @@ class AuditLogFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return (array|int|mixed|string)[]
+     *
+     * @psalm-return array{event: mixed, auditable_type: Product::class, auditable_id: 1, user_id: 1, ip_address: string, user_agent: string, old_values: array, new_values: array, metadata: array, url: string, method: mixed}
      */
     #[\Override]
     public function definition(): array

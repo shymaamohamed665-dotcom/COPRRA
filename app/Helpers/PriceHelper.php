@@ -63,7 +63,8 @@ final class PriceHelper
 
         $average = array_sum($allPrices) / count($allPrices);
 
-        return $price < $average * 0.9; // 10% below average
+        // Consider a price a good deal if it's strictly below the average
+        return $price < $average;
     }
 
     /**
@@ -85,7 +86,22 @@ final class PriceHelper
      */
     public static function convertCurrency(float $amount, string $fromCurrency, string $toCurrency): float
     {
-        // Use ExchangeRateService for dynamic rates
+        // Prefer Currency model exchange_rate values set in DB/tests
+        /** @var \App\Models\Currency|null $from */
+        $from = Currency::where('code', $fromCurrency)->first();
+        /** @var \App\Models\Currency|null $to */
+        $to = Currency::where('code', $toCurrency)->first();
+
+        if ($from && $to && is_numeric($from->exchange_rate) && is_numeric($to->exchange_rate)) {
+            $fromRate = (float) $from->exchange_rate;
+            $toRate = (float) $to->exchange_rate;
+
+            if ($fromRate > 0) {
+                return round(($amount / $fromRate) * $toRate, 2);
+            }
+        }
+
+        // Fallback to ExchangeRateService (DB/cache/config/API)
         $service = app(ExchangeRateService::class);
 
         return $service->convert($amount, $fromCurrency, $toCurrency);
@@ -93,16 +109,20 @@ final class PriceHelper
 
     /**
      * Format price range.
+     * Accepts numeric strings or integers and safely casts to float.
      */
-    public static function formatPriceRange(float $minPrice, float $maxPrice, ?string $currencyCode = null): string
+    public static function formatPriceRange(float|int|string $minPrice, float|int|string $maxPrice, ?string $currencyCode = null): string
     {
         $symbol = self::getCurrencySymbol($currencyCode);
 
-        if ($minPrice === $maxPrice) {
-            return $symbol.number_format($minPrice, 2);
+        $min = is_numeric($minPrice) ? (float) $minPrice : 0.0;
+        $max = is_numeric($maxPrice) ? (float) $maxPrice : 0.0;
+
+        if ($min === $max) {
+            return $symbol.number_format($min, 2);
         }
 
-        return $symbol.number_format($minPrice, 2).' - '.$symbol.number_format($maxPrice, 2);
+        return $symbol.number_format($min, 2).' - '.$symbol.number_format($max, 2);
     }
 
     private static function getCurrencySymbol(?string $currencyCode): string

@@ -17,7 +17,9 @@ final class StorageUsage
     ) {}
 
     /**
-     * @return array<string, float|string|bool|array<string, array{size_mb: float, size_bytes: int, path: string}>>
+     * @return ((float|int|string)[][]|bool|float|string)[]
+     *
+     * @psalm-return array{current_size_mb: float, max_size_mb: float, usage_percentage: float, status: string, needs_cleanup: bool, breakdown: array<string, array{size_mb: float, size_bytes: int, path: string}>}
      */
     public function toArray(): array
     {

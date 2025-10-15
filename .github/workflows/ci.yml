@@ -2,93 +2,54 @@ name: CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, master ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
 
     services:
       mysql:
-        image: mysql:8.0
+        image: mysql:8
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: testing
+          MYSQL_DATABASE: laravel
+          MYSQL_USER: laravel
+          MYSQL_PASSWORD: secret
+          MYSQL_ROOT_PASSWORD: root
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 3
 
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.2'
-        extensions: pdo, pdo_mysql, bcmath, ctype, fileinfo, json, mbstring, openssl, tokenizer, xml, gd, zip
-        coverage: xdebug
-
-    - name: Cache Composer Dependencies
-      uses: actions/cache@v4
-      with:
-        path: vendor
-        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-composer-
-
-    - name: Install Composer dependencies
-      run: composer install --no-progress --prefer-dist --optimize-autoloader --no-scripts
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-
-    - name: Cache NPM Dependencies
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-npm-
-
-    - name: Install NPM dependencies
-      run: npm ci
-
-    - name: Build assets
-      run: npm run build
-
-    - name: Copy environment file
-      run: cp .env.example .env
-
-    - name: Generate application key
-      run: php artisan key:generate
-
-    - name: Run migrations
-      run: php artisan migrate --force
-      env:
-        DB_CONNECTION: mysql
-        DB_HOST: 127.0.0.1
-        DB_PORT: 3306
-        DB_DATABASE: testing
-        DB_USERNAME: root
-        DB_PASSWORD:
-
-    - name: Run tests
-      run: ./vendor/bin/phpunit --coverage-text --configuration=phpunit.xml
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        file: ./coverage.xml
-        fail_ci_if_error: false
-
-    - name: Notify on failure
-      if: failure()
-      run: |
-        echo "CI failed. Check the logs for details."
-        # Add Slack/email notification here if configured
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer, cs2pr
+          coverage: xdebug
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+          npm ci
+      - name: Validate composer
+        run: composer validate --strict
+      - name: Security audits
+        run: |
+          composer audit --no-interaction || true
+          npm audit --audit-level=high || true
+      - name: Static analysis
+        run: |
+          vendor/bin/phpstan analyse --no-progress
+          vendor/bin/psalm --no-cache
+      - name: Insights
+        run: vendor/bin/phpinsights analyse app --no-interaction || true
+      - name: Prepare env
+        run: cp .env.example .env
+      - name: Run tests with coverage
+        run: vendor/bin/phpunit --coverage-text

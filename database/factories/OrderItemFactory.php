@@ -24,20 +24,23 @@ class OrderItemFactory extends Factory
     /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return (Factory|ProductFactory|float|int)[]
+     *
+     * @psalm-return array{order_id: Factory, product_id: ProductFactory, quantity: int, unit_price: float, total_price: float}
      */
     #[\Override]
     public function definition(): array
     {
         $quantity = $this->faker->numberBetween(1, 5);
-        $price = $this->faker->randomFloat(2, 10, 500);
+        $unitPrice = $this->faker->randomFloat(2, 10, 500);
 
         return [
             'order_id' => Order::factory(),
             'product_id' => Product::factory(),
             'quantity' => $quantity,
-            'price' => $price,
-            'total' => $quantity * $price,
+            // Align with RefreshDatabase migrations that define unit_price/total_price
+            'unit_price' => $unitPrice,
+            'total_price' => $quantity * $unitPrice,
         ];
     }
 }

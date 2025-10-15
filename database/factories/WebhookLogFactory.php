@@ -14,6 +14,12 @@ class WebhookLogFactory extends Factory
 {
     protected $model = WebhookLog::class;
 
+    /**
+     * @return (int|string|string[])[]
+     *
+     * @psalm-return array{webhook_id: 1, action: string, message: string, metadata: array{ip: string}}
+     */
+    #[\Override]
     public function definition()
     {
         return [

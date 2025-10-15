@@ -12,7 +12,9 @@ final class SEORouteAuditor
     /**
      * Get all public-facing GET routes.
      *
-     * @return array<string>
+     * @return string[]
+     *
+     * @psalm-return list<string>
      */
     public function getPublicRoutes(): array
     {
@@ -35,7 +37,9 @@ final class SEORouteAuditor
      * Check for duplicate routes.
      *
      * @param  array<string>  $routes
-     * @return array<string, int>
+     * @return int[]
+     *
+     * @psalm-return array<string, int<2, max>>
      */
     public function findDuplicateRoutes(array $routes): array
     {

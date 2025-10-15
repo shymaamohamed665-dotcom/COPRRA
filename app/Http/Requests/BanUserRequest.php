@@ -10,6 +10,8 @@ class BanUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return true
      */
     public function authorize(): bool
     {
@@ -19,7 +21,9 @@ class BanUserRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<string|int>|string>
+     * @return string[]
+     *
+     * @psalm-return array{reason: 'required|string|max:500', duration_hours: 'sometimes|integer|min:1|max:8760', notify_user: 'sometimes|boolean'}
      */
     public function rules(): array
     {

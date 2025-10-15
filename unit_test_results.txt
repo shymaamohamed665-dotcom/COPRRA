@@ -1,0 +1,27 @@
+PHPUnit 12.4.0 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+
+Time: 00:28.524, Memory: 136.00 MB
+
+There were 8 PHPUnit test runner warnings:
+
+1) No tests found in class "Tests\Unit\AnalyticsServiceTest".
+
+2) No tests found in class "Tests\Unit\COPRRA\CacheServiceTest".
+
+3) No tests found in class "Tests\Unit\COPRRA\CoprraServiceProviderTest".
+
+4) No tests found in class "Tests\Unit\COPRRA\ExchangeRateServiceTest".
+
+5) No tests found in class "Tests\Unit\COPRRA\PriceHelperTest".
+
+6) No tests found in class "Tests\Unit\COPRRA\StoreAdapterManagerTest".
+
+7) No tests found in class "Tests\Unit\COPRRA\WebhookServiceTest".
+
+8) No tests found in class "Tests\Unit\Services\ExternalStoreServiceTest".
+
+[30;43mOK, but there were issues![0m
+[30;43mTests: 651[0m[30;43m, Assertions: 1363[0m[30;43m, PHPUnit Warnings: 8[0m[30;43m, PHPUnit Deprecations: 148[0m[30;43m.[0m

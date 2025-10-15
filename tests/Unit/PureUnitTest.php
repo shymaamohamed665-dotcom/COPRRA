@@ -4,9 +4,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class PureUnitTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

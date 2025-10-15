@@ -15,7 +15,9 @@ class LanguageFactory extends Factory
     protected $model = Language::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (int|mixed|string|true)[]
+     *
+     * @psalm-return array{code: mixed, name: string, native_name: string, direction: mixed, is_active: true, sort_order: int}
      */
     #[\Override]
     public function definition(): array

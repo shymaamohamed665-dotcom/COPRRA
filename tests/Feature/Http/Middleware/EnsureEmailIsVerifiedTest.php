@@ -3,6 +3,7 @@
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
@@ -11,6 +12,8 @@ use Tests\TestCase;
  */
 class EnsureEmailIsVerifiedTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_ensure_email_is_verified_middleware_allows_verified_users(): void
     {
         $user = User::factory()->create([

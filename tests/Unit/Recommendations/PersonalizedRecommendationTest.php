@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Recommendations;
 
-use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class PersonalizedRecommendationTest extends TestCase
 {
     #[Test]
-    #[CoversNothing]
     public function it_generates_recommendations_based_on_user_history(): void
     {
         $userHistory = [
@@ -26,7 +24,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_prioritizes_same_brand_recommendations(): void
     {
         $userHistory = [
@@ -41,7 +38,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_user_preferences(): void
     {
         $userPreferences = [
@@ -61,7 +57,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_avoids_previously_purchased_products(): void
     {
         $userHistory = [
@@ -78,7 +73,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_user_rating_patterns(): void
     {
         $userRatings = [
@@ -98,7 +92,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_seasonal_trends(): void
     {
         $currentSeason = 'winter';
@@ -109,7 +102,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_user_demographics(): void
     {
         $userDemographics = [
@@ -124,7 +116,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_limits_recommendation_count(): void
     {
         $userHistory = [
@@ -138,7 +129,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_product_availability(): void
     {
         $userHistory = [
@@ -154,7 +144,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_price_sensitivity(): void
     {
         $userHistory = [
@@ -190,7 +179,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_collaborative_filtering(): void
     {
         $similarUsers = [
@@ -222,7 +210,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_content_based_filtering(): void
     {
         $userHistory = [
@@ -238,7 +225,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_handles_empty_user_history(): void
     {
         $recommendations = $this->generateRecommendations([]);
@@ -248,7 +234,6 @@ class PersonalizedRecommendationTest extends TestCase
     }
 
     #[Test]
-    #[CoversNothing]
     public function it_considers_recommendation_diversity(): void
     {
         $userHistory = [

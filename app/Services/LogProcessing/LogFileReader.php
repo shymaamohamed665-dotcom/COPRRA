@@ -19,7 +19,9 @@ class LogFileReader
     /**
      * Get log files from storage
      *
-     * @return list<string>
+     * @return string[]
+     *
+     * @psalm-return list<non-empty-string>
      */
     public function getLogFiles(): array
     {

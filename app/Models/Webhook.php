@@ -127,4 +127,52 @@ class Webhook extends Model
             'metadata' => $metadata,
         ]);
     }
+
+    /**
+     * Scope a query to only include pending webhooks.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Webhook>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopePending(\Illuminate\Database\Eloquent\Builder $query): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('status', self::STATUS_PENDING);
+    }
+
+    /**
+     * Scope a query to filter webhooks by status.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Webhook>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeStatus(\Illuminate\Database\Eloquent\Builder $query, string $status): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('status', $status);
+    }
+
+    /**
+     * Scope a query to filter webhooks by store.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Webhook>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeStore(\Illuminate\Database\Eloquent\Builder $query, string $storeIdentifier): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('store_identifier', $storeIdentifier);
+    }
+
+    /**
+     * Scope a query to filter webhooks by event type.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder<Webhook>  $query
+     *
+     * @psalm-return \Illuminate\Database\Eloquent\Builder<self>
+     */
+    public function scopeEventType(\Illuminate\Database\Eloquent\Builder $query, string $eventType): \Illuminate\Database\Eloquent\Builder
+    {
+        return $query->where('event_type', $eventType);
+    }
 }

@@ -137,10 +137,10 @@ final class CacheManagement extends Command
     private function executeAction(string $action, CacheService $cacheService): int
     {
         $actions = [
-            'stats' => fn () => $this->showStatistics($cacheService),
-            'clear-prices' => fn () => $this->clearPriceComparisons($cacheService),
-            'clear-search' => fn () => $this->clearSearchResults($cacheService),
-            'clear-all' => fn () => $this->clearAllCache($cacheService),
+            'stats' => fn (): int => $this->showStatistics($cacheService),
+            'clear-prices' => fn (): int => $this->clearPriceComparisons($cacheService),
+            'clear-search' => fn (): int => $this->clearSearchResults($cacheService),
+            'clear-all' => fn (): int => $this->clearAllCache($cacheService),
         ];
 
         $result = $actions[$action]();

@@ -6,7 +6,9 @@ namespace Tests\Feature\Http\Controllers;
 
 use App\Models\Product;
 use App\Services\ProductService;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Mockery;
 use Tests\TestCase;
 
@@ -28,10 +30,12 @@ class ProductControllerTest extends TestCase
         Mockery::close();
         parent::tearDown();
     }
+
     public function test_displays_index_page_with_products(): void
     {
         // Arrange
-        $products = collect([Product::factory()->make()]);
+        $items = collect([Product::factory()->make()]);
+        $products = new LengthAwarePaginator($items, 1, 15);
         $this->productService->shouldReceive('getPaginatedProducts')
             ->once()
             ->andReturn($products);
@@ -44,12 +48,14 @@ class ProductControllerTest extends TestCase
         $response->assertViewIs('products.index');
         $response->assertViewHas('products', $products);
     }
+
     public function test_displays_search_results_when_search_parameters_present(): void
     {
         // Arrange
         $query = 'laptop';
         $filters = ['category' => 'electronics'];
-        $products = collect([Product::factory()->make()]);
+        $items = collect([Product::factory()->make()]);
+        $products = new LengthAwarePaginator($items, 1, 15);
         $this->productService->shouldReceive('searchProducts')
             ->with($query, Mockery::on(function ($arg) {
                 return isset($arg['category_id']) && $arg['category_id'] === 'electronics';
@@ -64,11 +70,12 @@ class ProductControllerTest extends TestCase
         $response->assertViewIs('products.index');
         $response->assertViewHas('products', $products);
     }
+
     public function test_displays_product_show_page(): void
     {
         // Arrange
         $product = Product::factory()->create();
-        $relatedProducts = collect([Product::factory()->make()]);
+        $relatedProducts = new Collection([Product::factory()->make()]);
         $this->productService->shouldReceive('getBySlug')
             ->with($product->slug)
             ->andReturn($product);
@@ -85,6 +92,7 @@ class ProductControllerTest extends TestCase
         $response->assertViewHas('product', $product);
         $response->assertViewHas('relatedProducts', $relatedProducts);
     }
+
     public function test_returns_404_for_nonexistent_product(): void
     {
         // Arrange
@@ -98,11 +106,13 @@ class ProductControllerTest extends TestCase
         // Assert
         $response->assertStatus(404);
     }
+
     public function test_handles_search_with_sort_and_order(): void
     {
         // Arrange
         $query = 'phone';
-        $products = collect([Product::factory()->make()]);
+        $items = collect([Product::factory()->make()]);
+        $products = new LengthAwarePaginator($items, 1, 15);
         $this->productService->shouldReceive('searchProducts')
             ->with($query, Mockery::on(function ($arg) {
                 return isset($arg['sort_by']) && $arg['sort_by'] === 'price_asc';

@@ -10,6 +10,8 @@ class StoreCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return true
      */
     public function authorize(): bool
     {
@@ -19,7 +21,9 @@ class StoreCategoryRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<string>|string>
+     * @return string[]
+     *
+     * @psalm-return array{name: 'required|string|max:255', description: 'nullable|string'}
      */
     public function rules(): array
     {

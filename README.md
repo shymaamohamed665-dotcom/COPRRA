@@ -140,20 +140,35 @@ npm run build
 
 ### Using Docker (Recommended)
 
-The project includes Docker configuration for easy development setup:
+The project includes Docker configuration for easy development setup. You can now run Docker from the project root without specifying a file flag:
 
 ```bash
-# Start the development environment
-docker-compose -f dev-docker/docker-compose.yml up -d
+# Build or rebuild the application container
+docker-compose build app
 
-# View logs
-docker-compose -f dev-docker/docker-compose.yml logs -f
+# Start all services in the background
+docker-compose up -d
 
-# Stop the environment
-docker-compose -f dev-docker/docker-compose.yml down
+# Get a shell inside the running PHP-FPM container
+docker-compose exec app bash
+
+# Inside the container: install PHP dependencies
+composer install
+
+# Inside the container: run Laravel migrations as an example command
+php artisan migrate
+
+# Stop and remove the containers
+docker-compose down
 ```
 
 The application will be available at: `http://localhost:8000`
+
+### Health Check Endpoint
+
+- Unified health check endpoint: `GET /api/health`
+- Returns 200 OK with minimal payload to verify service health
+- Configured at `bootstrap/app.php` and proxied via Nginx in Docker
 
 **Docker Services Include:**
 
@@ -289,6 +304,41 @@ The following environment variables are critical for the application to function
 - `APP_NAME` - Application name (default: Laravel)
 - `APP_ENV` - Environment (local, production, testing)
 - `APP_KEY` - Application encryption key (generated automatically)
+
+## 🐳 Docker Setup
+
+### Development
+
+```bash
+# Start services
+docker-compose up -d
+
+# Run migrations
+docker-compose exec app php artisan migrate
+
+# Install dependencies
+docker-compose exec app composer install
+```
+
+### Production
+
+```bash
+# Use production compose file
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+### Services
+
+- **App:** Laravel application (PHP 8.2-FPM)
+- **Nginx:** Web server (port 80)
+- **MySQL:** Database (port 3306, exposed on 127.0.0.1:33061)
+- **Redis:** Cache & Queue (port 6379)
+- **Mailpit:** Email testing (Web UI: 8025, SMTP: 1025)
+
+### Health Checks
+
+Visit `http://localhost/api/health` to verify all services
+
 - `APP_DEBUG` - Debug mode (true/false)
 - `APP_URL` - Application URL
 - `DB_CONNECTION` - Database connection (mysql, sqlite, etc.)
@@ -316,6 +366,50 @@ The following environment variables are critical for the application to function
 - `BROADCAST_DRIVER` - Broadcast driver (log, pusher, redis, etc.)
 - `FILESYSTEM_DISK` - Default filesystem disk (local, public, s3, etc.)
 - `REQUIRE_2FA` - Require two-factor authentication (true/false)
+
+## Security
+
+- Security headers enabled globally via `SecurityHeadersMiddleware`:
+  - `X-Frame-Options: SAMEORIGIN`
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `Strict-Transport-Security` (applied on HTTPS)
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+  - `Content-Security-Policy` (CSP) — strict, no `unsafe-inline`/`unsafe-eval`
+- CSP uses a `nonce` generated per-request by `AddCspNonce`.
+  - Scripts: include nonce in inline tags: `<script nonce="{{ $cspNonce }}">...</script>`
+  - Styles: prefer external stylesheets; if inline styles are required, add the same nonce: `<style nonce="{{ $cspNonce }}">...</style>`
+- Development allowances:
+  - When `APP_ENV=local`, CSP permits the Vite dev server (`VITE_DEV_SERVER`, default `http://localhost:5173`) and WebSocket for HMR via `connect-src`.
+
+### CORS Configuration
+
+- CORS is environment-driven (`config/cors.php`).
+  - Local: allows common dev origins (Vite/SPA and `APP_URL`).
+  - Production: restricted to `APP_URL` and `FRONTEND_URL` unless `CORS_ALLOWED_ORIGINS` is explicitly set.
+- Key variables:
+  - `CORS_ALLOWED_ORIGINS` — comma-separated origins.
+  - `CORS_ALLOWED_METHODS` — default `GET,POST,PUT,PATCH,DELETE,OPTIONS`.
+  - `CORS_ALLOWED_HEADERS` — default `Accept,Authorization,Content-Type,X-Requested-With,X-CSRF-TOKEN`.
+  - `CORS_EXPOSED_HEADERS`, `CORS_MAX_AGE`, `CORS_SUPPORTS_CREDENTIALS` — optional.
+
+### Testing & Quality
+
+- Run tests (inside container):
+
+```bash
+docker-compose exec app composer run test
+```
+
+- Static analysis:
+
+```bash
+docker-compose exec app composer run analyse
+```
+
+### Deployment Guide
+
+- See `DEPLOYMENT.md` for a comprehensive production checklist and step-by-step guide.
 
 ### AI Integration Variables
 
@@ -534,3 +628,25 @@ This project is open-sourced software licensed under the [MIT license](https://o
 ## Support
 
 For support and questions, please open an issue in the repository or contact the development team.
+
+## Documentation
+
+- Start with `QUICK_START.md` for the fastest setup, then consult `README.md` for deeper context.
+- Use `DOCUMENTATION_INDEX.md` as the canonical map of all documentation.
+- Architecture references: `docs/COPRRA.md`, `docs/COPRRA_STRUCTURE.md`, and `CLAUDE.md`.
+- CI/CD overview: `docs/CI_CD_OVERVIEW.md`.
+- Operations: runbooks under `docs/runbooks/` for deployment, rollback, incidents, and cache/queue maintenance.
+### Static Analysis & Style
+
+```bash
+composer run analyse:phpstan
+composer run analyse:psalm
+composer run format
+```
+
+### Environment Variables
+
+- `APP_ENV` should be `local` in development and `production` in live environments.
+- `APP_DEBUG` is `true` in `.env.example` for local debugging; set `false` in production.
+- `HEALTH_CHECKS_ENDPOINT` defaults to `/api/health`.
+- For cross-origin SPA auth, set: `SESSION_SAME_SITE=none`, `SESSION_SECURE_COOKIE=true`, and align `SESSION_DOMAIN`/`SESSION_PATH` with your domains.

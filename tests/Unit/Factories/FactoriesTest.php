@@ -4,9 +4,6 @@ namespace Tests\Unit\Factories;
 
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class FactoriesTest extends TestCase
 {
     #[\PHPUnit\Framework\Attributes\Test]

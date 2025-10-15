@@ -3,11 +3,12 @@
 /**
  * Smart test runner - runs tests in batches and fixes issues automatically
  */
-
 class SmartTestRunner
 {
     private array $testDirs = [];
+
     private array $failedTests = [];
+
     private array $fixedIssues = [];
 
     public function __construct()
@@ -17,11 +18,12 @@ class SmartTestRunner
 
     private function getFeatureTestDirectories(): array
     {
-        $baseDir = __DIR__ . '/tests/Feature';
+        $baseDir = __DIR__.'/tests/Feature';
         $dirs = [];
 
-        if (!is_dir($baseDir)) {
+        if (! is_dir($baseDir)) {
             echo "Feature test directory not found!\n";
+
             return [];
         }
 
@@ -31,8 +33,8 @@ class SmartTestRunner
         );
 
         foreach ($iterator as $file) {
-            if ($file->isDir() && !in_array($file->getFilename(), ['.', '..'])) {
-                $dirs[] = str_replace(__DIR__ . '/', '', $file->getPathname());
+            if ($file->isDir() && ! in_array($file->getFilename(), ['.', '..'])) {
+                $dirs[] = str_replace(__DIR__.'/', '', $file->getPathname());
             }
         }
 
@@ -44,7 +46,7 @@ class SmartTestRunner
 
     public function runAllTests(): void
     {
-        echo "Found " . count($this->testDirs) . " test directories\n\n";
+        echo 'Found '.count($this->testDirs)." test directories\n\n";
 
         foreach ($this->testDirs as $dir) {
             echo "Testing: $dir\n";
@@ -56,7 +58,7 @@ class SmartTestRunner
 
     private function runTestDirectory(string $dir): void
     {
-        $cmd = "php -d memory_limit=8G vendor/bin/phpunit --no-coverage " . escapeshellarg($dir) . " 2>&1";
+        $cmd = 'php -d memory_limit=8G vendor/bin/phpunit --no-coverage '.escapeshellarg($dir).' 2>&1';
         exec($cmd, $output, $returnCode);
 
         $output = implode("\n", $output);
@@ -129,19 +131,19 @@ class SmartTestRunner
 
     private function printSummary(): void
     {
-        echo "\n" . str_repeat('=', 80) . "\n";
+        echo "\n".str_repeat('=', 80)."\n";
         echo "TEST SUMMARY\n";
-        echo str_repeat('=', 80) . "\n\n";
+        echo str_repeat('=', 80)."\n\n";
 
         $totalDirs = count($this->testDirs);
         $passedDirs = $totalDirs - count($this->failedTests);
 
         echo "Directories tested: $totalDirs\n";
         echo "Passed: $passedDirs\n";
-        echo "Failed: " . count($this->failedTests) . "\n";
-        echo "Issues auto-fixed: " . count($this->fixedIssues) . "\n\n";
+        echo 'Failed: '.count($this->failedTests)."\n";
+        echo 'Issues auto-fixed: '.count($this->fixedIssues)."\n\n";
 
-        if (!empty($this->failedTests)) {
+        if (! empty($this->failedTests)) {
             echo "Failed directories:\n";
             foreach ($this->failedTests as $dir => $info) {
                 echo "  - $dir ({$info['failures']} failures)\n";
@@ -151,5 +153,5 @@ class SmartTestRunner
 }
 
 // Run the smart test runner
-$runner = new SmartTestRunner();
+$runner = new SmartTestRunner;
 $runner->runAllTests();

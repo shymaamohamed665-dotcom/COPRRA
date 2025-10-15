@@ -11,6 +11,9 @@ export default defineConfig({
 
     // Build optimization
     build: {
+        // Output directory for production build
+        outDir: 'public/build',
+        emptyOutDir: true,
         // Enable source maps for debugging (disable in production)
         sourcemap: false,
 

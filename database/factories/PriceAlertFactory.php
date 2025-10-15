@@ -17,7 +17,9 @@ class PriceAlertFactory extends Factory
     protected $model = PriceAlert::class;
 
     /**
-     * @return array<string, mixed>
+     * @return (UserFactory|\Closure|bool|float)[]
+     *
+     * @psalm-return array{user_id: UserFactory, product_id: \Closure():int, target_price: float, repeat_alert: bool, is_active: true}
      */
     #[\Override]
     public function definition(): array

@@ -15,10 +15,6 @@ use Tests\TestCase;
  *
  * @covers \App\Models\Review
  */
-
-/**
- * @runTestsInSeparateProcesses
- */
 class ReviewTest extends TestCase
 {
     /**

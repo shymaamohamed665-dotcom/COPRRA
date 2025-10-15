@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Services\CDN\Services;
 
-use App\Services\CDN\Contracts\CDNProviderInterface;
 use App\Services\CDN\Providers\CloudflareProvider;
 use App\Services\CDN\Providers\GoogleCloudProvider;
 use App\Services\CDN\Providers\S3Provider;
@@ -23,7 +22,7 @@ final class CDNProviderFactory
      *
      * @throws Exception
      */
-    public static function create(string $provider, array $config): CDNProviderInterface
+    public static function create(string $provider, array $config): CloudflareProvider|S3Provider|GoogleCloudProvider
     {
         return match ($provider) {
             'cloudflare' => new CloudflareProvider($config),

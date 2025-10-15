@@ -5,9 +5,6 @@ namespace Tests\Security;
 use Illuminate\Support\Facades\Crypt;
 use Tests\TestCase;
 
-/**
- * @runTestsInSeparateProcesses
- */
 class DataEncryptionTest extends TestCase
 {
     public function test_data_encryption(): void

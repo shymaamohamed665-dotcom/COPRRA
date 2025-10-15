@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-use App\Enums\UserRole;
 use Carbon\Carbon;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Collection;
@@ -162,7 +161,9 @@ class User extends Authenticatable
     }
 
     /**
-     * @return array<string, string>
+     * @return string[]
+     *
+     * @psalm-return array{email_verified_at: 'datetime', password: 'hashed', is_admin: 'boolean', is_active: 'boolean', is_blocked: 'boolean', banned_at: 'datetime', ban_expires_at: 'datetime', password_confirmed_at: 'datetime'}
      */
     #[\Override]
     protected function casts(): array
@@ -176,7 +177,8 @@ class User extends Authenticatable
             'banned_at' => 'datetime',
             'ban_expires_at' => 'datetime',
             'password_confirmed_at' => 'datetime',
-            'role' => UserRole::class,
         ];
     }
+
+    // No model-level phone sanitization to allow DB constraints to be tested
 }
