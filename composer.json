@@ -25,28 +25,30 @@
         "laravel/telescope": "^5.12.0",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
+        "predis/predis": "^2.0",
         "spatie/laravel-backup": "^9.3.4",
         "spatie/laravel-permission": "^6.21.0",
         "srmklive/paypal": "^3.0.40",
         "stripe/stripe-php": "^17.6.0"
     },
     "require-dev": {
-        "behat/behat": "*",
-        "codeception/codeception": "*",
-        "deptrac/deptrac": "*",
+        "behat/behat": "^3.13",
+        "codeception/codeception": "^5.0",
+        "deptrac/deptrac": "^4.2",
         "enlightn/security-checker": "^2.0",
         "fakerphp/faker": "^1.24.1",
-        "friendsofphp/php-cs-fixer": "*",
+        "friendsofphp/php-cs-fixer": "^3.64",
         "icanhazstring/composer-unused": "^0.9.5",
-        "infection/infection": "*",
+        "infection/infection": "^0.31",
         "larastan/larastan": "^3.7",
-        "laravel/pint": "*",
-        "mockery/mockery": "*",
-        "nunomaduro/phpinsights": "*",
+        "laravel/pint": "^1.16",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/phpinsights": "^2.13",
         "phpmd/phpmd": "^2.15",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "*",
-        "rector/rector": "*"
+        "phpunit/phpunit": "12",
+        "rector/rector": "^2.2",
+        "vimeo/psalm": "^6.13"
     },
     "autoload": {
         "psr-4": {
@@ -70,22 +72,12 @@
             "@php artisan package:discover --ansi"
         ],
         "post-install-cmd": [
-            "@php artisan clear-compiled",
-            "@php artisan optimize",
-            "php -r \"file_exists('.env' ) || copy('.env.example', '.env');\"",
-            "@php artisan key:generate --ansi --quiet",
-            "@php artisan view:cache",
-            "@php artisan config:cache",
-            "@php artisan route:cache",
-            "@php artisan storage:link --quiet"
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan package:discover --ansi || true"
         ],
         "post-update-cmd": [
-            "@php artisan clear-compiled",
-            "@php artisan optimize",
-            "@php artisan view:cache",
-            "@php artisan config:cache",
-            "@php artisan route:cache",
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan package:discover --ansi || true",
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force || true"
         ],
         "pre-commit": [
             "vendor/bin/phpunit",
@@ -103,37 +95,14 @@
             "@php ./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode"
         ],
         "test": [
-            "vendor/bin/phpunit"
-        ],
-        "test-coverage": [
-            "vendor/bin/phpunit --coverage-html coverage"
-        ],
-        "quality": [
-            "@format-test",
-            "@analyse",
-            "@test"
-        ],
-        "clear-all": [
-            "@php artisan cache:clear",
-            "@php artisan config:clear",
-            "@php artisan route:clear",
-            "@php artisan view:clear",
-            "composer dump-autoload -o"
-        ],
-        "cache-all": [
-            "@php artisan config:cache",
-            "@php artisan route:cache",
-            "@php artisan view:cache"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
-        ],
-        "test": [
             "@php artisan config:clear",
             "vendor/bin/phpunit"
+        ],
+        "test:with-progress": [
+            "vendor/bin/phpunit"
+        ],
+        "test:no-progress": [
+            "vendor/bin/phpunit --no-progress"
         ],
         "test:coverage": [
             "vendor/bin/phpunit --coverage-html storage/logs/coverage"
@@ -148,6 +117,34 @@
             "vendor/bin/phpunit",
             "@test:dusk",
             "@test:infection"
+        ],
+        "test:feature": [
+            "vendor/bin/phpunit --testsuite Feature"
+        ],
+        "test:unit": [
+            "vendor/bin/phpunit --testsuite Unit"
+        ],
+        "test:ai": [
+            "vendor/bin/phpunit --testsuite AI"
+        ],
+        "test:security": [
+            "vendor/bin/phpunit --testsuite Security"
+        ],
+        "test:performance": [
+            "vendor/bin/phpunit --testsuite Performance"
+        ],
+        "test:integration": [
+            "vendor/bin/phpunit --testsuite Integration"
+        ],
+        "test:comprehensive": [
+            "vendor/bin/phpunit --configuration=phpunit.xml --log-junit=storage/logs/junit.xml --coverage-html=storage/logs/coverage"
+        ],
+        "test:30": [
+            "@test:ai",
+            "@test:security",
+            "@test:performance",
+            "@test:integration",
+            "@test:comprehensive"
         ],
         "analyse:phpstan": [
             "php -d memory_limit=1G ./vendor/bin/phpstan analyse"
@@ -182,31 +179,14 @@
             "./vendor/bin/phpmetrics --config=phpmetrics.json app"
         ],
         "quality": [
+            "@format-test",
+            "@analyse",
+            "@test"
+        ],
+        "quality:full": [
             "@fix:all",
             "@analyse:all",
             "@test:all"
-        ],
-        "test:ai": [
-            "vendor/bin/phpunit --testsuite AI"
-        ],
-        "test:security": [
-            "vendor/bin/phpunit --testsuite Security"
-        ],
-        "test:performance": [
-            "vendor/bin/phpunit --testsuite Performance"
-        ],
-        "test:integration": [
-            "vendor/bin/phpunit --testsuite Integration"
-        ],
-        "test:comprehensive": [
-            "vendor/bin/phpunit --configuration=phpunit.xml --log-junit=storage/logs/junit.xml --coverage-html=storage/logs/coverage"
-        ],
-        "test:30": [
-            "@test:ai",
-            "@test:security",
-            "@test:performance",
-            "@test:integration",
-            "@test:comprehensive"
         ],
         "measure:all": [
             "./vendor/bin/pint --test",
@@ -215,8 +195,23 @@
             "composer audit",
             "@test:comprehensive"
         ],
-        "cleanup": [
-            "php cleanup-environment.php"
+        "clear-all": [
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "composer dump-autoload -o"
+        ],
+        "cache-all": [
+            "@php artisan config:cache",
+            "@php artisan route:cache",
+            "@php artisan view:cache"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
         ]
     },
     "extra": {
