@@ -83,3 +83,4 @@ coverage/
 NUL
 @php
 IlluminateFoundation*
+/\.env\.docker
