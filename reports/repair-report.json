@@ -1,63 +1,61 @@
 {
-  "timestamp": "${NOW}",
-  "summary": {
-    "status": "completed",
-    "notes": [
-      "Unified health endpoint to /api/health across configs, routes, and docs",
-      "Refactored env() usages to config() with centralized fallbacks",
-      "Added backup.enabled flag and refactored scheduler to use it",
-      "Centralized Vite dev server configuration under config/vite.php",
-      "Aligned StorageStatistics DTO with StorageManagementService construction",
-      "Removed runtime env fallbacks in AIService in favor of config"
-    ]
-  },
-  "files_updated": [
-    "config/backup.php",
-    "app/Console/Kernel.php",
-    "app/Services/Security/SecurityHeadersService.php",
-    "config/ai.php",
-    "app/Services/AIService.php",
-    "app/DataObjects/StorageStatistics.php",
-    "config/vite.php"
-  ],
-  "health_endpoint": {
-    "endpoint": "/api/health",
-    "redirects": [
-      "/health-check -> /api/health"
+    "timestamp": "${NOW}",
+    "summary": {
+        "status": "completed",
+        "notes": [
+            "Unified health endpoint to /api/health across configs, routes, and docs",
+            "Refactored env() usages to config() with centralized fallbacks",
+            "Added backup.enabled flag and refactored scheduler to use it",
+            "Centralized Vite dev server configuration under config/vite.php",
+            "Aligned StorageStatistics DTO with StorageManagementService construction",
+            "Removed runtime env fallbacks in AIService in favor of config"
+        ]
+    },
+    "files_updated": [
+        "config/backup.php",
+        "app/Console/Kernel.php",
+        "app/Services/Security/SecurityHeadersService.php",
+        "config/ai.php",
+        "app/Services/AIService.php",
+        "app/DataObjects/StorageStatistics.php",
+        "config/vite.php"
     ],
-    "verified_in": [
-      "routes/web.php",
-      "config/monitoring.php",
-      "docs/runbooks/Deployment.md",
-      "docker/nginx.conf",
-      "docker/nginx-ssl.conf",
-      "dev-docker/nginx.conf",
-      "docker-compose.yml",
-      "tests/Feature/Api/ComprehensiveApiTest.php",
-      "tests/Feature/Http/Controllers/Api/DocumentationControllerTest.php",
-      "README.md",
-      "scripts/validate-setup.ps1"
+    "health_endpoint": {
+        "endpoint": "/api/health",
+        "redirects": ["/health-check -> /api/health"],
+        "verified_in": [
+            "routes/web.php",
+            "config/monitoring.php",
+            "docs/runbooks/Deployment.md",
+            "docker/nginx.conf",
+            "docker/nginx-ssl.conf",
+            "dev-docker/nginx.conf",
+            "docker-compose.yml",
+            "tests/Feature/Api/ComprehensiveApiTest.php",
+            "tests/Feature/Http/Controllers/Api/DocumentationControllerTest.php",
+            "README.md",
+            "scripts/validate-setup.ps1"
+        ]
+    },
+    "configuration": {
+        "backup": {
+            "enabled": true,
+            "name_source": "config('backup.name') derived from env('APP_NAME')"
+        },
+        "ai": {
+            "api_key_source": "config('ai.api_key') preferring AI_API_KEY, fallback OPENAI_API_KEY",
+            "base_url": "config('ai.base_url')",
+            "timeout": "config('ai.timeout')"
+        },
+        "vite": {
+            "dev_server": "config('vite.dev_server')"
+        }
+    },
+    "follow_ups": [
+        "Add CI workflow and Windows validation script",
+        "Install dev dependencies and ensure composer scripts for tools",
+        "Verify Redis extension parity and client settings",
+        "Ensure Vite build output permissions and config",
+        "Apply coding best practices and fix undefined variables"
     ]
-  },
-  "configuration": {
-    "backup": {
-      "enabled": true,
-      "name_source": "config('backup.name') derived from env('APP_NAME')"
-    },
-    "ai": {
-      "api_key_source": "config('ai.api_key') preferring AI_API_KEY, fallback OPENAI_API_KEY",
-      "base_url": "config('ai.base_url')",
-      "timeout": "config('ai.timeout')"
-    },
-    "vite": {
-      "dev_server": "config('vite.dev_server')"
-    }
-  },
-  "follow_ups": [
-    "Add CI workflow and Windows validation script",
-    "Install dev dependencies and ensure composer scripts for tools",
-    "Verify Redis extension parity and client settings",
-    "Ensure Vite build output permissions and config",
-    "Apply coding best practices and fix undefined variables"
-  ]
 }

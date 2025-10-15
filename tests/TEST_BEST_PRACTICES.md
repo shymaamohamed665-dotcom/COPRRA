@@ -9,12 +9,14 @@ This document outlines best practices to prevent **interdependent tests** and en
 ## ⚠️ The Problem: Interdependent Tests
 
 **Symptoms:**
+
 - A test passes in isolation but fails when run with other tests
 - A previously passing test starts failing after working on unrelated tests
 - Tests pass/fail based on execution order
 - Flaky tests that sometimes pass and sometimes fail
 
 **Root Causes:**
+
 - Shared mutable state (database, files, cache, globals)
 - Tests relying on side effects from other tests
 - No proper cleanup between tests
@@ -30,6 +32,7 @@ This document outlines best practices to prevent **interdependent tests** and en
 Each test runs inside a database transaction that is automatically rolled back after the test completes.
 
 **Implementation:**
+
 ```php
 // tests/TestCase.php
 protected array $connectionsToTransact = ['sqlite'];
@@ -45,6 +48,7 @@ protected array $connectionsToTransact = ['sqlite'];
 Tests run in random order to expose hidden dependencies.
 
 **Implementation:**
+
 ```xml
 <!-- phpunit.xml -->
 <phpunit executionOrder="random" resolveDependencies="true">
@@ -60,6 +64,7 @@ Tests run in random order to expose hidden dependencies.
 PHPUnit monitors and backs up global variables between tests.
 
 **Implementation:**
+
 ```xml
 <!-- phpunit.xml -->
 <phpunit backupGlobals="true" beStrictAboutChangesToGlobalState="true">
@@ -75,6 +80,7 @@ PHPUnit monitors and backs up global variables between tests.
 Clears caches and resets state after each test.
 
 **Implementation:**
+
 ```php
 // tests/DatabaseSetup.php - tearDownDatabase()
 - Auto rollback transactions
@@ -91,121 +97,130 @@ Clears caches and resets state after each test.
 ### ✅ DO:
 
 1. **Use RefreshDatabase or database transactions**
-   ```php
-   use Illuminate\Foundation\Testing\RefreshDatabase;
 
-   class MyTest extends TestCase
-   {
-       use RefreshDatabase;
-   }
-   ```
+    ```php
+    use Illuminate\Foundation\Testing\RefreshDatabase;
+
+    class MyTest extends TestCase
+    {
+        use RefreshDatabase;
+    }
+    ```
 
 2. **Create all test data within the test**
-   ```php
-   public function test_user_can_create_product()
-   {
-       $user = User::factory()->create();
-       $this->actingAs($user);
 
-       // Test logic here
-   }
-   ```
+    ```php
+    public function test_user_can_create_product()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        // Test logic here
+    }
+    ```
 
 3. **Mock external dependencies**
-   ```php
-   public function test_api_call()
-   {
-       Http::fake([
-           'api.example.com/*' => Http::response(['data' => 'fake'], 200),
-       ]);
 
-       // Test logic here
-   }
-   ```
+    ```php
+    public function test_api_call()
+    {
+        Http::fake([
+            'api.example.com/*' => Http::response(['data' => 'fake'], 200),
+        ]);
+
+        // Test logic here
+    }
+    ```
 
 4. **Use factories for test data**
-   ```php
-   $product = Product::factory()->create([
-       'name' => 'Test Product',
-       'price' => 100,
-   ]);
-   ```
+
+    ```php
+    $product = Product::factory()->create([
+        'name' => 'Test Product',
+        'price' => 100,
+    ]);
+    ```
 
 5. **Clean up in setUp/tearDown if needed**
-   ```php
-   protected function setUp(): void
-   {
-       parent::setUp();
-       Cache::flush();
-   }
-   ```
+    ```php
+    protected function setUp(): void
+    {
+        parent::setUp();
+        Cache::flush();
+    }
+    ```
 
 ---
 
 ### ❌ DON'T:
 
 1. **Don't share test data across tests**
-   ```php
-   // BAD
-   class MyTest extends TestCase
-   {
-       protected $user; // Shared state!
 
-       public function setUp(): void
-       {
-           parent::setUp();
-           $this->user = User::create([...]); // Persists across tests!
-       }
-   }
-   ```
+    ```php
+    // BAD
+    class MyTest extends TestCase
+    {
+        protected $user; // Shared state!
+
+        public function setUp(): void
+        {
+            parent::setUp();
+            $this->user = User::create([...]); // Persists across tests!
+        }
+    }
+    ```
 
 2. **Don't rely on test execution order**
-   ```php
-   // BAD
-   public function test_1_create_user() { ... }
-   public function test_2_update_user() { ... } // Assumes test_1 ran first!
-   ```
+
+    ```php
+    // BAD
+    public function test_1_create_user() { ... }
+    public function test_2_update_user() { ... } // Assumes test_1 ran first!
+    ```
 
 3. **Don't modify global state without cleanup**
-   ```php
-   // BAD
-   public function test_config()
-   {
-       config(['app.timezone' => 'UTC']); // Affects other tests!
-   }
 
-   // GOOD
-   public function test_config()
-   {
-       $original = config('app.timezone');
-       config(['app.timezone' => 'UTC']);
+    ```php
+    // BAD
+    public function test_config()
+    {
+        config(['app.timezone' => 'UTC']); // Affects other tests!
+    }
 
-       // Test logic
+    // GOOD
+    public function test_config()
+    {
+        $original = config('app.timezone');
+        config(['app.timezone' => 'UTC']);
 
-       config(['app.timezone' => $original]); // Restore
-   }
-   ```
+        // Test logic
+
+        config(['app.timezone' => $original]); // Restore
+    }
+    ```
 
 4. **Don't use real external APIs**
-   ```php
-   // BAD
-   Http::get('https://real-api.com/data'); // Flaky, slow, unreliable
 
-   // GOOD
-   Http::fake();
-   ```
+    ```php
+    // BAD
+    Http::get('https://real-api.com/data'); // Flaky, slow, unreliable
+
+    // GOOD
+    Http::fake();
+    ```
 
 5. **Don't create files without cleanup**
-   ```php
-   // BAD
-   file_put_contents('/tmp/test.txt', 'data');
 
-   // GOOD
-   $file = tempnam(sys_get_temp_dir(), 'test');
-   file_put_contents($file, 'data');
-   // ... test logic ...
-   unlink($file); // Cleanup
-   ```
+    ```php
+    // BAD
+    file_put_contents('/tmp/test.txt', 'data');
+
+    // GOOD
+    $file = tempnam(sys_get_temp_dir(), 'test');
+    file_put_contents($file, 'data');
+    // ... test logic ...
+    unlink($file); // Cleanup
+    ```
 
 ---
 
@@ -214,31 +229,34 @@ Clears caches and resets state after each test.
 ### Finding the Culprit
 
 1. **Run tests with `--order-by=random`** (already enabled)
-   ```bash
-   php artisan test --order-by=random
-   ```
+
+    ```bash
+    php artisan test --order-by=random
+    ```
 
 2. **Use `--stop-on-failure`** to catch first failure
-   ```bash
-   php artisan test --stop-on-failure
-   ```
+
+    ```bash
+    php artisan test --stop-on-failure
+    ```
 
 3. **Isolate the failing test**
-   ```bash
-   php artisan test --filter=test_specific_method
-   ```
+
+    ```bash
+    php artisan test --filter=test_specific_method
+    ```
 
 4. **Check for global state changes**
-   - Look for config changes
-   - Check for static variables
-   - Inspect singletons
+    - Look for config changes
+    - Check for static variables
+    - Inspect singletons
 
 5. **Use git bisect** to find the commit that introduced the problem
-   ```bash
-   git bisect start
-   git bisect bad HEAD
-   git bisect good <last-known-good-commit>
-   ```
+    ```bash
+    git bisect start
+    git bisect bad HEAD
+    git bisect good <last-known-good-commit>
+    ```
 
 ---
 
@@ -305,6 +323,7 @@ php artisan test --parallel
 ## 🔐 Summary
 
 **Key Takeaways:**
+
 1. ✅ Each test should be **completely independent**
 2. ✅ Tests should work **in any order**
 3. ✅ Always **mock external dependencies**

@@ -1,45 +1,45 @@
 {
-  "timestamp": "2025-10-13T00:00:00Z",
-  "environment": {
-    "php": "8.4.13",
-    "composer": "2.8.12",
-    "node": "22.20.0",
-    "npm": "11.6.2",
-    "docker_compose_services": {
-      "app": "healthy",
-      "nginx": "unhealthy",
-      "db": "healthy",
-      "redis": "healthy",
-      "mailpit": "healthy"
-    }
-  },
-  "repairs_applied": [
-    "Removed static CSP from public/.htaccess to avoid duplicate headers",
-    "Aligned PHP error logging to storage/logs/php-error.log (custom-php.ini, dev-docker/php.ini)",
-    "Confirmed secure session cookies: secure=true, http_only=true, same_site=strict",
-    "Verified CSP is nonce-based via middleware; ensured server configs do not emit CSP",
-    "Ran Laravel core commands: optimize, route:list, migrate --pretend"
-  ],
-  "verification": {
-    "laravel_startup": "ok",
-    "routes_count": 229,
-    "migrations_pending": 0,
-    "api_health_endpoint": "/api/health exists (routes/api.php)",
-    "composer_audit": "clean",
-    "npm_audit": "clean",
-    "phpstan": {
-      "level": 2,
-      "errors_found": 231,
-      "note": "Light static scan run; issues deferred for targeted fixes"
-    }
-  },
-  "remaining_issues": [
-    "Nginx service unhealthy; healthcheck curl to /api/health returns 504 intermittently",
-    "PHP-FPM pool reached pm.max_children=5 causing 500s and timeouts under load"
-  ],
-  "recommended_actions": [
-    "Tune PHP-FPM: increase pm.max_children to 20, set dynamic pool settings, add request_terminate_timeout",
-    "Rebuild dev app image after adding php-fpm pool override, then restart services",
-    "Re-test /api/health via container and host to confirm 200"
-  ]
+    "timestamp": "2025-10-13T00:00:00Z",
+    "environment": {
+        "php": "8.4.13",
+        "composer": "2.8.12",
+        "node": "22.20.0",
+        "npm": "11.6.2",
+        "docker_compose_services": {
+            "app": "healthy",
+            "nginx": "unhealthy",
+            "db": "healthy",
+            "redis": "healthy",
+            "mailpit": "healthy"
+        }
+    },
+    "repairs_applied": [
+        "Removed static CSP from public/.htaccess to avoid duplicate headers",
+        "Aligned PHP error logging to storage/logs/php-error.log (custom-php.ini, dev-docker/php.ini)",
+        "Confirmed secure session cookies: secure=true, http_only=true, same_site=strict",
+        "Verified CSP is nonce-based via middleware; ensured server configs do not emit CSP",
+        "Ran Laravel core commands: optimize, route:list, migrate --pretend"
+    ],
+    "verification": {
+        "laravel_startup": "ok",
+        "routes_count": 229,
+        "migrations_pending": 0,
+        "api_health_endpoint": "/api/health exists (routes/api.php)",
+        "composer_audit": "clean",
+        "npm_audit": "clean",
+        "phpstan": {
+            "level": 2,
+            "errors_found": 231,
+            "note": "Light static scan run; issues deferred for targeted fixes"
+        }
+    },
+    "remaining_issues": [
+        "Nginx service unhealthy; healthcheck curl to /api/health returns 504 intermittently",
+        "PHP-FPM pool reached pm.max_children=5 causing 500s and timeouts under load"
+    ],
+    "recommended_actions": [
+        "Tune PHP-FPM: increase pm.max_children to 20, set dynamic pool settings, add request_terminate_timeout",
+        "Rebuild dev app image after adding php-fpm pool override, then restart services",
+        "Re-test /api/health via container and host to confirm 200"
+    ]
 }

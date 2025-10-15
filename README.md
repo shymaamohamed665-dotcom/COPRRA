@@ -370,28 +370,28 @@ Visit `http://localhost/api/health` to verify all services
 ## Security
 
 - Security headers enabled globally via `SecurityHeadersMiddleware`:
-  - `X-Frame-Options: SAMEORIGIN`
-  - `X-Content-Type-Options: nosniff`
-  - `Referrer-Policy: strict-origin-when-cross-origin`
-  - `Strict-Transport-Security` (applied on HTTPS)
-  - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
-  - `Content-Security-Policy` (CSP) — strict, no `unsafe-inline`/`unsafe-eval`
+    - `X-Frame-Options: SAMEORIGIN`
+    - `X-Content-Type-Options: nosniff`
+    - `Referrer-Policy: strict-origin-when-cross-origin`
+    - `Strict-Transport-Security` (applied on HTTPS)
+    - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+    - `Content-Security-Policy` (CSP) — strict, no `unsafe-inline`/`unsafe-eval`
 - CSP uses a `nonce` generated per-request by `AddCspNonce`.
-  - Scripts: include nonce in inline tags: `<script nonce="{{ $cspNonce }}">...</script>`
-  - Styles: prefer external stylesheets; if inline styles are required, add the same nonce: `<style nonce="{{ $cspNonce }}">...</style>`
+    - Scripts: include nonce in inline tags: `<script nonce="{{ $cspNonce }}">...</script>`
+    - Styles: prefer external stylesheets; if inline styles are required, add the same nonce: `<style nonce="{{ $cspNonce }}">...</style>`
 - Development allowances:
-  - When `APP_ENV=local`, CSP permits the Vite dev server (`VITE_DEV_SERVER`, default `http://localhost:5173`) and WebSocket for HMR via `connect-src`.
+    - When `APP_ENV=local`, CSP permits the Vite dev server (`VITE_DEV_SERVER`, default `http://localhost:5173`) and WebSocket for HMR via `connect-src`.
 
 ### CORS Configuration
 
 - CORS is environment-driven (`config/cors.php`).
-  - Local: allows common dev origins (Vite/SPA and `APP_URL`).
-  - Production: restricted to `APP_URL` and `FRONTEND_URL` unless `CORS_ALLOWED_ORIGINS` is explicitly set.
+    - Local: allows common dev origins (Vite/SPA and `APP_URL`).
+    - Production: restricted to `APP_URL` and `FRONTEND_URL` unless `CORS_ALLOWED_ORIGINS` is explicitly set.
 - Key variables:
-  - `CORS_ALLOWED_ORIGINS` — comma-separated origins.
-  - `CORS_ALLOWED_METHODS` — default `GET,POST,PUT,PATCH,DELETE,OPTIONS`.
-  - `CORS_ALLOWED_HEADERS` — default `Accept,Authorization,Content-Type,X-Requested-With,X-CSRF-TOKEN`.
-  - `CORS_EXPOSED_HEADERS`, `CORS_MAX_AGE`, `CORS_SUPPORTS_CREDENTIALS` — optional.
+    - `CORS_ALLOWED_ORIGINS` — comma-separated origins.
+    - `CORS_ALLOWED_METHODS` — default `GET,POST,PUT,PATCH,DELETE,OPTIONS`.
+    - `CORS_ALLOWED_HEADERS` — default `Accept,Authorization,Content-Type,X-Requested-With,X-CSRF-TOKEN`.
+    - `CORS_EXPOSED_HEADERS`, `CORS_MAX_AGE`, `CORS_SUPPORTS_CREDENTIALS` — optional.
 
 ### Testing & Quality
 
@@ -636,6 +636,7 @@ For support and questions, please open an issue in the repository or contact the
 - Architecture references: `docs/COPRRA.md`, `docs/COPRRA_STRUCTURE.md`, and `CLAUDE.md`.
 - CI/CD overview: `docs/CI_CD_OVERVIEW.md`.
 - Operations: runbooks under `docs/runbooks/` for deployment, rollback, incidents, and cache/queue maintenance.
+
 ### Static Analysis & Style
 
 ```bash

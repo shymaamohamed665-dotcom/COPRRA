@@ -17,17 +17,17 @@ This index summarizes environment configuration, Docker/PHP/Laravel alignment, a
 ## Docker & PHP Configuration
 
 - Unified PHP limits across environments:
-  - `memory_limit=512M`
-  - `max_execution_time=120`
-  - `post_max_size=50M`
-  - `upload_max_filesize=50M`
+    - `memory_limit=512M`
+    - `max_execution_time=120`
+    - `post_max_size=50M`
+    - `upload_max_filesize=50M`
 - OPcache policies:
-  - Production: `validate_timestamps=0`, `revalidate_freq=0`, `memory_consumption=256`, `max_accelerated_files=10000`, `enable_cli=0`.
-  - Development: `validate_timestamps=1`, `revalidate_freq=0`.
+    - Production: `validate_timestamps=0`, `revalidate_freq=0`, `memory_consumption=256`, `max_accelerated_files=10000`, `enable_cli=0`.
+    - Development: `validate_timestamps=1`, `revalidate_freq=0`.
 - Nginx:
-  - `client_max_body_size 50M;`
-  - Block PHP execution in `/uploads`.
-  - Proxy health to `/api/health`.
+    - `client_max_body_size 50M;`
+    - Block PHP execution in `/uploads`.
+    - Proxy health to `/api/health`.
 
 ## Laravel
 
@@ -53,4 +53,3 @@ This index summarizes environment configuration, Docker/PHP/Laravel alignment, a
 
 - Unified endpoint: `GET /api/health`.
 - Nginx proxies the route; tests validate the endpoint under Feature suite.
-
