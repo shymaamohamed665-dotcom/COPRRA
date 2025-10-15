@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace App\Services\Performance;
 
+use Exception;
 use Illuminate\Console\OutputStyle;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\Factory as HttpFactory;
 
 final class PerformanceReporter
 {
-    public function __construct(private readonly OutputStyle $output) {}
+    public function __construct(
+        private readonly OutputStyle $output,
+        private readonly HttpFactory $http
+    ) {}
 
     public function displayRecommendations(): void
     {
@@ -42,27 +46,34 @@ final class PerformanceReporter
 
     private function displayOpcacheStatus(): void
     {
-        if (extension_loaded('Zend OPcache') && function_exists('opcache_get_status')) {
-            $opcacheStatus = opcache_get_status();
-
-            if ($opcacheStatus && $opcacheStatus['opcache_enabled']) {
-                $this->output->line('  OPcache status: ✓ Enabled');
-                $this->output->table(
-                    ['Metric', 'Value'],
-                    [
-                        ['Used memory', number_format($opcacheStatus['memory_usage']['used_memory'] / 1024 / 1024, 2).' MB'],
-                        ['Free memory', number_format($opcacheStatus['memory_usage']['free_memory'] / 1024 / 1024, 2).' MB'],
-                        ['Wasted memory', number_format($opcacheStatus['memory_usage']['wasted_memory'] / 1024 / 1024, 2).' MB'],
-                        ['Hit rate', number_format($opcacheStatus['opcache_statistics']['opcache_hit_rate'], 2).' %'],
-                        ['Cached scripts', $opcacheStatus['opcache_statistics']['num_cached_scripts']],
-                    ]
-                );
-            } else {
-                $this->output->line('  OPcache status: ✗ Disabled');
-            }
-        } else {
+        $available = extension_loaded('Zend OPcache') && function_exists('opcache_get_status');
+        if (! $available) {
             $this->output->line('  OPcache status: ✗ Not available');
+            $this->output->newLine();
+
+            return;
         }
+
+        $opcacheStatus = opcache_get_status();
+        $enabled = $opcacheStatus && ($opcacheStatus['opcache_enabled'] ?? false);
+        if (! $enabled) {
+            $this->output->line('  OPcache status: ✗ Disabled');
+            $this->output->newLine();
+
+            return;
+        }
+
+        $this->output->line('  OPcache status: ✓ Enabled');
+        $this->output->table(
+            ['Metric', 'Value'],
+            [
+                ['Used memory', number_format(($opcacheStatus['memory_usage']['used_memory'] ?? 0) / 1024 / 1024, 2).' MB'],
+                ['Free memory', number_format(($opcacheStatus['memory_usage']['free_memory'] ?? 0) / 1024 / 1024, 2).' MB'],
+                ['Wasted memory', number_format(($opcacheStatus['memory_usage']['wasted_memory'] ?? 0) / 1024 / 1024, 2).' MB'],
+                ['Hit rate', number_format(($opcacheStatus['opcache_statistics']['opcache_hit_rate'] ?? 0), 2).' %'],
+                ['Cached scripts', $opcacheStatus['opcache_statistics']['num_cached_scripts'] ?? 0],
+            ]
+        );
 
         $this->output->newLine();
     }
@@ -72,14 +83,15 @@ final class PerformanceReporter
         $this->output->line('  Real-time requests:');
 
         try {
-            $response = Http::get('http://localhost/server-status?auto');
-
-            if ($response->successful()) {
-                $this->output->text($response->body());
-            } else {
+            $response = $this->http->get('http://localhost/server-status?auto');
+            if (! $response->successful()) {
                 $this->output->warn('  Could not fetch real-time requests. Is mod_status enabled?');
+
+                return;
             }
-        } catch (\Exception $e) {
+
+            $this->output->text($response->body());
+        } catch (Exception $e) {
             $this->output->warn('  Could not fetch real-time requests: '.$e->getMessage());
         }
     }

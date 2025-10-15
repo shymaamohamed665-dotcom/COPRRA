@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Services\Performance;
 
 use Illuminate\Console\OutputStyle;
+use Illuminate\Contracts\Cache\Repository;
 
 final class PerformanceReporterService
 {
     public function __construct(
-        private readonly OutputStyle $output
+        private readonly OutputStyle $output,
+        private readonly Repository $cache
     ) {}
 
     public function displayRecommendations(): void
@@ -39,8 +41,8 @@ final class PerformanceReporterService
 
     public function displayPerformanceStats(): void
     {
-        $cacheStats = cache()->get('stats') ?? [];
-        $dbStats = cache()->get('db_stats') ?? [];
+        $cacheStats = $this->cache->get('stats') ?? [];
+        $dbStats = $this->cache->get('db_stats') ?? [];
         $opcacheStats = function_exists('opcache_get_status') ? opcache_get_status() : [];
         $memoryUsage = memory_get_usage(true);
         $peakMemoryUsage = memory_get_peak_usage(true);

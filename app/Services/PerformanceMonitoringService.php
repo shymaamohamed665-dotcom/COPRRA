@@ -87,7 +87,9 @@ final class PerformanceMonitoringService
     /**
      * Get overall performance metrics.
      *
-     * @return array<string, float|int|array>
+     * @return (array[]|float|int)[]
+     *
+     * @psalm-return array{total_execution_time: float, total_memory_usage: int, peak_memory: int, total_queries: int<0, max>, queries: array<array>, cache_hits: int, cache_misses: int}
      */
     public function getOverallMetrics(): array
     {
@@ -141,7 +143,9 @@ final class PerformanceMonitoringService
     /**
      * Monitor cache performance.
      *
-     * @return array<string, int|float>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{hits: int, misses: int, hit_rate: float|int, miss_rate: float|int}
      */
     public function monitorCache(): array
     {
@@ -160,7 +164,9 @@ final class PerformanceMonitoringService
     /**
      * Monitor memory usage.
      *
-     * @return array<string, int|float>
+     * @return (float|int)[]
+     *
+     * @psalm-return array{current_usage: int, peak_usage: int, limit: int, usage_percentage: float|int}
      */
     public function monitorMemory(): array
     {
@@ -181,7 +187,9 @@ final class PerformanceMonitoringService
     /**
      * Monitor storage usage.
      *
-     * @return array<string, int|float>
+     * @return (false|float|int)[]
+     *
+     * @psalm-return array{total_space: false|float, used_space: float, free_space: false|float, usage_percentage: 0|float}
      */
     public function monitorStorage(): array
     {

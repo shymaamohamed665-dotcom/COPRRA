@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace App\Services\Performance;
 
+use Exception;
 use Illuminate\Console\OutputStyle;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Database\DatabaseManager;
 
 final class DatabaseOptimizerService
 {
     public function __construct(
-        private readonly OutputStyle $output
+        private readonly OutputStyle $output,
+        private readonly DatabaseManager $database,
+        private readonly Kernel $kernel
     ) {}
 
     public function optimizeDatabase(): void
@@ -25,9 +28,9 @@ final class DatabaseOptimizerService
 
                 foreach ($tableNames as $tableName) {
                     try {
-                        DB::statement("OPTIMIZE TABLE `{$tableName}`");
+                        $this->database->connection()->statement("OPTIMIZE TABLE `{$tableName}`");
                         $optimized++;
-                    } catch (\Exception $e) {
+                    } catch (Exception $e) {
                         $errors[] = "Could not optimize table `{$tableName}`: {$e->getMessage()}";
                     }
                 }
@@ -44,7 +47,7 @@ final class DatabaseOptimizerService
 
     public function analyzeDatabase(): void
     {
-        Artisan::call('db:analyze');
+        $this->kernel->call('db:analyze');
     }
 
     /**
@@ -54,8 +57,8 @@ final class DatabaseOptimizerService
      */
     private function getTableNames(): array
     {
-        $tables = DB::select('SHOW TABLES');
-        $database = config('database.connections.mysql.database');
+        $tables = $this->database->connection()->select('SHOW TABLES');
+        $database = $this->database->connection()->getDatabaseName();
         $tableKey = is_string($database) ? "Tables_in_{$database}" : 'Tables_in_';
         $tableNames = [];
         foreach ($tables as $table) {
@@ -77,7 +80,7 @@ final class DatabaseOptimizerService
         try {
             $task();
             $this->output->line('  ✓ '.$successMessage);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->output->warn('  ✗ Failed: '.$e->getMessage());
         }
 

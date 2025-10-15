@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\Services\Performance;
 
 use Illuminate\Console\OutputStyle;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Contracts\Console\Kernel;
 
 final class CacheOptimizerService
 {
     public function __construct(
-        private readonly OutputStyle $output
+        private readonly OutputStyle $output,
+        private readonly Kernel $kernel
     ) {}
 
     public function clearCaches(): void
@@ -60,10 +61,10 @@ final class CacheOptimizerService
     private function executeSingleCommand(string $command, string $successMessage): void
     {
         try {
-            Artisan::call($command);
+            $this->kernel->call($command);
             $this->output->line("  ✓ {$successMessage}");
-        } catch (\Exception $e) {
-            $this->output->error("  ✗ Failed to execute {$command}: {$e->getMessage()}");
+        } catch (\Throwable $exception) {
+            $this->output->error("  ✗ Failed to execute {$command}: {$exception->getMessage()}");
         }
     }
 }

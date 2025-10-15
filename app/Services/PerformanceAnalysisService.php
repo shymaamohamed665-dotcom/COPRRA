@@ -37,6 +37,8 @@ final class PerformanceAnalysisService
      * Check cache configuration.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return 0|25
      */
     private function checkCacheConfiguration(array &$issues): int
     {
@@ -53,6 +55,8 @@ final class PerformanceAnalysisService
      * Check database indexes.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return 0|25
      */
     private function checkDatabaseIndexes(array &$issues): int
     {
@@ -76,6 +80,8 @@ final class PerformanceAnalysisService
      * Check asset compilation.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return 0|25
      */
     private function checkAssetCompilation(array &$issues): int
     {
@@ -92,6 +98,8 @@ final class PerformanceAnalysisService
      * Check queue configuration.
      *
      * @param  array<string>  $issues
+     *
+     * @psalm-return 0|25
      */
     private function checkQueueConfiguration(array &$issues): int
     {

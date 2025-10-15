@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Services\Performance;
 
+use Exception;
 use Illuminate\Console\OutputStyle;
+use Illuminate\Contracts\Console\Kernel;
 
 final class SystemOptimizerService
 {
     public function __construct(
-        private readonly OutputStyle $output
+        private readonly OutputStyle $output,
+        private readonly Kernel $kernel
     ) {}
 
     public function optimizeAutoloader(): void
@@ -18,10 +21,12 @@ final class SystemOptimizerService
             '📦 Optimizing autoloader...',
             function (): void {
                 $returnCode = 0;
-                exec('composer dump-autoload --optimize --no-dev 2>&1', $output, $returnCode);
+                $execOutput = [];
+                exec('composer dump-autoload --optimize --no-dev 2>&1', $execOutput, $returnCode);
 
                 if ($returnCode !== 0) {
-                    throw new \Exception('Composer autoload optimization failed');
+                    $details = implode("\n", $execOutput);
+                    throw new Exception('Composer autoload optimization failed'.($details !== '' ? ":\n".$details : ''));
                 }
             },
             'Autoloader optimized'
@@ -33,7 +38,7 @@ final class SystemOptimizerService
         $this->executeOptimizationTask(
             '👁️  Optimizing views...',
             function (): void {
-                \Illuminate\Support\Facades\Artisan::call('view:cache');
+                $this->kernel->call('view:cache');
             },
             'Views compiled and cached'
         );
@@ -44,7 +49,7 @@ final class SystemOptimizerService
         $this->executeOptimizationTask(
             '🛣️  Optimizing routes...',
             function (): void {
-                \Illuminate\Support\Facades\Artisan::call('route:cache');
+                $this->kernel->call('route:cache');
             },
             'Routes cached'
         );
@@ -55,7 +60,7 @@ final class SystemOptimizerService
         $this->executeOptimizationTask(
             '⚙️  Optimizing configuration...',
             function (): void {
-                \Illuminate\Support\Facades\Artisan::call('config:cache');
+                $this->kernel->call('config:cache');
             },
             'Configuration cached'
         );
@@ -71,7 +76,7 @@ final class SystemOptimizerService
         try {
             $task();
             $this->output->line('  ✓ '.$successMessage);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->output->warn('  ✗ Failed: '.$e->getMessage());
         }
 
