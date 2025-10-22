@@ -74,12 +74,22 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
+          php artisan config:clear
         env:
           APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+          CACHE_DRIVER: array
+          SESSION_DRIVER: array
+          QUEUE_CONNECTION: sync
       - name: Static analysis
         run: |
           vendor/bin/phpstan analyse --no-progress
           vendor/bin/psalm --no-cache
+        env:
+          APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
       - name: Insights
         run: vendor/bin/phpinsights analyse app --no-interaction || true
       - name: Ensure reports directory

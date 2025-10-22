@@ -60,8 +60,14 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
+          php artisan config:clear
         env:
           APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+          CACHE_DRIVER: array
+          SESSION_DRIVER: array
+          QUEUE_CONNECTION: sync
 
       - name: Run Composer Security Audit
         run: composer audit --format=json > composer-security-report.json
@@ -71,6 +77,10 @@ jobs:
 
       - name: Run PHPStan Security Rules
         run: vendor/bin/phpstan analyse --memory-limit=1G --configuration=phpstan.neon
+        env:
+          APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
 
       - name: Run Psalm Security Analysis
         run: vendor/bin/psalm --config=psalm.xml --taint-analysis
