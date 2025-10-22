@@ -113,6 +113,15 @@ jobs:
         continue-on-error: true
         run: ./vendor/bin/security-checker security:check --format=json > security-checker-report.json
 
+      - name: Run PHP-CS-Fixer Security Check
+        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --verbose || true
+
+      - name: Run Rector Security Check
+        run: ./vendor/bin/rector process --dry-run || true
+
+      - name: Run PHPMND (Detect Magic Numbers)
+        run: ./vendor/bin/phpmnd app --non-zero-exit-on-violation || true
+
       - name: Evaluate Enlightn Results
         id: enlightn_evaluate
         uses: actions/github-script@v7

@@ -129,6 +129,18 @@ jobs:
         run: ./vendor/bin/psalm --output-format=github --no-cache
         continue-on-error: true
 
+      - name: Run PHP-CS-Fixer (Code Style)
+        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
+        continue-on-error: true
+
+      - name: Run Rector (Code Quality)
+        run: ./vendor/bin/rector process --dry-run
+        continue-on-error: true
+
+      - name: Run PHPMND (Magic Number Detector)
+        run: ./vendor/bin/phpmnd app --non-zero-exit-on-violation
+        continue-on-error: true
+
   #=============================================================================
   # JOB 3: FRONTEND BUILD
   #=============================================================================

@@ -160,6 +160,18 @@ jobs:
         continue-on-error: true
         run: ./vendor/bin/deptrac analyse --config-file=deptrac.yaml || true
 
+      - name: Run PHP-CS-Fixer
+        continue-on-error: true
+        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --verbose || true
+
+      - name: Run Rector
+        continue-on-error: true
+        run: ./vendor/bin/rector process --dry-run || true
+
+      - name: Run PHPMND
+        continue-on-error: true
+        run: ./vendor/bin/phpmnd app --non-zero-exit-on-violation || true
+
       - name: Run Composer Audit
         continue-on-error: true
         run: composer audit || true
