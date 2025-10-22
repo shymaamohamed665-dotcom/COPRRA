@@ -250,7 +250,10 @@ jobs:
           chmod -R 777 storage bootstrap/cache
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-dev
+        run: composer install --prefer-dist --no-progress --optimize-autoloader
+
+      - name: Optimize autoloader for tests
+        run: composer dump-autoload --classmap-authoritative
 
       - name: Copy .env.testing
         run: cp .env.testing .env
