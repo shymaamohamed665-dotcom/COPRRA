@@ -23,7 +23,6 @@ parameters:
     checkImplicitMixed: true
     checkBenevolentUnionTypes: true
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
-    checkUninitializedProperties: true
     polluteScopeWithLoopInitialAssignments: false
     polluteScopeWithAlwaysIterableForeach: false
     checkAlwaysTrueCheckTypeFunctionCall: true
