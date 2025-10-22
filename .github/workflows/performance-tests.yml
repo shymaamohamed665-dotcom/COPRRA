@@ -56,9 +56,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-composer-
 
+      - name: Prepare Laravel directories
+        run: |
+          mkdir -p storage/framework/cache
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
+          mkdir -p storage/logs
+          mkdir -p bootstrap/cache
+          chmod -R 777 storage bootstrap/cache
 
       - name: Install Composer Dependencies
-        run: composer install --prefer-dist --no-progress --no-ansi --optimize-autoloader --no-scripts
+        run: composer install --prefer-dist --no-progress --no-ansi --optimize-autoloader
 
       - name: Install NPM Dependencies
         run: npm ci

@@ -86,7 +86,7 @@ jobs:
         run: vendor/bin/psalm --config=psalm.xml --taint-analysis
 
       - name: Run PHPMD Security Rules
-        run: vendor/bin/phpmd app text phpmd.xml --rulesets cleancode,unusedcode,design,controversial,naming,codesize
+        run: vendor/bin/phpmd app text cleancode,unusedcode,design,controversial,naming,codesize
 
       - name: Run ESLint Security Rules
         run: "npx eslint resources/js --ext .js,.vue,.ts --config=eslint.config.js --rule 'security/detect-object-injection: error'"
