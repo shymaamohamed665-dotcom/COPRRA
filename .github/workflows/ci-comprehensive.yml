@@ -250,7 +250,7 @@ jobs:
           chmod -R 777 storage bootstrap/cache
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
+        run: composer install --prefer-dist --no-progress --no-dev
 
       - name: Copy .env.testing
         run: cp .env.testing .env
