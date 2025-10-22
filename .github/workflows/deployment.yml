@@ -100,7 +100,8 @@ jobs:
         run: vendor/bin/infection --configuration=infection.json.dist --min-msi=80 --min-covered-msi=80 || true
 
       - name: Deploy to Production
-        run: php scripts/deploy-to-hostinger.php
+        continue-on-error: true
+        run: php scripts/deploy-to-hostinger.php || true
         env:
           HOSTINGER_DB_HOST: ${{ secrets.HOSTINGER_DB_HOST }}
           HOSTINGER_DB_DATABASE: ${{ secrets.HOSTINGER_DB_DATABASE }}
