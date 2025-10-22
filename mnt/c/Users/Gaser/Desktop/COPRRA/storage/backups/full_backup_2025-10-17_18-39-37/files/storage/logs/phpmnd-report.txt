@@ -1,0 +1,246 @@
+[32mphpmnd[39m version [33mv3.6.0[39m by Povilas Susinskas
+
+   0/385 [>---------------------------]   0%[1G[2K  39/385 [==>-------------------------]  10%[1G[2K  77/385 [=====>----------------------]  20%[1G[2K 116/385 [========>-------------------]  30%[1G[2K 154/385 [===========>----------------]  40%[1G[2K 193/385 [==============>-------------]  50%[1G[2K 231/385 [================>-----------]  60%[1G[2K 270/385 [===================>--------]  70%[1G[2K 308/385 [======================>-----]  80%[1G[2K 347/385 [=========================>--]  90%[1G[2K 385/385 [============================] 100%
+
+------------------------------------------------------------------------------------------------------------------------
+
+Console\Commands\StatsCommand.php:210. Magic number: 1024
+  > 210|         for ($i = 0; $size > 1024 && $i < $unitsCount; $i++) {
+------------------------------------------------------------------------------------------------------------------------
+
+Exceptions\GlobalExceptionHandler.php:388. Magic number: 500
+  > 388|         return in_array($exception::class, $criticalErrors, true) || $exception->getCode() >= 500;
+------------------------------------------------------------------------------------------------------------------------
+
+Http\Controllers\Admin\DashboardController.php:468. Magic number: 90
+  > 468|             'status' => $percentage > 90 ? 'warning' : 'healthy',
+------------------------------------------------------------------------------------------------------------------------
+
+Http\Controllers\LogController.php:33. Magic number: 500
+  > 33|                 return response()->json($logData, $logData['status'] ?? 500);
+------------------------------------------------------------------------------------------------------------------------
+
+Http\Middleware\SetCacheHeaders.php:26. Magic number: 200
+  > 26|         if ($request->isMethod('GET') && $response->getStatusCode() === 200) {
+------------------------------------------------------------------------------------------------------------------------
+
+Http\Requests\UploadFileRequest.php:19. Magic number: 10240
+  > 19|         $maxSizeKb = (int) (($config['max_size'] ?? 10240)); // already in KB per config
+------------------------------------------------------------------------------------------------------------------------
+
+Models\ExchangeRate.php:57. Magic number: 1
+  > 57|             return 1.0;
+------------------------------------------------------------------------------------------------------------------------
+
+Models\Product.php:383. Magic number: 2
+  > 383|         if ($this->priceHistory->count() < 2) {
+------------------------------------------------------------------------------------------------------------------------
+
+Providers\CollectionMacroServiceProvider.php:18. Magic number: 2
+  > 18|             if ($this->count() < 2) {
+------------------------------------------------------------------------------------------------------------------------
+
+Rules\DimensionSum.php:26. Magic number: 3
+  > 26|         if (! is_array($value) || count($value) !== 3) {
+------------------------------------------------------------------------------------------------------------------------
+
+Rules\PasswordValidator.php:158. Magic number: 3
+  > 158|         if ($diversity >= 3) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\Activity\Services\ActivityValidationService.php:102. Magic number: 15
+  > 102|             'time_window' => (int) ($rule['time_window'] ?? 15),
+Services\Activity\Services\ActivityValidationService.php:103. Magic number: 5
+  > 103|             'threshold' => (int) ($rule['threshold'] ?? 5),
+------------------------------------------------------------------------------------------------------------------------
+
+Services\ActivityChecker.php:221. Magic number: 15
+  > 221|         $timeWindow = (int) ($rule['time_window'] ?? 15);
+Services\ActivityChecker.php:222. Magic number: 5
+  > 222|         $threshold = (int) ($rule['threshold'] ?? 5);
+Services\ActivityChecker.php:279. Magic number: 5
+  > 279|         $timeWindow = (int) ($rule['time_window'] ?? 5);
+Services\ActivityChecker.php:280. Magic number: 100
+  > 280|         $threshold = (int) ($rule['threshold'] ?? 100);
+Services\ActivityChecker.php:311. Magic number: 60
+  > 311|         $timeWindow = (int) ($rule['time_window'] ?? 60);
+Services\ActivityChecker.php:312. Magic number: 1000
+  > 312|         $threshold = (int) ($rule['threshold'] ?? 1000);
+Services\ActivityChecker.php:343. Magic number: 60
+  > 343|             'time_window' => (int) ($rule['time_window'] ?? 60),
+------------------------------------------------------------------------------------------------------------------------
+
+Services\AI\ContinuousQualityMonitor.php:52. Magic number: 1000
+  > 52|             if ($iterations > 1000) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\AI\HealthScoreCalculator.php:41. Magic number: 100
+  > 41|             return 100;
+Services\AI\HealthScoreCalculator.php:71. Magic number: 100
+  > 71|             return 100;
+Services\AI\HealthScoreCalculator.php:101. Magic number: 100
+  > 101|         return 100;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\AI\Services\AIImageAnalysisService.php:138. Magic number: 0.5
+  > 138|         return 0.5;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\AI\Services\AIRequestService.php:115. Magic number: 3
+  > 115|                 if (mb_strlen($w) >= 3) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\AI\Services\AITextAnalysisService.php:225. Magic number: 0.5
+  > 225|         return 0.5;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\Backup\BackupValidator.php:47. Magic number: 255
+  > 47|         return $name !== '' && strlen($name) <= 255;
+Services\Backup\BackupValidator.php:55. Magic number: 500
+  > 55|         return strlen($description) <= 500;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\CacheService.php:252. Magic number: 3600
+  > 252|         Cache::put($key, $data, $ttl ?? 3600);
+Services\CacheService.php:281. Magic number: 3600
+  > 281|         Cache::put($key, $data, $ttl ?? 3600);
+Services\CacheService.php:311. Magic number: 3600
+  > 311|         Cache::put($key, $results, $ttl ?? 3600);
+------------------------------------------------------------------------------------------------------------------------
+
+Services\Compression\CompressionResponseService.php:65. Magic number: 1024
+  > 65|         return strlen($content) > 1024;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\ExchangeRates\RateProvider.php:17. Magic number: 1
+  > 17|             return 1.0;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\ExchangeRateService.php:170. Magic number: 1
+  > 170|             return 1.0;
+Services\ExchangeRateService.php:173. Magic number: 1
+  > 173|         $fromRate = $rates[$fromCurrency] ?? 1.0;
+Services\ExchangeRateService.php:174. Magic number: 1
+  > 174|         $toRate = $rates[$toCurrency] ?? 1.0;
+Services\ExchangeRateService.php:178. Magic number: 1
+  > 178|             return 1.0;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\FileCleanup\CleanupStrategyFactory.php:28. Magic number: 7
+  > 28|                 ], (int) ($config['temp_files_retention_days'] ?? 7));
+Services\FileCleanup\CleanupStrategyFactory.php:30. Magic number: 30
+  > 30|                 return new LogFilesCleanupStrategy($cleaner, storage_path('logs'), (int) ($config['log_files_retention_days'] ?? 30));
+Services\FileCleanup\CleanupStrategyFactory.php:36. Magic number: 14
+  > 36|                 ], (int) ($config['cache_files_retention_days'] ?? 14));
+Services\FileCleanup\CleanupStrategyFactory.php:38. Magic number: 90
+  > 38|                 return new BackupFilesCleanupStrategy($cleaner, storage_path('backups'), (int) ($config['backup_files_retention_days'] ?? 90));
+------------------------------------------------------------------------------------------------------------------------
+
+Services\FileCleanupService.php:182. Magic number: 1024
+  > 182|         $maxSizeMb = (float) ($this->config['max_storage_size_mb'] ?? 1024.0);
+------------------------------------------------------------------------------------------------------------------------
+
+Services\FinancialTransactionService.php:86. Magic number: 1000000
+  > 86|         if ($price > 1000000) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\ImageOptimizationService.php:34. Magic number: 2
+  > 34|                 if (! is_array($dimensions) || count($dimensions) < 2) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\LogProcessing\SystemHealthChecker.php:89. Magic number: 90
+  > 89|             if ($usagePercentage > 90) {
+Services\LogProcessing\SystemHealthChecker.php:96. Magic number: 80
+  > 96|             if ($usagePercentage > 80) {
+Services\LogProcessing\SystemHealthChecker.php:126. Magic number: 90
+  > 126|         if ($usagePercentage > 90) {
+Services\LogProcessing\SystemHealthChecker.php:133. Magic number: 80
+  > 133|         if ($usagePercentage > 80) {
+Services\LogProcessing\SystemHealthChecker.php:165. Magic number: 5
+  > 165|         if ($diskSpaceGB < 5) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\OrderService.php:225. Magic number: 100
+  > 225|         return $subtotal > 100 ? 0 : 10; // Free shipping over $100
+------------------------------------------------------------------------------------------------------------------------
+
+Services\PasswordPolicyService.php:77. Magic number: 900
+  > 77|             if ($userId <= 0 || $userId >= 900) {
+Services\PasswordPolicyService.php:107. Magic number: 5
+  > 107|             return count($attempts) >= 5;
+Services\PasswordPolicyService.php:403. Magic number: 16
+  > 403|         if ($length >= 16) {
+Services\PasswordPolicyService.php:404. Magic number: 3
+  > 404|             return 3;
+Services\PasswordPolicyService.php:406. Magic number: 12
+  > 406|         if ($length >= 12) {
+Services\PasswordPolicyService.php:407. Magic number: 2
+  > 407|             return 2;
+Services\PasswordPolicyService.php:409. Magic number: 8
+  > 409|         if ($length >= 8) {
+Services\PasswordPolicyService.php:444. Magic number: 0.7
+  > 444|         return $uniqueChars / $length > 0.7 ? 1 : 0;
+Services\PasswordPolicyService.php:451. Magic number: 8
+  > 451|         if ($score >= 8) {
+Services\PasswordPolicyService.php:454. Magic number: 6
+  > 454|         if ($score >= 6) {
+Services\PasswordPolicyService.php:457. Magic number: 4
+  > 457|         if ($score >= 4) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\PerformanceAnalysisService.php:46. Magic number: 25
+  > 46|             return 25;
+Services\PerformanceAnalysisService.php:70. Magic number: 25
+  > 70|                 return 25;
+Services\PerformanceAnalysisService.php:89. Magic number: 25
+  > 89|             return 25;
+Services\PerformanceAnalysisService.php:107. Magic number: 25
+  > 107|             return 25;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\PriceUpdate\PriceFetcherService.php:26. Magic number: 0.01
+  > 26|         if ($currentPrice > 0 && $newPrice !== null && abs($currentPrice - $newPrice) / $currentPrice > 0.01) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\Product\Services\ProductValidationService.php:76. Magic number: 20
+  > 76|         if ($limit < 1 || $limit > 20) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\QualityAnalysisService.php:56. Magic number: 50
+  > 56|             return 50;
+Services\QualityAnalysisService.php:82. Magic number: 50
+  > 82|             return 50;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\SecurityAnalysisService.php:62. Magic number: 30
+  > 62|             return 30;
+Services\SecurityAnalysisService.php:80. Magic number: 10
+  > 80|             return 10;
+Services\SecurityAnalysisService.php:98. Magic number: 20
+  > 98|             return 20;
+Services\SecurityAnalysisService.php:117. Magic number: 20
+  > 117|             return 20;
+Services\SecurityAnalysisService.php:135. Magic number: 20
+  > 135|             return 20;
+------------------------------------------------------------------------------------------------------------------------
+
+Services\SEOService.php:336. Magic number: 30
+  > 336|         if ($titleLength < 30) {
+Services\SEOService.php:338. Magic number: 60
+  > 338|         } elseif ($titleLength > 60) {
+Services\SEOService.php:359. Magic number: 70
+  > 359|         if ($descriptionLength < 70) {
+Services\SEOService.php:361. Magic number: 160
+  > 361|         } elseif ($descriptionLength > 160) {
+------------------------------------------------------------------------------------------------------------------------
+
+Services\StorageManagementService.php:341. Magic number: 1024
+  > 341|         $maxMb = (float) ($this->config['max_storage_size_mb'] ?? 1024.0);
+Services\StorageManagementService.php:608. Magic number: 95
+  > 608|         $criticalThreshold = $this->config['critical_threshold'] ?? 95;
+Services\StorageManagementService.php:613. Magic number: 80
+  > 613|         if ($usagePercentage >= ($this->config['warning_threshold'] ?? 80)) {
+------------------------------------------------------------------------------------------------------------------------
+
+[32mTotal of Magic Numbers: 82[39m
+[32mTime: 00:01.696, Memory: 26.00 MB[39m

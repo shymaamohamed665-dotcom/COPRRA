@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Browser;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -13,3 +15,5 @@ class ExampleTest extends DuskTestCase
         $this->assertTrue(true);
     }
 }
+
+

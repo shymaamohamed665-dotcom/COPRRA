@@ -1,0 +1,73 @@
+COPRRA Tools and Tests (Complete Merged Index)
+
+Sources:
+- القائمه النهائيه للاختبارات والادوات.txt
+- تقرير_الاختلافات_بين_التقارير.txt
+- تقرير_الفحص_الشامل_2025.txt
+- جرد_الاختبارات_والأدوات.txt
+- قائمة_الاختبارات_والأدوات.txt
+
+Counts:
+- Tools: 22
+- Tests: 0
+- Total: 22
+
+TOOLS
+-----
+vendor/bin/behat
+vendor/bin/blade-icons-generate
+vendor/bin/carbon
+vendor/bin/codecept
+vendor/bin/composer-unused
+vendor/bin/deptrac
+vendor/bin/infection
+vendor/bin/json5
+vendor/bin/parallel-lint
+vendor/bin/patch-type-declarations
+vendor/bin/pdepend
+vendor/bin/php-cs-fixer
+vendor/bin/php-parse
+vendor/bin/phpcbf
+vendor/bin/phpcs
+vendor/bin/phpdoc
+vendor/bin/phpmd
+vendor/bin/phpstan
+vendor/bin/phpunit
+vendor/bin/psalm
+vendor/bin/rector
+vendor/bin/security-checker
+
+TESTS
+-----
+
+DEBUG
+-----
+Processed القائمه النهائيه للاختبارات والادوات.txt: lines=854 tools=69 tests=0 prefix=
+Samples containing tests/: القائمه النهائيه للاختبارات والادوات.txt
+  33) â€¢ ./tests/Architecture/ArchTest.php
+  34) â€¢ ./tests/Benchmarks/PerformanceBenchmark.php
+  35) â€¢ ./tests/Browser/E2ETest.php
+  36) â€¢ ./tests/Browser/ExampleTest.php
+  37) â€¢ ./tests/ErrorHandlerManagerTest.php
+Processed تقرير_الاختلافات_بين_التقارير.txt: lines=954 tools=69 tests=0 prefix=
+Samples containing tests/: تقرير_الاختلافات_بين_التقارير.txt
+  فقط في التقرير الجديد: 87) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/README.md â€” ÙˆØ«Ø§Ø¦Ù‚ Ù…Ù…Ø§Ø±Ø³Ø§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+  فقط في التقرير الجديد: 88) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/TEST_BEST_PRACTICES.md â€” Ø£ÙØ¶Ù„ Ù…Ù…Ø§Ø±Ø³Ø§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+  فقط في التقرير الجديد: 89) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/TestCase.php â€” Ø§Ù„ÙØ¦Ø© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+  فقط في التقرير الجديد: 90) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/CreatesApplication.php â€” ØªÙ‡ÙŠØ¦Ø© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+  فقط في التقرير الجديد: 91) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/DatabaseSetup.php â€” Ø¥Ø¹Ø¯Ø§Ø¯ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±
+Processed تقرير_الفحص_الشامل_2025.txt: lines=965 tools=24 tests=0 prefix=
+Samples containing tests/: تقرير_الفحص_الشامل_2025.txt
+  • اختبارات الوحدة (Unit):           tests/Unit/
+  • اختبارات الميزات (Feature):       tests/Feature/
+  • اختبارات الذكاء الاصطناعي (AI):   tests/AI/
+  • اختبارات الأمان (Security):       tests/Security/
+  • اختبارات الأداء (Performance):    tests/Performance/
+Processed جرد_الاختبارات_والأدوات.txt: lines=397 tools=18 tests=0 prefix=
+Samples containing tests/: جرد_الاختبارات_والأدوات.txt
+  87) اختبار/دعم: tests/README.md — وثائق ممارسات الاختبارات
+  88) اختبار/دعم: tests/TEST_BEST_PRACTICES.md — أفضل ممارسات الاختبارات
+  89) اختبار/دعم: tests/TestCase.php — الفئة الأساسية للاختبارات
+  90) اختبار/دعم: tests/CreatesApplication.php — تهيئة التطبيق للاختبارات
+  91) اختبار/دعم: tests/DatabaseSetup.php — إعداد قاعدة البيانات للاختبار
+Processed قائمة_الاختبارات_والأدوات.txt: lines=100 tools=0 tests=0 prefix=

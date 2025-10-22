@@ -1,0 +1,13 @@
+<?php
+
+namespace Srmklive\PayPal\Services;
+
+class PayPal
+{
+    /**
+     * @return array<string, mixed>
+     */
+    public function refundTransaction(string $transactionId, float $amount): array
+    {
+    }
+}

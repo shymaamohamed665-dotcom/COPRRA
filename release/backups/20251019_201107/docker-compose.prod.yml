@@ -1,0 +1,87 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: coprra-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    environment:
+      APP_ENV: production
+      APP_DEBUG: "false"
+    networks:
+      - coprra_network
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:alpine
+    container_name: coprra-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html:ro
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - coprra_network
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: coprra-db
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:33061:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - dev-dbdata:/var/lib/mysql
+    networks:
+      - coprra_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: coprra-redis
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - coprra_network
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: coprra-mailpit
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8025:8025"
+      - "127.0.0.1:1025:1025"
+    networks:
+      - coprra_network
+
+networks:
+  coprra_network:
+    driver: bridge
+
+volumes:
+  dev-dbdata:
+    driver: local
+  redis_data:
+    driver: local
+
+secrets:
+  db_root_password:
+    file: ./secrets/db_root_password.txt
+  db_password:
+    file: ./secrets/db_password.txt

@@ -1,0 +1,910 @@
+
+dev-docker/Dockerfile
+dev-docker/nginx.conf
+dev-docker/php.ini
+dev-docker/www.conf
+dev-docker/zz-custom.ini
+bootstrap.php
+vite.config.js
+TestConfiguration
+Node.js
+Composer Audit
+NPM Audit
+Composer Unused
+Rimraf
+Laravel Vite Plugin
+Vite Bundle Analyzer
+Vite Plugin PWA
+Autoprefixer
+PostCSS SCSS
+PurgeCSS (postcss)
+Actions Checkout (GitHub)
+Setup PHP (GitHub)
+Setup Node.js (GitHub)
+Setup Chrome (GitHub)
+Download Artifact (GitHub)
+Upload Artifact (GitHub)
+Actions Cache (GitHub)
+DatabaseConnectionTest
+MySQLConnectionTest
+PostgreSQLConnectionTest
+SQLiteConnectionTest
+API Test - Health Check Endpoint
+HealthControllerTest
+DebugHealthContentTest
+API Test - System Info Endpoint
+SystemControllerTest
+TestCase
+DuskTestCase
+AIBaseTestCase
+AITest
+AITestTrait
+APIServiceTest
+BaseApiControllerTest
+FeatureTest
+IntegrationTest
+IntegrationTestSuite
+PureUnitTest
+SmokeTest
+Unit Test - URLService
+AdvancedTestHelper
+ComprehensiveTestCommand
+ComprehensiveTestRunner
+TestErrorHandler
+TestReportGenerator
+TestReportProcessor
+TestSuiteValidator
+ValidationTestCase
+Mockery
+MockeryDebugTest
+SimpleMockeryTest
+StrictMockeryTest
+MockAIService
+FactoriesTest
+Trivy
+Gitleaks
+Enlightn Security Checker
+PHPSecurityChecker
+SensioLabs Security Check
+Infection
+Infection Security Tests
+RIPS Security Scanner
+SecurityAudit
+OWASP Dependency Check
+PHP Vulnerability Scanner
+Progpilot Security Analysis
+JWT Security Check
+SQLInjection-scanner
+XSS-scanner
+SQLInjectionTest
+XSSTest
+CSRFTest
+VerifyCsrfTokenTest
+Directory Traversal Check
+API Test - API Key Authentication
+API Test - Login Endpoint
+API Test - Register Endpoint
+API Test - Password Reset Endpoint
+PasswordResetServiceTest
+RequirePasswordTest
+AuthenticationFlowTest
+AuthenticationTest
+AuthenticateTest
+AuthenticateSessionTest
+AuthenticateWithBasicAuthTest
+API Test - Logout Endpoint
+RedirectIfAuthenticatedTest
+AdminMiddlewareTest
+AuthorizeTest
+PermissionControlTest
+PermissionSecurityTest
+SessionManagementTest
+SessionManagementMiddlewareTest
+StartSessionTest
+ThrottleRequestsTest
+ThrottleSensitiveOperationsTest
+SecurityHeadersTest
+SecurityHeaders-check
+SecurityHeadersMiddlewareTest
+DataEncryptionTest
+EncryptCookiesTest
+AuditLogSimpleTest
+AuditLogTest
+InputSanitizationMiddlewareTest
+SafeLaravelTest
+SafeMiddlewareTestBase
+SafeTestBase
+API Test - User Create Endpoint
+API Test - User Show Endpoint
+API Test - User Update Endpoint
+API Test - User Delete Endpoint
+API Test - User List Endpoint
+UserTest
+UserControllerTest
+UserBanServiceTest
+UserRoleTest
+API Test - Profile Endpoint
+API Test - Profile Update Endpoint
+DataIntegrityTest
+DataValidationTest
+DataConsistencyTest
+DataCompletenessTest
+DataDuplicationTest
+DataUniquenessTest
+API Test - Document Upload Endpoint
+API Test - File Upload Endpoint
+FileUploadTest
+API Test - Image Upload Endpoint
+API Test - Search Endpoint
+API Test - Filter Endpoint
+API Test - Sort Endpoint
+PHPStan
+LaraStan
+Psalm
+Vimeo/psalm
+ESLint
+ESLint Plugin Unicorn
+Stylelint
+Stylelint Config Standard
+Stylelint Prettier
+NunoMaduro/phpinsights
+PHP Insights
+Laravel Pint
+PHP-CS-Fixer
+PHPMD
+Deptrac
+Cyclomatic Complexity
+Code Complexity Check
+Code Smell Detector
+Dead Code Detector
+Duplicate Code Finder
+PHPCPD
+Jscpd
+Magic Number Detector
+PHP Magic Number Detector
+Povils/phpmnd
+Class Coupling Analyzer
+Function Length Check
+Method Count Check
+Property Count Check
+Variable Naming Check
+Code Architecture Analysis
+Code Style Consistency
+Solid Principles Check
+ArchTest
+Arch-analysis
+Code Coverage Check
+Codecov (npm)
+Codecov Action (GitHub)
+Clean Code Validator
+PHP Metrics
+PHP Lines of Code
+ApiResponseTimeTest
+ApiRateLimitingTest
+AdvancedPerformanceTest
+PerformanceBenchmark
+PerformanceBenchmarkTest
+PerformanceTestSuite
+Response Time Analyzer
+DatabasePerformanceTest
+DatabasePerformance-check
+DatabaseQueryTimeTest
+Query Performance Analyzer
+SecurityScanningTest
+VulnerabilityAssessmentTest
+SQLInjectionPreventionTest
+XSSPreventionTest
+CSRFPreventionTest
+LDAPInjectionPreventionTest
+XPathInjectionPreventionTest
+FormatStringPreventionTest
+LoginEndpointTest
+LoginPageTest
+RegisterEndpointTest
+RegisterPageTest
+AccessControlListTest
+AuthenticationSecurityTest
+IntrusionDetectionTest
+UserRegistrationTest
+PasswordResetEndpointTest
+PasswordResetTest
+AutoLoginTest
+MultiFactorAuthenticationTest
+TwoFactorAuthenticationTest
+SocialLoginEndpointTest
+SocialLoginTest
+SocialAuthenticationTest
+LogoutEndpointTest
+RememberMeTest
+SingleSignOnTest
+BiometricAuthenticationTest
+ActiveDirectoryAuthenticationTest
+CertificateAuthenticationTest
+CookieAuthenticationTest
+JWTAuthenticationTest
+LDAPAuthenticationTest
+OAuthAuthenticationTest
+SAMLAuthenticationTest
+TokenAuthenticationTest
+AccessControlTest
+RoleBasedAccessTest
+ApiAuthorizationTest
+ActionAuthorizationTest
+BroadcastAuthorizationTest
+CacheAuthorizationTest
+ConsoleAuthorizationTest
+ControllerAuthorizationTest
+DatabaseAuthorizationTest
+DocumentAuthorizationTest
+EventAuthorizationTest
+FunctionAuthorizationTest
+JobAuthorizationTest
+MiddlewareServiceTest
+ModelAuthorizationTest
+NotificationAuthorizationTest
+PermissionSystemTest
+QueueAuthorizationTest
+ResourceAccessTest
+RoleAssignmentTest
+RoleCreationTest
+RoleDeletionTest
+RoleRevocationTest
+RoleUpdateTest
+RouteAuthorizationTest
+SessionAuthorizationTest
+StorageAuthorizationTest
+UserAuthorizationTest
+WebAuthorizationTest
+DynamicAuthorizationTest
+SessionFixationPreventionTest
+SessionFixationTest
+SessionHijackingPreventionTest
+SessionHijackingTest
+SessionTimeoutTest
+BruteForceProtectionTest
+LoginThrottlingTest
+HeaderSecurityTest
+ContentSecurityPolicyTest
+HttpsEnforcementTest
+IPBlacklistingTest
+IPWhitelistingTest
+FirewallRulesTest
+MalwareDetectionTest
+VirusScanningTest
+EncryptionServiceTest
+EncryptionStandardsTest
+HashServiceTest
+KeyManagementTest
+DigitalSignatureTest
+CookieSecurityTest
+AuditLoggingTest
+AuthenticationLoggingTest
+LoggingSystemTest
+AccountLockoutTest
+BufferOverflowPreventionTest
+RaceConditionPreventionTest
+InputValidationTest
+OutputEncodingTest
+UserCreatePageTest
+UserEditPageTest
+UsersListPageTest
+UserServiceTest
+ProfileEndpointTest
+ProfilePageTest
+ProfileUpdateEndpointTest
+ProfileUpdateTest
+DataInsertionTest
+DataUpdateTest
+DataDeletionTest
+DatabaseTransactionsTest
+DocumentUploadEndpointTest
+FileUploadEndpointTest
+FileUploadPageTest
+ImageUploadEndpointTest
+SearchEndpointTest
+SearchFunctionalityTest
+SearchPageTest
+FilterEndpointTest
+FilterFunctionalityTest
+FilteringFunctionalityTest
+SortEndpointTest
+SortFunctionalityTest
+SortingFunctionalityTest
+DataPaginationTest
+DataFilteringTest
+DataSortingTest
+PaginationComponentTest
+PerformanceProfilingTest
+DatabaseQuerySpeedTest
+QueryOptimizationTest
+IndexOptimizationTest
+IndexCreationTest
+CachePerformance-check
+CachePerformanceTest
+CacheHitRateTest
+CacheFunctionalityTest
+API Test - Cache Clear Endpoint
+API Test - Configuration Endpoint
+SetCacheHeadersTest
+Lighthouse CI (lhci)
+PageLoadTimeTest
+ImageLoadTimeTest
+LoadTestingTest
+LoadTest Runner
+MemoryUsageTest
+MemoryLeakTest
+MemoryUsageAnalyzer
+CPUUsageTest
+JoinOperationsTest
+ConnectionPoolingTest
+DatabaseShardingTest
+CacheOptimizationTest
+CachingStrategyTest
+CacheClearEndpointTest
+ConfigurationEndpointTest
+AssetOptimizationTest
+ImageOptimizationTest
+RenderingOptimizationTest
+LoadingOptimizationTest
+MinificationTestingTest
+BandwidthOptimizationTest
+LatencyOptimizationTest
+ResponseOptimizationTest
+StressTestingTest
+SpikeTestingTest
+EnduranceTestingTest
+VolumeTestingTest
+ConcurrentUsersTest
+ConcurrentAccessTest
+CapacityPlanningTest
+ScalabilityTestingTest
+ThroughputTestingTest
+MemoryOptimizationTest
+DiskIOTest
+AlgorithmOptimizationTest
+ClassOptimizationTest
+FunctionOptimizationTest
+Xdebug Profiler
+Blackfire Profiler
+PHP CPU Profiler
+API Test - Notification Endpoint
+NotificationTest
+NotificationSimpleTest
+API Test - Push Notification Endpoint
+PushNotificationTest
+API Test - Email Send Endpoint
+EmailSendingTest
+API Test - SMS Send Endpoint
+NotificationServiceTest
+NotificationIntegrationTest
+EmailIntegrationTest
+SMSIntegrationTest
+WebhookTest
+WebhookServiceTest
+API Test - Analytics Endpoint
+AnalyticsControllerTest
+API Test - Report Endpoint
+ReportControllerTest
+API Test - Statistics Endpoint
+StatsCommandTest
+AnalyticsIntegrationTest
+ReportServiceTest
+API Test - Import Endpoint
+API Test - Export Endpoint
+API Test - Backup Endpoint
+BackupControllerTest
+API Test - Restore Endpoint
+DataBackupTest
+BackupServiceTest
+API Test - Maintenance Endpoint
+PreventRequestsDuringMaintenanceTest
+API Test - Dashboard Endpoint
+API Test - Settings Endpoint
+SettingControllerTest
+OrderApiTest
+OrderControllerTest
+OrderFlowTest
+OrderHelperTest
+OrderItemTest
+OrderServiceTest
+OrderStatusTest
+OrderTest
+PaymentIntegrationTest
+PaymentMethodTest
+PaymentTest
+ProductApiTest
+ProductControllerTest
+ProductServiceTest
+ProductTest
+CartControllerTest
+WishlistControllerTest
+WishlistTest
+ReviewControllerTest
+ReviewTest
+AIServiceTest
+App\Services\AI\Services\AIImageAnalysisService
+App\Services\AI\Services\AITextAnalysisService
+App\Services\AI\Services\AIRequestService
+App\Services\AI\Services\AlertManagerService
+App\Services\AI\Services\HealthScoreService
+App\Services\AI\Services\RuleExecutorService
+BehaviorAnalysisServiceTest
+HealthScoreCalculator
+AIAccuracyTest
+AIModelTest
+AILearningTest
+AIModelPerformanceTest
+AIResponseTimeTest
+AIErrorHandlingTest
+TextProcessingTest
+RecommendationSystemTest
+CollaborativeFilteringTest
+ContentBasedFilteringTest
+HybridRecommendationTest
+BestDealRecommendationTest
+BrandRecommendationTest
+CategoryRecommendationTest
+CrossSellRecommendationTest
+PersonalizedRecommendationTest
+SimilarProductTest
+TrendingProductTest
+UpsellRecommendationTest
+UserBehaviorRecommendationTest
+ApiGen Documentation
+Doctum API Documentation
+PHP Documentor
+OpenAPI Generator
+Swagger Documentation Check
+PHPDoc Check
+Documentation Coverage Check
+Markdown Documentation Lint
+Axe CLI
+LanguageTest
+LocaleControllerTest
+LocaleMiddlewareTest
+UserLocaleSettingTest
+SetLocaleAndCurrencyTest
+ci.yml
+ci-comprehensive.yml
+deployment.yml
+security-audit.yml
+performance-tests.yml
+comprehensive-tests.yml
+Workflow Step: Build Frontend Assets
+Workflow Step: Composer Audit
+Workflow Step: Config Cache (Laravel)
+Workflow Step: Route Cache (Laravel)
+Workflow Step: View Cache (Laravel)
+LoopOptimizationTest
+ObjectOptimizationTest
+EagerLoadingTest
+LazyLoadingTest
+NotificationEndpointTest
+PushNotificationEndpointTest
+EmailSendEndpointTest
+SMSSendEndpointTest
+NotificationSystemTest
+EmailServiceTest
+EmailSystemTest
+SMSSystemTest
+WebhookEndpointTest
+WebhookHandlingTest
+ReportEndpointTest
+ReportGenerationTest
+StatisticsEndpointTest
+AnalyticsPageTest
+ReportsPageTest
+ImportEndpointTest
+ExportEndpointTest
+CSVImportTest
+Command InjectionPreventionTest
+CSVServiceTest
+CommandInjectionPreventionTest
+BackupOperationsTest
+Code InjectionPreventionTest
+RestoreEndpointTest
+Method AuthorizationTest
+RestoreOperationsTest
+Asset Loading Speed Test
+BackupPageTest
+MaintenanceEndpointTest
+MaintenancePageTest
+DashboardPageTest
+SettingsEndpointTest
+SettingsPageTest
+PaymentGatewayTest
+RuleExecutorServiceTest
+ModelEvaluationTest
+ModelValidationTest
+CrossValidationTest
+ModelOptimizationTest
+MachineLearningModelTest
+DeepLearningTest
+NeuralNetworkTest
+NeuralNetworkTrainingTest
+ReinforcementLearningTest
+FederatedLearningTest
+TransferLearningTest
+ComputerVisionTest
+ImageRecognitionTest
+SpeechRecognitionTest
+PatternRecognitionTest
+PredictiveAnalyticsTest
+ClusteringAlgorithmTest
+ClassificationAlgorithmTest
+DecisionTreeTest
+LinearRegressionTest
+LogisticRegressionTest
+NaiveBayesTest
+SupportVectorMachineTest
+EnsembleMethodsTest
+BaggingMethodsTest
+BoostingAlgorithmsTest
+StackingTechniquesTest
+DimensionalityReductionTest
+HyperparameterTuningTest
+ModelDeploymentTest
+ModelMaintenanceTest
+ModelMonitoringTest
+READMEFileTest
+ClassDocumentationTest
+ConfigurationDocumentationTest
+DatabaseDocumentationTest
+DeveloperGuideTest
+EnvironmentDocumentationTest
+FAQDocumentationTest
+FunctionDocumentationTest
+InstallationGuideTest
+MaintenanceDocumentationTest
+MethodDocumentationTest
+PerformanceDocumentationTest
+RequirementsDocumentationTest
+SecurityDocumentationTest
+TestingDocumentationTest
+K-MeansClusteringTest
+Random ForestTest
+TroubleshootingGuideTest
+TutorialDocumentationTest
+UserManualTest
+VersionDocumentationTest
+Code ExamplesTest
+Code CommentsTest
+CrossBrowserTest
+MobileCompatibilityTest
+TabletCompatibilityTest
+ResponsiveDesignTest
+AccessibilityTest
+ArabicLanguageTest
+EnglishLanguageTest
+ChineseLanguageTest
+FrenchLanguageTest
+GermanLanguageTest
+HindiLanguageTest
+ItalianLanguageTest
+JapaneseLanguageTest
+KoreanLanguageTest
+PortugueseLanguageTest
+RussianLanguageTest
+SpanishLanguageTest
+LocaleDetectionTest
+LocaleSwitchingTest
+TranslationCachingTest
+TranslationFallbackTest
+TranslationFilesTest
+TranslationLoadingTest
+TranslationOverridesTest
+TextDirectionLTRTest
+TextDirectionRTLTest
+CalendarSystemLocalizationTest
+CurrencyFormatLocalizationTest
+DateFormatLocalizationTest
+DateTimeValidationTest
+DecimalSeparatorLocalizationTest
+NumberFormatLocalizationTest
+ThousandSeparatorLocalizationTest
+TimeFormatLocalizationTest
+TimezoneLocalizationTest
+GDPRComplianceTest
+HIPAAComplianceTest
+ISOComplianceTest
+NISTComplianceTest
+OWASP ComplianceTest
+PCIComplianceTest
+SOXComplianceTest
+ComplianceCheckTest
+Workflow Step: Coverage threshold check (>=85%)
+Workflow Step: Generate comprehensive test report
+Workflow Step: NPM Audit
+Workflow Step: Run Deptrac
+Workflow Step: Run Dusk (Browser)
+Workflow Step: Run ESLint
+Workflow Step: Run Infection
+Workflow Step: Run PHPMD
+Workflow Step: Run PHPStan
+Workflow Step: Run PHPUnit (Architecture)
+Workflow Step: Run PHPUnit (Feature)
+Workflow Step: Run PHPUnit (Integration)
+Workflow Step: Run PHPUnit (Performance)
+Workflow Step: Run PHPUnit (Security)
+Workflow Step: Run PHPUnit (Unit)
+Workflow Step: Run Pint
+Workflow Step: Run Prettier
+Workflow Step: Run Psalm
+Workflow Step: Run Stylelint
+Workflow Step: Trivy container scan
+Workflow Step: Upload coverage to Codecov
+Workflow Step: Validate Nginx configuration
+deploy-to-hostinger.php
+audit.ps1
+HostingerTest
+CloudDeploymentTest
+KubernetesDeploymentTest
+BlueGreenDeploymentTest
+CanaryDeploymentTest
+RollingDeploymentTest
+DevelopmentDeploymentTest
+StagingDeploymentTest
+ProductionDeploymentTest
+TestingDeploymentTest
+AccordionComponentTest
+AddQueuedCookiesToResponseTest
+AdminControllerTest
+AdvancedIntegrationTest
+AggregateFunctionsTest
+ArrayCacheDriverTest
+ArrayValidationTest
+AuditServiceTest
+AuthControllerTest
+AuthServiceTest
+BasicValidationTest
+BenchmarkTestingTest
+BooleanValidationTest
+BrandControllerTest
+BrandTest
+BroadcastServiceTest
+BroadcastingSystemTest
+ButtonActionsTest
+CDNIntegrationTest
+CacheIntegrationTest
+CacheServiceTest
+CalendarPageTest
+CarouselComponentTest
+CategoryTest
+CertificateValidationTest
+ChangeLogTest
+Code Climate Analysis
+Codeception
+ConfigServiceTest
+ConfigurationTest
+ContinuousQualityMonitor
+ContinuousQualityMonitorTest
+ControllerServiceTest
+ConvertEmptyStringsToNullTest
+CookieManagementTest
+CookieServiceTest
+CoprraServiceProviderTest
+CurrencyConversionTest
+CurrencyIntegrationTest
+CustomValidationTest
+DataQualityMetricsTest
+DataRelevanceTest
+DataReliabilityTest
+DataSelectionTest
+DataTimelinessTest
+DataTablesTest
+DatabaseCacheDriverTest
+DatabaseCreationTest
+DatabaseMigrationTest
+DatabaseMigrationsTest
+DatabaseSeedingTest
+DatabaseServiceTest
+DateValidationTest
+DiscountCalculationTest
+DocumentsPageTest
+DropdownMenusTest
+DuplicateDetectionTest
+E2ETest
+EmailVerificationTest
+EnsureEmailIsVerifiedTest
+ErrorControllerTest
+ErrorPage404Test
+ErrorPage500Test
+EventHandlingTest
+EventServiceTest
+ExchangeRateServiceTest
+ExistsValidationTest
+ExternalStoreServiceTest
+FileCacheDriverTest
+FileCleanupServiceTest
+FileServiceTest
+FileValidationTest
+FilteringPerformanceTest
+FinancialTransactionServiceTest
+FloatValidationTest
+FooterComponentTest
+ForeignKeysTest
+FormValidationTest
+HandleCorsTest
+HandlePrecognitiveRequestsTest
+HeaderComponentTest
+HelperServiceTest
+HomeControllerTest
+IPAddressValidationTest
+ImageGalleryPageTest
+ImageProcessingTest
+ImageServiceTest
+ImageValidationTest
+IsolatedStrictTest
+JSONValidationTest
+JobProcessingTest
+JobServiceTest
+LengthValidationTest
+LinkCheckerTest
+LocaleValidationTest
+LogControllerTest
+LogServiceTest
+LoginAttemptServiceTest
+MaxLengthValidationTest
+MemcachedCacheDriverTest
+MessagesPageTest
+MinLengthValidationTest
+ModalWindowsTest
+ModelRelationsTest
+ModelServiceTest
+NestedValidationTest
+NetworkLatencyTest
+NetworkOptimizationTest
+NetworkSecurityTest
+NumericValidationTest
+ORMFunctionalityTest
+OrderAccuracyTest
+Organization Check
+PDFGenerationTest
+PDFServiceTest
+PasswordChangeTest
+PasswordHistoryServiceTest
+PasswordPolicyServiceTest
+PasswordPolicyTest
+PaymentAccuracyTest
+PhoneValidationTest
+PointsServiceTest
+PriceAlertControllerTest
+PriceAlertTest
+PriceAccuracyTest
+PriceComparisonTest
+PriceHelperTest
+PriceHistoryAccuracyTest
+PriceOfferTest
+PriceSearchControllerTest
+PriceSearchIntegrationTest
+PrintStylesTest
+PrivacyControlsTest
+ProcessIsolationTest
+ProcessServiceTest
+ProcessHeavyOperationTest
+ProductClassificationTest
+ProductMatchingTest
+ProjectsPageTest
+Query BuilderTest
+QueueIntegrationTest
+QueuePerformance-test
+QueueServiceTest
+RangeValidationTest
+RegressionAnalysisTest
+RelationshipMappingTest
+RepositoryServiceTest
+RequestServiceTest
+RequiredFieldTest
+RewardTest
+RollbackSupportTest
+RollbackTest
+RouterServiceTest
+RoutingTest
+SchemaBuilderTest
+SeedingSystemTest
+ServiceTestFactory
+SessionServiceTest
+ShareErrorsFromSessionTest
+ShippingAccuracyTest
+ShippingIntegrationTest
+SidebarMenuTest
+SizeValidationTest
+StorageOptimizationTest
+StorageServiceTest
+StorageSystemTest
+StoreAPIIntegrationTest
+StoreAdapterManagerTest
+StoreDataValidationTest
+StoreModelTest
+StoreTest
+StrictQualityAgent
+StrictQualityAgentTest
+StringValidationTest
+SubstituteBindingsTest
+TabsComponentTest
+TaxCalculationTest
+ThirdPartyAPIIntegrationTest
+ThirdPartyAPITest
+TokenServiceTest
+TrimStringsTest
+TrustHostsTest
+TrustProxiesTest
+UITest
+URLValidationTest
+UniqueValidationTest
+UserPointTest
+UtilityServiceTest
+ValidOrderStatusTest
+ValidateApiRequestTest
+ValidatePostSizeTest
+ValidateSignatureTest
+ValidationMessagesTest
+ValidationServiceTest
+XMLServiceTest
+XMLValidationTest
+AgentProposeFixCommandTest
+AvailabilityTestingTest
+BaselineTestingTest
+Behat
+DataFreshnessTest
+InventoryAccuracyTest
+QualityAssurance
+dev-docker/Dockerfile
+dev-docker/nginx.conf
+dev-docker/php.ini
+dev-docker/www.conf
+dev-docker/zz-custom.ini
+bootstrap.php
+vite.config.js
+TestConfiguration
+Node.js
+Composer Audit
+NPM Audit
+Composer Unused
+Rimraf
+Vite
+Laravel Vite Plugin
+Vite Bundle Analyzer
+Vite Plugin PWA
+Autoprefixer
+PostCSS SCSS
+PurgeCSS (postcss)
+Actions Checkout (GitHub)
+Setup PHP (GitHub)
+Setup Node.js (GitHub)
+Setup Chrome (GitHub)
+Download Artifact (GitHub)
+Upload Artifact (GitHub)
+Actions Cache (GitHub)
+DatabaseConnectionTest
+MySQLConnectionTest
+PostgreSQLConnectionTest
+SQLiteConnectionTest
+API Test - Health Check Endpoint
+Health Check Endpoint
+HealthControllerTest
+DebugHealthContentTest
+API Test - System Info Endpoint
+System Info Endpoint
+SystemControllerTest
+TestCase
+DuskTestCase
+AIBaseTestCase
+AITest
+AITestTrait
+APIServiceTest
+BaseApiControllerTest
+FeatureTest
+IntegrationTest
+IntegrationTestSuite
+SmokeTest
+Unit Test - URLService
+AdvancedTestHelper
+ComprehensiveTestCommand
+ComprehensiveTestRunner
+TestReportGenerator
+TestReportProcessor
+TestRunner
+TestSuiteValidator
+ValidationTestCase
+Mockery

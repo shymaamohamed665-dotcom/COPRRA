@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Controllers;
 
 use App\Http\Controllers\AnalyticsController;
@@ -11,43 +13,90 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use Mockery;
+use Mockery\LegacyMockInterface;
+use Mockery\MockInterface;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\UsesClass;
 
+/**
+ * Analytics Controller Test Suite
+ *
+ * Tests the AnalyticsController functionality including:
+ * - User analytics retrieval
+ * - Site analytics retrieval
+ * - Behavior tracking
+ * - Authentication checks
+ * - Error handling and exceptions
+ */
+#[CoversClass(AnalyticsController::class)]
+#[UsesClass(BehaviorAnalysisService::class)]
+#[UsesClass(User::class)]
+#[CoversMethod(AnalyticsController::class, 'userAnalytics')]
+#[CoversMethod(AnalyticsController::class, 'siteAnalytics')]
+#[CoversMethod(AnalyticsController::class, 'trackBehavior')]
 class AnalyticsControllerTest extends TestCase
 {
     use RefreshDatabase;
 
     private AnalyticsController $controller;
 
-    private BehaviorAnalysisService|Mockery\MockInterface $serviceMock;
+    /** @var BehaviorAnalysisService&MockInterface */
+    private BehaviorAnalysisService|MockInterface $serviceMock;
 
     private User $user;
 
-    private Request $requestMock;
+    /** @var Request&LegacyMockInterface */
+    private Request|LegacyMockInterface $requestMock;
 
+    /**
+     * Set up test environment before each test
+     *
+     * @return void
+     */
     protected function setUp(): void
     {
         parent::setUp();
+
+        /** @var BehaviorAnalysisService&MockInterface */
         $this->serviceMock = Mockery::mock(BehaviorAnalysisService::class);
         $this->controller = new AnalyticsController($this->serviceMock);
         $this->user = User::factory()->create();
-        $this->requestMock = Mockery::mock(Request::class)->makePartial();
+
+        /** @var Request&LegacyMockInterface $requestMock */
+        $requestMock = Mockery::mock(Request::class)->makePartial();
+        $this->requestMock = $requestMock;
     }
 
+    /**
+     * Clean up test environment after each test
+     *
+     * @return void
+     */
     protected function tearDown(): void
     {
         Mockery::close();
         parent::tearDown();
     }
 
+    /**
+     * Test that userAnalytics returns analytics for authenticated user
+     *
+     * @return void
+     */
     public function test_user_analytics_returns_analytics_for_authenticated_user(): void
     {
         // Arrange
         $analyticsData = ['key' => 'value'];
+
+        /** @phpstan-ignore method.nonObject */
         $this->serviceMock->shouldReceive('getUserAnalytics')
             ->with($this->user)
             ->once()
             ->andReturn($analyticsData);
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('user')
             ->andReturn($this->user);
 
@@ -60,9 +109,15 @@ class AnalyticsControllerTest extends TestCase
         $this->assertEquals(['analytics' => $analyticsData], $response->getData(true));
     }
 
+    /**
+     * Test that userAnalytics returns unauthorized for unauthenticated user
+     *
+     * @return void
+     */
     public function test_user_analytics_returns_unauthorized_for_unauthenticated_user(): void
     {
         // Arrange
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('user')
             ->andReturn(null);
 
@@ -75,10 +130,17 @@ class AnalyticsControllerTest extends TestCase
         $this->assertEquals(['error' => 'Unauthorized'], $response->getData(true));
     }
 
+    /**
+     * Test that siteAnalytics returns site analytics data
+     *
+     * @return void
+     */
     public function test_site_analytics_returns_site_analytics(): void
     {
         // Arrange
         $analyticsData = ['site_key' => 'site_value'];
+
+        /** @phpstan-ignore method.nonObject */
         $this->serviceMock->shouldReceive('getSiteAnalytics')
             ->once()
             ->andReturn($analyticsData);
@@ -92,20 +154,31 @@ class AnalyticsControllerTest extends TestCase
         $this->assertEquals(['analytics' => $analyticsData], $response->getData(true));
     }
 
+    /**
+     * Test that trackBehavior returns success for valid authenticated request
+     *
+     * @return void
+     */
     public function test_track_behavior_returns_success_for_valid_authenticated_request(): void
     {
         // Arrange
         $action = 'test_action';
         $data = ['key' => 'value'];
         $validated = ['action' => $action, 'data' => $data];
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('validate')
             ->with([
                 'action' => 'required|string|max:50',
                 'data' => 'nullable|array',
             ])
             ->andReturn($validated);
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('user')
             ->andReturn($this->user);
+
+        /** @phpstan-ignore method.nonObject */
         $this->serviceMock->shouldReceive('trackUserBehavior')
             ->with($this->user, $action, $data)
             ->once();
@@ -122,16 +195,25 @@ class AnalyticsControllerTest extends TestCase
         ], $response->getData(true));
     }
 
+    /**
+     * Test that trackBehavior returns unauthorized for unauthenticated user
+     *
+     * @return void
+     */
     public function test_track_behavior_returns_unauthorized_for_unauthenticated_user(): void
     {
         // Arrange
         $validated = ['action' => 'test', 'data' => []];
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('validate')
             ->with([
                 'action' => 'required|string|max:50',
                 'data' => 'nullable|array',
             ])
             ->andReturn($validated);
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('user')
             ->andReturn(null);
 
@@ -144,10 +226,17 @@ class AnalyticsControllerTest extends TestCase
         $this->assertEquals(['error' => 'Unauthorized'], $response->getData(true));
     }
 
+    /**
+     * Test that trackBehavior fails validation for invalid action
+     *
+     * @return void
+     */
     public function test_track_behavior_fails_validation_for_invalid_action(): void
     {
         // Arrange
         $validator = Validator::make([], ['action' => 'required']);
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('validate')
             ->with([
                 'action' => 'required|string|max:50',
@@ -160,13 +249,21 @@ class AnalyticsControllerTest extends TestCase
         $this->controller->trackBehavior($this->requestMock);
     }
 
+    /**
+     * Test that userAnalytics throws exception when service fails
+     *
+     * @return void
+     */
     public function test_user_analytics_throws_exception_when_service_fails(): void
     {
         // Arrange
+        /** @phpstan-ignore method.nonObject */
         $this->serviceMock->shouldReceive('getUserAnalytics')
             ->with($this->user)
             ->once()
             ->andThrow(new \Exception('Service error'));
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('user')
             ->andReturn($this->user);
 
@@ -175,9 +272,15 @@ class AnalyticsControllerTest extends TestCase
         $this->controller->userAnalytics($this->requestMock);
     }
 
+    /**
+     * Test that siteAnalytics throws exception when service fails
+     *
+     * @return void
+     */
     public function test_site_analytics_throws_exception_when_service_fails(): void
     {
         // Arrange
+        /** @phpstan-ignore method.nonObject */
         $this->serviceMock->shouldReceive('getSiteAnalytics')
             ->once()
             ->andThrow(new \Exception('Service error'));
@@ -187,20 +290,31 @@ class AnalyticsControllerTest extends TestCase
         $this->controller->siteAnalytics();
     }
 
+    /**
+     * Test that trackBehavior throws exception when service fails
+     *
+     * @return void
+     */
     public function test_track_behavior_throws_exception_when_service_fails(): void
     {
         // Arrange
         $action = 'test_action';
         $data = ['key' => 'value'];
         $validated = ['action' => $action, 'data' => $data];
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('validate')
             ->with([
                 'action' => 'required|string|max:50',
                 'data' => 'nullable|array',
             ])
             ->andReturn($validated);
+
+        /** @phpstan-ignore method.nonObject */
         $this->requestMock->shouldReceive('user')
             ->andReturn($this->user);
+
+        /** @phpstan-ignore method.nonObject */
         $this->serviceMock->shouldReceive('trackUserBehavior')
             ->with($this->user, $action, $data)
             ->once()
@@ -211,3 +325,4 @@ class AnalyticsControllerTest extends TestCase
         $this->controller->trackBehavior($this->requestMock);
     }
 }
+

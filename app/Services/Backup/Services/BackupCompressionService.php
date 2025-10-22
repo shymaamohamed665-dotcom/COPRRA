@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Backup\Services;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Process;
 
 final class BackupCompressionService
@@ -94,7 +95,7 @@ final class BackupCompressionService
     private function extractTarGzArchive(string $archivePath, string $extractDir): void
     {
         if (! is_dir($extractDir)) {
-            mkdir($extractDir, 0755, true);
+            mkdir($extractDir, 0o755, true);
         }
 
         // Build command without quotes to match tests that parse via regex
@@ -112,7 +113,7 @@ final class BackupCompressionService
     }
 
     /**
-     * Delete directory recursively.
+     * Delete directory recursively with safe handling on Windows.
      */
     private function deleteDirectory(string $dir): void
     {
@@ -126,15 +127,59 @@ final class BackupCompressionService
         );
 
         foreach ($iterator as $file) {
-            if ($file instanceof \SplFileInfo) {
-                if ($file->isDir()) {
-                    rmdir($file->getPathname());
-                } else {
-                    unlink($file->getPathname());
+            if (! ($file instanceof \SplFileInfo)) {
+                continue;
+            }
+
+            $path = $file->getPathname();
+
+            try {
+                if ($file->isLink()) {
+                    unlink($path);
+
+                    continue;
                 }
+
+                if ($file->isDir()) {
+                    if (PHP_OS_FAMILY === 'Windows') {
+                        try {
+                            chmod($path, 0o777);
+                        } catch (\Throwable $e) {
+                            //
+                        }
+                    }
+                    rmdir($path);
+
+                    continue;
+                }
+
+                if (PHP_OS_FAMILY === 'Windows') {
+                    try {
+                        chmod($path, 0o666);
+                    } catch (\Throwable $e) {
+                        //
+                    }
+                }
+
+                unlink($path);
+            } catch (\Throwable $e) {
+                Log::error('Failed to delete path', ['path' => $path, 'exception' => $e]);
             }
         }
 
-        rmdir($dir);
+        if (PHP_OS_FAMILY === 'Windows') {
+            try {
+                chmod($dir, 0o777);
+            } catch (\Throwable $e) {
+                //
+            }
+        }
+
+        try {
+            rmdir($dir);
+            //
+        } catch (\Throwable $e) {
+            Log::error('Failed to remove directory', ['dir' => $dir, 'exception' => $e]);
+        }
     }
 }

@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
+            }
+
+            body > ul > li {
+                font-size: larger;
+            }
+
+            h2 {
+                font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
+                margin: 0;
+                padding: 0.5rem 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
+                text-indent: -1rem;
+            }
+
+            .success:before {
+                color: #4e9a06;
+                content: '✓';
+                padding-right: 0.5rem;
+            }
+
+            .defect {
+                color: #a40000;
+            }
+
+            .defect:before {
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>AIModel Training (Tests\Unit\AI\AIModelTraining)</h2>
+        <ul>
+            <li class="success">It trains model with training data</li>
+            <li class="success">It validates training data format</li>
+            <li class="success">It splits data into train validation sets</li>
+            <li class="success">It applies data preprocessing</li>
+            <li class="success">It applies feature scaling</li>
+            <li class="success">It applies feature engineering</li>
+            <li class="success">It handles missing values</li>
+            <li class="success">It handles outliers</li>
+            <li class="success">It applies data augmentation</li>
+            <li class="success">It implements early stopping</li>
+            <li class="success">It implements learning rate scheduling</li>
+            <li class="success">It implements regularization</li>
+            <li class="success">It implements dropout</li>
+            <li class="success">It implements batch normalization</li>
+            <li class="success">It implements gradient clipping</li>
+            <li class="success">It implements momentum</li>
+            <li class="success">It implements adaptive learning rates</li>
+            <li class="success">It implements cross validation</li>
+            <li class="success">It implements hyperparameter tuning</li>
+            <li class="success">It implements model ensemble</li>
+            <li class="success">It implements transfer learning</li>
+            <li class="success">It implements federated learning</li>
+            <li class="success">It implements online learning</li>
+            <li class="success">It generates training report</li>
+        </ul>
+        <h2>AIModel Validation (Tests\Unit\AI\AIModelValidation)</h2>
+        <ul>
+            <li class="success">It validates model architecture</li>
+            <li class="success">It validates model parameters</li>
+            <li class="success">It validates model input format</li>
+            <li class="success">It validates model output format</li>
+            <li class="success">It validates model prediction consistency</li>
+            <li class="success">It validates model prediction range</li>
+            <li class="success">It validates model prediction probability</li>
+            <li class="success">It validates model confidence scores</li>
+            <li class="success">It validates model uncertainty quantification</li>
+            <li class="success">It validates model robustness</li>
+            <li class="success">It validates model fairness</li>
+            <li class="success">It validates model bias</li>
+            <li class="success">It validates model explainability</li>
+            <li class="success">It validates model interpretability</li>
+            <li class="success">It validates model adversarial robustness</li>
+            <li class="success">It validates model generalization</li>
+            <li class="success">It validates model calibration</li>
+            <li class="success">It validates model confidence calibration</li>
+            <li class="success">It validates model uncertainty estimation</li>
+            <li class="success">It validates model anomaly detection</li>
+            <li class="success">It validates model drift detection</li>
+            <li class="success">It validates model performance degradation</li>
+            <li class="success">It validates model security</li>
+            <li class="success">It generates validation report</li>
+        </ul>
+        <h2>Admin Middleware (Tests\Unit\Middleware\AdminMiddleware)</h2>
+        <ul>
+            <li class="defect">It allows admin users</li>
+            <li class="defect">It blocks non admin users</li>
+            <li class="defect">It redirects guests</li>
+        </ul>
+        <h2>Alternative Mockery (Tests\Unit\AlternativeMockery)</h2>
+        <ul>
+            <li class="success">Mock database operations</li>
+            <li class="success">Mock cache operations</li>
+            <li class="success">Mock queue operations</li>
+            <li class="success">Mock http requests</li>
+            <li class="success">Mock file operations</li>
+            <li class="success">Mock mail operations</li>
+            <li class="success">Mock validation operations</li>
+            <li class="success">Mock event operations</li>
+            <li class="success">Mock service container</li>
+            <li class="success">Mock config operations</li>
+            <li class="success">Mock session operations</li>
+        </ul>
+        <h2>Brand (Tests\Unit\Models\Brand)</h2>
+        <ul>
+            <li class="defect">It can create a brand</li>
+            <li class="success">It has products relationship</li>
+            <li class="success">It can validate required fields</li>
+            <li class="success">It can validate name length</li>
+            <li class="success">It can validate website url format</li>
+            <li class="success">It can validate logo url format</li>
+            <li class="success">It can scope active brands</li>
+            <li class="success">It can search brands by name</li>
+            <li class="success">It can get brand with products count</li>
+            <li class="success">It can soft delete brand</li>
+            <li class="success">It can restore soft deleted brand</li>
+        </ul>
+        <h2>Category (Tests\Unit\Models\Category)</h2>
+        <ul>
+            <li class="success">It can create a category</li>
+            <li class="defect">It has products relationship</li>
+            <li class="success">It can validate required fields</li>
+            <li class="success">It can validate name length</li>
+            <li class="success">It can scope active categories</li>
+            <li class="success">It can search categories by name</li>
+            <li class="success">It can get category with products count</li>
+            <li class="success">It can soft delete category</li>
+            <li class="success">It can restore soft deleted category</li>
+            <li class="success">It auto generates slug from name</li>
+            <li class="success">It updates slug when name changes</li>
+        </ul>
+        <h2>Classification Accuracy (Tests\Unit\AI\ClassificationAccuracy)</h2>
+        <ul>
+            <li class="success">It validates product classification accuracy</li>
+            <li class="success">It validates sentiment classification accuracy</li>
+            <li class="success">It validates brand classification accuracy</li>
+            <li class="success">It validates price range classification accuracy</li>
+            <li class="success">It validates quality classification accuracy</li>
+            <li class="success">It validates urgency classification accuracy</li>
+            <li class="success">It validates priority classification accuracy</li>
+            <li class="success">It validates risk classification accuracy</li>
+            <li class="success">It validates complexity classification accuracy</li>
+            <li class="success">It validates multi class classification accuracy</li>
+            <li class="success">It validates binary classification accuracy</li>
+            <li class="success">It validates confidence scores</li>
+            <li class="success">It validates classification precision</li>
+            <li class="success">It validates classification recall</li>
+            <li class="success">It validates classification f1 score</li>
+            <li class="success">It validates confusion matrix</li>
+            <li class="success">It validates class balance</li>
+        </ul>
+        <h2>Currency (Tests\Unit\Models\Currency)</h2>
+        <ul>
+            <li class="success">It can validate required fields</li>
+            <li class="success">It can create currency</li>
+            <li class="success">It can save currency</li>
+        </ul>
+        <h2>Data Quality Metrics (Tests\Unit\DataQuality\DataQualityMetrics)</h2>
+        <ul>
+            <li class="success">It calculates completeness metrics</li>
+            <li class="success">It calculates accuracy metrics</li>
+            <li class="success">It calculates consistency metrics</li>
+            <li class="success">It calculates timeliness metrics</li>
+            <li class="success">It calculates validity metrics</li>
+            <li class="success">It calculates uniqueness metrics</li>
+            <li class="success">It calculates integrity metrics</li>
+            <li class="success">It calculates overall quality score</li>
+            <li class="success">It generates quality report</li>
+            <li class="success">It calculates field level metrics</li>
+            <li class="success">It calculates trend metrics</li>
+            <li class="success">It calculates benchmark metrics</li>
+        </ul>
+        <h2>Data Reliability (Tests\Unit\DataQuality\DataReliability)</h2>
+        <ul>
+            <li class="success">It measures data consistency across sources</li>
+            <li class="success">It detects data anomalies</li>
+            <li class="success">It calculates data confidence score</li>
+            <li class="success">It validates data source reliability</li>
+            <li class="success">It measures data freshness</li>
+            <li class="success">It calculates data accuracy percentage</li>
+            <li class="success">It detects data drift</li>
+            <li class="success">It validates data integrity constraints</li>
+            <li class="success">It calculates data quality score</li>
+        </ul>
+        <h2>Data Validation (Tests\Unit\DataAccuracy\DataValidation)</h2>
+        <ul>
+            <li class="success">It validates email format</li>
+            <li class="success">It validates phone number format</li>
+            <li class="success">It validates url format</li>
+            <li class="success">It validates date format</li>
+            <li class="success">It validates currency code</li>
+            <li class="success">It validates product sku format</li>
+            <li class="success">It validates postal code format</li>
+            <li class="success">It validates credit card number</li>
+            <li class="success">It validates ip address</li>
+            <li class="success">It validates json format</li>
+            <li class="success">It validates required fields</li>
+            <li class="success">It validates field length</li>
+            <li class="success">It validates numeric range</li>
+            <li class="success">It validates array structure</li>
+        </ul>
+        <h2>Duplicate Detection (Tests\Unit\DataQuality\DuplicateDetection)</h2>
+        <ul>
+            <li class="success">It detects exact duplicates</li>
+            <li class="success">It detects similar duplicates</li>
+            <li class="success">It detects price duplicates</li>
+            <li class="success">It detects url duplicates</li>
+            <li class="success">It detects image duplicates</li>
+            <li class="success">It detects description duplicates</li>
+            <li class="success">It detects category duplicates</li>
+            <li class="success">It detects brand duplicates</li>
+            <li class="success">It detects store duplicates</li>
+            <li class="success">It detects user duplicates</li>
+            <li class="success">It calculates duplicate percentage</li>
+        </ul>
+        <h2>Hybrid Recommendation (Tests\Unit\Recommendations\HybridRecommendation)</h2>
+        <ul>
+            <li class="success">It combines collaborative and content based filtering</li>
+            <li class="success">It handles weighted ensemble method</li>
+            <li class="success">It handles switching hybrid approach</li>
+            <li class="success">It handles mixed hybrid approach</li>
+            <li class="success">It handles cascade hybrid approach</li>
+            <li class="success">It handles feature combination hybrid</li>
+            <li class="success">It handles meta learning hybrid</li>
+            <li class="success">It handles dynamic weight adjustment</li>
+            <li class="success">It handles confidence weighted hybrid</li>
+            <li class="success">It handles temporal hybrid approach</li>
+            <li class="success">It evaluates hybrid recommendation quality</li>
+        </ul>
+        <h2>Image Recognition (Tests\Unit\AI\ImageRecognition)</h2>
+        <ul>
+            <li class="success">It loads and preprocesses images</li>
+            <li class="success">It classifies objects in images</li>
+            <li class="success">It detects faces in images</li>
+            <li class="success">It performs optical character recognition</li>
+            <li class="success">It detects edges and contours</li>
+            <li class="success">It performs image segmentation</li>
+            <li class="success">It recognizes text in images</li>
+            <li class="success">It detects colors and dominant colors</li>
+            <li class="success">It performs image similarity matching</li>
+            <li class="success">It handles different image formats</li>
+            <li class="success">It performs image enhancement</li>
+            <li class="success">It detects image anomalies</li>
+            <li class="success">It performs style transfer</li>
+            <li class="success">It generates image captions</li>
+            <li class="success">It performs image super resolution</li>
+            <li class="success">It detects image quality metrics</li>
+        </ul>
+        <h2>Language (Tests\Unit\Models\Language)</h2>
+        <ul>
+            <li class="success">It can create a language</li>
+            <li class="success">It can create language with factory</li>
+            <li class="success">It can check if rtl</li>
+            <li class="success">It can find by code</li>
+            <li class="success">It returns null when code not found</li>
+            <li class="success">It can scope active languages</li>
+            <li class="success">It can scope ordered languages</li>
+            <li class="success">It can have currencies relationship</li>
+            <li class="success">It can get default currency</li>
+            <li class="success">It returns null when no default currency</li>
+            <li class="success">It can have user locale settings</li>
+            <li class="success">It can create english language</li>
+            <li class="success">It can create default language</li>
+            <li class="success">It can set direction</li>
+            <li class="success">It can set sort order</li>
+            <li class="success">It can toggle active status</li>
+        </ul>
+        <h2>Machine Learning Accuracy (Tests\Unit\AI\MachineLearningAccuracy)</h2>
+        <ul>
+            <li class="success">It validates model accuracy</li>
+            <li class="success">It validates precision score</li>
+            <li class="success">It validates recall score</li>
+            <li class="success">It validates f1 score</li>
+            <li class="success">It validates confusion matrix</li>
+            <li class="success">It validates roc auc score</li>
+            <li class="success">It validates mean squared error</li>
+            <li class="success">It validates mean absolute error</li>
+            <li class="success">It validates r2 score</li>
+            <li class="success">It validates cross validation score</li>
+            <li class="success">It validates learning curve</li>
+            <li class="success">It validates feature importance</li>
+            <li class="success">It validates model comparison</li>
+        </ul>
+        <h2>NLPAccuracy (Tests\Unit\AI\NLPAccuracy)</h2>
+        <ul>
+            <li class="success">It validates text classification accuracy</li>
+            <li class="success">It validates named entity recognition accuracy</li>
+            <li class="success">It validates sentiment analysis accuracy</li>
+            <li class="success">It validates language detection accuracy</li>
+            <li class="success">It validates text similarity accuracy</li>
+            <li class="success">It validates keyword extraction accuracy</li>
+            <li class="success">It validates text summarization accuracy</li>
+            <li class="success">It validates question answering accuracy</li>
+            <li class="success">It validates text translation accuracy</li>
+            <li class="success">It validates text generation accuracy</li>
+            <li class="success">It validates text parsing accuracy</li>
+            <li class="success">It validates text embeddings accuracy</li>
+            <li class="success">It validates text preprocessing accuracy</li>
+            <li class="success">It validates text tokenization accuracy</li>
+            <li class="success">It validates text normalization accuracy</li>
+        </ul>
+        <h2>Natural Language Processing (Tests\Unit\AI\NaturalLanguageProcessing)</h2>
+        <ul>
+            <li class="success">It tokenizes text</li>
+            <li class="success">It removes stop words</li>
+            <li class="success">It performs sentiment analysis</li>
+            <li class="success">It extracts named entities</li>
+            <li class="success">It performs text classification</li>
+            <li class="success">It calculates text similarity</li>
+            <li class="success">It generates text embeddings</li>
+            <li class="success">It performs language detection</li>
+            <li class="success">It performs text summarization</li>
+            <li class="success">It extracts keywords</li>
+            <li class="success">It performs part of speech tagging</li>
+            <li class="success">It performs dependency parsing</li>
+            <li class="success">It handles multilingual text</li>
+            <li class="success">It performs text normalization</li>
+            <li class="success">It calculates readability score</li>
+        </ul>
+        <h2>Price Alert (Tests\Unit\Models\PriceAlert)</h2>
+        <ul>
+            <li class="success">It can create a price alert</li>
+            <li class="success">It has user relationship</li>
+            <li class="success">It has product relationship</li>
+            <li class="success">It can validate required fields</li>
+            <li class="success">It can validate target price is numeric</li>
+            <li class="success">It can validate target price is positive</li>
+            <li class="success">It can scope active alerts</li>
+            <li class="success">It can scope alerts for user</li>
+            <li class="success">It can scope alerts for product</li>
+            <li class="success">It can soft delete price alert</li>
+            <li class="success">It can restore soft deleted price alert</li>
+            <li class="success">It can check if price target reached</li>
+            <li class="success">It can activate alert</li>
+            <li class="success">It can deactivate alert</li>
+        </ul>
+        <h2>Price Helper (Tests\Unit\Helpers\PriceHelper)</h2>
+        <ul>
+            <li class="defect">It can format price with currency symbol</li>
+            <li class="defect">It formats price with default currency when none specified</li>
+            <li class="defect">It formats price with currency code when currency not found</li>
+            <li class="defect">It formats price with two decimal places</li>
+            <li class="defect">It can calculate price difference percentage</li>
+            <li class="defect">It calculates negative price difference</li>
+            <li class="defect">It returns zero for same prices</li>
+            <li class="defect">It returns zero for zero original price</li>
+            <li class="defect">It returns zero for negative original price</li>
+            <li class="defect">It can get price difference string positive</li>
+            <li class="defect">It can get price difference string negative</li>
+            <li class="defect">It can get price difference string zero</li>
+            <li class="defect">It formats price difference with one decimal</li>
+            <li class="defect">It can identify good deal</li>
+            <li class="defect">It can identify not good deal</li>
+            <li class="defect">It returns false for good deal with empty prices</li>
+            <li class="defect">It can get best price from array</li>
+            <li class="defect">It returns null for best price with empty array</li>
+            <li class="defect">It can get best price with single price</li>
+            <li class="defect">It can convert usd to eur</li>
+            <li class="defect">It can convert eur to usd</li>
+            <li class="defect">It returns same amount for same currency</li>
+            <li class="defect">It handles unknown currency conversion</li>
+            <li class="defect">It can convert to egyptian pounds</li>
+            <li class="defect">It can format price range with different prices</li>
+            <li class="defect">It can format price range with same prices</li>
+            <li class="defect">It formats price range with currency code when not found</li>
+            <li class="defect">It formats price range with default currency</li>
+            <li class="defect">It handles precise calculations</li>
+            <li class="defect">It handles very small prices</li>
+            <li class="defect">It handles large prices</li>
+            <li class="defect">It calculates good deal threshold correctly</li>
+        </ul>
+        <h2>Price History Accuracy (Tests\Unit\DataAccuracy\PriceHistoryAccuracy)</h2>
+        <ul>
+            <li class="success">It validates price history chronology</li>
+            <li class="success">It validates price history completeness</li>
+            <li class="success">It validates price history consistency</li>
+            <li class="success">It validates price history accuracy</li>
+            <li class="success">It validates price trend calculation</li>
+            <li class="success">It validates price volatility calculation</li>
+            <li class="success">It validates price outlier detection</li>
+            <li class="success">It validates price gap detection</li>
+            <li class="success">It validates price history duplicates</li>
+            <li class="success">It validates price history anomalies</li>
+        </ul>
+        <h2>Price Offer (Tests\Unit\Models\PriceOffer)</h2>
+        <ul>
+            <li class="defect">It can validate required fields</li>
+        </ul>
+        <h2>Product (Tests\Unit\Models\Product)</h2>
+        <ul>
+            <li class="defect">It can create a product</li>
+            <li class="defect">It has brand relationship</li>
+            <li class="defect">It has category relationship</li>
+            <li class="defect">It has store relationship</li>
+            <li class="defect">It has price offers relationship</li>
+            <li class="defect">It has reviews relationship</li>
+            <li class="defect">It has wishlist relationship</li>
+            <li class="defect">It can scope active products</li>
+            <li class="defect">It can scope products by brand</li>
+            <li class="defect">It can scope products by category</li>
+        </ul>
+        <h2>Simple Validation (Tests\Unit\Validation\SimpleValidation)</h2>
+        <ul>
+            <li class="success">Product validation rules work</li>
+            <li class="success">User validation rules work</li>
+            <li class="success">Review validation rules work</li>
+        </ul>
+        <h2>Speech Recognition (Tests\Unit\AI\SpeechRecognition)</h2>
+        <ul>
+            <li class="success">It processes audio input</li>
+            <li class="success">It converts speech to text</li>
+            <li class="success">It handles different languages</li>
+            <li class="success">It detects speech activity</li>
+            <li class="success">It identifies speakers</li>
+            <li class="success">It handles noise reduction</li>
+            <li class="success">It performs voice activity detection</li>
+            <li class="success">It handles real time streaming</li>
+            <li class="success">It calculates confidence scores</li>
+            <li class="success">It handles accent detection</li>
+            <li class="success">It performs emotion recognition</li>
+            <li class="success">It handles audio format conversion</li>
+            <li class="success">It performs audio enhancement</li>
+            <li class="success">It handles multiple audio sources</li>
+            <li class="success">It performs keyword spotting</li>
+            <li class="success">It handles audio segmentation</li>
+        </ul>
+        <h2>Stats Command (Tests\Unit\Commands\StatsCommand)</h2>
+        <ul>
+            <li class="defect">It can run stats command</li>
+            <li class="defect">It displays correct statistics</li>
+            <li class="defect">It handles empty database</li>
+        </ul>
+        <h2>Update Prices Command (Tests\Unit\Commands\UpdatePricesCommand)</h2>
+        <ul>
+            <li class="defect">It can run update prices command</li>
+            <li class="defect">It updates prices for products</li>
+            <li class="defect">It handles empty products gracefully</li>
+            <li class="defect">It can run with verbose output</li>
+        </ul>
+        <h2>User (Tests\Unit\Models\User)</h2>
+        <ul>
+            <li class="success">It can create a user</li>
+            <li class="success">It can check if user is admin</li>
+            <li class="success">It has wishlist relationship</li>
+            <li class="success">It has reviews relationship</li>
+            <li class="success">It has price alerts relationship</li>
+            <li class="success">It has locale setting relationship</li>
+        </ul>
+        <h2>Wishlist (Tests\Unit\Models\Wishlist)</h2>
+        <ul>
+            <li class="success">It can create a wishlist item</li>
+            <li class="success">It has user relationship</li>
+            <li class="success">It has product relationship</li>
+            <li class="success">It can validate required fields</li>
+            <li class="defect">It can validate notes length</li>
+            <li class="success">It can scope wishlist for user</li>
+            <li class="success">It can scope wishlist for product</li>
+            <li class="success">It can soft delete wishlist item</li>
+            <li class="success">It can restore soft deleted wishlist item</li>
+            <li class="success">It can check if product is in wishlist</li>
+            <li class="success">It can add product to wishlist</li>
+            <li class="success">It can remove product from wishlist</li>
+            <li class="success">It can get wishlist count for user</li>
+        </ul>
+    </body>
+</html>

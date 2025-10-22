@@ -1,0 +1,131 @@
+{
+    "batch_number": 2,
+    "tests": [
+        {
+            "number": 11,
+            "name": "PHPMD - Design Rules",
+            "command": "./vendor/bin/phpmd app text design",
+            "description": "فحص التصميم المعماري",
+            "criteria": "Design Patterns, SOLID",
+            "output_file": "reports/phpmd-design-output.txt",
+            "status": "failed",
+            "exit_code": 3,
+            "execution_time": 44.72671294212341,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 12,
+            "name": "PHPMD - Naming Rules",
+            "command": "./vendor/bin/phpmd app text naming",
+            "description": "فحص تسمية المتغيرات والدوال",
+            "criteria": "Naming Conventions, PSR",
+            "output_file": "reports/phpmd-naming-output.txt",
+            "status": "failed",
+            "exit_code": 3,
+            "execution_time": 53.38611388206482,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 13,
+            "name": "PHPMD - Unused Code Rules",
+            "command": "./vendor/bin/phpmd app text unusedcode",
+            "description": "الكشف عن الكود غير المستخدم",
+            "criteria": "Code Quality",
+            "output_file": "reports/phpmd-unusedcode-output.txt",
+            "status": "failed",
+            "exit_code": 3,
+            "execution_time": 47.69445490837097,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 14,
+            "name": "PHPCPD - Copy/Paste Detector",
+            "command": "./vendor/bin/phpcpd app/ --min-lines=3 --min-tokens=40",
+            "description": "كشف التكرار في الكود",
+            "criteria": "DRY Principle",
+            "output_file": "reports/phpcpd-output.txt",
+            "status": "failed",
+            "exit_code": 255,
+            "execution_time": 3.1211535930633545,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 15,
+            "name": "PHPCPD - Strict Mode",
+            "command": "./vendor/bin/phpcpd app/ --min-lines=2 --min-tokens=30",
+            "description": "كشف التكرار بصرامة أعلى",
+            "criteria": "DRY Principle",
+            "output_file": "reports/phpcpd-strict-output.txt",
+            "status": "failed",
+            "exit_code": 255,
+            "execution_time": 3.419036626815796,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 16,
+            "name": "Laravel Pint - Test Mode",
+            "command": "./vendor/bin/pint --test",
+            "description": "فحص تنسيق الكود دون تعديل",
+            "criteria": "PSR-12, Laravel Style Guide",
+            "output_file": "reports/pint-test-output.txt",
+            "status": "failed",
+            "exit_code": 127,
+            "execution_time": 0.04979419708251953,
+            "error_message": "/bin/sh: 1: ./vendor/bin/pint: not found\n"
+        },
+        {
+            "number": 17,
+            "name": "Laravel Pint - Verbose Mode",
+            "command": "./vendor/bin/pint --test --verbose",
+            "description": "فحص تنسيق الكود مع تفاصيل كاملة",
+            "criteria": "PSR-12, Laravel Style Guide",
+            "output_file": "reports/pint-verbose-output.txt",
+            "status": "failed",
+            "exit_code": 127,
+            "execution_time": 0.03369140625,
+            "error_message": "/bin/sh: 1: ./vendor/bin/pint: not found\n"
+        },
+        {
+            "number": 18,
+            "name": "PHP_CodeSniffer - PSR12",
+            "command": "./vendor/bin/phpcs --standard=PSR12 app/",
+            "description": "فحص الالتزام بمعايير PSR-12",
+            "criteria": "PSR-12",
+            "output_file": "reports/phpcs-psr12-output.txt",
+            "status": "failed",
+            "exit_code": 2,
+            "execution_time": 50.08413505554199,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 19,
+            "name": "PHP_CodeSniffer - PSR2",
+            "command": "./vendor/bin/phpcs --standard=PSR2 app/",
+            "description": "فحص الالتزام بمعايير PSR-2",
+            "criteria": "PSR-2",
+            "output_file": "reports/phpcs-psr2-output.txt",
+            "status": "failed",
+            "exit_code": 2,
+            "execution_time": 49.415785789489746,
+            "error_message": "Unknown error"
+        },
+        {
+            "number": 20,
+            "name": "PHP_CodeSniffer - Full Report",
+            "command": "./vendor/bin/phpcs --standard=PSR12 --report=full app/",
+            "description": "تقرير كامل بجميع المخالفات",
+            "criteria": "PSR-12",
+            "output_file": "reports/phpcs-full-output.txt",
+            "status": "failed",
+            "exit_code": 2,
+            "execution_time": 47.69370675086975,
+            "error_message": "Unknown error"
+        }
+    ],
+    "results": {
+        "passed": 0,
+        "failed": 10,
+        "skipped": 0,
+        "errors": 0
+    }
+}

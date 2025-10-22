@@ -1,0 +1,43 @@
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mvendor/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mnode_modules/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mstorage/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mtmp/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mbootstrap/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mbuild/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mdist/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mcoverage/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.cache/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.git/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mrelease/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mreports/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mpublic/build/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mpublic/storage/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mtests/fixtures/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mtests/*/fixtures/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mdocker/ssl/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mvendor/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mnode_modules/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mstorage/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mtmp/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mbootstrap/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mbuild/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mdist/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mcoverage/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.cache/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0m.git/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mrelease/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mreports/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mpublic/build/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mpublic/storage/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mtests/fixtures/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mtests/*/fixtures/
+[90m1:12AM[0m [33mWRN[0m [1mInvalid .gitleaksignore entry[0m [36mfingerprint=[0mdocker/ssl/
+[90m1:12AM[0m [32mINF[0m [1mscanned ~1153702098 bytes (1.15 GB) in 8.47s[0m
+[90m1:12AM[0m [32mINF[0m [1mno leaks found[0m

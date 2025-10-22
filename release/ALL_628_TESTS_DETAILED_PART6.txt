@@ -1,0 +1,33 @@
+# --------------------------------------------------------------------------------
+# [9] اختبارات التخزين المؤقت (30 اختبار)
+# --------------------------------------------------------------------------------
+255. Cache Driver Tests|vendor/bin/phpunit --filter=CacheDriverTest
+256. Cache Store Tests|vendor/bin/phpunit --filter=CacheStoreTest
+257. Cache Tag Tests|vendor/bin/phpunit --filter=CacheTagTest
+258. Cache Lock Tests|vendor/bin/phpunit --filter=CacheLockTest
+259. Cache Rate Limiter Tests|vendor/bin/phpunit --filter=CacheRateLimiterTest
+260. Cache Repository Tests|vendor/bin/phpunit --filter=CacheRepositoryTest
+261. Cache Factory Tests|vendor/bin/phpunit --filter=CacheFactoryTest
+262. Cache Manager Tests|vendor/bin/phpunit --filter=CacheManagerTest
+263. Cache Events Tests|vendor/bin/phpunit --filter=CacheEventsTest
+264. Cache Middleware Tests|vendor/bin/phpunit --filter=CacheMiddlewareTest
+265. Cache Config Tests|vendor/bin/phpunit --filter=CacheConfigTest
+266. Cache Helper Tests|vendor/bin/phpunit --filter=CacheHelperTest
+267. Cache Command Tests|vendor/bin/phpunit --filter=CacheCommandTest
+268. Cache Console Tests|vendor/bin/phpunit --filter=CacheConsoleTest
+269. Cache File Tests|vendor/bin/phpunit --filter=CacheFileTest
+270. Cache Array Tests|vendor/bin/phpunit --filter=CacheArrayTest
+271. Cache Database Tests|vendor/bin/phpunit --filter=CacheDatabaseTest
+272. Cache Redis Tests|vendor/bin/phpunit --filter=CacheRedisTest
+273. Cache Memcached Tests|vendor/bin/phpunit --filter=CacheMemcachedTest
+274. Cache DynamoDB Tests|vendor/bin/phpunit --filter=CacheDynamoDBTest
+275. Cache APC Tests|vendor/bin/phpunit --filter=CacheAPCTest
+276. Cache APCu Tests|vendor/bin/phpunit --filter=CacheAPCuTest
+277. Cache Memory Tests|vendor/bin/phpunit --filter=CacheMemoryTest
+278. Cache Null Tests|vendor/bin/phpunit --filter=CacheNullTest
+279. Cache TTL Tests|vendor/bin/phpunit --filter=CacheTTLTest
+280. Cache Invalidation Tests|vendor/bin/phpunit --filter=CacheInvalidationTest
+281. Cache Serialization Tests|vendor/bin/phpunit --filter=CacheSerializationTest
+282. Cache Performance Tests|vendor/bin/phpunit --filter=CachePerformanceTest
+283. Cache Security Tests|vendor/bin/phpunit --filter=CacheSecurityTest
+284. Cache Strategy Tests|vendor/bin/phpunit --filter=CacheStrategyTest

@@ -1,0 +1,25 @@
+
+[33mIn ConfigurationResolver.php line 1010:[39m
+[37;41m                                                                                                                       [39;49m
+[37;41m  [PhpCsFixer\ConfigurationException\InvalidConfigurationException (16)]                                               [39;49m
+[37;41m  The config file: "C:\Users\Gaser\Desktop\COPRRA\.php-cs-fixer.php" does not return a "PhpCsFixer\ConfigInterface" i  [39;49m
+[37;41m  nstance. Got: "int".                                                                                                 [39;49m
+[37;41m                                                                                                                       [39;49m
+
+[33mException trace:[39m
+  at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\ConfigurationResolver.php:1010[39m
+ PhpCsFixer\Console\ConfigurationResolver::separatedContextLessInclude() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\ConfigurationResolver.php:274[39m
+ PhpCsFixer\Console\ConfigurationResolver->getConfig() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\ConfigurationResolver.php:646[39m
+ PhpCsFixer\Console\ConfigurationResolver->resolveFormat() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\ConfigurationResolver.php:462[39m
+ PhpCsFixer\Console\ConfigurationResolver->getReporter() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\Command\FixCommand.php:282[39m
+ PhpCsFixer\Console\Command\FixCommand->execute() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\symfony\console\Command\Command.php:318[39m
+ Symfony\Component\Console\Command\Command->run() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\symfony\console\Application.php:1092[39m
+ Symfony\Component\Console\Application->doRunCommand() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\Application.php:194[39m
+ PhpCsFixer\Console\Application->doRunCommand() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\symfony\console\Application.php:359[39m
+ Symfony\Component\Console\Application->doRun() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\src\Console\Application.php:116[39m
+ PhpCsFixer\Console\Application->doRun() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\symfony\console\Application.php:194[39m
+ Symfony\Component\Console\Application->run() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\friendsofphp\php-cs-fixer\php-cs-fixer:110[39m
+ include() at [32mC:\Users\Gaser\Desktop\COPRRA\vendor\bin\php-cs-fixer:119[39m
+
+[32mfix [--path-mode PATH-MODE] [--allow-risky ALLOW-RISKY] [--config CONFIG] [--dry-run] [--rules RULES] [--using-cache USING-CACHE] [--allow-unsupported-php-version ALLOW-UNSUPPORTED-PHP-VERSION] [--cache-file CACHE-FILE] [--diff] [--format FORMAT] [--stop-on-violation] [--show-progress SHOW-PROGRESS] [--sequential] [--] [<path>...][39m
+

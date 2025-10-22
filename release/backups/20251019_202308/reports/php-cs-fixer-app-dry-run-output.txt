@@ -1,0 +1,2083 @@
+PHP CS Fixer 3.88.2 Folding Bike by Fabien Potencier, Dariusz Ruminski and contributors.
+PHP runtime: 8.2.29
+Running analysis on 1 core sequentially.
+You can enable parallel runner and speed up the analysis! Please see https://cs.symfony.com/doc/usage.html for more information.
+Loaded config default.
+Using cache file ".php-cs-fixer.cache".
+   0/246 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%
+   1/246 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%
+   8/246 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   3%
+  20/246 [▓▓░░░░░░░░░░░░░░░░░░░░░░░░░░]   8%
+  25/246 [▓▓░░░░░░░░░░░░░░░░░░░░░░░░░░]  10%
+  31/246 [▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░░]  12%
+  39/246 [▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░]  15%
+  44/246 [▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░]  17%
+  50/246 [▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░]  20%
+  58/246 [▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░]  23%
+  66/246 [▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░]  26%
+  74/246 [▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░]  30%
+  84/246 [▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░]  34%
+  94/246 [▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░]  38%
+  99/246 [▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░]  40%
+ 109/246 [▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░]  44%
+ 118/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░]  47%
+ 123/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░]  50%
+ 139/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░]  56%
+ 148/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░]  60%
+ 156/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░]  63%
+ 169/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░]  68%
+ 173/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░]  70%
+ 182/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░]  73%
+ 186/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░]  75%
+ 196/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░]  79%
+ 200/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░]  81%
+ 203/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░]  82%
+ 207/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░]  84%
+ 211/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░]  85%
+ 215/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░]  87%
+ 218/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░]  88%
+ 221/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░]  89%
+ 222/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░]  90%
+ 227/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░]  92%
+ 231/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░]  93%
+ 235/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░]  95%
+ 241/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░]  97%
+ 245/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░]  99%
+ 246/246 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+
+   1) app/Console/Commands/OptimizePerformance.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Console/Commands/OptimizePerformance.php
++++ /var/www/html/app/Console/Commands/OptimizePerformance.php
+@@ -189,7 +189,7 @@
+                 $this->line('  Top 10 largest tables:');
+                 $this->table(
+                     ['Table', 'Size (MB)', 'Rows'],
+-                    array_map(fn($row) => (array) $row, $tableSizes)
++                    array_map(fn ($row) => (array) $row, $tableSizes)
+                 );
+             }
+ 
+
+      ----------- end diff -----------
+
+   2) app/Contracts/StoreAdapterInterface.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Contracts/StoreAdapterInterface.php
++++ /var/www/html/app/Contracts/StoreAdapterInterface.php
+@@ -6,7 +6,7 @@
+ 
+ /**
+  * Interface for store adapters.
+- * 
++ *
+  * Each store adapter must implement this interface to provide
+  * a unified way to fetch product data from different stores.
+  */
+@@ -29,7 +29,7 @@
+ 
+     /**
+      * Fetch product data by product identifier.
+-     * 
++     *
+      * @param string $productIdentifier The product ID/SKU/ASIN
+      * @return array{
+      *     name: string,
+@@ -50,7 +50,7 @@
+ 
+     /**
+      * Search for products by query.
+-     * 
++     *
+      * @param string $query Search query
+      * @param array $options Search options (limit, page, filters, etc.)
+      * @return array Array of product data
+@@ -69,7 +69,7 @@
+ 
+     /**
+      * Get rate limit information.
+-     * 
++     *
+      * @return array{
+      *     requests_per_minute: int,
+      *     requests_per_hour: int,
+@@ -78,4 +78,3 @@
+      */
+     public function getRateLimits(): array;
+ }
+-
+
+      ----------- end diff -----------
+
+   3) app/DTO/AnalysisResult.php
+      ---------- begin diff ----------
+--- /var/www/html/app/DTO/AnalysisResult.php
++++ /var/www/html/app/DTO/AnalysisResult.php
+@@ -12,5 +12,6 @@
+         public int $max_score,
+         /** @var array<string> */
+         public array $issues
+-    ) {}
++    ) {
++    }
+ }
+
+      ----------- end diff -----------
+
+   4) app/DTO/ProcessResult.php
+      ---------- begin diff ----------
+--- /var/www/html/app/DTO/ProcessResult.php
++++ /var/www/html/app/DTO/ProcessResult.php
+@@ -22,7 +22,8 @@
+          * The error output of the process.
+          */
+         public readonly string $errorOutput
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Get the output of the process.
+
+      ----------- end diff -----------
+
+   5) app/Enums/NotificationStatus.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Enums/NotificationStatus.php
++++ /var/www/html/app/Enums/NotificationStatus.php
+@@ -47,4 +47,3 @@
+         return array_column(self::cases(), 'value', 'name');
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+   6) app/Enums/OrderStatus.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Enums/OrderStatus.php
++++ /var/www/html/app/Enums/OrderStatus.php
+@@ -78,4 +78,3 @@
+         return array_column(self::cases(), 'value', 'name');
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+   7) app/Enums/UserRole.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Enums/UserRole.php
++++ /var/www/html/app/Enums/UserRole.php
+@@ -85,4 +85,3 @@
+         return array_column(self::cases(), 'value', 'name');
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+   8) app/Events/OrderStatusChanged.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Events/OrderStatusChanged.php
++++ /var/www/html/app/Events/OrderStatusChanged.php
+@@ -23,6 +23,6 @@
+         public Order $order,
+         public OrderStatus $oldStatus,
+         public OrderStatus $newStatus
+-    ) {}
++    ) {
++    }
+ }
+-
+
+      ----------- end diff -----------
+
+   9) app/Exceptions/ProductUpdate.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Exceptions/ProductUpdate.php
++++ /var/www/html/app/Exceptions/ProductUpdate.php
+@@ -6,4 +6,6 @@
+ 
+ use Exception;
+ 
+-class ProductUpdate extends Exception {}
++class ProductUpdate extends Exception
++{
++}
+
+      ----------- end diff -----------
+
+  10) app/Helpers/OrderHelper.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Helpers/OrderHelper.php
++++ /var/www/html/app/Helpers/OrderHelper.php
+@@ -138,4 +138,3 @@
+         return $estimatedDelivery && now()->isAfter($estimatedDelivery);
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  11) app/Http/Controllers/Admin/AIControlPanelController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Admin/AIControlPanelController.php
++++ /var/www/html/app/Http/Controllers/Admin/AIControlPanelController.php
+@@ -12,5 +12,4 @@
+ 
+ class AIControlPanelController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  12) app/Http/Controllers/AdminController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/AdminController.php
++++ /var/www/html/app/Http/Controllers/AdminController.php
+@@ -13,5 +13,4 @@
+ 
+ class AdminController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  13) app/Http/Controllers/AnalyticsController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/AnalyticsController.php
++++ /var/www/html/app/Http/Controllers/AnalyticsController.php
+@@ -10,7 +10,9 @@
+ 
+ class AnalyticsController extends Controller
+ {
+-    public function __construct(private BehaviorAnalysisService $behaviorAnalysisService) {}
++    public function __construct(private BehaviorAnalysisService $behaviorAnalysisService)
++    {
++    }
+ 
+     public function userAnalytics(Request $request): JsonResponse
+     {
+
+      ----------- end diff -----------
+
+  14) app/Http/Controllers/Api/Admin/BrandController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Api/Admin/BrandController.php
++++ /var/www/html/app/Http/Controllers/Api/Admin/BrandController.php
+@@ -11,8 +11,6 @@
+ 
+ class BrandController extends Controller
+ {
+-
+-
+     public function update(Request $request, Brand $brand): JsonResponse
+     {
+         $validated = $request->validate([
+
+      ----------- end diff -----------
+
+  15) app/Http/Controllers/Api/Admin/CategoryController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Api/Admin/CategoryController.php
++++ /var/www/html/app/Http/Controllers/Api/Admin/CategoryController.php
+@@ -11,8 +11,6 @@
+ 
+ class CategoryController extends Controller
+ {
+-
+-
+     public function update(Request $request, Category $category): JsonResponse
+     {
+         $validated = $request->validate([
+
+      ----------- end diff -----------
+
+  16) app/Http/Controllers/Api/AuthController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Api/AuthController.php
++++ /var/www/html/app/Http/Controllers/Api/AuthController.php
+@@ -14,5 +14,4 @@
+ 
+ class AuthController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  17) app/Http/Controllers/Api/DocumentationController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Api/DocumentationController.php
++++ /var/www/html/app/Http/Controllers/Api/DocumentationController.php
+@@ -8,5 +8,4 @@
+ 
+ class DocumentationController extends BaseApiController
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  18) app/Http/Controllers/Api/PriceSearchController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Api/PriceSearchController.php
++++ /var/www/html/app/Http/Controllers/Api/PriceSearchController.php
+@@ -17,8 +17,6 @@
+ 
+ class PriceSearchController extends Controller
+ {
+-
+-
+     public function bestOffer(Request $request): JsonResponse
+     {
+         try {
+
+      ----------- end diff -----------
+
+  19) app/Http/Controllers/Auth/AuthController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Auth/AuthController.php
++++ /var/www/html/app/Http/Controllers/Auth/AuthController.php
+@@ -21,6 +21,4 @@
+ 
+ class AuthController extends Controller
+ {
+-
+ }
+-
+
+      ----------- end diff -----------
+
+  20) app/Http/Controllers/Auth/EmailVerificationController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/Auth/EmailVerificationController.php
++++ /var/www/html/app/Http/Controllers/Auth/EmailVerificationController.php
+@@ -14,6 +14,4 @@
+ 
+ class EmailVerificationController extends Controller
+ {
+-
+ }
+-
+
+      ----------- end diff -----------
+
+  21) app/Http/Controllers/BackupController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/BackupController.php
++++ /var/www/html/app/Http/Controllers/BackupController.php
+@@ -314,7 +314,7 @@
+                 mkdir($this->backupPath, 0755, true);
+             }
+ 
+-            $zip = new ZipArchive;
++            $zip = new ZipArchive();
+             if ($zip->open($filePath, ZipArchive::CREATE) !== true) {
+                 throw new RuntimeException('Cannot create backup file');
+             }
+@@ -467,7 +467,7 @@
+                 ];
+             }
+ 
+-            $zip = new ZipArchive;
++            $zip = new ZipArchive();
+             if ($zip->open($filePath) !== true) {
+                 return [
+                     'success' => false,
+
+      ----------- end diff -----------
+
+  22) app/Http/Controllers/BrandController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/BrandController.php
++++ /var/www/html/app/Http/Controllers/BrandController.php
+@@ -12,8 +12,6 @@
+ 
+ class BrandController extends Controller
+ {
+-
+-
+     /**
+      * Show the form for creating a new resource.
+      */
+
+      ----------- end diff -----------
+
+  23) app/Http/Controllers/CategoryController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/CategoryController.php
++++ /var/www/html/app/Http/Controllers/CategoryController.php
+@@ -9,5 +9,4 @@
+ 
+ class CategoryController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  24) app/Http/Controllers/HealthController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/HealthController.php
++++ /var/www/html/app/Http/Controllers/HealthController.php
+@@ -9,5 +9,4 @@
+ 
+ class HealthController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  25) app/Http/Controllers/HomeController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/HomeController.php
++++ /var/www/html/app/Http/Controllers/HomeController.php
+@@ -11,5 +11,4 @@
+ 
+ class HomeController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  26) app/Http/Controllers/LocaleController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/LocaleController.php
++++ /var/www/html/app/Http/Controllers/LocaleController.php
+@@ -13,8 +13,6 @@
+ 
+ class LocaleController extends Controller
+ {
+-
+-
+     // تم حذف المتغير غير المستخدم من هنا
+ 
+ }
+
+      ----------- end diff -----------
+
+  27) app/Http/Controllers/OrderController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/OrderController.php
++++ /var/www/html/app/Http/Controllers/OrderController.php
+@@ -12,8 +12,6 @@
+ 
+ class OrderController extends Controller
+ {
+-
+-
+     public function create(Request $request): JsonResponse
+     {
+         $validated = $request->validate([
+
+      ----------- end diff -----------
+
+  28) app/Http/Controllers/PaymentController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/PaymentController.php
++++ /var/www/html/app/Http/Controllers/PaymentController.php
+@@ -12,5 +12,4 @@
+ 
+ class PaymentController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  29) app/Http/Controllers/PointsController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/PointsController.php
++++ /var/www/html/app/Http/Controllers/PointsController.php
+@@ -11,5 +11,4 @@
+ 
+ class PointsController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  30) app/Http/Controllers/PriceComparisonController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/PriceComparisonController.php
++++ /var/www/html/app/Http/Controllers/PriceComparisonController.php
+@@ -17,7 +17,8 @@
+         private readonly AnalyticsService $analyticsService,
+         private readonly CacheService $cacheService,
+         private readonly StoreAdapterManager $storeAdapterManager
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Show price comparison for a product.
+@@ -102,7 +103,7 @@
+         }
+ 
+         // Find lowest price among in-stock items
+-        $inStockPrices = array_filter($prices, fn($p) => $p['in_stock']);
++        $inStockPrices = array_filter($prices, fn ($p) => $p['in_stock']);
+ 
+         if (empty($inStockPrices)) {
+             return $prices;
+@@ -182,4 +183,3 @@
+         ]);
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  31) app/Http/Controllers/ProfileController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/ProfileController.php
++++ /var/www/html/app/Http/Controllers/ProfileController.php
+@@ -10,8 +10,6 @@
+ 
+ class ProfileController extends Controller
+ {
+-
+-
+     /**
+      * Update the user profile.
+      *
+
+      ----------- end diff -----------
+
+  32) app/Http/Controllers/RecommendationController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/RecommendationController.php
++++ /var/www/html/app/Http/Controllers/RecommendationController.php
+@@ -11,7 +11,9 @@
+ 
+ class RecommendationController extends Controller
+ {
+-    public function __construct(private RecommendationService $recommendationService) {}
++    public function __construct(private RecommendationService $recommendationService)
++    {
++    }
+ 
+     public function index(Request $request): JsonResponse
+     {
+
+      ----------- end diff -----------
+
+  33) app/Http/Controllers/ReportController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/ReportController.php
++++ /var/www/html/app/Http/Controllers/ReportController.php
+@@ -11,5 +11,4 @@
+ 
+ class ReportController extends Controller
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  34) app/Http/Controllers/SettingController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/SettingController.php
++++ /var/www/html/app/Http/Controllers/SettingController.php
+@@ -13,8 +13,6 @@
+ 
+ class SettingController extends Controller
+ {
+-
+-
+     /**
+      * Update settings.
+      */
+
+      ----------- end diff -----------
+
+  35) app/Http/Controllers/SystemController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/SystemController.php
++++ /var/www/html/app/Http/Controllers/SystemController.php
+@@ -12,8 +12,6 @@
+ 
+ class SystemController extends Controller
+ {
+-
+-
+     /**
+      * Run database migrations.
+      */
+
+      ----------- end diff -----------
+
+  36) app/Http/Controllers/UserController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/UserController.php
++++ /var/www/html/app/Http/Controllers/UserController.php
+@@ -18,7 +18,8 @@
+     public function __construct(
+         private readonly UserBanService $userBanService,
+         private readonly PasswordPolicyService $passwordPolicyService
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Display a listing of users.
+
+      ----------- end diff -----------
+
+  37) app/Http/Controllers/WebhookController.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Controllers/WebhookController.php
++++ /var/www/html/app/Http/Controllers/WebhookController.php
+@@ -11,8 +11,6 @@
+ 
+ class WebhookController extends Controller
+ {
+-
+-
+     /**
+      * Generic webhook handler.
+      */
+@@ -80,4 +78,3 @@
+         }
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  38) app/Http/Middleware/AdminMiddleware.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/AdminMiddleware.php
++++ /var/www/html/app/Http/Middleware/AdminMiddleware.php
+@@ -9,5 +9,4 @@
+ 
+ class AdminMiddleware
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  39) app/Http/Middleware/ApiErrorHandler.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/ApiErrorHandler.php
++++ /var/www/html/app/Http/Middleware/ApiErrorHandler.php
+@@ -19,8 +19,6 @@
+ 
+ class ApiErrorHandler
+ {
+-
+-
+     /**
+      * Handle the exception and return appropriate JSON response.
+      */
+
+      ----------- end diff -----------
+
+  40) app/Http/Middleware/CheckPermission.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/CheckPermission.php
++++ /var/www/html/app/Http/Middleware/CheckPermission.php
+@@ -34,4 +34,3 @@
+         abort(403, 'Forbidden - Missing required permission');
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  41) app/Http/Middleware/CheckUserRole.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/CheckUserRole.php
++++ /var/www/html/app/Http/Middleware/CheckUserRole.php
+@@ -39,4 +39,3 @@
+         return $next($request);
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  42) app/Http/Middleware/LocaleMiddleware.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/LocaleMiddleware.php
++++ /var/www/html/app/Http/Middleware/LocaleMiddleware.php
+@@ -13,8 +13,6 @@
+ 
+ class LocaleMiddleware
+ {
+-
+-
+     private function determineLanguage(Request $request): string
+     {
+         // 1. تحقق من المستخدم المسجل
+
+      ----------- end diff -----------
+
+  43) app/Http/Middleware/RedirectIfAuthenticated.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/RedirectIfAuthenticated.php
++++ /var/www/html/app/Http/Middleware/RedirectIfAuthenticated.php
+@@ -12,5 +12,4 @@
+ 
+ class RedirectIfAuthenticated
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  44) app/Http/Middleware/SecurityHeadersMiddleware.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/SecurityHeadersMiddleware.php
++++ /var/www/html/app/Http/Middleware/SecurityHeadersMiddleware.php
+@@ -10,8 +10,6 @@
+ 
+ class SecurityHeadersMiddleware
+ {
+-
+-
+     /**
+      * Add security headers to response.
+      */
+
+      ----------- end diff -----------
+
+  45) app/Http/Middleware/SetLocaleAndCurrency.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php
++++ /var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php
+@@ -14,8 +14,6 @@
+ 
+ class SetLocaleAndCurrency
+ {
+-
+-
+     /**
+      * Configure application locale based on user preference, session, or default.
+      */
+
+      ----------- end diff -----------
+
+  46) app/Http/Requests/CartRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/CartRequest.php
++++ /var/www/html/app/Http/Requests/CartRequest.php
+@@ -8,8 +8,6 @@
+ 
+ class CartRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+
+      ----------- end diff -----------
+
+  47) app/Http/Requests/ChangePasswordRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/ChangePasswordRequest.php
++++ /var/www/html/app/Http/Requests/ChangePasswordRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class ChangePasswordRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  48) app/Http/Requests/ForgotPasswordRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/ForgotPasswordRequest.php
++++ /var/www/html/app/Http/Requests/ForgotPasswordRequest.php
+@@ -8,8 +8,6 @@
+ 
+ class ForgotPasswordRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -25,4 +23,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  49) app/Http/Requests/ProductIndexRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/ProductIndexRequest.php
++++ /var/www/html/app/Http/Requests/ProductIndexRequest.php
+@@ -8,8 +8,6 @@
+ 
+ class ProductIndexRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -32,4 +30,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  50) app/Http/Requests/RegisterRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/RegisterRequest.php
++++ /var/www/html/app/Http/Requests/RegisterRequest.php
+@@ -9,8 +9,6 @@
+ 
+ class RegisterRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -48,4 +46,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  51) app/Http/Requests/ResetPasswordRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/ResetPasswordRequest.php
++++ /var/www/html/app/Http/Requests/ResetPasswordRequest.php
+@@ -9,8 +9,6 @@
+ 
+ class ResetPasswordRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -29,4 +27,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  52) app/Http/Requests/StoreBrandRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/StoreBrandRequest.php
++++ /var/www/html/app/Http/Requests/StoreBrandRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class StoreBrandRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  53) app/Http/Requests/StorePriceAlertRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/StorePriceAlertRequest.php
++++ /var/www/html/app/Http/Requests/StorePriceAlertRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class StorePriceAlertRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  54) app/Http/Requests/StoreProductRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/StoreProductRequest.php
++++ /var/www/html/app/Http/Requests/StoreProductRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class StoreProductRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  55) app/Http/Requests/StoreReviewRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/StoreReviewRequest.php
++++ /var/www/html/app/Http/Requests/StoreReviewRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class StoreReviewRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  56) app/Http/Requests/SwitchLanguageRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/SwitchLanguageRequest.php
++++ /var/www/html/app/Http/Requests/SwitchLanguageRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class SwitchLanguageRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  57) app/Http/Requests/UpdateBrandRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/UpdateBrandRequest.php
++++ /var/www/html/app/Http/Requests/UpdateBrandRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class UpdateBrandRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  58) app/Http/Requests/UpdateCartRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/UpdateCartRequest.php
++++ /var/www/html/app/Http/Requests/UpdateCartRequest.php
+@@ -8,8 +8,6 @@
+ 
+ class UpdateCartRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -27,4 +25,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  59) app/Http/Requests/UpdatePriceAlertRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/UpdatePriceAlertRequest.php
++++ /var/www/html/app/Http/Requests/UpdatePriceAlertRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class UpdatePriceAlertRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  60) app/Http/Requests/UpdateProductRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/UpdateProductRequest.php
++++ /var/www/html/app/Http/Requests/UpdateProductRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class UpdateProductRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  61) app/Http/Requests/UpdateReviewRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/UpdateReviewRequest.php
++++ /var/www/html/app/Http/Requests/UpdateReviewRequest.php
+@@ -8,5 +8,4 @@
+ 
+ class UpdateReviewRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  62) app/Http/Requests/UpdateUserRequest.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Http/Requests/UpdateUserRequest.php
++++ /var/www/html/app/Http/Requests/UpdateUserRequest.php
+@@ -9,5 +9,4 @@
+ 
+ class UpdateUserRequest extends FormRequest
+ {
+-
+ }
+
+      ----------- end diff -----------
+
+  63) app/Jobs/ProcessHeavyOperation.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Jobs/ProcessHeavyOperation.php
++++ /var/www/html/app/Jobs/ProcessHeavyOperation.php
+@@ -46,7 +46,9 @@
+      *
+      * @param  array<string, mixed>  $data
+      */
+-    public function __construct(private string $operation, private array $data = [], private ?int $userId = null) {}
++    public function __construct(private string $operation, private array $data = [], private ?int $userId = null)
++    {
++    }
+ 
+     /**
+      * Execute the specific operation.
+
+      ----------- end diff -----------
+
+  64) app/Listeners/SendOrderStatusNotification.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Listeners/SendOrderStatusNotification.php
++++ /var/www/html/app/Listeners/SendOrderStatusNotification.php
+@@ -51,4 +51,3 @@
+         };
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  65) app/Models/AnalyticsEvent.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Models/AnalyticsEvent.php
++++ /var/www/html/app/Models/AnalyticsEvent.php
+@@ -66,4 +66,3 @@
+         'metadata' => 'array',
+     ];
+ }
+-
+
+      ----------- end diff -----------
+
+  66) app/Models/ExchangeRate.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Models/ExchangeRate.php
++++ /var/www/html/app/Models/ExchangeRate.php
+@@ -62,4 +62,3 @@
+         return $rate ? (float) $rate->rate : null;
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  67) app/Models/Notification.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Models/Notification.php
++++ /var/www/html/app/Models/Notification.php
+@@ -197,7 +197,7 @@
+     {
+         $tags = $this->getData('tags', []);
+ 
+-        return is_array($tags) ? array_map(static fn($tag) => is_string($tag) ? $tag : 'tag', $tags) : [];
++        return is_array($tags) ? array_map(static fn ($tag) => is_string($tag) ? $tag : 'tag', $tags) : [];
+     }
+ 
+     /**
+
+      ----------- end diff -----------
+
+  68) app/Models/Webhook.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Models/Webhook.php
++++ /var/www/html/app/Models/Webhook.php
+@@ -120,4 +120,3 @@
+         ]);
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  69) app/Models/WebhookLog.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Models/WebhookLog.php
++++ /var/www/html/app/Models/WebhookLog.php
+@@ -42,4 +42,3 @@
+         'metadata' => 'array',
+     ];
+ }
+-
+
+      ----------- end diff -----------
+
+  70) app/Notifications/OrderStatusUpdateNotification.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Notifications/OrderStatusUpdateNotification.php
++++ /var/www/html/app/Notifications/OrderStatusUpdateNotification.php
+@@ -14,5 +14,7 @@
+ {
+     use Queueable;
+ 
+-    public function __construct(private Order $order, private string $oldStatus) {}
++    public function __construct(private Order $order, private string $oldStatus)
++    {
++    }
+ }
+
+      ----------- end diff -----------
+
+  71) app/Notifications/PriceDropNotification.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Notifications/PriceDropNotification.php
++++ /var/www/html/app/Notifications/PriceDropNotification.php
+@@ -19,7 +19,8 @@
+         public float $oldPrice,
+         public float $newPrice,
+         public float $targetPrice
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * @param  mixed  $notifiable
+
+      ----------- end diff -----------
+
+  72) app/Policies/ProductPolicy.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Policies/ProductPolicy.php
++++ /var/www/html/app/Policies/ProductPolicy.php
+@@ -9,8 +9,6 @@
+ 
+ class ProductPolicy
+ {
+-
+-
+     /**
+      * Determine whether the user can create models.
+      */
+
+      ----------- end diff -----------
+
+  73) app/Policies/UserPolicy.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Policies/UserPolicy.php
++++ /var/www/html/app/Policies/UserPolicy.php
+@@ -8,8 +8,6 @@
+ 
+ class UserPolicy
+ {
+-
+-
+     /**
+      * Determine whether the user can create models.
+      */
+
+      ----------- end diff -----------
+
+  74) app/Providers/AppServiceProvider.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Providers/AppServiceProvider.php
++++ /var/www/html/app/Providers/AppServiceProvider.php
+@@ -52,7 +52,7 @@
+      */
+     private function configureFactoryNaming(): void
+     {
+-        $factoryConfigService = new FactoryConfigurationService;
++        $factoryConfigService = new FactoryConfigurationService();
+         $factoryConfigService->configureNaming();
+     }
+ }
+
+      ----------- end diff -----------
+
+  75) app/Providers/CoprraServiceProvider.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Providers/CoprraServiceProvider.php
++++ /var/www/html/app/Providers/CoprraServiceProvider.php
+@@ -43,6 +43,6 @@
+         });
+ 
+         // Language direction directive
+-        Blade::directive('rtl', static fn(): string => "<?php echo in_array(app()->getLocale(), ['ar', 'ur', 'fa']) ? 'rtl' : 'ltr'; ?>");
++        Blade::directive('rtl', static fn (): string => "<?php echo in_array(app()->getLocale(), ['ar', 'ur', 'fa']) ? 'rtl' : 'ltr'; ?>");
+     }
+ }
+
+      ----------- end diff -----------
+
+  76) app/Providers/EventServiceProvider.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Providers/EventServiceProvider.php
++++ /var/www/html/app/Providers/EventServiceProvider.php
+@@ -25,7 +25,9 @@
+      * Register any events for your application.
+      */
+     #[\Override]
+-    public function boot(): void {}
++    public function boot(): void
++    {
++    }
+ 
+     /**
+      * Determine if events and listeners should be automatically discovered.
+
+      ----------- end diff -----------
+
+  77) app/Providers/ViewServiceProvider.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Providers/ViewServiceProvider.php
++++ /var/www/html/app/Providers/ViewServiceProvider.php
+@@ -14,7 +14,9 @@
+      * Register any application services.
+      */
+     #[\Override]
+-    public function register(): void {}
++    public function register(): void
++    {
++    }
+ 
+     /**
+      * Bootstrap any application services.
+
+      ----------- end diff -----------
+
+  78) app/Repositories/ProductRepository.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Repositories/ProductRepository.php
++++ /var/www/html/app/Repositories/ProductRepository.php
+@@ -81,7 +81,7 @@
+             ->limit($limit)
+             ->get());
+ 
+-        return $result instanceof Collection ? $result : new Collection;
++        return $result instanceof Collection ? $result : new Collection();
+     }
+ 
+     /**
+
+      ----------- end diff -----------
+
+  79) app/Rules/ValidOrderStatus.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Rules/ValidOrderStatus.php
++++ /var/www/html/app/Rules/ValidOrderStatus.php
+@@ -30,4 +30,3 @@
+         }
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  80) app/Rules/ValidOrderStatusTransition.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Rules/ValidOrderStatusTransition.php
++++ /var/www/html/app/Rules/ValidOrderStatusTransition.php
+@@ -59,4 +59,3 @@
+         }
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  81) app/Schemas/BrandSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/BrandSchema.php
++++ /var/www/html/app/Schemas/BrandSchema.php
+@@ -20,4 +20,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time")
+  * )
+  */
+-final class BrandSchema {}
++final class BrandSchema
++{
++}
+
+      ----------- end diff -----------
+
+  82) app/Schemas/CategorySchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/CategorySchema.php
++++ /var/www/html/app/Schemas/CategorySchema.php
+@@ -20,4 +20,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time")
+  * )
+  */
+-final class CategorySchema {}
++final class CategorySchema
++{
++}
+
+      ----------- end diff -----------
+
+  83) app/Schemas/PaginationLinksSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/PaginationLinksSchema.php
++++ /var/www/html/app/Schemas/PaginationLinksSchema.php
+@@ -17,4 +17,6 @@
+  *     @OA\Property(property="next", type="string", nullable=true, example="http://api.example.com/products?page=3")
+  * )
+  */
+-final class PaginationLinksSchema {}
++final class PaginationLinksSchema
++{
++}
+
+      ----------- end diff -----------
+
+  84) app/Schemas/PaginationMetaSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/PaginationMetaSchema.php
++++ /var/www/html/app/Schemas/PaginationMetaSchema.php
+@@ -19,4 +19,6 @@
+  *     @OA\Property(property="to", type="integer", example=15)
+  * )
+  */
+-final class PaginationMetaSchema {}
++final class PaginationMetaSchema
++{
++}
+
+      ----------- end diff -----------
+
+  85) app/Schemas/PriceOfferSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/PriceOfferSchema.php
++++ /var/www/html/app/Schemas/PriceOfferSchema.php
+@@ -29,4 +29,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time")
+  * )
+  */
+-final class PriceOfferSchema {}
++final class PriceOfferSchema
++{
++}
+
+      ----------- end diff -----------
+
+  86) app/Schemas/ProductCreateRequestSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/ProductCreateRequestSchema.php
++++ /var/www/html/app/Schemas/ProductCreateRequestSchema.php
+@@ -23,4 +23,6 @@
+  *     @OA\Property(property="store_id", type="integer", example=1)
+  * )
+  */
+-final class ProductCreateRequestSchema {}
++final class ProductCreateRequestSchema
++{
++}
+
+      ----------- end diff -----------
+
+  87) app/Schemas/ProductDetailSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/ProductDetailSchema.php
++++ /var/www/html/app/Schemas/ProductDetailSchema.php
+@@ -19,4 +19,6 @@
+  *     }
+  * )
+  */
+-final class ProductDetailSchema {}
++final class ProductDetailSchema
++{
++}
+
+      ----------- end diff -----------
+
+  88) app/Schemas/ProductSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/ProductSchema.php
++++ /var/www/html/app/Schemas/ProductSchema.php
+@@ -28,4 +28,6 @@
+  *     @OA\Property(property="price_offers", type="array", @OA\Items(ref="#/components/schemas/PriceOffer"))
+  * )
+  */
+-final class ProductSchema {}
++final class ProductSchema
++{
++}
+
+      ----------- end diff -----------
+
+  89) app/Schemas/ProductUpdateRequestSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/ProductUpdateRequestSchema.php
++++ /var/www/html/app/Schemas/ProductUpdateRequestSchema.php
+@@ -22,4 +22,6 @@
+  *     @OA\Property(property="store_id", type="integer", example=2)
+  * )
+  */
+-final class ProductUpdateRequestSchema {}
++final class ProductUpdateRequestSchema
++{
++}
+
+      ----------- end diff -----------
+
+  90) app/Schemas/ReviewSchema.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Schemas/ReviewSchema.php
++++ /var/www/html/app/Schemas/ReviewSchema.php
+@@ -20,4 +20,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time", example="2023-01-01T00:00:00Z")
+  * )
+  */
+-final class ReviewSchema {}
++final class ReviewSchema
++{
++}
+
+      ----------- end diff -----------
+
+  91) app/Services/AnalyticsService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/AnalyticsService.php
++++ /var/www/html/app/Services/AnalyticsService.php
+@@ -2,167 +2,167 @@
+ 
+         declare(strict_types=1);
+ 
+-        namespace App\Services;
++namespace App\Services;
+ 
+-        use App\Models\AnalyticsEvent;
+-        use Illuminate\Support\Carbon;
+-        use Illuminate\Support\Facades\DB;
+-        use Illuminate\Support\Facades\Log;
++use App\Models\AnalyticsEvent;
++use Illuminate\Support\Carbon;
++use Illuminate\Support\Facades\DB;
++use Illuminate\Support\Facades\Log;
+ 
+-        class AnalyticsService
+-        {
+-            /**
+-             * Track an analytics event.
+-             */
+-            public function track(
+-                string $eventType,
+-                string $eventName,
+-                ?int $userId = null,
+-                ?int $productId = null,
+-                ?int $categoryId = null,
+-                ?int $storeId = null,
+-                ?array $metadata = null
+-            ): ?AnalyticsEvent {
+-                // Check if tracking is enabled
+-                if (! config('coprra.analytics.track_user_behavior', true)) {
+-                    return null;
+-                }
++class AnalyticsService
++{
++    /**
++     * Track an analytics event.
++     */
++    public function track(
++        string $eventType,
++        string $eventName,
++        ?int $userId = null,
++        ?int $productId = null,
++        ?int $categoryId = null,
++        ?int $storeId = null,
++        ?array $metadata = null
++    ): ?AnalyticsEvent {
++        // Check if tracking is enabled
++        if (! config('coprra.analytics.track_user_behavior', true)) {
++            return null;
++        }
+ 
+-                try {
+-                    return AnalyticsEvent::create([
+-                        'event_type' => $eventType,
+-                        'event_name' => $eventName,
+-                        'user_id' => $userId,
+-                        'product_id' => $productId,
+-                        'category_id' => $categoryId,
+-                        'store_id' => $storeId,
+-                        'metadata' => $metadata,
+-                        'ip_address' => request()->ip(),
+-                        'user_agent' => request()->userAgent(),
+-                        'session_id' => session()->getId(),
+-                    ]);
+-                } catch (\Exception $e) {
+-                    Log::error('Failed to track analytics event', [
+-                        'event_type' => $eventType,
+-                        'error' => $e->getMessage(),
+-                    ]);
++        try {
++            return AnalyticsEvent::create([
++                'event_type' => $eventType,
++                'event_name' => $eventName,
++                'user_id' => $userId,
++                'product_id' => $productId,
++                'category_id' => $categoryId,
++                'store_id' => $storeId,
++                'metadata' => $metadata,
++                'ip_address' => request()->ip(),
++                'user_agent' => request()->userAgent(),
++                'session_id' => session()->getId(),
++            ]);
++        } catch (\Exception $e) {
++            Log::error('Failed to track analytics event', [
++                'event_type' => $eventType,
++                'error' => $e->getMessage(),
++            ]);
+ 
+-                    return null;
+-                }
+-            }
++            return null;
++        }
++    }
+ 
+-            /**
+-             * Track price comparison event.
+-             */
+-            public function trackPriceComparison(int $productId, ?int $userId = null, array $metadata = []): ?AnalyticsEvent
+-            {
+-                return $this->track(
+-                    AnalyticsEvent::TYPE_PRICE_COMPARISON,
+-                    'Price Comparison Viewed',
+-                    $userId,
+-                    $productId,
+-                    null,
+-                    null,
+-                    $metadata
+-                );
+-            }
++    /**
++     * Track price comparison event.
++     */
++    public function trackPriceComparison(int $productId, ?int $userId = null, array $metadata = []): ?AnalyticsEvent
++    {
++        return $this->track(
++            AnalyticsEvent::TYPE_PRICE_COMPARISON,
++            'Price Comparison Viewed',
++            $userId,
++            $productId,
++            null,
++            null,
++            $metadata
++        );
++    }
+ 
+-            /**
+-             * Get most viewed products.
+-             */
+-            public function getMostViewedProducts(int $limit = 10, int $days = 30): array
+-            {
+-                return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_PRODUCT_VIEW)
+-                    ->recent($days)
+-                    ->select('product_id', DB::raw('COUNT(*) as view_count'))
+-                    ->groupBy('product_id')
+-                    ->orderByDesc('view_count')
+-                    ->limit($limit)
+-                    ->with('product')
+-                    ->get()
+-                    ->toArray();
+-            }
++    /**
++     * Get most viewed products.
++     */
++    public function getMostViewedProducts(int $limit = 10, int $days = 30): array
++    {
++        return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_PRODUCT_VIEW)
++            ->recent($days)
++            ->select('product_id', DB::raw('COUNT(*) as view_count'))
++            ->groupBy('product_id')
++            ->orderByDesc('view_count')
++            ->limit($limit)
++            ->with('product')
++            ->get()
++            ->toArray();
++    }
+ 
+-            /**
+-             * Get most searched queries.
+-             */
+-            public function getMostSearchedQueries(int $limit = 10, int $days = 30): array
+-            {
+-                return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_SEARCH)
+-                    ->recent($days)
+-                    ->get()
+-                    ->pluck('metadata.query')
+-                    ->filter()
+-                    ->countBy()
+-                    ->sortDesc()
+-                    ->take($limit)
+-                    ->toArray();
+-            }
++    /**
++     * Get most searched queries.
++     */
++    public function getMostSearchedQueries(int $limit = 10, int $days = 30): array
++    {
++        return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_SEARCH)
++            ->recent($days)
++            ->get()
++            ->pluck('metadata.query')
++            ->filter()
++            ->countBy()
++            ->sortDesc()
++            ->take($limit)
++            ->toArray();
++    }
+ 
+-            /**
+-             * Get most popular stores.
+-             */
+-            public function getMostPopularStores(int $limit = 10, int $days = 30): array
+-            {
+-                return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_STORE_CLICK)
+-                    ->recent($days)
+-                    ->select('store_id', DB::raw('COUNT(*) as click_count'))
+-                    ->groupBy('store_id')
+-                    ->orderByDesc('click_count')
+-                    ->limit($limit)
+-                    ->with('store')
+-                    ->get()
+-                    ->toArray();
+-            }
++    /**
++     * Get most popular stores.
++     */
++    public function getMostPopularStores(int $limit = 10, int $days = 30): array
++    {
++        return AnalyticsEvent::ofType(AnalyticsEvent::TYPE_STORE_CLICK)
++            ->recent($days)
++            ->select('store_id', DB::raw('COUNT(*) as click_count'))
++            ->groupBy('store_id')
++            ->orderByDesc('click_count')
++            ->limit($limit)
++            ->with('store')
++            ->get()
++            ->toArray();
++    }
+ 
+-            /**
+-             * Get price comparison statistics.
+-             */
+-            public function getPriceComparisonStats(int $days = 30): array
+-            {
+-                $events = AnalyticsEvent::ofType(AnalyticsEvent::TYPE_PRICE_COMPARISON)
+-                    ->recent($days)
+-                    ->get();
++    /**
++     * Get price comparison statistics.
++     */
++    public function getPriceComparisonStats(int $days = 30): array
++    {
++        $events = AnalyticsEvent::ofType(AnalyticsEvent::TYPE_PRICE_COMPARISON)
++            ->recent($days)
++            ->get();
+ 
+-                return [
+-                    'total_comparisons' => $events->count(),
+-                    'unique_products' => $events->pluck('product_id')->unique()->count(),
+-                    'unique_users' => $events->pluck('user_id')->filter()->unique()->count(),
+-                    'average_per_day' => round($events->count() / max($days, 1), 2),
+-                ];
+-            }
++        return [
++            'total_comparisons' => $events->count(),
++            'unique_products' => $events->pluck('product_id')->unique()->count(),
++            'unique_users' => $events->pluck('user_id')->filter()->unique()->count(),
++            'average_per_day' => round($events->count() / max($days, 1), 2),
++        ];
++    }
+ 
+-            /**
+-             * Get daily event counts.
+-             */
+-            public function getDailyEventCounts(string $eventType, int $days = 30): array
+-            {
+-                $startDate = now()->subDays($days)->startOfDay();
++    /**
++     * Get daily event counts.
++     */
++    public function getDailyEventCounts(string $eventType, int $days = 30): array
++    {
++        $startDate = now()->subDays($days)->startOfDay();
+ 
+-                return AnalyticsEvent::ofType($eventType)
+-                    ->where('created_at', '>=', $startDate)
+-                    ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
+-                    ->groupBy('date')
+-                    ->orderBy('date')
+-                    ->get()
+-                    ->pluck('count', 'date')
+-                    ->toArray();
+-            }
++        return AnalyticsEvent::ofType($eventType)
++            ->where('created_at', '>=', $startDate)
++            ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
++            ->groupBy('date')
++            ->orderBy('date')
++            ->get()
++            ->pluck('count', 'date')
++            ->toArray();
++    }
+ 
+-            /**
+-             * Clean old analytics data.
+-             */
+-            public function cleanOldData(int $daysToKeep = 90): int
+-            {
+-                $cutoffDate = now()->subDays($daysToKeep);
++    /**
++     * Clean old analytics data.
++     */
++    public function cleanOldData(int $daysToKeep = 90): int
++    {
++        $cutoffDate = now()->subDays($daysToKeep);
+ 
+-                $count = AnalyticsEvent::where('created_at', '<', $cutoffDate)->delete();
++        $count = AnalyticsEvent::where('created_at', '<', $cutoffDate)->delete();
+ 
+-                Log::info('Cleaned old analytics data', [
+-                    'days_to_keep' => $daysToKeep,
+-                    'records_deleted' => $count,
+-                ]);
++        Log::info('Cleaned old analytics data', [
++            'days_to_keep' => $daysToKeep,
++            'records_deleted' => $count,
++        ]);
+ 
+-                return $count;
+-            }
+-        }
++        return $count;
++    }
++}
+
+      ----------- end diff -----------
+
+  92) app/Services/CacheService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/CacheService.php
++++ /var/www/html/app/Services/CacheService.php
+@@ -23,8 +23,6 @@
+  */
+ final class CacheService
+ {
+-
+-
+     /**
+      * Enhanced remember method with tagging support
+      *
+
+      ----------- end diff -----------
+
+  93) app/Services/ExchangeRateService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/ExchangeRateService.php
++++ /var/www/html/app/Services/ExchangeRateService.php
+@@ -240,4 +240,3 @@
+         return $count;
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+  94) app/Services/FactoryConfigurationService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/FactoryConfigurationService.php
++++ /var/www/html/app/Services/FactoryConfigurationService.php
+@@ -8,7 +8,9 @@
+ 
+ final class FactoryConfigurationService
+ {
+-    public function __construct(private readonly string $factoryClass = Factory::class) {}
++    public function __construct(private readonly string $factoryClass = Factory::class)
++    {
++    }
+ 
+     public function configureNaming(): void
+     {
+
+      ----------- end diff -----------
+
+  95) app/Services/FinancialTransactionService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/FinancialTransactionService.php
++++ /var/www/html/app/Services/FinancialTransactionService.php
+@@ -12,7 +12,9 @@
+ 
+ final class FinancialTransactionService
+ {
+-    public function __construct(private readonly AuditService $auditService) {}
++    public function __construct(private readonly AuditService $auditService)
++    {
++    }
+ 
+     /**
+      * Update product price with transaction safety.
+
+      ----------- end diff -----------
+
+  96) app/Services/NotificationService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/NotificationService.php
++++ /var/www/html/app/Services/NotificationService.php
+@@ -16,7 +16,9 @@
+ 
+ final class NotificationService
+ {
+-    public function __construct(private readonly AuditService $auditService) {}
++    public function __construct(private readonly AuditService $auditService)
++    {
++    }
+ 
+     /**
+      * Send price drop notification.
+
+      ----------- end diff -----------
+
+  97) app/Services/PriceSearchService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/PriceSearchService.php
++++ /var/www/html/app/Services/PriceSearchService.php
+@@ -10,5 +10,7 @@
+ 
+ final class PriceSearchService
+ {
+-    public function __construct(private readonly ValidationFactory $validationFactory) {}
++    public function __construct(private readonly ValidationFactory $validationFactory)
++    {
++    }
+ }
+
+      ----------- end diff -----------
+
+  98) app/Services/ProductService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/ProductService.php
++++ /var/www/html/app/Services/ProductService.php
+@@ -15,7 +15,8 @@
+     public function __construct(
+         private readonly ProductRepository $repository,
+         private readonly CacheService $cache
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Get paginated active products.
+@@ -80,7 +81,7 @@
+             ['products']
+         );
+ 
+-        return $result instanceof \Illuminate\Database\Eloquent\Collection ? $result : new Collection;
++        return $result instanceof \Illuminate\Database\Eloquent\Collection ? $result : new Collection();
+     }
+ 
+     /**
+
+      ----------- end diff -----------
+
+  99) app/Services/ReportService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/ReportService.php
++++ /var/www/html/app/Services/ReportService.php
+@@ -478,7 +478,7 @@
+             ->get();
+ 
+         /** @var array<int, array<string, mixed>> */
+-        return $products->map(fn(mixed $product): array => $this->formatTopProduct($product))->toArray();
++        return $products->map(fn (mixed $product): array => $this->formatTopProduct($product))->toArray();
+     }
+ 
+     /**
+@@ -563,7 +563,7 @@
+             ->get();
+ 
+         /** @var array<int, array<string, mixed>> */
+-        return $users->map(fn(mixed $user): array => $this->formatMostActiveUser($user))->toArray();
++        return $users->map(fn (mixed $user): array => $this->formatMostActiveUser($user))->toArray();
+     }
+ 
+     /**
+
+      ----------- end diff -----------
+
+ 100) app/Services/RouteConfigurationService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/RouteConfigurationService.php
++++ /var/www/html/app/Services/RouteConfigurationService.php
+@@ -11,7 +11,9 @@
+ 
+ final class RouteConfigurationService
+ {
+-    public function __construct(private readonly RateLimiter $rateLimiter, private readonly Router $router) {}
++    public function __construct(private readonly RateLimiter $rateLimiter, private readonly Router $router)
++    {
++    }
+ 
+     public function configureRateLimiting(): void
+     {
+
+      ----------- end diff -----------
+
+ 101) app/Services/SEOService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/SEOService.php
++++ /var/www/html/app/Services/SEOService.php
+@@ -260,4 +260,3 @@
+         return $data;
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+ 102) app/Services/StoreAdapters/AbstractStoreAdapter.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php
++++ /var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php
+@@ -36,7 +36,7 @@
+                 }
+ 
+                 $this->lastError = "HTTP {$response->status()}: {$response->body()}";
+-                
++
+                 Log::warning('Store adapter request failed', [
+                     'store' => $this->getStoreName(),
+                     'url' => $url,
+@@ -46,7 +46,7 @@
+ 
+             } catch (\Exception $e) {
+                 $this->lastError = $e->getMessage();
+-                
++
+                 Log::error('Store adapter request exception', [
+                     'store' => $this->getStoreName(),
+                     'url' => $url,
+@@ -134,4 +134,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+ 103) app/Services/StoreAdapters/AmazonAdapter.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/StoreAdapters/AmazonAdapter.php
++++ /var/www/html/app/Services/StoreAdapters/AmazonAdapter.php
+@@ -6,7 +6,7 @@
+ 
+ /**
+  * Amazon store adapter.
+- * 
++ *
+  * Note: This is a basic implementation. Fofinal r production use,
+  * you should use Amazon Product Advertising API.
+  */
+@@ -89,9 +89,9 @@
+     {
+         // TODO: Implement actual Amazon Product Advertising API call
+         // This requires signing requests with AWS Signature Version 4
+-        
++
+         $this->lastError = 'Amazon API integration not yet implemented. Please configure Amazon Product Advertising API.';
+-        
++
+         return null;
+     }
+ 
+@@ -180,4 +180,3 @@
+         ];
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+ 104) app/Services/TestAnalysisService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/TestAnalysisService.php
++++ /var/www/html/app/Services/TestAnalysisService.php
+@@ -9,7 +9,9 @@
+ 
+ final readonly class TestAnalysisService
+ {
+-    public function __construct(private bool $coverageEnabled = false) {}
++    public function __construct(private bool $coverageEnabled = false)
++    {
++    }
+ 
+     /**
+      * @param  array<string>  $issues
+
+      ----------- end diff -----------
+
+ 105) app/Services/WebhookService.php
+      ---------- begin diff ----------
+--- /var/www/html/app/Services/WebhookService.php
++++ /var/www/html/app/Services/WebhookService.php
+@@ -10,8 +10,6 @@
+ 
+ class WebhookService
+ {
+-
+-
+     /**
+      * Handle incoming webhook.
+      */
+@@ -246,4 +244,3 @@
+         return hash_equals($expectedSignature, $webhook->signature);
+     }
+ }
+-
+
+      ----------- end diff -----------
+
+ 106) app/View/Composers/AppComposer.php
+      ---------- begin diff ----------
+--- /var/www/html/app/View/Composers/AppComposer.php
++++ /var/www/html/app/View/Composers/AppComposer.php
+@@ -11,8 +11,6 @@
+ 
+ final class AppComposer
+ {
+-
+-
+     /**
+      * Get active languages.
+      *
+
+      ----------- end diff -----------
+
+
+Found 106 of 246 files that can be fixed in 41.842 seconds, 26.00 MB memory used
+
+Files that were not fixed due to errors reported during linting before fixing:
+   1) /var/www/html/app/Http/Controllers/Api/ProductController.php
+   2) /var/www/html/app/Http/Controllers/CartController.php
+   3) /var/www/html/app/Http/Resources/OrderItemResource.php
+   4) /var/www/html/app/Http/Resources/OrderResource.php
+   5) /var/www/html/app/Http/Resources/ProductResource.php
+   6) /var/www/html/app/Http/Resources/UserResource.php
+   7) /var/www/html/app/Models/Reward.php
+   8) /var/www/html/app/Services/StoreAdapterManager.php
+   9) /var/www/html/app/Services/StoreAdapters/EbayAdapter.php
+  10) /var/www/html/app/Services/StoreAdapters/NoonAdapter.php
+  11) /var/www/html/app/_ide_helper_cart.php

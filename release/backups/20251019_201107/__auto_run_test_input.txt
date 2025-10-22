@@ -1,0 +1,3 @@
+# Controlled test list for full_auto_run.sh
+# Items below are actionable for initial validation.
+tests/Feature

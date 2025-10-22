@@ -1,0 +1,968 @@
+
+   0/388 [>---------------------------]   0%
+[1G[2K[1A[1G[2K  96/388 [======>---------------------]  24%
+[1G[2K[1A[1G[2K 192/388 [=============>--------------]  49%
+[1G[2K[1A[1G[2K 288/388 [====================>-------]  74%
+[1G[2K[1A[1G[2K 384/388 [===========================>]  98%
+[1G[2K[1A[1G[2K 388/388 [============================] 100%
+[1G[2K[1A[1G[2K 388/388 [============================] 100%
+
+[32m ✨ Analysis Completed ![39m
+
+[33m[2025-10-15 19:06:10][39m `C:\Users\Gaser\Desktop\COPRRA\app`
+
+              [42m         [49m               [42m         [49m               [43m         [49m               [42m         [49m               
+              [37;42;1m  82.3%  [39;49;22m               [37;42;1m  80.4%  [39;49;22m               [37;43;1m  76.5%  [39;49;22m               [37;42;1m  97.6%  [39;49;22m               
+              [42m         [49m               [42m         [49m               [43m         [49m               [42m         [49m               
+                                                                                                              
+                 [37;1mCode[39;22m                [37;1m Complexity[39;22m            [37;1m Architecture[39;22m               [37;1mStyle[39;22m                 
+
+
+Score scale: [31m◼[39m 1-49 [33m◼[39m 50-79 [32m◼[39m 80-100
+
+[CODE] [32;1m82.3 pts[39;22m within [36;49;1m19690[39;49;22m lines
+
+Comments ...................................................... 54.4 %
+Classes ....................................................... 36.1 %
+Functions ...................................................... 0.1 %
+Globally ....................................................... 9.4 %
+
+[COMPLEXITY] [32;1m80.4 pts[39;22m with average of [36;49;1m2.11[39;49;22m cyclomatic complexity
+
+[ARCHITECTURE] [33;1m76.5 pts[39;22m within [36;49;1m384[39;49;22m files
+
+Classes ....................................................... 94.0 %
+Interfaces ..................................................... 3.6 %
+Globally ....................................................... 2.1 %
+Traits ......................................................... 0.3 %
+
+[MISC] [32;1m97.6 pts[39;22m on coding style
+
+[31m•[39m [Code] [39;49;1mForbidden public property[39;49;22m:
+  [36mJobs\ProcessHeavyOperation.php:35[39m: Do not use public properties. Use method access instead.
+  [36mModels\PriceHistory.php:13[39m: Do not use public properties. Use method access instead.
+  [36mServices\FileCleanupService.php:17[39m: Do not use public properties. Use method access instead.
+  [31m+3 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mForbidden setter[39;49;22m:
+  [36mModels\Notification.php:571[39m: Setters are not allowed. Use constructor injection and behavior naming instead.
+  [36mModels\Notification.php:579[39m: Setters are not allowed. Use constructor injection and behavior naming instead.
+  [36mServices\Security\SecurityHeaderConfiguration.php:42[39m: Setters are not allowed. Use constructor injection and behavior naming instead.
+  [31m+2 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mUnused variable[39;49;22m:
+  [36mServices\StorageManagementService.php:590[39m: Unused variable $name.
+
+[31m•[39m [Code] [39;49;1mEmpty statement[39;49;22m:
+  [36mModels\OrderItem.php:161[39m: Empty CATCH statement detected
+  [36mModels\Product.php:417[39m: Empty CATCH statement detected
+  [36mServices\CacheService.php:80[39m: Empty CATCH statement detected
+  [31m+24 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mUseless overriding method[39;49;22m:
+  [36mHttp\Kernel.php:84[39m: Possible useless method overriding detected
+
+[31m•[39m [Code] [39;49;1mNo silenced errors[39;49;22m:
+  [36mServices\Security\VirusScanner.php:87[39m: Silencing errors is discouraged; found: @fclose($fp...
+  [36mServices\StorageManagementService.php:391[39m: Silencing errors is discouraged; found: @mkdir($archivesDir...
+  [36mServices\StorageManagementService.php:412[39m: Silencing errors is discouraged; found: @mkdir($path...
+  [31m+10 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mUnnecessary string concat[39;49;22m:
+  [36mServices\StoreAdapters\AmazonAdapter.php:239[39m: String concat is not required here; use a single string instead
+
+[31m•[39m [Code] [39;49;1mAssignment in condition[39;49;22m:
+  [36mHttp\Controllers\BrandController.php:22[39m: Assignment in if condition is not allowed.
+
+[31m•[39m [Code] [39;49;1mDisallow empty[39;49;22m:
+  [36mServices\StoreAdapterManager.php:33[39m: Use of empty() is disallowed.
+  [36mServices\StoreAdapters\AmazonAdapter.php:59[39m: Use of empty() is disallowed.
+  [36mServices\StoreAdapters\AmazonAdapter.php:59[39m: Use of empty() is disallowed.
+  [31m+15 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mDisallow short ternary operator[39;49;22m:
+  [36mHttp\Middleware\LocaleMiddleware.php:30[39m: Use of short ternary operator is disallowed.
+  [36mServices\Security\VirusScanner.php:24[39m: Use of short ternary operator is disallowed.
+  [36mServices\Security\VirusScanner.php:86[39m: Use of short ternary operator is disallowed.
+  [31m+12 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mTodo[39;49;22m:
+  [36mServices\StoreAdapters\AmazonAdapter.php:107[39m: Comment refers to a TODO task "Implement Amazon search"
+  [36mServices\StoreAdapters\AmazonAdapter.php:148[39m: Comment refers to a TODO task "Implement actual Amazon Product Advertising API call"
+
+[31m•[39m [Code] [39;49;1mInline doc comment declaration[39;49;22m:
+  [36mServices\StoreAdapters\EbayAdapter.php:81[39m: Missing variable $item before or after the documentation comment.
+  [36mServices\StoreAdapters\EbayAdapter.php:132[39m: Missing variable $item before or after the documentation comment.
+  [36mServices\StoreAdapters\EbayAdapter.php:161[39m: Missing variable $rateLimits before or after the documentation comment.
+
+[31m•[39m [Code] [39;49;1mDisallow mixed type hint[39;49;22m:
+  [36mServices\StoreAdapters\AmazonAdapter.php:193[39m: Usage of "mixed" type hint is disallowed.
+  [36mServices\StoreAdapters\EbayAdapter.php:81[39m: Usage of "mixed" type hint is disallowed.
+  [36mView\Composers\AppComposer.php:124[39m: Usage of "mixed" type hint is disallowed.
+  [31m+174 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mParameter type hint[39;49;22m:
+  [36mServices\StorageManagementService.php:760[39m: Method \App\Services\StorageManagementService::executeStorageOperation() does not have @param annotation for its traversable parameter $initialResult.
+  [36mServices\StoreAdapters\EbayAdapter.php:182[39m: @param annotation of method \App\Services\StoreAdapters\EbayAdapter::normalizeEbayData() does not specify type hint for items of its traversable parameter $item.
+  [36mServices\StoreAdapters\EbayAdapter.php:234[39m: @param annotation of method \App\Services\StoreAdapters\EbayAdapter::normalizeEbaySearchResult() does not specify type hint for items of its traversable parameter $item.
+  [31m+82 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mProperty type hint[39;49;22m:
+  [36mModels\PriceHistory.php:13[39m: Property \App\Models\PriceHistory::$timestamps does not have native type hint nor @var annotation for its value.
+  [36mModels\PriceHistory.php:15[39m: Property \App\Models\PriceHistory::$fillable does not have native type hint nor @var annotation for its value.
+  [36mModels\PriceHistory.php:21[39m: Property \App\Models\PriceHistory::$casts does not have native type hint nor @var annotation for its value.
+  [31m+4 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mReturn type hint[39;49;22m:
+  [36mServices\StorageManagementService.php:618[39m: Method \App\Services\StorageManagementService::getBreakdownDirectories() does not have @return annotation for its traversable return value.
+  [36mServices\StorageManagementService.php:760[39m: Method \App\Services\StorageManagementService::executeStorageOperation() does not have @return annotation for its traversable return value.
+  [36mServices\StoreClients\BaseStoreClient.php:60[39m: Method \App\Services\StoreClients\BaseStoreClient::makeRequest() does not have return type hint nor @return annotation for its return value.
+  [31m+31 issues omitted[39m
+
+[31m•[39m [Code] [39;49;1mUnused parameter[39;49;22m:
+  [36mServices\UserBanService.php:237[39m: Unused parameter $user.
+  [36mServices\UserBanService.php:248[39m: Unused parameter $newExpiry.
+  [36mServices\UserBanService.php:266[39m: Unused parameter $newExpiry.
+  [31m+48 issues omitted[39m
+
+[31m•[39m [Complexity] [39;49;1mHaving `classes` with total cyclomatic complexity more than 5 is prohibited - Consider refactoring[39;49;22m:
+  [32mServices\UserBanService.php[39m: 10 cyclomatic complexity
+  [32mServices\Validators\PriceChangeValidator.php[39m: 9 cyclomatic complexity
+  [32mServices\WebhookService.php[39m: 28 cyclomatic complexity
+  [31m+150 issues omitted[39m
+
+[31m•[39m [Complexity] [39;49;1mHaving `methods` with cyclomatic complexity more than 5 is prohibited - Consider refactoring[39;49;22m:
+  [32mC[39m:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\StoreAdapter.php:makeRequest: 6 cyclomatic complexity
+  [32mC[39m:\Users\Gaser\Desktop\COPRRA\app\Services\StoreClients\GenericStoreClient.php:syncProducts: 6 cyclomatic complexity
+  [32mC[39m:\Users\Gaser\Desktop\COPRRA\app\Services\Validators\PriceChangeValidator.php:validate: 9 cyclomatic complexity
+  [31m+70 issues omitted[39m
+
+[31m•[39m [Architecture] [39;49;1mNormal classes are forbidden. Classes must be final or abstract[39;49;22m:
+  [34mServices\StoreClients\StoreClientFactory.php[39m
+  [34mServices\Validators\PriceChangeValidator.php[39m
+  [34m_ide_helper_cart.php[39m
+  [31m+214 issues omitted[39m
+
+[31m•[39m [Architecture] [39;49;1mSuperfluous interface naming[39;49;22m:
+  [34mServices\CDN\Contracts\CDNProviderInterface.php:10[39m: Superfluous suffix "Interface".
+  [34mServices\Compression\CompressionStrategyInterface.php:7[39m: Superfluous suffix "Interface".
+  [34mServices\Security\Headers\SecurityHeaderStrategyInterface.php:9[39m: Superfluous suffix "Interface".
+  [31m+2 issues omitted[39m
+
+[31m•[39m [Architecture] [39;49;1mFunction length[39;49;22m:
+  [34mServices\WebhookService.php:202[39m: Your function is too long. Currently using 25 lines. Can be up to 20 lines.
+  [34mServices\WebhookService.php:290[39m: Your function is too long. Currently using 23 lines. Can be up to 20 lines.
+  [34mServices\WebhookService.php:361[39m: Your function is too long. Currently using 21 lines. Can be up to 20 lines.
+  [31m+118 issues omitted[39m
+
+[31m•[39m [Architecture] [39;49;1mThe use of `traits` is prohibited[39;49;22m:
+  [34mTraits\HasEnumUtilities.php[39m
+
+[31m•[39m [Style] [39;49;1mLine length[39;49;22m:
+  [33mServices\SuspiciousActivityService.php:59[39m: Line exceeds maximum limit of 100 characters; contains 173 characters
+  [33mServices\UserBanService.php:112[39m: Line exceeds maximum limit of 100 characters; contains 185 characters
+  [33mView\Composers\AppComposer.php:36[39m: Line exceeds maximum limit of 100 characters; contains 116 characters
+  [31m+629 issues omitted[39m
+
+[31m•[39m [Style] [39;49;1mS a p i usage[39;49;22m:
+  [33mHttp\Controllers\SystemController.php:24[39m: Use the PHP_SAPI constant instead of calling php_sapi_name()
+
+[30;42m                                                                                                                       [39;49m
+[30;42m [OK] 🧙 ️Congrats ! 730 issues fixed                                                                                   [39;49m
+[30;42m                                                                                                                       [39;49m
+
+[32m• [Code] [39m[39;49;1mModern class name reference[39;49;22m:
+ [36mHttp\Controllers\OrderController.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mUseless variable[39;49;22m:
+ [36mConsole\Commands\AnalyzeDatabaseCommand.php[39m: 1 issue fixed
+ [36mHttp\Middleware\ApiErrorHandler.php[39m: 1 issue fixed
+ [36mModels\Order.php[39m: 1 issue fixed
+ [36mServices\AnalyticsService.php[39m: 1 issue fixed
+ [36mServices\Security\SecurityHeadersService.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mArray indent[39;49;22m:
+ [36mHttp\Controllers\SystemController.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mDisallow short ternary operator[39;49;22m:
+ [36mHttp\Controllers\OrderController.php[39m: 1 issue fixed
+ [36mHttp\Middleware\TrustProxies.php[39m: 1 issue fixed
+ [36mServices\Security\VirusScanner.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mUseless parentheses[39;49;22m:
+ [36mHelpers\PriceHelper.php[39m: 1 issue fixed
+ [36mHttp\Controllers\HealthController.php[39m: 1 issue fixed
+ [36mModels\Order.php[39m: 1 issue fixed
+ [36mServices\ActivityChecker.php[39m: 1 issue fixed
+ [36mServices\AnalyticsService.php[39m: 1 issue fixed
+ [36mServices\FinancialTransactionService.php[39m: 1 issue fixed
+ [36mServices\StorageManagementService.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mDeclare strict types[39;49;22m:
+ [36mJobs\FetchDailyPriceUpdates.php[39m: 1 issue fixed
+ [36mJobs\SendPriceAlert.php[39m: 1 issue fixed
+ [36mModels\PriceHistory.php[39m: 1 issue fixed
+ [36mServices\Amazon\AmazonClient.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mExplicit string variable[39;49;22m:
+ [36mServices\LoginAttemptService.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mDisallow array type hint syntax[39;49;22m:
+ [36mConsole\Commands\OptimizeDatabase.php[39m: 1 issue fixed
+ [36mConsole\Commands\StatsCommand.php[39m: 1 issue fixed
+ [36mDataObjects\StorageUsage.php[39m: 1 issue fixed
+ [36mEnums\NotificationStatus.php[39m: 1 issue fixed
+ [36mEnums\OrderStatus.php[39m: 1 issue fixed
+ [36mEnums\UserRole.php[39m: 1 issue fixed
+ [36mExceptions\GlobalExceptionHandler.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Admin\DashboardController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\BaseApiController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\PriceSearchController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\SettingController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\SystemController.php[39m: 1 issue fixed
+ [36mHttp\Middleware\ThrottleSensitiveOperations.php[39m: 1 issue fixed
+ [36mHttp\Middleware\TrustHosts.php[39m: 1 issue fixed
+ [36mHttp\Middleware\ValidateApiRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\BanUserRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\BaseApiRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\CartRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ForgotPasswordRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\LoginRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductCreateRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductIndexRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductSearchRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductUpdateRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\RegisterRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ResetPasswordRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\StoreCategoryRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\StoreProductRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\StoreReviewRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\UpdateCartRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\UpdateCategoryRequest.php[39m: 1 issue fixed
+ [36mHttp\Resources\OrderItemResource.php[39m: 1 issue fixed
+ [36mHttp\Resources\OrderResource.php[39m: 1 issue fixed
+ [36mHttp\Resources\ProductResource.php[39m: 1 issue fixed
+ [36mHttp\Resources\UserResource.php[39m: 1 issue fixed
+ [36mModels\Product.php[39m: 1 issue fixed
+ [36mModels\User.php[39m: 1 issue fixed
+ [36mNotifications\PriceDropNotification.php[39m: 1 issue fixed
+ [36mNotifications\ProductAddedNotification.php[39m: 1 issue fixed
+ [36mNotifications\ReviewNotification.php[39m: 1 issue fixed
+ [36mNotifications\SystemNotification.php[39m: 1 issue fixed
+ [36mRules\PasswordValidator.php[39m: 1 issue fixed
+ [36mServices\Activity\Services\LocationCheckService.php[39m: 1 issue fixed
+ [36mServices\ActivityChecker.php[39m: 1 issue fixed
+ [36mServices\AI\ContinuousQualityMonitor.php[39m: 1 issue fixed
+ [36mServices\AI\StrictQualityAgent.php[39m: 1 issue fixed
+ [36mServices\Api\ApiInfoService.php[39m: 1 issue fixed
+ [36mServices\Api\PaginationService.php[39m: 1 issue fixed
+ [36mServices\Api\RequestParameterService.php[39m: 1 issue fixed
+ [36mServices\Api\ResponseBuilderService.php[39m: 1 issue fixed
+ [36mServices\Backup\BackupListService.php[39m: 1 issue fixed
+ [36mServices\Backup\BackupManagerService.php[39m: 1 issue fixed
+ [36mServices\Backup\BackupService.php[39m: 1 issue fixed
+ [36mServices\Backup\RestoreService.php[39m: 1 issue fixed
+ [36mServices\Backup\Services\BackupDatabaseService.php[39m: 1 issue fixed
+ [36mServices\BackupService.php[39m: 1 issue fixed
+ [36mServices\BehaviorAnalysisService.php[39m: 1 issue fixed
+ [36mServices\CacheService.php[39m: 1 issue fixed
+ [36mServices\CDN\Services\CDNFileService.php[39m: 1 issue fixed
+ [36mServices\CDNService.php[39m: 1 issue fixed
+ [36mServices\Compression\GzipCompressionStrategy.php[39m: 1 issue fixed
+ [36mServices\ConfigurationService.php[39m: 1 issue fixed
+ [36mServices\ExchangeRateService.php[39m: 1 issue fixed
+ [36mServices\ExternalStoreService.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\DirectoryCleaner.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\Strategies\BackupFilesCleanupStrategy.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\Strategies\CacheFilesCleanupStrategy.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\Strategies\CleanupStrategy.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\Strategies\LogFilesCleanupStrategy.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\Strategies\TempFilesCleanupStrategy.php[39m: 1 issue fixed
+ [36mServices\FileCleanup\Strategies\UploadedFilesCleanupStrategy.php[39m: 1 issue fixed
+ [36mServices\FileCleanupService.php[39m: 1 issue fixed
+ [36mServices\FileSecurityService.php[39m: 1 issue fixed
+ [36mServices\LoginAttemptService.php[39m: 1 issue fixed
+ [36mServices\LogProcessing\LogFileReader.php[39m: 1 issue fixed
+ [36mServices\LogProcessing\LogLineParser.php[39m: 1 issue fixed
+ [36mServices\LogProcessing\SystemHealthChecker.php[39m: 1 issue fixed
+ [36mServices\OptimizedQueryService.php[39m: 1 issue fixed
+ [36mServices\PasswordHistoryService.php[39m: 1 issue fixed
+ [36mServices\PasswordPolicyService.php[39m: 1 issue fixed
+ [36mServices\PasswordResetService.php[39m: 1 issue fixed
+ [36mServices\PerformanceMonitoringService.php[39m: 1 issue fixed
+ [36mServices\PriceUpdate\PriceUpdateProcessorService.php[39m: 1 issue fixed
+ [36mServices\ProcessService.php[39m: 1 issue fixed
+ [36mServices\Product\Services\ProductValidationService.php[39m: 1 issue fixed
+ [36mServices\RecommendationService.php[39m: 1 issue fixed
+ [36mServices\ReportService.php[39m: 1 issue fixed
+ [36mServices\Security\SecurityHeaderConfiguration.php[39m: 1 issue fixed
+ [36mServices\SecurityAnalysisService.php[39m: 1 issue fixed
+ [36mServices\SEO\SEOAuditor.php[39m: 1 issue fixed
+ [36mServices\SEO\SEOIssueFixer.php[39m: 1 issue fixed
+ [36mServices\SEO\SEORouteAuditor.php[39m: 1 issue fixed
+ [36mServices\SEOService.php[39m: 1 issue fixed
+ [36mServices\StoreAdapterManager.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\EbayAdapter.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\NoonAdapter.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\StoreAdapter.php[39m: 1 issue fixed
+ [36mServices\SuspiciousActivityService.php[39m: 1 issue fixed
+ [36mServices\TestAnalysisService.php[39m: 1 issue fixed
+ [36mServices\UserBanService.php[39m: 1 issue fixed
+ [36mTraits\HasEnumUtilities.php[39m: 1 issue fixed
+ [36mView\Composers\AppComposer.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mNull type hint on last position[39;49;22m:
+ [36mHttp\Controllers\Api\PriceSearchController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [36mHttp\Middleware\TrustHosts.php[39m: 1 issue fixed
+ [36mHttp\Resources\ProductResource.php[39m: 1 issue fixed
+ [36mHttp\Resources\UserResource.php[39m: 1 issue fixed
+ [36mServices\ActivityChecker.php[39m: 1 issue fixed
+ [36mServices\AI\ContinuousQualityMonitor.php[39m: 1 issue fixed
+ [36mServices\Api\PaginationService.php[39m: 1 issue fixed
+ [36mServices\Api\ResponseBuilderService.php[39m: 1 issue fixed
+ [36mServices\Backup\BackupListService.php[39m: 1 issue fixed
+ [36mServices\Backup\BackupService.php[39m: 1 issue fixed
+ [36mServices\BehaviorAnalysisService.php[39m: 1 issue fixed
+ [36mServices\CDNService.php[39m: 1 issue fixed
+ [36mServices\Compression\GzipCompressionStrategy.php[39m: 1 issue fixed
+ [36mServices\Contracts\StoreAdapterContract.php[39m: 1 issue fixed
+ [36mServices\ExternalStoreService.php[39m: 1 issue fixed
+ [36mServices\FileCleanupService.php[39m: 1 issue fixed
+ [36mServices\LogProcessing\LogLineParser.php[39m: 1 issue fixed
+ [36mServices\ProcessService.php[39m: 1 issue fixed
+ [36mServices\ReportService.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\EbayAdapter.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\NoonAdapter.php[39m: 1 issue fixed
+ [36mServices\StoreAdapters\StoreAdapter.php[39m: 1 issue fixed
+ [36mServices\UserBanService.php[39m: 1 issue fixed
+ [36mView\Composers\AppComposer.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mParameter type hint[39;49;22m:
+ [36mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [36mModels\AuditLog.php[39m: 1 issue fixed
+ [36mModels\Product.php[39m: 1 issue fixed
+ [36mServices\Activity\Services\ActivityValidationService.php[39m: 1 issue fixed
+ [36mServices\Validators\PriceChangeValidator.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mProperty type hint[39;49;22m:
+ [36mConsole\Commands\AgentProposeFixCommand.php[39m: 1 issue fixed
+ [36mConsole\Commands\AnalyzeDatabaseCommand.php[39m: 1 issue fixed
+ [36mConsole\Commands\CacheManagement.php[39m: 1 issue fixed
+ [36mConsole\Commands\CleanAnalytics.php[39m: 1 issue fixed
+ [36mConsole\Commands\GenerateSitemap.php[39m: 1 issue fixed
+ [36mConsole\Commands\GenerateTranslations.php[39m: 1 issue fixed
+ [36mConsole\Commands\OptimizeDatabase.php[39m: 1 issue fixed
+ [36mConsole\Commands\OptimizePerformance.php[39m: 1 issue fixed
+ [36mConsole\Commands\ProcessPendingWebhooks.php[39m: 1 issue fixed
+ [36mConsole\Commands\SEOAudit.php[39m: 1 issue fixed
+ [36mConsole\Commands\StatsCommand.php[39m: 1 issue fixed
+ [36mConsole\Commands\UpdateExchangeRates.php[39m: 1 issue fixed
+ [36mConsole\Commands\UpdatePricesCommand.php[39m: 1 issue fixed
+ [36mExceptions\GlobalExceptionHandler.php[39m: 1 issue fixed
+ [36mExceptions\Handler.php[39m: 1 issue fixed
+ [36mHttp\Kernel.php[39m: 1 issue fixed
+ [36mHttp\Middleware\EncryptCookies.php[39m: 1 issue fixed
+ [36mHttp\Middleware\PreventRequestsDuringMaintenance.php[39m: 1 issue fixed
+ [36mHttp\Middleware\TrimStrings.php[39m: 1 issue fixed
+ [36mHttp\Middleware\ValidateSignature.php[39m: 1 issue fixed
+ [36mHttp\Middleware\VerifyCsrfToken.php[39m: 1 issue fixed
+ [36mModels\AnalyticsEvent.php[39m: 1 issue fixed
+ [36mModels\AuditLog.php[39m: 1 issue fixed
+ [36mModels\Brand.php[39m: 1 issue fixed
+ [36mModels\Category.php[39m: 1 issue fixed
+ [36mModels\Currency.php[39m: 1 issue fixed
+ [36mModels\ExchangeRate.php[39m: 1 issue fixed
+ [36mModels\Language.php[39m: 1 issue fixed
+ [36mModels\Notification.php[39m: 1 issue fixed
+ [36mModels\Order.php[39m: 1 issue fixed
+ [36mModels\OrderItem.php[39m: 1 issue fixed
+ [36mModels\Payment.php[39m: 1 issue fixed
+ [36mModels\PaymentMethod.php[39m: 1 issue fixed
+ [36mModels\Pivots\ProductStore.php[39m: 1 issue fixed
+ [36mModels\PriceAlert.php[39m: 1 issue fixed
+ [36mModels\PriceOffer.php[39m: 1 issue fixed
+ [36mModels\Product.php[39m: 1 issue fixed
+ [36mModels\Review.php[39m: 1 issue fixed
+ [36mModels\Reward.php[39m: 1 issue fixed
+ [36mModels\Store.php[39m: 1 issue fixed
+ [36mModels\User.php[39m: 1 issue fixed
+ [36mModels\UserLocaleSetting.php[39m: 1 issue fixed
+ [36mModels\UserPoint.php[39m: 1 issue fixed
+ [36mModels\Webhook.php[39m: 1 issue fixed
+ [36mModels\WebhookLog.php[39m: 1 issue fixed
+ [36mModels\Wishlist.php[39m: 1 issue fixed
+ [36mServices\ExternalStoreService.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mReturn type hint[39;49;22m:
+ [36mCasts\OrderStatusCast.php[39m: 1 issue fixed
+ [36mEnums\NotificationStatus.php[39m: 1 issue fixed
+ [36mEnums\OrderStatus.php[39m: 1 issue fixed
+ [36mEnums\UserRole.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [36mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [36mHttp\Middleware\Authenticate.php[39m: 1 issue fixed
+ [36mHttp\Requests\BanUserRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\BaseApiRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\ProductSearchRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\StoreCategoryRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\StoreProductRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\UpdateCartRequest.php[39m: 1 issue fixed
+ [36mHttp\Requests\UpdateCategoryRequest.php[39m: 1 issue fixed
+ [36mJobs\FetchDailyPriceUpdates.php[39m: 1 issue fixed
+ [36mJobs\ProcessHeavyOperation.php[39m: 1 issue fixed
+ [36mJobs\SendPriceAlert.php[39m: 1 issue fixed
+ [36mModels\Category.php[39m: 1 issue fixed
+ [36mProviders\EventServiceProvider.php[39m: 1 issue fixed
+ [36mServices\ActivityChecker.php[39m: 1 issue fixed
+ [36mServices\AgentFixer\StyleFixer.php[39m: 1 issue fixed
+ [36mServices\Api\ApiInfoService.php[39m: 1 issue fixed
+ [36mServices\CacheService.php[39m: 1 issue fixed
+ [36mServices\CDN\Providers\GoogleCloudProvider.php[39m: 1 issue fixed
+ [36mServices\CDN\Providers\S3Provider.php[39m: 1 issue fixed
+ [36mServices\Contracts\CacheServiceContract.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\ContentSecurityPolicyHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\PermissionsPolicyHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\StandardSecurityHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\StrictTransportSecurityHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\UserBanService.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mUseless function doc comment[39;49;22m:
+ [36mModels\Category.php[39m: 1 issue fixed
+ [36mServices\AgentFixer\StyleFixer.php[39m: 1 issue fixed
+ [36mServices\CDN\Providers\GoogleCloudProvider.php[39m: 1 issue fixed
+ [36mServices\CDN\Providers\S3Provider.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\ContentSecurityPolicyHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\PermissionsPolicyHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\StandardSecurityHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Security\Headers\StrictTransportSecurityHeaderStrategy.php[39m: 1 issue fixed
+ [36mServices\Validators\PriceChangeValidator.php[39m: 1 issue fixed
+
+[32m• [Code] [39m[39;49;1mReturn assignment[39;49;22m:
+ [36mHttp\Middleware\AddCspNonce.php[39m: 1 issue fixed
+
+[32m• [Architecture] [39m[39;49;1mMethod argument space[39;49;22m:
+ [34mConsole\Commands\StatsCommand.php[39m: 1 issue fixed
+ [34mHttp\Controllers\Api\PriceSearchController.php[39m: 1 issue fixed
+ [34mHttp\Middleware\ValidateApiRequest.php[39m: 1 issue fixed
+ [34mModels\Category.php[39m: 1 issue fixed
+ [34mServices\BehaviorAnalysisService.php[39m: 1 issue fixed
+ [34mServices\FinancialTransactionService.php[39m: 1 issue fixed
+ [34mServices\Product\Services\ProductPriceService.php[39m: 1 issue fixed
+ [34mServices\ReportService.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mFunction closing brace[39;49;22m:
+ [33mHttp\Middleware\SecurityHeaders.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mScope closing brace[39;49;22m:
+ [33mDataObjects\Ai\Stage.php[39m: 1 issue fixed
+ [33mDataObjects\Ai\StageResult.php[39m: 1 issue fixed
+ [33mDataObjects\StorageBreakdown.php[39m: 1 issue fixed
+ [33mDataObjects\StorageStatistics.php[39m: 1 issue fixed
+ [33mDataObjects\StorageUsage.php[39m: 1 issue fixed
+ [33mDTO\AnalysisResult.php[39m: 1 issue fixed
+ [33mDTO\ProcessResult.php[39m: 1 issue fixed
+ [33mEvents\OrderStatusChanged.php[39m: 1 issue fixed
+ [33mExceptions\GlobalExceptionHandler.php[39m: 1 issue fixed
+ [33mExceptions\ProductUpdate.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Admin\AIControlPanelController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\AnalyticsController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Auth\EmailVerificationController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\CategoryController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\ErrorController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\OrderController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PaymentController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PointsController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PriceComparisonController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\RecommendationController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\ReportController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\UserController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\WebhookController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\AuthenticateWithBasicAuth.php[39m: 1 issue fixed
+ [33mHttp\Middleware\LocaleMiddleware.php[39m: 1 issue fixed
+ [33mHttp\Middleware\SubstituteBindings.php[39m: 1 issue fixed
+ [33mHttp\Requests\ChangePasswordRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreBrandRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StorePriceAlertRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\SwitchLanguageRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateBrandRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdatePriceAlertRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateReviewRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateUserRequest.php[39m: 1 issue fixed
+ [33mJobs\ProcessHeavyOperation.php[39m: 1 issue fixed
+ [33mNotifications\PriceAlertNotification.php[39m: 1 issue fixed
+ [33mNotifications\PriceDropNotification.php[39m: 1 issue fixed
+ [33mProviders\ApiServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\CompressionServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\LogProcessingServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\ViewServiceProvider.php[39m: 1 issue fixed
+ [33mRules\ValidOrderStatusTransition.php[39m: 1 issue fixed
+ [33mSchemas\BrandSchema.php[39m: 1 issue fixed
+ [33mSchemas\CategorySchema.php[39m: 1 issue fixed
+ [33mSchemas\PaginationLinksSchema.php[39m: 1 issue fixed
+ [33mSchemas\PaginationMetaSchema.php[39m: 1 issue fixed
+ [33mSchemas\PriceOfferSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductCreateRequestSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductDetailSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductUpdateRequestSchema.php[39m: 1 issue fixed
+ [33mSchemas\ReviewSchema.php[39m: 1 issue fixed
+ [33mServices\AgentFixer\AgentFixerFactory.php[39m: 1 issue fixed
+ [33mServices\AgentFixer\AnalysisFixer.php[39m: 1 issue fixed
+ [33mServices\AgentFixer\FixExecutionService.php[39m: 1 issue fixed
+ [33mServices\AgentFixer\GitWorkflowService.php[39m: 1 issue fixed
+ [33mServices\AgentFixer\PullRequestService.php[39m: 1 issue fixed
+ [33mServices\AgentFixer\StyleFixer.php[39m: 1 issue fixed
+ [33mServices\CacheStatisticsDisplayer.php[39m: 1 issue fixed
+ [33mServices\FactoryConfigurationService.php[39m: 1 issue fixed
+ [33mServices\FinancialTransactionService.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\ErrorStatisticsCalculator.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\LogProcessingService.php[39m: 1 issue fixed
+ [33mServices\NotificationService.php[39m: 1 issue fixed
+ [33mServices\Performance\CacheOptimizerService.php[39m: 1 issue fixed
+ [33mServices\Performance\DatabaseOptimizerService.php[39m: 1 issue fixed
+ [33mServices\Performance\PerformanceReporter.php[39m: 1 issue fixed
+ [33mServices\Performance\PerformanceReporterService.php[39m: 1 issue fixed
+ [33mServices\Performance\SystemOptimizerService.php[39m: 1 issue fixed
+ [33mServices\PriceComparisonService.php[39m: 1 issue fixed
+ [33mServices\PriceSearchService.php[39m: 1 issue fixed
+ [33mServices\ProductService.php[39m: 1 issue fixed
+ [33mServices\ReportService.php[39m: 1 issue fixed
+ [33mServices\RouteConfigurationService.php[39m: 1 issue fixed
+ [33mServices\SEO\SEOAuditResult.php[39m: 1 issue fixed
+ [33mServices\SEOService.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\StoreAdapter.php[39m: 1 issue fixed
+ [33m_ide_helper_cart.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mTrailing array comma[39;49;22m:
+ [33mHttp\Controllers\SystemController.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mDisallow tab indent[39;49;22m:
+ [33mCasts\OrderStatusCast.php[39m: 1 issue fixed
+ [33mConsole\Commands\AgentProposeFixCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\AnalyzeDatabaseCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\CacheManagement.php[39m: 1 issue fixed
+ [33mConsole\Commands\CleanAnalytics.php[39m: 1 issue fixed
+ [33mConsole\Commands\GenerateSitemap.php[39m: 1 issue fixed
+ [33mConsole\Commands\GenerateTranslations.php[39m: 1 issue fixed
+ [33mConsole\Commands\OptimizeDatabase.php[39m: 1 issue fixed
+ [33mConsole\Commands\OptimizePerformance.php[39m: 1 issue fixed
+ [33mConsole\Commands\ProcessPendingWebhooks.php[39m: 1 issue fixed
+ [33mConsole\Commands\SEOAudit.php[39m: 1 issue fixed
+ [33mConsole\Commands\StatsCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\UpdateExchangeRates.php[39m: 1 issue fixed
+ [33mConsole\Commands\UpdatePricesCommand.php[39m: 1 issue fixed
+ [33mContracts\StoreAdapter.php[39m: 1 issue fixed
+ [33mDataObjects\StorageUsage.php[39m: 1 issue fixed
+ [33mEnums\NotificationStatus.php[39m: 1 issue fixed
+ [33mEnums\OrderStatus.php[39m: 1 issue fixed
+ [33mEnums\UserRole.php[39m: 1 issue fixed
+ [33mExceptions\GlobalExceptionHandler.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Admin\DashboardController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\BaseApiController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\PriceSearchController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\LogController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\SettingController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\SystemController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\Authenticate.php[39m: 1 issue fixed
+ [33mHttp\Middleware\InputSanitizationMiddleware.php[39m: 1 issue fixed
+ [33mHttp\Middleware\ThrottleSensitiveOperations.php[39m: 1 issue fixed
+ [33mHttp\Middleware\TrustHosts.php[39m: 1 issue fixed
+ [33mHttp\Middleware\ValidateApiRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\BanUserRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\BaseApiRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\CartRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ForgotPasswordRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\LoginRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductCreateRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductIndexRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductSearchRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductUpdateRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\RegisterRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ResetPasswordRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreCategoryRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreReviewRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateCartRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateCategoryRequest.php[39m: 1 issue fixed
+ [33mHttp\Resources\OrderItemResource.php[39m: 1 issue fixed
+ [33mHttp\Resources\OrderResource.php[39m: 1 issue fixed
+ [33mHttp\Resources\ProductResource.php[39m: 1 issue fixed
+ [33mHttp\Resources\UserResource.php[39m: 1 issue fixed
+ [33mModels\AuditLog.php[39m: 1 issue fixed
+ [33mModels\Brand.php[39m: 1 issue fixed
+ [33mModels\Category.php[39m: 1 issue fixed
+ [33mModels\Notification.php[39m: 1 issue fixed
+ [33mModels\Product.php[39m: 1 issue fixed
+ [33mModels\Reward.php[39m: 1 issue fixed
+ [33mModels\User.php[39m: 1 issue fixed
+ [33mNotifications\PriceDropNotification.php[39m: 1 issue fixed
+ [33mNotifications\ProductAddedNotification.php[39m: 1 issue fixed
+ [33mNotifications\ReviewNotification.php[39m: 1 issue fixed
+ [33mNotifications\SystemNotification.php[39m: 1 issue fixed
+ [33mProviders\EventServiceProvider.php[39m: 1 issue fixed
+ [33mRepositories\ProductRepository.php[39m: 1 issue fixed
+ [33mRules\PasswordValidator.php[39m: 1 issue fixed
+ [33mServices\Activity\Services\ActivityValidationService.php[39m: 1 issue fixed
+ [33mServices\Activity\Services\LocationCheckService.php[39m: 1 issue fixed
+ [33mServices\ActivityChecker.php[39m: 1 issue fixed
+ [33mServices\ActivityFactory.php[39m: 1 issue fixed
+ [33mServices\AI\ContinuousQualityMonitor.php[39m: 1 issue fixed
+ [33mServices\AI\Services\AIImageAnalysisService.php[39m: 1 issue fixed
+ [33mServices\AI\Services\AIRequestService.php[39m: 1 issue fixed
+ [33mServices\AI\Services\AITextAnalysisService.php[39m: 1 issue fixed
+ [33mServices\AI\StrictQualityAgent.php[39m: 1 issue fixed
+ [33mServices\AIService.php[39m: 1 issue fixed
+ [33mServices\Api\ApiInfoService.php[39m: 1 issue fixed
+ [33mServices\Api\PaginationService.php[39m: 1 issue fixed
+ [33mServices\Api\RequestParameterService.php[39m: 1 issue fixed
+ [33mServices\Api\ResponseBuilderService.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupListService.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupManagerService.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupService.php[39m: 1 issue fixed
+ [33mServices\Backup\RestoreService.php[39m: 1 issue fixed
+ [33mServices\Backup\Services\BackupConfigurationService.php[39m: 1 issue fixed
+ [33mServices\Backup\Services\BackupDatabaseService.php[39m: 1 issue fixed
+ [33mServices\Backup\Services\BackupFileSystemService.php[39m: 1 issue fixed
+ [33mServices\Backup\Strategies\BackupStrategyInterface.php[39m: 1 issue fixed
+ [33mServices\BackupService.php[39m: 1 issue fixed
+ [33mServices\BehaviorAnalysisService.php[39m: 1 issue fixed
+ [33mServices\CacheService.php[39m: 1 issue fixed
+ [33mServices\CDN\Contracts\CDNProviderInterface.php[39m: 1 issue fixed
+ [33mServices\CDN\Services\CDNFileService.php[39m: 1 issue fixed
+ [33mServices\CDNService.php[39m: 1 issue fixed
+ [33mServices\Compression\GzipCompressionStrategy.php[39m: 1 issue fixed
+ [33mServices\ConfigurationService.php[39m: 1 issue fixed
+ [33mServices\Contracts\CacheServiceContract.php[39m: 1 issue fixed
+ [33mServices\Contracts\StoreAdapterContract.php[39m: 1 issue fixed
+ [33mServices\ExchangeRateService.php[39m: 1 issue fixed
+ [33mServices\ExternalStoreService.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\DirectoryCleaner.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\Strategies\BackupFilesCleanupStrategy.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\Strategies\CacheFilesCleanupStrategy.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\Strategies\CleanupStrategy.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\Strategies\LogFilesCleanupStrategy.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\Strategies\TempFilesCleanupStrategy.php[39m: 1 issue fixed
+ [33mServices\FileCleanup\Strategies\UploadedFilesCleanupStrategy.php[39m: 1 issue fixed
+ [33mServices\FileCleanupService.php[39m: 1 issue fixed
+ [33mServices\FileSecurityService.php[39m: 1 issue fixed
+ [33mServices\ImageOptimizationService.php[39m: 1 issue fixed
+ [33mServices\LoginAttemptService.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\ErrorStatisticsCalculator.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\LogFileReader.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\LogLineParser.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\LogProcessingService.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\SystemHealthChecker.php[39m: 1 issue fixed
+ [33mServices\OptimizedQueryService.php[39m: 1 issue fixed
+ [33mServices\PasswordHistoryService.php[39m: 1 issue fixed
+ [33mServices\PasswordPolicyService.php[39m: 1 issue fixed
+ [33mServices\PasswordResetService.php[39m: 1 issue fixed
+ [33mServices\PaymentService.php[39m: 1 issue fixed
+ [33mServices\PerformanceMonitoringService.php[39m: 1 issue fixed
+ [33mServices\PointsService.php[39m: 1 issue fixed
+ [33mServices\PriceComparisonService.php[39m: 1 issue fixed
+ [33mServices\PriceUpdate\PriceQueryBuilderService.php[39m: 1 issue fixed
+ [33mServices\PriceUpdate\PriceUpdateProcessorService.php[39m: 1 issue fixed
+ [33mServices\ProcessService.php[39m: 1 issue fixed
+ [33mServices\Product\Services\ProductCacheService.php[39m: 1 issue fixed
+ [33mServices\Product\Services\ProductQueryBuilderService.php[39m: 1 issue fixed
+ [33mServices\Product\Services\ProductValidationService.php[39m: 1 issue fixed
+ [33mServices\ProductService.php[39m: 1 issue fixed
+ [33mServices\RecommendationService.php[39m: 1 issue fixed
+ [33mServices\ReportService.php[39m: 1 issue fixed
+ [33mServices\Security\SecurityHeaderConfiguration.php[39m: 1 issue fixed
+ [33mServices\SecurityAnalysisService.php[39m: 1 issue fixed
+ [33mServices\SEO\SEOAuditor.php[39m: 1 issue fixed
+ [33mServices\SEO\SEOIssueFixer.php[39m: 1 issue fixed
+ [33mServices\SEO\SEORouteAuditor.php[39m: 1 issue fixed
+ [33mServices\SEOService.php[39m: 1 issue fixed
+ [33mServices\StorageManagementService.php[39m: 1 issue fixed
+ [33mServices\StoreAdapterManager.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\EbayAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\NoonAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\StoreAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreClients\BaseStoreClient.php[39m: 1 issue fixed
+ [33mServices\StoreClients\GenericStoreClient.php[39m: 1 issue fixed
+ [33mServices\SuspiciousActivityService.php[39m: 1 issue fixed
+ [33mServices\TestAnalysisService.php[39m: 1 issue fixed
+ [33mServices\UserBanService.php[39m: 1 issue fixed
+ [33mServices\WebhookService.php[39m: 1 issue fixed
+ [33mTraits\HasEnumUtilities.php[39m: 1 issue fixed
+ [33mView\Composers\AppComposer.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mAlphabetically sorted uses[39;49;22m:
+ [33mCasts\OrderStatusCast.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mUnused uses[39;49;22m:
+ [33mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\ApiErrorHandler.php[39m: 1 issue fixed
+ [33mHttp\Middleware\HandleCors.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mDoc comment spacing[39;49;22m:
+ [33mCasts\OrderStatusCast.php[39m: 1 issue fixed
+ [33mConsole\Commands\AgentProposeFixCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\AnalyzeDatabaseCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\CacheManagement.php[39m: 1 issue fixed
+ [33mConsole\Commands\CleanAnalytics.php[39m: 1 issue fixed
+ [33mConsole\Commands\GenerateSitemap.php[39m: 1 issue fixed
+ [33mConsole\Commands\GenerateTranslations.php[39m: 1 issue fixed
+ [33mConsole\Commands\OptimizeDatabase.php[39m: 1 issue fixed
+ [33mConsole\Commands\OptimizePerformance.php[39m: 1 issue fixed
+ [33mConsole\Commands\ProcessPendingWebhooks.php[39m: 1 issue fixed
+ [33mConsole\Commands\SEOAudit.php[39m: 1 issue fixed
+ [33mConsole\Commands\StatsCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\UpdateExchangeRates.php[39m: 1 issue fixed
+ [33mConsole\Commands\UpdatePricesCommand.php[39m: 1 issue fixed
+ [33mContracts\StoreAdapter.php[39m: 1 issue fixed
+ [33mEnums\NotificationStatus.php[39m: 1 issue fixed
+ [33mEnums\OrderStatus.php[39m: 1 issue fixed
+ [33mEnums\UserRole.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\LogController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\SystemController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\Authenticate.php[39m: 1 issue fixed
+ [33mHttp\Middleware\InputSanitizationMiddleware.php[39m: 1 issue fixed
+ [33mHttp\Middleware\ValidateApiRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\BanUserRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\BaseApiRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\ProductSearchRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreCategoryRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateCartRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateCategoryRequest.php[39m: 1 issue fixed
+ [33mModels\AuditLog.php[39m: 1 issue fixed
+ [33mModels\Brand.php[39m: 1 issue fixed
+ [33mModels\Category.php[39m: 1 issue fixed
+ [33mModels\Notification.php[39m: 1 issue fixed
+ [33mModels\Product.php[39m: 1 issue fixed
+ [33mModels\Reward.php[39m: 1 issue fixed
+ [33mProviders\EventServiceProvider.php[39m: 1 issue fixed
+ [33mRepositories\ProductRepository.php[39m: 1 issue fixed
+ [33mServices\Activity\Services\ActivityValidationService.php[39m: 1 issue fixed
+ [33mServices\Activity\Services\LocationCheckService.php[39m: 1 issue fixed
+ [33mServices\ActivityChecker.php[39m: 1 issue fixed
+ [33mServices\ActivityFactory.php[39m: 1 issue fixed
+ [33mServices\AI\ContinuousQualityMonitor.php[39m: 1 issue fixed
+ [33mServices\AI\Services\AIImageAnalysisService.php[39m: 1 issue fixed
+ [33mServices\AI\Services\AIRequestService.php[39m: 1 issue fixed
+ [33mServices\AI\Services\AITextAnalysisService.php[39m: 1 issue fixed
+ [33mServices\AIService.php[39m: 1 issue fixed
+ [33mServices\Api\ApiInfoService.php[39m: 1 issue fixed
+ [33mServices\Api\PaginationService.php[39m: 1 issue fixed
+ [33mServices\Api\ResponseBuilderService.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupListService.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupManagerService.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupService.php[39m: 1 issue fixed
+ [33mServices\Backup\RestoreService.php[39m: 1 issue fixed
+ [33mServices\Backup\Services\BackupConfigurationService.php[39m: 1 issue fixed
+ [33mServices\Backup\Services\BackupDatabaseService.php[39m: 1 issue fixed
+ [33mServices\Backup\Services\BackupFileSystemService.php[39m: 1 issue fixed
+ [33mServices\Backup\Strategies\BackupStrategyInterface.php[39m: 1 issue fixed
+ [33mServices\BackupService.php[39m: 1 issue fixed
+ [33mServices\CacheService.php[39m: 1 issue fixed
+ [33mServices\CDN\Contracts\CDNProviderInterface.php[39m: 1 issue fixed
+ [33mServices\CDN\Services\CDNFileService.php[39m: 1 issue fixed
+ [33mServices\CDNService.php[39m: 1 issue fixed
+ [33mServices\Contracts\CacheServiceContract.php[39m: 1 issue fixed
+ [33mServices\Contracts\StoreAdapterContract.php[39m: 1 issue fixed
+ [33mServices\ExternalStoreService.php[39m: 1 issue fixed
+ [33mServices\FileCleanupService.php[39m: 1 issue fixed
+ [33mServices\ImageOptimizationService.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\ErrorStatisticsCalculator.php[39m: 1 issue fixed
+ [33mServices\LogProcessing\LogProcessingService.php[39m: 1 issue fixed
+ [33mServices\PasswordPolicyService.php[39m: 1 issue fixed
+ [33mServices\PaymentService.php[39m: 1 issue fixed
+ [33mServices\PointsService.php[39m: 1 issue fixed
+ [33mServices\PriceComparisonService.php[39m: 1 issue fixed
+ [33mServices\PriceUpdate\PriceQueryBuilderService.php[39m: 1 issue fixed
+ [33mServices\PriceUpdate\PriceUpdateProcessorService.php[39m: 1 issue fixed
+ [33mServices\ProcessService.php[39m: 1 issue fixed
+ [33mServices\Product\Services\ProductCacheService.php[39m: 1 issue fixed
+ [33mServices\Product\Services\ProductQueryBuilderService.php[39m: 1 issue fixed
+ [33mServices\Product\Services\ProductValidationService.php[39m: 1 issue fixed
+ [33mServices\ProductService.php[39m: 1 issue fixed
+ [33mServices\RecommendationService.php[39m: 1 issue fixed
+ [33mServices\ReportService.php[39m: 1 issue fixed
+ [33mServices\SEO\SEOAuditor.php[39m: 1 issue fixed
+ [33mServices\SEO\SEOIssueFixer.php[39m: 1 issue fixed
+ [33mServices\SEO\SEORouteAuditor.php[39m: 1 issue fixed
+ [33mServices\SEOService.php[39m: 1 issue fixed
+ [33mServices\StorageManagementService.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\EbayAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\NoonAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\StoreAdapter.php[39m: 1 issue fixed
+ [33mServices\StoreClients\BaseStoreClient.php[39m: 1 issue fixed
+ [33mServices\StoreClients\GenericStoreClient.php[39m: 1 issue fixed
+ [33mServices\UserBanService.php[39m: 1 issue fixed
+ [33mServices\WebhookService.php[39m: 1 issue fixed
+ [33mView\Composers\AppComposer.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mClass instantiation[39;49;22m:
+ [33mConsole\Commands\AgentProposeFixCommand.php[39m: 1 issue fixed
+ [33mConsole\Commands\SEOAudit.php[39m: 1 issue fixed
+ [33mConsole\Commands\UpdatePricesCommand.php[39m: 1 issue fixed
+ [33mConsole\Kernel.php[39m: 1 issue fixed
+ [33mHttp\Controllers\BackupController.php[39m: 1 issue fixed
+ [33mModels\Category.php[39m: 1 issue fixed
+ [33mModels\ValidatableModel.php[39m: 1 issue fixed
+ [33mModels\Wishlist.php[39m: 1 issue fixed
+ [33mNotifications\PriceAlertNotification.php[39m: 1 issue fixed
+ [33mProviders\AppServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\SecurityHeadersServiceProvider.php[39m: 1 issue fixed
+ [33mRepositories\ProductRepository.php[39m: 1 issue fixed
+ [33mServices\AI\ContinuousQualityMonitor.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupService.php[39m: 1 issue fixed
+ [33mServices\Backup\RestoreService.php[39m: 1 issue fixed
+ [33mServices\Compression\CompressionService.php[39m: 1 issue fixed
+ [33mServices\EnvironmentChecker.php[39m: 1 issue fixed
+ [33mServices\FileCleanupService.php[39m: 1 issue fixed
+ [33mServices\OrderService.php[39m: 1 issue fixed
+ [33mServices\PasswordPolicyService.php[39m: 1 issue fixed
+ [33mServices\PriceUpdate\PriceUpdateProcessorService.php[39m: 1 issue fixed
+ [33mServices\ProductService.php[39m: 1 issue fixed
+ [33mServices\RecommendationService.php[39m: 1 issue fixed
+ [33mServices\Security\Headers\SecurityHeaderStrategyFactory.php[39m: 1 issue fixed
+ [33mServices\StorageManagementService.php[39m: 1 issue fixed
+ [33mServices\TestAnalysisService.php[39m: 1 issue fixed
+ [33mServices\UserBanService.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mBraces[39;49;22m:
+ [33mExceptions\ProductUpdate.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Admin\AIControlPanelController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\AnalyticsController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Auth\EmailVerificationController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\CategoryController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PaymentController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PointsController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\RecommendationController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\ReportController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\AuthenticateWithBasicAuth.php[39m: 1 issue fixed
+ [33mHttp\Middleware\SubstituteBindings.php[39m: 1 issue fixed
+ [33mHttp\Requests\ChangePasswordRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreBrandRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StorePriceAlertRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\SwitchLanguageRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateBrandRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdatePriceAlertRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateReviewRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateUserRequest.php[39m: 1 issue fixed
+ [33mProviders\ApiServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\CompressionServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\LogProcessingServiceProvider.php[39m: 1 issue fixed
+ [33mProviders\ViewServiceProvider.php[39m: 1 issue fixed
+ [33mRules\ValidOrderStatusTransition.php[39m: 1 issue fixed
+ [33mSchemas\BrandSchema.php[39m: 1 issue fixed
+ [33mSchemas\CategorySchema.php[39m: 1 issue fixed
+ [33mSchemas\PaginationLinksSchema.php[39m: 1 issue fixed
+ [33mSchemas\PaginationMetaSchema.php[39m: 1 issue fixed
+ [33mSchemas\PriceOfferSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductCreateRequestSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductDetailSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductUpdateRequestSchema.php[39m: 1 issue fixed
+ [33mSchemas\ReviewSchema.php[39m: 1 issue fixed
+ [33mServices\Backup\BackupManagerService.php[39m: 1 issue fixed
+ [33mServices\CacheStatisticsDisplayer.php[39m: 1 issue fixed
+ [33mServices\FactoryConfigurationService.php[39m: 1 issue fixed
+ [33mServices\FinancialTransactionService.php[39m: 1 issue fixed
+ [33mServices\NotificationService.php[39m: 1 issue fixed
+ [33mServices\PriceComparisonService.php[39m: 1 issue fixed
+ [33mServices\PriceSearchService.php[39m: 1 issue fixed
+ [33mServices\RouteConfigurationService.php[39m: 1 issue fixed
+ [33m_ide_helper_cart.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mClass definition[39;49;22m:
+ [33mExceptions\ProductUpdate.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Admin\AIControlPanelController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Auth\EmailVerificationController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\CategoryController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PaymentController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\PointsController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\ReportController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\AuthenticateWithBasicAuth.php[39m: 1 issue fixed
+ [33mHttp\Middleware\SubstituteBindings.php[39m: 1 issue fixed
+ [33mHttp\Requests\ChangePasswordRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StoreBrandRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\StorePriceAlertRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\SwitchLanguageRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateBrandRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdatePriceAlertRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateProductRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateReviewRequest.php[39m: 1 issue fixed
+ [33mHttp\Requests\UpdateUserRequest.php[39m: 1 issue fixed
+ [33mSchemas\BrandSchema.php[39m: 1 issue fixed
+ [33mSchemas\CategorySchema.php[39m: 1 issue fixed
+ [33mSchemas\PaginationLinksSchema.php[39m: 1 issue fixed
+ [33mSchemas\PaginationMetaSchema.php[39m: 1 issue fixed
+ [33mSchemas\PriceOfferSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductCreateRequestSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductDetailSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductSchema.php[39m: 1 issue fixed
+ [33mSchemas\ProductUpdateRequestSchema.php[39m: 1 issue fixed
+ [33mSchemas\ReviewSchema.php[39m: 1 issue fixed
+ [33mServices\PriceSearchService.php[39m: 1 issue fixed
+ [33m_ide_helper_cart.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mAlign multiline comment[39;49;22m:
+ [33mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [33mServices\Api\PaginationService.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mPhpdoc indent[39;49;22m:
+ [33mHttp\Controllers\Api\V2\BaseApiController.php[39m: 1 issue fixed
+ [33mServices\Api\PaginationService.php[39m: 1 issue fixed
+
+[32m• [Style] [39m[39;49;1mOrdered class elements[39;49;22m:
+ [33mExceptions\GlobalExceptionHandler.php[39m: 1 issue fixed
+ [33mHttp\Controllers\Api\ProductController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\LogController.php[39m: 1 issue fixed
+ [33mHttp\Controllers\UserController.php[39m: 1 issue fixed
+ [33mHttp\Middleware\TrustProxies.php[39m: 1 issue fixed
+ [33mHttp\Middleware\ValidateSignature.php[39m: 1 issue fixed
+ [33mHttp\Middleware\VerifyCsrfToken.php[39m: 1 issue fixed
+ [33mModels\Category.php[39m: 1 issue fixed
+ [33mModels\Notification.php[39m: 1 issue fixed
+ [33mModels\OrderItem.php[39m: 1 issue fixed
+ [33mModels\PriceAlert.php[39m: 1 issue fixed
+ [33mModels\Product.php[39m: 1 issue fixed
+ [33mModels\Store.php[39m: 1 issue fixed
+ [33mServices\Activity\Services\LocationCheckService.php[39m: 1 issue fixed
+ [33mServices\FileCleanupService.php[39m: 1 issue fixed
+ [33mServices\FinancialTransactionService.php[39m: 1 issue fixed
+ [33mServices\PasswordHistoryService.php[39m: 1 issue fixed
+ [33mServices\PasswordPolicyService.php[39m: 1 issue fixed
+ [33mServices\StorageManagementService.php[39m: 1 issue fixed
+ [33mServices\StoreAdapterManager.php[39m: 1 issue fixed
+ [33mServices\StoreAdapters\AmazonAdapter.php[39m: 1 issue fixed
+ [33mServices\UserBanService.php[39m: 1 issue fixed
+ [33mServices\WebhookService.php[39m: 1 issue fixed
+
+[33;1m1650 issues remaining[39;22m
+
+
+  - Star or contribute to PHP Insights:
+    [1mhttps://github.com/nunomaduro/phpinsights[22m
+  - Sponsor the maintainers:
+    [1mhttps://github.com/sponsors/nunomaduro[22m
+  - Subscribe to my YouTube channel:
+    [1mhttps://www.youtube.com/@nunomaduro[22m

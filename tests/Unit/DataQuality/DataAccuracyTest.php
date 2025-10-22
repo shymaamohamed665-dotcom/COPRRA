@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\DataQuality;
 
 use App\Models\Currency;
@@ -15,13 +17,13 @@ class DataAccuracyTest extends TestCase
     // \PHPUnit\Framework\Attributes\Test
     public function test_price_calculation_accuracy()
     {
-        // اختبار سيناريو ضريبة 20%
+        // Ø§Ø®ØªØ¨Ø§Ø± Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆ Ø¶Ø±ÙŠØ¨Ø© 20%
         $product1 = Product::factory()->create([
             'price' => 99.99,
         ]);
         $taxRate1 = 0.20;
 
-        // اختبار سيناريو بدون ضريبة
+        // Ø§Ø®ØªØ¨Ø§Ø± Ø³ÙŠÙ†Ø§Ø±ÙŠÙˆ Ø¨Ø¯ÙˆÙ† Ø¶Ø±ÙŠØ¨Ø©
         $product2 = Product::factory()->create([
             'price' => 200.00,
         ]);
@@ -34,11 +36,11 @@ class DataAccuracyTest extends TestCase
     // \PHPUnit\Framework\Attributes\Test
     public function test_currency_conversion_edge_cases()
     {
-        // اختبار تحويل عملة بدقة عالية
+        // Ø§Ø®ØªØ¨Ø§Ø± ØªØ­ÙˆÙŠÙ„ Ø¹Ù…Ù„Ø© Ø¨Ø¯Ù‚Ø© Ø¹Ø§Ù„ÙŠØ©
         $currency1 = Currency::factory()->create(['exchange_rate' => 1.2345]);
         $this->assertEquals(123.45, round(100 * $currency1->exchange_rate, 2));
 
-        // اختبار تقريب العمليات الحسابية
+        // Ø§Ø®ØªØ¨Ø§Ø± ØªÙ‚Ø±ÙŠØ¨ Ø§Ù„Ø¹Ù…Ù„ÙŠØ§Øª Ø§Ù„Ø­Ø³Ø§Ø¨ÙŠØ©
         $currency2 = Currency::factory()->create(['exchange_rate' => 1.1964]);
         $this->assertEquals(107.68, round(90 * $currency2->exchange_rate, 2));
     }
@@ -48,7 +50,7 @@ class DataAccuracyTest extends TestCase
     {
         $order = Order::factory()->create();
 
-        // إضافة منتجات بكميات وأسعار مختلفة
+        // Ø¥Ø¶Ø§ÙØ© Ù…Ù†ØªØ¬Ø§Øª Ø¨ÙƒÙ…ÙŠØ§Øª ÙˆØ£Ø³Ø¹Ø§Ø± Ù…Ø®ØªÙ„ÙØ©
         Product::factory()->create(['price' => 75.99])
             ->each(fn ($product) => $order->items()->create([
                 'product_id' => $product->id,
@@ -63,7 +65,7 @@ class DataAccuracyTest extends TestCase
                 'unit_price' => $product->price,
             ]));
 
-        // التحقق من المجموع الكلي
+        // Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹ Ø§Ù„ÙƒÙ„ÙŠ
         $expectedTotal = (75.99 * 3) + (149.50 * 2);
         $this->assertEquals($expectedTotal, round($order->fresh()->total, 2));
     }
@@ -71,7 +73,7 @@ class DataAccuracyTest extends TestCase
     // \PHPUnit\Framework\Attributes\Test
     public function test_negative_values_handling()
     {
-        // اختبار معالجة القيم السالبة (خصم)
+        // Ø§Ø®ØªØ¨Ø§Ø± Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù‚ÙŠÙ… Ø§Ù„Ø³Ø§Ù„Ø¨Ø© (Ø®ØµÙ…)
         $product = Product::factory()->create([
             'price' => 100.00,
         ]);

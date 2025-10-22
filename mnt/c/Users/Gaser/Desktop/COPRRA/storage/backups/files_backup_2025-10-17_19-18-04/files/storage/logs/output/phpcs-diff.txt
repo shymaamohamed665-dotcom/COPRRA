@@ -1,0 +1,4681 @@
+--- app/Services/PasswordPolicyService.php
++++ PHP_CodeSniffer
+@@ -29,14 +29,14 @@
+         $minLengthValue = $this->config['min_length'] ?? 8;
+         $minLength = is_numeric($minLengthValue) ? (int) $minLengthValue : 8;
+         if (strlen($password) < $minLength) {
+-            $errors[] = 'Password must be at least '.$minLength.' characters long';
++            $errors[] = 'Password must be at least ' . $minLength . ' characters long';
+         }
+ 
+         // Check maximum length
+         $maxLengthValue = $this->config['max_length'] ?? 128;
+         $maxLength = is_numeric($maxLengthValue) ? (int) $maxLengthValue : 128;
+         if (strlen($password) > $maxLength) {
+-            $errors[] = 'Password must not exceed '.$maxLength.' characters';
++            $errors[] = 'Password must not exceed ' . $maxLength . ' characters';
+         }
+ 
+         // Check for uppercase letters
+--- app/Console/Commands/AgentProposeFixCommand.php
++++ PHP_CodeSniffer
+@@ -100,13 +100,13 @@
+         $checkoutResult = $this->processService->run("git checkout -b {$branchName}");
+ 
+         if ($checkoutResult->failed()) {
+-            $this->error('❌ Failed to create branch: '.$checkoutResult->getErrorOutput());
++            $this->error('❌ Failed to create branch: ' . $checkoutResult->getErrorOutput());
+ 
+             return false;
+         }
+ 
+         $this->info('✅ Branch created successfully');
+-        $this->info('Git output: '.$checkoutResult->getOutput());
++        $this->info('Git output: ' . $checkoutResult->getOutput());
+ 
+         return true;
+     }
+@@ -133,14 +133,14 @@
+         $pintResult = $this->processService->run($pintPath);
+ 
+         if ($pintResult->failed()) {
+-            $this->warn('⚠️ Pint encountered issues: '.$pintResult->getErrorOutput());
+-            $this->info('Pint output: '.$pintResult->getOutput());
++            $this->warn('⚠️ Pint encountered issues: ' . $pintResult->getErrorOutput());
++            $this->info('Pint output: ' . $pintResult->getOutput());
+ 
+             return true;
+         }
+ 
+         $this->info('✅ Pint completed successfully');
+-        $this->info('Pint output: '.$pintResult->getOutput());
++        $this->info('Pint output: ' . $pintResult->getOutput());
+ 
+         return true;
+     }
+@@ -168,14 +168,14 @@
+         $phpstanResult = $this->processService->run(['php', '-d', 'memory_limit=512M', $phpstanPath, 'analyse', '--generate-baseline']);
+ 
+         if ($phpstanResult->failed()) {
+-            $this->error('❌ PHPStan baseline generation failed: '.$phpstanResult->getErrorOutput());
+-            $this->error('PHPStan output: '.$phpstanResult->getOutput());
++            $this->error('❌ PHPStan baseline generation failed: ' . $phpstanResult->getErrorOutput());
++            $this->error('PHPStan output: ' . $phpstanResult->getOutput());
+ 
+             return false;
+         }
+ 
+         $this->info('✅ PHPStan baseline generated successfully');
+-        $this->info('PHPStan output: '.$phpstanResult->getOutput());
++        $this->info('PHPStan output: ' . $phpstanResult->getOutput());
+ 
+         return true;
+     }
+@@ -200,13 +200,13 @@
+         $addResult = $this->processService->run('git add .');
+ 
+         if ($addResult->failed()) {
+-            $this->error('❌ Failed to stage changes: '.$addResult->getErrorOutput());
++            $this->error('❌ Failed to stage changes: ' . $addResult->getErrorOutput());
+ 
+             return false;
+         }
+ 
+         $this->info('✅ Changes staged successfully');
+-        $this->info('Git add output: '.$addResult->getOutput());
++        $this->info('Git add output: ' . $addResult->getOutput());
+ 
+         return true;
+     }
+@@ -222,14 +222,14 @@
+         $commitResult = $this->processService->run("git commit -m \"{$commitMessage}\"");
+ 
+         if ($commitResult->failed()) {
+-            $this->warn('⚠️ No changes to commit or commit failed: '.$commitResult->getErrorOutput());
+-            $this->info('Git commit output: '.$commitResult->getOutput());
++            $this->warn('⚠️ No changes to commit or commit failed: ' . $commitResult->getErrorOutput());
++            $this->info('Git commit output: ' . $commitResult->getOutput());
+ 
+             return;
+         }
+ 
+         $this->info('✅ Changes committed successfully');
+-        $this->info('Git commit output: '.$commitResult->getOutput());
++        $this->info('Git commit output: ' . $commitResult->getOutput());
+     }
+ 
+     /**
+@@ -241,13 +241,13 @@
+         $pushResult = $this->processService->run("git push --set-upstream origin {$branchName}");
+ 
+         if ($pushResult->failed()) {
+-            $this->error('❌ Failed to push branch: '.$pushResult->getErrorOutput());
++            $this->error('❌ Failed to push branch: ' . $pushResult->getErrorOutput());
+ 
+             return false;
+         }
+ 
+         $this->info('✅ Branch pushed successfully');
+-        $this->info('Git push output: '.$pushResult->getOutput());
++        $this->info('Git push output: ' . $pushResult->getOutput());
+ 
+         return true;
+     }
+@@ -276,15 +276,15 @@
+         ]);
+ 
+         if ($prResult->failed()) {
+-            $this->error('❌ Failed to create Pull Request: '.$prResult->getErrorOutput());
++            $this->error('❌ Failed to create Pull Request: ' . $prResult->getErrorOutput());
+             $this->warn('⚠️ Branch was pushed successfully, but PR creation failed.');
+-            $this->warn('You can manually create the PR at: https://github.com/your-repo/compare/main...'.$branchName);
++            $this->warn('You can manually create the PR at: https://github.com/your-repo/compare/main...' . $branchName);
+ 
+             return false;
+         }
+ 
+         $this->info('✅ Pull Request created successfully');
+-        $this->info('PR output: '.$prResult->getOutput());
++        $this->info('PR output: ' . $prResult->getOutput());
+ 
+         return true;
+     }
+--- app/Http/Requests/CartRequest.php
++++ PHP_CodeSniffer
+@@ -8,8 +8,6 @@
+ 
+ class CartRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+--- app/Services/PasswordResetService.php
++++ PHP_CodeSniffer
+@@ -123,7 +123,7 @@
+      */
+     public function hasResetToken(string $email): bool
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+ 
+         return Cache::has($key);
+     }
+@@ -135,7 +135,7 @@
+      */
+     public function getResetTokenInfo(string $email): ?array
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+         $data = Cache::get($key);
+ 
+         if (! $data || ! is_array($data)) {
+@@ -190,7 +190,7 @@
+      */
+     private function storeResetToken(string $email, string $token): void
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+ 
+         $data = [
+             'token' => $token,
+@@ -206,7 +206,7 @@
+      */
+     private function validateResetToken(string $email, string $token): bool
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+         $data = Cache::get($key);
+ 
+         if (! $data || ! is_array($data)) {
+@@ -247,7 +247,7 @@
+      */
+     private function clearResetToken(string $email): void
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+         Cache::forget($key);
+     }
+ }
+--- app/Http/Requests/ChangePasswordRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class ChangePasswordRequest extends FormRequest
+ {
+-
+ }
+--- app/Http/Requests/ForgotPasswordRequest.php
++++ PHP_CodeSniffer
+@@ -8,8 +8,6 @@
+ 
+ class ForgotPasswordRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -25,4 +23,3 @@
+         ];
+     }
+ }
+-
+--- app/Console/Commands/GenerateSitemap.php
++++ PHP_CodeSniffer
+@@ -29,8 +29,8 @@
+     {
+         $this->info('Generating sitemap...');
+ 
+-        $sitemap = '<?xml version="1.0" encoding="UTF-8"?>'."\n";
+-        $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
++        $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
++        $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+ 
+         // Homepage
+         $sitemap .= $this->addUrl(url('/'), '1.0', 'daily');
+@@ -72,7 +72,7 @@
+ 
+         File::put(public_path('sitemap.xml'), $sitemap);
+ 
+-        $this->info('Sitemap generated successfully at '.public_path('sitemap.xml'));
++        $this->info('Sitemap generated successfully at ' . public_path('sitemap.xml'));
+ 
+         return Command::SUCCESS;
+     }
+--- app/Services/PerformanceAnalysisService.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,7 @@
+             $score += $this->checkAssetCompilation($issues);
+             $score += $this->checkQueueConfiguration($issues);
+         } catch (\Exception $e) {
+-            $issues[] = 'Performance analysis failed: '.$e->getMessage();
++            $issues[] = 'Performance analysis failed: ' . $e->getMessage();
+         }
+ 
+         return [
+--- app/Console/Commands/OptimizeDatabase.php
++++ PHP_CodeSniffer
+@@ -63,9 +63,9 @@
+         foreach ($indexes as $index) {
+             try {
+                 DB::statement($index);
+-                $this->line('✓ Added index: '.substr($index, 0, 50).'...');
++                $this->line('✓ Added index: ' . substr($index, 0, 50) . '...');
+             } catch (\Exception $e) {
+-                $this->warn('⚠ Index may already exist: '.$e->getMessage());
++                $this->warn('⚠ Index may already exist: ' . $e->getMessage());
+             }
+         }
+     }
+@@ -89,7 +89,7 @@
+                 DB::statement("ANALYZE TABLE {$table}");
+                 $this->line("✓ Analyzed table: {$table}");
+             } catch (\Exception $e) {
+-                $this->warn("⚠ Failed to analyze {$table}: ".$e->getMessage());
++                $this->warn("⚠ Failed to analyze {$table}: " . $e->getMessage());
+             }
+         }
+     }
+@@ -113,7 +113,7 @@
+                 DB::statement("OPTIMIZE TABLE {$table}");
+                 $this->line("✓ Optimized table: {$table}");
+             } catch (\Exception $e) {
+-                $this->warn("⚠ Failed to optimize {$table}: ".$e->getMessage());
++                $this->warn("⚠ Failed to optimize {$table}: " . $e->getMessage());
+             }
+         }
+     }
+--- app/Http/Requests/ProductIndexRequest.php
++++ PHP_CodeSniffer
+@@ -8,8 +8,6 @@
+ 
+ class ProductIndexRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -32,4 +30,3 @@
+         ];
+     }
+ }
+-
+--- app/Console/Commands/OptimizePerformance.php
++++ PHP_CodeSniffer
+@@ -10,6 +10,7 @@
+  * @property string $signature
+  * @property string $description
+  */
++
+ use Illuminate\Support\Facades\Artisan;
+ use Illuminate\Support\Facades\Cache;
+ use Illuminate\Support\Facades\DB;
+--- app/Http/Requests/ProductRequest.php
++++ PHP_CodeSniffer
+@@ -25,7 +25,7 @@
+     {
+         return [
+             'name' => ['required', 'string', 'max:255'],
+-            'slug' => ['required', 'string', 'max:255', 'unique:products,slug,'.$this->route('product')],
++            'slug' => ['required', 'string', 'max:255', 'unique:products,slug,' . $this->route('product')],
+             'description' => ['required', 'string'],
+             'price' => ['required', 'numeric', 'min:0'],
+             'image' => ['nullable', 'image', 'max:2048'], // 2MB max
+--- app/Services/PriceSearchService.php
++++ PHP_CodeSniffer
+@@ -10,5 +10,7 @@
+ 
+ final class PriceSearchService
+ {
+-    public function __construct(private readonly ValidationFactory $validationFactory) {}
++    public function __construct(private readonly ValidationFactory $validationFactory)
++    {
++    }
+ }
+--- app/Console/Commands/SEOAudit.php
++++ PHP_CodeSniffer
+@@ -14,6 +14,7 @@
+  * @property string $signature
+  * @property string $description
+  */
++
+ use Illuminate\Support\Facades\Route;
+ 
+ final class SEOAudit extends Command
+--- app/Services/ProductService.php
++++ PHP_CodeSniffer
+@@ -15,7 +15,8 @@
+     public function __construct(
+         private readonly ProductRepository $repository,
+         private readonly CacheService $cache
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Get paginated active products.
+@@ -29,7 +30,7 @@
+ 
+         /** @var \Illuminate\Pagination\LengthAwarePaginator<int, Product>|null $result */
+         $result = $this->cache->remember(
+-            'products.page.'.$pageNumber,
++            'products.page.' . $pageNumber,
+             3600,
+             fn (): \Illuminate\Pagination\LengthAwarePaginator => $this->repository->getPaginatedActive($perPage),
+             ['products']
+@@ -55,7 +56,7 @@
+     public function getBySlug(string $slug): ?Product
+     {
+         $result = $this->cache->remember(
+-            'product.slug.'.$slug,
++            'product.slug.' . $slug,
+             3600,
+             function () use ($slug): ?\App\Models\Product {
+                 return $this->repository->findBySlug($slug);
+@@ -74,13 +75,13 @@
+     public function getRelatedProducts(Product $product, int $limit = 4): Collection
+     {
+         $result = $this->cache->remember(
+-            'product.related.'.$product->id,
++            'product.related.' . $product->id,
+             3600,
+             fn (): \Illuminate\Database\Eloquent\Collection => $this->repository->getRelated($product, $limit),
+             ['products']
+         );
+ 
+-        return $result instanceof \Illuminate\Database\Eloquent\Collection ? $result : new Collection;
++        return $result instanceof \Illuminate\Database\Eloquent\Collection ? $result : new Collection();
+     }
+ 
+     /**
+--- app/Http/Requests/ProductUpdateRequest.php
++++ PHP_CodeSniffer
+@@ -213,7 +213,7 @@
+                         $changePercentage = abs($newPriceFloat - $oldPriceFloat) / $oldPriceFloat * 100;
+ 
+                         if ($changePercentage > 50) { // More than 50% change
+-                            \Log::warning('تغيير السعر بنسبة '.round($changePercentage, 2).'% - يرجى التأكد من صحة السعر');
++                            \Log::warning('تغيير السعر بنسبة ' . round($changePercentage, 2) . '% - يرجى التأكد من صحة السعر');
+                         }
+                     }
+                 }
+--- app/Console/Commands/StatsCommand.php
++++ PHP_CodeSniffer
+@@ -37,7 +37,7 @@
+     public function handle(): int
+     {
+         $this->info('📊 COPRRA Platform Statistics');
+-        $this->line('='.str_repeat('=', 50));
++        $this->line('=' . str_repeat('=', 50));
+ 
+         $detailed = $this->option('detailed');
+ 
+@@ -91,9 +91,9 @@
+         $maxPrice = is_numeric($maxPriceValue) ? (float) $maxPriceValue : 0.0;
+ 
+         $this->table(['Price Metric', 'Value'], [
+-            ['Average Price', '$'.number_format((float) $avgPrice, 2)],
+-            ['Minimum Price', '$'.number_format((float) $minPrice, 2)],
+-            ['Maximum Price', '$'.number_format((float) $maxPrice, 2)],
++            ['Average Price', '$' . number_format((float) $avgPrice, 2)],
++            ['Minimum Price', '$' . number_format((float) $minPrice, 2)],
++            ['Maximum Price', '$' . number_format((float) $maxPrice, 2)],
+         ]);
+ 
+         // Top categories by product count
+@@ -168,6 +168,6 @@
+             $size /= 1024;
+         }
+ 
+-        return round($size, $precision).' '.$units[$i];
++        return round($size, $precision) . ' ' . $units[$i];
+     }
+ }
+--- app/Http/Requests/RegisterRequest.php
++++ PHP_CodeSniffer
+@@ -9,8 +9,6 @@
+ 
+ class RegisterRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -48,4 +46,3 @@
+         ];
+     }
+ }
+-
+--- app/Services/QualityAnalysisService.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,7 @@
+             $score += $this->runPhpmdAnalysis($issues);
+             $score += $this->runPhpcpdAnalysis($issues);
+         } catch (\Exception $e) {
+-            $issues[] = 'Code quality analysis failed: '.$e->getMessage();
++            $issues[] = 'Code quality analysis failed: ' . $e->getMessage();
+         }
+ 
+         return [
+--- app/Http/Requests/ResetPasswordRequest.php
++++ PHP_CodeSniffer
+@@ -9,8 +9,6 @@
+ 
+ class ResetPasswordRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -29,4 +27,3 @@
+         ];
+     }
+ }
+-
+--- app/Http/Requests/StoreBrandRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class StoreBrandRequest extends FormRequest
+ {
+-
+ }
+--- app/Console/Commands/UpdatePricesCommand.php
++++ PHP_CodeSniffer
+@@ -43,12 +43,12 @@
+ 
+         if ($storeId) {
+             $query->where('store_id', (int) $storeId);
+-            $this->info('📍 Filtering by store ID: '.(string) $storeId);
++            $this->info('📍 Filtering by store ID: ' . (string) $storeId);
+         }
+ 
+         if ($productId) {
+             $query->where('product_id', (int) $productId);
+-            $this->info('📦 Filtering by product ID: '.(string) $productId);
++            $this->info('📦 Filtering by product ID: ' . (string) $productId);
+         }
+ 
+         $priceOffers = $query->get();
+@@ -84,7 +84,7 @@
+                 $store = $priceOffer->store;
+                 $productName = $product && is_string($product->name) ? $product->name : 'Unknown Product';
+                 $storeName = $store && is_string($store->name) ? $store->name : 'Unknown Store';
+-                $this->error("\n❌ Error updating {$productName} at {$storeName}: ".$e->getMessage());
++                $this->error("\n❌ Error updating {$productName} at {$storeName}: " . $e->getMessage());
+             }
+ 
+             $progressBar->advance();
+--- app/Services/RouteConfigurationService.php
++++ PHP_CodeSniffer
+@@ -11,7 +11,9 @@
+ 
+ final class RouteConfigurationService
+ {
+-    public function __construct(private readonly RateLimiter $rateLimiter, private readonly Router $router) {}
++    public function __construct(private readonly RateLimiter $rateLimiter, private readonly Router $router)
++    {
++    }
+ 
+     public function configureRateLimiting(): void
+     {
+--- app/Http/Requests/StorePriceAlertRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class StorePriceAlertRequest extends FormRequest
+ {
+-
+ }
+--- app/Services/SecurityAnalysisService.php
++++ PHP_CodeSniffer
+@@ -25,7 +25,7 @@
+             $score += $this->checkHttpsConfiguration($issues);
+             $score += $this->checkSecurityMiddleware($issues);
+         } catch (\Exception $e) {
+-            $issues[] = 'Security analysis failed: '.$e->getMessage();
++            $issues[] = 'Security analysis failed: ' . $e->getMessage();
+         }
+ 
+         return [
+--- app/Contracts/StoreAdapterInterface.php
++++ PHP_CodeSniffer
+@@ -6,7 +6,7 @@
+ 
+ /**
+  * Interface for store adapters.
+- * 
++ *
+  * Each store adapter must implement this interface to provide
+  * a unified way to fetch product data from different stores.
+  */
+@@ -29,7 +29,7 @@
+ 
+     /**
+      * Fetch product data by product identifier.
+-     * 
++     *
+      * @param string $productIdentifier The product ID/SKU/ASIN
+      * @return array{
+      *     name: string,
+@@ -50,7 +50,7 @@
+ 
+     /**
+      * Search for products by query.
+-     * 
++     *
+      * @param string $query Search query
+      * @param array $options Search options (limit, page, filters, etc.)
+      * @return array Array of product data
+@@ -69,7 +69,7 @@
+ 
+     /**
+      * Get rate limit information.
+-     * 
++     *
+      * @return array{
+      *     requests_per_minute: int,
+      *     requests_per_hour: int,
+@@ -78,4 +78,3 @@
+      */
+     public function getRateLimits(): array;
+ }
+-
+--- app/Services/SEOService.php
++++ PHP_CodeSniffer
+@@ -260,4 +260,3 @@
+         return $data;
+     }
+ }
+-
+--- app/Http/Requests/StoreReviewRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class StoreReviewRequest extends FormRequest
+ {
+-
+ }
+--- app/DTO/AnalysisResult.php
++++ PHP_CodeSniffer
+@@ -12,5 +12,6 @@
+         public int $max_score,
+         /** @var array<string> */
+         public array $issues
+-    ) {}
++    ) {
++    }
+ }
+--- app/Http/Requests/SwitchLanguageRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class SwitchLanguageRequest extends FormRequest
+ {
+-
+ }
+--- app/DTO/ProcessResult.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,8 @@
+          * The error output of the process.
+          */
+         public readonly string $errorOutput
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Get the output of the process.
+--- app/Services/StoreAdapters/AbstractStoreAdapter.php
++++ PHP_CodeSniffer
+@@ -36,17 +36,16 @@
+                 }
+ 
+                 $this->lastError = "HTTP {$response->status()}: {$response->body()}";
+-                
++
+                 Log::warning('Store adapter request failed', [
+                     'store' => $this->getStoreName(),
+                     'url' => $url,
+                     'status' => $response->status(),
+                     'attempt' => $attempt,
+                 ]);
+-
+             } catch (\Exception $e) {
+                 $this->lastError = $e->getMessage();
+-                
++
+                 Log::error('Store adapter request exception', [
+                     'store' => $this->getStoreName(),
+                     'url' => $url,
+@@ -134,4 +133,3 @@
+         ];
+     }
+ }
+-
+--- app/Enums/NotificationStatus.php
++++ PHP_CodeSniffer
+@@ -47,4 +47,3 @@
+         return array_column(self::cases(), 'value', 'name');
+     }
+ }
+-
+--- app/Http/Requests/UpdateBrandRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class UpdateBrandRequest extends FormRequest
+ {
+-
+ }
+--- app/Services/StoreAdapters/AmazonAdapter.php
++++ PHP_CodeSniffer
+@@ -6,7 +6,7 @@
+ 
+ /**
+  * Amazon store adapter.
+- * 
++ *
+  * Note: This is a basic implementation. Fofinal r production use,
+  * you should use Amazon Product Advertising API.
+  */
+@@ -89,9 +89,9 @@
+     {
+         // TODO: Implement actual Amazon Product Advertising API call
+         // This requires signing requests with AWS Signature Version 4
+-        
++
+         $this->lastError = 'Amazon API integration not yet implemented. Please configure Amazon Product Advertising API.';
+-        
++
+         return null;
+     }
+ 
+@@ -180,4 +180,3 @@
+         ];
+     }
+ }
+-
+--- app/Enums/OrderStatus.php
++++ PHP_CodeSniffer
+@@ -78,4 +78,3 @@
+         return array_column(self::cases(), 'value', 'name');
+     }
+ }
+-
+--- app/Http/Requests/UpdateCartRequest.php
++++ PHP_CodeSniffer
+@@ -8,8 +8,6 @@
+ 
+ class UpdateCartRequest extends FormRequest
+ {
+-
+-
+     /**
+      * Get custom messages for validator errors.
+      *
+@@ -27,4 +25,3 @@
+         ];
+     }
+ }
+-
+--- app/Enums/UserRole.php
++++ PHP_CodeSniffer
+@@ -85,4 +85,3 @@
+         return array_column(self::cases(), 'value', 'name');
+     }
+ }
+-
+--- app/Events/OrderStatusChanged.php
++++ PHP_CodeSniffer
+@@ -25,5 +25,6 @@
+         public Order $order,
+         public OrderStatus $oldStatus,
+         public OrderStatus $newStatus
+-    ) {}
++    ) {
++    }
+ }
+--- app/Http/Requests/UpdatePriceAlertRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class UpdatePriceAlertRequest extends FormRequest
+ {
+-
+ }
+--- app/Exceptions/GlobalExceptionHandler.php
++++ PHP_CodeSniffer
+@@ -38,7 +38,8 @@
+     #[\Override]
+     public function register(): void
+     {
+-        $this->reportable(static function (Throwable $e): void {});
++        $this->reportable(static function (Throwable $e): void {
++        });
+     }
+ 
+     /**
+@@ -328,11 +329,11 @@
+ 
+             if (! empty($adminEmails)) {
+                 Mail::raw(
+-                    "Critical error occurred in COPRRA application:\n\n".
+-                        'Error: '.$e->getMessage()."\n".
+-                        'File: '.$e->getFile().':'.$e->getLine()."\n".
+-                        'Time: '.now()->toISOString()."\n".
+-                        'URL: '.request()->fullUrl(),
++                    "Critical error occurred in COPRRA application:\n\n" .
++                        'Error: ' . $e->getMessage() . "\n" .
++                        'File: ' . $e->getFile() . ':' . $e->getLine() . "\n" .
++                        'Time: ' . now()->toISOString() . "\n" .
++                        'URL: ' . request()->fullUrl(),
+                     static function (\Illuminate\Mail\Message $message) use ($adminEmails): void {
+                         $emailsArray = is_array($adminEmails) ? $adminEmails : (is_string($adminEmails) ? [$adminEmails] : []);
+                         if (! empty($emailsArray)) {
+--- app/Services/TestAnalysisService.php
++++ PHP_CodeSniffer
+@@ -9,7 +9,9 @@
+ 
+ final readonly class TestAnalysisService
+ {
+-    public function __construct(private bool $coverageEnabled = false) {}
++    public function __construct(private bool $coverageEnabled = false)
++    {
++    }
+ 
+     /**
+      * @param  array<string>  $issues
+--- app/Http/Requests/UpdateProductRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class UpdateProductRequest extends FormRequest
+ {
+-
+ }
+--- app/Exceptions/ProductUpdate.php
++++ PHP_CodeSniffer
+@@ -6,4 +6,6 @@
+ 
+ use Exception;
+ 
+-class ProductUpdate extends Exception {}
++class ProductUpdate extends Exception
++{
++}
+--- app/Http/Requests/UpdateReviewRequest.php
++++ PHP_CodeSniffer
+@@ -8,5 +8,4 @@
+ 
+ class UpdateReviewRequest extends FormRequest
+ {
+-
+ }
+--- app/Services/WebhookService.php
++++ PHP_CodeSniffer
+@@ -10,8 +10,6 @@
+ 
+ class WebhookService
+ {
+-
+-
+     /**
+      * Handle incoming webhook.
+      */
+@@ -75,7 +73,6 @@
+ 
+             $webhook->markAsCompleted();
+             $webhook->addLog('completed', 'Webhook processed successfully');
+-
+         } catch (\Exception $e) {
+             $webhook->markAsFailed($e->getMessage());
+             $webhook->addLog('failed', 'Webhook processing failed', [
+@@ -246,4 +243,3 @@
+         return hash_equals($expectedSignature, $webhook->signature);
+     }
+ }
+-
+--- app/View/Composers/AppComposer.php
++++ PHP_CodeSniffer
+@@ -11,8 +11,6 @@
+ 
+ final class AppComposer
+ {
+-
+-
+     /**
+      * Get active languages.
+      *
+--- app/Http/Requests/UpdateUserRequest.php
++++ PHP_CodeSniffer
+@@ -9,5 +9,4 @@
+ 
+ class UpdateUserRequest extends FormRequest
+ {
+-
+ }
+--- app/Http/Controllers/Admin/AIControlPanelController.php
++++ PHP_CodeSniffer
+@@ -10,4 +10,6 @@
+ use Illuminate\Http\JsonResponse;
+ use Illuminate\Http\Request;
+ 
+-class AIControlPanelController extends Controller {}
++class AIControlPanelController extends Controller
++{
++}
+--- app/_ide_helper_cart.php
++++ PHP_CodeSniffer
+@@ -7,4 +7,6 @@
+ /**
+  * @mixin \Darryldecode\Cart\Cart
+  */
+-class CartFacade {}
++class CartFacade
++{
++}
+--- bootstrap/app.php
++++ PHP_CodeSniffer
+@@ -25,4 +25,5 @@
+             'permission' => \App\Http\Middleware\CheckPermission::class,
+         ]);
+     })
+-    ->withExceptions(function (Exceptions $exceptions) {})->create();
++    ->withExceptions(function (Exceptions $exceptions) {
++    })->create();
+--- app/Http/Controllers/AdminController.php
++++ PHP_CodeSniffer
+@@ -11,4 +11,6 @@
+ use App\Models\User;
+ use Illuminate\Contracts\View\View;
+ 
+-class AdminController extends Controller {}
++class AdminController extends Controller
++{
++}
+--- check-environment.php
++++ PHP_CodeSniffer
+@@ -24,20 +24,20 @@
+ 
+ function printHeader(string $text): void
+ {
+-    echo "\n".COLOR_BLUE."=== $text ===".COLOR_RESET."\n\n";
++    echo "\n" . COLOR_BLUE . "=== $text ===" . COLOR_RESET . "\n\n";
+ }
+ 
+ function printSuccess(string $text): void
+ {
+     global $passed;
+-    echo COLOR_GREEN.'✓ '.COLOR_RESET.$text."\n";
++    echo COLOR_GREEN . '✓ ' . COLOR_RESET . $text . "\n";
+     $passed++;
+ }
+ 
+ function printError(string $text): void
+ {
+     global $failed, $errors;
+-    echo COLOR_RED.'✗ '.COLOR_RESET.$text."\n";
++    echo COLOR_RED . '✗ ' . COLOR_RESET . $text . "\n";
+     $errors[] = $text;
+     $failed++;
+ }
+@@ -45,23 +45,23 @@
+ function printWarning(string $text): void
+ {
+     global $warnings;
+-    echo COLOR_YELLOW.'⚠ '.COLOR_RESET.$text."\n";
++    echo COLOR_YELLOW . '⚠ ' . COLOR_RESET . $text . "\n";
+     $warnings[] = $text;
+ }
+ 
+ function printInfo(string $text): void
+ {
+-    echo COLOR_BLUE.'ℹ '.COLOR_RESET.$text."\n";
++    echo COLOR_BLUE . 'ℹ ' . COLOR_RESET . $text . "\n";
+ }
+ 
+ // Start checks
+-echo COLOR_BLUE."\n";
++echo COLOR_BLUE . "\n";
+ echo "╔════════════════════════════════════════════════════════════╗\n";
+ echo "║         Laravel Application Environment Check             ║\n";
+ echo "║                                                            ║\n";
+ echo "║  This script validates your hosting environment           ║\n";
+ echo "╚════════════════════════════════════════════════════════════╝\n";
+-echo COLOR_RESET."\n";
++echo COLOR_RESET . "\n";
+ 
+ // 1. PHP Version Check
+ printHeader('PHP Version');
+@@ -219,7 +219,7 @@
+     ];
+ 
+     foreach ($criticalVars as $var => $description) {
+-        if (strpos($envContent, $var.'=') !== false) {
++        if (strpos($envContent, $var . '=') !== false) {
+             printSuccess("$var is set ($description)");
+         } else {
+             printError("$var is missing ($description)");
+@@ -243,8 +243,8 @@
+ printHeader('Database Connection');
+ if (file_exists('vendor/autoload.php') && file_exists('.env')) {
+     try {
+-        require __DIR__.'/vendor/autoload.php';
+-        $app = require_once __DIR__.'/bootstrap/app.php';
++        require __DIR__ . '/vendor/autoload.php';
++        $app = require_once __DIR__ . '/bootstrap/app.php';
+         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+ 
+         DB::connection()->getPdo();
+@@ -259,7 +259,7 @@
+             printWarning('Migrations table not found - run: php artisan migrate');
+         }
+     } catch (\Exception $e) {
+-        printError('Database connection failed: '.$e->getMessage());
++        printError('Database connection failed: ' . $e->getMessage());
+         printInfo('Check your database credentials in .env file');
+     }
+ } else {
+@@ -279,13 +279,13 @@
+                 Cache::store('redis')->forget('test');
+                 printSuccess('Redis cache is working');
+             } catch (\Exception $e) {
+-                printError('Redis cache failed: '.$e->getMessage());
++                printError('Redis cache failed: ' . $e->getMessage());
+             }
+         } else {
+             printSuccess('File cache is configured');
+         }
+     } catch (\Exception $e) {
+-        printWarning('Cache check failed: '.$e->getMessage());
++        printWarning('Cache check failed: ' . $e->getMessage());
+     }
+ }
+ 
+@@ -302,37 +302,37 @@
+             printSuccess('Queue driver is configured for async processing');
+         }
+     } catch (\Exception $e) {
+-        printWarning('Queue check failed: '.$e->getMessage());
++        printWarning('Queue check failed: ' . $e->getMessage());
+     }
+ }
+ 
+ // Summary
+ echo "\n";
+-echo COLOR_BLUE."╔════════════════════════════════════════════════════════════╗\n";
++echo COLOR_BLUE . "╔════════════════════════════════════════════════════════════╗\n";
+ echo "║                      Summary                               ║\n";
+-echo "╚════════════════════════════════════════════════════════════╝\n".COLOR_RESET;
++echo "╚════════════════════════════════════════════════════════════╝\n" . COLOR_RESET;
+ echo "\n";
+ 
+-echo COLOR_GREEN."Passed: $passed".COLOR_RESET."\n";
+-echo COLOR_RED."Failed: $failed".COLOR_RESET."\n";
+-echo COLOR_YELLOW.'Warnings: '.count($warnings).COLOR_RESET."\n\n";
++echo COLOR_GREEN . "Passed: $passed" . COLOR_RESET . "\n";
++echo COLOR_RED . "Failed: $failed" . COLOR_RESET . "\n";
++echo COLOR_YELLOW . 'Warnings: ' . count($warnings) . COLOR_RESET . "\n\n";
+ 
+ if ($failed > 0) {
+-    echo COLOR_RED."❌ Environment check FAILED\n".COLOR_RESET;
++    echo COLOR_RED . "❌ Environment check FAILED\n" . COLOR_RESET;
+     echo "\nCritical issues that must be fixed:\n";
+     foreach ($errors as $error) {
+-        echo COLOR_RED.'  • '.COLOR_RESET.$error."\n";
++        echo COLOR_RED . '  • ' . COLOR_RESET . $error . "\n";
+     }
+     exit(1);
+ } elseif (count($warnings) > 0) {
+-    echo COLOR_YELLOW."⚠️  Environment check PASSED with warnings\n".COLOR_RESET;
++    echo COLOR_YELLOW . "⚠️  Environment check PASSED with warnings\n" . COLOR_RESET;
+     echo "\nRecommended improvements:\n";
+     foreach ($warnings as $warning) {
+-        echo COLOR_YELLOW.'  • '.COLOR_RESET.$warning."\n";
++        echo COLOR_YELLOW . '  • ' . COLOR_RESET . $warning . "\n";
+     }
+     exit(0);
+ } else {
+-    echo COLOR_GREEN."✅ Environment check PASSED\n".COLOR_RESET;
++    echo COLOR_GREEN . "✅ Environment check PASSED\n" . COLOR_RESET;
+     echo "\nYour environment is ready for production!\n";
+     exit(0);
+ }
+--- app/Http/Controllers/AnalyticsController.php
++++ PHP_CodeSniffer
+@@ -10,7 +10,9 @@
+ 
+ class AnalyticsController extends Controller
+ {
+-    public function __construct(private BehaviorAnalysisService $behaviorAnalysisService) {}
++    public function __construct(private BehaviorAnalysisService $behaviorAnalysisService)
++    {
++    }
+ 
+     public function userAnalytics(Request $request): JsonResponse
+     {
+--- cleanup-problematic-dirs.php
++++ PHP_CodeSniffer
+@@ -4,9 +4,10 @@
+  * Cleanup Problematic Windows Path Directories
+  * Removes directories with Windows absolute paths that shouldn't exist in Linux environment
+  */
+-echo "\n".str_repeat('=', 60)."\n";
++
++echo "\n" . str_repeat('=', 60) . "\n";
+ echo "Cleaning Up Problematic Directories\n";
+-echo str_repeat('=', 60)."\n\n";
++echo str_repeat('=', 60) . "\n\n";
+ 
+ $removed = [];
+ $failed = [];
+@@ -27,7 +28,7 @@
+             continue;
+         }
+ 
+-        $path = $dir.DIRECTORY_SEPARATOR.$item;
++        $path = $dir . DIRECTORY_SEPARATOR . $item;
+ 
+         if (is_dir($path)) {
+             deleteDirectory($path);
+@@ -54,9 +55,10 @@
+         $path = $file->getPathname();
+ 
+         // Check if path contains Windows-style absolute paths
+-        if (strpos($path, 'C:') !== false ||
+-            (strpos($path, 'Users') !== false && strpos($path, 'Desktop') !== false)) {
+-
++        if (
++            strpos($path, 'C:') !== false ||
++            (strpos($path, 'Users') !== false && strpos($path, 'Desktop') !== false)
++        ) {
+             // Get the top-level problematic directory
+             $parts = explode(DIRECTORY_SEPARATOR, $path);
+             $topLevel = '';
+@@ -90,7 +92,7 @@
+ if (empty($problematicDirs)) {
+     echo "✓ No problematic directories found\n";
+ } else {
+-    echo 'Found '.count($problematicDirs)." problematic director(ies):\n\n";
++    echo 'Found ' . count($problematicDirs) . " problematic director(ies):\n\n";
+ 
+     foreach ($problematicDirs as $dir) {
+         echo "  - $dir\n";
+@@ -110,17 +112,17 @@
+                 $failed[] = $dir;
+             }
+         } catch (Exception $e) {
+-            echo '✗ ERROR: '.$e->getMessage()."\n";
++            echo '✗ ERROR: ' . $e->getMessage() . "\n";
+             $failed[] = $dir;
+         }
+     }
+ }
+ 
+-echo "\n".str_repeat('=', 60)."\n";
++echo "\n" . str_repeat('=', 60) . "\n";
+ echo "Cleanup Summary\n";
+-echo str_repeat('=', 60)."\n\n";
++echo str_repeat('=', 60) . "\n\n";
+ 
+-echo 'Removed: '.count($removed)." director(ies)\n";
++echo 'Removed: ' . count($removed) . " director(ies)\n";
+ if (! empty($removed)) {
+     foreach ($removed as $dir) {
+         echo "  ✓ $dir\n";
+@@ -128,15 +130,15 @@
+ }
+ 
+ if (! empty($failed)) {
+-    echo "\nFailed: ".count($failed)." director(ies)\n";
++    echo "\nFailed: " . count($failed) . " director(ies)\n";
+     foreach ($failed as $dir) {
+         echo "  ✗ $dir\n";
+     }
+ }
+ 
+-echo "\n".str_repeat('=', 60)."\n";
++echo "\n" . str_repeat('=', 60) . "\n";
+ echo "Next Steps\n";
+-echo str_repeat('=', 60)."\n\n";
++echo str_repeat('=', 60) . "\n\n";
+ 
+ echo "1. Clear view cache:\n";
+ echo "   php artisan view:clear\n\n";
+--- app/Jobs/ProcessHeavyOperation.php
++++ PHP_CodeSniffer
+@@ -48,7 +48,9 @@
+      *
+      * @param  array<string, mixed>  $data
+      */
+-    public function __construct(private string $operation, private array $data = [], private ?int $userId = null) {}
++    public function __construct(private string $operation, private array $data = [], private ?int $userId = null)
++    {
++    }
+ 
+     /**
+      * Execute the specific operation.
+@@ -226,7 +228,7 @@
+         return [
+             'format' => $format,
+             'table' => $table,
+-            'file_path' => 'exports/'.(is_string($table) ? $table : 'unknown').'_'.(is_string($format) ? $format : 'csv').'_'.time().'.'.(is_string($format) ? $format : 'csv'),
++            'file_path' => 'exports/' . (is_string($table) ? $table : 'unknown') . '_' . (is_string($format) ? $format : 'csv') . '_' . time() . '.' . (is_string($format) ? $format : 'csv'),
+             'status' => 'completed',
+         ];
+     }
+--- app/Listeners/SendOrderStatusNotification.php
++++ PHP_CodeSniffer
+@@ -53,4 +53,3 @@
+         };
+     }
+ }
+-
+--- app/Http/Controllers/Api/Admin/BrandController.php
++++ PHP_CodeSniffer
+@@ -11,8 +11,6 @@
+ 
+ class BrandController extends Controller
+ {
+-
+-
+     public function update(Request $request, Brand $brand): JsonResponse
+     {
+         $validated = $request->validate([
+--- app/Http/Controllers/Api/Admin/CategoryController.php
++++ PHP_CodeSniffer
+@@ -11,8 +11,6 @@
+ 
+ class CategoryController extends Controller
+ {
+-
+-
+     public function update(Request $request, Category $category): JsonResponse
+     {
+         $validated = $request->validate([
+--- run-comprehensive-audit.php
++++ PHP_CodeSniffer
+@@ -28,9 +28,9 @@
+ 
+     public function run(): void
+     {
+-        echo "\n".str_repeat('=', 60)."\n";
++        echo "\n" . str_repeat('=', 60) . "\n";
+         echo "COMPREHENSIVE AUDIT & ANALYSIS\n";
+-        echo str_repeat('=', 60)."\n\n";
++        echo str_repeat('=', 60) . "\n\n";
+ 
+         $this->phase1_CoreQuality();
+         $this->phase2_DeepAnalysis();
+@@ -38,10 +38,10 @@
+         $this->phase4_AdvancedTesting();
+         $this->generateFinalReport();
+ 
+-        echo "\n".str_repeat('=', 60)."\n";
++        echo "\n" . str_repeat('=', 60) . "\n";
+         echo "AUDIT COMPLETE\n";
+         echo "Report saved to: {$this->reportPath}\n";
+-        echo str_repeat('=', 60)."\n\n";
++        echo str_repeat('=', 60) . "\n\n";
+     }
+ 
+     private function phase1_CoreQuality(): void
+@@ -155,8 +155,8 @@
+         echo "Step 3.1: Checking for Redundant/Problematic Files...\n";
+         $problematicDirs = $this->findProblematicDirectories();
+         if (count($problematicDirs) > 0) {
+-            echo '  ⚠ Found '.count($problematicDirs)." problematic directories\n";
+-            $this->findings[] = 'Problematic directory paths found: '.count($problematicDirs);
++            echo '  ⚠ Found ' . count($problematicDirs) . " problematic directories\n";
++            $this->findings[] = 'Problematic directory paths found: ' . count($problematicDirs);
+             file_put_contents(
+                 "reports/problematic-dirs-{$this->timestamp}.txt",
+                 implode("\n", $problematicDirs)
+@@ -166,7 +166,7 @@
+                 echo "    - $dir\n";
+             }
+ 
+-            $this->fixes[] = 'Identified '.count($problematicDirs).' problematic paths for cleanup';
++            $this->fixes[] = 'Identified ' . count($problematicDirs) . ' problematic paths for cleanup';
+         } else {
+             echo "  ✓ No problematic directory paths found\n";
+         }
+@@ -307,7 +307,7 @@
+     private function generateFinalReport(): void
+     {
+         $report = "# Comprehensive Audit Report\n\n";
+-        $report .= '**Generated:** '.date('Y-m-d H:i:s')."\n\n";
++        $report .= '**Generated:** ' . date('Y-m-d H:i:s') . "\n\n";
+         $report .= "---\n\n";
+ 
+         $report .= "## Executive Summary\n\n";
+@@ -363,5 +363,5 @@
+ }
+ 
+ // Run the audit
+-$auditor = new ComprehensiveAuditor;
++$auditor = new ComprehensiveAuditor();
+ $auditor->run();
+--- scripts/deploy-to-hostinger.php
++++ PHP_CodeSniffer
+@@ -13,8 +13,8 @@
+ declare(strict_types=1);
+ 
+ // Load Laravel environment
+-require_once __DIR__.'/../vendor/autoload.php';
+-$app = require_once __DIR__.'/../bootstrap/app.php';
++require_once __DIR__ . '/../vendor/autoload.php';
++$app = require_once __DIR__ . '/../bootstrap/app.php';
+ $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+ 
+ use Illuminate\Support\Facades\Config;
+@@ -27,8 +27,8 @@
+ 
+ echo "Hostinger Deployment Script\n";
+ echo "==========================\n";
+-echo 'Dry run: '.($dryRun ? 'YES' : 'NO')."\n";
+-echo 'Skip DB: '.($skipDb ? 'YES' : 'NO')."\n\n";
++echo 'Dry run: ' . ($dryRun ? 'YES' : 'NO') . "\n";
++echo 'Skip DB: ' . ($skipDb ? 'YES' : 'NO') . "\n\n";
+ 
+ // Validate configuration
+ if (empty($hostinger['ftp']['host']) || empty($hostinger['ftp']['username'])) {
+@@ -92,22 +92,22 @@
+ 
+         // Copy files excluding patterns
+         $iterator = new RecursiveIteratorIterator(
+-            new RecursiveDirectoryIterator(__DIR__.'/../', RecursiveDirectoryIterator::SKIP_DOTS)
++            new RecursiveDirectoryIterator(__DIR__ . '/../', RecursiveDirectoryIterator::SKIP_DOTS)
+         );
+ 
+         foreach ($iterator as $file) {
+-            $relativePath = str_replace(__DIR__.'/../', '', $file->getPathname());
++            $relativePath = str_replace(__DIR__ . '/../', '', $file->getPathname());
+             $skip = false;
+ 
+             foreach ($excludePatterns as $pattern) {
+-                if (fnmatch($pattern, $relativePath) || fnmatch($pattern.'/*', $relativePath)) {
++                if (fnmatch($pattern, $relativePath) || fnmatch($pattern . '/*', $relativePath)) {
+                     $skip = true;
+                     break;
+                 }
+             }
+ 
+             if (! $skip) {
+-                $targetPath = $deployDir.'/'.$relativePath;
++                $targetPath = $deployDir . '/' . $relativePath;
+                 $targetDir = dirname($targetPath);
+ 
+                 if (! is_dir($targetDir)) {
+@@ -121,14 +121,14 @@
+         }
+ 
+         // Create .env file for production
+-        $envContent = file_get_contents(__DIR__.'/../.env.example');
++        $envContent = file_get_contents(__DIR__ . '/../.env.example');
+         $envContent = str_replace('APP_ENV=local', 'APP_ENV=production', $envContent);
+         $envContent = str_replace('APP_DEBUG=true', 'APP_DEBUG=false', $envContent);
+-        $envContent = str_replace('DB_HOST=127.0.0.1', 'DB_HOST='.$hostinger['database']['host'], $envContent);
+-        $envContent = str_replace('DB_DATABASE=laravel', 'DB_DATABASE='.$hostinger['database']['database'], $envContent);
+-        $envContent = str_replace('DB_USERNAME=root', 'DB_USERNAME='.$hostinger['database']['username'], $envContent);
+-        $envContent = str_replace('DB_PASSWORD=', 'DB_PASSWORD='.$hostinger['database']['password'], $envContent);
+-        file_put_contents($deployDir.'/.env', $envContent);
++        $envContent = str_replace('DB_HOST=127.0.0.1', 'DB_HOST=' . $hostinger['database']['host'], $envContent);
++        $envContent = str_replace('DB_DATABASE=laravel', 'DB_DATABASE=' . $hostinger['database']['database'], $envContent);
++        $envContent = str_replace('DB_USERNAME=root', 'DB_USERNAME=' . $hostinger['database']['username'], $envContent);
++        $envContent = str_replace('DB_PASSWORD=', 'DB_PASSWORD=' . $hostinger['database']['password'], $envContent);
++        file_put_contents($deployDir . '/.env', $envContent);
+     }
+     echo "✓ Deployment package prepared\n\n";
+ }
+@@ -241,7 +241,7 @@
+     buildAssets($dryRun);
+ 
+     // Step 2: Prepare deployment package
+-    $deployDir = __DIR__.'/../.deploy';
++    $deployDir = __DIR__ . '/../.deploy';
+     $excludePatterns = [
+         '.git',
+         'node_modules',
+@@ -298,6 +298,6 @@
+     echo "🎉 Deployment to Hostinger successful!\n";
+     exit(0);
+ } catch (Exception $e) {
+-    echo '❌ Deployment failed: '.$e->getMessage()."\n";
++    echo '❌ Deployment failed: ' . $e->getMessage() . "\n";
+     exit(1);
+ }
+--- scripts/generate-pwa-icons.php
++++ PHP_CodeSniffer
+@@ -6,6 +6,7 @@
+  * Generate PWA Icons Script
+  * This script creates placeholder PWA icons for the COPRRA project.
+  */
++
+ $sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+ $screenshots = [
+     'mobile' => ['width' => 390, 'height' => 844],
+@@ -50,7 +51,7 @@
+     imagestring($image, 5, 50, 50, $title, $textColor);
+ 
+     // Add subtitle
+-    $subtitle = 'Screenshot - '.ucfirst($type).' View';
++    $subtitle = 'Screenshot - ' . ucfirst($type) . ' View';
+     imagestring($image, 3, 50, 100, $subtitle, $textColor);
+ 
+     $filename = "public/screenshot-{$type}.png";
+--- config/broadcasting.php
++++ PHP_CodeSniffer
+@@ -37,7 +37,7 @@
+             'app_id' => env('PUSHER_APP_ID'),
+             'options' => [
+                 'cluster' => env('PUSHER_APP_CLUSTER'),
+-                'host' => env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
++                'host' => env('PUSHER_HOST') ?: 'api-' . env('PUSHER_APP_CLUSTER', 'mt1') . '.pusher.com',
+                 'port' => env('PUSHER_PORT', 443),
+                 'scheme' => env('PUSHER_SCHEME', 'https'),
+                 'encrypted' => true,
+--- app/Models/ExchangeRate.php
++++ PHP_CodeSniffer
+@@ -62,4 +62,3 @@
+         return $rate ? (float) $rate->rate : null;
+     }
+ }
+-
+--- config/cache.php
++++ PHP_CodeSniffer
+@@ -105,5 +105,5 @@
+     |
+     */
+ 
+-    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'laravel'), '_').'_cache_'),
++    'prefix' => env('CACHE_PREFIX', Str::slug((string) env('APP_NAME', 'laravel'), '_') . '_cache_'),
+ ];
+--- app/Http/Controllers/Api/PriceSearchController.php
++++ PHP_CodeSniffer
+@@ -17,8 +17,6 @@
+ 
+ class PriceSearchController extends Controller
+ {
+-
+-
+     public function bestOffer(Request $request): JsonResponse
+     {
+         try {
+@@ -88,7 +86,7 @@
+                     'brand:id,name',
+                     'category:id,name',
+                 ]);
+-                $product = $queryBuilder->where('name', 'like', '%'.$productNameStr.'%')->first();
++                $product = $queryBuilder->where('name', 'like', '%' . $productNameStr . '%')->first();
+             }
+ 
+             if (! $product) {
+@@ -129,7 +127,7 @@
+                 })->toArray(),
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('PriceSearchController@bestOffer failed: '.$e->getMessage());
++            Log::error('PriceSearchController@bestOffer failed: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'message' => 'An error occurred while finding the best offer',
+--- tests/AI/AIBaseTestCase.php
++++ PHP_CodeSniffer
+@@ -30,7 +30,7 @@
+     {
+         // في بيئة الاختبار، استخدم Mock Service
+         if (app()->environment('testing')) {
+-            return new MockAIService;
++            return new MockAIService();
+         }
+ 
+         // في البيئة الحقيقية، استخدم الخدمة الحقيقية
+--- tests/AI/AILearningTest.php
++++ PHP_CodeSniffer
+@@ -51,7 +51,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_adapts_to_user_preferences(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         /** @var array{categories: array<int, string>, price_range: array<int, int>, brands: array<int, string>} $userPreferences */
+         $userPreferences = [
+@@ -72,7 +72,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_learns_from_product_classification_feedback(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $productData = [
+             'name' => 'هاتف ذكي',
+@@ -91,7 +91,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_learns_from_recommendation_feedback(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         /** @var array{categories: array<int, string>, price_range: array<int, int>} $userPreferences */
+         $userPreferences = [
+@@ -111,7 +111,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_learns_from_image_analysis_feedback(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         // اختبار بسيط بدون إنشاء صور
+         $imagePath = 'test-image.jpg';
+--- config/database.php
++++ PHP_CodeSniffer
+@@ -73,7 +73,7 @@
+         'client' => env('REDIS_CLIENT', 'phpredis'),
+         'options' => [
+             'cluster' => env('REDIS_CLUSTER', 'redis'),
+-            'prefix' => env('REDIS_PREFIX', \Illuminate\Support\Str::slug((string) (env('APP_NAME', 'laravel') ?: 'laravel'), '_').'_database_'),
++            'prefix' => env('REDIS_PREFIX', \Illuminate\Support\Str::slug((string) (env('APP_NAME', 'laravel') ?: 'laravel'), '_') . '_database_'),
+         ],
+         'default' => [
+             'url' => env('REDIS_URL'),
+--- app/Http/Controllers/Auth/AuthController.php
++++ PHP_CodeSniffer
+@@ -21,6 +21,4 @@
+ 
+ class AuthController extends Controller
+ {
+-
+ }
+-
+--- tests/AI/AIModelPerformanceTest.php
++++ PHP_CodeSniffer
+@@ -14,7 +14,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_model_responds_within_acceptable_time(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $startTime = microtime(true);
+         $result = $aiService->analyzeText('منتج ممتاز');
+@@ -45,7 +45,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_model_memory_usage_is_reasonable(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $initialMemory = memory_get_usage();
+ 
+@@ -65,7 +65,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_model_handles_concurrent_requests(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $results = [];
+ 
+@@ -82,7 +82,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_model_accuracy_remains_consistent(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $testText = 'منتج ممتاز';
+         $results = [];
+--- app/Http/Controllers/Auth/EmailVerificationController.php
++++ PHP_CodeSniffer
+@@ -14,6 +14,4 @@
+ 
+ class EmailVerificationController extends Controller
+ {
+-
+ }
+-
+--- config/filesystems.php
++++ PHP_CodeSniffer
+@@ -39,7 +39,7 @@
+         'public' => [
+             'driver' => 'local',
+             'root' => storage_path('app/public'),
+-            'url' => env('APP_URL').'/storage',
++            'url' => env('APP_URL') . '/storage',
+             'visibility' => 'public',
+             'throw' => false,
+         ],
+--- tests/AI/AIModelTest.php
++++ PHP_CodeSniffer
+@@ -14,7 +14,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_model_initializes_correctly(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $this->assertInstanceOf(AIService::class, $aiService);
+     }
+@@ -38,7 +38,7 @@
+     #[PreserveGlobalState(false)]
+     public function ai_can_classify_products(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $productDescription = 'هاتف ذكي متطور';
+ 
+--- app/Http/Controllers/BackupController.php
++++ PHP_CodeSniffer
+@@ -36,7 +36,7 @@
+                 'message' => 'Backups retrieved successfully',
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error getting backups: '.$e->getMessage());
++            Log::error('Error getting backups: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -59,7 +59,7 @@
+             ]);
+ 
+             $type = $request->input('type');
+-            $name = $request->input('name', 'backup_'.now()->format('Y-m-d_H-i-s'));
++            $name = $request->input('name', 'backup_' . now()->format('Y-m-d_H-i-s'));
+             $description = $request->input('description', '');
+ 
+             $backup = $this->createBackup([
+@@ -74,7 +74,7 @@
+                 'message' => 'Backup created successfully',
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error creating backup: '.$e->getMessage());
++            Log::error('Error creating backup: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -100,7 +100,7 @@
+             }
+ 
+             $filename = is_string($backup['filename'] ?? '') ? (string) ($backup['filename'] ?? '') : '';
+-            $filePath = $this->backupPath.'/'.(string) $filename;
++            $filePath = $this->backupPath . '/' . (string) $filename;
+ 
+             if (! file_exists($filePath)) {
+                 return response()->json([
+@@ -114,13 +114,13 @@
+                 'message' => 'Backup ready for download',
+                 'data' => [
+                     'filename' => $backup['filename'],
+-                    'download_url' => url('storage/backups/'.(is_string($backup['filename']) ? (string) $backup['filename'] : '')),
++                    'download_url' => url('storage/backups/' . (is_string($backup['filename']) ? (string) $backup['filename'] : '')),
+                     'size' => filesize($filePath),
+                     'expires_at' => now()->addHours(24)->toISOString(),
+                 ],
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error downloading backup: '.$e->getMessage());
++            Log::error('Error downloading backup: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -146,20 +146,20 @@
+             }
+ 
+             $filename = is_string($backup['filename'] ?? '') ? (string) ($backup['filename'] ?? '') : '';
+-            $filePath = $this->backupPath.'/'.(string) $filename;
++            $filePath = $this->backupPath . '/' . (string) $filename;
+ 
+             if (file_exists($filePath)) {
+                 unlink($filePath);
+             }
+ 
+-            Log::info('Backup deleted: '.$id);
++            Log::info('Backup deleted: ' . $id);
+ 
+             return response()->json([
+                 'success' => true,
+                 'message' => 'Backup deleted successfully',
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error deleting backup: '.$e->getMessage());
++            Log::error('Error deleting backup: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -192,7 +192,7 @@
+                 'data' => $result['data'] ?? [],
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error restoring backup: '.$e->getMessage());
++            Log::error('Error restoring backup: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -213,7 +213,7 @@
+             $totalCount = count($backups);
+ 
+             foreach ($backups as $backup) {
+-                $filePath = $this->backupPath.'/'.(string) $backup['filename'];
++                $filePath = $this->backupPath . '/' . (string) $backup['filename'];
+                 if (file_exists($filePath)) {
+                     $totalSize += filesize($filePath);
+                 }
+@@ -233,7 +233,7 @@
+                 'message' => 'Backup statistics retrieved successfully',
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error getting backup statistics: '.$e->getMessage());
++            Log::error('Error getting backup statistics: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -268,7 +268,7 @@
+                 if ($file === '..') {
+                     continue;
+                 }
+-                $filePath = $this->backupPath.'/'.(string) $file;
++                $filePath = $this->backupPath . '/' . (string) $file;
+                 if (is_file($filePath)) {
+                     $fileSize = filesize($filePath);
+                     $fileTime = filemtime($filePath);
+@@ -288,7 +288,7 @@
+ 
+             return $backups;
+         } catch (\Exception $e) {
+-            Log::error('Error getting backups list: '.$e->getMessage());
++            Log::error('Error getting backups list: ' . $e->getMessage());
+ 
+             return [];
+         }
+@@ -304,17 +304,17 @@
+     {
+         try {
+             $type = $options['type'] ?? 'full';
+-            $name = $options['name'] ?? 'backup_'.now()->format('Y-m-d_H-i-s');
++            $name = $options['name'] ?? 'backup_' . now()->format('Y-m-d_H-i-s');
+             $description = $options['description'] ?? '';
+ 
+-            $filename = (is_string($name) ? (string) $name : 'backup').'.zip';
+-            $filePath = $this->backupPath.'/'.(string) $filename;
++            $filename = (is_string($name) ? (string) $name : 'backup') . '.zip';
++            $filePath = $this->backupPath . '/' . (string) $filename;
+ 
+             if (! is_dir($this->backupPath)) {
+                 mkdir($this->backupPath, 0755, true);
+             }
+ 
+-            $zip = new ZipArchive;
++            $zip = new ZipArchive();
+             if ($zip->open($filePath, ZipArchive::CREATE) !== true) {
+                 throw new RuntimeException('Cannot create backup file');
+             }
+@@ -329,7 +329,7 @@
+ 
+             $zip->close();
+ 
+-            Log::info('Backup created: '.$filename);
++            Log::info('Backup created: ' . $filename);
+ 
+             $fileSize = filesize($filePath);
+ 
+@@ -343,7 +343,7 @@
+                 'description' => $description,
+             ];
+         } catch (\Exception $e) {
+-            Log::error('Error creating backup: '.$e->getMessage());
++            Log::error('Error creating backup: ' . $e->getMessage());
+ 
+             throw $e;
+         }
+@@ -373,7 +373,7 @@
+                 $zip->addFile($dumpFile, 'database_dump.sql');
+             }
+         } catch (\Exception $e) {
+-            Log::error('Error backing up database: '.$e->getMessage());
++            Log::error('Error backing up database: ' . $e->getMessage());
+         }
+     }
+ 
+@@ -401,7 +401,7 @@
+                 }
+             }
+         } catch (\Exception $e) {
+-            Log::error('Error backing up files: '.$e->getMessage());
++            Log::error('Error backing up files: ' . $e->getMessage());
+         }
+     }
+ 
+@@ -423,7 +423,7 @@
+             if ($file instanceof \SplFileInfo && $file->isFile()) {
+                 $realPath = $file->getRealPath();
+                 if ($realPath !== false) {
+-                    $relativePath = $zipPath.'/'.substr($realPath, strlen($dir) + 1);
++                    $relativePath = $zipPath . '/' . substr($realPath, strlen($dir) + 1);
+                     $zip->addFile($realPath, $relativePath);
+                 }
+             }
+@@ -458,7 +458,7 @@
+     {
+         try {
+             $filename = is_string($backup['filename'] ?? '') ? (string) ($backup['filename'] ?? '') : '';
+-            $filePath = $this->backupPath.'/'.(string) $filename;
++            $filePath = $this->backupPath . '/' . (string) $filename;
+ 
+             if (! file_exists($filePath)) {
+                 return [
+@@ -467,7 +467,7 @@
+                 ];
+             }
+ 
+-            $zip = new ZipArchive;
++            $zip = new ZipArchive();
+             if ($zip->open($filePath) !== true) {
+                 return [
+                     'success' => false,
+@@ -476,14 +476,14 @@
+             }
+ 
+             // Extract to temporary directory
+-            $tempDir = storage_path('app/temp/restore_'.uniqid());
++            $tempDir = storage_path('app/temp/restore_' . uniqid());
+             mkdir($tempDir, 0755, true);
+ 
+             $zip->extractTo($tempDir);
+             $zip->close();
+ 
+             // Restore database if present
+-            $dbDumpFile = $tempDir.'/database_dump.sql';
++            $dbDumpFile = $tempDir . '/database_dump.sql';
+             if (file_exists($dbDumpFile)) {
+                 $this->restoreDatabase($dbDumpFile);
+             }
+@@ -499,11 +499,11 @@
+                 'message' => 'Backup restored successfully',
+             ];
+         } catch (\Exception $e) {
+-            Log::error('Error restoring backup: '.$e->getMessage());
++            Log::error('Error restoring backup: ' . $e->getMessage());
+ 
+             return [
+                 'success' => false,
+-                'message' => 'Failed to restore backup: '.$e->getMessage(),
++                'message' => 'Failed to restore backup: ' . $e->getMessage(),
+             ];
+         }
+     }
+@@ -520,7 +520,7 @@
+                 '--force' => true,
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error restoring database: '.$e->getMessage());
++            Log::error('Error restoring database: ' . $e->getMessage());
+         }
+     }
+ 
+@@ -552,7 +552,7 @@
+                 }
+             }
+         } catch (\Exception $e) {
+-            Log::error('Error restoring files: '.$e->getMessage());
++            Log::error('Error restoring files: ' . $e->getMessage());
+         }
+     }
+ 
+@@ -582,7 +582,7 @@
+         $pow = min($pow, count($units) - 1);
+         $bytes /= 1024 ** $pow;
+ 
+-        return round($bytes, 2).' '.$units[$pow];
++        return round($bytes, 2) . ' ' . $units[$pow];
+     }
+ 
+     /**
+@@ -596,7 +596,7 @@
+ 
+         $files = array_diff(scandir($dir), ['.', '..']);
+         foreach ($files as $file) {
+-            $path = $dir.'/'.$file;
++            $path = $dir . '/' . $file;
+             is_dir($path) ? $this->removeDirectory($path) : unlink($path);
+         }
+         rmdir($dir);
+--- tests/AI/AIResponseTimeTest.php
++++ PHP_CodeSniffer
+@@ -20,7 +20,7 @@
+     #[PreserveGlobalState(false)]
+     public function text_analysis_response_time_is_acceptable(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $startTime = microtime(true);
+         $result = $aiService->analyzeText('منتج ممتاز');
+@@ -37,7 +37,7 @@
+     #[PreserveGlobalState(false)]
+     public function product_classification_response_time_is_acceptable(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $productDescription = 'هاتف ذكي متطور';
+ 
+@@ -56,7 +56,7 @@
+     #[PreserveGlobalState(false)]
+     public function recommendation_generation_response_time_is_acceptable(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $userPreferences = [
+             'categories' => ['إلكترونيات'],
+@@ -81,7 +81,7 @@
+     #[PreserveGlobalState(false)]
+     public function image_processing_response_time_is_acceptable(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         // اختبار بسيط بدون إنشاء صور
+         $imagePath = 'test-image.jpg';
+@@ -101,7 +101,7 @@
+     #[PreserveGlobalState(false)]
+     public function batch_processing_response_time_is_acceptable(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         /** @var array<int, string> $texts */
+         $texts = [
+@@ -131,7 +131,7 @@
+     #[PreserveGlobalState(false)]
+     public function concurrent_requests_handle_gracefully(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $startTime = microtime(true);
+         $results = [];
+@@ -153,7 +153,7 @@
+     #[PreserveGlobalState(false)]
+     public function response_time_improves_with_caching(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $text = 'منتج ممتاز ورائع';
+ 
+@@ -177,7 +177,7 @@
+     #[PreserveGlobalState(false)]
+     public function response_time_scales_linearly_with_input_size(): void
+     {
+-        $aiService = new AIService;
++        $aiService = new AIService();
+ 
+         $smallText = 'منتج ممتاز';
+         $largeText = str_repeat('منتج ممتاز ورائع ', 100);
+--- app/Http/Controllers/BrandController.php
++++ PHP_CodeSniffer
+@@ -12,8 +12,6 @@
+ 
+ class BrandController extends Controller
+ {
+-
+-
+     /**
+      * Show the form for creating a new resource.
+      */
+--- app/Http/Controllers/CartController.php
++++ PHP_CodeSniffer
+@@ -16,8 +16,6 @@
+  */
+ class CartController extends Controller
+ {
+-
+-
+     public function update(UpdateCartRequest $request): RedirectResponse
+     {
+         $validated = $request->validated();
+--- app/Http/Controllers/CategoryController.php
++++ PHP_CodeSniffer
+@@ -9,5 +9,4 @@
+ 
+ class CategoryController extends Controller
+ {
+-
+ }
+--- app/Models/Review.php
++++ PHP_CodeSniffer
+@@ -63,5 +63,4 @@
+     ];
+ 
+     // دالة مساعدة للتوافق مع الكود القديم
+-
+ }
+--- config/logging.php
++++ PHP_CodeSniffer
+@@ -93,7 +93,7 @@
+             'handler_with' => [
+                 'host' => env('PAPERTRAIL_URL'),
+                 'port' => env('PAPERTRAIL_PORT'),
+-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
++                'connectionString' => 'tls://' . env('PAPERTRAIL_URL') . ':' . env('PAPERTRAIL_PORT'),
+             ],
+             'processors' => [PsrLogMessageProcessor::class],
+         ],
+--- app/Http/Controllers/ErrorController.php
++++ PHP_CodeSniffer
+@@ -333,7 +333,7 @@
+ 
+             return ['status' => 'healthy', 'message' => 'Database connection successful'];
+         } catch (\Exception $e) {
+-            return ['status' => 'critical', 'message' => 'Database connection failed: '.$e->getMessage()];
++            return ['status' => 'critical', 'message' => 'Database connection failed: ' . $e->getMessage()];
+         }
+     }
+ 
+@@ -346,7 +346,7 @@
+     private function checkCacheHealth(): array
+     {
+         try {
+-            'health_check_'.time();
++            'health_check_' . time();
+             \Cache::put($testKey, 'test', 60);
+             $retrieved = \Cache::get($testKey);
+             \Cache::forget($testKey);
+@@ -357,7 +357,7 @@
+ 
+             return ['status' => 'warning', 'message' => 'Cache test failed'];
+         } catch (\Exception $e) {
+-            return ['status' => 'critical', 'message' => 'Cache error: '.$e->getMessage()];
++            return ['status' => 'critical', 'message' => 'Cache error: ' . $e->getMessage()];
+         }
+     }
+ 
+@@ -376,16 +376,16 @@
+             $usedSpace = $totalSpace - $freeSpace;
+             $usagePercentage = $usedSpace / $totalSpace * 100;
+             if ($usagePercentage > 90) {
+-                return ['status' => 'critical', 'message' => 'Storage usage critical: '.round($usagePercentage, 2).'%'];
++                return ['status' => 'critical', 'message' => 'Storage usage critical: ' . round($usagePercentage, 2) . '%'];
+             }
+ 
+             if ($usagePercentage > 80) {
+-                return ['status' => 'warning', 'message' => 'Storage usage high: '.round($usagePercentage, 2).'%'];
++                return ['status' => 'warning', 'message' => 'Storage usage high: ' . round($usagePercentage, 2) . '%'];
+             }
+ 
+-            return ['status' => 'healthy', 'message' => 'Storage usage normal: '.round($usagePercentage, 2).'%'];
++            return ['status' => 'healthy', 'message' => 'Storage usage normal: ' . round($usagePercentage, 2) . '%'];
+         } catch (\Exception $e) {
+-            return ['status' => 'critical', 'message' => 'Storage check failed: '.$e->getMessage()];
++            return ['status' => 'critical', 'message' => 'Storage check failed: ' . $e->getMessage()];
+         }
+     }
+ 
+@@ -402,14 +402,14 @@
+         $memoryLimitBytes = $this->convertToBytes($memoryLimit);
+         $usagePercentage = $memoryUsage / $memoryLimitBytes * 100;
+         if ($usagePercentage > 90) {
+-            return ['status' => 'critical', 'message' => 'Memory usage critical: '.round($usagePercentage, 2).'%'];
++            return ['status' => 'critical', 'message' => 'Memory usage critical: ' . round($usagePercentage, 2) . '%'];
+         }
+ 
+         if ($usagePercentage > 80) {
+-            return ['status' => 'warning', 'message' => 'Memory usage high: '.round($usagePercentage, 2).'%'];
++            return ['status' => 'warning', 'message' => 'Memory usage high: ' . round($usagePercentage, 2) . '%'];
+         }
+ 
+-        return ['status' => 'healthy', 'message' => 'Memory usage normal: '.round($usagePercentage, 2).'%'];
++        return ['status' => 'healthy', 'message' => 'Memory usage normal: ' . round($usagePercentage, 2) . '%'];
+     }
+ 
+     /**
+@@ -423,14 +423,14 @@
+         $diskSpace = disk_free_space(storage_path());
+         $diskSpaceGB = $diskSpace / (1024 * 1024 * 1024);
+         if ($diskSpaceGB < 1) {
+-            return ['status' => 'critical', 'message' => 'Disk space critical: '.round($diskSpaceGB, 2).'GB free'];
++            return ['status' => 'critical', 'message' => 'Disk space critical: ' . round($diskSpaceGB, 2) . 'GB free'];
+         }
+ 
+         if ($diskSpaceGB < 5) {
+-            return ['status' => 'warning', 'message' => 'Disk space low: '.round($diskSpaceGB, 2).'GB free'];
++            return ['status' => 'warning', 'message' => 'Disk space low: ' . round($diskSpaceGB, 2) . 'GB free'];
+         }
+ 
+-        return ['status' => 'healthy', 'message' => 'Disk space normal: '.round($diskSpaceGB, 2).'GB free'];
++        return ['status' => 'healthy', 'message' => 'Disk space normal: ' . round($diskSpaceGB, 2) . 'GB free'];
+     }
+ 
+     /**
+--- app/Http/Controllers/HealthController.php
++++ PHP_CodeSniffer
+@@ -9,5 +9,4 @@
+ 
+ class HealthController extends Controller
+ {
+-
+ }
+--- app/Http/Controllers/HomeController.php
++++ PHP_CodeSniffer
+@@ -11,5 +11,4 @@
+ 
+ class HomeController extends Controller
+ {
+-
+ }
+--- app/Http/Controllers/LocaleController.php
++++ PHP_CodeSniffer
+@@ -13,8 +13,5 @@
+ 
+ class LocaleController extends Controller
+ {
+-
+-
+     // تم حذف المتغير غير المستخدم من هنا
+-
+ }
+--- app/Models/Webhook.php
++++ PHP_CodeSniffer
+@@ -120,4 +120,3 @@
+         ]);
+     }
+ }
+-
+--- tests/bootstrap.php
++++ PHP_CodeSniffer
+@@ -2,7 +2,7 @@
+ 
+ use Illuminate\Contracts\Console\Kernel;
+ 
+-$app = require_once __DIR__.'/../bootstrap/app.php';
++$app = require_once __DIR__ . '/../bootstrap/app.php';
+ 
+ /** @var Kernel $kernel */
+ $kernel = $app->make(Kernel::class);
+--- app/Models/WebhookLog.php
++++ PHP_CodeSniffer
+@@ -42,4 +42,3 @@
+         'metadata' => 'array',
+     ];
+ }
+-
+--- app/Http/Controllers/OrderController.php
++++ PHP_CodeSniffer
+@@ -12,8 +12,6 @@
+ 
+ class OrderController extends Controller
+ {
+-
+-
+     public function create(Request $request): JsonResponse
+     {
+         $validated = $request->validate([
+--- app/Http/Controllers/PaymentController.php
++++ PHP_CodeSniffer
+@@ -10,4 +10,6 @@
+ use Illuminate\Http\JsonResponse;
+ use Illuminate\Http\Request;
+ 
+-class PaymentController extends Controller {}
++class PaymentController extends Controller
++{
++}
+--- config/session.php
++++ PHP_CodeSniffer
+@@ -139,7 +139,7 @@
+ 
+     'cookie' => env(
+         'SESSION_COOKIE',
+-        Str::slug((string) env('APP_NAME', 'laravel'), '_').'_session'
++        Str::slug((string) env('APP_NAME', 'laravel'), '_') . '_session'
+     ),
+ 
+     /*
+--- app/Http/Controllers/PointsController.php
++++ PHP_CodeSniffer
+@@ -9,4 +9,6 @@
+ use Illuminate\Http\JsonResponse;
+ use Illuminate\Http\Request;
+ 
+-class PointsController extends Controller {}
++class PointsController extends Controller
++{
++}
+--- app/Notifications/OrderStatusUpdateNotification.php
++++ PHP_CodeSniffer
+@@ -16,5 +16,7 @@
+ {
+     use Queueable;
+ 
+-    public function __construct(private Order $order, private string $oldStatus) {}
++    public function __construct(private Order $order, private string $oldStatus)
++    {
++    }
+ }
+--- tests/CreatesApplication.php
++++ PHP_CodeSniffer
+@@ -25,7 +25,7 @@
+         putenv('DB_USERNAME=');
+         putenv('DB_PASSWORD=');
+ 
+-        $app = require __DIR__.'/../bootstrap/app.php';
++        $app = require __DIR__ . '/../bootstrap/app.php';
+ 
+         $app->make(Kernel::class)->bootstrap();
+ 
+--- app/Http/Controllers/PriceComparisonController.php
++++ PHP_CodeSniffer
+@@ -17,7 +17,8 @@
+         private readonly AnalyticsService $analyticsService,
+         private readonly CacheService $cacheService,
+         private readonly StoreAdapterManager $storeAdapterManager
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Show price comparison for a product.
+@@ -134,7 +135,7 @@
+      */
+     private function getStoreName(string $identifier): string
+     {
+-        return match($identifier) {
++        return match ($identifier) {
+             'amazon' => 'Amazon',
+             'ebay' => 'eBay',
+             'noon' => 'Noon',
+@@ -182,4 +183,3 @@
+         ]);
+     }
+ }
+-
+--- tests/DatabaseSetup.php
++++ PHP_CodeSniffer
+@@ -53,7 +53,7 @@
+         // Get all table names and drop them (excluding sqlite_sequence)
+         $tables = \DB::connection($connection)->select("SELECT name FROM sqlite_master WHERE type='table' AND name != 'sqlite_sequence';");
+         foreach ($tables as $table) {
+-            \DB::connection($connection)->statement('DROP TABLE IF EXISTS '.$table->name);
++            \DB::connection($connection)->statement('DROP TABLE IF EXISTS ' . $table->name);
+         }
+ 
+         \DB::connection($connection)->statement('PRAGMA foreign_keys=ON;');
+--- app/Http/Controllers/ProductController.php
++++ PHP_CodeSniffer
+@@ -24,7 +24,7 @@
+             $orderValue = $filters['order'];
+             $sort = is_string($sortValue) ? $sortValue : '';
+             $order = is_string($orderValue) ? $orderValue : '';
+-            $sortBy = $sort.'_'.$order;
++            $sortBy = $sort . '_' . $order;
+             $filters['sort_by'] = $sortBy;
+             unset($filters['sort'], $filters['order']);
+         }
+--- app/Notifications/PriceDropNotification.php
++++ PHP_CodeSniffer
+@@ -21,7 +21,8 @@
+         public float $oldPrice,
+         public float $newPrice,
+         public float $targetPrice
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * @param  mixed  $notifiable
+--- tests/DuskTestCase.php
++++ PHP_CodeSniffer
+@@ -29,7 +29,7 @@
+      */
+     protected function driver(): RemoteWebDriver
+     {
+-        $options = (new ChromeOptions)->addArguments(collect([
++        $options = (new ChromeOptions())->addArguments(collect([
+             $this->shouldStartMaximized() ? '--start-maximized' : '--window-size=1920,1080',
+             '--disable-search-engine-choice-screen',
+             '--disable-smooth-scrolling',
+--- app/Http/Controllers/ProfileController.php
++++ PHP_CodeSniffer
+@@ -10,8 +10,6 @@
+ 
+ class ProfileController extends Controller
+ {
+-
+-
+     /**
+      * Update the user profile.
+      *
+--- database/factories/BrandFactory.php
++++ PHP_CodeSniffer
+@@ -21,7 +21,7 @@
+     public function definition(): array
+     {
+         return [
+-            'name' => $this->faker->company.' Brand',
++            'name' => $this->faker->company . ' Brand',
+             'slug' => $this->faker->slug(2),
+             'description' => $this->faker->sentence(),
+             'logo_url' => $this->faker->imageUrl(200, 200),
+--- app/Http/Controllers/RecommendationController.php
++++ PHP_CodeSniffer
+@@ -11,7 +11,9 @@
+ 
+ class RecommendationController extends Controller
+ {
+-    public function __construct(private RecommendationService $recommendationService) {}
++    public function __construct(private RecommendationService $recommendationService)
++    {
++    }
+ 
+     public function index(Request $request): JsonResponse
+     {
+--- database/factories/CategoryFactory.php
++++ PHP_CodeSniffer
+@@ -23,7 +23,7 @@
+         $words = $this->faker->words(2, true);
+ 
+         return [
+-            'name' => (is_string($words) ? $words : '').' Category',
++            'name' => (is_string($words) ? $words : '') . ' Category',
+             'slug' => $this->faker->slug(2),
+             'description' => $this->faker->sentence(),
+             'parent_id' => null,
+--- app/Policies/ProductPolicy.php
++++ PHP_CodeSniffer
+@@ -11,8 +11,6 @@
+ 
+ class ProductPolicy
+ {
+-
+-
+     /**
+      * Determine whether the user can create models.
+      */
+--- app/Http/Controllers/ReportController.php
++++ PHP_CodeSniffer
+@@ -11,5 +11,4 @@
+ 
+ class ReportController extends Controller
+ {
+-
+ }
+--- app/Policies/UserPolicy.php
++++ PHP_CodeSniffer
+@@ -10,8 +10,6 @@
+ 
+ class UserPolicy
+ {
+-
+-
+     /**
+      * Determine whether the user can create models.
+      */
+--- database/factories/LanguageFactory.php
++++ PHP_CodeSniffer
+@@ -25,8 +25,8 @@
+ 
+         return [
+             'code' => $this->faker->unique()->randomElement(['en', 'ar', 'fr', 'de', 'es', 'it', 'pt', 'ru', 'ja', 'ko', 'zh', 'hi']),
+-            'name' => (is_string($name) ? $name : '').' Language',
+-            'native_name' => (is_string($nativeName) ? $nativeName : '').' Native',
++            'name' => (is_string($name) ? $name : '') . ' Language',
++            'native_name' => (is_string($nativeName) ? $nativeName : '') . ' Native',
+             'direction' => $this->faker->randomElement(['ltr', 'rtl']),
+             'is_active' => true,
+             'sort_order' => $this->faker->numberBetween(1, 100),
+--- app/Providers/AppServiceProvider.php
++++ PHP_CodeSniffer
+@@ -54,7 +54,7 @@
+      */
+     private function configureFactoryNaming(): void
+     {
+-        $factoryConfigService = new FactoryConfigurationService;
++        $factoryConfigService = new FactoryConfigurationService();
+         $factoryConfigService->configureNaming();
+     }
+ }
+--- app/Http/Controllers/SettingController.php
++++ PHP_CodeSniffer
+@@ -13,8 +13,6 @@
+ 
+ class SettingController extends Controller
+ {
+-
+-
+     /**
+      * Update settings.
+      */
+@@ -65,7 +63,7 @@
+             // Clear config cache
+             Artisan::call('config:clear');
+ 
+-            Log::info('Settings updated by user: '.(auth()->id() ?? 'Guest'));
++            Log::info('Settings updated by user: ' . (auth()->id() ?? 'Guest'));
+ 
+             return response()->json([
+                 'success' => true,
+@@ -73,7 +71,7 @@
+                 'data' => $request->all(),
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error updating settings: '.$e->getMessage());
++            Log::error('Error updating settings: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -211,6 +209,6 @@
+     private function processImportedSettings(array $settings): void
+     {
+         // Placeholder for processing imported settings
+-        Log::info('Processing imported settings: '.json_encode($settings));
++        Log::info('Processing imported settings: ' . json_encode($settings));
+     }
+ }
+--- app/Http/Controllers/SystemController.php
++++ PHP_CodeSniffer
+@@ -12,8 +12,6 @@
+ 
+ class SystemController extends Controller
+ {
+-
+-
+     /**
+      * Run database migrations.
+      */
+@@ -29,7 +27,7 @@
+                 'output' => Artisan::output(),
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error running migrations: '.$e->getMessage());
++            Log::error('Error running migrations: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -57,7 +55,7 @@
+                 'message' => 'Cache cleared successfully',
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error clearing cache: '.$e->getMessage());
++            Log::error('Error clearing cache: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -89,7 +87,7 @@
+                 'output' => $process->getOutput(),
+             ]);
+         } catch (\Exception $e) {
+-            Log::error('Error running composer update: '.$e->getMessage());
++            Log::error('Error running composer update: ' . $e->getMessage());
+ 
+             return response()->json([
+                 'success' => false,
+@@ -130,7 +128,7 @@
+                 'results' => $results,
+             ];
+         } catch (\Exception $e) {
+-            Log::error('Error running backup: '.$e->getMessage());
++            Log::error('Error running backup: ' . $e->getMessage());
+ 
+             return [
+                 'success' => false,
+--- app/Http/Controllers/UserController.php
++++ PHP_CodeSniffer
+@@ -18,7 +18,8 @@
+     public function __construct(
+         private readonly UserBanService $userBanService,
+         private readonly PasswordPolicyService $passwordPolicyService
+-    ) {}
++    ) {
++    }
+ 
+     /**
+      * Display a listing of users.
+--- app/Providers/EventServiceProvider.php
++++ PHP_CodeSniffer
+@@ -27,7 +27,9 @@
+      * Register any events for your application.
+      */
+     #[\Override]
+-    public function boot(): void {}
++    public function boot(): void
++    {
++    }
+ 
+     /**
+      * Determine if events and listeners should be automatically discovered.
+--- app/Http/Controllers/WebhookController.php
++++ PHP_CodeSniffer
+@@ -11,8 +11,6 @@
+ 
+ class WebhookController extends Controller
+ {
+-
+-
+     /**
+      * Generic webhook handler.
+      */
+@@ -54,7 +52,6 @@
+                 'webhook_id' => $webhook->id,
+                 'message' => 'Webhook received and queued for processing',
+             ], 202);
+-
+         } catch (\Illuminate\Validation\ValidationException $e) {
+             Log::warning('Webhook validation failed', [
+                 'store' => $storeIdentifier,
+@@ -66,7 +63,6 @@
+                 'message' => 'Validation failed',
+                 'errors' => $e->errors(),
+             ], 422);
+-
+         } catch (\Exception $e) {
+             Log::error('Webhook handling failed', [
+                 'store' => $storeIdentifier,
+@@ -80,4 +76,3 @@
+         }
+     }
+ }
+-
+--- database/factories/PriceOfferFactory.php
++++ PHP_CodeSniffer
+@@ -24,7 +24,7 @@
+     {
+         return [
+             'product_id' => Product::factory(),
+-            'product_sku' => 'SKU-'.$this->faker->unique()->numberBetween(1000, 9999),
++            'product_sku' => 'SKU-' . $this->faker->unique()->numberBetween(1000, 9999),
+             'store_id' => Store::factory(),
+             'price' => $this->faker->randomFloat(2, 10, 1000),
+             'currency' => ['USD', 'EUR', 'GBP', 'SAR', 'AED'][array_rand(['USD', 'EUR', 'GBP', 'SAR', 'AED'])],
+@@ -37,10 +37,10 @@
+             'reviews_count' => $this->faker->numberBetween(0, 1000),
+             'image_url' => $this->faker->imageUrl(300, 300, 'products'),
+             'specifications' => [
+-                'brand' => 'Brand '.$this->faker->randomNumber(3),
+-                'model' => 'Model '.$this->faker->randomNumber(3),
+-                'color' => 'Color '.$this->faker->randomNumber(3),
+-                'weight' => $this->faker->numberBetween(100, 5000).'g',
++                'brand' => 'Brand ' . $this->faker->randomNumber(3),
++                'model' => 'Model ' . $this->faker->randomNumber(3),
++                'color' => 'Color ' . $this->faker->randomNumber(3),
++                'weight' => $this->faker->numberBetween(100, 5000) . 'g',
+             ],
+         ];
+     }
+--- app/Providers/ViewServiceProvider.php
++++ PHP_CodeSniffer
+@@ -16,7 +16,9 @@
+      * Register any application services.
+      */
+     #[\Override]
+-    public function register(): void {}
++    public function register(): void
++    {
++    }
+ 
+     /**
+      * Bootstrap any application services.
+--- app/Http/Middleware/AdminMiddleware.php
++++ PHP_CodeSniffer
+@@ -9,5 +9,4 @@
+ 
+ class AdminMiddleware
+ {
+-
+ }
+--- database/factories/StoreFactory.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,7 @@
+     public function definition(): array
+     {
+         return [
+-            'name' => $this->faker->company.' Store',
++            'name' => $this->faker->company . ' Store',
+             'slug' => $this->faker->slug(2),
+             'description' => $this->faker->sentence(),
+             'logo_url' => $this->faker->imageUrl(200, 200),
+--- app/Repositories/ProductRepository.php
++++ PHP_CodeSniffer
+@@ -81,7 +81,7 @@
+             ->limit($limit)
+             ->get());
+ 
+-        return $result instanceof Collection ? $result : new Collection;
++        return $result instanceof Collection ? $result : new Collection();
+     }
+ 
+     /**
+@@ -133,7 +133,7 @@
+                 ])
+                 ->where('is_active', true)
+                 ->where(static function ($q) use ($query): void {
+-                    $searchTerm = '%'.addcslashes($query, '%_').'%';
++                    $searchTerm = '%' . addcslashes($query, '%_') . '%';
+                     $q->where('name', 'like', $searchTerm)
+                         ->orWhere('description', 'like', $searchTerm);
+                 });
+--- app/Http/Middleware/ApiErrorHandler.php
++++ PHP_CodeSniffer
+@@ -19,15 +19,13 @@
+ 
+ class ApiErrorHandler
+ {
+-
+-
+     /**
+      * Handle the exception and return appropriate JSON response.
+      */
+     private function handleException(Request $request, Throwable $e): JsonResponse
+     {
+         // Log the exception for debugging
+-        \Log::error('API Error: '.$e->getMessage(), [
++        \Log::error('API Error: ' . $e->getMessage(), [
+             'exception' => $e,
+             'request' => $request->all(),
+             'url' => $request->url(),
+--- app/Rules/ValidOrderStatus.php
++++ PHP_CodeSniffer
+@@ -32,4 +32,3 @@
+         }
+     }
+ }
+-
+--- database/factories/WebhookFactory.php
++++ PHP_CodeSniffer
+@@ -5,6 +5,7 @@
+ namespace Database\Factories;
+ 
+ use App\Models\Webhook;
++
+ ufinal se Illuminate\Database\Eloquent\Factories\Factory;
+ 
+ /**
+@@ -53,4 +54,3 @@
+         ];
+     }
+ }
+-
+--- tests/SafeTestBase.php
++++ PHP_CodeSniffer
+@@ -79,7 +79,7 @@
+      */
+     public function createApplication()
+     {
+-        $app = require __DIR__.'/../bootstrap/app.php';
++        $app = require __DIR__ . '/../bootstrap/app.php';
+ 
+         $app->make(Kernel::class)->bootstrap();
+ 
+--- app/Rules/ValidOrderStatusTransition.php
++++ PHP_CodeSniffer
+@@ -61,4 +61,3 @@
+         }
+     }
+ }
+-
+--- app/Schemas/BrandSchema.php
++++ PHP_CodeSniffer
+@@ -20,4 +20,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time")
+  * )
+  */
+-final class BrandSchema {}
++final class BrandSchema
++{
++}
+--- database/seeders/BrandSeeder.php
++++ PHP_CodeSniffer
+@@ -10,5 +10,4 @@
+ 
+ class BrandSeeder extends Seeder
+ {
+-
+ }
+--- app/Schemas/CategorySchema.php
++++ PHP_CodeSniffer
+@@ -20,4 +20,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time")
+  * )
+  */
+-final class CategorySchema {}
++final class CategorySchema
++{
++}
+--- database/seeders/CategorySeeder.php
++++ PHP_CodeSniffer
+@@ -10,5 +10,4 @@
+ 
+ class CategorySeeder extends Seeder
+ {
+-
+ }
+--- app/Http/Middleware/CheckPermission.php
++++ PHP_CodeSniffer
+@@ -34,4 +34,3 @@
+         abort(403, 'Forbidden - Missing required permission');
+     }
+ }
+-
+--- app/Schemas/PaginationLinksSchema.php
++++ PHP_CodeSniffer
+@@ -17,4 +17,6 @@
+  *     @OA\Property(property="next", type="string", nullable=true, example="http://api.example.com/products?page=3")
+  * )
+  */
+-final class PaginationLinksSchema {}
++final class PaginationLinksSchema
++{
++}
+--- app/Http/Middleware/CheckUserRole.php
++++ PHP_CodeSniffer
+@@ -39,4 +39,3 @@
+         return $next($request);
+     }
+ }
+-
+--- app/Schemas/PaginationMetaSchema.php
++++ PHP_CodeSniffer
+@@ -19,4 +19,6 @@
+  *     @OA\Property(property="to", type="integer", example=15)
+  * )
+  */
+-final class PaginationMetaSchema {}
++final class PaginationMetaSchema
++{
++}
+--- database/seeders/ExchangeRateSeeder.php
++++ PHP_CodeSniffer
+@@ -21,4 +21,3 @@
+         $this->command->info("✅ Seeded {$count} exchange rates");
+     }
+ }
+-
+--- app/Schemas/PriceOfferSchema.php
++++ PHP_CodeSniffer
+@@ -29,4 +29,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time")
+  * )
+  */
+-final class PriceOfferSchema {}
++final class PriceOfferSchema
++{
++}
+--- tests/Security/SQLInjectionTest.php
++++ PHP_CodeSniffer
+@@ -69,7 +69,7 @@
+         ];
+ 
+         foreach ($specialInputs as $input) {
+-            $response = $this->getJson('/api/products?name='.urlencode($input));
++            $response = $this->getJson('/api/products?name=' . urlencode($input));
+ 
+             // Should not cause errors or return unexpected results
+             $response->assertStatus(200);
+--- database/seeders/LanguagesAndCurrenciesSeeder.php
++++ PHP_CodeSniffer
+@@ -10,5 +10,4 @@
+ 
+ class LanguagesAndCurrenciesSeeder extends Seeder
+ {
+-
+ }
+--- app/Schemas/ProductCreateRequestSchema.php
++++ PHP_CodeSniffer
+@@ -23,4 +23,6 @@
+  *     @OA\Property(property="store_id", type="integer", example=1)
+  * )
+  */
+-final class ProductCreateRequestSchema {}
++final class ProductCreateRequestSchema
++{
++}
+--- database/seeders/PriceOfferSeeder.php
++++ PHP_CodeSniffer
+@@ -11,5 +11,4 @@
+ 
+ class PriceOfferSeeder extends Seeder
+ {
+-
+ }
+--- tests/Security/XSSTest.php
++++ PHP_CodeSniffer
+@@ -29,8 +29,8 @@
+ 
+         foreach ($xssPayloads as $payload) {
+             $data = [
+-                'name' => 'Test Product '.$payload,
+-                'description' => 'Description with '.$payload,
++                'name' => 'Test Product ' . $payload,
++                'description' => 'Description with ' . $payload,
+                 'price' => 100,
+                 'category_id' => 1,
+             ];
+@@ -105,7 +105,7 @@
+         ];
+ 
+         foreach ($xssInputs as $input) {
+-            $response = $this->getJson('/api/products?name='.urlencode($input));
++            $response = $this->getJson('/api/products?name=' . urlencode($input));
+ 
+             $response->assertStatus(200);
+             $data = $response->json();
+--- app/Schemas/ProductDetailSchema.php
++++ PHP_CodeSniffer
+@@ -19,4 +19,6 @@
+  *     }
+  * )
+  */
+-final class ProductDetailSchema {}
++final class ProductDetailSchema
++{
++}
+--- database/seeders/ProductSeeder.php
++++ PHP_CodeSniffer
+@@ -12,5 +12,4 @@
+ 
+ class ProductSeeder extends Seeder
+ {
+-
+ }
+--- app/Schemas/ProductSchema.php
++++ PHP_CodeSniffer
+@@ -28,4 +28,6 @@
+  *     @OA\Property(property="price_offers", type="array", @OA\Items(ref="#/components/schemas/PriceOffer"))
+  * )
+  */
+-final class ProductSchema {}
++final class ProductSchema
++{
++}
+--- database/seeders/StoreSeeder.php
++++ PHP_CodeSniffer
+@@ -10,5 +10,4 @@
+ 
+ class StoreSeeder extends Seeder
+ {
+-
+ }
+--- app/Schemas/ProductUpdateRequestSchema.php
++++ PHP_CodeSniffer
+@@ -22,4 +22,6 @@
+  *     @OA\Property(property="store_id", type="integer", example=2)
+  * )
+  */
+-final class ProductUpdateRequestSchema {}
++final class ProductUpdateRequestSchema
++{
++}
+--- tests/TestUtilities/AdvancedTestHelper.php
++++ PHP_CodeSniffer
+@@ -294,8 +294,8 @@
+                 validator([], []),
+                 ['field' => ['The field is required.']]
+             ),
+-            'not_found' => new \Illuminate\Database\Eloquent\ModelNotFoundException,
+-            'unauthorized' => new \Illuminate\Auth\AuthenticationException,
++            'not_found' => new \Illuminate\Database\Eloquent\ModelNotFoundException(),
++            'unauthorized' => new \Illuminate\Auth\AuthenticationException(),
+             'forbidden' => new \Illuminate\Auth\Access\AuthorizationException('Access denied'),
+             'server_error' => new \Exception('Internal server error', 500),
+         ];
+--- public/index.php
++++ PHP_CodeSniffer
+@@ -7,13 +7,13 @@
+ 
+ define('LARAVEL_START', microtime(true));
+ 
+-if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
++if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php')) {
+     require_once $maintenance;
+ }
+ 
+-require_once __DIR__.'/../vendor/autoload.php';
++require_once __DIR__ . '/../vendor/autoload.php';
+ 
+-$app = require_once __DIR__.'/../bootstrap/app.php';
++$app = require_once __DIR__ . '/../bootstrap/app.php';
+ 
+ $kernel = $app->make(Kernel::class);
+ 
+--- app/Schemas/ReviewSchema.php
++++ PHP_CodeSniffer
+@@ -20,4 +20,6 @@
+  *     @OA\Property(property="updated_at", type="string", format="date-time", example="2023-01-01T00:00:00Z")
+  * )
+  */
+-final class ReviewSchema {}
++final class ReviewSchema
++{
++}
+--- tests/TestUtilities/ComprehensiveTestCommand.php
++++ PHP_CodeSniffer
+@@ -45,8 +45,8 @@
+     public function __construct()
+     {
+         parent::__construct();
+-        $this->testRunner = new ComprehensiveTestRunner;
+-        $this->reportGenerator = new TestReportGenerator;
++        $this->testRunner = new ComprehensiveTestRunner();
++        $this->reportGenerator = new TestReportGenerator();
+     }
+ 
+     /**
+@@ -74,7 +74,7 @@
+             // Return appropriate exit code
+             return $this->getExitCode($testResults);
+         } catch (\Exception $e) {
+-            $this->error('Test execution failed: '.$e->getMessage());
++            $this->error('Test execution failed: ' . $e->getMessage());
+             Log::error('Comprehensive test execution failed', [
+                 'error' => $e->getMessage(),
+                 'trace' => $e->getTraceAsString(),
+@@ -183,7 +183,7 @@
+             '--coverage' => $this->option('coverage'),
+         ]);
+ 
+-        $this->info('Unit tests completed with exit code: '.$exitCode);
++        $this->info('Unit tests completed with exit code: ' . $exitCode);
+ 
+         return [
+             'unit_tests' => [
+@@ -200,7 +200,7 @@
+     {
+         $this->info('Running integration tests...');
+ 
+-        $integrationSuite = new IntegrationTestSuite;
++        $integrationSuite = new IntegrationTestSuite();
+         $results = $integrationSuite->runComprehensiveIntegrationTests();
+ 
+         $this->info('Integration tests completed');
+@@ -217,7 +217,7 @@
+     {
+         $this->info('Running performance tests...');
+ 
+-        $performanceSuite = new PerformanceTestSuite;
++        $performanceSuite = new PerformanceTestSuite();
+         $results = $performanceSuite->runComprehensivePerformanceTests();
+ 
+         $this->info('Performance tests completed');
+@@ -234,7 +234,7 @@
+     {
+         $this->info('Running security tests...');
+ 
+-        $securitySuite = new SecurityTestSuite;
++        $securitySuite = new SecurityTestSuite();
+         $results = $securitySuite->runComprehensiveSecurityTests();
+ 
+         $this->info('Security tests completed');
+@@ -256,7 +256,7 @@
+             '--filter' => 'Api',
+         ]);
+ 
+-        $this->info('API tests completed with exit code: '.$exitCode);
++        $this->info('API tests completed with exit code: ' . $exitCode);
+ 
+         return [
+             'api_tests' => [
+@@ -278,7 +278,7 @@
+             '--filter' => 'Database',
+         ]);
+ 
+-        $this->info('Database tests completed with exit code: '.$exitCode);
++        $this->info('Database tests completed with exit code: ' . $exitCode);
+ 
+         return [
+             'database_tests' => [
+@@ -300,7 +300,7 @@
+             '--filter' => 'Error',
+         ]);
+ 
+-        $this->info('Error handling tests completed with exit code: '.$exitCode);
++        $this->info('Error handling tests completed with exit code: ' . $exitCode);
+ 
+         return [
+             'error_handling_tests' => [
+@@ -322,7 +322,7 @@
+             '--filter' => 'Validation',
+         ]);
+ 
+-        $this->info('Validation tests completed with exit code: '.$exitCode);
++        $this->info('Validation tests completed with exit code: ' . $exitCode);
+ 
+         return [
+             'validation_tests' => [
+@@ -343,7 +343,7 @@
+         $format = $this->option('format');
+ 
+         // Set output directory for report generator
+-        $reportGenerator = new TestReportGenerator;
++        $reportGenerator = new TestReportGenerator();
+         $reportGenerator->setOutputDirectory($outputDir);
+ 
+         // Generate reports
+@@ -372,8 +372,8 @@
+                     ['Total Tests', $summary['total_tests'] ?? 0],
+                     ['Passed', $summary['passed'] ?? 0],
+                     ['Failed', $summary['failed'] ?? 0],
+-                    ['Success Rate', number_format($summary['success_rate'] ?? 0, 2).'%'],
+-                    ['Overall Score', number_format($summary['overall_score'] ?? 0, 2).'%'],
++                    ['Success Rate', number_format($summary['success_rate'] ?? 0, 2) . '%'],
++                    ['Overall Score', number_format($summary['overall_score'] ?? 0, 2) . '%'],
+                 ]
+             );
+         }
+@@ -386,11 +386,11 @@
+             $this->table(
+                 ['Type', 'Coverage'],
+                 [
+-                    ['Overall', number_format($coverage['overall_coverage'] ?? 0, 2).'%'],
+-                    ['Line', number_format($coverage['line_coverage'] ?? 0, 2).'%'],
+-                    ['Function', number_format($coverage['function_coverage'] ?? 0, 2).'%'],
+-                    ['Class', number_format($coverage['class_coverage'] ?? 0, 2).'%'],
+-                    ['Method', number_format($coverage['method_coverage'] ?? 0, 2).'%'],
++                    ['Overall', number_format($coverage['overall_coverage'] ?? 0, 2) . '%'],
++                    ['Line', number_format($coverage['line_coverage'] ?? 0, 2) . '%'],
++                    ['Function', number_format($coverage['function_coverage'] ?? 0, 2) . '%'],
++                    ['Class', number_format($coverage['class_coverage'] ?? 0, 2) . '%'],
++                    ['Method', number_format($coverage['method_coverage'] ?? 0, 2) . '%'],
+                 ]
+             );
+         }
+--- app/Services/AI/ContinuousQualityMonitor.php
++++ PHP_CodeSniffer
+@@ -330,7 +330,7 @@
+         $alert = [
+             'type' => 'critical',
+             'rule' => $ruleId,
+-            'message' => 'تنبيه حرج: فشل في '.(is_string($result['name'] ?? null) ? $result['name'] : ''),
++            'message' => 'تنبيه حرج: فشل في ' . (is_string($result['name'] ?? null) ? $result['name'] : ''),
+             'details' => is_array($result['errors'] ?? null) ? $result['errors'] : [],
+             'timestamp' => Carbon::now()->toISOString(),
+         ];
+@@ -352,7 +352,7 @@
+         $alert = [
+             'type' => 'warning',
+             'rule' => $ruleId,
+-            'message' => 'تحذير: مشكلة في '.(is_string($result['name'] ?? null) ? $result['name'] : ''),
++            'message' => 'تحذير: مشكلة في ' . (is_string($result['name'] ?? null) ? $result['name'] : ''),
+             'details' => is_array($result['errors'] ?? null) ? $result['errors'] : [],
+             'timestamp' => Carbon::now()->toISOString(),
+         ];
+@@ -384,6 +384,6 @@
+     {
+         // Implement notification logic (email, Slack, etc.)
+         $message = is_string($alert['message'] ?? null) ? $alert['message'] : '';
+-        Log::info('📧 إرسال إشعار: '.$message);
++        Log::info('📧 إرسال إشعار: ' . $message);
+     }
+ }
+--- app/Http/Middleware/LocaleMiddleware.php
++++ PHP_CodeSniffer
+@@ -13,8 +13,6 @@
+ 
+ class LocaleMiddleware
+ {
+-
+-
+     private function determineLanguage(Request $request): string
+     {
+         // 1. تحقق من المستخدم المسجل
+--- tests/TestUtilities/ComprehensiveTestRunner.php
++++ PHP_CodeSniffer
+@@ -47,11 +47,11 @@
+ 
+     public function __construct()
+     {
+-        $this->testHelper = new AdvancedTestHelper;
+-        $this->serviceFactory = new ServiceTestFactory;
+-        $this->performanceSuite = new PerformanceTestSuite;
+-        $this->securitySuite = new SecurityTestSuite;
+-        $this->integrationSuite = new IntegrationTestSuite;
++        $this->testHelper = new AdvancedTestHelper();
++        $this->serviceFactory = new ServiceTestFactory();
++        $this->performanceSuite = new PerformanceTestSuite();
++        $this->securitySuite = new SecurityTestSuite();
++        $this->integrationSuite = new IntegrationTestSuite();
+     }
+ 
+     /**
+--- app/Services/AI/StrictQualityAgent.php
++++ PHP_CodeSniffer
+@@ -41,7 +41,7 @@
+         foreach ($this->stages as $stageId => $stage) {
+             if (is_array($stage)) {
+                 $stageName = is_string($stage['name'] ?? null) ? $stage['name'] : '';
+-                $this->log('📋 تنفيذ المرحلة: '.$stageName);
++                $this->log('📋 تنفيذ المرحلة: ' . $stageName);
+ 
+                 /** @var array<string, mixed> $stage */
+                 $result = $this->executeStage($stageId, $stage);
+@@ -50,7 +50,7 @@
+                 if (! ($result['success'] ?? false)) {
+                     $overallSuccess = false;
+                     $stageNameForError = is_string($stage['name'] ?? null) ? $stage['name'] : '';
+-                    $this->log('❌ فشل في المرحلة: '.$stageNameForError);
++                    $this->log('❌ فشل في المرحلة: ' . $stageNameForError);
+ 
+                     if ($stage['strict'] ?? false) {
+                         $this->log('🛑 توقف العملية بسبب فشل مرحلة صارمة');
+@@ -58,7 +58,7 @@
+                     }
+                 } else {
+                     $stageNameForSuccess = is_string($stage['name'] ?? null) ? $stage['name'] : '';
+-                    $this->log('✅ نجح في المرحلة: '.$stageNameForSuccess);
++                    $this->log('✅ نجح في المرحلة: ' . $stageNameForSuccess);
+                 }
+             }
+         }
+@@ -297,11 +297,11 @@
+         if (is_array($files)) {
+             foreach ($files as $file) {
+                 if (is_string($file)) {
+-                    $command = (is_string($stage['command'] ?? null) ? $stage['command'] : '').' '.$file;
++                    $command = (is_string($stage['command'] ?? null) ? $stage['command'] : '') . ' ' . $file;
+                     $result = Process::run($command);
+ 
+                     if (! $result->successful()) {
+-                        $errors[] = 'خطأ في الملف '.$file.': '.$result->errorOutput();
++                        $errors[] = 'خطأ في الملف ' . $file . ': ' . $result->errorOutput();
+                         $success = false;
+                     }
+                 }
+@@ -388,6 +388,6 @@
+     private function log(string $message): void
+     {
+         Log::info($message);
+-        echo $message.PHP_EOL;
++        echo $message . PHP_EOL;
+     }
+ }
+--- app/Http/Middleware/RedirectIfAuthenticated.php
++++ PHP_CodeSniffer
+@@ -12,5 +12,4 @@
+ 
+ class RedirectIfAuthenticated
+ {
+-
+ }
+--- tests/TestUtilities/IntegrationTestSuite.php
++++ PHP_CodeSniffer
+@@ -107,7 +107,7 @@
+             },
+ 
+             'step_2_password_validation' => function () {
+-                $passwordPolicy = new \App\Services\PasswordPolicyService;
++                $passwordPolicy = new \App\Services\PasswordPolicyService();
+                 $result = $passwordPolicy->validatePassword('StrongPass123!');
+ 
+                 $this->assertTrue($result['valid']);
+@@ -115,7 +115,7 @@
+             },
+ 
+             'step_3_save_password_history' => function () {
+-                $passwordHistory = new \App\Services\PasswordHistoryService;
++                $passwordHistory = new \App\Services\PasswordHistoryService();
+                 $result = $passwordHistory->savePasswordToHistory(1, 'StrongPass123!');
+ 
+                 $this->assertTrue($result);
+@@ -131,7 +131,7 @@
+             },
+ 
+             'step_5_audit_logging' => function () {
+-                $auditService = new \App\Services\AuditService;
++                $auditService = new \App\Services\AuditService();
+                 $user = Mockery::mock();
+                 $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                 \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+@@ -178,7 +178,7 @@
+             },
+ 
+             'step_4_process_payment' => function () {
+-                $financialService = new \App\Services\FinancialTransactionService;
++                $financialService = new \App\Services\FinancialTransactionService();
+ 
+                 DB::shouldReceive('beginTransaction')->andReturn(true);
+                 DB::shouldReceive('commit')->andReturn(true);
+@@ -214,13 +214,13 @@
+                 Mail::fake();
+ 
+                 $user = \App\Models\User::factory()->create();
+-                $user->notify(new \App\Notifications\OrderConfirmation);
++                $user->notify(new \App\Notifications\OrderConfirmation());
+ 
+                 Mail::assertSent(\App\Notifications\OrderConfirmation::class);
+             },
+ 
+             'step_7_audit_transaction' => function () {
+-                $auditService = new \App\Services\AuditService;
++                $auditService = new \App\Services\AuditService();
+                 $user = Mockery::mock();
+                 $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                 \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+@@ -255,7 +255,7 @@
+             },
+ 
+             'step_2_generate_token' => function () {
+-                $passwordReset = new \App\Services\PasswordResetService;
++                $passwordReset = new \App\Services\PasswordResetService();
+                 $result = $passwordReset->sendResetEmail('test@example.com');
+ 
+                 $this->assertTrue($result);
+@@ -277,7 +277,7 @@
+                     'attempts' => 0,
+                 ]);
+ 
+-                $passwordReset = new \App\Services\PasswordResetService;
++                $passwordReset = new \App\Services\PasswordResetService();
+                 $result = $passwordReset->resetPassword('test@example.com', 'valid_token', 'NewPass123!');
+ 
+                 $this->assertTrue($result);
+@@ -296,7 +296,7 @@
+             'step_6_clear_token' => function () {
+                 Cache::shouldReceive('forget')->andReturn(true);
+ 
+-                $passwordReset = new \App\Services\PasswordResetService;
++                $passwordReset = new \App\Services\PasswordResetService();
+                 $result = $passwordReset->resetPassword('test@example.com', 'valid_token', 'NewPass123!');
+ 
+                 $this->assertTrue($result);
+@@ -330,7 +330,7 @@
+             },
+ 
+             'step_2_check_price_drop' => function () {
+-                $notificationService = new \App\Services\NotificationService;
++                $notificationService = new \App\Services\NotificationService();
+ 
+                 // Mock price drop scenario
+                 $product = Mockery::mock();
+@@ -346,13 +346,13 @@
+                 Notification::fake();
+ 
+                 $user = \App\Models\User::factory()->create();
+-                $user->notify(new \App\Notifications\PriceDropNotification);
++                $user->notify(new \App\Notifications\PriceDropNotification());
+ 
+                 Notification::assertSentTo($user, \App\Notifications\PriceDropNotification::class);
+             },
+ 
+             'step_4_log_notification' => function () {
+-                $auditService = new \App\Services\AuditService;
++                $auditService = new \App\Services\AuditService();
+                 $user = Mockery::mock();
+                 $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                 \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+@@ -373,7 +373,7 @@
+     {
+         $workflow = [
+             'step_1_initiate_backup' => function () {
+-                $backupService = new \App\Services\BackupService;
++                $backupService = new \App\Services\BackupService();
+ 
+                 Storage::fake('backups');
+ 
+@@ -383,7 +383,7 @@
+             },
+ 
+             'step_2_backup_database' => function () {
+-                $backupService = new \App\Services\BackupService;
++                $backupService = new \App\Services\BackupService();
+ 
+                 $result = $backupService->createDatabaseBackup();
+ 
+@@ -391,7 +391,7 @@
+             },
+ 
+             'step_3_backup_files' => function () {
+-                $backupService = new \App\Services\BackupService;
++                $backupService = new \App\Services\BackupService();
+ 
+                 $result = $backupService->createFilesBackup();
+ 
+@@ -399,7 +399,7 @@
+             },
+ 
+             'step_4_verify_backup' => function () {
+-                $backupService = new \App\Services\BackupService;
++                $backupService = new \App\Services\BackupService();
+ 
+                 $backups = $backupService->listBackups();
+ 
+@@ -408,7 +408,7 @@
+             },
+ 
+             'step_5_cleanup_old_backups' => function () {
+-                $backupService = new \App\Services\BackupService;
++                $backupService = new \App\Services\BackupService();
+ 
+                 $result = $backupService->cleanOldBackups();
+ 
+@@ -426,7 +426,7 @@
+     {
+         $workflow = [
+             'step_1_log_user_action' => function () {
+-                $auditService = new \App\Services\AuditService;
++                $auditService = new \App\Services\AuditService();
+                 $user = Mockery::mock();
+                 $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                 \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+@@ -437,7 +437,7 @@
+             },
+ 
+             'step_2_log_api_access' => function () {
+-                $auditService = new \App\Services\AuditService;
++                $auditService = new \App\Services\AuditService();
+                 $user = Mockery::mock();
+                 $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                 \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+@@ -448,7 +448,7 @@
+             },
+ 
+             'step_3_log_sensitive_operation' => function () {
+-                $auditService = new \App\Services\AuditService;
++                $auditService = new \App\Services\AuditService();
+                 $user = Mockery::mock();
+                 $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                 \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+@@ -463,7 +463,7 @@
+             },
+ 
+             'step_4_generate_audit_report' => function () {
+-                $reportService = new \App\Services\ReportService;
++                $reportService = new \App\Services\ReportService();
+ 
+                 $result = $reportService->generateAuditReport(
+                     \Carbon\Carbon::now()->subDays(30),
+@@ -596,7 +596,7 @@
+     {
+         $tests = [
+             'test_cache_service_integration' => function () {
+-                $cacheService = new \App\Services\CacheService;
++                $cacheService = new \App\Services\CacheService();
+ 
+                 Cache::shouldReceive('get')->andReturn(null);
+                 Cache::shouldReceive('put')->andReturn(true);
+@@ -607,7 +607,7 @@
+             },
+ 
+             'test_cache_invalidation' => function () {
+-                $cacheService = new \App\Services\CacheService;
++                $cacheService = new \App\Services\CacheService();
+ 
+                 Cache::shouldReceive('forget')->andReturn(true);
+ 
+@@ -617,7 +617,7 @@
+             },
+ 
+             'test_cache_tags_integration' => function () {
+-                $cacheService = new \App\Services\CacheService;
++                $cacheService = new \App\Services\CacheService();
+ 
+                 Cache::shouldReceive('tags')->with(['products'])->andReturnSelf();
+                 Cache::shouldReceive('flush')->andReturn(true);
+@@ -650,7 +650,7 @@
+                 Queue::fake();
+ 
+                 $user = \App\Models\User::factory()->create();
+-                $user->notify(new \App\Notifications\PriceDropNotification);
++                $user->notify(new \App\Notifications\PriceDropNotification());
+ 
+                 Queue::assertPushed(\App\Notifications\PriceDropNotification::class);
+             },
+--- tests/TestUtilities/PerformanceTestSuite.php
++++ PHP_CodeSniffer
+@@ -69,26 +69,26 @@
+         $services = [
+             'AIService' => function () {
+                 Http::fake(['api.openai.com/*' => Http::response(['choices' => [['message' => ['content' => 'test']]]], 200)]);
+-                $service = new \App\Services\AIService;
++                $service = new \App\Services\AIService();
+ 
+                 return $service->analyzeText('Test text', 'sentiment');
+             },
+             'CacheService' => function () {
+                 Cache::shouldReceive('get')->andReturn(null);
+                 Cache::shouldReceive('put')->andReturn(true);
+-                $service = new \App\Services\CacheService;
++                $service = new \App\Services\CacheService();
+ 
+                 return $service->remember('test_key', fn () => 'test_data', 3600);
+             },
+             'ProductService' => function () {
+                 Cache::shouldReceive('get')->andReturn(null);
+                 Cache::shouldReceive('put')->andReturn(true);
+-                $service = new \App\Services\ProductService;
++                $service = new \App\Services\ProductService();
+ 
+                 return $service->getPaginatedProducts(1, 15);
+             },
+             'PasswordPolicyService' => function () {
+-                $service = new \App\Services\PasswordPolicyService;
++                $service = new \App\Services\PasswordPolicyService();
+ 
+                 return $service->validatePassword('StrongPass123!');
+             },
+@@ -96,7 +96,7 @@
+                 DB::shouldReceive('beginTransaction')->andReturn(true);
+                 DB::shouldReceive('commit')->andReturn(true);
+                 Log::shouldReceive('info')->andReturn(true);
+-                $service = new \App\Services\FinancialTransactionService;
++                $service = new \App\Services\FinancialTransactionService();
+ 
+                 return $service->processPayment(['amount' => 100, 'currency' => 'USD', 'payment_method' => 'card', 'user_id' => 1]);
+             },
+@@ -210,7 +210,7 @@
+             }
+ 
+             $results[] = [
+-                'query' => substr($query, 0, 100).'...',
++                'query' => substr($query, 0, 100) . '...',
+                 'average_time' => array_sum($executionTimes) / count($executionTimes),
+                 'min_time' => min($executionTimes),
+                 'max_time' => max($executionTimes),
+@@ -234,7 +234,7 @@
+ 
+             try {
+                 DB::table('test_performance')->insert([
+-                    'name' => 'Test '.$i,
++                    'name' => 'Test ' . $i,
+                     'value' => $i * 10,
+                     'created_at' => now(),
+                     'updated_at' => now(),
+@@ -363,7 +363,7 @@
+             'object_instantiation' => function () {
+                 $objects = [];
+                 for ($i = 0; $i < 1000; $i++) {
+-                    $objects[] = new \stdClass;
++                    $objects[] = new \stdClass();
+                 }
+ 
+                 return $objects;
+@@ -371,7 +371,7 @@
+             'string_manipulation' => function () {
+                 $string = '';
+                 for ($i = 0; $i < 1000; $i++) {
+-                    $string .= 'test_string_'.$i;
++                    $string .= 'test_string_' . $i;
+                 }
+ 
+                 return $string;
+@@ -411,7 +411,7 @@
+         $results = [];
+ 
+         foreach ($concurrentUsers as $userCount) {
+-            $results[$userCount.'_users'] = $this->simulateConcurrentUsers($userCount);
++            $results[$userCount . '_users'] = $this->simulateConcurrentUsers($userCount);
+         }
+ 
+         return $results;
+--- app/Services/BackupService.php
++++ PHP_CodeSniffer
+@@ -41,7 +41,7 @@
+             ];
+ 
+             // Create backup directory
+-            $backupDir = $this->backupPath.'/'.$backupName;
++            $backupDir = $this->backupPath . '/' . $backupName;
+             if (! is_dir($backupDir)) {
+                 mkdir($backupDir, 0755, true);
+             }
+@@ -97,7 +97,7 @@
+         try {
+             Log::info('Starting database backup', ['backup_name' => $backupName]);
+ 
+-            $backupDir = $this->backupPath.'/'.$backupName;
++            $backupDir = $this->backupPath . '/' . $backupName;
+             if (! is_dir($backupDir)) {
+                 mkdir($backupDir, 0755, true);
+             }
+@@ -137,7 +137,7 @@
+         try {
+             Log::info('Starting files backup', ['backup_name' => $backupName]);
+ 
+-            $backupDir = $this->backupPath.'/'.$backupName;
++            $backupDir = $this->backupPath . '/' . $backupName;
+             if (! is_dir($backupDir)) {
+                 mkdir($backupDir, 0755, true);
+             }
+@@ -174,7 +174,7 @@
+         try {
+             Log::info('Starting restore from backup', ['backup_name' => $backupName]);
+ 
+-            $backupPath = $this->backupPath.'/'.$backupName;
++            $backupPath = $this->backupPath . '/' . $backupName;
+ 
+             if (! is_dir($backupPath)) {
+                 throw new Exception("Backup not found: {$backupName}");
+@@ -254,7 +254,7 @@
+             if ($directory === '..') {
+                 continue;
+             }
+-            $backupPath = $this->backupPath.'/'.$directory;
++            $backupPath = $this->backupPath . '/' . $directory;
+ 
+             if (is_dir($backupPath)) {
+                 $manifest = $this->readBackupManifest($backupPath);
+@@ -288,7 +288,7 @@
+     public function deleteBackup(string $backupName): bool
+     {
+         try {
+-            $backupPath = $this->backupPath.'/'.$backupName;
++            $backupPath = $this->backupPath . '/' . $backupName;
+ 
+             if (! is_dir($backupPath)) {
+                 throw new Exception("Backup not found: {$backupName}");
+@@ -349,7 +349,7 @@
+     {
+         $dbConfig = config('database.connections.mysql');
+         $filename = 'database.sql';
+-        $filepath = $backupDir.'/'.$filename;
++        $filepath = $backupDir . '/' . $filename;
+ 
+         $dbConfigArray = is_array($dbConfig) ? $dbConfig : [];
+         $host = is_string($dbConfigArray['host'] ?? null) ? $dbConfigArray['host'] : 'localhost';
+@@ -371,7 +371,7 @@
+         $result = Process::run($command);
+ 
+         if (! $result->successful()) {
+-            throw new Exception('Database backup failed: '.$result->errorOutput());
++            throw new Exception('Database backup failed: ' . $result->errorOutput());
+         }
+ 
+         return [
+@@ -389,7 +389,7 @@
+      */
+     private function backupFiles(string $backupDir): array
+     {
+-        $filesDir = $backupDir.'/files';
++        $filesDir = $backupDir . '/files';
+         mkdir($filesDir, 0755, true);
+ 
+         $sourceDirs = [
+@@ -402,7 +402,7 @@
+ 
+         foreach ($sourceDirs as $name => $sourcePath) {
+             if (is_dir($sourcePath)) {
+-                $destPath = $filesDir.'/'.$name;
++                $destPath = $filesDir . '/' . $name;
+                 $this->copyDirectory($sourcePath, $destPath);
+                 $backedUpDirs[] = $name;
+             }
+@@ -423,7 +423,7 @@
+      */
+     private function backupConfiguration(string $backupDir): array
+     {
+-        $configDir = $backupDir.'/config';
++        $configDir = $backupDir . '/config';
+         mkdir($configDir, 0755, true);
+ 
+         $configFiles = [
+@@ -437,7 +437,7 @@
+ 
+         foreach ($configFiles as $name => $sourcePath) {
+             if (file_exists($sourcePath)) {
+-                $destPath = $configDir.'/'.$name;
++                $destPath = $configDir . '/' . $name;
+                 copy($sourcePath, $destPath);
+                 $backedUpFiles[] = $name;
+             }
+@@ -466,7 +466,7 @@
+             'components' => $results['components'],
+         ];
+ 
+-        $manifestPath = $backupDir.'/manifest.json';
++        $manifestPath = $backupDir . '/manifest.json';
+         file_put_contents($manifestPath, json_encode($manifest, JSON_PRETTY_PRINT));
+ 
+         return [
+@@ -484,14 +484,14 @@
+      */
+     private function compressBackup(string $backupDir, string $backupName): array
+     {
+-        $archivePath = $this->backupPath.'/'.$backupName.'.tar.gz';
++        $archivePath = $this->backupPath . '/' . $backupName . '.tar.gz';
+ 
+-        $command = "tar -czf {$archivePath} -C ".dirname($backupDir).' '.basename($backupDir);
++        $command = "tar -czf {$archivePath} -C " . dirname($backupDir) . ' ' . basename($backupDir);
+ 
+         $result = Process::run($command);
+ 
+         if (! $result->successful()) {
+-            throw new Exception('Backup compression failed: '.$result->errorOutput());
++            throw new Exception('Backup compression failed: ' . $result->errorOutput());
+         }
+ 
+         // Remove uncompressed directory
+@@ -512,7 +512,7 @@
+      */
+     private function readBackupManifest(string $backupPath): array
+     {
+-        $manifestPath = $backupPath.'/manifest.json';
++        $manifestPath = $backupPath . '/manifest.json';
+ 
+         if (! file_exists($manifestPath)) {
+             return [];
+@@ -540,7 +540,7 @@
+     {
+         $dbConfig = config('database.connections.mysql');
+         $filename = $dbInfo['filename'] ?? 'database.sql';
+-        $sqlFile = $backupPath.'/'.(is_string($filename) ? $filename : 'database.sql');
++        $sqlFile = $backupPath . '/' . (is_string($filename) ? $filename : 'database.sql');
+ 
+         if (! file_exists($sqlFile)) {
+             throw new Exception('Database backup file not found');
+@@ -566,7 +566,7 @@
+         $result = Process::run($command);
+ 
+         if (! $result->successful()) {
+-            throw new Exception('Database restore failed: '.$result->errorOutput());
++            throw new Exception('Database restore failed: ' . $result->errorOutput());
+         }
+ 
+         return [
+@@ -583,7 +583,7 @@
+      */
+     private function restoreFiles(string $backupPath, array $filesInfo): array
+     {
+-        $filesDir = $backupPath.'/files';
++        $filesDir = $backupPath . '/files';
+ 
+         if (! is_dir($filesDir)) {
+             throw new Exception('Files backup directory not found');
+@@ -595,7 +595,7 @@
+         if (is_array($directories)) {
+             foreach ($directories as $dir) {
+                 if (is_string($dir)) {
+-                    $sourcePath = $filesDir.'/'.$dir;
++                    $sourcePath = $filesDir . '/' . $dir;
+                     $destPath = $this->getDestinationPath($dir);
+ 
+                     if (is_dir($sourcePath)) {
+@@ -621,7 +621,7 @@
+      */
+     private function restoreConfiguration(string $backupPath, array $configInfo): array
+     {
+-        $configDir = $backupPath.'/config';
++        $configDir = $backupPath . '/config';
+ 
+         if (! is_dir($configDir)) {
+             throw new Exception('Configuration backup directory not found');
+@@ -633,7 +633,7 @@
+         if (is_array($files)) {
+             foreach ($files as $file) {
+                 if (is_string($file)) {
+-                    $sourcePath = $configDir.'/'.$file;
++                    $sourcePath = $configDir . '/' . $file;
+                     $destPath = $this->getConfigDestinationPath($file);
+ 
+                     if (file_exists($sourcePath)) {
+@@ -695,7 +695,7 @@
+ 
+         foreach ($iterator as $item) {
+             if ($item instanceof \SplFileInfo) {
+-                $destPath = $dest.DIRECTORY_SEPARATOR.$iterator->getSubPathName();
++                $destPath = $dest . DIRECTORY_SEPARATOR . $iterator->getSubPathName();
+ 
+                 if ($item->isDir()) {
+                     mkdir($destPath, 0755, true);
+--- app/Http/Middleware/SetCacheHeaders.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,7 @@
+ 
+         if ($request->isMethod('GET') && $response->getStatusCode() === 200) {
+             $response->headers->set('Cache-Control', 'public, max-age=3600');
+-            $response->headers->set('Expires', gmdate('D, d M Y H:i:s', time() + 3600).' GMT');
++            $response->headers->set('Expires', gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
+         }
+ 
+         return $response;
+--- tests/TestUtilities/QualityAssurance.php
++++ PHP_CodeSniffer
+@@ -26,8 +26,8 @@
+ 
+     public function __construct()
+     {
+-        $this->validator = new TestSuiteValidator;
+-        $this->config = new TestConfiguration;
++        $this->validator = new TestSuiteValidator();
++        $this->config = new TestConfiguration();
+     }
+ 
+     /**
+@@ -467,7 +467,7 @@
+         $output = [];
+         $returnCode = 0;
+ 
+-        exec('php -l '.escapeshellarg($file).' 2>&1', $output, $returnCode);
++        exec('php -l ' . escapeshellarg($file) . ' 2>&1', $output, $returnCode);
+ 
+         return [
+             'valid' => $returnCode === 0,
+--- app/Services/CacheService.php
++++ PHP_CodeSniffer
+@@ -23,8 +23,6 @@
+  */
+ final class CacheService
+ {
+-
+-
+     /**
+      * Enhanced remember method with tagging support
+      *
+@@ -40,7 +38,7 @@
+      */
+     public function remember(string $key, int $ttl, callable $callback, array $tags = []): mixed
+     {
+-        $prefixedKey = 'coprra_cache_'.$key;
++        $prefixedKey = 'coprra_cache_' . $key;
+ 
+         try {
+             // Use cache tags if supported and tags are provided
+@@ -71,7 +69,7 @@
+ 
+     public function get(string $key, mixed $default = null): mixed
+     {
+-        $prefixedKey = 'coprra_cache_'.$key;
++        $prefixedKey = 'coprra_cache_' . $key;
+ 
+         return Cache::get($prefixedKey, $default);
+     }
+--- app/Http/Middleware/SetLocaleAndCurrency.php
++++ PHP_CodeSniffer
+@@ -14,8 +14,6 @@
+ 
+ class SetLocaleAndCurrency
+ {
+-
+-
+     /**
+      * Configure application locale based on user preference, session, or default.
+      */
+--- tests/TestUtilities/SecurityTestSuite.php
++++ PHP_CodeSniffer
+@@ -90,7 +90,7 @@
+     {
+         $tests = [
+             'test_strong_password_requirements' => function () {
+-                $passwordPolicy = new \App\Services\PasswordPolicyService;
++                $passwordPolicy = new \App\Services\PasswordPolicyService();
+                 $weakPasswords = ['123', 'password', '12345678', 'qwerty'];
+ 
+                 foreach ($weakPasswords as $password) {
+@@ -100,7 +100,7 @@
+             },
+ 
+             'test_password_brute_force_protection' => function () {
+-                $loginAttempt = new \App\Services\LoginAttemptService;
++                $loginAttempt = new \App\Services\LoginAttemptService();
+ 
+                 // Simulate multiple failed attempts
+                 for ($i = 0; $i < 6; $i++) {
+@@ -112,7 +112,7 @@
+             },
+ 
+             'test_account_lockout_mechanism' => function () {
+-                $loginAttempt = new \App\Services\LoginAttemptService;
++                $loginAttempt = new \App\Services\LoginAttemptService();
+ 
+                 // Record failed attempts
+                 for ($i = 0; $i < 5; $i++) {
+@@ -124,7 +124,7 @@
+             },
+ 
+             'test_password_history_prevention' => function () {
+-                $passwordHistory = new \App\Services\PasswordHistoryService;
++                $passwordHistory = new \App\Services\PasswordHistoryService();
+ 
+                 // Save password to history
+                 $passwordHistory->savePasswordToHistory(1, 'OldPassword123!');
+@@ -287,7 +287,7 @@
+                 ];
+ 
+                 foreach ($maliciousInputs as $input) {
+-                    $response = $this->get('/api/products?search='.urlencode($input));
++                    $response = $this->get('/api/products?search=' . urlencode($input));
+                     $response->assertStatus(200);
+                     $this->assertStringNotContainsString('error', strtolower($response->getContent()));
+                 }
+@@ -300,7 +300,7 @@
+                 DB::shouldReceive('update')->andReturn(1);
+                 DB::shouldReceive('delete')->andReturn(1);
+ 
+-                $service = new \App\Services\ProductService;
++                $service = new \App\Services\ProductService();
+                 $result = $service->getPaginatedProducts(1, 15);
+ 
+                 $this->assertIsObject($result);
+@@ -366,7 +366,7 @@
+                 ];
+ 
+                 foreach ($htmlEntities as $char => $encoded) {
+-                    $response = $this->get('/api/products?search='.urlencode($char));
++                    $response = $this->get('/api/products?search=' . urlencode($char));
+                     $response->assertStatus(200);
+                     $this->assertStringNotContainsString($char, $response->getContent());
+                 }
+@@ -437,7 +437,7 @@
+ 
+             'test_database_encryption' => function () {
+                 // Test that sensitive fields are encrypted in database
+-                $user = new \App\Models\User;
++                $user = new \App\Models\User();
+                 $user->email = 'test@example.com';
+                 $user->password = Hash::make('password');
+                 $user->save();
+@@ -458,7 +458,7 @@
+         $tests = [
+             'test_session_regeneration' => function () {
+                 $oldSessionId = Session::getId();
+-                Auth::login(new \App\Models\User);
++                Auth::login(new \App\Models\User());
+                 $newSessionId = Session::getId();
+ 
+                 $this->assertNotEquals($oldSessionId, $newSessionId);
+--- app/Services/CDNService.php
++++ PHP_CodeSniffer
+@@ -23,7 +23,7 @@
+         $providerValue = config('cdn.provider', 'cloudflare');
+         $this->provider = is_string($providerValue) ? $providerValue : 'cloudflare';
+ 
+-        $configValue = config('cdn.providers.'.$this->provider, []);
++        $configValue = config('cdn.providers.' . $this->provider, []);
+         /** @var array<string, mixed> $validConfig */
+         $validConfig = is_array($configValue) ? $configValue : [];
+         $this->config = $validConfig;
+@@ -150,7 +150,7 @@
+     {
+         $baseUrl = $this->config['base_url'] ?? '';
+ 
+-        return rtrim(is_string($baseUrl) ? $baseUrl : '', '/').'/'.ltrim($path, '/');
++        return rtrim(is_string($baseUrl) ? $baseUrl : '', '/') . '/' . ltrim($path, '/');
+     }
+ 
+     /**
+@@ -239,7 +239,7 @@
+     {
+         try {
+             $testPath = 'test/connection.txt';
+-            $testContent = 'CDN connection test - '.now();
++            $testContent = 'CDN connection test - ' . now();
+ 
+             $result = $this->uploadToCDN($testContent, $testPath, 'text/plain');
+ 
+@@ -290,12 +290,12 @@
+         }
+ 
+         $response = Http::withHeaders([
+-            'Authorization' => 'Bearer '.$apiToken,
++            'Authorization' => 'Bearer ' . $apiToken,
+             'Content-Type' => $mimeType,
+-        ])->put('https://api.cloudflare.com/client/v4/accounts/'.$accountId."/images/v1/{$path}", ['content' => $content]);
++        ])->put('https://api.cloudflare.com/client/v4/accounts/' . $accountId . "/images/v1/{$path}", ['content' => $content]);
+ 
+         if (! $response->successful()) {
+-            throw new Exception('Cloudflare upload failed: '.$response->body());
++            throw new Exception('Cloudflare upload failed: ' . $response->body());
+         }
+ 
+         $data = $response->json() ?? [];
+@@ -330,7 +330,7 @@
+         }
+ 
+         // This would use AWS SDK in a real implementation
+-        $url = 'https://'.$bucket.'.s3.'.$region.".amazonaws.com/{$path}";
++        $url = 'https://' . $bucket . '.s3.' . $region . ".amazonaws.com/{$path}";
+ 
+         return [
+             'url' => $url,
+@@ -353,7 +353,7 @@
+         }
+ 
+         // This would use Google Cloud SDK in a real implementation
+-        $url = 'https://storage.googleapis.com/'.$bucket."/{$path}";
++        $url = 'https://storage.googleapis.com/' . $bucket . "/{$path}";
+ 
+         return [
+             'url' => $url,
+@@ -383,8 +383,8 @@
+         $accountId = is_string($this->config['account_id'] ?? null) ? $this->config['account_id'] : '';
+ 
+         $response = Http::withHeaders([
+-            'Authorization' => 'Bearer '.$apiToken,
+-        ])->delete('https://api.cloudflare.com/client/v4/accounts/'.$accountId."/images/v1/{$path}");
++            'Authorization' => 'Bearer ' . $apiToken,
++        ])->delete('https://api.cloudflare.com/client/v4/accounts/' . $accountId . "/images/v1/{$path}");
+ 
+         return $response->successful();
+     }
+@@ -435,9 +435,9 @@
+         $zoneId = is_string($this->config['zone_id'] ?? null) ? $this->config['zone_id'] : '';
+ 
+         $response = Http::withHeaders([
+-            'Authorization' => 'Bearer '.$apiToken,
++            'Authorization' => 'Bearer ' . $apiToken,
+             'Content-Type' => 'application/json',
+-        ])->post('https://api.cloudflare.com/client/v4/zones/'.$zoneId.'/purge_cache', [
++        ])->post('https://api.cloudflare.com/client/v4/zones/' . $zoneId . '/purge_cache', [
+             'purge_everything' => $urls === [],
+             'files' => $urls,
+         ]);
+@@ -470,8 +470,8 @@
+         $zoneId = is_string($this->config['zone_id'] ?? null) ? $this->config['zone_id'] : '';
+ 
+         $response = Http::withHeaders([
+-            'Authorization' => 'Bearer '.$apiToken,
+-        ])->get('https://api.cloudflare.com/client/v4/zones/'.$zoneId.'/analytics/dashboard');
++            'Authorization' => 'Bearer ' . $apiToken,
++        ])->get('https://api.cloudflare.com/client/v4/zones/' . $zoneId . '/analytics/dashboard');
+ 
+         if (! $response->successful()) {
+             throw new Exception('Failed to get Cloudflare statistics');
+--- app/Services/ExchangeRateService.php
++++ PHP_CodeSniffer
+@@ -240,4 +240,3 @@
+         return $count;
+     }
+ }
+-
+--- tests/TestUtilities/ServiceTestFactory.php
++++ PHP_CodeSniffer
+@@ -31,7 +31,7 @@
+ 
+     public function __construct()
+     {
+-        $this->testHelper = new AdvancedTestHelper;
++        $this->testHelper = new AdvancedTestHelper();
+     }
+ 
+     /**
+@@ -49,7 +49,7 @@
+                         ], 200),
+                     ]);
+ 
+-                    $service = new AIService;
++                    $service = new AIService();
+                     $result = $service->analyzeText('Great product!', 'sentiment');
+ 
+                     $this->assertIsArray($result);
+@@ -60,7 +60,7 @@
+                         'api.openai.com/*' => Http::response(['error' => 'API Error'], 500),
+                     ]);
+ 
+-                    $service = new AIService;
++                    $service = new AIService();
+                     $result = $service->analyzeText('Test', 'sentiment');
+ 
+                     $this->assertArrayHasKey('error', $result);
+@@ -72,7 +72,7 @@
+                         ], 200),
+                     ]);
+ 
+-                    $service = new AIService;
++                    $service = new AIService();
+                     $result = $service->classifyProduct('Wireless headphones');
+ 
+                     $this->assertEquals('Electronics', $result);
+@@ -84,7 +84,7 @@
+                         ], 200),
+                     ]);
+ 
+-                    $service = new AIService;
++                    $service = new AIService();
+                     $result = $service->generateRecommendations(['category' => 'electronics'], []);
+ 
+                     $this->assertIsArray($result);
+@@ -97,7 +97,7 @@
+                         ], 200),
+                     ]);
+ 
+-                    $service = new AIService;
++                    $service = new AIService();
+                     $result = $service->analyzeImage('base64_image_data');
+ 
+                     $this->assertIsArray($result);
+@@ -110,7 +110,7 @@
+ 
+                     Log::shouldReceive('error')->once();
+ 
+-                    $service = new AIService;
++                    $service = new AIService();
+                     $this->assertInstanceOf(AIService::class, $service);
+                 },
+             ],
+@@ -139,7 +139,7 @@
+                     $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                     \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+ 
+-                    $service = new AuditService;
++                    $service = new AuditService();
+                     $service->logAuthEvent('login', 1, ['ip' => '127.0.0.1']);
+ 
+                     $this->assertTrue(true); // Method returns void
+@@ -147,7 +147,7 @@
+                 'test_log_auth_event_without_user' => function () {
+                     \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn(null);
+ 
+-                    $service = new AuditService;
++                    $service = new AuditService();
+                     $service->logAuthEvent('logout', null, ['ip' => '127.0.0.1']);
+ 
+                     $this->assertTrue(true); // Method returns void
+@@ -157,7 +157,7 @@
+                     $user->shouldReceive('getAttribute')->with('id')->andReturn(1);
+                     \Illuminate\Support\Facades\Auth::shouldReceive('user')->andReturn($user);
+ 
+-                    $service = new AuditService;
++                    $service = new AuditService();
+                     $service->logApiAccess('/api/test', 'GET', 1, ['response_time' => 150]);
+ 
+                     $this->assertTrue(true); // Method returns void
+@@ -171,7 +171,7 @@
+                     $model->shouldReceive('getKey')->andReturn(1);
+                     $model->shouldReceive('getMorphClass')->andReturn('User');
+ 
+-                    $service = new AuditService;
++                    $service = new AuditService();
+                     $service->logSensitiveOperation('password_change', $model, ['field' => 'password']);
+ 
+                     $this->assertTrue(true); // Method returns void
+@@ -186,7 +186,7 @@
+                     $model->shouldReceive('getMorphClass')->andReturn('Product');
+                     $model->shouldReceive('getAttributes')->andReturn(['name' => 'Test']);
+ 
+-                    $service = new AuditService;
++                    $service = new AuditService();
+                     $service->logCreated($model, ['name' => 'Test']);
+ 
+                     $this->assertTrue(true); // Method returns void
+@@ -215,7 +215,7 @@
+                 'test_remember_with_cache_hit' => function () {
+                     Cache::shouldReceive('get')->with('test_key')->andReturn('cached_data');
+ 
+-                    $service = new CacheService;
++                    $service = new CacheService();
+                     $result = $service->remember('test_key', fn () => 'new_data', 3600);
+ 
+                     $this->assertEquals('cached_data', $result);
+@@ -224,7 +224,7 @@
+                     Cache::shouldReceive('get')->with('test_key')->andReturn(null);
+                     Cache::shouldReceive('put')->with('test_key', 'new_data', 3600)->andReturn(true);
+ 
+-                    $service = new CacheService;
++                    $service = new CacheService();
+                     $result = $service->remember('test_key', fn () => 'new_data', 3600);
+ 
+                     $this->assertEquals('new_data', $result);
+@@ -232,7 +232,7 @@
+                 'test_forget_cache_by_key' => function () {
+                     Cache::shouldReceive('forget')->with('test_key')->andReturn(true);
+ 
+-                    $service = new CacheService;
++                    $service = new CacheService();
+                     $result = $service->forget('test_key');
+ 
+                     $this->assertTrue($result);
+@@ -241,7 +241,7 @@
+                     Cache::shouldReceive('tags')->with(['tag1', 'tag2'])->andReturnSelf();
+                     Cache::shouldReceive('flush')->andReturn(true);
+ 
+-                    $service = new CacheService;
++                    $service = new CacheService();
+                     $result = $service->forgetByTags(['tag1', 'tag2']);
+ 
+                     $this->assertTrue($result);
+@@ -249,7 +249,7 @@
+                 'test_handles_cache_exception' => function () {
+                     Cache::shouldReceive('get')->andThrow(new \Exception('Cache error'));
+ 
+-                    $service = new CacheService;
++                    $service = new CacheService();
+                     $result = $service->remember('test_key', fn () => 'data', 3600);
+ 
+                     $this->assertEquals('data', $result); // Should fallback to callback
+@@ -283,7 +283,7 @@
+ 
+                     Cache::shouldReceive('get')->with('products_page_1_per_15')->andReturn($paginatedData);
+ 
+-                    $service = new ProductService;
++                    $service = new ProductService();
+                     $result = $service->getPaginatedProducts(1, 15);
+ 
+                     $this->assertInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class, $result);
+@@ -304,7 +304,7 @@
+                     $this->assertInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class, $result);
+                 },
+                 'test_handles_invalid_page_number' => function () {
+-                    $service = new ProductService;
++                    $service = new ProductService();
+                     $result = $service->getPaginatedProducts(0, 15);
+ 
+                     $this->assertInstanceOf(\Illuminate\Pagination\LengthAwarePaginator::class, $result);
+@@ -330,21 +330,21 @@
+             'service_class' => PasswordPolicyService::class,
+             'test_methods' => [
+                 'test_validate_strong_password' => function () {
+-                    $service = new PasswordPolicyService;
++                    $service = new PasswordPolicyService();
+                     $result = $service->validatePassword('StrongPass123!');
+ 
+                     $this->assertTrue($result['valid']);
+                     $this->assertEmpty($result['errors']);
+                 },
+                 'test_validate_weak_password' => function () {
+-                    $service = new PasswordPolicyService;
++                    $service = new PasswordPolicyService();
+                     $result = $service->validatePassword('weak');
+ 
+                     $this->assertFalse($result['valid']);
+                     $this->assertNotEmpty($result['errors']);
+                 },
+                 'test_calculate_password_strength' => function () {
+-                    $service = new PasswordPolicyService;
++                    $service = new PasswordPolicyService();
+                     $strength = $service->calculatePasswordStrength('StrongPass123!');
+ 
+                     $this->assertIsInt($strength);
+@@ -352,7 +352,7 @@
+                     $this->assertLessThanOrEqual(100, $strength);
+                 },
+                 'test_generate_secure_password' => function () {
+-                    $service = new PasswordPolicyService;
++                    $service = new PasswordPolicyService();
+                     $password = $service->generateSecurePassword(12);
+ 
+                     $this->assertIsString($password);
+@@ -364,7 +364,7 @@
+                 'test_check_password_not_in_history' => function () {
+                     Cache::shouldReceive('get')->andReturn([]);
+ 
+-                    $service = new PasswordPolicyService;
++                    $service = new PasswordPolicyService();
+                     $result = $service->checkPasswordHistory(1, 'newpassword');
+ 
+                     $this->assertTrue($result);
+@@ -395,7 +395,7 @@
+                     DB::shouldReceive('commit')->once();
+                     Log::shouldReceive('info')->once();
+ 
+-                    $service = new FinancialTransactionService;
++                    $service = new FinancialTransactionService();
+                     $result = $service->processPayment([
+                         'amount' => 100.00,
+                         'currency' => 'USD',
+@@ -411,7 +411,7 @@
+                     DB::shouldReceive('rollback')->once();
+                     Log::shouldReceive('error')->once();
+ 
+-                    $service = new FinancialTransactionService;
++                    $service = new FinancialTransactionService();
+                     $result = $service->processPayment([
+                         'amount' => -100.00, // Invalid amount
+                         'currency' => 'USD',
+@@ -427,13 +427,13 @@
+                     DB::shouldReceive('commit')->once();
+                     Log::shouldReceive('info')->once();
+ 
+-                    $service = new FinancialTransactionService;
++                    $service = new FinancialTransactionService();
+                     $result = $service->refundTransaction('txn_123', 50.00, 'Partial refund');
+ 
+                     $this->assertTrue($result['success']);
+                 },
+                 'test_calculate_tax' => function () {
+-                    $service = new FinancialTransactionService;
++                    $service = new FinancialTransactionService();
+                     $tax = $service->calculateTax(100.00, 'US', 'CA');
+ 
+                     $this->assertIsFloat($tax);
+--- app/Services/ExternalStoreService.php
++++ PHP_CodeSniffer
+@@ -72,9 +72,9 @@
+                 }
+ 
+                 $response = Http::withHeaders([
+-                    'Authorization' => 'Bearer '.$apiKey,
++                    'Authorization' => 'Bearer ' . $apiKey,
+                     'Accept' => 'application/json',
+-                ])->timeout(10)->get($apiUrl."/{$productId}");
++                ])->timeout(10)->get($apiUrl . "/{$productId}");
+ 
+                 if ($response->successful()) {
+                     $data = $response->json();
+@@ -123,7 +123,7 @@
+         while ($hasMore) {
+             try {
+                 $response = Http::withHeaders([
+-                    'Authorization' => 'Bearer '.$apiKey,
++                    'Authorization' => 'Bearer ' . $apiKey,
+                     'Accept' => 'application/json',
+                 ])->timeout(30)->get($apiUrl, [
+                     'page' => $page,
+@@ -188,8 +188,8 @@
+                 }
+ 
+                 $response = Http::withHeaders([
+-                    'Authorization' => 'Bearer '.$apiKey,
+-                ])->timeout(5)->get($apiUrl.'/health');
++                    'Authorization' => 'Bearer ' . $apiKey,
++                ])->timeout(5)->get($apiUrl . '/health');
+ 
+                 $status[$storeName] = [
+                     'status' => $response->successful() ? 'online' : 'offline',
+@@ -224,16 +224,16 @@
+         }
+ 
+         $response = Http::withHeaders([
+-            'Authorization' => 'Bearer '.$apiKey,
++            'Authorization' => 'Bearer ' . $apiKey,
+             'Accept' => 'application/json',
+-        ])->timeout(10)->get($apiUrl.'/search', [
++        ])->timeout(10)->get($apiUrl . '/search', [
+             'q' => $query,
+             'limit' => 20,
+             'filters' => $filters,
+         ]);
+ 
+         if (! $response->successful()) {
+-            throw new \Exception('API request failed: '.$response->body());
++            throw new \Exception('API request failed: ' . $response->body());
+         }
+ 
+         $data = $response->json();
+--- app/Http/Middleware/ThrottleSensitiveOperations.php
++++ PHP_CodeSniffer
+@@ -34,7 +34,7 @@
+             ]);
+ 
+             return response()->json([
+-                'message' => 'Too many attempts. Please try again in '.$seconds.' seconds.',
++                'message' => 'Too many attempts. Please try again in ' . $seconds . ' seconds.',
+                 'retry_after' => $seconds,
+             ], 429);
+         }
+--- app/Services/FactoryConfigurationService.php
++++ PHP_CodeSniffer
+@@ -8,13 +8,15 @@
+ 
+ final class FactoryConfigurationService
+ {
+-    public function __construct(private readonly string $factoryClass = Factory::class) {}
++    public function __construct(private readonly string $factoryClass = Factory::class)
++    {
++    }
+ 
+     public function configureNaming(): void
+     {
+         $factoryClass = $this->factoryClass;
+         $factoryClass::guessFactoryNamesUsing(
+-            static fn (string $modelName): string => 'Database\\Factories\\'.class_basename($modelName).'Factory'
++            static fn (string $modelName): string => 'Database\\Factories\\' . class_basename($modelName) . 'Factory'
+         );
+     }
+ }
+--- tests/TestUtilities/TestReportGenerator.php
++++ PHP_CodeSniffer
+@@ -91,7 +91,7 @@
+         $html = str_replace('{{COVERAGE}}', $this->generateCoverageHtml(), $html);
+         $html = str_replace('{{RECOMMENDATIONS}}', $this->generateRecommendationsHtml(), $html);
+ 
+-        $filename = $this->outputDirectory.'/test-report-'.date('Y-m-d-H-i-s').'.html';
++        $filename = $this->outputDirectory . '/test-report-' . date('Y-m-d-H-i-s') . '.html';
+         File::put($filename, $html);
+ 
+         return $filename;
+@@ -104,7 +104,7 @@
+     {
+         $json = json_encode($this->reportData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+ 
+-        $filename = $this->outputDirectory.'/test-report-'.date('Y-m-d-H-i-s').'.json';
++        $filename = $this->outputDirectory . '/test-report-' . date('Y-m-d-H-i-s') . '.json';
+         File::put($filename, $json);
+ 
+         return $filename;
+@@ -117,7 +117,7 @@
+     {
+         $xml = $this->arrayToXml($this->reportData, 'test_report');
+ 
+-        $filename = $this->outputDirectory.'/test-report-'.date('Y-m-d-H-i-s').'.xml';
++        $filename = $this->outputDirectory . '/test-report-' . date('Y-m-d-H-i-s') . '.xml';
+         File::put($filename, $xml);
+ 
+         return $filename;
+@@ -135,7 +135,7 @@
+         $dashboard = str_replace('{{SUCCESS_RATE}}', $this->reportData['summary']['success_rate'], $dashboard);
+         $dashboard = str_replace('{{COVERAGE}}', $this->reportData['summary']['coverage']['overall_coverage'], $dashboard);
+ 
+-        $filename = $this->outputDirectory.'/dashboard-'.date('Y-m-d-H-i-s').'.html';
++        $filename = $this->outputDirectory . '/dashboard-' . date('Y-m-d-H-i-s') . '.html';
+         File::put($filename, $dashboard);
+ 
+         return $filename;
+@@ -186,7 +186,7 @@
+ <body>
+     <div class="header">
+         <h1>Comprehensive Test Report</h1>
+-        <p>Generated on: '.now()->format('Y-m-d H:i:s').'</p>
++        <p>Generated on: ' . now()->format('Y-m-d H:i:s') . '</p>
+     </div>
+ 
+     <div class="section">
+@@ -273,11 +273,11 @@
+     {
+         $summary = $this->reportData['summary'];
+ 
+-        return '<div class="metric">Total Tests: '.$summary['total_tests'].'</div>
+-                <div class="metric success">Passed: '.$summary['passed'].'</div>
+-                <div class="metric error">Failed: '.$summary['failed'].'</div>
+-                <div class="metric">Success Rate: '.number_format($summary['success_rate'], 2).'%</div>
+-                <div class="metric">Overall Score: '.number_format($summary['overall_score'], 2).'%</div>';
++        return '<div class="metric">Total Tests: ' . $summary['total_tests'] . '</div>
++                <div class="metric success">Passed: ' . $summary['passed'] . '</div>
++                <div class="metric error">Failed: ' . $summary['failed'] . '</div>
++                <div class="metric">Success Rate: ' . number_format($summary['success_rate'], 2) . '%</div>
++                <div class="metric">Overall Score: ' . number_format($summary['overall_score'], 2) . '%</div>';
+     }
+ 
+     /**
+@@ -291,11 +291,11 @@
+ 
+         foreach ($unitTests['services'] as $serviceName => $serviceData) {
+             $html .= '<tr>
+-                <td>'.$serviceName.'</td>
+-                <td>'.$serviceData['total_tests'].'</td>
+-                <td class="success">'.$serviceData['passed'].'</td>
+-                <td class="error">'.$serviceData['failed'].'</td>
+-                <td>'.number_format($serviceData['success_rate'], 2).'%</td>
++                <td>' . $serviceName . '</td>
++                <td>' . $serviceData['total_tests'] . '</td>
++                <td class="success">' . $serviceData['passed'] . '</td>
++                <td class="error">' . $serviceData['failed'] . '</td>
++                <td>' . number_format($serviceData['success_rate'], 2) . '%</td>
+             </tr>';
+         }
+ 
+@@ -318,11 +318,11 @@
+             $statusClass = $workflowData['success'] ? 'success' : 'error';
+ 
+             $html .= '<tr>
+-                <td>'.$workflowData['name'].'</td>
+-                <td>'.$workflowData['total_steps'].'</td>
+-                <td class="success">'.$workflowData['passed_steps'].'</td>
+-                <td class="error">'.$workflowData['failed_steps'].'</td>
+-                <td class="'.$statusClass.'">'.$status.'</td>
++                <td>' . $workflowData['name'] . '</td>
++                <td>' . $workflowData['total_steps'] . '</td>
++                <td class="success">' . $workflowData['passed_steps'] . '</td>
++                <td class="error">' . $workflowData['failed_steps'] . '</td>
++                <td class="' . $statusClass . '">' . $status . '</td>
+             </tr>';
+         }
+ 
+@@ -338,12 +338,12 @@
+     {
+         $performanceTests = $this->reportData['performance_tests'];
+ 
+-        return '<div class="metric">Average Service Performance: '.
+-            number_format($performanceTests['summary']['average_service_performance'], 2).'%</div>
+-               <div class="metric">Database Performance: '.
+-            number_format($performanceTests['summary']['database_performance_score'], 2).'%</div>
+-               <div class="metric">API Performance: '.
+-            number_format($performanceTests['summary']['api_performance_score'], 2).'%</div>';
++        return '<div class="metric">Average Service Performance: ' .
++            number_format($performanceTests['summary']['average_service_performance'], 2) . '%</div>
++               <div class="metric">Database Performance: ' .
++            number_format($performanceTests['summary']['database_performance_score'], 2) . '%</div>
++               <div class="metric">API Performance: ' .
++            number_format($performanceTests['summary']['api_performance_score'], 2) . '%</div>';
+     }
+ 
+     /**
+@@ -353,10 +353,10 @@
+     {
+         $securityTests = $this->reportData['security_tests'];
+ 
+-        return '<div class="metric">Security Score: '.
+-            number_format($securityTests['summary']['security_score'], 2).'%</div>
+-               <div class="metric">Vulnerabilities Found: '.
+-            $securityTests['summary']['vulnerabilities_found'].'</div>';
++        return '<div class="metric">Security Score: ' .
++            number_format($securityTests['summary']['security_score'], 2) . '%</div>
++               <div class="metric">Vulnerabilities Found: ' .
++            $securityTests['summary']['vulnerabilities_found'] . '</div>';
+     }
+ 
+     /**
+@@ -366,14 +366,14 @@
+     {
+         $coverage = $this->reportData['coverage'];
+ 
+-        return '<div class="metric">Overall Coverage: '.
+-            number_format($coverage['overall_coverage'], 2).'%</div>
+-               <div class="metric">Line Coverage: '.
+-            number_format($coverage['line_coverage'], 2).'%</div>
+-               <div class="metric">Function Coverage: '.
+-            number_format($coverage['function_coverage'], 2).'%</div>
+-               <div class="metric">Class Coverage: '.
+-            number_format($coverage['class_coverage'], 2).'%</div>';
++        return '<div class="metric">Overall Coverage: ' .
++            number_format($coverage['overall_coverage'], 2) . '%</div>
++               <div class="metric">Line Coverage: ' .
++            number_format($coverage['line_coverage'], 2) . '%</div>
++               <div class="metric">Function Coverage: ' .
++            number_format($coverage['function_coverage'], 2) . '%</div>
++               <div class="metric">Class Coverage: ' .
++            number_format($coverage['class_coverage'], 2) . '%</div>';
+     }
+ 
+     /**
+@@ -383,10 +383,10 @@
+     {
+         $recommendations = $this->reportData['recommendations'];
+ 
+-        $html = '<h3>Recommendations ('.$recommendations['total'].' total)</h3><ul>';
++        $html = '<h3>Recommendations (' . $recommendations['total'] . ' total)</h3><ul>';
+ 
+         foreach ($recommendations['list'] as $recommendation) {
+-            $html .= '<li>'.htmlspecialchars($recommendation).'</li>';
++            $html .= '<li>' . htmlspecialchars($recommendation) . '</li>';
+         }
+ 
+         $html .= '</ul>';
+--- app/Services/FileCleanupService.php
++++ PHP_CodeSniffer
+@@ -96,7 +96,7 @@
+             $cutoffDate = Carbon::now()->subDays($retentionDays);
+ 
+             if (is_dir($logDirectory)) {
+-                $files = glob($logDirectory.'/*.log');
++                $files = glob($logDirectory . '/*.log');
+                 if ($files === false) {
+                     $files = [];
+                 }
+--- tests/TestUtilities/TestRunner.php
++++ PHP_CodeSniffer
+@@ -23,9 +23,9 @@
+ 
+     public function __construct()
+     {
+-        $this->comprehensiveRunner = new ComprehensiveTestRunner;
+-        $this->reportGenerator = new TestReportGenerator;
+-        $this->config = new TestConfiguration;
++        $this->comprehensiveRunner = new ComprehensiveTestRunner();
++        $this->reportGenerator = new TestReportGenerator();
++        $this->config = new TestConfiguration();
+     }
+ 
+     /**
+@@ -118,7 +118,7 @@
+      */
+     private function runUnitTests(array $options): array
+     {
+-        $serviceFactory = new ServiceTestFactory;
++        $serviceFactory = new ServiceTestFactory();
+         $results = $serviceFactory->runComprehensiveTests();
+ 
+         return [
+@@ -133,7 +133,7 @@
+      */
+     private function runIntegrationTests(array $options): array
+     {
+-        $integrationSuite = new IntegrationTestSuite;
++        $integrationSuite = new IntegrationTestSuite();
+         $results = $integrationSuite->runComprehensiveIntegrationTests();
+ 
+         return [
+@@ -148,7 +148,7 @@
+      */
+     private function runPerformanceTests(array $options): array
+     {
+-        $performanceSuite = new PerformanceTestSuite;
++        $performanceSuite = new PerformanceTestSuite();
+         $results = $performanceSuite->runComprehensivePerformanceTests();
+ 
+         return [
+@@ -163,7 +163,7 @@
+      */
+     private function runSecurityTests(array $options): array
+     {
+-        $securitySuite = new SecurityTestSuite;
++        $securitySuite = new SecurityTestSuite();
+         $results = $securitySuite->runComprehensiveSecurityTests();
+ 
+         return [
+@@ -233,7 +233,7 @@
+         $errors = TestConfiguration::validate();
+ 
+         if (! empty($errors)) {
+-            throw new \InvalidArgumentException('Configuration validation failed: '.implode(', ', $errors));
++            throw new \InvalidArgumentException('Configuration validation failed: ' . implode(', ', $errors));
+         }
+     }
+ 
+@@ -303,14 +303,14 @@
+ 
+         // Performance recommendations
+         if ($executionMetrics['total_execution_time'] > 300000) { // 5 minutes
+-            $recommendations[] = 'Consider optimizing test execution time - currently taking '.
+-                round($executionMetrics['total_execution_time'] / 1000, 2).' seconds';
++            $recommendations[] = 'Consider optimizing test execution time - currently taking ' .
++                round($executionMetrics['total_execution_time'] / 1000, 2) . ' seconds';
+         }
+ 
+         // Memory recommendations
+         if ($executionMetrics['peak_memory_usage'] > 500 * 1024 * 1024) { // 500MB
+-            $recommendations[] = 'Consider optimizing memory usage - peak usage was '.
+-                round($executionMetrics['peak_memory_usage'] / (1024 * 1024), 2).' MB';
++            $recommendations[] = 'Consider optimizing memory usage - peak usage was ' .
++                round($executionMetrics['peak_memory_usage'] / (1024 * 1024), 2) . ' MB';
+         }
+ 
+         // Coverage recommendations
+--- app/Services/FinancialTransactionService.php
++++ PHP_CodeSniffer
+@@ -12,7 +12,9 @@
+ 
+ final class FinancialTransactionService
+ {
+-    public function __construct(private readonly AuditService $auditService) {}
++    public function __construct(private readonly AuditService $auditService)
++    {
++    }
+ 
+     /**
+      * Update product price with transaction safety.
+--- tests/TestUtilities/TestSuiteValidator.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,7 @@
+ 
+     public function __construct()
+     {
+-        $this->config = new TestConfiguration;
++        $this->config = new TestConfiguration();
+     }
+ 
+     /**
+@@ -140,8 +140,8 @@
+         // Check memory usage
+         $maxMemoryUsage = TestConfiguration::get('performance_thresholds.memory_limit_mb', 50) * 1024 * 1024; // Convert to bytes
+         if (($executionMetrics['peak_memory_usage'] ?? 0) > $maxMemoryUsage) {
+-            $issues[] = 'Peak memory usage '.round(($executionMetrics['peak_memory_usage'] ?? 0) / (1024 * 1024), 2).'MB exceeds threshold '.
+-                round($maxMemoryUsage / (1024 * 1024), 2).'MB';
++            $issues[] = 'Peak memory usage ' . round(($executionMetrics['peak_memory_usage'] ?? 0) / (1024 * 1024), 2) . 'MB exceeds threshold ' .
++                round($maxMemoryUsage / (1024 * 1024), 2) . 'MB';
+             $score -= 20;
+         }
+ 
+@@ -225,14 +225,14 @@
+         // Check test execution time
+         $executionTime = $testResults['execution_metrics']['total_execution_time'] ?? 0;
+         if ($executionTime > 600000) { // 10 minutes
+-            $issues[] = 'Test execution time is too long: '.round($executionTime / 1000, 2).' seconds';
++            $issues[] = 'Test execution time is too long: ' . round($executionTime / 1000, 2) . ' seconds';
+             $score -= 15;
+         }
+ 
+         // Check memory efficiency
+         $memoryUsage = $testResults['execution_metrics']['peak_memory_usage'] ?? 0;
+         if ($memoryUsage > 200 * 1024 * 1024) { // 200MB
+-            $issues[] = 'Peak memory usage is too high: '.round($memoryUsage / (1024 * 1024), 2).'MB';
++            $issues[] = 'Peak memory usage is too high: ' . round($memoryUsage / (1024 * 1024), 2) . 'MB';
+             $score -= 10;
+         }
+ 
+@@ -291,7 +291,7 @@
+ 
+         // Configuration recommendations
+         if (! $validationResults['configuration']['valid']) {
+-            $recommendations[] = 'Fix configuration issues: '.implode(', ', $validationResults['configuration']['errors']);
++            $recommendations[] = 'Fix configuration issues: ' . implode(', ', $validationResults['configuration']['errors']);
+         }
+ 
+         // Coverage recommendations
+--- test_cache.php
++++ PHP_CodeSniffer
+@@ -12,13 +12,13 @@
+ $product = App\Models\Product::first();
+ 
+ if ($product) {
+-    echo 'Product found: '.$product->name.PHP_EOL;
+-    echo 'Avg rating: '.$product->getAverageRating().PHP_EOL;
+-    echo 'Total reviews: '.$product->getTotalReviews().PHP_EOL;
+-    echo 'Current price: '.$product->getCurrentPrice().PHP_EOL;
+-    echo 'Is in wishlist (user 1): '.($product->isInWishlist(1) ? 'Yes' : 'No').PHP_EOL;
++    echo 'Product found: ' . $product->name . PHP_EOL;
++    echo 'Avg rating: ' . $product->getAverageRating() . PHP_EOL;
++    echo 'Total reviews: ' . $product->getTotalReviews() . PHP_EOL;
++    echo 'Current price: ' . $product->getCurrentPrice() . PHP_EOL;
++    echo 'Is in wishlist (user 1): ' . ($product->isInWishlist(1) ? 'Yes' : 'No') . PHP_EOL;
+ } else {
+-    echo 'No products found'.PHP_EOL;
++    echo 'No products found' . PHP_EOL;
+ }
+ 
+ echo "Cache test completed.\n";
+--- app/Services/LoginAttemptService.php
++++ PHP_CodeSniffer
+@@ -63,7 +63,7 @@
+      */
+     private function recordIpAttempt(string $ip): void
+     {
+-        $key = self::IP_PREFIX.hash('sha256', $ip);
++        $key = self::IP_PREFIX . hash('sha256', $ip);
+         $attempts = Cache::get($key, []);
+ 
+         if (! is_array($attempts)) {
+@@ -86,7 +86,7 @@
+      */
+     private function recordEmailAttempt(string $email, string $ip, string $userAgent): void
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+         $attempts = Cache::get($key, []);
+ 
+         if (! is_array($attempts)) {
+@@ -110,7 +110,7 @@
+      */
+     private function clearEmailAttempts(string $email): void
+     {
+-        $key = self::CACHE_PREFIX.hash('sha256', $email);
++        $key = self::CACHE_PREFIX . hash('sha256', $email);
+         Cache::forget($key);
+     }
+ 
+@@ -119,7 +119,7 @@
+      */
+     private function clearIpAttempts(string $ip): void
+     {
+-        $key = self::IP_PREFIX.hash('sha256', $ip);
++        $key = self::IP_PREFIX . hash('sha256', $ip);
+         Cache::forget($key);
+     }
+ }
+--- test_cache_service.php
++++ PHP_CodeSniffer
+@@ -22,7 +22,7 @@
+         echo "Popular products cache is empty (expected if no data).\n";
+     }
+ } catch (Exception $e) {
+-    echo 'Error: '.$e->getMessage()."\n";
++    echo 'Error: ' . $e->getMessage() . "\n";
+ }
+ 
+ echo "CacheService test completed.\n";
+--- test_optimized_queries.php
++++ PHP_CodeSniffer
+@@ -15,18 +15,18 @@
+     // Test dashboard analytics
+     $analytics = $queryService->getDashboardAnalytics();
+     echo "Dashboard analytics retrieved successfully.\n";
+-    echo 'Total users: '.$analytics['total_users']."\n";
+-    echo 'Total products: '.$analytics['total_products']."\n";
++    echo 'Total users: ' . $analytics['total_users'] . "\n";
++    echo 'Total products: ' . $analytics['total_products'] . "\n";
+ 
+     // Test popular products
+     $popularProducts = $queryService->getPopularProducts(5);
+-    echo 'Popular products retrieved successfully. Count: '.$popularProducts->count()."\n";
++    echo 'Popular products retrieved successfully. Count: ' . $popularProducts->count() . "\n";
+ 
+     // Test product search
+     $searchResults = $queryService->searchProducts('test', 10);
+-    echo 'Product search completed successfully. Total results: '.$searchResults->total()."\n";
++    echo 'Product search completed successfully. Total results: ' . $searchResults->total() . "\n";
+ } catch (Exception $e) {
+-    echo 'Error: '.$e->getMessage()."\n";
++    echo 'Error: ' . $e->getMessage() . "\n";
+ }
+ 
+ echo "OptimizedQueryService test completed.\n";
+--- app/Services/NotificationService.php
++++ PHP_CodeSniffer
+@@ -16,7 +16,9 @@
+ 
+ final class NotificationService
+ {
+-    public function __construct(private readonly AuditService $auditService) {}
++    public function __construct(private readonly AuditService $auditService)
++    {
++    }
+ 
+     /**
+      * Send price drop notification.
+--- app/Services/OptimizedQueryService.php
++++ PHP_CodeSniffer
+@@ -86,7 +86,7 @@
+ 
+         if (! empty($filters['search']) && method_exists($query, 'where')) {
+             $searchTerm = is_string($filters['search']) ? $filters['search'] : '';
+-            $query->where('name', 'LIKE', '%'.$searchTerm.'%');
++            $query->where('name', 'LIKE', '%' . $searchTerm . '%');
+         }
+ 
+         // Order by most relevant (can be customized)
+--- app/Services/PasswordHistoryService.php
++++ PHP_CodeSniffer
+@@ -31,7 +31,7 @@
+ 
+             return false;
+         } catch (Exception $e) {
+-            Log::error('Password history check failed: '.$e->getMessage());
++            Log::error('Password history check failed: ' . $e->getMessage());
+ 
+             return false;
+         }
+@@ -58,7 +58,7 @@
+ 
+             Log::info("Password saved to history for user {$userId}");
+         } catch (Exception $e) {
+-            Log::error('Failed to save password to history: '.$e->getMessage());
++            Log::error('Failed to save password to history: ' . $e->getMessage());
+         }
+     }
+ 
+

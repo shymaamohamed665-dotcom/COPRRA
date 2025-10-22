@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 /**
@@ -20,3 +22,5 @@ class AITest extends TestCase
         $this->assertTrue(true);
     }
 }
+
+

@@ -15,12 +15,17 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          submodules: false
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.4'
           extensions: bcmath, ctype, fileinfo, json, mbstring, openssl, pdo_mysql, tokenizer, xml, gd, zip
+          tools: composer:v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,21 +33,14 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Cache Composer Dependencies
+      - name: Cache Composer cache
         uses: actions/cache@v4
         with:
-          path: vendor
+          path: ~/.composer/cache/files
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
 
-      - name: Cache NPM Dependencies
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-
 
       - name: Install Composer Dependencies
         run: composer install --prefer-dist --no-progress --no-ansi --optimize-autoloader --no-scripts
@@ -66,7 +64,7 @@ jobs:
         run: vendor/bin/phpmd app text phpmd.xml --rulesets cleancode,unusedcode,design,controversial,naming,codesize
 
       - name: Run ESLint Security Rules
-        run: npx eslint resources/js --ext .js,.vue,.ts --config=eslint.config.js --rule 'security/detect-object-injection: error'
+        run: "npx eslint resources/js --ext .js,.vue,.ts --config=eslint.config.js --rule 'security/detect-object-injection: error'"
 
       - name: Run Stylelint Security Rules
         run: npx stylelint "resources/**/*.{css,scss,vue}" --config=.stylelintrc.json
@@ -83,10 +81,99 @@ jobs:
       - name: Run Infection Security Testing
         run: vendor/bin/infection --configuration=infection.json.dist --min-msi=80 --min-covered-msi=80
 
+      - name: Run Gitleaks (Secrets Scan)
+        run: sudo docker run --rm -v "${{ github.workspace }}:/repo" zricethezav/gitleaks:latest detect -s /repo --no-git -f json -r /repo/gitleaks-report.json
+
+      - name: Run Enlightn Security Checker
+        continue-on-error: true
+        run: ./vendor/bin/security-checker security:check --format=json > security-checker-report.json
+
+      - name: Evaluate Enlightn Results
+        id: enlightn_evaluate
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            let count = 0;
+            let errorMsg = null;
+            try {
+              const raw = fs.readFileSync('security-checker-report.json', 'utf8');
+              const data = JSON.parse(raw);
+              if (Array.isArray(data)) {
+                count = 0;
+              } else if (data && typeof data === 'object') {
+                if (data.error) {
+                  errorMsg = data.error;
+                } else {
+                  count = Object.keys(data).length;
+                }
+              }
+            } catch (e) {
+              errorMsg = e.message;
+            }
+            core.setOutput('vuln_packages', String(count));
+            if (errorMsg) {
+              core.warning(`Enlightn checker error: ${errorMsg}`);
+            }
+            if (count > 0) {
+              core.setFailed(`Enlightn: found ${count} vulnerable package(s).`);
+            }
+
+      - name: Comment on Pull Request (Enlightn)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = 'security-checker-report.json';
+            const header = '🛡️ Enlightn Security Checker Results';
+            let body;
+            try {
+              const raw = fs.readFileSync(path, 'utf8');
+              const data = JSON.parse(raw);
+              if (Array.isArray(data)) {
+                body = `${header}\n\n✅ لا توجد ثغرات أمنية.`;
+              } else if (data && data.error) {
+                body = `${header}\n\n⚠️ حدث خطأ أثناء التشغيل: ${data.error}`;
+              } else {
+                const entries = Object.entries(data);
+                const count = entries.length;
+                if (count === 0) {
+                  body = `${header}\n\n✅ لا توجد ثغرات أمنية.`;
+                } else {
+                  const list = entries.slice(0, 10).map(([pkg, info]) => {
+                    const advs = Array.isArray(info.advisories) ? info.advisories : [];
+                    const first = advs[0]?.title ? ` — ${advs[0].title}` : '';
+                    return `- ${pkg} (${advs.length} advisories)${first}`;
+                  }).join('\n');
+                  body = `${header}\n\n❌ تم العثور على ${count} حزمة (packages) تحتوي على ثغرات:\n${list}\n\nراجع الملف المرفق \`security-checker-report.json\` للتفاصيل الكاملة.`;
+                }
+              }
+            } catch (e) {
+              body = `${header}\n\n⚠️ تعذر قراءة التقرير: ${e.message}`;
+            }
+            const marker = '<!-- enlightn-security-checker -->';
+            const fullBody = `${marker}\n${body}`;
+            const {owner, repo} = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const { data: comments } = await github.rest.issues.listComments({owner, repo, issue_number});
+            const existing = comments.find(c => c.user.type === 'Bot' && c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({owner, repo, comment_id: existing.id, body: fullBody});
+            } else {
+              await github.rest.issues.createComment({owner, repo, issue_number, body: fullBody});
+            }
+
       - name: Upload Security Reports
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: security-reports
           path: |
             composer-security-report.json
             npm-security-report.json
+            gitleaks-report.json
+            security-checker-report.json
+          retention-days: 7

@@ -1,0 +1,13 @@
+Test #15: PHPCPD - Strict Mode
+Command: ./vendor/bin/phpcpd app/ --min-lines=2 --min-tokens=30
+Execution Time: 3.42s
+Exit Code: 255
+================================================================================
+STDOUT:
+
+Deprecated: ini_set(): Use of mbstring.internal_encoding is deprecated in /var/www/html/vendor/sebastian/phpcpd/phpcpd on line 47
+
+Fatal error: Declaration of SebastianBergmann\PHPCPD\CLI\Application::doRun(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output) must be compatible with Symfony\Component\Console\Application::doRun(Symfony\Component\Console\Input\InputInterface $input, Symfony\Component\Console\Output\OutputInterface $output): int in /var/www/html/vendor/sebastian/phpcpd/src/CLI/Application.php on line 116
+
+================================================================================
+STDERR:

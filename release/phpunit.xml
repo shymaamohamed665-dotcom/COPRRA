@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="true"
+         backupGlobals="true"
+         cacheDirectory=".phpunit.cache"
+         beStrictAboutChangesToGlobalState="true"
+         executionOrder="random"
+         resolveDependencies="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         failOnDeprecation="true"
+         displayDetailsOnTestsThatTriggerDeprecations="true"
+         displayDetailsOnTestsThatTriggerErrors="true"
+         displayDetailsOnTestsThatTriggerNotices="true"
+         displayDetailsOnTestsThatTriggerWarnings="true">
+  <testsuites>
+    <testsuite name="Unit">
+      <directory suffix="Test.php">./tests/Unit</directory>
+    </testsuite>
+    <testsuite name="Feature">
+      <directory suffix="Test.php">./tests/Feature</directory>
+    </testsuite>
+    <testsuite name="AI">
+      <directory suffix="Test.php">./tests/AI</directory>
+      <exclude>
+        ./tests/AI/AIBaseTestCase.php
+        ./tests/AI/MockAIService.php
+      </exclude>
+    </testsuite>
+    <testsuite name="Security">
+      <directory suffix="Test.php">./tests/Security</directory>
+    </testsuite>
+    <testsuite name="Performance">
+      <directory suffix="Test.php">./tests/Performance</directory>
+    </testsuite>
+    <testsuite name="Integration">
+      <directory suffix="Test.php">./tests/Integration</directory>
+    </testsuite>
+  </testsuites>
+  <php>
+    <env name="APP_ENV" value="testing"/>
+    <env name="APP_DEBUG" value="false"/>
+    <env name="APP_KEY" value="base64:2fl+K+k3WPMO+QrdnDWEbVjQo7EjXQYWmYNgayUk5P0="/>
+    <env name="BCRYPT_ROUNDS" value="4"/>
+    <env name="CACHE_DRIVER" value="array"/>
+    <env name="DB_CONNECTION" value="sqlite"/>
+    <env name="DB_DATABASE" value=":memory:"/>
+    <env name="DB_FOREIGN_KEYS" value="true"/>
+    <env name="DB_HOST" value=""/>
+    <env name="DB_PORT" value=""/>
+    <env name="DB_USERNAME" value=""/>
+    <env name="DB_PASSWORD" value=""/>
+    <env name="MAIL_MAILER" value="array"/>
+    <env name="QUEUE_CONNECTION" value="sync"/>
+    <env name="SESSION_DRIVER" value="array"/>
+    <env name="TELESCOPE_ENABLED" value="false"/>
+    <env name="TELESCOPE_STORAGE_DRIVER" value="array"/>
+    <env name="TELESCOPE_DB_CONNECTION" value="testing"/>
+    <env name="REDIS_CLIENT" value="predis"/>
+    <env name="BROADCAST_DRIVER" value="null"/>
+
+    <!-- Test credentials - safe fake values for testing -->
+    <env name="TEST_BLOCKCHAIN_VERIFICATION_KEY" value="fake-verification-key"/>
+    <env name="TEST_BLOCKCHAIN_TOKEN_ADDRESS" value="fake-token-address"/>
+    <env name="TEST_GENERIC_API_KEY" value="fake-api-key"/>
+    <env name="TEST_GENERIC_SECRET" value="fake-secret"/>
+    <env name="TEST_AUTH_PASSWORD" value="password"/>
+    <env name="TEST_ENCRYPTION_KEY" value="fake-encryption-key"/>
+    <env name="TEST_STRIPE_KEY" value="sk_test_fake_stripe_key"/>
+
+    <ini name="error_reporting" value="E_ALL"/>
+    <ini name="display_errors" value="0"/>
+    <ini name="log_errors" value="1"/>
+  </php>
+  <!-- Simplified configuration to reduce XML parsing and memory usage -->
+</phpunit>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 use Mockery;
@@ -55,14 +57,14 @@ class AIAccuracyTest extends TestCase
     public static function sentimentAnalysisDataProvider(): array
     {
         return [
-            'positive_arabic_text' => ['منتج ممتاز ورائع', 'positive', 0.7],
-            'negative_arabic_text' => ['منتج سيء ومخيب للآمال', 'negative', 0.7],
-            'neutral_arabic_text' => ['منتج عادي ولا بأس به', 'neutral', 0.6],
-            'strong_positive' => ['أفضل منتج اشتريته على الإطلاق', 'positive', 0.8],
-            'strong_negative' => ['أسوأ منتج في السوق', 'negative', 0.8],
-            'mixed_sentiment' => ['المنتج جيد لكن السعر مرتفع', 'neutral', 0.5],
+            'positive_arabic_text' => ['Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø² ÙˆØ±Ø§Ø¦Ø¹', 'positive', 0.7],
+            'negative_arabic_text' => ['Ù…Ù†ØªØ¬ Ø³ÙŠØ¡ ÙˆÙ…Ø®ÙŠØ¨ Ù„Ù„Ø¢Ù…Ø§Ù„', 'negative', 0.7],
+            'neutral_arabic_text' => ['Ù…Ù†ØªØ¬ Ø¹Ø§Ø¯ÙŠ ÙˆÙ„Ø§ Ø¨Ø£Ø³ Ø¨Ù‡', 'neutral', 0.6],
+            'strong_positive' => ['Ø£ÙØ¶Ù„ Ù…Ù†ØªØ¬ Ø§Ø´ØªØ±ÙŠØªÙ‡ Ø¹Ù„Ù‰ Ø§Ù„Ø¥Ø·Ù„Ø§Ù‚', 'positive', 0.8],
+            'strong_negative' => ['Ø£Ø³ÙˆØ£ Ù…Ù†ØªØ¬ ÙÙŠ Ø§Ù„Ø³ÙˆÙ‚', 'negative', 0.8],
+            'mixed_sentiment' => ['Ø§Ù„Ù…Ù†ØªØ¬ Ø¬ÙŠØ¯ Ù„ÙƒÙ† Ø§Ù„Ø³Ø¹Ø± Ù…Ø±ØªÙØ¹', 'neutral', 0.5],
             'empty_text' => ['', 'neutral', 0.0],
-            'special_characters' => ['منتج!!! رائع @#$%', 'positive', 0.6],
+            'special_characters' => ['Ù…Ù†ØªØ¬!!! Ø±Ø§Ø¦Ø¹ @#$%', 'positive', 0.6],
         ];
     }
 
@@ -84,7 +86,7 @@ class AIAccuracyTest extends TestCase
         $this->assertNotEmpty($result['category'], 'Category should not be empty');
 
         // Validate that the category is one of the expected categories
-        $validCategories = ['إلكترونيات', 'ملابس', 'أدوات منزلية', 'كتب', 'رياضة'];
+        $validCategories = ['Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª', 'Ù…Ù„Ø§Ø¨Ø³', 'Ø£Ø¯ÙˆØ§Øª Ù…Ù†Ø²Ù„ÙŠØ©', 'ÙƒØªØ¨', 'Ø±ÙŠØ§Ø¶Ø©'];
         $this->assertContains($result['category'], $validCategories, 'Classification should return a valid category');
 
         // Validate confidence
@@ -96,33 +98,33 @@ class AIAccuracyTest extends TestCase
     {
         return [
             'electronics_phone' => [
-                ['name' => 'هاتف آيفون', 'description' => 'هاتف ذكي'],
-                'إلكترونيات',
+                ['name' => 'Ù‡Ø§ØªÙ Ø¢ÙŠÙÙˆÙ†', 'description' => 'Ù‡Ø§ØªÙ Ø°ÙƒÙŠ'],
+                'Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª',
                 0.8,
             ],
             'clothing_shirt' => [
-                ['name' => 'قميص قطني', 'description' => 'ملابس رجالية'],
-                'ملابس',
+                ['name' => 'Ù‚Ù…ÙŠØµ Ù‚Ø·Ù†ÙŠ', 'description' => 'Ù…Ù„Ø§Ø¨Ø³ Ø±Ø¬Ø§Ù„ÙŠØ©'],
+                'Ù…Ù„Ø§Ø¨Ø³',
                 0.7,
             ],
             'books_programming' => [
-                ['name' => 'كتاب البرمجة', 'description' => 'كتاب تعليمي'],
-                'كتب',
+                ['name' => 'ÙƒØªØ§Ø¨ Ø§Ù„Ø¨Ø±Ù…Ø¬Ø©', 'description' => 'ÙƒØªØ§Ø¨ ØªØ¹Ù„ÙŠÙ…ÙŠ'],
+                'ÙƒØªØ¨',
                 0.9,
             ],
             'sports_football' => [
-                ['name' => 'كرة قدم', 'description' => 'أدوات رياضية'],
-                'رياضة',
+                ['name' => 'ÙƒØ±Ø© Ù‚Ø¯Ù…', 'description' => 'Ø£Ø¯ÙˆØ§Øª Ø±ÙŠØ§Ø¶ÙŠØ©'],
+                'Ø±ÙŠØ§Ø¶Ø©',
                 0.8,
             ],
             'furniture_chair' => [
-                ['name' => 'مقعد خشبي', 'description' => 'أثاث للحديقة'],
-                'منزل وحديقة',
+                ['name' => 'Ù…Ù‚Ø¹Ø¯ Ø®Ø´Ø¨ÙŠ', 'description' => 'Ø£Ø«Ø§Ø« Ù„Ù„Ø­Ø¯ÙŠÙ‚Ø©'],
+                'Ù…Ù†Ø²Ù„ ÙˆØ­Ø¯ÙŠÙ‚Ø©',
                 0.7,
             ],
             'empty_data' => [
                 ['name' => '', 'description' => ''],
-                'غير محدد',
+                'ØºÙŠØ± Ù…Ø­Ø¯Ø¯',
                 0.0,
             ],
         ];
@@ -173,18 +175,18 @@ class AIAccuracyTest extends TestCase
     {
         return [
             'laptop_description' => [
-                'لابتوب ديل عالي الأداء',
-                ['لابتوب', 'ديل', 'أداء'],
+                'Ù„Ø§Ø¨ØªÙˆØ¨ Ø¯ÙŠÙ„ Ø¹Ø§Ù„ÙŠ Ø§Ù„Ø£Ø¯Ø§Ø¡',
+                ['Ù„Ø§Ø¨ØªÙˆØ¨', 'Ø¯ÙŠÙ„', 'Ø£Ø¯Ø§Ø¡'],
                 2,
             ],
             'phone_description' => [
-                'هاتف سامسونج جالاكسي',
-                ['هاتف', 'سامسونج', 'جالاكسي'],
+                'Ù‡Ø§ØªÙ Ø³Ø§Ù…Ø³ÙˆÙ†Ø¬ Ø¬Ø§Ù„Ø§ÙƒØ³ÙŠ',
+                ['Ù‡Ø§ØªÙ', 'Ø³Ø§Ù…Ø³ÙˆÙ†Ø¬', 'Ø¬Ø§Ù„Ø§ÙƒØ³ÙŠ'],
                 3,
             ],
             'clothing_description' => [
-                'قميص قطني أزرق',
-                ['قميص', 'قطني', 'أزرق'],
+                'Ù‚Ù…ÙŠØµ Ù‚Ø·Ù†ÙŠ Ø£Ø²Ø±Ù‚',
+                ['Ù‚Ù…ÙŠØµ', 'Ù‚Ø·Ù†ÙŠ', 'Ø£Ø²Ø±Ù‚'],
                 3,
             ],
             'empty_text' => [
@@ -193,8 +195,8 @@ class AIAccuracyTest extends TestCase
                 0,
             ],
             'single_word' => [
-                'منتج',
-                ['منتج'],
+                'Ù…Ù†ØªØ¬',
+                ['Ù…Ù†ØªØ¬'],
                 1,
             ],
         ];
@@ -236,21 +238,21 @@ class AIAccuracyTest extends TestCase
         return [
             'electronics_preference' => [
                 [
-                    'categories' => ['إلكترونيات'],
+                    'categories' => ['Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª'],
                     'price_range' => [1000, 5000],
-                    'brands' => ['سامسونج', 'أبل'],
+                    'brands' => ['Ø³Ø§Ù…Ø³ÙˆÙ†Ø¬', 'Ø£Ø¨Ù„'],
                 ],
                 [
-                    ['id' => '1', 'category' => 'إلكترونيات', 'price' => 2000, 'brand' => 'سامسونج'],
-                    ['id' => '2', 'category' => 'ملابس', 'price' => 100, 'brand' => 'أديداس'],
+                    ['id' => '1', 'category' => 'Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª', 'price' => 2000, 'brand' => 'Ø³Ø§Ù…Ø³ÙˆÙ†Ø¬'],
+                    ['id' => '2', 'category' => 'Ù…Ù„Ø§Ø¨Ø³', 'price' => 100, 'brand' => 'Ø£Ø¯ÙŠØ¯Ø§Ø³'],
                 ],
                 1,
             ],
             'empty_products' => [
                 [
-                    'categories' => ['إلكترونيات'],
+                    'categories' => ['Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª'],
                     'price_range' => [1000, 5000],
-                    'brands' => ['سامسونج'],
+                    'brands' => ['Ø³Ø§Ù…Ø³ÙˆÙ†Ø¬'],
                 ],
                 [],
                 0,
@@ -258,7 +260,7 @@ class AIAccuracyTest extends TestCase
             'no_preferences' => [
                 [],
                 [
-                    ['id' => '1', 'category' => 'إلكترونيات', 'price' => 2000],
+                    ['id' => '1', 'category' => 'Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª', 'price' => 2000],
                 ],
                 0,
             ],
@@ -306,17 +308,17 @@ class AIAccuracyTest extends TestCase
         return [
             'phone_image' => [
                 'test-phone.jpg',
-                ['هاتف', 'إلكترونيات'],
+                ['Ù‡Ø§ØªÙ', 'Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª'],
                 2,
             ],
             'laptop_image' => [
                 'test-laptop.jpg',
-                ['لابتوب', 'كمبيوتر'],
+                ['Ù„Ø§Ø¨ØªÙˆØ¨', 'ÙƒÙ…Ø¨ÙŠÙˆØªØ±'],
                 2,
             ],
             'shirt_image' => [
                 'test-shirt.jpg',
-                ['قميص', 'ملابس'],
+                ['Ù‚Ù…ÙŠØµ', 'Ù…Ù„Ø§Ø¨Ø³'],
                 2,
             ],
             'invalid_image' => [
@@ -359,10 +361,10 @@ class AIAccuracyTest extends TestCase
     public static function confidenceScoreDataProvider(): array
     {
         return [
-            'clear_positive' => ['منتج رائع وممتاز', 0.8, 1.0],
-            'clear_negative' => ['منتج سيء جداً', 0.8, 1.0],
-            'neutral_text' => ['منتج عادي', 0.5, 1.0],
-            'ambiguous_text' => ['منتج جيد لكن...', 0.3, 1.0],
+            'clear_positive' => ['Ù…Ù†ØªØ¬ Ø±Ø§Ø¦Ø¹ ÙˆÙ…Ù…ØªØ§Ø²', 0.8, 1.0],
+            'clear_negative' => ['Ù…Ù†ØªØ¬ Ø³ÙŠØ¡ Ø¬Ø¯Ø§Ù‹', 0.8, 1.0],
+            'neutral_text' => ['Ù…Ù†ØªØ¬ Ø¹Ø§Ø¯ÙŠ', 0.5, 1.0],
+            'ambiguous_text' => ['Ù…Ù†ØªØ¬ Ø¬ÙŠØ¯ Ù„ÙƒÙ†...', 0.3, 1.0],
             'empty_text' => ['', 0.0, 1.0],
         ];
     }
@@ -400,17 +402,17 @@ class AIAccuracyTest extends TestCase
     {
         return [
             'positive_feedback' => [
-                'منتج جيد',
+                'Ù…Ù†ØªØ¬ Ø¬ÙŠØ¯',
                 'positive',
                 'improved_confidence',
             ],
             'negative_feedback' => [
-                'منتج ممتاز',
+                'Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø²',
                 'negative',
                 'adjusted_sentiment',
             ],
             'neutral_feedback' => [
-                'منتج عادي',
+                'Ù…Ù†ØªØ¬ Ø¹Ø§Ø¯ÙŠ',
                 'neutral',
                 'maintained_accuracy',
             ],
@@ -428,7 +430,7 @@ class AIAccuracyTest extends TestCase
         $this->assertArrayHasKey('confidence', $result, 'Should have confidence');
 
         // Test with extremely long text
-        $longText = str_repeat('منتج رائع ', 1000); // Reduced length for testing
+        $longText = str_repeat('Ù…Ù†ØªØ¬ Ø±Ø§Ø¦Ø¹ ', 1000); // Reduced length for testing
         $result = $this->aiService->analyzeText($longText);
         $this->assertIsArray($result, 'Should handle long text');
         $this->assertArrayHasKey('result', $result, 'Should process long text');
@@ -436,7 +438,7 @@ class AIAccuracyTest extends TestCase
         $this->assertArrayHasKey('confidence', $result, 'Should have confidence');
 
         // Test with special characters
-        $specialText = 'منتج!!! @#$%^&*()_+{}|:"<>?[]\\;\'.,/';
+        $specialText = 'Ù…Ù†ØªØ¬!!! @#$%^&*()_+{}|:"<>?[]\\;\'.,/';
         $result = $this->aiService->analyzeText($specialText);
         $this->assertIsArray($result, 'Should handle special characters');
         $this->assertArrayHasKey('result', $result, 'Should process special characters');

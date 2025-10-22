@@ -9,12 +9,12 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * Unit tests for the Notification model.
- *
- * @covers \App\Models\Notification
  */
+#[CoversClass(Notification::class)]
 class NotificationTest extends TestCase
 {
     /**
@@ -492,3 +492,4 @@ class NotificationTest extends TestCase
         $this->assertFalse($notification->hasTag('normal'));
     }
 }
+

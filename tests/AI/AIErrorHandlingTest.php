@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 use App\Services\AIService;
@@ -116,3 +118,5 @@ class AIErrorHandlingTest extends TestCase
         $this->assertCount(5, $results);
     }
 }
+
+

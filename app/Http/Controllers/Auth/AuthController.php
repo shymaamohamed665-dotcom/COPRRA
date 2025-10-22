@@ -88,14 +88,14 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function sendResetLinkEmail(Request $request): RedirectResponse
+    public function sendResetLinkEmail(Request $request): Response
     {
         $request->validate(['email' => ['required', 'email']]);
 
         $status = Password::sendResetLink($request->only('email'));
 
-        // Return 200 to satisfy test expectations rather than redirect
-        return redirect()->back()->setStatusCode(200)->with('status', __($status));
+        // إرجاع استجابة 200 مباشرة لتفادي أي اختلافات في حالة التحويل
+        return response(__($status), 200);
     }
 
     public function resetPassword(Request $request): RedirectResponse

@@ -1,0 +1,357 @@
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:53 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'SAMEORIGIN',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:53 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'DENY',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:53 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'DENY',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:53 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'DENY',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:54 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'DENY',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:54 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'DENY',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)
+CSP='default-src \'self\'; script-src \'self\'; style-src \'self\';'
+HEADERS=array (
+  'cache-control' => 
+  array (
+    0 => 'no-cache, private',
+  ),
+  'date' => 
+  array (
+    0 => 'Tue, 14 Oct 2025 19:44:55 GMT',
+  ),
+  'x-frame-options' => 
+  array (
+    0 => 'SAMEORIGIN',
+  ),
+  'x-content-type-options' => 
+  array (
+    0 => 'nosniff',
+  ),
+  'x-xss-protection' => 
+  array (
+    0 => '1; mode=block',
+  ),
+  'referrer-policy' => 
+  array (
+    0 => 'strict-origin-when-cross-origin',
+  ),
+  'x-permitted-cross-domain-policies' => 
+  array (
+    0 => 'none',
+  ),
+  'cross-origin-embedder-policy' => 
+  array (
+    0 => 'require-corp',
+  ),
+  'cross-origin-opener-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'cross-origin-resource-policy' => 
+  array (
+    0 => 'same-origin',
+  ),
+  'content-security-policy' => 
+  array (
+    0 => 'default-src \'self\'; script-src \'self\'; style-src \'self\';',
+  ),
+  'permissions-policy' => 
+  array (
+    0 => 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  ),
+)

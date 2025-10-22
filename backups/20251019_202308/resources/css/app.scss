@@ -1,0 +1,731 @@
+/* Variables */
+$primary-color: #3b82f6;
+$secondary-color: #64748b;
+$success-color: #10b981;
+$warning-color: #f59e0b;
+$error-color: #ef4444;
+$info-color: #06b6d4;
+
+$font-family-base:
+    "Inter",
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+
+$border-radius-sm: 0.25rem;
+$border-radius-md: 0.5rem;
+$border-radius-lg: 0.75rem;
+$border-radius-xl: 1rem;
+
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
+$shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -1px rgb(0 0 0 / 6%);
+$shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -2px rgb(0 0 0 / 5%);
+$shadow-xl:
+    0 20px 25px -5px rgb(0 0 0 / 10%),
+    0 10px 10px -5px rgb(0 0 0 / 4%);
+
+// Mixins
+@mixin button-variant($color, $background, $border) {
+    color: $color;
+    background-color: $background;
+    border-color: $border;
+
+    &:hover {
+        background-color: darken($background, 10%);
+        border-color: darken($border, 10%);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($background, 0.25);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+@mixin card {
+    background: white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    padding: $spacing-lg;
+    margin-bottom: $spacing-lg;
+}
+
+@mixin form-input {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    border: 2px solid #d1d5db;Thickerborderforbettervisibilityborder-radius
+    font-size: $font-size-base;font-sizefont-sizefont-sizefont-size
+    line-height: $line-height-base;line-heightline-heightline-height
+    min-height: 44px;min-heightmin-height // Minimum touch target size
+    color: #1f2937;MinimumtouchtargetsizecolorMinimumtouchtargetsizecolorMinimumtouchtargetsizecolorMinimumtouchtargetsizecolorMinimumtouchtargetsizecolor // Darker text for better contrast
+
+    &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+
+    &:invalid {
+        border-color: $error-color;
+        box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+    }
+
+    &:disabled {
+        background-color: #f9fafb;
+        color: #6b7280;
+        cursor: not-allowed;
+    }
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (width <= 767px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet {
+        @media (width >= 768px) and (width <= 1023px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == desktop {
+        @media (width >= 1024px) {
+            @content;
+        }
+    }
+}
+
+// Base styles
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: #374151;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
+}
+
+// Accessibility improvements
+*:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+}
+
+// Screen reader only content
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// Skip links for keyboard navigation
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: $primary-color;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 1000;
+
+    &:focus {
+        top: 6px;
+    }
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 $spacing-md;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+
+h2 {
+    font-size: 1.875rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.125rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin: 0 0 $spacing-md;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Layout
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include responsive(mobile) {
+        padding: 0 $spacing-sm;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -$spacing-sm;
+}
+
+.col {
+    flex: 1;
+    padding: 0 $spacing-sm;
+
+    @include responsive(mobile) {
+        flex: 100%;
+        margin-bottom: $spacing-md;
+    }
+}
+
+// Components
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid transparent;
+    border-radius: $border-radius-md;
+    font-size: $font-size-base;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    min-height: 44px; // Minimum touch target size for accessibility
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    &:focus {
+        outline: 2px solid $primary-color;
+        outline-offset: 2px;
+    }
+
+    &.btn-primary {
+        @include button-variant(white, $primary-color, $primary-color);
+
+Ensuresufficientcontrastbackground-color // Darker blue for better contrast
+        border-color: #2563eb;Darkerblueforbettercontrastborder-color
+
+darkerblueforbettercontrastborder-colordarkerblueforbettercontrastborder-color
+
+darkerblueforbettercontrastborder-colordarkerblueforbettercontrastborder-color
+
+        &:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+    }
+
+    &.btn-secondary {
+        @include button-variant(
+            #1f2937,
+            white,
+            #d1d5db
+        );
+
+ // Darker text for better contrast
+        border-color: #d1d5db;Darkertextforbettercontrastborder-color
+
+darkertextforbettercontrastborder-colordarkertextforbettercontrastborder-color
+
+darkertextforbettercontrastborder-colordarkertextforbettercontrastborder-color
+
+        &:hover {
+            background-color: #f9fafb;
+            border-color: #9ca3af;
+        }
+    }
+
+    &.btn-success {
+        @include button-variant(white, $success-color, $success-color);
+
+        background-color: #059669; // Darker green for better contrast
+
+        &:hover {
+            background-color: #047857;
+        }
+    }
+
+    &.btn-warning {
+        @include button-variant(
+            #1f2937,
+            $warning-color,
+            $warning-color
+        ); // Dark text for better contrast
+
+        &:hover {
+            background-color: #d97706;
+        }
+    }
+
+    &.btn-error {
+        @include button-variant(white, $error-color, $error-color);
+
+        background-color: #dc2626; // Darker red for better contrast
+
+        &:hover {
+            background-color: #b91c1c;
+        }
+    }
+
+    &.btn-sm {
+        padding: $spacing-xs $spacing-sm;
+        font-size: 0.875rem;
+        min-height: 36px;
+    }
+
+    &.btn-lg {
+        padding: $spacing-md $spacing-lg;
+        font-size: 1.125rem;
+        min-height: 52px;
+    }
+}
+
+.card {
+    @include card;
+
+    &.card-compact {
+        padding: $spacing-md;
+    }
+
+    &.card-large {
+        padding: $spacing-xl;
+    }
+}
+
+.form-group {
+    margin-bottom: $spacing-lg;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-input {
+    @include form-input;
+}
+
+.form-textarea {
+    @extend .form-input;
+
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-select {
+    @extend .form-input;
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right $spacing-sm center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    input[type="checkbox"] {
+        width: 1rem;
+        height: 1rem;
+        accent-color: $primary-color;
+    }
+}
+
+.form-radio {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    input[type="radio"] {
+        width: 1rem;
+        height: 1rem;
+        accent-color: $primary-color;
+    }
+}
+
+// Utilities
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-primary {
+    color: $primary-color;
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+.text-success {
+    color: $success-color;
+}
+
+.text-warning {
+    color: $warning-color;
+}
+
+.text-error {
+    color: $error-color;
+}
+
+.text-info {
+    color: $info-color;
+}
+
+.bg-primary {
+    background-color: $primary-color;
+}
+
+.bg-secondary {
+    background-color: $secondary-color;
+}
+
+.bg-success {
+    background-color: $success-color;
+}
+
+.bg-warning {
+    background-color: $warning-color;
+}
+
+.bg-error {
+    background-color: $error-color;
+}
+
+.bg-info {
+    background-color: $info-color;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: $spacing-xs;
+}
+
+.mt-2 {
+    margin-top: $spacing-sm;
+}
+
+.mt-3 {
+    margin-top: $spacing-md;
+}
+
+.mt-4 {
+    margin-top: $spacing-lg;
+}
+
+.mt-5 {
+    margin-top: $spacing-xl;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: $spacing-xs;
+}
+
+.mb-2 {
+    margin-bottom: $spacing-sm;
+}
+
+.mb-3 {
+    margin-bottom: $spacing-md;
+}
+
+.mb-4 {
+    margin-bottom: $spacing-lg;
+}
+
+.mb-5 {
+    margin-bottom: $spacing-xl;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: $spacing-xs;
+}
+
+.p-2 {
+    padding: $spacing-sm;
+}
+
+.p-3 {
+    padding: $spacing-md;
+}
+
+.p-4 {
+    padding: $spacing-lg;
+}
+
+.p-5 {
+    padding: $spacing-xl;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-end {
+    align-items: flex-end;
+}
+
+.items-stretch {
+    align-items: stretch;
+}
+
+// Responsive utilities
+@include responsive(mobile) {
+    .d-mobile-none {
+        display: none;
+    }
+
+    .d-mobile-block {
+        display: block;
+    }
+
+    .d-mobile-flex {
+        display: flex;
+    }
+}
+
+@include responsive(tablet) {
+    .d-tablet-none {
+        display: none;
+    }
+
+    .d-tablet-block {
+        display: block;
+    }
+
+    .d-tablet-flex {
+        display: flex;
+    }
+}
+
+@include responsive(desktop) {
+    .d-desktop-none {
+        display: none;
+    }
+
+    .d-desktop-block {
+        display: block;
+    }
+
+    .d-desktop-flex {
+        display: flex;
+    }
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.3s ease-in-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111827;
+        color: #f9fafb;
+    }
+
+    .card {
+        background: #1f2937;
+        color: #f9fafb;
+    }
+
+    .form-input {
+        background-color: #374151;
+        border-color: #4b5563;
+        color: #f9fafb;
+
+        &:focus {
+            border-color: $primary-color;
+        }
+    }
+}

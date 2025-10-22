@@ -1,0 +1,10 @@
+Test #17: Laravel Pint - Verbose Mode
+Command: ./vendor/bin/pint --test --verbose
+Execution Time: 0.03s
+Exit Code: 127
+================================================================================
+STDOUT:
+
+================================================================================
+STDERR:
+/bin/sh: 1: ./vendor/bin/pint: not found

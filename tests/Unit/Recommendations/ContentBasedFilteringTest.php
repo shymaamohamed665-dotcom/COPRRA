@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Recommendations;
 
 use PHPUnit\Framework\Attributes\Test;
@@ -117,7 +119,7 @@ class ContentBasedFilteringTest extends TestCase
 
         $similarity = $this->calculateTextSimilarity($text1, $text2);
 
-        $this->assertGreaterThan(0.05, $similarity); // تقليل الحد الأدنى أكثر
+        $this->assertGreaterThan(0.05, $similarity); // ØªÙ‚Ù„ÙŠÙ„ Ø§Ù„Ø­Ø¯ Ø§Ù„Ø£Ø¯Ù†Ù‰ Ø£ÙƒØ«Ø±
     }
 
     #[Test]

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Performance;
 
 use Tests\TestCase;
@@ -31,3 +33,5 @@ class AdvancedPerformanceTest extends TestCase
         parent::tearDown();
     }
 }
+
+

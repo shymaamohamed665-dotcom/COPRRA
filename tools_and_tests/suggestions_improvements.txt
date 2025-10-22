@@ -1,0 +1,94 @@
+﻿ØªÙ… ØªØ¹Ø²ÙŠØ² Ø§Ù„ØµØ±Ø§Ù…Ø© Ø¥Ù„Ù‰ Ø£Ù‚ØµÙ‰ Ø­Ø¯ ÙÙŠ phpstan/psalm/phpunit Ø¥Ù† ÙˆÙØ¬Ø¯Øª.
+ÙŠÙÙˆØµÙ‰ Ø¨ØªØ«Ø¨ÙŠØª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª ÙˆØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙƒØ§Ù…Ù„Ø© Ø¹Ø¨Ø± CI Ø¹Ù„Ù‰ Hostinger.
+ØªÙ… ØªØ¹Ø²ÙŠØ² Ø§Ù„ØµØ±Ø§Ù…Ø© Ø¥Ù„Ù‰ Ø£Ù‚ØµÙ‰ Ø­Ø¯ ÙÙŠ phpstan/psalm/phpunit Ø¥Ù† ÙˆÙØ¬Ø¯Øª.
+ÙŠÙÙˆØµÙ‰ Ø¨ØªØ«Ø¨ÙŠØª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª ÙˆØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙƒØ§Ù…Ù„Ø© Ø¹Ø¨Ø± CI Ø¹Ù„Ù‰ Hostinger.
+ØªÙ… ØªØ¹Ø²ÙŠØ² Ø§Ù„ØµØ±Ø§Ù…Ø© Ø¥Ù„Ù‰ Ø£Ù‚ØµÙ‰ Ø­Ø¯ ÙÙŠ phpstan/psalm/phpunit Ø¥Ù† ÙˆÙØ¬Ø¯Øª.
+ÙŠÙÙˆØµÙ‰ Ø¨ØªØ«Ø¨ÙŠØª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª ÙˆØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙƒØ§Ù…Ù„Ø© Ø¹Ø¨Ø± CI Ø¹Ù„Ù‰ Hostinger.
+ØªÙ… ØªØ¹Ø²ÙŠØ² Ø§Ù„ØµØ±Ø§Ù…Ø© Ø¥Ù„Ù‰ Ø£Ù‚ØµÙ‰ Ø­Ø¯ ÙÙŠ phpstan/psalm/phpunit Ø¥Ù† ÙˆÙØ¬Ø¯Øª.
+ÙŠÙÙˆØµÙ‰ Ø¨ØªØ«Ø¨ÙŠØª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª ÙˆØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙƒØ§Ù…Ù„Ø© Ø¹Ø¨Ø± CI Ø¹Ù„Ù‰ Hostinger.
+ØªÙ… ØªØ¹Ø²ÙŠØ² Ø§Ù„ØµØ±Ø§Ù…Ø© Ø¥Ù„Ù‰ Ø£Ù‚ØµÙ‰ Ø­Ø¯ ÙÙŠ phpstan/psalm/phpunit Ø¥Ù† ÙˆÙØ¬Ø¯Øª.
+ÙŠÙÙˆØµÙ‰ Ø¨ØªØ«Ø¨ÙŠØª Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª ÙˆØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙƒØ§Ù…Ù„Ø© Ø¹Ø¨Ø± CI Ø¹Ù„Ù‰ Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.
+Strictness escalated to maximum in phpstan/psalm/phpunit when available.
+Recommended: install dependencies and run full CI tests on Hostinger.

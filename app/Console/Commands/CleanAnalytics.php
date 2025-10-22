@@ -20,8 +20,6 @@ final class CleanAnalytics extends Command
 {
     /**
      * The name and signature of the console command.
-     *
-     * @var string
      */
     protected $signature = 'analytics:clean
                         {--days=30 : Number of days to keep}
@@ -29,8 +27,6 @@ final class CleanAnalytics extends Command
 
     /**
      * The console command description.
-     *
-     * @var string
      */
     protected $description = 'Clean old analytics data';
 
@@ -41,12 +37,13 @@ final class CleanAnalytics extends Command
     {
         $days = (int) $this->option('days');
 
-        if (! $this->option('force')) {
-            if (! $this->confirm("This will delete analytics data older than {$days} days. Continue?")) {
-                $this->info('Operation cancelled.');
+        $forceRaw = $this->option('force');
+        $force = (bool) $forceRaw;
 
-                return self::SUCCESS;
-            }
+        if ($force === false && ! $this->confirm("This will delete analytics data older than {$days} days. Continue?")) {
+            $this->info('Operation cancelled.');
+
+            return self::SUCCESS;
         }
 
         $this->info("🗑️  Cleaning analytics data older than {$days} days...");

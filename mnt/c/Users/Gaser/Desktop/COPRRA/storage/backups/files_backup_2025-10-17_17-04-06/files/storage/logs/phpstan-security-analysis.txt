@@ -1,0 +1,117 @@
+Note: Using configuration file C:\Users\Gaser\Desktop\COPRRA\phpstan.neon.
+   0/385 [>---------------------------]   0%[1G[2K  20/385 [=>--------------------------]   5%[1G[2K  40/385 [==>-------------------------]  10%[1G[2K  80/385 [=====>----------------------]  20%[1G[2K 120/385 [========>-------------------]  31%[1G[2K 160/385 [===========>----------------]  41%[1G[2K 200/385 [==============>-------------]  51%[1G[2K 220/385 [================>-----------]  57%[1G[2K 260/385 [==================>---------]  67%[1G[2K 320/385 [=======================>----]  83%[1G[2K 325/385 [=======================>----]  84%[1G[2K 345/385 [=========================>--]  89%[1G[2K 365/385 [==========================>-]  94%[1G[2K 385/385 [============================] 100%
+
+ ------ ------------------------------------------------------------------------------------------------------ 
+  [32mLine[39m   [32mConsole\Commands\AgentProposeFixCommand.php[39m                                                           
+ ------ ------------------------------------------------------------------------------------------------------ 
+  89     Class App\Services\AgentFixer\FixExecutionService constructor invoked with 2 parameters, 1 required.  
+         🪪  arguments.count                                                                                   
+  89     Parameter #1 $output of class App\Services\AgentFixer\FixExecutionService constructor expects         
+         Illuminate\Console\OutputStyle, App\Services\ProcessService given.                                    
+         🪪  argument.type                                                                                     
+ ------ ------------------------------------------------------------------------------------------------------ 
+
+ ------ ----------------------------------- 
+  [32mLine[39m   [32mConsole\Commands\StatsCommand.php[39m  
+ ------ ----------------------------------- 
+  208    Cannot cast mixed to int.          
+         🪪  cast.int                       
+ ------ ----------------------------------- 
+
+ ------ ---------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mExceptions\GlobalExceptionHandler.php[39m                                                   
+ ------ ---------------------------------------------------------------------------------------- 
+  33     Property App\Exceptions\GlobalExceptionHandler::$dontFlash (array) overriding property  
+         Illuminate\Foundation\Exceptions\Handler::$dontFlash should not have a native type.     
+ ------ ---------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mExceptions\Handler.php[39m                                                                
+ ------ -------------------------------------------------------------------------------------- 
+  24     Property App\Exceptions\Handler::$dontReport (array) overriding property              
+         Illuminate\Foundation\Exceptions\Handler::$dontReport should not have a native type.  
+  29     Property App\Exceptions\Handler::$dontFlash (array) overriding property               
+         Illuminate\Foundation\Exceptions\Handler::$dontFlash should not have a native type.   
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------ 
+  [32mLine[39m   [32mHttp\Controllers\Admin\DashboardController.php[39m  
+ ------ ------------------------------------------------ 
+  466    Cannot cast mixed to float.                     
+         🪪  cast.double                                 
+  522    Cannot cast mixed to int.                       
+         🪪  cast.int                                    
+ ------ ------------------------------------------------ 
+
+ ------ -------------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mHttp\Controllers\Api\AuthController.php[39m                                                     
+ ------ -------------------------------------------------------------------------------------------- 
+  99     PHPDoc tag @SuppressWarnings has invalid value ((PHPMD.ShortMethodName)): Unexpected token  
+         ".ShortMethodName)", expected ')' at offset 99 on line 4                                    
+         🪪  phpDoc.parseError                                                                       
+ ------ -------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mHttp\Controllers\Api\PriceSearchController.php[39m                                                    
+ ------ -------------------------------------------------------------------------------------------------- 
+  170    PHPDoc tag @SuppressWarnings has invalid value ((PHPMD.UnusedFormalParameter)): Unexpected token  
+         ".UnusedFormalParameter)", expected ')' at offset 34 on line 2                                    
+         🪪  phpDoc.parseError                                                                             
+ ------ -------------------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------- 
+  [32mLine[39m   [32mHttp\Controllers\Api\ProductController.php[39m                       
+ ------ ----------------------------------------------------------------- 
+  351    Binary operation "." between '%' and mixed results in an error.  
+         🪪  binaryOp.invalid                                             
+ ------ ----------------------------------------------------------------- 
+
+ ------ ---------------------------------------- 
+  [32mLine[39m   [32mHttp\Controllers\OrderController.php[39m    
+ ------ ---------------------------------------- 
+  208    Cannot access constant class on mixed.  
+         🪪  classConstant.nonObject             
+ ------ ---------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mHttp\Kernel.php[39m                                                                       
+ ------ -------------------------------------------------------------------------------------- 
+  18     Property App\Http\Kernel::$middleware (array) overriding property                     
+         Illuminate\Foundation\Http\Kernel::$middleware should not have a native type.         
+  38     Property App\Http\Kernel::$middlewareGroups (array) overriding property               
+         Illuminate\Foundation\Http\Kernel::$middlewareGroups should not have a native type.   
+  64     Property App\Http\Kernel::$middlewareAliases (array) overriding property              
+         Illuminate\Foundation\Http\Kernel::$middlewareAliases should not have a native type.  
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mHttp\Middleware\AddCspNonce.php[39m                                                                               
+ ------ -------------------------------------------------------------------------------------------------------------- 
+  24     Method App\Http\Middleware\AddCspNonce::handle() should return Symfony\Component\HttpFoundation\Response but  
+         returns mixed.                                                                                                
+         🪪  return.type                                                                                               
+ ------ -------------------------------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------- 
+  [32mLine[39m   [32mModels\Order.php[39m                                                                                       
+ ------ ------------------------------------------------------------------------------------------------------- 
+  86     Ignored error pattern #^Cannot cast mixed to string\.$# (cast.string) in path                          
+         C:\Users\Gaser\Desktop\COPRRA\app\Models\Order.php is expected to occur 1 time, but occurred 3 times.  
+  448    Cannot cast mixed to string.                                                                           
+         🪪  cast.string                                                                                        
+  459    Cannot cast mixed to string.                                                                           
+         🪪  cast.string                                                                                        
+ ------ ------------------------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------------ 
+  [32mLine[39m   [32mNotifications\PriceAlertNotification.php[39m                                                                    
+ ------ ------------------------------------------------------------------------------------------------------------ 
+  27     PHPDoc tag @SuppressWarnings has invalid value ((PHPMD.UnusedFormalParameter)): Unexpected token            
+         ".UnusedFormalParameter)", expected ')' at offset 27 on line 1                                              
+         🪪  phpDoc.parseError                                                                                       
+  28     Method App\Notifications\PriceAlertNotification::via() return type has no value type specified in iterable  
+         type array.                                                                                                 
+         🪪  missingType.iterableValue                                                                               
+         💡  See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type                  
+  33     PHPDoc tag @SuppressWarnings has invalid value ((PHPMD.UnusedFormalParameter)): Unexpected token            
+         ".UnusedForma

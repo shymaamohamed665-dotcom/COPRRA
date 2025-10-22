@@ -1,5 +1,5 @@
 # Stage 1: Dependencies
-FROM php:8.2-fpm AS dependencies
+FROM php:8.4-fpm AS dependencies
 WORKDIR /var/www/html
 
 # Install minimal dependencies needed for composer
@@ -21,7 +21,7 @@ COPY . .
 RUN npm run build
 
 # Stage 3: Production
-FROM php:8.2-fpm
+FROM php:8.4-fpm
 WORKDIR /var/www/html
 
 # Install system dependencies and PHP extensions

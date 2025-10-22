@@ -8,7 +8,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
@@ -57,7 +56,7 @@ class Handler extends ExceptionHandler
      */
     private function logSecurityException(Throwable $e): void
     {
-        Log::warning('Security-related exception occurred', [
+        logger()->warning('Security-related exception occurred', [
             'exception_type' => $e::class,
             'message' => $e->getMessage(),
             'ip' => request()->ip() ?? 'unknown',

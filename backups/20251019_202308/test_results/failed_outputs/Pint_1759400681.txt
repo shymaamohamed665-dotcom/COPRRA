@@ -1,0 +1,6 @@
+Command: ./vendor/bin/pint --test
+Output:
+
+Error:
+/bin/sh: 1: ./vendor/bin/pint: not found
+

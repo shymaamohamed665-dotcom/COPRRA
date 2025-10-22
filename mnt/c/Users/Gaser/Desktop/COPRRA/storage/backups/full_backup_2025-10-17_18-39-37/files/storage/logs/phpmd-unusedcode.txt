@@ -1,0 +1,39 @@
+C:\Users\Gaser\Desktop\COPRRA\app\Casts\OrderStatusCast.php:22                             UnusedFormalParameter  Avoid unused parameters such as '$model'.
+C:\Users\Gaser\Desktop\COPRRA\app\Casts\OrderStatusCast.php:22                             UnusedFormalParameter  Avoid unused parameters such as '$key'.
+C:\Users\Gaser\Desktop\COPRRA\app\Casts\OrderStatusCast.php:22                             UnusedFormalParameter  Avoid unused parameters such as '$attributes'.
+C:\Users\Gaser\Desktop\COPRRA\app\Casts\OrderStatusCast.php:53                             UnusedFormalParameter  Avoid unused parameters such as '$model'.
+C:\Users\Gaser\Desktop\COPRRA\app\Casts\OrderStatusCast.php:53                             UnusedFormalParameter  Avoid unused parameters such as '$key'.
+C:\Users\Gaser\Desktop\COPRRA\app\Casts\OrderStatusCast.php:53                             UnusedFormalParameter  Avoid unused parameters such as '$attributes'.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\PriceSearchController.php:167       UnusedFormalParameter  Avoid unused parameters such as '$request'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Brand.php:133                                     UnusedPrivateMethod    Avoid unused private methods such as 'generateSlug'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Category.php:185                                  UnusedPrivateMethod    Avoid unused private methods such as 'handleCreatingEvent'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Category.php:196                                  UnusedPrivateMethod    Avoid unused private methods such as 'handleUpdatingEvent'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:460                                   UnusedPrivateMethod    Avoid unused private methods such as 'clearProductCachesOnUpdate'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:473                                   UnusedPrivateMethod    Avoid unused private methods such as 'deleteRelatedRecords'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:481                                   UnusedPrivateMethod    Avoid unused private methods such as 'clearProductCachesOnDelete'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Store.php:268                                     UnusedPrivateMethod    Avoid unused private methods such as 'generateSlug'.
+C:\Users\Gaser\Desktop\COPRRA\app\Notifications\PriceAlertNotification.php:28              UnusedFormalParameter  Avoid unused parameters such as '$notifiable'.
+C:\Users\Gaser\Desktop\COPRRA\app\Notifications\PriceAlertNotification.php:33              UnusedFormalParameter  Avoid unused parameters such as '$notifiable'.
+C:\Users\Gaser\Desktop\COPRRA\app\Notifications\PriceDropNotification.php:46               UnusedFormalParameter  Avoid unused parameters such as '$notifiable'.
+C:\Users\Gaser\Desktop\COPRRA\app\Rules\DimensionSum.php:19                                UnusedFormalParameter  Avoid unused parameters such as '$attribute'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AITextAnalysisService.php:138       UnusedFormalParameter  Avoid unused parameters such as '$type'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Activity\Services\LocationCheckService.php:31   UnusedFormalParameter  Avoid unused parameters such as '$ipAddress'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Activity\Services\LocationCheckService.php:98   UnusedFormalParameter  Avoid unused parameters such as '$userId'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\BackupManagerService.php:150             UnusedFormalParameter  Avoid unused parameters such as '$options'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\Services\BackupValidatorService.php:100  UnusedFormalParameter  Avoid unused parameters such as '$type'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\BehaviorAnalysisService.php:403                 UnusedPrivateMethod    Avoid unused private methods such as 'getUserSegments'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\FinancialTransactionService.php:158             UnusedPrivateMethod    Avoid unused private methods such as 'isLowestPriceOffer'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PerformanceMonitoringService.php:350            UnusedPrivateMethod    Avoid unused private methods such as 'getExecutionTime'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Product\Services\ProductPriceService.php:70     UnusedFormalParameter  Avoid unused parameters such as '$oldPrice'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Product\Services\ProductPriceService.php:70     UnusedFormalParameter  Avoid unused parameters such as '$userId'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\RecommendationService.php:402                   UnusedPrivateMethod    Avoid unused private methods such as 'getSimilarUsersByProduct'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ReportService.php:524                           UnusedPrivateMethod    Avoid unused private methods such as 'getProductDetails'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ReportService.php:608                           UnusedPrivateMethod    Avoid unused private methods such as 'calculatePriceTrend'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Security\SecurityHeadersService.php:59          UnusedPrivateMethod    Avoid unused private methods such as 'shouldApplyHeader'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Security\SecurityHeadersService.php:59          UnusedFormalParameter  Avoid unused parameters such as '$header'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:424                UnusedPrivateMethod    Avoid unused private methods such as 'sortDirectoriesBySize'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:591                UnusedLocalVariable    Avoid unused local variables such as '$name'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\SuspiciousActivityNotifier.php:158              UnusedPrivateMethod    Avoid unused private methods such as 'getNotificationConfig'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\UserBanService.php:230                          UnusedFormalParameter  Avoid unused parameters such as '$user'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\UserBanService.php:239                          UnusedFormalParameter  Avoid unused parameters such as '$newExpiry'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\UserBanService.php:255                          UnusedFormalParameter  Avoid unused parameters such as '$newExpiry'.

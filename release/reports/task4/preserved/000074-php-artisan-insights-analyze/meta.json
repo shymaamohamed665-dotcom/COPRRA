@@ -1,0 +1,2 @@
+{"command": "php artisan insights:analyze", "start": "2025-10-02T03:51:39+00:00"}
+{"end": "2025-10-02T03:52:22+00:00", "exit_code": 255 }

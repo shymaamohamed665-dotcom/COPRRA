@@ -38,7 +38,7 @@ class BackupServiceTest extends TestCase
                 'database' => 'test_db',
             ]);
 
-        // استخدم الحاوية لإنشاء الخدمة مع حقن الاعتماديات تلقائيًا
+        // Ø§Ø³ØªØ®Ø¯Ù… Ø§Ù„Ø­Ø§ÙˆÙŠØ© Ù„Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø®Ø¯Ù…Ø© Ù…Ø¹ Ø­Ù‚Ù† Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ÙŠØ§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§
         $this->service = $this->app->make(BackupService::class);
     }
 
@@ -57,7 +57,7 @@ class BackupServiceTest extends TestCase
 
         // Create backup directory
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
 
         // Mock Process facade to actually create the database file and archive
@@ -165,7 +165,7 @@ class BackupServiceTest extends TestCase
 
         // Create backup directory
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
 
         // Mock Process facade to actually create the database file
@@ -188,7 +188,7 @@ class BackupServiceTest extends TestCase
 
         // Create backup directory first
         if (! is_dir($backupDir)) {
-            mkdir($backupDir, 0755, true);
+            mkdir($backupDir, 0o755, true);
         }
 
         Log::shouldReceive('info')
@@ -231,11 +231,6 @@ class BackupServiceTest extends TestCase
 
     public function test_creates_files_backup_successfully()
     {
-        // Skip on Windows - tar command doesn't work reliably on Windows
-        if (PHP_OS_FAMILY === 'Windows') {
-            $this->markTestSkipped('Tar compression not supported on Windows');
-        }
-
         // Arrange
         $timestamp = now()->format('Y-m-d_H-i-s');
         $backupName = "files_backup_{$timestamp}";
@@ -243,8 +238,25 @@ class BackupServiceTest extends TestCase
 
         // Create backup directory
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
+
+        // Mock Process facade to handle tar compression without relying on OS tools
+        Process::shouldReceive('run')
+            ->andReturnUsing(function ($command) {
+                if (preg_match('/tar -czf ([^\s]+)/', $command, $matches)) {
+                    $archiveFile = $matches[1];
+                    file_put_contents($archiveFile, '-- Dummy compressed archive');
+                }
+
+                return new class
+                {
+                    public function successful()
+                    {
+                        return true;
+                    }
+                };
+            });
 
         Log::shouldReceive('info')
             ->with('Starting files backup', ['backup_name' => $backupName]);
@@ -265,6 +277,9 @@ class BackupServiceTest extends TestCase
         $this->assertEquals('completed', $result['status']);
         $this->assertArrayHasKey('completed_at', $result);
 
+        // Verify compression command was attempted
+        Process::shouldHaveReceived('run')->with(Mockery::pattern('/tar -czf/'));
+
         // Cleanup
         if (is_dir($backupDir)) {
             $this->deleteDirectory($backupDir);
@@ -279,10 +294,10 @@ class BackupServiceTest extends TestCase
 
         // Create backup directory and manifest
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
         if (! is_dir($backupPath)) {
-            mkdir($backupPath, 0755, true);
+            mkdir($backupPath, 0o755, true);
         }
 
         // Create a test manifest
@@ -301,10 +316,10 @@ class BackupServiceTest extends TestCase
         file_put_contents($backupPath.'/database.sql', '-- Dummy database content');
 
         // Create the files directory
-        mkdir($backupPath.'/files', 0755, true);
+        mkdir($backupPath.'/files', 0o755, true);
 
         // Create the config directory
-        mkdir($backupPath.'/config', 0755, true);
+        mkdir($backupPath.'/config', 0o755, true);
 
         // Mock Process facade
         Process::shouldReceive('run')
@@ -363,15 +378,15 @@ class BackupServiceTest extends TestCase
         }
 
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
 
         // Create test backup directories
         $backup1Path = $this->backupPath.'/backup_1';
         $backup2Path = $this->backupPath.'/backup_2';
 
-        mkdir($backup1Path, 0755, true);
-        mkdir($backup2Path, 0755, true);
+        mkdir($backup1Path, 0o755, true);
+        mkdir($backup2Path, 0o755, true);
 
         // Create manifests
         $manifest1 = ['type' => 'full_backup', 'created_at' => '2023-01-01T00:00:00Z'];
@@ -416,9 +431,9 @@ class BackupServiceTest extends TestCase
         $backupPath = $this->backupPath.'/'.$backupName;
 
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
-        mkdir($backupPath, 0755, true);
+        mkdir($backupPath, 0o755, true);
 
         Log::shouldReceive('info')
             ->with('Backup deleted', ['backup_name' => $backupName]);
@@ -451,15 +466,15 @@ class BackupServiceTest extends TestCase
         $daysOld = 30;
 
         if (! is_dir($this->backupPath)) {
-            mkdir($this->backupPath, 0755, true);
+            mkdir($this->backupPath, 0o755, true);
         }
 
         // Create old backup directories
         $oldBackup1Path = $this->backupPath.'/old_backup_1';
         $oldBackup2Path = $this->backupPath.'/old_backup_2';
 
-        mkdir($oldBackup1Path, 0755, true);
-        mkdir($oldBackup2Path, 0755, true);
+        mkdir($oldBackup1Path, 0o755, true);
+        mkdir($oldBackup2Path, 0o755, true);
 
         // Create manifests with old dates
         $oldDate = now()->subDays(35)->toISOString();
@@ -521,7 +536,7 @@ class BackupServiceTest extends TestCase
     {
         // Create necessary directories and files for the backup
         if (! is_dir($backupDir)) {
-            mkdir($backupDir, 0755, true);
+            mkdir($backupDir, 0o755, true);
         }
 
         // Create database file
@@ -531,11 +546,13 @@ class BackupServiceTest extends TestCase
         // Don't create files or config directories - let the service create them
     }
 
-    private function deleteDirectory(string $dir): void
+    protected function deleteDirectory(string $dir): void
     {
         if (! is_dir($dir)) {
             return;
         }
+
+        $ignore = ['.gitkeep', '.DS_Store', 'Thumbs.db'];
 
         $iterator = new \RecursiveIteratorIterator(
             new \RecursiveDirectoryIterator($dir, \RecursiveDirectoryIterator::SKIP_DOTS),
@@ -543,15 +560,29 @@ class BackupServiceTest extends TestCase
         );
 
         foreach ($iterator as $item) {
-            if ($item instanceof \SplFileInfo) {
-                if ($item->isDir()) {
-                    rmdir($item->getPathname());
-                } else {
-                    unlink($item->getPathname());
-                }
+            if (! ($item instanceof \SplFileInfo)) {
+                continue;
             }
+
+            $path = $item->getPathname();
+            $basename = $item->getBasename();
+
+            if ($item->isDir()) {
+                @rmdir($path);
+                continue;
+            }
+
+            if (in_array($basename, $ignore, true)) {
+                continue;
+            }
+
+            if (PHP_OS_FAMILY === 'Windows') {
+                @chmod($path, 0o666);
+            }
+
+            @unlink($path);
         }
 
-        rmdir($dir);
+        @rmdir($dir);
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/phpunit.xml" tests="24" assertions="128" errors="0" failures="0" skipped="0" time="117.417257">
+    <testsuite name="Performance" tests="24" assertions="128" errors="0" failures="0" skipped="0" time="117.417257">
+      <testsuite name="Tests\Performance\AdvancedPerformanceTest" file="/var/www/html/tests/Performance/AdvancedPerformanceTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="13.469341">
+        <testcase name="test_advanced_performance_metrics" file="/var/www/html/tests/Performance/AdvancedPerformanceTest.php" line="12" class="Tests\Performance\AdvancedPerformanceTest" classname="Tests.Performance.AdvancedPerformanceTest" assertions="1" time="3.969715"/>
+        <testcase name="test_advanced_memory_usage" file="/var/www/html/tests/Performance/AdvancedPerformanceTest.php" line="17" class="Tests\Performance\AdvancedPerformanceTest" classname="Tests.Performance.AdvancedPerformanceTest" assertions="1" time="4.787062"/>
+        <testcase name="test_advanced_response_times" file="/var/www/html/tests/Performance/AdvancedPerformanceTest.php" line="22" class="Tests\Performance\AdvancedPerformanceTest" classname="Tests.Performance.AdvancedPerformanceTest" assertions="1" time="4.712565"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\ApiResponseTimeTest" file="/var/www/html/tests/Performance/ApiResponseTimeTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="15.366161">
+        <testcase name="test_api_response_time_is_acceptable" file="/var/www/html/tests/Performance/ApiResponseTimeTest.php" line="12" class="Tests\Performance\ApiResponseTimeTest" classname="Tests.Performance.ApiResponseTimeTest" assertions="1" time="5.294330"/>
+        <testcase name="test_api_response_time_under_load" file="/var/www/html/tests/Performance/ApiResponseTimeTest.php" line="17" class="Tests\Performance\ApiResponseTimeTest" classname="Tests.Performance.ApiResponseTimeTest" assertions="1" time="5.285239"/>
+        <testcase name="test_api_response_time_consistency" file="/var/www/html/tests/Performance/ApiResponseTimeTest.php" line="22" class="Tests\Performance\ApiResponseTimeTest" classname="Tests.Performance.ApiResponseTimeTest" assertions="1" time="4.786593"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\CachePerformanceTest" file="/var/www/html/tests/Performance/CachePerformanceTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.989348">
+        <testcase name="test_cache_performance" file="/var/www/html/tests/Performance/CachePerformanceTest.php" line="12" class="Tests\Performance\CachePerformanceTest" classname="Tests.Performance.CachePerformanceTest" assertions="1" time="6.149938"/>
+        <testcase name="test_cache_hit_ratio" file="/var/www/html/tests/Performance/CachePerformanceTest.php" line="17" class="Tests\Performance\CachePerformanceTest" classname="Tests.Performance.CachePerformanceTest" assertions="1" time="4.821389"/>
+        <testcase name="test_cache_memory_usage" file="/var/www/html/tests/Performance/CachePerformanceTest.php" line="22" class="Tests\Performance\CachePerformanceTest" classname="Tests.Performance.CachePerformanceTest" assertions="1" time="4.018021"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\DatabasePerformanceTest" file="/var/www/html/tests/Performance/DatabasePerformanceTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="15.378942">
+        <testcase name="test_database_query_performance" file="/var/www/html/tests/Performance/DatabasePerformanceTest.php" line="12" class="Tests\Performance\DatabasePerformanceTest" classname="Tests.Performance.DatabasePerformanceTest" assertions="1" time="4.608484"/>
+        <testcase name="test_database_connection_performance" file="/var/www/html/tests/Performance/DatabasePerformanceTest.php" line="17" class="Tests\Performance\DatabasePerformanceTest" classname="Tests.Performance.DatabasePerformanceTest" assertions="1" time="4.648806"/>
+        <testcase name="test_database_transaction_performance" file="/var/www/html/tests/Performance/DatabasePerformanceTest.php" line="22" class="Tests\Performance\DatabasePerformanceTest" classname="Tests.Performance.DatabasePerformanceTest" assertions="1" time="6.121652"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\LoadTestingTest" file="/var/www/html/tests/Performance/LoadTestingTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.080799">
+        <testcase name="test_load_testing_basic" file="/var/www/html/tests/Performance/LoadTestingTest.php" line="12" class="Tests\Performance\LoadTestingTest" classname="Tests.Performance.LoadTestingTest" assertions="1" time="4.658518"/>
+        <testcase name="test_load_testing_medium" file="/var/www/html/tests/Performance/LoadTestingTest.php" line="17" class="Tests\Performance\LoadTestingTest" classname="Tests.Performance.LoadTestingTest" assertions="1" time="5.021440"/>
+        <testcase name="test_load_testing_high" file="/var/www/html/tests/Performance/LoadTestingTest.php" line="22" class="Tests\Performance\LoadTestingTest" classname="Tests.Performance.LoadTestingTest" assertions="1" time="4.400841"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\LoadTimeTest" file="/var/www/html/tests/Performance/LoadTimeTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="13.305158">
+        <testcase name="test_page_load_time" file="/var/www/html/tests/Performance/LoadTimeTest.php" line="12" class="Tests\Performance\LoadTimeTest" classname="Tests.Performance.LoadTimeTest" assertions="1" time="3.957561"/>
+        <testcase name="test_asset_load_time" file="/var/www/html/tests/Performance/LoadTimeTest.php" line="17" class="Tests\Performance\LoadTimeTest" classname="Tests.Performance.LoadTimeTest" assertions="1" time="4.618710"/>
+        <testcase name="test_api_load_time" file="/var/www/html/tests/Performance/LoadTimeTest.php" line="22" class="Tests\Performance\LoadTimeTest" classname="Tests.Performance.LoadTimeTest" assertions="1" time="4.728887"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\MemoryUsageTest" file="/var/www/html/tests/Performance/MemoryUsageTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="15.262556">
+        <testcase name="test_memory_usage_is_reasonable" file="/var/www/html/tests/Performance/MemoryUsageTest.php" line="12" class="Tests\Performance\MemoryUsageTest" classname="Tests.Performance.MemoryUsageTest" assertions="1" time="5.345895"/>
+        <testcase name="test_memory_leaks_are_prevented" file="/var/www/html/tests/Performance/MemoryUsageTest.php" line="17" class="Tests\Performance\MemoryUsageTest" classname="Tests.Performance.MemoryUsageTest" assertions="1" time="5.323330"/>
+        <testcase name="test_memory_cleanup_works" file="/var/www/html/tests/Performance/MemoryUsageTest.php" line="22" class="Tests\Performance\MemoryUsageTest" classname="Tests.Performance.MemoryUsageTest" assertions="1" time="4.593330"/>
+      </testsuite>
+      <testsuite name="Tests\Performance\PerformanceBenchmarkTest" file="/var/www/html/tests/Performance/PerformanceBenchmarkTest.php" tests="3" assertions="107" errors="0" failures="0" skipped="0" time="15.564952">
+        <testcase name="test_performance_benchmark" file="/var/www/html/tests/Performance/PerformanceBenchmarkTest.php" line="12" class="Tests\Performance\PerformanceBenchmarkTest" classname="Tests.Performance.PerformanceBenchmarkTest" assertions="2" time="3.990701"/>
+        <testcase name="test_benchmark_comparison" file="/var/www/html/tests/Performance/PerformanceBenchmarkTest.php" line="29" class="Tests\Performance\PerformanceBenchmarkTest" classname="Tests.Performance.PerformanceBenchmarkTest" assertions="3" time="6.209272"/>
+        <testcase name="test_benchmark_trends" file="/var/www/html/tests/Performance/PerformanceBenchmarkTest.php" line="47" class="Tests\Performance\PerformanceBenchmarkTest" classname="Tests.Performance.PerformanceBenchmarkTest" assertions="102" time="5.364979"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

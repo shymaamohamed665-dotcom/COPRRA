@@ -1,0 +1,4 @@
+
+> coprra@0.0.0 stylelint
+> npx stylelint "resources/**/*.{css,scss,vue}" --allow-empty-input
+

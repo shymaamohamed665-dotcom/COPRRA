@@ -1,0 +1,9 @@
+﻿C:\Users\Gaser\Desktop\COPRRA\app\Models\User.php:38:No error to ignore is reported on line 38.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\EbayAdapter.php:174:No error to ignore is reported on line 174.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\EbayAdapter.php:186:No error to ignore is reported on line 186.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\EbayAdapter.php:219:No error to ignore is reported on line 219.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\EbayAdapter.php:238:No error to ignore is reported on line 238.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\NoonAdapter.php:163:No error to ignore is reported on line 163.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\NoonAdapter.php:175:No error to ignore is reported on line 175.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\NoonAdapter.php:207:No error to ignore is reported on line 207.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StoreAdapters\NoonAdapter.php:225:No error to ignore is reported on line 225.

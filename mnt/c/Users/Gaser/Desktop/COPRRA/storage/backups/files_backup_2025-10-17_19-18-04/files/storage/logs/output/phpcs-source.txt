@@ -1,0 +1,34 @@
+
+PHP CODE SNIFFER VIOLATION SOURCE SUMMARY
+-------------------------------------------------------------------------------------------
+    STANDARD  CATEGORY            SNIFF                                               COUNT
+-------------------------------------------------------------------------------------------
+[x] PSR12     Operators           Operator spacing no space before                    515
+[x] PSR12     Operators           Operator spacing no space after                     499
+[ ] PSR1      Methods             Camel caps method name not camel caps               190
+[ ] Generic   Files               Line length too long                                164
+[x] PSR12     Classes             Class instantiation missing parentheses             115
+[x] PSR12     Classes             Opening brace space found                           49
+[x] Squiz     White space         Scope closing brace content before                  37
+[x] PSR2      Files               End file newline too many                           28
+[x] PSR2      Classes             Class declaration open brace new line               16
+[ ] PSR1      Files               Side effects found with symbols                     15
+[x] Squiz     Functions           Multi line function declaration brace on same line  12
+[ ] PSR1      Classes             Class declaration missing namespace                 10
+[x] Squiz     White space         Superfluous whitespace end line                     9
+[x] PSR12     Files               File header spacing after block                     5
+[x] Squiz     White space         Control structure spacing spacing before close      4
+[ ] PSR12     Files               File header incorrect order                         3
+[x] PSR2      Classes             Class declaration close brace after body            2
+[ ] PSR12     Files               File header incorrect grouping                      2
+[x] PSR12     Control structures  Control structure spacing close parenthesis line    1
+[x] PSR12     Control structures  Control structure spacing first expression line     1
+[x] Squiz     Control structures  Control signature space after keyword               1
+[x] Squiz     White space         Control structure spacing spacing after open        1
+-------------------------------------------------------------------------------------------
+A TOTAL OF 1679 SNIFF VIOLATIONS WERE FOUND IN 22 SOURCES
+-------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 16 MARKED SOURCES AUTOMATICALLY (1295 VIOLATIONS IN TOTAL)
+-------------------------------------------------------------------------------------------
+
+

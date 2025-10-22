@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -70,4 +72,18 @@ return [
             'recommendations' => [],
         ],
     ],
-];
+
+    /*
+    |--------------------------------------------------------------------------
+    | Agents Scheduling Configuration
+    |--------------------------------------------------------------------------
+    */
+
+    'monitor' => [
+        'enabled' => env('AI_MONITOR_ENABLED', true),
+    ],
+
+    'strict_agent' => [
+        'enabled' => env('AI_STRICT_AGENT_ENABLED', true),
+    ],
+];

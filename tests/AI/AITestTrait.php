@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 use App\Services\AIService;
 
 /**
  * Trait for AI Tests
- * يوفر Mock Service لجميع اختبارات AI.
+ * ÙŠÙˆÙØ± Mock Service Ù„Ø¬Ù…ÙŠØ¹ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª AI.
  */
 trait AITestTrait
 {
@@ -33,14 +35,14 @@ trait AITestTrait
 
     protected function getAIService(): AIService
     {
-        // في بيئة الاختبار، استخدم Mock Service إذا كانت Laravel متاحة
+        // ÙÙŠ Ø¨ÙŠØ¦Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±ØŒ Ø§Ø³ØªØ®Ø¯Ù… Mock Service Ø¥Ø°Ø§ ÙƒØ§Ù†Øª Laravel Ù…ØªØ§Ø­Ø©
         if (function_exists('app')) {
             try {
                 if (app()->environment('testing')) {
                     return new MockAIService;
                 }
 
-                // في البيئة الحقيقية، استخدم الخدمة الحقيقية
+                // ÙÙŠ Ø§Ù„Ø¨ÙŠØ¦Ø© Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠØ©ØŒ Ø§Ø³ØªØ®Ø¯Ù… Ø§Ù„Ø®Ø¯Ù…Ø© Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠØ©
                 return app()->make(AIService::class);
             } catch (\Throwable $e) {
                 // Non-Laravel or container not ready; fallback to Mock
@@ -48,7 +50,7 @@ trait AITestTrait
             }
         }
 
-        // بدون Laravel، استخدم Mock مباشرةً
+        // Ø¨Ø¯ÙˆÙ† LaravelØŒ Ø§Ø³ØªØ®Ø¯Ù… Mock Ù…Ø¨Ø§Ø´Ø±Ø©Ù‹
         return new MockAIService;
     }
 

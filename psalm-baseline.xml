@@ -32,11 +32,8 @@
     <MixedPropertyFetch>
       <code><![CDATA[$result[0]->Value]]></code>
     </MixedPropertyFetch>
-    <MixedReturnStatement>
-      <code><![CDATA[config('database.connections.mysql.database')]]></code>
-    </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[DB::select($query, [$this->getDatabaseName()])]]></code>
+      <code><![CDATA[$this->database->select($query, [$this->getDatabaseName()])]]></code>
       <code><![CDATA[array<int, object|array>|null]]></code>
     </MixedReturnTypeCoercion>
     <PropertyNotSetInConstructor>
@@ -85,19 +82,16 @@
     <RiskyCast>
       <code><![CDATA[$this->option('days')]]></code>
     </RiskyCast>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $this->option('force')]]></code>
-    </RiskyTruthyFalsyComparison>
     <UnusedClass>
       <code><![CDATA[CleanAnalytics]]></code>
     </UnusedClass>
   </file>
   <file src="app/Console/Commands/OptimizePerformance.php">
     <PropertyNotSetInConstructor>
-      <code><![CDATA[$cacheOptimizerService]]></code>
-      <code><![CDATA[$databaseOptimizerService]]></code>
-      <code><![CDATA[$performanceReporterService]]></code>
-      <code><![CDATA[$systemOptimizerService]]></code>
+      <code><![CDATA[$cacheOptimizer]]></code>
+      <code><![CDATA[$databaseOptimizer]]></code>
+      <code><![CDATA[$performanceReporter]]></code>
+      <code><![CDATA[$systemOptimizer]]></code>
       <code><![CDATA[OptimizePerformance]]></code>
       <code><![CDATA[OptimizePerformance]]></code>
       <code><![CDATA[OptimizePerformance]]></code>
@@ -199,29 +193,32 @@
       <code><![CDATA[$units[$i]]]></code>
     </InvalidArrayOffset>
     <InvalidOperand>
-      <code><![CDATA[$size /= 1024]]></code>
+      <code><![CDATA[$size /= $bytesPerKb]]></code>
       <code><![CDATA[$totalRecords * 1024]]></code>
       <code><![CDATA[round($size, $precision)]]></code>
     </InvalidOperand>
     <InvalidTemplateParam>
       <code><![CDATA[$storeStats->map(/**
-             * @return (int|string)[]
+             * @return array<int|string>
              *
              * @psalm-return list{string, int}
              */
-                static fn ($store): array => [$store->name, $store->price_offers_count])]]></code>
+                static fn ($store): array => [$store->name, $store->price_offers_count]
+            )]]></code>
       <code><![CDATA[$topBrands->map(/**
-             * @return (int|string)[]
+             * @return array<int|string>
              *
              * @psalm-return list{string, int}
              */
-                static fn ($brand): array => [$brand->name, $brand->products_count])]]></code>
+                static fn ($brand): array => [$brand->name, $brand->products_count]
+            )]]></code>
       <code><![CDATA[$topCategories->map(/**
-             * @return (mixed|string)[]
+             * @return array<mixed|string>
              *
              * @psalm-return list{string, mixed}
              */
-                static fn ($category): array => [$category->name, $category->products_count])]]></code>
+                static fn ($category): array => [$category->name, $category->products_count]
+            )]]></code>
     </InvalidTemplateParam>
     <MixedAssignment>
       <code><![CDATA[$avgPriceValue]]></code>
@@ -238,11 +235,6 @@
       <code><![CDATA[StatsCommand]]></code>
       <code><![CDATA[StatsCommand]]></code>
     </PropertyNotSetInConstructor>
-    <RedundantCast>
-      <code><![CDATA[(float) $avgPrice]]></code>
-      <code><![CDATA[(float) $maxPrice]]></code>
-      <code><![CDATA[(float) $minPrice]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$this->option('detailed')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -287,9 +279,8 @@
     </MoreSpecificReturnType>
     <PropertyNotSetInConstructor>
       <code><![CDATA[$displayService]]></code>
-      <code><![CDATA[$priceFetcherService]]></code>
+      <code><![CDATA[$priceProcessor]]></code>
       <code><![CDATA[$queryBuilderService]]></code>
-      <code><![CDATA[$updateProcessorService]]></code>
       <code><![CDATA[UpdatePricesCommand]]></code>
       <code><![CDATA[UpdatePricesCommand]]></code>
       <code><![CDATA[UpdatePricesCommand]]></code>
@@ -369,15 +360,18 @@
   <file src="app/DataObjects/StorageBreakdown.php">
     <PossiblyUnusedProperty>
       <code><![CDATA[$path]]></code>
-      <code><![CDATA[$size_bytes]]></code>
-      <code><![CDATA[$size_mb]]></code>
+      <code><![CDATA[$sizeBytes]]></code>
+      <code><![CDATA[$sizeMb]]></code>
     </PossiblyUnusedProperty>
   </file>
   <file src="app/DataObjects/StorageStatistics.php">
+    <InvalidDocblockParamName>
+      <code><![CDATA[$file_stats]]></code>
+    </InvalidDocblockParamName>
     <PossiblyUnusedProperty>
       <code><![CDATA[$breakdown]]></code>
       <code><![CDATA[$config]]></code>
-      <code><![CDATA[$file_stats]]></code>
+      <code><![CDATA[$fileStats]]></code>
       <code><![CDATA[$recommendations]]></code>
       <code><![CDATA[$usage]]></code>
     </PossiblyUnusedProperty>
@@ -390,7 +384,6 @@
       <code><![CDATA[$status]]></code>
     </ParamNameMismatch>
     <PossiblyUnusedMethod>
-      <code><![CDATA[canTransitionTo]]></code>
       <code><![CDATA[hasPermission]]></code>
       <code><![CDATA[isAdmin]]></code>
     </PossiblyUnusedMethod>
@@ -406,7 +399,6 @@
       <code><![CDATA[$targetStatus]]></code>
     </ParamNameMismatch>
     <PossiblyUnusedMethod>
-      <code><![CDATA[canTransitionTo]]></code>
       <code><![CDATA[hasPermission]]></code>
       <code><![CDATA[isAdmin]]></code>
       <code><![CDATA[options]]></code>
@@ -424,7 +416,6 @@
       <code><![CDATA[$targetRole]]></code>
     </ParamNameMismatch>
     <PossiblyUnusedMethod>
-      <code><![CDATA[canTransitionTo]]></code>
       <code><![CDATA[hasPermission]]></code>
       <code><![CDATA[isAdmin]]></code>
       <code><![CDATA[isModerator]]></code>
@@ -440,17 +431,17 @@
     </ClassMustBeFinal>
     <InvalidReturnStatement>
       <code><![CDATA[[
-            ValidationException::class => fn ($e) => $this->handleValidationException($e),
-            AuthenticationException::class => fn () => $this->handleAuthenticationException(),
-            AuthorizationException::class => fn () => $this->handleAuthorizationException(),
-            ModelNotFoundException::class => fn () => $this->handleModelNotFoundException(),
-            QueryException::class => fn ($e) => $this->handleQueryException($e),
-            NotFoundHttpException::class => fn () => $this->handleNotFoundHttpException(),
-            MethodNotAllowedHttpException::class => fn ($e) => $this->handleMethodNotAllowedHttpException($e),
-            HttpException::class => fn ($e) => $this->handleHttpException($e),
+            ValidationException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleValidationException($exception),
+            AuthenticationException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleAuthenticationException(),
+            AuthorizationException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleAuthorizationException(),
+            ModelNotFoundException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleModelNotFoundException(),
+            QueryException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleQueryException($exception),
+            NotFoundHttpException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleNotFoundHttpException(),
+            MethodNotAllowedHttpException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleMethodNotAllowedHttpException($exception),
+            HttpException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleHttpException($exception),
         ]]]></code>
       <code><![CDATA[[
-            ValidationException::class => fn ($e) => redirect()->back()->withErrors($e->errors())->withInput(),
+            ValidationException::class => fn (ValidationException $exception) => redirect()->back()->withErrors($exception->errors())->withInput(),
             AuthenticationException::class => fn () => redirect()->guest(route('login')),
             AuthorizationException::class => fn () => response()->view('errors.403', [], 403),
             ModelNotFoundException::class => fn () => response()->view('errors.404', [], 404),
@@ -462,34 +453,33 @@
       <code><![CDATA[array{'Illuminate\\Validation\\ValidationException'::class: \Closure(mixed):\Illuminate\Http\RedirectResponse, 'Illuminate\\Auth\\AuthenticationException'::class: \Closure():\Illuminate\Http\RedirectResponse, 'Illuminate\\Auth\\Access\\AuthorizationException'::class: \Closure():\Illuminate\Http\Response, 'Illuminate\\Database\\Eloquent\\ModelNotFoundException'::class: \Closure():\Illuminate\Http\Response, 'Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException'::class: \Closure():\Illuminate\Http\Response}]]></code>
     </InvalidReturnType>
     <MissingClosureParamType>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
     </MissingClosureParamType>
     <MixedArgument>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e]]></code>
-      <code><![CDATA[$e->errors()]]></code>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[['allowed_methods' => $e->getHeaders()['Allow'] ?? []]]]></code>
+      <code><![CDATA[['allowed_methods' => $exception->getHeaders()['Allow'] ?? []]]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$adminEmails]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[errors]]></code>
-    </MixedMethodCall>
+    <ParamNameMismatch>
+      <code><![CDATA[$exception]]></code>
+      <code><![CDATA[$exception]]></code>
+    </ParamNameMismatch>
     <PossiblyNullOperand>
       <code><![CDATA[now()->toISOString()]]></code>
     </PossiblyNullOperand>
     <TooManyArguments>
-      <code><![CDATA[$handler($e)]]></code>
-      <code><![CDATA[$handler($e, $request)]]></code>
+      <code><![CDATA[$handler($exception)]]></code>
+      <code><![CDATA[$handler($exception, $request)]]></code>
     </TooManyArguments>
     <UndefinedInterfaceMethod>
       <code><![CDATA[id]]></code>
@@ -521,23 +511,6 @@
     </UnusedClass>
   </file>
   <file src="app/Helpers/OrderHelper.php">
-    <MixedAssignment>
-      <code><![CDATA[$status]]></code>
-      <code><![CDATA[$status]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[addDays]]></code>
-    </MixedMethodCall>
-    <MixedReturnStatement>
-      <code><![CDATA[$order->shipped_at->addDays(3)]]></code>
-    </MixedReturnStatement>
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$order->shipped_at]]></code>
-      <code><![CDATA[$order->status_enum]]></code>
-      <code><![CDATA[$order->status_enum]]></code>
-      <code><![CDATA[$order->status_enum]]></code>
-      <code><![CDATA[$order->status_enum]]></code>
-    </UndefinedMagicPropertyFetch>
     <UnusedClass>
       <code><![CDATA[OrderHelper]]></code>
     </UnusedClass>
@@ -741,12 +714,15 @@
     <MixedAssignment>
       <code><![CDATA[$actionValue]]></code>
     </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[siteAnalytics]]></code>
+      <code><![CDATA[trackBehavior]]></code>
+      <code><![CDATA[userAnalytics]]></code>
+    </PossiblyUnusedMethod>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[is_array($dataValue)]]></code>
     </RedundantConditionGivenDocblockType>
-    <UnusedClass>
-      <code><![CDATA[AnalyticsController]]></code>
-    </UnusedClass>
   </file>
   <file src="app/Http/Controllers/Api/AIController.php">
     <ClassMustBeFinal>
@@ -758,9 +734,7 @@
       <code><![CDATA[$type]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$description]]></code>
       <code><![CDATA[$name]]></code>
-      <code><![CDATA[$price]]></code>
       <code><![CDATA[$text]]></code>
       <code><![CDATA[$type]]></code>
     </MixedAssignment>
@@ -769,9 +743,6 @@
       <code><![CDATA[analyze]]></code>
       <code><![CDATA[classifyProduct]]></code>
     </PossiblyUnusedMethod>
-    <TooManyArguments>
-      <code><![CDATA[classifyProduct]]></code>
-    </TooManyArguments>
   </file>
   <file src="app/Http/Controllers/Api/Admin/BrandController.php">
     <ClassMustBeFinal>
@@ -958,7 +929,6 @@
       <code><![CDATA[\App\Models\Product::find($productId)]]></code>
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$order->user_id]]></code>
       <code><![CDATA[$request->status]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
@@ -977,9 +947,9 @@
     </DocblockTypeContradiction>
     <InvalidTemplateParam>
       <code><![CDATA[$product->priceOffers->map(/**
-                     * @return (null|scalar)[]
+                     * @return array<scalar|null>
                      *
-                     * @psalm-return array{id: int, price: float, store_id: int, store: string, store_url: null|string, is_available: bool}
+                     * @psalm-return array{id: int, price: float, store_id: int, store: string, store_url: string|null, is_available: bool}
                      */
                         static function (PriceOffer $offer): array {
                             return [
@@ -990,7 +960,8 @@
                                 'store_url' => $offer->product_url,
                                 'is_available' => (bool) $offer->is_available,
                             ];
-                        })]]></code>
+                        }
+                    )]]></code>
     </InvalidTemplateParam>
     <MissingClosureParamType>
       <code><![CDATA[$query]]></code>
@@ -1030,9 +1001,6 @@
       <code><![CDATA[$productId]]></code>
       <code><![CDATA[$productName]]></code>
     </RiskyTruthyFalsyComparison>
-    <TooManyArguments>
-      <code><![CDATA[get]]></code>
-    </TooManyArguments>
     <TypeDoesNotContainType>
       <code><![CDATA[is_array($headerValues)]]></code>
     </TypeDoesNotContainType>
@@ -1087,6 +1055,9 @@
       <code><![CDATA[update]]></code>
       <code><![CDATA[where]]></code>
     </MixedMethodCall>
+    <MixedOperand>
+      <code><![CDATA[$value]]></code>
+    </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$store->id]]></code>
       <code><![CDATA[$store->name]]></code>
@@ -1128,9 +1099,6 @@
     <UnusedParam>
       <code><![CDATA[$request]]></code>
     </UnusedParam>
-    <UnusedProperty>
-      <code><![CDATA[$productService]]></code>
-    </UnusedProperty>
   </file>
   <file src="app/Http/Controllers/Api/V2/BaseApiController.php">
     <InaccessibleMethod>
@@ -1150,6 +1118,12 @@
     <ClassMustBeFinal>
       <code><![CDATA[AuthController]]></code>
     </ClassMustBeFinal>
+    <InvalidReturnStatement>
+      <code><![CDATA[response(__($status), 200)]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[Response]]></code>
+    </InvalidReturnType>
     <MissingClosureParamType>
       <code><![CDATA[$password]]></code>
       <code><![CDATA[$user]]></code>
@@ -1224,9 +1198,9 @@
     </ClassMustBeFinal>
     <LessSpecificReturnStatement>
       <code><![CDATA[view('brands.create')]]></code>
-      <code><![CDATA[view('brands.edit', compact('brand'))]]></code>
-      <code><![CDATA[view('brands.index', compact('brands'))]]></code>
-      <code><![CDATA[view('brands.show', compact('brand'))]]></code>
+      <code><![CDATA[view('brands.edit', ['brand' => $brand])]]></code>
+      <code><![CDATA[view('brands.index', ['brands' => $brands])]]></code>
+      <code><![CDATA[view('brands.show', ['brand' => $brand])]]></code>
     </LessSpecificReturnStatement>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[[
@@ -1275,9 +1249,6 @@
       <code><![CDATA[Brand::find($id)]]></code>
       <code><![CDATA[findOrFail]]></code>
     </UndefinedMagicMethod>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[Brand]]></code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="app/Http/Controllers/CartController.php">
     <ClassMustBeFinal>
@@ -1415,9 +1386,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[FileController]]></code>
     </ClassMustBeFinal>
-    <MissingReturnType>
-      <code><![CDATA[show]]></code>
-    </MissingReturnType>
     <MixedAssignment>
       <code><![CDATA[$mime]]></code>
     </MixedAssignment>
@@ -1471,6 +1439,21 @@
     <ClassMustBeFinal>
       <code><![CDATA[HomeController]]></code>
     </ClassMustBeFinal>
+    <MixedAssignment>
+      <code><![CDATA[$featuredProducts]]></code>
+    </MixedAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[get]]></code>
+      <code><![CDATA[latest]]></code>
+      <code><![CDATA[limit]]></code>
+      <code><![CDATA[with]]></code>
+    </MixedMethodCall>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[index]]></code>
+    </PossiblyUnusedMethod>
+    <UndefinedMagicMethod>
+      <code><![CDATA[Product::where('is_featured', true)]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="app/Http/Controllers/LocaleController.php">
     <ClassMustBeFinal>
@@ -1487,10 +1470,10 @@
       <code><![CDATA[is_string($log)]]></code>
     </DocblockTypeContradiction>
     <InvalidReturnStatement>
-      <code><![CDATA[$this->executeWithErrorHandling(function () {
+      <code><![CDATA[$this->executeWithErrorHandling(function (): array {
             return $this->parseAccessLogFile();
         }, 'getting access logs')]]></code>
-      <code><![CDATA[$this->executeWithErrorHandling(function () {
+      <code><![CDATA[$this->executeWithErrorHandling(function (): array {
             return $this->parseLogFile();
         }, 'getting system logs')]]></code>
     </InvalidReturnStatement>
@@ -1546,7 +1529,6 @@
       <code><![CDATA[$user]]></code>
       <code><![CDATA[$user]]></code>
       <code><![CDATA[$user]]></code>
-      <code><![CDATA[$user]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[[
@@ -1581,11 +1563,6 @@
       <code><![CDATA[storeFromCart]]></code>
       <code><![CDATA[updateStatus]]></code>
     </PossiblyUnusedMethod>
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$order->id]]></code>
-      <code><![CDATA[$order->id]]></code>
-      <code><![CDATA[$order->user_id]]></code>
-    </UndefinedMagicPropertyFetch>
     <UnusedDocblockParam>
       <code><![CDATA[$id]]></code>
       <code><![CDATA[$id]]></code>
@@ -1639,9 +1616,6 @@
     <MoreSpecificReturnType>
       <code><![CDATA[View]]></code>
     </MoreSpecificReturnType>
-    <TooManyArguments>
-      <code><![CDATA[getPriceHistory]]></code>
-    </TooManyArguments>
     <UndefinedInterfaceMethod>
       <code><![CDATA[check]]></code>
       <code><![CDATA[id]]></code>
@@ -1814,18 +1788,19 @@
     </PossiblyUnusedMethod>
     <RedundantCast>
       <code><![CDATA[(float) (microtime(true) - $startRef)]]></code>
-      <code><![CDATA[(int) count(config('database.connections', []))]]></code>
     </RedundantCast>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(float) ($_SERVER['REQUEST_TIME_FLOAT'] ?? microtime(true))]]></code>
-    </RedundantCastGivenDocblockType>
+    <RiskyCast>
+      <code><![CDATA[$requestTime ?? time()]]></code>
+      <code><![CDATA[request()->server('REQUEST_TIME_FLOAT') ?? microtime(true)]]></code>
+    </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$includeDatabase]]></code>
       <code><![CDATA[$includeFiles]]></code>
-      <code><![CDATA[@disk_free_space(base_path())]]></code>
-      <code><![CDATA[@disk_total_space(base_path())]]></code>
       <code><![CDATA[app()->environment('testing')]]></code>
       <code><![CDATA[app()->environment('testing')]]></code>
+      <code><![CDATA[disk_free_space(base_path())]]></code>
+      <code><![CDATA[disk_total_space(base_path())]]></code>
+      <code><![CDATA[getenv('NUMBER_OF_PROCESSORS')]]></code>
       <code><![CDATA[ini_get('max_execution_time')]]></code>
       <code><![CDATA[ini_get('memory_limit')]]></code>
       <code><![CDATA[ini_get('memory_limit')]]></code>
@@ -1851,9 +1826,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $file]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[VirusScanner]]></code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="app/Http/Controllers/UserController.php">
     <ClassMustBeFinal>
@@ -1988,9 +1960,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ApiErrorHandler]]></code>
     </ClassMustBeFinal>
-    <MixedAssignment>
-      <code><![CDATA[$response]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[handle]]></code>
     </PossiblyUnusedMethod>
@@ -2163,9 +2132,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[HandleCors]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function handle($request, Closure $next)]]></code>
-    </MissingOverrideAttribute>
     <MixedAssignment>
       <code><![CDATA[$response]]></code>
     </MixedAssignment>
@@ -2308,14 +2274,9 @@
     </InvalidReturnStatement>
     <MixedArgument>
       <code><![CDATA[$response]]></code>
-      <code><![CDATA[$response]]></code>
-      <code><![CDATA[$response]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$cspCheck]]></code>
       <code><![CDATA[$file]]></code>
-      <code><![CDATA[$response]]></code>
-      <code><![CDATA[$response]]></code>
       <code><![CDATA[$response]]></code>
       <code><![CDATA[$response]]></code>
       <code><![CDATA[$value]]></code>
@@ -2325,23 +2286,17 @@
       <code><![CDATA[all]]></code>
       <code><![CDATA[get]]></code>
       <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
       <code><![CDATA[getClientOriginalName]]></code>
       <code><![CDATA[getMimeType]]></code>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[set]]></code>
-      <code><![CDATA[set]]></code>
-      <code><![CDATA[set]]></code>
       <code><![CDATA[set]]></code>
     </MixedMethodCall>
     <MixedPropertyFetch>
       <code><![CDATA[$response->headers]]></code>
       <code><![CDATA[$response->headers]]></code>
-      <code><![CDATA[$response->headers]]></code>
-      <code><![CDATA[$response->headers]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
+      <code><![CDATA[$response]]></code>
+      <code><![CDATA[$response]]></code>
       <code><![CDATA[$response]]></code>
       <code><![CDATA[$response]]></code>
     </MixedReturnStatement>
@@ -2349,8 +2304,6 @@
       <code><![CDATA[(string) $request->fullUrl()]]></code>
     </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $response->headers->has('Content-Security-Policy')]]></code>
-      <code><![CDATA[! $response->headers->has('Strict-Transport-Security')]]></code>
       <code><![CDATA[$isProduction]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedClass>
@@ -2550,9 +2503,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$rules]]></code>
     </PossiblyNullArgument>
-    <RedundantCast>
-      <code><![CDATA[(string) $value]]></code>
-    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA['']]></code>
     </RedundantCondition>
@@ -2587,9 +2537,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ValidateSignature]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function handle($request, Closure $next, ...$args)]]></code>
-    </MissingOverrideAttribute>
     <MixedReturnStatement>
       <code><![CDATA[$next($request)]]></code>
     </MixedReturnStatement>
@@ -2601,6 +2548,9 @@
     <ClassMustBeFinal>
       <code><![CDATA[VerifyCsrfToken]]></code>
     </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[protected function runningUnitTests()]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="app/Http/Requests/BanUserRequest.php">
     <ClassMustBeFinal>
@@ -2722,17 +2672,26 @@
     </ClassMustBeFinal>
     <MixedArgument>
       <code><![CDATA[$key]]></code>
+      <code><![CDATA[is_string($validated['name'] ?? '') ? ($validated['name'] ?? '') : '']]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$name]]></code>
       <code><![CDATA[$validated]]></code>
+      <code><![CDATA[$validated['created_by']]]></code>
+      <code><![CDATA[$validated['slug']]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[can]]></code>
+      <code><![CDATA[slug]]></code>
+      <code><![CDATA[toString]]></code>
     </MixedMethodCall>
+    <MixedPropertyFetch>
+      <code><![CDATA[$this->user()?->id]]></code>
+    </MixedPropertyFetch>
     <MixedReturnStatement>
       <code><![CDATA[$this->user()?->can('create', \App\Models\Product::class) ?? false]]></code>
       <code><![CDATA[$this->user()?->can('create', \App\Models\Product::class) ?? false]]></code>
+      <code><![CDATA[$validated]]></code>
+      <code><![CDATA[$validated]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[array<string, array<int, array|string>>]]></code>
@@ -2762,9 +2721,6 @@
       <code><![CDATA[ProductCreateRequest]]></code>
       <code><![CDATA[ProductCreateRequest]]></code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass>
-      <code><![CDATA[\Str]]></code>
-    </UndefinedClass>
     <UndefinedThisPropertyFetch>
       <code><![CDATA[$this->description]]></code>
       <code><![CDATA[$this->name]]></code>
@@ -2815,9 +2771,9 @@
       <code><![CDATA[ProductRequest]]></code>
       <code><![CDATA[ProductRequest]]></code>
     </PropertyNotSetInConstructor>
-    <UndefinedClass>
-      <code><![CDATA[\Str]]></code>
-    </UndefinedClass>
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->name]]></code>
+    </UndefinedThisPropertyFetch>
     <UnusedClass>
       <code><![CDATA[ProductRequest]]></code>
     </UnusedClass>
@@ -2852,7 +2808,7 @@
       <code><![CDATA[array<string, string>]]></code>
       <code><![CDATA[array<string, string|int>]]></code>
       <code><![CDATA[array<string, string|int|bool|array<string>|null>]]></code>
-      <code><![CDATA[is_array($this->tags) ? array_map(static fn ($tag) => is_string($tag) ? trim($tag) : '', $this->tags) : []]]></code>
+      <code><![CDATA[is_array($this->tags) ? array_map(static fn ($tag): string => is_string($tag) ? trim($tag) : '', $this->tags) : []]]></code>
     </MixedReturnTypeCoercion>
     <PossiblyInvalidMethodCall>
       <code><![CDATA[except]]></code>
@@ -3273,34 +3229,13 @@
       <code><![CDATA[OrderResource]]></code>
     </ClassMustBeFinal>
     <MixedMethodCall>
-      <code><![CDATA[color]]></code>
-      <code><![CDATA[label]]></code>
-      <code><![CDATA[toIso8601String]]></code>
-      <code><![CDATA[toIso8601String]]></code>
       <code><![CDATA[toIso8601String]]></code>
       <code><![CDATA[toIso8601String]]></code>
     </MixedMethodCall>
-    <MixedPropertyFetch>
-      <code><![CDATA[$this->status_enum->value]]></code>
-    </MixedPropertyFetch>
     <UndefinedThisPropertyFetch>
-      <code><![CDATA[$this->billing_address]]></code>
       <code><![CDATA[$this->created_at]]></code>
       <code><![CDATA[$this->currency]]></code>
-      <code><![CDATA[$this->delivered_at]]></code>
-      <code><![CDATA[$this->discount_amount]]></code>
-      <code><![CDATA[$this->id]]></code>
-      <code><![CDATA[$this->notes]]></code>
-      <code><![CDATA[$this->order_number]]></code>
-      <code><![CDATA[$this->shipped_at]]></code>
-      <code><![CDATA[$this->shipping_address]]></code>
-      <code><![CDATA[$this->shipping_amount]]></code>
-      <code><![CDATA[$this->status_enum]]></code>
-      <code><![CDATA[$this->subtotal]]></code>
-      <code><![CDATA[$this->tax_amount]]></code>
-      <code><![CDATA[$this->total_amount]]></code>
       <code><![CDATA[$this->updated_at]]></code>
-      <code><![CDATA[$this->user_id]]></code>
     </UndefinedThisPropertyFetch>
   </file>
   <file src="app/Http/Resources/ProductResource.php">
@@ -3349,15 +3284,12 @@
     <PossiblyUnusedProperty>
       <code><![CDATA[$tries]]></code>
     </PossiblyUnusedProperty>
-    <RedundantCondition>
-      <code><![CDATA[$currentPrice !== null]]></code>
-    </RedundantCondition>
     <UndefinedMagicMethod>
       <code><![CDATA[PriceHistory::create([
-                            'product_id' => $product->id,
-                            'price' => $currentPrice,
-                            'effective_date' => now(),
-                        ])]]></code>
+                        'product_id' => $product->id,
+                        'price' => $currentPrice,
+                        'effective_date' => now(),
+                    ])]]></code>
     </UndefinedMagicMethod>
   </file>
   <file src="app/Jobs/ProcessHeavyOperation.php">
@@ -3365,8 +3297,8 @@
       <code><![CDATA[ProcessHeavyOperation]]></code>
     </ClassMustBeFinal>
     <MixedReturnStatement>
-      <code><![CDATA[\Illuminate\Support\Facades\Cache::get("job-status-{$jobId}")]]></code>
-      <code><![CDATA[\Illuminate\Support\Facades\Cache::get("user-{$userId}-job-statuses", [])]]></code>
+      <code><![CDATA[cache()->get("job-status-{$jobId}")]]></code>
+      <code><![CDATA[cache()->get("user-{$userId}-job-statuses", [])]]></code>
     </MixedReturnStatement>
     <PossiblyUnusedMethod>
       <code><![CDATA[getJobStatus]]></code>
@@ -3406,9 +3338,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[SendOrderStatusNotification]]></code>
     </ClassMustBeFinal>
-    <MixedArgument>
-      <code><![CDATA[$order->order_number]]></code>
-    </MixedArgument>
     <UndefinedMagicMethod>
       <code><![CDATA[Notification::create([
             'user_id' => $order->user_id,
@@ -3424,11 +3353,6 @@
             'status' => 'pending',
         ])]]></code>
     </UndefinedMagicMethod>
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$order->id]]></code>
-      <code><![CDATA[$order->order_number]]></code>
-      <code><![CDATA[$order->user_id]]></code>
-    </UndefinedMagicPropertyFetch>
     <UnusedClass>
       <code><![CDATA[SendOrderStatusNotification]]></code>
     </UnusedClass>
@@ -3530,9 +3454,6 @@
       <code><![CDATA[scopeActive]]></code>
       <code><![CDATA[scopeSearch]]></code>
     </PossiblyUnusedMethod>
-    <UndefinedClass>
-      <code><![CDATA[\Str]]></code>
-    </UndefinedClass>
     <UndefinedMagicMethod>
       <code><![CDATA[withTrashed]]></code>
       <code><![CDATA[withTrashed]]></code>
@@ -3547,10 +3468,14 @@
       <code><![CDATA[$this->level === null]]></code>
       <code><![CDATA[$this->slug === null]]></code>
     </DocblockTypeContradiction>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function getErrors(): array]]></code>
-      <code><![CDATA[public function validate(): bool]]></code>
-    </MissingOverrideAttribute>
+    <InvalidReturnStatement>
+      <code><![CDATA[$category->handleCreatingEvent()]]></code>
+      <code><![CDATA[$category->handleUpdatingEvent()]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[true]]></code>
+      <code><![CDATA[true]]></code>
+    </InvalidReturnType>
     <MixedMethodCall>
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
@@ -3563,7 +3488,7 @@
       <code><![CDATA[$this->hasMany(self::class, 'parent_id')]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->errors ? $this->errors->toArray() : []]]></code>
+      <code><![CDATA[$this->errors instanceof \Illuminate\Support\MessageBag ? $this->errors->toArray() : []]]></code>
       <code><![CDATA[array<string, array<int, string>>]]></code>
     </MixedReturnTypeCoercion>
     <NonInvariantDocblockPropertyType>
@@ -3577,7 +3502,6 @@
       <code><![CDATA[scopeSearch]]></code>
     </PossiblyUnusedMethod>
     <UndefinedClass>
-      <code><![CDATA[\Str]]></code>
       <code><![CDATA[\Str]]></code>
     </UndefinedClass>
     <UndefinedMagicMethod>
@@ -3695,14 +3619,11 @@
       <code><![CDATA[[]]]></code>
       <code><![CDATA[[]]]></code>
     </DocblockTypeContradiction>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function getCasts(): array]]></code>
-      <code><![CDATA[public function getDateFormat(): string]]></code>
-    </MissingOverrideAttribute>
     <MixedArgument>
       <code><![CDATA[$tags]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$attributes]]></code>
       <code><![CDATA[$metadata]]></code>
       <code><![CDATA[$tags]]></code>
       <code><![CDATA[$value]]></code>
@@ -3711,8 +3632,10 @@
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$createdRaw]]></code>
       <code><![CDATA[$createdRaw]]></code>
+      <code><![CDATA[$createdRaw]]></code>
       <code><![CDATA[$expirationDays]]></code>
       <code><![CDATA[$metadata]]></code>
+      <code><![CDATA[$raw]]></code>
       <code><![CDATA[$readRaw]]></code>
       <code><![CDATA[$reason]]></code>
       <code><![CDATA[$retryCount]]></code>
@@ -3734,6 +3657,7 @@
       <code><![CDATA[$hidden]]></code>
     </NonInvariantDocblockPropertyType>
     <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
       <code><![CDATA[addTag]]></code>
       <code><![CDATA[canRetry]]></code>
       <code><![CDATA[getActionText]]></code>
@@ -3792,7 +3716,6 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$this->created_at instanceof Carbon]]></code>
       <code><![CDATA[$this->created_at instanceof Carbon]]></code>
-      <code><![CDATA[$this->created_at instanceof Carbon]]></code>
       <code><![CDATA[$this->data]]></code>
       <code><![CDATA[$this->data]]></code>
       <code><![CDATA[$this->data]]></code>
@@ -3809,23 +3732,22 @@
     <ClassMustBeFinal>
       <code><![CDATA[Order]]></code>
     </ClassMustBeFinal>
+    <DocblockTypeContradiction>
+      <code><![CDATA[0.0]]></code>
+      <code><![CDATA[0.0]]></code>
+      <code><![CDATA[0.0]]></code>
+      <code><![CDATA[0.0]]></code>
+    </DocblockTypeContradiction>
     <InvalidOperand>
       <code><![CDATA[$price * $qty]]></code>
     </InvalidOperand>
-    <MissingOverrideAttribute>
-      <code><![CDATA[protected static function booted(): void]]></code>
-    </MissingOverrideAttribute>
     <MissingParamType>
       <code><![CDATA[$value]]></code>
     </MissingParamType>
     <MissingTemplateParam>
       <code><![CDATA[HasFactory]]></code>
     </MissingTemplateParam>
-    <MixedArgument>
-      <code><![CDATA[$this->attributes['status']]]></code>
-    </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$conn]]></code>
       <code><![CDATA[$connName]]></code>
       <code><![CDATA[$items]]></code>
       <code><![CDATA[$raw]]></code>
@@ -3861,6 +3783,19 @@
       <code><![CDATA[setStatusAttribute]]></code>
       <code><![CDATA[user]]></code>
     </PossiblyUnusedMethod>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(float) ($order->discount_amount ?? 0.0)]]></code>
+      <code><![CDATA[(float) ($order->shipping_amount ?? 0.0)]]></code>
+      <code><![CDATA[(float) ($order->subtotal ?? 0.0)]]></code>
+      <code><![CDATA[(float) ($order->tax_amount ?? 0.0)]]></code>
+      <code><![CDATA[(float) ($this->subtotal ?? 0.0)]]></code>
+    </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$order->shipping_amount]]></code>
+      <code><![CDATA[$order->subtotal]]></code>
+      <code><![CDATA[$order->tax_amount]]></code>
+      <code><![CDATA[$this->subtotal]]></code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedClass>
       <code><![CDATA[\DB]]></code>
       <code><![CDATA[\DB]]></code>
@@ -3871,12 +3806,6 @@
     <UndefinedMagicMethod>
       <code><![CDATA[newQuery]]></code>
     </UndefinedMagicMethod>
-    <UndefinedMagicPropertyAssignment>
-      <code><![CDATA[$order->total_amount]]></code>
-    </UndefinedMagicPropertyAssignment>
-    <UndefinedThisPropertyFetch>
-      <code><![CDATA[$this->subtotal]]></code>
-    </UndefinedThisPropertyFetch>
   </file>
   <file src="app/Models/OrderItem.php">
     <ClassMustBeFinal>
@@ -3967,7 +3896,6 @@
     </ClassMustBeFinal>
     <NonInvariantDocblockPropertyType>
       <code><![CDATA[$casts]]></code>
-      <code><![CDATA[$table]]></code>
     </NonInvariantDocblockPropertyType>
     <PropertyNotSetInConstructor>
       <code><![CDATA[ProductStore]]></code>
@@ -4364,12 +4292,8 @@
     </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
       <code><![CDATA[getErrors]]></code>
-      <code><![CDATA[getRules]]></code>
       <code><![CDATA[validate]]></code>
     </PossiblyUnusedMethod>
-    <UndefinedClass>
-      <code><![CDATA[\Validator]]></code>
-    </UndefinedClass>
   </file>
   <file src="app/Models/Webhook.php">
     <ClassMustBeFinal>
@@ -4400,16 +4324,12 @@
     <ClassMustBeFinal>
       <code><![CDATA[Wishlist]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function getErrors(): array]]></code>
-      <code><![CDATA[public function validate(): bool]]></code>
-    </MissingOverrideAttribute>
     <MixedReturnStatement>
       <code><![CDATA[$this->belongsTo(Product::class)]]></code>
       <code><![CDATA[$this->belongsTo(User::class)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->errors ? $this->errors->toArray() : []]]></code>
+      <code><![CDATA[$this->errors instanceof \Illuminate\Support\MessageBag ? $this->errors->toArray() : []]]></code>
       <code><![CDATA[array<string, array<int, string>>]]></code>
     </MixedReturnTypeCoercion>
     <PossiblyUnusedMethod>
@@ -4642,11 +4562,6 @@
       <code><![CDATA[boot]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="app/Providers/RouteServiceProvider.php">
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[string]]></code>
-    </UnnecessaryVarAnnotation>
-  </file>
   <file src="app/Providers/SecurityHeadersServiceProvider.php">
     <ClassMustBeFinal>
       <code><![CDATA[SecurityHeadersServiceProvider]]></code>
@@ -4746,9 +4661,9 @@
     <DeprecatedInterface>
       <code><![CDATA[DimensionSum]]></code>
     </DeprecatedInterface>
-    <UnusedVariable>
-      <code><![CDATA[$values]]></code>
-    </UnusedVariable>
+    <DocblockTypeContradiction>
+      <code><![CDATA[! is_string($attribute)]]></code>
+    </DocblockTypeContradiction>
   </file>
   <file src="app/Rules/PasswordValidator.php">
     <ArgumentTypeCoercion>
@@ -4763,9 +4678,6 @@
     <MixedAssignment>
       <code><![CDATA[$configValue]]></code>
     </MixedAssignment>
-    <RedundantCast>
-      <code><![CDATA[(int) min($score, 10)]]></code>
-    </RedundantCast>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $this->config['min_length']]]></code>
     </RedundantCastGivenDocblockType>
@@ -4787,17 +4699,6 @@
     </UnusedClass>
   </file>
   <file src="app/Rules/ValidOrderStatusTransition.php">
-    <MixedAssignment>
-      <code><![CDATA[$currentLabel]]></code>
-      <code><![CDATA[$currentStatus]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[canTransitionTo]]></code>
-      <code><![CDATA[label]]></code>
-    </MixedMethodCall>
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$this->order->status_enum]]></code>
-    </UndefinedMagicPropertyFetch>
     <UnusedClass>
       <code><![CDATA[ValidOrderStatusTransition]]></code>
     </UnusedClass>
@@ -4853,19 +4754,12 @@
     </UnusedClass>
   </file>
   <file src="app/Services/AI/ContinuousQualityMonitor.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$alert]]></code>
-    </ArgumentTypeCoercion>
     <DocblockTypeContradiction>
       <code><![CDATA[(string) $ruleId]]></code>
     </DocblockTypeContradiction>
     <InvalidCast>
       <code><![CDATA[$ruleId]]></code>
     </InvalidCast>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[$this->createErrorResult($rule, $e->getMessage())]]></code>
-      <code><![CDATA[$this->createRuleResult($rule, $result, $startTime, $ruleId)]]></code>
-    </LessSpecificReturnStatement>
     <MixedAssignment>
       <code><![CDATA[$detailedResults]]></code>
       <code><![CDATA[$lastCheck]]></code>
@@ -4897,30 +4791,12 @@
      *         rule: string,
      *         message: string,
      *         details: array<int, string>,
-     *         timestamp: string
-     *     }>
-     * }]]></code>
+     *         timestamp: string]]></code>
       <code><![CDATA[is_array($results) ? $results : []]]></code>
     </MixedReturnTypeCoercion>
-    <MoreSpecificReturnType>
-      <code><![CDATA[array{
-     *     name: string,
-     *     success: bool,
-     *     health_score: int,
-     *     duration: float,
-     *     output: string,
-     *     errors: array<int, string>,
-     *     timestamp: string,
-     *     critical: bool
-     * }]]></code>
-    </MoreSpecificReturnType>
     <PropertyTypeCoercion>
       <code><![CDATA[$this->alerts]]></code>
-      <code><![CDATA[$this->alerts]]></code>
     </PropertyTypeCoercion>
-    <RedundantCast>
-      <code><![CDATA[(float) ($endTime - $startTime)]]></code>
-    </RedundantCast>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(bool) ($rule['critical'] ?? false)]]></code>
       <code><![CDATA[(bool) ($rule['critical'] ?? false)]]></code>
@@ -4983,13 +4859,9 @@
     <PossiblyFalseIterator>
       <code><![CDATA[$words]]></code>
     </PossiblyFalseIterator>
-    <RedundantCast>
-      <code><![CDATA[(string) $m[2]]]></code>
-      <code><![CDATA[(string) $text]]></code>
-    </RedundantCast>
     <TypeDoesNotContainType>
-      <code><![CDATA[! $recommendationLines]]></code>
-      <code><![CDATA[$recommendationLines]]></code>
+      <code><![CDATA[$recommendationLines === []]]></code>
+      <code><![CDATA[$recommendationLines === []]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="app/Services/AI/Services/AITextAnalysisService.php">
@@ -5046,8 +4918,24 @@
       <code><![CDATA[preg_match_all('/keyword[\s:]+(.+?)(?:\n|$)/i', $content, $matches)]]></code>
       <code><![CDATA[preg_match_all('/tag[\s:]+(.+?)(?:\n|$)/i', $content, $matches)]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="app/Services/AI/Services/AlertManagerService.php">
+    <UnusedClass>
+      <code><![CDATA[AlertManagerService]]></code>
+    </UnusedClass>
+  </file>
+  <file src="app/Services/AI/Services/HealthScoreService.php">
+    <UnusedClass>
+      <code><![CDATA[HealthScoreService]]></code>
+    </UnusedClass>
+  </file>
+  <file src="app/Services/AI/Services/RuleExecutorService.php">
+    <UnusedClass>
+      <code><![CDATA[RuleExecutorService]]></code>
+    </UnusedClass>
     <UnusedParam>
-      <code><![CDATA[$type]]></code>
+      <code><![CDATA[$context]]></code>
+      <code><![CDATA[$ruleId]]></code>
     </UnusedParam>
   </file>
   <file src="app/Services/AI/Services/RuleValidatorService.php">
@@ -5127,7 +5015,7 @@
       <code><![CDATA[(string) ($rec['reason'] ?? 'recommended')]]></code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition>
-      <code><![CDATA[empty($recommendations) && is_array($raw)]]></code>
+      <code><![CDATA[$recommendations === [] && is_array($raw)]]></code>
       <code><![CDATA[is_array($raw)]]></code>
     </RedundantCondition>
     <UnusedProperty>
@@ -5190,6 +5078,7 @@
     </NoValue>
     <PossiblyUnusedParam>
       <code><![CDATA[$ipAddress]]></code>
+      <code><![CDATA[$userId]]></code>
     </PossiblyUnusedParam>
     <RedundantCondition>
       <code><![CDATA[$previousLocations === []]]></code>
@@ -5200,9 +5089,6 @@
     <UnusedClass>
       <code><![CDATA[LocationCheckService]]></code>
     </UnusedClass>
-    <UnusedParam>
-      <code><![CDATA[$userId]]></code>
-    </UnusedParam>
   </file>
   <file src="app/Services/ActivityChecker.php">
     <ArgumentTypeCoercion>
@@ -5212,10 +5098,6 @@
       <code><![CDATA[$rule]]></code>
       <code><![CDATA[$rule]]></code>
     </ArgumentTypeCoercion>
-    <DocblockTypeContradiction>
-      <code><![CDATA['']]></code>
-      <code><![CDATA['']]></code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$rule]]></code>
     </InvalidArgument>
@@ -5257,20 +5139,12 @@
       <code><![CDATA[handleDataAccess]]></code>
     </PossiblyUnusedMethod>
     <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $data['user_id']]]></code>
-      <code><![CDATA[(int) $data['user_id']]]></code>
       <code><![CDATA[(int) ($rule['time_window'] ?? 60)]]></code>
       <code><![CDATA[(string) ($data['ip_address'] ?? '')]]></code>
     </RedundantCastGivenDocblockType>
     <RedundantCondition>
       <code><![CDATA[$previousLocations === []]]></code>
     </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($data['ip_address'])]]></code>
-      <code><![CDATA[is_string($data['ip_address'])]]></code>
-      <code><![CDATA[isset($data['ip_address']) && is_string($data['ip_address'])]]></code>
-      <code><![CDATA[isset($data['ip_address']) && is_string($data['ip_address'])]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$data['user_id']]]></code>
       <code><![CDATA[$data['user_id']]]></code>
@@ -5321,11 +5195,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="app/Services/AgentFixer/FixExecutionService.php">
-    <UnusedProperty>
-      <code><![CDATA[$processService]]></code>
-    </UnusedProperty>
   </file>
   <file src="app/Services/AgentFixer/GitWorkflowService.php">
     <PossiblyUnusedReturnValue>
@@ -5391,7 +5260,6 @@
     <MixedAssignment>
       <code><![CDATA[$count]]></code>
       <code><![CDATA[$event]]></code>
-      <code><![CDATA[$event]]></code>
       <code><![CDATA[$events]]></code>
       <code><![CDATA[$meta]]></code>
       <code><![CDATA[$query]]></code>
@@ -5448,7 +5316,15 @@
       <code><![CDATA[$row->views]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
-      <code><![CDATA[$event]]></code>
+      <code><![CDATA[AnalyticsEvent::create([
+                'event_type' => $eventType,
+                'event_name' => $eventName,
+                'user_id' => $userId,
+                'product_id' => $productId,
+                'category_id' => $categoryId,
+                'store_id' => $storeId,
+                'metadata' => $metadata,
+            ])]]></code>
       <code><![CDATA[AnalyticsEvent::ofType($eventType)
             ->where('created_at', '>=', $startDate)
             ->select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
@@ -5465,7 +5341,7 @@
             ->orderByDesc('views')
             ->limit($limit)
             ->get()
-            ->map(fn ($row) => ['product_id' => $row->product_id, 'view_count' => (int) $row->views])
+            ->map(fn ($row): array => ['product_id' => $row->product_id, 'view_count' => (int) $row->views])
             ->toArray()]]></code>
       <code><![CDATA[AnalyticsEvent::recent($days)
             ->ofType(AnalyticsEvent::TYPE_STORE_CLICK)
@@ -5475,7 +5351,7 @@
             ->orderByDesc('click_count')
             ->limit($limit)
             ->get()
-            ->map(fn ($row) => ['store_id' => $row->store_id, 'click_count' => (int) $row->click_count])
+            ->map(fn ($row): array => ['store_id' => $row->store_id, 'click_count' => (int) $row->click_count])
             ->toArray()]]></code>
     </MixedReturnStatement>
     <PossiblyUnusedMethod>
@@ -5488,9 +5364,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[?AnalyticsEvent]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $c]]></code>
-    </RedundantCastGivenDocblockType>
     <UndefinedMagicMethod>
       <code><![CDATA[AnalyticsEvent::create([
                 'event_type' => $eventType,
@@ -5516,12 +5389,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ApiInfoService]]></code>
     </ClassMustBeFinal>
-    <PossiblyUnusedParam>
-      <code><![CDATA[$request]]></code>
-    </PossiblyUnusedParam>
-    <UndefinedClass>
-      <code><![CDATA[\Log]]></code>
-    </UndefinedClass>
   </file>
   <file src="app/Services/Api/PaginationService.php">
     <ClassMustBeFinal>
@@ -5535,7 +5402,7 @@
       <code><![CDATA[is_object($object) && method_exists($object, $method) ? $object->$method() : $default]]></code>
     </MixedReturnStatement>
     <MoreSpecificReturnType>
-      <code><![CDATA[array{current_page: bool|int|null|string, per_page: bool|int|null|string, total: bool|int|null|string, last_page: bool|int|null|string, from: bool|int|null|string, to: bool|int|null|string, has_more_pages: bool|int|null|string, links: array<string, null|string>}]]></code>
+      <code><![CDATA[array{current_page: bool|int|string|null, per_page: bool|int|string|null, total: bool|int|string|null, last_page: bool|int|string|null, from: bool|int|string|null, to: bool|int|string|null, has_more_pages: bool|int|string|null, links: array<string, string|null>}]]></code>
     </MoreSpecificReturnType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$lastPage]]></code>
@@ -5677,22 +5544,14 @@
       <code><![CDATA[1024 ** $pow]]></code>
       <code><![CDATA[round($bytes, 2)]]></code>
     </InvalidOperand>
-    <MixedArgument>
-      <code><![CDATA[$a['created_at']]]></code>
-      <code><![CDATA[$b['created_at']]]></code>
-    </MixedArgument>
     <PossiblyFalseOperand>
       <code><![CDATA[filesize($filePath)]]></code>
-      <code><![CDATA[strtotime($a['created_at'])]]></code>
-      <code><![CDATA[strtotime($b['created_at'])]]></code>
+      <code><![CDATA[strtotime((string) $a['created_at'])]]></code>
+      <code><![CDATA[strtotime((string) $b['created_at'])]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$units[$pow]]]></code>
     </PossiblyInvalidArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(string) $file]]></code>
-      <code><![CDATA[(string) $file]]></code>
-    </RedundantCast>
   </file>
   <file src="app/Services/Backup/BackupManagerService.php">
     <MixedArgument>
@@ -5705,7 +5564,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$component]]></code>
-      <code><![CDATA[$file]]></code>
       <code><![CDATA[$manifest]]></code>
     </MixedAssignment>
     <MixedReturnStatement>
@@ -5717,9 +5575,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <UnusedParam>
-      <code><![CDATA[$options]]></code>
-    </UnusedParam>
   </file>
   <file src="app/Services/Backup/BackupService.php">
     <ClassMustBeFinal>
@@ -5744,11 +5599,6 @@
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$units[$pow]]]></code>
     </PossiblyInvalidArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(string) $filename]]></code>
-      <code><![CDATA[(string) $filename]]></code>
-      <code><![CDATA[(string) $name]]></code>
-    </RedundantCast>
     <RedundantCondition>
       <code><![CDATA[is_string($name)]]></code>
     </RedundantCondition>
@@ -5797,11 +5647,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$preparation['zip']]]></code>
     </PossiblyUndefinedArrayOffset>
-  </file>
-  <file src="app/Services/Backup/Services/BackupCompressionService.php">
-    <MixedAssignment>
-      <code><![CDATA[$file]]></code>
-    </MixedAssignment>
   </file>
   <file src="app/Services/Backup/Services/BackupConfigurationService.php">
     <LessSpecificReturnStatement>
@@ -5899,7 +5744,6 @@
       <code><![CDATA[array{directories: list<string>, status: string}]]></code>
     </MoreSpecificReturnType>
     <RedundantCondition>
-      <code><![CDATA[$item instanceof \SplFileInfo]]></code>
       <code><![CDATA[is_string($dir)]]></code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType>
@@ -5956,7 +5800,6 @@
     <MixedAssignment>
       <code><![CDATA[$components]]></code>
       <code><![CDATA[$directory]]></code>
-      <code><![CDATA[$file]]></code>
       <code><![CDATA[$file]]></code>
       <code><![CDATA[$manifest]]></code>
     </MixedAssignment>
@@ -6023,6 +5866,9 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$results['components']['files']['directories'] ?? []]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$validator]]></code>
+    </PossiblyUnusedParam>
     <UnusedClass>
       <code><![CDATA[BackupService]]></code>
     </UnusedClass>
@@ -6034,9 +5880,6 @@
     <DocblockTypeContradiction>
       <code><![CDATA[0]]></code>
     </DocblockTypeContradiction>
-    <ImplicitToStringCast>
-      <code><![CDATA[now()->subDays(30)]]></code>
-    </ImplicitToStringCast>
     <InvalidArgument>
       <code><![CDATA[$payload]]></code>
     </InvalidArgument>
@@ -6053,7 +5896,7 @@
             ->limit(10)
             ->get()
             ->map(/**
-             * @return (int|string)[]
+             * @return array<int|string>
              *
              * @psalm-return array{id: int, name: string, purchase_count: int}
              */
@@ -6063,7 +5906,8 @@
                         'name' => $product->name,
                         'purchase_count' => $product->purchase_count ?? 0,
                     ];
-                })]]></code>
+                }
+            )]]></code>
     </InvalidTemplateParam>
     <LessSpecificReturnStatement>
       <code><![CDATA[[
@@ -6079,8 +5923,6 @@
       <code><![CDATA[$items]]></code>
       <code><![CDATA[$items]]></code>
       <code><![CDATA[$join]]></code>
-      <code><![CDATA[$query]]></code>
-      <code><![CDATA[$query]]></code>
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$query]]></code>
     </MissingClosureParamType>
@@ -6105,8 +5947,6 @@
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[avg]]></code>
-      <code><![CDATA[count]]></code>
-      <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
@@ -6143,8 +5983,6 @@
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
-      <code><![CDATA[where]]></code>
-      <code><![CDATA[where]]></code>
       <code><![CDATA[with]]></code>
       <code><![CDATA[with]]></code>
       <code><![CDATA[withCount]]></code>
@@ -6176,9 +6014,9 @@
       <code><![CDATA[$totalVisitors > 0 ? $totalPurchases / $totalVisitors * 100 : 0]]></code>
       <code><![CDATA[$totalVisitors > 0 ? $totalPurchases / $totalVisitors * 100 : 0]]></code>
       <code><![CDATA[Cache::remember($cacheKey, 1800, /**
-         * @return ((((null|scalar)[][]|null|scalar)[]|int)[]|float)[]
+         * @return array<array<array<array<array<scalar|null>>|scalar|null>|int>|float>
          *
-         * @psalm-return array{purchase_history: array<int, array<string, array<int, array<string, null|scalar>>|null|scalar>>, browsing_patterns: array<string, array<int, int>|int>, preferences: array<string, array<int, float|int|null>>, engagement_score: float, lifetime_value: float, recommendation_score: float}
+         * @psalm-return array{purchase_history: array<int, array<string, array<int, array<string, scalar|null>>|scalar|null>>, browsing_patterns: array<string, array<int, int>|int>, preferences: array<string, array<int, float|int|null>>, engagement_score: float, lifetime_value: float, recommendation_score: float}
          */
             function () use ($user): array {
                 return [
@@ -6191,9 +6029,9 @@
                 ];
             })]]></code>
       <code><![CDATA[Cache::remember($cacheKey, 3600, /**
-         * @return ((int|string|null)[][]|float|int|mixed)[]
+         * @return array<array<array<int|string|null>>|float|int|mixed>
          *
-         * @psalm-return array{total_users: mixed, active_users: int, total_orders: mixed, total_revenue: mixed, average_order_value: mixed, conversion_rate: float, most_viewed_products: array<int, array<string, int|null|string>>, top_selling_products: array<int, array<string, int|null|string>>}
+         * @psalm-return array{total_users: mixed, active_users: int, total_orders: mixed, total_revenue: mixed, average_order_value: mixed, conversion_rate: float, most_viewed_products: array<int, array<string, int|string|null>>, top_selling_products: array<int, array<string, int|string|null>>}
          */
             function (): array {
                 return [
@@ -6214,31 +6052,8 @@
       <code><![CDATA[min($score / 100, 1.0)]]></code>
       <code><![CDATA[min($score / 100, 1.0)]]></code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[DB::table('user_behaviors')
-            ->where('user_id', $user->id)
-            ->where('created_at', '>=', now()->subDays(30))
-            ->selectRaw('HOUR(created_at) as hour')
-            ->selectRaw('COUNT(*) as count')
-            ->groupBy('hour')
-            ->orderByDesc('count')
-            ->limit(3)
-            ->pluck('hour')
-            ->toArray()]]></code>
-      <code><![CDATA[[
-            'high_value' => User::whereHas('orders', static function ($query): void {
-                $query->where('total_amount', '>', 500);
-            })->count(),
-            'frequent_buyers' => User::whereHas('orders', static function ($query): void {
-                $query->where('created_at', '>=', now()->subDays(30));
-            }, '>=', 3)->count(),
-            'new_customers' => User::where('created_at', '>=', now()->subDays(30))->count(),
-        ]]]></code>
-      <code><![CDATA[array<int, int>]]></code>
-      <code><![CDATA[array<string, int>]]></code>
-    </MixedReturnTypeCoercion>
     <MoreSpecificReturnType>
-      <code><![CDATA[array{purchase_history: array<int, array<string, array<int, array<string, null|scalar>>|null|scalar>>, browsing_patterns: array<string, array<int, int>|int>, preferences: array<string, array<int, float|int|null>>, engagement_score: float, lifetime_value: float, recommendation_score: float}]]></code>
+      <code><![CDATA[array{purchase_history: array<int, array<string, array<int, array<string, scalar|null>>|scalar|null>>, browsing_patterns: array<string, array<int, int>|int>, preferences: array<string, array<int, float|int|null>>, engagement_score: float, lifetime_value: float, recommendation_score: float}]]></code>
     </MoreSpecificReturnType>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$product->purchase_count]]></code>
@@ -6262,15 +6077,8 @@
       <code><![CDATA[Product::select('products.*')]]></code>
       <code><![CDATA[User::count()]]></code>
       <code><![CDATA[User::whereHas('orders', static function ($query): void {
-                $query->where('created_at', '>=', now()->subDays(30));
-            }, '>=', 3)]]></code>
-      <code><![CDATA[User::whereHas('orders', static function ($query): void {
-                $query->where('total_amount', '>', 500);
-            })]]></code>
-      <code><![CDATA[User::whereHas('orders', static function ($query): void {
             $query->where('created_at', '>=', now()->subDays(30));
         })]]></code>
-      <code><![CDATA[count]]></code>
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$item->product]]></code>
@@ -6281,13 +6089,7 @@
       <code><![CDATA[$item->unit_price]]></code>
       <code><![CDATA[$order->created_at]]></code>
       <code><![CDATA[$order->items]]></code>
-      <code><![CDATA[$order->order_number]]></code>
-      <code><![CDATA[$order->status]]></code>
-      <code><![CDATA[$order->total_amount]]></code>
     </UndefinedMagicPropertyFetch>
-    <UnusedMethod>
-      <code><![CDATA[getUserSegments]]></code>
-    </UnusedMethod>
   </file>
   <file src="app/Services/CDN/Providers/CloudflareProvider.php">
     <DocblockTypeContradiction>
@@ -6359,13 +6161,6 @@
     </UnusedClass>
   </file>
   <file src="app/Services/CacheService.php">
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function clearAll(): bool]]></code>
-      <code><![CDATA[public function forget(string $key): bool]]></code>
-      <code><![CDATA[public function forgetByTags(array $tags): bool]]></code>
-      <code><![CDATA[public function get(string $key, mixed $default = null)]]></code>
-      <code><![CDATA[public function remember(string $key, int $ttl, callable $callback, array $tags = []): mixed]]></code>
-    </MissingOverrideAttribute>
     <MixedAssignment>
       <code><![CDATA[$driver]]></code>
       <code><![CDATA[$existing]]></code>
@@ -6392,9 +6187,9 @@
       <code><![CDATA[invalidateStore]]></code>
     </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
-      <code><![CDATA[true]]></code>
-      <code><![CDATA[true]]></code>
-      <code><![CDATA[true]]></code>
+      <code><![CDATA[bool]]></code>
+      <code><![CDATA[bool]]></code>
+      <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(bool) Cache::forget($prefixedKey)]]></code>
@@ -6463,9 +6258,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[ContentTypeService]]></code>
     </ClassMustBeFinal>
-    <PossiblyNullArgument>
-      <code><![CDATA[$contentType]]></code>
-    </PossiblyNullArgument>
   </file>
   <file src="app/Services/Compression/GzipCompressionStrategy.php">
     <ClassMustBeFinal>
@@ -6524,7 +6316,7 @@
       <code><![CDATA[$response]]></code>
     </InvalidArgument>
     <InvalidOperand>
-      <code><![CDATA[1 / (float) $rate]]></code>
+      <code><![CDATA[1 / $rate]]></code>
       <code><![CDATA[1 / (float) $rate]]></code>
     </InvalidOperand>
     <MixedAssignment>
@@ -6538,12 +6330,6 @@
       <code><![CDATA[__construct]]></code>
       <code><![CDATA[getSupportedCurrencies]]></code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(float) $rate]]></code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[is_numeric($rate)]]></code>
-    </RedundantCondition>
     <UndefinedMagicMethod>
       <code><![CDATA[ExchangeRate::updateOrCreate(
                     [
@@ -6568,11 +6354,11 @@
                 ]
             )]]></code>
       <code><![CDATA[ExchangeRate::updateOrCreate(
-                ['from_currency' => $to, 'to_currency' => $from],
-                ['rate' => 1 / (float) $rate, 'source' => 'api', 'fetched_at' => now()]
+                ['from_currency' => $toCurrency, 'to_currency' => $from],
+                ['rate' => 1 / $rate, 'source' => 'api', 'fetched_at' => now()]
             )]]></code>
       <code><![CDATA[ExchangeRate::updateOrCreate(
-            ['from_currency' => $from, 'to_currency' => $to],
+            ['from_currency' => $from, 'to_currency' => $toCurrency],
             ['rate' => $rate, 'source' => 'api', 'fetched_at' => now()]
         )]]></code>
     </UndefinedMagicMethod>
@@ -6584,9 +6370,6 @@
     <MixedAssignment>
       <code><![CDATA[$cachedRate]]></code>
     </MixedAssignment>
-    <RedundantCast>
-      <code><![CDATA[(float) $rate]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$rate]]></code>
     </RiskyTruthyFalsyComparison>
@@ -6602,10 +6385,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$filters]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$a['price']]]></code>
-      <code><![CDATA[$b['price']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$store]]></code>
       <code><![CDATA[$this->storeConfigs]]></code>
@@ -6614,10 +6393,10 @@
       <code><![CDATA[$store->id]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
-      <code><![CDATA[Cache::remember("external_product_{$storeName}_{$productId}", 3600, function () use ($storeName, $productId) {
+      <code><![CDATA[Cache::remember("external_product_{$storeName}_{$productId}", 3600, function () use ($storeName, $productId): ?array {
             try {
                 $client = StoreClientFactory::create($storeName);
-                if ($client) {
+                if ($client instanceof \App\Services\StoreClients\GenericStoreClient) {
                     $productData = $client->getProduct($productId);
 
                     return $productData ? $this->normalizeProductData($productData, $storeName) : null;
@@ -6703,7 +6482,7 @@
       <code><![CDATA[$this->config]]></code>
     </MixedAssignment>
     <MoreSpecificReturnType>
-      <code><![CDATA[array{storage_usage: array<string, bool|float|int>, config: array<string, int|string>, last_cleanup: null|string, next_cleanup: null|string}]]></code>
+      <code><![CDATA[array{storage_usage: array<string, bool|float|int>, config: array<string, int|string>, last_cleanup: string|null, next_cleanup: string|null}]]></code>
     </MoreSpecificReturnType>
     <PossiblyFalseArgument>
       <code><![CDATA[$lastCleanup]]></code>
@@ -6714,9 +6493,6 @@
       <code><![CDATA[performCompleteCleanup]]></code>
       <code><![CDATA[scheduleCleanup]]></code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(int) $fileSize]]></code>
-    </RedundantCast>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[is_array($result)]]></code>
     </RedundantConditionGivenDocblockType>
@@ -6730,11 +6506,10 @@
       <code><![CDATA[$product]]></code>
     </DocblockTypeContradiction>
     <InvalidOperand>
-      <code><![CDATA[(($newPrice - $oldPrice) / $oldPrice) * 100]]></code>
+      <code><![CDATA[($newPrice - $oldPrice) / $oldPrice * 100]]></code>
     </InvalidOperand>
     <MixedArgument>
       <code><![CDATA[$offerData['expires_at']]]></code>
-      <code><![CDATA[$priceOffer]]></code>
       <code><![CDATA[$updateData['expires_at']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -6743,76 +6518,20 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$lowestOffer]]></code>
-      <code><![CDATA[$lowestOffer]]></code>
-      <code><![CDATA[$priceOffer]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[first]]></code>
-      <code><![CDATA[first]]></code>
       <code><![CDATA[orderBy]]></code>
-      <code><![CDATA[orderBy]]></code>
-      <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
     </MixedMethodCall>
     <MixedPropertyFetch>
-      <code><![CDATA[$lowestOffer->id]]></code>
       <code><![CDATA[$lowestOffer->price]]></code>
     </MixedPropertyFetch>
-    <MixedReturnStatement>
-      <code><![CDATA[DB::transaction(/**
-         * @return true
-         */
-            function () use ($product, $newPrice, $reason): bool {
-                $oldPrice = (float) $product->price;
-                $this->validatePrice($newPrice);
-
-                $product->update(['price' => $newPrice]);
-
-                $this->logPriceUpdate($product, $oldPrice, $newPrice, $reason);
-
-                $this->checkPriceAlerts();
-
-                return true;
-            })]]></code>
-      <code><![CDATA[DB::transaction(function () use ($offerData) {
-            $this->validateOfferData($offerData);
-
-            $offerData['status'] = 'active';
-            $priceOffer = PriceOffer::create($offerData);
-
-            $this->logOfferCreation($priceOffer);
-
-            $this->updateProductPriceFromOffer($priceOffer);
-
-            return $priceOffer;
-        })]]></code>
-      <code><![CDATA[DB::transaction(function () use ($priceOffer) {
-            $priceOffer->delete();
-
-            $this->logOfferDeletion($priceOffer);
-
-            return true;
-        })]]></code>
-      <code><![CDATA[DB::transaction(function () use ($priceOffer, $updateData) {
-            $this->validateOfferUpdateData($updateData);
-
-            $oldData = $priceOffer->toArray();
-            $priceOffer->update($updateData);
-
-            $this->logOfferUpdate($priceOffer, $oldData);
-
-            $this->updateProductPriceFromOffer($priceOffer);
-
-            return $priceOffer;
-        })]]></code>
-    </MixedReturnStatement>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! strtotime($offerData['expires_at'])]]></code>
       <code><![CDATA[! strtotime($updateData['expires_at'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UndefinedMagicMethod>
-      <code><![CDATA[PriceOffer::create($offerData)]]></code>
-      <code><![CDATA[PriceOffer::where('product_id', $offer->product_id)]]></code>
       <code><![CDATA[PriceOffer::where('product_id', $product->id)]]></code>
     </UndefinedMagicMethod>
     <UnusedClass>
@@ -6837,13 +6556,8 @@
       <code><![CDATA[is_string($encoded)]]></code>
     </DocblockTypeContradiction>
     <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $dimensions[0]]]></code>
-      <code><![CDATA[(int) $dimensions[1]]]></code>
       <code><![CDATA[(string) $sizeName]]></code>
     </RedundantCastGivenDocblockType>
-    <RedundantCondition>
-      <code><![CDATA[is_object($constraint)]]></code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA['']]></code>
       <code><![CDATA[is_array($optimizedImages['medium'])]]></code>
@@ -7057,26 +6771,18 @@
       <code><![CDATA[(float) $product->price * $item['quantity']]]></code>
       <code><![CDATA[(float) $product->price * (int) $quantity]]></code>
     </InvalidOperand>
-    <MissingClosureReturnType>
-      <code><![CDATA[function () use ($user, $cartItems, $addresses) {]]></code>
-    </MissingClosureReturnType>
     <MixedArgument>
-      <code><![CDATA[$oldStatus]]></code>
       <code><![CDATA[$product]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$item]]></code>
-      <code><![CDATA[$oldStatus]]></code>
-      <code><![CDATA[$order]]></code>
       <code><![CDATA[$product]]></code>
       <code><![CDATA[$product]]></code>
       <code><![CDATA[$product]]></code>
       <code><![CDATA[$schema]]></code>
       <code><![CDATA[$table]]></code>
-      <code><![CDATA[$totalAmount]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[canTransitionTo]]></code>
       <code><![CDATA[exists]]></code>
       <code><![CDATA[get]]></code>
       <code><![CDATA[getConnection]]></code>
@@ -7085,20 +6791,11 @@
       <code><![CDATA[hasColumn]]></code>
       <code><![CDATA[hasColumn]]></code>
       <code><![CDATA[limit]]></code>
-      <code><![CDATA[update]]></code>
     </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$order->notes]]></code>
-      <code><![CDATA[$order->subtotal]]></code>
-    </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$item->product]]></code>
       <code><![CDATA[$item->quantity]]></code>
       <code><![CDATA[$item->quantity]]></code>
-      <code><![CDATA[$order->id]]></code>
-      <code><![CDATA[$order->shipping_amount]]></code>
-      <code><![CDATA[$order->subtotal]]></code>
-      <code><![CDATA[$order->tax_amount]]></code>
       <code><![CDATA[$product->id]]></code>
       <code><![CDATA[$product->image]]></code>
       <code><![CDATA[$product->name]]></code>
@@ -7112,89 +6809,23 @@
             ->orderBy('created_at', 'desc')
             ->limit($limit)
             ->get()]]></code>
-      <code><![CDATA[DB::transaction(function () use ($user, $cartItems, $addresses) {
-            $order = Order::create([
-                'order_number' => $this->generateOrderNumber(),
-                'user_id' => $user->id,
-                'status' => OrderStatus::PENDING,
-                'subtotal' => $this->calculateSubtotal($cartItems),
-                'tax_amount' => $this->calculateTax($cartItems),
-                'shipping_amount' => $this->calculateShipping($cartItems),
-                'total_amount' => 0, // Will be calculated
-                'currency' => 'USD',
-                'shipping_address' => $addresses['shipping'],
-                'billing_address' => $addresses['billing'],
-            ]);
-
-            $totalAmount = $order->subtotal + $order->tax_amount + $order->shipping_amount;
-            $order->update(['total_amount' => $totalAmount]);
-
-            foreach ($cartItems as $item) {
-                $productId = $item['product_id'] ?? null;
-                if (! is_numeric($productId)) {
-                    continue;
-                }
-
-                $product = Product::findOrFail((int) $productId);
-                $quantity = $item['quantity'] ?? 1;
-                if (! is_numeric($quantity)) {
-                    $quantity = 1;
-                }
-
-                $orderItemData = [
-                    'order_id' => $order->id,
-                    'product_id' => $product->id,
-                    'quantity' => (int) $quantity,
-                    'unit_price' => $product->price,
-                    'total_price' => (float) $product->price * (int) $quantity,
-                ];
-
-                // Only include product_details if the column exists on the same connection as OrderItem
-                $orderItemModel = new OrderItem;
-                $schema = $orderItemModel->getConnection()->getSchemaBuilder();
-                if ($schema->hasColumn($orderItemModel->getTable(), 'product_details')) {
-                    $orderItemData['product_details'] = [
-                        'name' => $product->name,
-                        'sku' => $product->sku ?? '',
-                        'image' => $product->image ?? '',
-                    ];
-                }
-
-                OrderItem::create($orderItemData);
-            }
-
-            return $order;
-        })]]></code>
     </MixedReturnStatement>
+    <PossiblyNullOperand>
+      <code><![CDATA[$order->notes]]></code>
+    </PossiblyNullOperand>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(int) $productId]]></code>
       <code><![CDATA[(int) $quantity]]></code>
       <code><![CDATA[(int) $quantity]]></code>
     </RedundantCastGivenDocblockType>
     <UndefinedMagicMethod>
-      <code><![CDATA[Order::create([
-                'order_number' => $this->generateOrderNumber(),
-                'user_id' => $user->id,
-                'status' => OrderStatus::PENDING,
-                'subtotal' => $this->calculateSubtotal($cartItems),
-                'tax_amount' => $this->calculateTax($cartItems),
-                'shipping_amount' => $this->calculateShipping($cartItems),
-                'total_amount' => 0, // Will be calculated
-                'currency' => 'USD',
-                'shipping_address' => $addresses['shipping'],
-                'billing_address' => $addresses['billing'],
-            ])]]></code>
       <code><![CDATA[Order::where('order_number', $orderNumber)]]></code>
-      <code><![CDATA[OrderItem::create($orderItemData)]]></code>
       <code><![CDATA[Product::find($item['product_id'])]]></code>
       <code><![CDATA[Product::findOrFail((int) $productId)]]></code>
       <code><![CDATA[orderBy]]></code>
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$order->items]]></code>
-      <code><![CDATA[$order->notes]]></code>
-      <code><![CDATA[$order->status_enum]]></code>
-      <code><![CDATA[$order->status_enum]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="app/Services/PasswordHistoryService.php">
@@ -7362,9 +6993,6 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[is_string($paymentMethodId)]]></code>
     </RedundantConditionGivenDocblockType>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$paymentIntentId]]></code>
-    </RiskyTruthyFalsyComparison>
     <UndefinedMagicMethod>
       <code><![CDATA[Payment::create([
             'order_id' => $order->id,
@@ -7378,8 +7006,6 @@
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$order->currency]]></code>
-      <code><![CDATA[$order->id]]></code>
-      <code><![CDATA[$order->total_amount]]></code>
       <code><![CDATA[$payment->amount]]></code>
       <code><![CDATA[$payment->amount]]></code>
       <code><![CDATA[$payment->amount]]></code>
@@ -7394,78 +7020,16 @@
       <code><![CDATA[PaymentService]]></code>
     </UnusedClass>
   </file>
-  <file src="app/Services/Performance/AppOptimizer.php">
-    <ForbiddenCode>
-      <code><![CDATA[shell_exec('composer dump-autoload -o')]]></code>
-    </ForbiddenCode>
-    <UndefinedMethod>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[warn]]></code>
-      <code><![CDATA[warn]]></code>
-      <code><![CDATA[warn]]></code>
-    </UndefinedMethod>
-    <UnusedClass>
-      <code><![CDATA[AppOptimizer]]></code>
-    </UnusedClass>
-  </file>
-  <file src="app/Services/Performance/CacheOptimizer.php">
-    <UndefinedMethod>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[warn]]></code>
-      <code><![CDATA[warn]]></code>
-    </UndefinedMethod>
-    <UnusedClass>
-      <code><![CDATA[CacheOptimizer]]></code>
-    </UnusedClass>
-  </file>
   <file src="app/Services/Performance/CacheOptimizerService.php">
     <UndefinedMethod>
       <code><![CDATA[line]]></code>
     </UndefinedMethod>
   </file>
-  <file src="app/Services/Performance/DatabaseOptimizer.php">
-    <MixedAssignment>
-      <code><![CDATA[$database]]></code>
-      <code><![CDATA[$database]]></code>
-      <code><![CDATA[$database]]></code>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[$table]]></code>
-      <code><![CDATA[$tableName]]></code>
-    </MixedAssignment>
-    <MixedPropertyFetch>
-      <code><![CDATA[$cacheStatus[0]->Value]]></code>
-      <code><![CDATA[$slowQueries[0]->Value]]></code>
-    </MixedPropertyFetch>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$tableSizes !== null]]></code>
-      <code><![CDATA[$tablesWithoutIndexes !== null]]></code>
-    </RedundantConditionGivenDocblockType>
-    <UndefinedMethod>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[line]]></code>
-      <code><![CDATA[warn]]></code>
-      <code><![CDATA[warn]]></code>
-      <code><![CDATA[warn]]></code>
-      <code><![CDATA[warn]]></code>
-    </UndefinedMethod>
-    <UnusedClass>
-      <code><![CDATA[DatabaseOptimizer]]></code>
-    </UnusedClass>
-  </file>
   <file src="app/Services/Performance/DatabaseOptimizerService.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA['Tables_in_']]></code>
+    </DocblockTypeContradiction>
     <MixedAssignment>
-      <code><![CDATA[$database]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$tableNames[]]]></code>
     </MixedAssignment>
@@ -7473,6 +7037,9 @@
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[array<string>]]></code>
     </MixedReturnTypeCoercion>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[is_string($database)]]></code>
+    </RedundantConditionGivenDocblockType>
     <UndefinedMethod>
       <code><![CDATA[line]]></code>
       <code><![CDATA[line]]></code>
@@ -7482,25 +7049,22 @@
   </file>
   <file src="app/Services/Performance/PerformanceReporter.php">
     <MixedArgument>
-      <code><![CDATA[$opcacheStatus['memory_usage']['free_memory'] / 1024 / 1024]]></code>
-      <code><![CDATA[$opcacheStatus['memory_usage']['used_memory'] / 1024 / 1024]]></code>
-      <code><![CDATA[$opcacheStatus['memory_usage']['wasted_memory'] / 1024 / 1024]]></code>
-      <code><![CDATA[$opcacheStatus['opcache_statistics']['opcache_hit_rate']]]></code>
+      <code><![CDATA[$opcacheStatus['opcache_statistics']['opcache_hit_rate'] ?? 0]]></code>
+      <code><![CDATA[($opcacheStatus['memory_usage']['free_memory'] ?? 0) / 1024 / 1024]]></code>
+      <code><![CDATA[($opcacheStatus['memory_usage']['used_memory'] ?? 0) / 1024 / 1024]]></code>
+      <code><![CDATA[($opcacheStatus['memory_usage']['wasted_memory'] ?? 0) / 1024 / 1024]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$opcacheStatus['memory_usage']['free_memory']]]></code>
-      <code><![CDATA[$opcacheStatus['memory_usage']['used_memory']]]></code>
-      <code><![CDATA[$opcacheStatus['memory_usage']['wasted_memory']]]></code>
-      <code><![CDATA[$opcacheStatus['opcache_statistics']['num_cached_scripts']]]></code>
-      <code><![CDATA[$opcacheStatus['opcache_statistics']['opcache_hit_rate']]]></code>
-    </MixedArrayAccess>
     <MixedOperand>
-      <code><![CDATA[$opcacheStatus['memory_usage']['free_memory']]]></code>
-      <code><![CDATA[$opcacheStatus['memory_usage']['used_memory']]]></code>
-      <code><![CDATA[$opcacheStatus['memory_usage']['wasted_memory']]]></code>
+      <code><![CDATA[$opcacheStatus['memory_usage']['free_memory'] ?? 0]]></code>
+      <code><![CDATA[$opcacheStatus['memory_usage']['used_memory'] ?? 0]]></code>
+      <code><![CDATA[$opcacheStatus['memory_usage']['wasted_memory'] ?? 0]]></code>
+      <code><![CDATA[($opcacheStatus['memory_usage']['free_memory'] ?? 0) / 1024]]></code>
+      <code><![CDATA[($opcacheStatus['memory_usage']['used_memory'] ?? 0) / 1024]]></code>
+      <code><![CDATA[($opcacheStatus['memory_usage']['wasted_memory'] ?? 0) / 1024]]></code>
     </MixedOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$opcacheStatus]]></code>
+      <code><![CDATA[$opcacheStatus['opcache_enabled'] ?? false]]></code>
       <code><![CDATA[ini_get('opcache.enable')]]></code>
     </RiskyTruthyFalsyComparison>
     <UndefinedMethod>
@@ -7529,6 +7093,9 @@
     </UndefinedMethod>
   </file>
   <file src="app/Services/Performance/SystemOptimizerService.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$execOutput]]></code>
+    </MixedArgumentTypeCoercion>
     <UndefinedMethod>
       <code><![CDATA[line]]></code>
       <code><![CDATA[warn]]></code>
@@ -7553,6 +7120,7 @@
   <file src="app/Services/PerformanceMonitoringService.php">
     <DocblockTypeContradiction>
       <code><![CDATA[! is_array($operationData)]]></code>
+      <code><![CDATA[! is_array($operationData)]]></code>
     </DocblockTypeContradiction>
     <InvalidOperand>
       <code><![CDATA[$currentMemory / $this->parseMemoryLimit($limit) * 100]]></code>
@@ -7565,14 +7133,7 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$config]]></code>
-      <code><![CDATA[$result]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$this->operations[$operationName]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[$this->metrics[$operation]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$config]]></code>
       <code><![CDATA[$executionTime]]></code>
@@ -7583,7 +7144,6 @@
       <code><![CDATA[$totalTime]]></code>
     </MixedOperand>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$result]]></code>
       <code><![CDATA[[
             'total_queries' => count($queries),
             'total_time' => $totalTime,
@@ -7591,7 +7151,6 @@
             'slow_queries' => $slowQueries,
             'slow_queries_count' => count($slowQueries),
         ]]]></code>
-      <code><![CDATA[array<string, float|int|string|array>]]></code>
       <code><![CDATA[array<string, int|float|list<array<string, string|int|list<string>>>>]]></code>
     </MixedReturnTypeCoercion>
     <PossiblyFalseArgument>
@@ -7608,11 +7167,6 @@
       <code><![CDATA[is_array($config)]]></code>
       <code><![CDATA[is_array($config)]]></code>
     </RedundantCondition>
-    <UndefinedVariable>
-      <code><![CDATA[$operation]]></code>
-      <code><![CDATA[$operation]]></code>
-      <code><![CDATA[$operation]]></code>
-    </UndefinedVariable>
     <UnusedClass>
       <code><![CDATA[PerformanceMonitoringService]]></code>
     </UnusedClass>
@@ -7622,7 +7176,6 @@
       <code><![CDATA[PointsService]]></code>
     </ClassMustBeFinal>
     <MixedArgument>
-      <code><![CDATA[$order->id]]></code>
       <code><![CDATA[$reward]]></code>
       <code><![CDATA[$reward->points_required]]></code>
       <code><![CDATA[$user]]></code>
@@ -7647,7 +7200,7 @@
       <code><![CDATA[$reward->points_required]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
-      <code><![CDATA[DB::transaction(function () use ($user, $reward) {
+      <code><![CDATA[DB::transaction(function () use ($user, $reward): true {
             $this->redeemPoints($user, $reward->points_required, "Redeemed reward: {$reward->name}");
 
             // Apply reward benefits
@@ -7682,6 +7235,9 @@
       <code><![CDATA[UserPoint]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(float) $order->total_amount]]></code>
+    </RedundantCastGivenDocblockType>
     <UndefinedMagicMethod>
       <code><![CDATA[Reward::availableForPoints($availablePoints)]]></code>
       <code><![CDATA[Reward::findOrFail($rewardId)]]></code>
@@ -7698,9 +7254,6 @@
       <code><![CDATA[UserPoint::where('user_id', $userId)]]></code>
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$order->id]]></code>
-      <code><![CDATA[$order->order_number]]></code>
-      <code><![CDATA[$order->total_amount]]></code>
       <code><![CDATA[$order->user]]></code>
       <code><![CDATA[$reward->name]]></code>
       <code><![CDATA[$reward->name]]></code>
@@ -7713,6 +7266,12 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$pricesArray]]></code>
     </ArgumentTypeCoercion>
+    <InvalidReturnStatement>
+      <code><![CDATA[$item['in_stock'] ?? false]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[bool]]></code>
+    </InvalidReturnType>
     <LessSpecificReturnStatement>
       <code><![CDATA[$prices]]></code>
     </LessSpecificReturnStatement>
@@ -7725,16 +7284,10 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(string) $productData['currency']]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$price['in_stock'] ?? false]]></code>
       <code><![CDATA[$productData]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[string]]></code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="app/Services/PriceUpdate/PriceFetcherService.php">
     <DocblockTypeContradiction>
@@ -7766,10 +7319,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[logAppliedFilter]]></code>
     </PossiblyUnusedMethod>
-    <RedundantCast>
-      <code><![CDATA[(string) $productName]]></code>
-      <code><![CDATA[(string) $storeName]]></code>
-    </RedundantCast>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$product]]></code>
       <code><![CDATA[$product && is_string($product->name)]]></code>
@@ -7847,12 +7396,8 @@
     </MixedReturnStatement>
   </file>
   <file src="app/Services/Product/Services/ProductPriceService.php">
-    <InvalidScalarArgument>
-      <code><![CDATA[$oldPrice]]></code>
-    </InvalidScalarArgument>
     <MixedArgument>
       <code><![CDATA[$lockedProduct]]></code>
-      <code><![CDATA[$userId]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$lockedProduct]]></code>
@@ -7880,7 +7425,7 @@
                     $updated = $lockedProduct->update(['price' => $newPrice]);
 
                     if (! $updated) {
-                        throw new \RuntimeException('Failed to update product price');
+                        throw new RuntimeException('Failed to update product price');
                     }
 
                     $userId = auth()->id();
@@ -7895,23 +7440,18 @@
                     ]);
 
                     // Create price history record (if priceHistory method exists)
-                    $this->createPriceHistory($lockedProduct, $oldPrice, $newPrice, $userId);
+                    $this->createPriceHistory($lockedProduct, $newPrice);
 
                     return true;
-                })]]></code>
+                }
+            )]]></code>
     </MixedReturnStatement>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_object($priceHistory)]]></code>
-    </RedundantConditionGivenDocblockType>
     <UndefinedInterfaceMethod>
       <code><![CDATA[id]]></code>
     </UndefinedInterfaceMethod>
     <UndefinedMagicMethod>
       <code><![CDATA[Product::where('id', $product->id)]]></code>
     </UndefinedMagicMethod>
-    <UnusedParam>
-      <code><![CDATA[$userId]]></code>
-    </UnusedParam>
   </file>
   <file src="app/Services/Product/Services/ProductQueryBuilderService.php">
     <MixedArgument>
@@ -7980,7 +7520,6 @@
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$query]]></code>
-      <code><![CDATA[$query]]></code>
     </MissingClosureParamType>
     <MixedArgument>
       <code><![CDATA[$purchases]]></code>
@@ -7993,7 +7532,6 @@
       <code><![CDATA[$product]]></code>
       <code><![CDATA[$product]]></code>
       <code><![CDATA[$purchases]]></code>
-      <code><![CDATA[$userIds]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[all]]></code>
@@ -8001,7 +7539,6 @@
       <code><![CDATA[all]]></code>
       <code><![CDATA[all]]></code>
       <code><![CDATA[distinct]]></code>
-      <code><![CDATA[get]]></code>
       <code><![CDATA[get]]></code>
       <code><![CDATA[get]]></code>
       <code><![CDATA[get]]></code>
@@ -8021,14 +7558,11 @@
       <code><![CDATA[orderByDesc]]></code>
       <code><![CDATA[pluck]]></code>
       <code><![CDATA[pluck]]></code>
-      <code><![CDATA[pluck]]></code>
       <code><![CDATA[select]]></code>
       <code><![CDATA[select]]></code>
       <code><![CDATA[selectRaw]]></code>
       <code><![CDATA[toArray]]></code>
       <code><![CDATA[toArray]]></code>
-      <code><![CDATA[unique]]></code>
-      <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
@@ -8060,7 +7594,7 @@
       <code><![CDATA[$product && $product->category_id ? $product->category_id : 0]]></code>
       <code><![CDATA[$product ? $product->price : 0.0]]></code>
       <code><![CDATA[$product ? $product->price : 0.0]]></code>
-      <code><![CDATA[Cache::remember($cacheKey, 3600, /**
+      <code><![CDATA[Cache::remember($cacheKey, $cacheTtl, /**
          * @psalm-return array<int, mixed>
          */
             function () use ($user, $limit): array {
@@ -8125,7 +7659,6 @@
             ->where('is_active', true)
             ->get()
             ->all()]]></code>
-      <code><![CDATA[User::whereIn('id', $userIds)->get()]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[[
@@ -8140,9 +7673,6 @@
       <code><![CDATA[isset($userPreferences['price_range']) && is_array($userPreferences['price_range'])]]></code>
     </RedundantConditionGivenDocblockType>
     <UndefinedMagicMethod>
-      <code><![CDATA[OrderItem::whereHas('order', function ($query) use ($product): void {
-            $query->where('product_id', $product->id);
-        })]]></code>
       <code><![CDATA[OrderItem::whereHas('order', function ($query) use ($product): void {
             $query->whereHas('items', function ($q) use ($product): void {
                 $q->where('product_id', $product->id);
@@ -8163,23 +7693,18 @@
             $query->whereIn('user_id', $similarUserIds);
         })]]></code>
       <code><![CDATA[Product::whereIn('id', $productIds)]]></code>
-      <code><![CDATA[User::whereIn('id', $userIds)]]></code>
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$item->product]]></code>
       <code><![CDATA[$item->product]]></code>
       <code><![CDATA[$item->product]]></code>
     </UndefinedMagicPropertyFetch>
-    <UnusedMethod>
-      <code><![CDATA[getSimilarUsersByProduct]]></code>
-    </UnusedMethod>
   </file>
   <file src="app/Services/ReportService.php">
     <InvalidMethodCall>
       <code><![CDATA[map]]></code>
     </InvalidMethodCall>
     <InvalidOperand>
-      <code><![CDATA[$change / $firstPrice * 100]]></code>
       <code><![CDATA[$priceChanges / $startDate->diffInDays($endDate)]]></code>
       <code><![CDATA[($price - $averagePrice) ** 2]]></code>
       <code><![CDATA[array_reduce(
@@ -8188,7 +7713,7 @@
                 return $carry + ($price - $averagePrice) ** 2;
             },
             0.0
-        ) / count($prices)]]></code>
+        ) / $pricesCount]]></code>
       <code><![CDATA[array_sum($prices) / $totalOffers]]></code>
       <code><![CDATA[array_sum($ratings) / count($ratings)]]></code>
     </InvalidOperand>
@@ -8198,9 +7723,9 @@
     </InvalidStringClass>
     <InvalidTemplateParam>
       <code><![CDATA[$alerts->map(/**
-         * @return (float|int|null|string)[]
+         * @return array<float|int|string|null>
          *
-         * @psalm-return array{user_id: int, product_id: int, product_name: string, target_price: float, created_at: null|string}
+         * @psalm-return array{user_id: int, product_id: int, product_name: string, target_price: float, created_at: string|null}
          */
             static function (PriceAlert $alert): array {
                 $createdAt = $alert->created_at;
@@ -8212,9 +7737,10 @@
                     'target_price' => $alert->target_price,
                     'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
                 ];
-            })]]></code>
+            }
+        )]]></code>
       <code><![CDATA[$reviews->map(/**
-         * @return (int|mixed|null|string)[]
+         * @return array<int|mixed|string|null>
          *
          * @psalm-return array{user_id: int, product_id: int, product_name: string, rating: int, comment: string, created_at: mixed|null}
          */
@@ -8229,11 +7755,12 @@
                     'comment' => $review->content,
                     'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
                 ];
-            })]]></code>
+            }
+        )]]></code>
       <code><![CDATA[$wishlists->map(/**
-         * @return (int|null|string)[]
+         * @return array<int|string|null>
          *
-         * @psalm-return array{user_id: int, product_id: int, product_name: string, created_at: null|string}
+         * @psalm-return array{user_id: int, product_id: int, product_name: string, created_at: string|null}
          */
             static function (Wishlist $wishlist): array {
                 $createdAt = $wishlist->created_at;
@@ -8244,7 +7771,8 @@
                     'product_name' => $wishlist->product->name,
                     'created_at' => $createdAt ? $createdAt->toDateTimeString() : null,
                 ];
-            })]]></code>
+            }
+        )]]></code>
     </InvalidTemplateParam>
     <MissingClosureParamType>
       <code><![CDATA[$trend]]></code>
@@ -8276,7 +7804,6 @@
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
-      <code><![CDATA[findOrFail]]></code>
       <code><![CDATA[format]]></code>
       <code><![CDATA[get]]></code>
       <code><![CDATA[get]]></code>
@@ -8310,7 +7837,6 @@
       <code><![CDATA[whereBetween]]></code>
       <code><![CDATA[whereBetween]]></code>
       <code><![CDATA[whereBetween]]></code>
-      <code><![CDATA[whereBetween]]></code>
       <code><![CDATA[with]]></code>
     </MixedMethodCall>
     <MixedPropertyFetch>
@@ -8336,26 +7862,28 @@
             ->whereBetween('created_at', [$startDate, $endDate])
             ->count()]]></code>
       <code><![CDATA[$products->map(/**
-         * @return (int|null|string)[]
+         * @return array<int|string|null>
          *
-         * @psalm-return array<string, int|null|string>
+         * @psalm-return array<string, int|string|null>
          */
             function (Product $product): array {
                 return $this->formatTopProduct($product);
-            })->toArray()]]></code>
+            }
+        )->toArray()]]></code>
       <code><![CDATA[$trends->map(/**
-         * @return (float|string)[]
+         * @return array<float|string>
          *
          * @psalm-return array<string, float|string>
          */
             /**
-             * @return (float|string)[]
+             * @return array<float|string>
              *
              * @psalm-return array{date: string, average_price: float}
              */
             function ($trend): array {
                 return $this->formatTrendData($trend);
-            })->toArray()]]></code>
+            }
+        )->toArray()]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[[
@@ -8364,14 +7892,6 @@
             'wishlists_count' => $product->wishlists_count,
             'price_alerts_count' => $product->price_alerts_count,
             'reviews_count' => $product->reviews_count,
-        ]]]></code>
-      <code><![CDATA[[
-            'id' => $this->getProductProperty($product, 'id', 0),
-            'name' => $this->getProductProperty($product, 'name', ''),
-            'price' => $this->getProductProperty($product, 'price', 0.0),
-            'wishlists_count' => $this->getProductProperty($product, 'wishlists_count', 0),
-            'price_alerts_count' => $this->getProductProperty($product, 'price_alerts_count', 0),
-            'reviews_count' => $this->getProductProperty($product, 'reviews_count', 0),
         ]]]></code>
       <code><![CDATA[[
             'period' => [
@@ -8402,14 +7922,6 @@
       <code><![CDATA[array<string, int|array<int, int>>]]></code>
       <code><![CDATA[array<string, int|string|null>]]></code>
       <code><![CDATA[array{
-     *     id: int,
-     *     name: string,
-     *     price: float,
-     *     wishlists_count: int,
-     *     price_alerts_count: int,
-     *     reviews_count: int
-     * }]]></code>
-      <code><![CDATA[array{
      *     period: array<string, string>,
      *     total_offers: int,
      *     price_changes: array<string, float|int>,
@@ -8418,12 +7930,6 @@
      *     price_trends: array<int, array<string, string|float>>
      * }]]></code>
     </MixedReturnTypeCoercion>
-    <PossiblyFalseOperand>
-      <code><![CDATA[$lastPrice]]></code>
-    </PossiblyFalseOperand>
-    <PossiblyUndefinedVariable>
-      <code><![CDATA[$productId]]></code>
-    </PossiblyUndefinedVariable>
     <RedundantCastGivenDocblockType>
       <code><![CDATA[(float) $trend->average_price]]></code>
     </RedundantCastGivenDocblockType>
@@ -8434,7 +7940,8 @@
       <code><![CDATA[Product::withCount(['wishlists', 'priceAlerts', 'reviews'])]]></code>
       <code><![CDATA[Review::where('product_id', $productId)]]></code>
       <code><![CDATA[findOrFail]]></code>
-      <code><![CDATA[where]]></code>
+      <code><![CDATA[findOrFail]]></code>
+      <code><![CDATA[whereBetween]]></code>
     </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$product->price_alerts_count]]></code>
@@ -8445,9 +7952,6 @@
     <UndefinedMethod>
       <code><![CDATA[getTopStores]]></code>
     </UndefinedMethod>
-    <UndefinedThisPropertyFetch>
-      <code><![CDATA[$this->userModel]]></code>
-    </UndefinedThisPropertyFetch>
     <UnusedClass>
       <code><![CDATA[ReportService]]></code>
     </UnusedClass>
@@ -8501,7 +8005,7 @@
       <code><![CDATA[map]]></code>
     </MixedMethodCall>
     <MixedReturnStatement>
-      <code><![CDATA[$modelClass::all()->map(function (Model $model) {
+      <code><![CDATA[$modelClass::all()->map(function (Model $model): \App\Services\SEO\SEOAuditResult {
             return $this->auditModel($model);
         })]]></code>
     </MixedReturnStatement>
@@ -8710,20 +8214,9 @@
     <ClassMustBeFinal>
       <code><![CDATA[SecurityHeadersService]]></code>
     </ClassMustBeFinal>
-    <MissingParamType>
-      <code><![CDATA[$environments]]></code>
-      <code><![CDATA[$patterns]]></code>
-      <code><![CDATA[$required]]></code>
-    </MissingParamType>
-    <MixedArgument>
-      <code><![CDATA[$condition]]></code>
-    </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$condition]]></code>
       <code><![CDATA[$overrideValue]]></code>
       <code><![CDATA[$pattern]]></code>
-      <code><![CDATA[$pattern]]></code>
-      <code><![CDATA[$required]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
@@ -8735,17 +8228,10 @@
             'max-age=31536000; includeSubDomains; preload'
         )]]></code>
     </MixedReturnStatement>
-    <RedundantCast>
-      <code><![CDATA[(string) $this->getContentSecurityPolicy($request)]]></code>
-    </RedundantCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! ($config['enabled'] ?? true)]]></code>
       <code><![CDATA[$isLocal]]></code>
       <code><![CDATA[$isLocal]]></code>
     </RiskyTruthyFalsyComparison>
-    <UnusedMethod>
-      <code><![CDATA[shouldApplyHeader]]></code>
-    </UnusedMethod>
   </file>
   <file src="app/Services/Security/VirusScanner.php">
     <ClassMustBeFinal>
@@ -8754,10 +8240,6 @@
     <MixedAssignment>
       <code><![CDATA[$binary]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$mime]]></code>
-      <code><![CDATA[@fread($fp, 8192)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="app/Services/SecurityAnalysisService.php">
     <MixedAssignment>
@@ -8765,6 +8247,11 @@
     </MixedAssignment>
     <UnusedClass>
       <code><![CDATA[SecurityAnalysisService]]></code>
+    </UnusedClass>
+  </file>
+  <file src="app/Services/ShippingService.php">
+    <UnusedClass>
+      <code><![CDATA[ShippingService]]></code>
     </UnusedClass>
   </file>
   <file src="app/Services/StorageManagementService.php">
@@ -8781,9 +8268,9 @@
       <code><![CDATA[$size / 1024 / 1024]]></code>
       <code><![CDATA[$size / 1024 / 1024]]></code>
       <code><![CDATA[$this->getDirectorySize($directory) / 1024 / 1024]]></code>
+      <code><![CDATA[$totalSize / $maxSize * 100]]></code>
       <code><![CDATA[$totalSize / 1024 / 1024]]></code>
       <code><![CDATA[($originalSize - $compressedSize) / 1024 / 1024]]></code>
-      <code><![CDATA[($totalSize / $maxSize) * 100]]></code>
     </InvalidOperand>
     <InvalidReturnStatement>
       <code><![CDATA[[
@@ -8799,7 +8286,6 @@
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$data]]></code>
-      <code><![CDATA[$filePath]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$type]]></code>
@@ -8813,7 +8299,6 @@
       <code><![CDATA[$file]]></code>
       <code><![CDATA[$file]]></code>
       <code><![CDATA[$filePath]]></code>
-      <code><![CDATA[$name]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$results]]></code>
       <code><![CDATA[$total['files_compressed']]]></code>
@@ -8840,7 +8325,7 @@
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$breakdown]]></code>
-      <code><![CDATA[$this->executeStorageOperation('archival', function () {
+      <code><![CDATA[$this->executeStorageOperation('archival', function (): array {
             return $this->executeArchival();
         }, [
             'files_archived' => 0,
@@ -8848,7 +8333,7 @@
             'space_saved_mb' => 0,
             'errors' => [],
         ])]]></code>
-      <code><![CDATA[$this->executeStorageOperation('compression', function () {
+      <code><![CDATA[$this->executeStorageOperation('compression', function (): array {
             return $this->executeCompression();
         }, [
             'files_compressed' => 0,
@@ -8910,7 +8395,6 @@
       <code><![CDATA[! ($this->config['auto_cleanup'] ?? true)]]></code>
       <code><![CDATA[$newestFile]]></code>
       <code><![CDATA[$oldestFile]]></code>
-      <code><![CDATA[empty($breakdown)]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[! is_array($data)]]></code>
@@ -8924,18 +8408,12 @@
       <code><![CDATA[ZipArchive]]></code>
       <code><![CDATA[private]]></code>
     </UndefinedClass>
-    <UnnecessaryVarAnnotation>
-      <code><![CDATA[array<string, StorageBreakdown>]]></code>
-    </UnnecessaryVarAnnotation>
     <UnusedClass>
       <code><![CDATA[StorageManagementService]]></code>
     </UnusedClass>
     <UnusedDocblockParam>
       <code><![CDATA[$config]]></code>
     </UnusedDocblockParam>
-    <UnusedVariable>
-      <code><![CDATA[$name]]></code>
-    </UnusedVariable>
   </file>
   <file src="app/Services/StoreAdapterManager.php">
     <InvalidReturnStatement>
@@ -9177,23 +8655,12 @@
       <code><![CDATA[subject]]></code>
       <code><![CDATA[to]]></code>
     </MixedMethodCall>
-    <MixedReturnStatement>
-      <code><![CDATA[is_array($this->configRepository->get('suspicious_activity.notification'))
-            ? $this->configRepository->get('suspicious_activity.notification')
-            : []]]></code>
-      <code><![CDATA[is_array($this->configRepository->get('suspicious_activity.notification'))
-            ? $this->configRepository->get('suspicious_activity.notification')
-            : []]]></code>
-    </MixedReturnStatement>
     <PossiblyFalseOperand>
       <code><![CDATA[json_encode($value, JSON_PRETTY_PRINT)]]></code>
     </PossiblyFalseOperand>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <UnusedMethod>
-      <code><![CDATA[getNotificationConfig]]></code>
-    </UnusedMethod>
   </file>
   <file src="app/Services/SuspiciousActivityService.php">
     <ArgumentTypeCoercion>
@@ -9293,7 +8760,6 @@
       <code><![CDATA[(bool) ($user->is_blocked ?? false)]]></code>
     </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$this->unbanUser($user, 'expired')]]></code>
       <code><![CDATA[$user->is_blocked]]></code>
       <code><![CDATA[$user->is_blocked]]></code>
     </RedundantConditionGivenDocblockType>
@@ -9302,11 +8768,6 @@
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
     </UndefinedMagicMethod>
-    <UnusedParam>
-      <code><![CDATA[$newExpiry]]></code>
-      <code><![CDATA[$newExpiry]]></code>
-      <code><![CDATA[$user]]></code>
-    </UnusedParam>
   </file>
   <file src="app/Services/Validators/PriceChangeValidator.php">
     <ClassMustBeFinal>
@@ -9315,9 +8776,9 @@
     <InvalidOperand>
       <code><![CDATA[abs($newPriceFloat - $oldPriceFloat) / $oldPriceFloat * 100]]></code>
     </InvalidOperand>
-    <RedundantConditionGivenDocblockType>
+    <RedundantCondition>
       <code><![CDATA[$product instanceof \App\Models\Product]]></code>
-    </RedundantConditionGivenDocblockType>
+    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$oldPrice]]></code>
     </RiskyTruthyFalsyComparison>
@@ -9348,7 +8809,6 @@
     <MixedArgument>
       <code><![CDATA[$pendingDispatch]]></code>
       <code><![CDATA[$secret]]></code>
-      <code><![CDATA[$webhook]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[[
@@ -9372,10 +8832,8 @@
       <code><![CDATA[$updates['description']]]></code>
       <code><![CDATA[$updates['image_url']]]></code>
       <code><![CDATA[$updates['name']]]></code>
-      <code><![CDATA[$webhook]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[addLog]]></code>
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>
@@ -9392,7 +8850,6 @@
     </MixedPropertyFetch>
     <MixedReturnStatement>
       <code><![CDATA[$product]]></code>
-      <code><![CDATA[$webhook]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$updates]]></code>
@@ -9419,10 +8876,10 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $newPrice]]></code>
       <code><![CDATA[! app()->environment('testing')]]></code>
+      <code><![CDATA[! app()->environment('testing')]]></code>
       <code><![CDATA[$webhook->signature]]></code>
     </RiskyTruthyFalsyComparison>
     <UndefinedMagicMethod>
-      <code><![CDATA[create]]></code>
       <code><![CDATA[create]]></code>
       <code><![CDATA[where]]></code>
       <code><![CDATA[where]]></code>
@@ -9641,9 +9098,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[PaymentMethodFactory]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function definition(): array]]></code>
-    </MissingOverrideAttribute>
     <PossiblyUnusedMethod>
       <code><![CDATA[default]]></code>
       <code><![CDATA[inactive]]></code>
@@ -9684,9 +9138,6 @@
     <ClassMustBeFinal>
       <code><![CDATA[RewardFactory]]></code>
     </ClassMustBeFinal>
-    <MissingOverrideAttribute>
-      <code><![CDATA[public function definition(): array]]></code>
-    </MissingOverrideAttribute>
     <PossiblyUnusedMethod>
       <code><![CDATA[expired]]></code>
       <code><![CDATA[future]]></code>
@@ -9985,7 +9436,6 @@
   </file>
   <file src="routes/web.php">
     <PossiblyInvalidMethodCall>
-      <code><![CDATA[name]]></code>
       <code><![CDATA[name]]></code>
       <code><![CDATA[name]]></code>
       <code><![CDATA[name]]></code>

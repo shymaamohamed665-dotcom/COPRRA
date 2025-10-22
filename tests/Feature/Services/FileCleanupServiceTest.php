@@ -45,7 +45,7 @@ class FileCleanupServiceTest extends TestCase
         // Create directories and files
         foreach ($tempDirs as $dir) {
             if (! is_dir($dir)) {
-                mkdir($dir, 0755, true);
+                mkdir($dir, 0o755, true);
             }
         }
 
@@ -113,7 +113,7 @@ class FileCleanupServiceTest extends TestCase
 
         // Create log directory
         if (! is_dir($logDirectory)) {
-            mkdir($logDirectory, 0755, true);
+            mkdir($logDirectory, 0o755, true);
         }
 
         // Create old log files (older than 30 days)
@@ -159,7 +159,7 @@ class FileCleanupServiceTest extends TestCase
 
         // Create log directory
         if (! is_dir($logDirectory)) {
-            mkdir($logDirectory, 0755, true);
+            mkdir($logDirectory, 0o755, true);
         }
 
         Log::shouldReceive('info')
@@ -188,7 +188,7 @@ class FileCleanupServiceTest extends TestCase
 
         foreach ($cacheDirs as $dir) {
             if (! is_dir($dir)) {
-                mkdir($dir, 0755, true);
+                mkdir($dir, 0o755, true);
             }
 
             // Create cache files
@@ -239,7 +239,7 @@ class FileCleanupServiceTest extends TestCase
 
         // Create backup directory
         if (! is_dir($backupDirectory)) {
-            mkdir($backupDirectory, 0755, true);
+            mkdir($backupDirectory, 0o755, true);
         }
 
         // Create old backup files (older than 90 days)
@@ -291,7 +291,7 @@ class FileCleanupServiceTest extends TestCase
 
         foreach ($uploadDirs as $dir) {
             if (! is_dir($dir)) {
-                mkdir($dir, 0755, true);
+                mkdir($dir, 0o755, true);
             }
 
             // Create uploaded files
@@ -358,7 +358,7 @@ class FileCleanupServiceTest extends TestCase
         // Create some test files to calculate size
         $testDir = storage_path('test_storage');
         if (! is_dir($testDir)) {
-            mkdir($testDir, 0755, true);
+            mkdir($testDir, 0o755, true);
         }
 
         // Create files with known sizes
@@ -397,7 +397,7 @@ class FileCleanupServiceTest extends TestCase
         // Create enough files to exceed the 1GB limit
         $testDir = storage_path('test_storage_large');
         if (! is_dir($testDir)) {
-            mkdir($testDir, 0755, true);
+            mkdir($testDir, 0o755, true);
         }
 
         // Create multiple large files to exceed 1GB limit
@@ -592,7 +592,7 @@ class FileCleanupServiceTest extends TestCase
 
         foreach ($tempDirs as $dir) {
             if (! is_dir($dir)) {
-                mkdir($dir, 0755, true);
+                mkdir($dir, 0o755, true);
             }
             $file = $dir.'/test.tmp';
             file_put_contents($file, 'temp content');
@@ -602,7 +602,7 @@ class FileCleanupServiceTest extends TestCase
         // Create log files
         $logDir = storage_path('logs');
         if (! is_dir($logDir)) {
-            mkdir($logDir, 0755, true);
+            mkdir($logDir, 0o755, true);
         }
         $file = $logDir.'/test.log';
         file_put_contents($file, 'log content');
@@ -611,7 +611,7 @@ class FileCleanupServiceTest extends TestCase
         // Create cache files
         $cacheDir = storage_path('framework/cache');
         if (! is_dir($cacheDir)) {
-            mkdir($cacheDir, 0755, true);
+            mkdir($cacheDir, 0o755, true);
         }
         $file = $cacheDir.'/test.php';
         file_put_contents($file, 'cache content');
@@ -620,7 +620,7 @@ class FileCleanupServiceTest extends TestCase
         // Create backup files
         $backupDir = storage_path('backups');
         if (! is_dir($backupDir)) {
-            mkdir($backupDir, 0755, true);
+            mkdir($backupDir, 0o755, true);
         }
         $file = $backupDir.'/test.zip';
         file_put_contents($file, 'backup content');
@@ -629,7 +629,7 @@ class FileCleanupServiceTest extends TestCase
         // Create uploaded files
         $uploadDir = storage_path('app/public/uploads');
         if (! is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
+            mkdir($uploadDir, 0o755, true);
         }
         $file = $uploadDir.'/test.jpg';
         file_put_contents($file, 'image content');
@@ -681,3 +681,5 @@ class FileCleanupServiceTest extends TestCase
         }
     }
 }
+
+

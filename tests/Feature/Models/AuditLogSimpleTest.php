@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Models;
 
 use App\Models\AuditLog;
@@ -160,3 +162,4 @@ class AuditLogSimpleTest extends TestCase
         $this->assertInstanceOf(self::class, $this);
     }
 }
+

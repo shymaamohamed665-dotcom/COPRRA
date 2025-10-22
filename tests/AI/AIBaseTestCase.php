@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 use Tests\TestCase;
 
 /**
  * Base test case for AI-related tests
- * يوفر إعدادًا أساسيًا لجميع اختبارات AI.
+ * ÙŠÙˆÙØ± Ø¥Ø¹Ø¯Ø§Ø¯Ù‹Ø§ Ø£Ø³Ø§Ø³ÙŠÙ‹Ø§ Ù„Ø¬Ù…ÙŠØ¹ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª AI.
  */
 class AIBaseTestCase extends TestCase
 {

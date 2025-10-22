@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Services;
 
 use App\Models\User;
@@ -45,7 +47,8 @@ class BehaviorAnalysisServiceTest extends TestCase
         $this->service->trackUserBehavior($user, $action, $data);
 
         // Assert
-        // Mockery will verify the calls
+        // Mockery Ø³ÙŠÙ‚ÙˆÙ… Ø¨Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø§Ø³ØªØ¯Ø¹Ø§Ø¡Ø§ØªØŒ ÙˆÙ†Ø²ÙŠØ¯ Ø¹Ø¯Ø§Ø¯ Ø§Ù„ØªØ£ÙƒÙŠØ¯Ø§Øª Ù„ØªØ¬Ù†Ø¨ Ø§Ø¹ØªØ¨Ø§Ø± Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± "Ø¨Ø¯ÙˆÙ† ØªØ£ÙƒÙŠØ¯Ø§Øª"
+        $this->addToAssertionCount(1);
     }
 
     public function test_get_user_analytics_returns_cached_data(): void

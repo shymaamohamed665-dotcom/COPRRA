@@ -1,0 +1,456 @@
+﻿1. tests/AI/AIAccuracyTest.php
+2. tests/AI/AIBaseTestCase.php
+3. tests/AI/AIErrorHandlingTest.php
+4. tests/AI/AILearningTest.php
+5. tests/AI/AIModelPerformanceTest.php
+6. tests/AI/AIModelTest.php
+7. tests/AI/AIResponseTimeTest.php
+8. tests/AI/AIServiceTest.php
+9. tests/AI/AITest.php
+10. tests/AI/AITestTrait.php
+11. tests/AI/ContinuousQualityMonitorTest.php
+12. tests/AI/ImageProcessingTest.php
+13. tests/AI/MockAIService.php
+14. tests/AI/ProductClassificationTest.php
+15. tests/AI/RecommendationSystemTest.php
+16. tests/AI/SmokeTest.php
+17. tests/AI/StrictQualityAgentTest.php
+18. tests/AI/TextProcessingTest.php
+19. tests/Benchmarks/PerformanceBenchmark.php
+20. tests/Browser/E2ETest.php
+21. tests/Browser/ExampleTest.php
+22. tests/Browser/Pages/HomePage.php
+23. tests/Browser/Pages/Page.php
+24. tests/Feature/ApiEndpointsTest.php
+25. tests/Feature/ApiRateLimitingTest.php
+26. tests/Feature/ApiVersioningTest.php
+27. tests/Feature/Api/ComprehensiveApiTest.php
+28. tests/Feature/Api/DebugHealthContentTest.php
+29. tests/Feature/Api/OrderApiTest.php
+30. tests/Feature/Api/ProductApiTest.php
+31. tests/Feature/Auth/AuthControllerTest.php
+32. tests/Feature/AuthenticationTest.php
+33. tests/Feature/COPRRA/PriceComparisonTest.php
+34. tests/Feature/CacheFunctionalityTest.php
+35. tests/Feature/Cart/CartControllerTest.php
+36. tests/Feature/Console/Commands/AgentProposeFixCommandTest.php
+37. tests/Feature/Console/Commands/StatsCommandTest.php
+38. tests/Feature/Console/Commands/UpdatePricesCommandTest.php
+39. tests/Feature/DatabaseConnectionTest.php
+40. tests/Feature/DatabaseMigrationTest.php
+41. tests/Feature/E2E/AuthenticationFlowTest.php
+42. tests/Feature/E2E/OrderFlowTest.php
+43. tests/Feature/EmailSendingTest.php
+44. tests/Feature/FeatureTest.php
+45. tests/Feature/FileUploadTest.php
+46. tests/Feature/FormValidationTest.php
+47. tests/Feature/HostingerTest.php
+48. tests/Feature/Http/Controllers/AdminControllerTest.php
+49. tests/Feature/Http/Controllers/Api/Admin/BrandControllerTest.php
+50. tests/Feature/Http/Controllers/Api/Admin/CategoryControllerTest.php
+51. tests/Feature/Http/Controllers/Api/AuthControllerTest.php
+52. tests/Feature/Http/Controllers/Api/DocumentationControllerTest.php
+53. tests/Feature/Http/Controllers/Api/PriceSearchControllerTest.php
+54. tests/Feature/Http/Controllers/Api/ProductControllerTest.php
+55. tests/Feature/Http/Controllers/BackupControllerTest.php
+56. tests/Feature/Http/Controllers/BrandControllerTest.php
+57. tests/Feature/Http/Controllers/CartControllerTest.php
+58. tests/Feature/Http/Controllers/ErrorControllerTest.php
+59. tests/Feature/Http/Controllers/HealthControllerTest.php
+60. tests/Feature/Http/Controllers/HomeControllerTest.php
+61. tests/Feature/Http/Controllers/LocaleControllerTest.php
+62. tests/Feature/Http/Controllers/LogControllerTest.php
+63. tests/Feature/Http/Controllers/PriceAlertControllerTest.php
+64. tests/Feature/Http/Controllers/ProductControllerTest.php
+65. tests/Feature/Http/Controllers/ReportControllerTest.php
+66. tests/Feature/Http/Controllers/ReviewControllerTest.php
+67. tests/Feature/Http/Controllers/SettingControllerTest.php
+68. tests/Feature/Http/Controllers/SystemControllerTest.php
+69. tests/Feature/Http/Controllers/UserControllerTest.php
+70. tests/Feature/Http/Controllers/WishlistControllerTest.php
+71. tests/Feature/Http/Middleware/AddQueuedCookiesToResponseTest.php
+72. tests/Feature/Http/Middleware/AdminMiddlewareTest.php
+73. tests/Feature/Http/Middleware/ApiErrorHandlerTest.php
+74. tests/Feature/Http/Middleware/AuthenticateSessionTest.php
+75. tests/Feature/Http/Middleware/AuthenticateTest.php
+76. tests/Feature/Http/Middleware/AuthenticateWithBasicAuthTest.php
+77. tests/Feature/Http/Middleware/AuthorizeTest.php
+78. tests/Feature/Http/Middleware/ConvertEmptyStringsToNullTest.php
+79. tests/Feature/Http/Middleware/EncryptCookiesTest.php
+80. tests/Feature/Http/Middleware/EnsureEmailIsVerifiedTest.php
+81. tests/Feature/Http/Middleware/HandleCorsTest.php
+82. tests/Feature/Http/Middleware/HandlePrecognitiveRequestsTest.php
+83. tests/Feature/Http/Middleware/InputSanitizationMiddlewareTest.php
+84. tests/Feature/Http/Middleware/LocaleMiddlewareTest.php
+85. tests/Feature/Http/Middleware/PreventRequestsDuringMaintenanceTest.php
+86. tests/Feature/Http/Middleware/RedirectIfAuthenticatedTest.php
+87. tests/Feature/Http/Middleware/RequirePasswordTest.php
+88. tests/Feature/Http/Middleware/SecurityHeadersMiddlewareTest.php
+89. tests/Feature/Http/Middleware/SecurityHeadersTest.php
+90. tests/Feature/Http/Middleware/SessionManagementMiddlewareTest.php
+91. tests/Feature/Http/Middleware/SetCacheHeadersTest.php
+92. tests/Feature/Http/Middleware/SetLocaleAndCurrencyTest.php
+93. tests/Feature/Http/Middleware/ShareErrorsFromSessionTest.php
+94. tests/Feature/Http/Middleware/StartSessionTest.php
+95. tests/Feature/Http/Middleware/SubstituteBindingsTest.php
+96. tests/Feature/Http/Middleware/ThrottleRequestsTest.php
+97. tests/Feature/Http/Middleware/ThrottleSensitiveOperationsTest.php
+98. tests/Feature/Http/Middleware/TrimStringsTest.php
+99. tests/Feature/Http/Middleware/TrustHostsTest.php
+100. tests/Feature/Http/Middleware/TrustProxiesTest.php
+101. tests/Feature/Http/Middleware/ValidateApiRequestTest.php
+102. tests/Feature/Http/Middleware/ValidatePostSizeTest.php
+103. tests/Feature/Http/Middleware/ValidateSignatureTest.php
+104. tests/Feature/Http/Middleware/VerifyCsrfTokenTest.php
+105. tests/Feature/Integration/PriceSearchIntegrationTest.php
+106. tests/Feature/LinkCheckerTest.php
+107. tests/Feature/MemoryLeakTest.php
+108. tests/Feature/Models/AuditLogSimpleTest.php
+109. tests/Feature/Models/AuditLogTest.php
+110. tests/Feature/Models/BrandTest.php
+111. tests/Feature/Models/CategoryTest.php
+112. tests/Feature/Models/CurrencyTest.php
+113. tests/Feature/Models/LanguageTest.php
+114. tests/Feature/Models/NotificationSimpleTest.php
+115. tests/Feature/Models/NotificationTest.php
+116. tests/Feature/Models/OrderTest.php
+117. tests/Feature/Models/PaymentMethodTest.php
+118. tests/Feature/Models/PaymentTest.php
+119. tests/Feature/Models/PriceAlertTest.php
+120. tests/Feature/Models/PriceOfferTest.php
+121. tests/Feature/Models/ProductTest.php
+122. tests/Feature/Models/ReviewTest.php
+123. tests/Feature/Models/RewardTest.php
+124. tests/Feature/Models/StoreTest.php
+125. tests/Feature/Models/UserLocaleSettingTest.php
+126. tests/Feature/Models/UserPointTest.php
+127. tests/Feature/Models/UserTest.php
+128. tests/Feature/Models/WishlistTest.php
+129. tests/Feature/Performance/PerformanceTest.php
+130. tests/Feature/PermissionControlTest.php
+131. tests/Feature/RoutingTest.php
+132. tests/Feature/SEOTest.php
+133. tests/Feature/Security/SecurityTest.php
+134. tests/Feature/Services/AuditServiceTest.php
+135. tests/Feature/Services/BackupServiceTest.php
+136. tests/Feature/Services/CacheServiceTest.php
+137. tests/Feature/Services/FileCleanupServiceTest.php
+138. tests/Feature/Services/FinancialTransactionServiceTest.php
+139. tests/Feature/Services/LoginAttemptServiceTest.php
+140. tests/Feature/Services/NotificationServiceTest.php
+141. tests/Feature/Services/PasswordHistoryServiceTest.php
+142. tests/Feature/Services/PasswordPolicyServiceTest.php
+143. tests/Feature/Services/PasswordResetServiceTest.php
+144. tests/Feature/Services/ProcessServiceTest.php
+145. tests/Feature/Services/ProductServiceTest.php
+146. tests/Feature/Services/QualityAnalysisServiceTest.php
+147. tests/Feature/Services/ReportServiceTest.php
+148. tests/Feature/Services/UserBanServiceTest.php
+149. tests/Feature/SessionManagementTest.php
+150. tests/Feature/ThirdPartyApiTest.php
+151. tests/Feature/UITest.php
+152. tests/Integration/AdvancedIntegrationTest.php
+153. tests/Integration/CompleteWorkflowTest.php
+154. tests/Integration/IntegrationTest.php
+155. tests/Performance/AdvancedPerformanceTest.php
+156. tests/Performance/ApiResponseTimeTest.php
+157. tests/Performance/CachePerformanceTest.php
+158. tests/Performance/DatabasePerformanceTest.php
+159. tests/Performance/LoadTestingTest.php
+160. tests/Performance/LoadTimeTest.php
+161. tests/Performance/MemoryUsageTest.php
+162. tests/Performance/PerformanceBenchmarkTest.php
+163. tests/Security/AuthenticationSecurityTest.php
+164. tests/Security/CSRFTest.php
+165. tests/Security/DataEncryptionTest.php
+166. tests/Security/PermissionSecurityTest.php
+167. tests/Security/SQLInjectionTest.php
+168. tests/Security/SecurityAudit.php
+169. tests/Security/XSSTest.php
+170. tests/Unit/COPRRA/AnalyticsServiceTest.php
+171. tests/Unit/COPRRA/CacheServiceTest.php
+172. tests/Unit/COPRRA/CoprraServiceProviderTest.php
+173. tests/Unit/COPRRA/ExchangeRateServiceTest.php
+174. tests/Unit/COPRRA/PriceHelperTest.php
+175. tests/Unit/COPRRA/StoreAdapterManagerTest.php
+176. tests/Unit/COPRRA/WebhookServiceTest.php
+177. tests/Unit/Controllers/AnalyticsControllerTest.php
+178. tests/Unit/Controllers/BaseApiControllerTest.php
+179. tests/Unit/Controllers/OrderControllerTest.php
+180. tests/Unit/CreatesApplicationTest.php
+181. tests/Unit/DataAccuracy/CurrencyConversionTest.php
+182. tests/Unit/DataAccuracy/DataConsistencyTest.php
+183. tests/Unit/DataAccuracy/DataIntegrityTest.php
+184. tests/Unit/DataAccuracy/DataValidationTest.php
+185. tests/Unit/DataAccuracy/DiscountCalculationTest.php
+186. tests/Unit/DataAccuracy/InventoryAccuracyTest.php
+187. tests/Unit/DataAccuracy/OrderAccuracyTest.php
+188. tests/Unit/DataAccuracy/PaymentAccuracyTest.php
+189. tests/Unit/DataAccuracy/PriceAccuracyTest.php
+190. tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php
+191. tests/Unit/DataAccuracy/ProductMatchingTest.php
+192. tests/Unit/DataAccuracy/ShippingAccuracyTest.php
+193. tests/Unit/DataAccuracy/StoreDataValidationTest.php
+194. tests/Unit/DataAccuracy/TaxCalculationTest.php
+195. tests/Unit/DataQuality/DataAccuracyTest.php
+196. tests/Unit/DataQuality/DataCompletenessTest.php
+197. tests/Unit/DataQuality/DataDuplicationTest.php
+198. tests/Unit/DataQuality/DataFreshnessTest.php
+199. tests/Unit/DataQuality/DataQualityMetricsTest.php
+200. tests/Unit/DataQuality/DataRelevanceTest.php
+201. tests/Unit/DataQuality/DataReliabilityTest.php
+202. tests/Unit/DataQuality/DataTimelinessTest.php
+203. tests/Unit/DataQuality/DataUniquenessTest.php
+204. tests/Unit/DataQuality/DataValidityTest.php
+205. tests/Unit/DataQuality/DuplicateDetectionTest.php
+206. tests/Unit/Deployment/BlueGreenDeploymentTest.php
+207. tests/Unit/Deployment/CanaryDeploymentTest.php
+208. tests/Unit/Deployment/CloudDeploymentTest.php
+209. tests/Unit/Deployment/ConfigurationTest.php
+210. tests/Unit/Deployment/DevelopmentDeploymentTest.php
+211. tests/Unit/Deployment/DockerDeploymentTest.php
+212. tests/Unit/Deployment/EnvironmentConfigurationTest.php
+213. tests/Unit/Deployment/InfrastructureTest.php
+214. tests/Unit/Deployment/KubernetesDeploymentTest.php
+215. tests/Unit/Deployment/ProductionDeploymentTest.php
+216. tests/Unit/Deployment/RollbackTest.php
+217. tests/Unit/Deployment/RollingDeploymentTest.php
+218. tests/Unit/Deployment/StagingDeploymentTest.php
+219. tests/Unit/Deployment/TestingDeploymentTest.php
+220. tests/Unit/Enums/OrderStatusTest.php
+221. tests/Unit/Enums/UserRoleTest.php
+222. tests/Unit/Factories/FactoriesTest.php
+223. tests/Unit/Helpers/OrderHelperTest.php
+224. tests/Unit/Helpers/PriceHelperTest.php
+225. tests/Unit/Integration/APIIntegrationTest.php
+226. tests/Unit/Integration/AnalyticsIntegrationTest.php
+227. tests/Unit/Integration/CurrencyIntegrationTest.php
+228. tests/Unit/Integration/EmailIntegrationTest.php
+229. tests/Unit/Integration/EndToEndIntegrationTest.php
+230. tests/Unit/Integration/InventoryIntegrationTest.php
+231. tests/Unit/Integration/NotificationIntegrationTest.php
+232. tests/Unit/Integration/PaymentIntegrationTest.php
+233. tests/Unit/Integration/PushNotificationTest.php
+234. tests/Unit/Integration/SMSIntegrationTest.php
+235. tests/Unit/Integration/SearchIntegrationTest.php
+236. tests/Unit/Integration/ShippingIntegrationTest.php
+237. tests/Unit/Integration/StoreAPIIntegrationTest.php
+238. tests/Unit/Integration/ThirdPartyAPIIntegrationTest.php
+239. tests/Unit/Integration/WebhookTest.php
+240. tests/Unit/IsolatedStrictTest.php
+241. tests/Unit/Jobs/ProcessHeavyOperationTest.php
+242. tests/Unit/Middleware/AdminMiddlewareTest.php
+243. tests/Unit/MockeryDebugTest.php
+244. tests/Unit/ModelRelationsTest.php
+245. tests/Unit/Models/AuditLogTest.php
+246. tests/Unit/Models/BrandTest.php
+247. tests/Unit/Models/CategoryTest.php
+248. tests/Unit/Models/CurrencyTest.php
+249. tests/Unit/Models/LanguageTest.php
+250. tests/Unit/Models/NotificationTest.php
+251. tests/Unit/Models/OrderItemTest.php
+252. tests/Unit/Models/OrderTest.php
+253. tests/Unit/Models/PaymentMethodTest.php
+254. tests/Unit/Models/PaymentTest.php
+255. tests/Unit/Models/PriceAlertTest.php
+256. tests/Unit/Models/ProductTest.php
+257. tests/Unit/Models/ReviewTest.php
+258. tests/Unit/Models/StoreTest.php
+259. tests/Unit/Models/UserTest.php
+260. tests/Unit/Performance/AvailabilityTestingTest.php
+261. tests/Unit/Performance/CPUUsageTest.php
+262. tests/Unit/Performance/CacheHitRateTest.php
+263. tests/Unit/Performance/ConcurrentUserTest.php
+264. tests/Unit/Performance/DatabaseQueryTimeTest.php
+265. tests/Unit/Performance/FilteringPerformanceTest.php
+266. tests/Unit/Performance/ImageLoadTimeTest.php
+267. tests/Unit/Performance/PageLoadTimeTest.php
+268. tests/Unit/ProcessIsolationTest.php
+269. tests/Unit/PureUnitTest.php
+270. tests/Unit/Recommendations/BestDealRecommendationTest.php
+271. tests/Unit/Recommendations/BrandRecommendationTest.php
+272. tests/Unit/Recommendations/CategoryRecommendationTest.php
+273. tests/Unit/Recommendations/CollaborativeFilteringTest.php
+274. tests/Unit/Recommendations/ContentBasedFilteringTest.php
+275. tests/Unit/Recommendations/CrossSellRecommendationTest.php
+276. tests/Unit/Recommendations/HybridRecommendationTest.php
+277. tests/Unit/Recommendations/PersonalizedRecommendationTest.php
+278. tests/Unit/Recommendations/SimilarProductTest.php
+279. tests/Unit/Recommendations/TrendingProductTest.php
+280. tests/Unit/Recommendations/UpsellRecommendationTest.php
+281. tests/Unit/Recommendations/UserBehaviorRecommendationTest.php
+282. tests/Unit/Rules/ValidOrderStatusTest.php
+283. tests/Unit/Security/DataBackupTest.php
+284. tests/Unit/Services/BehaviorAnalysisServiceTest.php
+285. tests/Unit/Services/ExternalStoreServiceTest.php
+286. tests/Unit/Services/OrderServiceTest.php
+287. tests/Unit/Services/PointsServiceTest.php
+288. tests/Unit/SimpleMockeryTest.php
+289. tests/Unit/StoreModelTest.php
+290. tests/Unit/StrictMockeryTest.php
+291. tests/Unit/TestErrorHandler.php
+292. tests/Unit/Validation/BasicValidationTest.php
+293. tests/Unit/Validation/ComprehensiveValidationTest.php
+294. tests/Unit/Validation/ValidationTestCase.php
+295. tests/Architecture/ArchTest.php
+296. tests/Support/FakerFactoryStub.php
+297. tests/TestUtilities/AdvancedTestHelper.php
+298. tests/TestUtilities/ComprehensiveTestCommand.php
+299. tests/TestUtilities/ComprehensiveTestRunner.php
+300. tests/TestUtilities/IntegrationTestSuite.php
+301. tests/TestUtilities/PerformanceTestSuite.php
+302. tests/TestUtilities/QualityAssurance.php
+303. tests/TestUtilities/SecurityTestSuite.php
+304. tests/TestUtilities/ServiceTestFactory.php
+305. tests/TestUtilities/TestConfiguration.php
+306. tests/TestUtilities/TestReportGenerator.php
+307. tests/TestUtilities/TestReportProcessor.php
+308. tests/TestUtilities/TestRunner.php
+309. tests/TestUtilities/TestSuiteValidator.php
+310. .github/workflows/ci.yml
+311. .github/workflows/security-audit.yml
+312. .github/workflows/performance-tests.yml
+313. .github/workflows/ci-comprehensive.yml
+314. .github/workflows/comprehensive-tests.yml
+315. .github/workflows/deployment.yml
+316. .husky/pre-commit
+317. .husky/pre-commit-enhanced
+318. .husky/pre-push
+319. audit.ps1
+320. Dockerfile
+321. dev-docker/Dockerfile
+322. dev-docker/nginx.conf
+323. dev-docker/php.ini
+324. dev-docker/www.conf
+325. dev-docker/zz-custom.ini
+326. .devcontainer/devcontainer.json
+327. vite.config.js
+328. Tool: PHPStan
+329. Tool: Psalm
+330. Tool: PHPUnit
+331. Tool: Deptrac
+332. Tool: PHPCS
+333. Tool: PHPMD
+334. Tool: PHPCPD
+335. Tool: Rector
+336. Tool: Laravel Pint
+337. Tool: PHP Insights
+338. Tool: Behat
+339. Tool: Codeception
+340. Tool: Mockery
+341. Tool: Infection
+342. Tool: PHP-CS-Fixer
+343. Tool: Composer Unused
+344. Tool: PHP Metrics
+345. Tool: PHPCompatibility
+346. Tool: Composer Audit
+347. Tool: Enlightn Security Checker
+348. Tool: ESLint
+349. Tool: ESLint Plugin Unicorn
+350. Tool: Stylelint
+351. Tool: Stylelint Config Standard
+352. Tool: Stylelint Prettier
+353. Tool: Prettier
+354. Tool: Vite
+355. Tool: Vite Plugin PWA
+356. Tool: Laravel Vite Plugin
+357. Tool: Rimraf
+358. Tool: Rollup Plugin Visualizer
+359. Tool: Vite Bundle Analyzer
+360. Tool: Jscpd
+361. Tool: Codecov (npm)
+362. Tool: Autoprefixer
+363. Tool: PurgeCSS (postcss)
+364. Tool: PostCSS SCSS
+365. Tool: Gitleaks
+366. Tool: Lighthouse CI (lhci)
+367. Tool: Axe CLI
+368. Tool: Node.js
+369. Tool: NPM Audit
+370. Tool: Actions Checkout (GitHub)
+371. Tool: Setup PHP (GitHub)
+372. Tool: Setup Node.js (GitHub)
+373. Tool: Actions Cache (GitHub)
+374. Tool: Upload Artifact (GitHub)
+375. Tool: Download Artifact (GitHub)
+376. Tool: Setup Chrome (GitHub)
+377. Tool: Codecov Action (GitHub)
+378. Workflow Step: Run ESLint
+379. Workflow Step: Run Stylelint
+380. Workflow Step: Run Prettier
+381. Workflow Step: Run Pint
+382. Workflow Step: Run PHPStan
+383. Workflow Step: Run Psalm
+384. Workflow Step: Run PHPMD
+385. Workflow Step: Run Deptrac
+386. Workflow Step: Run Infection
+387. Workflow Step: Run PHPUnit (Unit)
+388. Workflow Step: Run PHPUnit (Feature)
+389. Workflow Step: Run PHPUnit (Security)
+390. Workflow Step: Run PHPUnit (Performance)
+391. Workflow Step: Run PHPUnit (Integration)
+392. Workflow Step: Run PHPUnit (Architecture)
+393. Workflow Step: Run Dusk (Browser)
+394. Workflow Step: Build Frontend Assets
+395. Workflow Step: NPM Audit
+396. Workflow Step: Composer Audit
+397. Workflow Step: Config Cache (Laravel)
+398. Workflow Step: Route Cache (Laravel)
+399. Workflow Step: View Cache (Laravel)
+400. Script: composer test
+401. Script: composer test:unit
+402. Script: composer test:feature
+403. Script: composer test:ai
+404. Script: composer test:security
+405. Script: composer test:performance
+406. Script: composer test:integration
+407. Script: composer test:comprehensive
+408. Script: composer analyse
+409. Script: composer analyse:phpstan
+410. Script: composer analyse:psalm
+411. Script: composer analyse:insights
+412. Script: composer analyse:security
+413. Script: composer format
+414. Script: composer format-test
+415. Script: composer fix:style
+416. Script: composer fix:rector
+417. Script: composer fix:all
+418. Script: composer metrics
+419. Script: composer quality
+420. Script: composer quality:full
+421. Script: composer measure:all
+422. Script: composer clear-all
+423. Script: composer cache-all
+424. Script: composer test:30
+425. Script: npm run dev
+426. Script: npm run build
+427. Script: npm run preview
+428. Script: npm run lint
+429. Script: npm run lint:fix
+430. Script: npm run format
+431. Script: npm run stylelint
+432. Script: npm run stylelint:fix
+433. Script: npm run test:frontend
+434. Script: npm run analyze
+435. Script: npm run optimize
+436. Script: npm run watch
+437. Script: npm run clean
+438. Script: npm run assets
+439. Script: npm run check
+440. Script: npm run prepare
+441. deploy-to-hostinger.php
+442. app/Services/AI/ContinuousQualityMonitor.php
+443. app/Services/AI/HealthScoreCalculator.php
+444. app/Services/AI/StrictQualityAgent.php
+445. app/Services/AI/Services/AIImageAnalysisService.php
+446. app/Services/AI/Services/AIRequestService.php
+447. app/Services/AI/Services/AITextAnalysisService.php
+448. app/Services/AI/Services/AlertManagerService.php
+449. app/Services/AI/Services/HealthScoreService.php
+450. app/Services/AI/Services/RuleExecutorService.php
+451. Tool: GitHub Action - codecov/codecov-action
+452. Workflow Step: Upload coverage to Codecov
+453. Workflow Step: Coverage threshold check (>=85%)
+454. Workflow Step: Validate Nginx configuration
+455. Workflow Step: Trivy container scan
+456. Workflow Step: Generate comprehensive test report

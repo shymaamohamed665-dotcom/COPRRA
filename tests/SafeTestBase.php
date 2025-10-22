@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
 use Illuminate\Contracts\Http\Kernel;
@@ -74,6 +76,8 @@ class SafeTestBase extends TestCase
     /**
      * Test that SafeTestBase can be instantiated and works correctly.
      */
+    #[\PHPUnit\Framework\Attributes\RunInSeparateProcess]
+    #[\PHPUnit\Framework\Attributes\PreserveGlobalState(false)]
     public function test_can_be_instantiated(): void
     {
         $this->assertInstanceOf(self::class, $this);
@@ -82,3 +86,5 @@ class SafeTestBase extends TestCase
         $this->assertTrue(true);
     }
 }
+
+

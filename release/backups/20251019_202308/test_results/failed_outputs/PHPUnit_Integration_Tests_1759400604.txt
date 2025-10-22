@@ -1,0 +1,43 @@
+Command: vendor/bin/phpunit --testsuite Integration
+Output:
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+No tests executed!
+
+Generating code coverage report in Clover XML format ... failed [00:02.120]
+Cannot parse /var/www/html/app/Console/Kernel.php: Namespace declaration statement has to be the very first statement in the script on line 5
+
+Generating code coverage report in HTML format ... failed [00:00.041]
+Cannot parse /var/www/html/app/Console/Kernel.php: Namespace declaration statement has to be the very first statement in the script on line 5
+
+
+An error occurred inside PHPUnit.
+
+Message:  Cannot parse /var/www/html/app/Console/Kernel.php: Namespace declaration statement has to be the very first statement in the script on line 5
+Location: /var/www/html/vendor/nikic/php-parser/lib/PhpParser/ParserAbstract.php:667
+
+#0 /var/www/html/vendor/nikic/php-parser/lib/PhpParser/ParserAbstract.php(563): PhpParser\ParserAbstract->getNamespacingStyle(Array)
+#1 /var/www/html/vendor/nikic/php-parser/lib/PhpParser/Parser/Php8.php(1244): PhpParser\ParserAbstract->handleNamespaces(Array)
+#2 /var/www/html/vendor/nikic/php-parser/lib/PhpParser/ParserAbstract.php(325): PhpParser\Parser\Php8::PhpParser\Parser\{closure}(Object(PhpParser\Parser\Php8), 1)
+#3 /var/www/html/vendor/nikic/php-parser/lib/PhpParser/ParserAbstract.php(187): PhpParser\ParserAbstract->doParse()
+#4 /var/www/html/vendor/phpunit/php-code-coverage/src/StaticAnalysis/ParsingFileAnalyser.php(145): PhpParser\ParserAbstract->parse('final <?php\n\nde...')
+#5 /var/www/html/vendor/phpunit/php-code-coverage/src/StaticAnalysis/ParsingFileAnalyser.php(84): SebastianBergmann\CodeCoverage\StaticAnalysis\ParsingFileAnalyser->analyse('/var/www/html/a...')
+#6 /var/www/html/vendor/phpunit/php-code-coverage/src/StaticAnalysis/CachingFileAnalyser.php(114): SebastianBergmann\CodeCoverage\StaticAnalysis\ParsingFileAnalyser->classesIn('/var/www/html/a...')
+#7 /var/www/html/vendor/phpunit/php-code-coverage/src/StaticAnalysis/CachingFileAnalyser.php(88): SebastianBergmann\CodeCoverage\StaticAnalysis\CachingFileAnalyser->process('/var/www/html/a...')
+#8 /var/www/html/vendor/phpunit/php-code-coverage/src/Data/RawCodeCoverageData.php(91): SebastianBergmann\CodeCoverage\StaticAnalysis\CachingFileAnalyser->executableLinesIn('/var/www/html/a...')
+#9 /var/www/html/vendor/phpunit/php-code-coverage/src/CodeCoverage.php(486): SebastianBergmann\CodeCoverage\Data\RawCodeCoverageData::fromUncoveredFile('/var/www/html/a...', Object(SebastianBergmann\CodeCoverage\StaticAnalysis\CachingFileAnalyser))
+#10 /var/www/html/vendor/phpunit/php-code-coverage/src/CodeCoverage.php(132): SebastianBergmann\CodeCoverage\CodeCoverage->addUncoveredFilesFromFilter()
+#11 /var/www/html/vendor/phpunit/php-code-coverage/src/Node/Builder.php(44): SebastianBergmann\CodeCoverage\CodeCoverage->getData()
+#12 /var/www/html/vendor/phpunit/php-code-coverage/src/CodeCoverage.php(91): SebastianBergmann\CodeCoverage\Node\Builder->build(Object(SebastianBergmann\CodeCoverage\CodeCoverage))
+#13 /var/www/html/vendor/phpunit/php-code-coverage/src/Report/Text.php(66): SebastianBergmann\CodeCoverage\CodeCoverage->getReport()
+#14 /var/www/html/vendor/phpunit/phpunit/src/Runner/CodeCoverage.php(316): SebastianBergmann\CodeCoverage\Report\Text->process(Object(SebastianBergmann\CodeCoverage\CodeCoverage), false)
+#15 /var/www/html/vendor/phpunit/phpunit/src/TextUI/Application.php(258): PHPUnit\Runner\CodeCoverage->generateReports(Object(PHPUnit\TextUI\Output\DefaultPrinter), Object(PHPUnit\TextUI\Configuration\Configuration))
+#16 /var/www/html/vendor/phpunit/phpunit/phpunit(104): PHPUnit\TextUI\Application->run(Array)
+#17 /var/www/html/vendor/bin/phpunit(119): include('/var/www/html/v...')
+#18 {main}
+
+Error:
+

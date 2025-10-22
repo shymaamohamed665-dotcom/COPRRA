@@ -1,0 +1,101 @@
+
+PHP CODE SNIFFER INFORMATION REPORT
+----------------------------------------------------------------------
+Blank lines at end of control structure:
+	0     => 1,862 ( 99.79%)
+	1     =>     4 (  0.21%)
+	-------------------------
+	total => 1,866 (100.00%)
+
+Blank lines at start of control structure:
+	0     => 1,870 ( 99.95%)
+	1     =>     1 (  0.05%)
+	-------------------------
+	total => 1,871 (100.00%)
+
+CamelCase method name:
+	yes   => 1,328 ( 87.48%)
+	no    =>   190 ( 12.52%)
+	-------------------------
+	total => 1,518 (100.00%)
+
+Class defined in namespace:
+	yes   =>  325 ( 97.01%)
+	no    =>   10 (  2.99%)
+	------------------------
+	total =>  335 (100.00%)
+
+Class opening brace placement:
+	new line  =>  319 ( 95.22%)
+	same line =>   16 (  4.78%)
+	----------------------------
+	total     =>  335 (100.00%)
+
+Closure opening brace placement: same line [336/336, 100%]
+
+Constant name case: upper [60/60, 100%]
+
+Control structure defined inline: no [1435/1435, 100%]
+
+Declarations and side effects mixed:
+	no    =>  379 ( 96.19%)
+	yes   =>   15 (  3.81%)
+	------------------------
+	total =>  394 (100.00%)
+
+EOL char: \n [394/394, 100%]
+
+Function opening brace placement:
+	new line  => 1,505 ( 99.21%)
+	same line =>    12 (  0.79%)
+	-----------------------------
+	total     => 1,517 (100.00%)
+
+Line indent: spaces [33720/33720, 100%]
+
+Line length:
+	80 or less  => 36,819 ( 94.62%)
+	81-120      =>  1,927 (  4.95%)
+	121-150     =>    145 (  0.37%)
+	151 or more =>     21 (  0.05%)
+	--------------------------------
+	total       => 38,912 (100.00%)
+
+Multiple statements on same line: no [9754/9754, 100%]
+
+Number of newlines at EOF:
+	1     =>  366 ( 92.89%)
+	2     =>   28 (  7.11%)
+	------------------------
+	total =>  394 (100.00%)
+
+One class per file: yes [335/335, 100%]
+
+PHP closing tag at end of PHP-only file: no [393/393, 100%]
+
+PHP constant case: lower [1443/1443, 100%]
+
+PHP keyword case: lower [11710/11710, 100%]
+
+PHP short open tag used: no [394/394, 100%]
+
+PHP type case: lower [2650/2650, 100%]
+
+PascalCase class name: yes [335/335, 100%]
+
+Spaces after control structure open parenthesis:
+	0       => 1,606 ( 99.50%)
+	newline =>     8 (  0.50%)
+	---------------------------
+	total   => 1,614 (100.00%)
+
+Spaces before control structure close parenthesis: 0 [1614/1614, 100%]
+
+Spacing between in/decrementor and variable: 0 [67/67, 100%]
+
+Use of ELSE IF or ELSEIF: elseif [15/15, 100%]
+
+Using byte order mark: no [47/47, 100%]
+
+----------------------------------------------------------------------
+

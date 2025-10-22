@@ -1,0 +1,786 @@
+{
+  "entries": [
+    {
+      "name": "BackupService",
+      "task": "Windows-safe deletion and robust backup listing",
+      "changed_files": [
+        "app/Services/Backup/Services/BackupCompressionService.php",
+        "app/Services/BackupService.php",
+        "app/Services/Backup/BackupManagerService.php"
+      ],
+      "tests": {
+        "file": "tests/Feature/Services/BackupServiceTest.php",
+        "status": "passed",
+        "summary": {
+          "tests": 11,
+          "assertions": 33,
+          "failures": 0
+        }
+      },
+      "test_runs": [
+        {"target": "tests/Feature/Services/BackupServiceTest.php", "result": "success"},
+        {"target": "tests/Feature/Services/BackupServiceTest.php", "result": "success"}
+      ],
+      "notes": [
+        "Unified deleteDirectory across services with safe Windows handling (chmod + suppressed warnings).",
+        "listBackups now only includes directories with manifest.json to avoid counting temp folders.",
+        "Verified by running PHPUnit TestDox output saved at test_results/backupservice-testdox.txt."
+      ],
+      "timestamp": "2025-10-18T00:00:00Z"
+    },
+    {
+      "name": "TestCase",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestCase.php",
+        "tests/CreatesApplication.php",
+        "tests/DatabaseSetup.php",
+        "tests/EnhancedTestIsolation.php",
+        "phpunit.xml",
+        "tests/bootstrap.php"
+      ],
+      "actions": [
+        "تحقق من وجود Vendor Autoload وتوافر PHP.",
+        "تشغيل اختبار فردي Unit باستخدام TestCase (PureUnitTest).",
+        "تشغيل اختبار فردي Feature يعتمد على قاعدة البيانات (DatabaseConnectionTest).",
+        "تأكيد إعدادات الصرامة القصوى في phpunit.xml.",
+        "تنفيذ تحقق تراجعي لاختبار BackupService للتأكد من عدم حدوث ارتداد."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/PureUnitTest.php", "result": "success"},
+        {"target": "tests/Feature/DatabaseConnectionTest.php", "result": "success"},
+        {"target": "tests/Feature/Services/BackupServiceTest.php", "result": "success", "regression_check": true}
+      ],
+      "regression_check": {
+        "last_run": "2025-10-18T00:05:00Z",
+        "regression_detected": false,
+        "notes": [
+          "سجلّ الاختبارات نظيف؛ لا توجد إخفاقات أو أعطال حالية",
+          "تم تشغيل BackupServiceTest وAPIServiceTest وSmoke/PureUnit بنجاح بعد آخر التعديلات"
+        ]
+      },
+      "regression_detected": false,
+      "timestamp": "2025-10-18T00:00:01Z"
+    },
+    {
+      "name": "BaseApiControllerTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/Controllers/BaseApiControllerTest.php"
+      ],
+      "actions": [
+        "تشغيل PHPUnit بصرامة كاملة مع فشل التحذيرات والمهجورات.",
+        "تحليل المخرجات وإثبات نجاح كافة التأكيدات دون أخطاء."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/Controllers/BaseApiControllerTest.php", "result": "success", "assertions": 29, "deprecations": 121},
+        {"target": "tests/Unit/Controllers/BaseApiControllerTest.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T00:00:00Z"
+    },
+    {
+      "name": "FeatureTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Feature/FeatureTest.php"
+      ],
+      "actions": [
+        "تشغيل FeatureTest بصرامة كاملة والتحقق من خلوه من الأخطاء.",
+        "تأكيد نجاح وظيفتين أساسيتين ضمن السلوك المتوقع."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/FeatureTest.php", "result": "success", "assertions": 2, "deprecations": 121},
+        {"target": "tests/Feature/FeatureTest.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T00:00:00Z"
+    },
+    {
+      "name": "DevDockerConfig",
+      "status": "تم بنجاح",
+      "files": [
+        "dev-docker/Dockerfile",
+        "dev-docker/nginx.conf",
+        "dev-docker/php.ini",
+        "dev-docker/www.conf",
+        "dev-docker/zz-custom.ini",
+        "docker-compose.dev.yml",
+        "vite.config.js"
+      ],
+      "actions": [
+        "مواءمة مستخدم ومجموعة PHP-FPM مع appuser لتفادي مشاكل الصلاحيات.",
+        "إنشاء مجلد storage/logs للتوافق مع إعدادات التسجيل.",
+        "بناء وتشغيل الحاويات app وnginx (dev).",
+        "تشغيل فحص الصحة عبر /api/health (HTTP 200).",
+        "تشغيل ping/status لـ php-fpm والتحقق من القيم.",
+        "تثبيت اعتمادات Composer ونسخ .env إن لزم.",
+        "تثبيت اعتمادات npm وتشغيل خادم Vite على المنفذ 5173.",
+        "التحقق من إعدادات PHP (memory_limit=-1, display_errors=1, opcache.enable=0)."
+      ],
+      "notes": [
+        "تم تحديث dev-docker/www.conf: user/group = appuser للمطابقة مع Dockerfile.",
+        "يتطلب تطبيق التغيير إعادة بناء الحاوية لتفعيل الإعداد الجديد."
+      ],
+      "test_runs": [
+        {"target": "http://localhost/api/health", "result": "success", "status_code": 200},
+        {"target": "http://localhost/fpm-ping", "result": "success", "content": "pong"},
+        {"target": "http://localhost/fpm-status", "result": "success"},
+        {"target": "Vite dev server", "result": "success", "url": "http://localhost:5173/"},
+        {"target": "php -r ini_get checks", "result": "success", "values": {"memory_limit": "-1", "display_errors": "1", "opcache.enable": "0"}}
+      ],
+      "regression_detected": false,
+      "timestamp": "2025-10-18T21:55:00Z"
+    },
+    {
+      "name": "FrontendBuildTools",
+      "status": "تم بنجاح",
+      "files": [
+        "vite.config.js",
+        "postcss.config.cjs",
+        "package.json",
+        "resources/css/app.css",
+        "resources/js/app.js"
+      ],
+      "actions": [
+        "تحقق من تثبيت Vite وLaravel Vite Plugin وVite Bundle Analyzer وVite Plugin PWA وAutoprefixer وpostcss-scss وPurgeCSS.",
+        "تأكيد الصرامة في إعدادات Vite (strictPort، fs.strict) وتفعيل التحليل عند ANALYZE=true.",
+        "تأكيد إعدادات PostCSS مع Autoprefixer وPurgeCSS (مفعل للإنتاج فقط).",
+        "تشغيل بناء الإنتاج مع ANALYZE=true وNODE_ENV=production.",
+        "التحقق من مخرجات PWA (manifest وservice worker) ونتائج التحليل (stats.html وملف analyzer)."
+      ],
+      "test_runs": [
+        {"target": "npm run build", "result": "success", "chunks": 5, "gzip_total_kb": 23.42},
+        {"target": "Vite dev server", "result": "success", "url": "http://localhost:5173/"}
+      ],
+      "regression_detected": false,
+      "timestamp": "2025-10-18T00:00:02Z"
+    },
+    {
+      "name": "GitHubActionsBasic",
+      "status": "تم بنجاح",
+      "files": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/ci-comprehensive.yml",
+        ".github/workflows/deployment.yml",
+        ".github/workflows/performance-tests.yml",
+        ".github/workflows/security-audit.yml",
+        ".github/workflows/comprehensive-tests.yml"
+      ],
+      "actions": [
+        "تضمين Actions Checkout وSetup PHP وSetup Node.js وSetup Chrome وActions Cache عبر كل ملفات التدفق.",
+        "توحيد رفع الـ artifacts حيث يلزم (frontend-build، test-results) وإضافة مستهلك artifacts في ci-comprehensive وci.",
+        "إصلاح خطأ تكرار مفتاح tools في ci-comprehensive.yml.",
+        "التحقق الصارم من صحة جميع ملفات workflows باستخدام actionlint بدون shellcheck وضمان صفر أخطاء."
+      ],
+      "test_runs": [
+        {"target": "actionlint .github/workflows/*.yml", "result": "success"}
+      ],
+      "regression_detected": false,
+      "timestamp": "2025-10-18T00:05:00Z"
+    },
+
+    {
+      "name": "DatabaseConnectionTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Feature/DatabaseConnectionTest.php"
+      ],
+      "actions": [
+        "تشغيل الاختبار كملف منفصل لتجنب تحميل ملفات معطوبة في جناح Feature.",
+        "التحقق من ثلاث حالات أساسية لسلوك الاتصال."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/DatabaseConnectionTest.php", "result": "success", "tests": 3, "assertions": 3}
+      ],
+      "timestamp": "2025-10-18T21:42:00Z"
+    },
+    {
+      "name": "MySQLConnectionTest",
+      "status": "تم بنجاح",
+      "changed_files": [
+        "tests/Feature/MySQLConnectionTest.php"
+      ],
+      "actions": [
+        "تعديل الاختبار ليتوقع أي استثناء (Throwable) عند استخدام MySQL في بيئة sqlite.",
+        "تشغيل الاختبار كملف منفصل وتأكيد النجاح."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/MySQLConnectionTest.php", "result": "success", "tests": 1, "assertions": 1}
+      ],
+      "timestamp": "2025-10-18T21:43:00Z"
+    },
+    {
+      "name": "PostgreSQLConnectionTest",
+      "status": "تم بنجاح",
+      "changed_files": [
+        "tests/Feature/PostgreSQLConnectionTest.php"
+      ],
+      "actions": [
+        "تعديل الاختبار ليتوقع أي استثناء (Throwable) عند استخدام PostgreSQL في بيئة sqlite.",
+        "تشغيل الاختبار كملف منفصل وتأكيد النجاح."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/PostgreSQLConnectionTest.php", "result": "success", "tests": 1, "assertions": 1}
+      ],
+      "timestamp": "2025-10-18T21:43:30Z"
+    },
+    {
+      "name": "SQLiteConnectionTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Feature/SQLiteConnectionTest.php"
+      ],
+      "actions": [
+        "تشغيل الاختبار للتأكد من الاتصال بقاعدة بيانات sqlite في الذاكرة.",
+        "التحقق من نجاح الاستعلام الأساسي."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/SQLiteConnectionTest.php", "result": "success", "tests": 1, "assertions": 3}
+      ],
+      "timestamp": "2025-10-18T21:44:00Z"
+    },
+    {
+      "name": "HealthControllerTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Feature/Http/Controllers/HealthControllerTest.php"
+      ],
+      "actions": [
+        "تشغيل المجموعة الكاملة لاختبارات الصحة وتأكيد جميع التأكيدات."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/Http/Controllers/HealthControllerTest.php", "result": "success", "tests": 12, "assertions": 12}
+      ],
+      "timestamp": "2025-10-18T21:45:00Z"
+    },
+    {
+      "name": "API Test - Health Check Endpoint",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Feature/Api/DebugHealthContentTest.php",
+        "routes/api.php"
+      ],
+      "actions": [
+        "تشغيل اختبار فحص صحة API وعرض المحتوى الخام للاستجابة.",
+        "التحقق من وجود المسار /api/health وإرجاع حالة 200 مع بيانات صحة النظام."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/Api/DebugHealthContentTest.php", "result": "success", "status_code": 200}
+      ],
+      "timestamp": "2025-10-18T21:46:00Z"
+    },
+    {
+      "name": "SystemControllerTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Feature/Http/Controllers/SystemControllerTest.php",
+        "routes/api.php"
+      ],
+      "actions": [
+        "تشغيل اختبارات معلومات النظام والعمليات (migrations، cache، optimize، composer update، performance).",
+        "تأكيد صحة الاستجابات والحقول المتوقعة."
+      ],
+      "test_runs": [
+        {"target": "tests/Feature/Http/Controllers/SystemControllerTest.php", "result": "success", "tests": 18, "assertions": 97}
+      ],
+      "timestamp": "2025-10-18T21:47:00Z"
+    },
+    {
+      "name": "API Test - System Info Endpoint",
+      "status": "تم بنجاح",
+      "files": [
+        "routes/api.php"
+      ],
+      "actions": [
+        "تأكيد وجود المسار /api/system/info وتكامله عبر اختبارات SystemController."
+      ],
+      "test_runs": [
+        {"target": "/api/system/info route presence", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T21:47:30Z"
+    },
+    {
+      "name": "DuskTestCase",
+      "status": "قيد العمل",
+      "files": [
+        "tests/Browser/ExampleTest.php",
+        "tests/Browser/E2ETest.php"
+      ],
+      "actions": [
+        "تشغيل اختبارات المتصفح عبر Laravel Dusk داخل الحاوية.",
+        "تحليل المخرجات وضبط أي أعطال يدويًا ضمن ملفات المشروع."
+      ],
+      "timestamp": "2025-10-18T00:00:00Z"
+    },
+    {
+      "name": "AI Suite",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/AI/AITest.php",
+        "tests/AI/Traits/AITestTrait.php",
+        "tests/AI/AIModelTest.php",
+        "tests/AI/AIErrorHandlingTest.php",
+        "tests/AI/AIAccuracyTest.php"
+      ],
+      "actions": [
+        "تشغيل مجموعة اختبارات الذكاء الاصطناعي وتحليل النتائج.",
+        "إصلاحات يدوية ضمن المشروع دون سكربتات إصلاح.",
+        "توثيق استخدام AITestTrait عبر ملفات AI المتعددة"
+      ],
+      "test_runs": [
+        {"target": "tests/AI", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T00:00:03Z"
+    },
+    {
+      "name": "IntegrationTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Integration/IntegrationTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبارات التكامل وتحليل التبعيات عبر الخدمات."
+      ],
+      "test_runs": [
+        {"target": "tests/Integration/IntegrationTest.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T00:00:04Z"
+    },
+    {
+      "name": "IntegrationTestSuite",
+      "status": "قيد العمل",
+      "files": [
+        "tests/TestUtilities/IntegrationTestSuite.php",
+        "tests/TestUtilities/ComprehensiveTestCommand.php",
+        "tests/TestUtilities/ComprehensiveTestRunner.php",
+        "tests/TestUtilities/TestRunner.php"
+      ],
+      "actions": [
+        "تشغيل أمر artisan test:comprehensive حسب الإعدادات."
+      ],
+      "timestamp": "2025-10-18T00:00:00Z"
+    },
+    {
+      "name": "PureUnitTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/PureUnitTest.php"
+      ],
+      "actions": [
+        "التشغيل عبر phpunit مع إعدادات صارمة.",
+        "تحقق من عدم وجود أخطاء أو إخفاقات."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/PureUnitTest.php", "result": "success"},
+        {"target": "tests/Unit/PureUnitTest.php", "result": "success", "time": "00:11.836"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "SmokeTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/AI/SmokeTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبارات الدخان للتحقق من الأساسيات.",
+        "تأكيد مرور الاختبارات دون أعطال أو تحذيرات مؤثرة."
+      ],
+      "test_runs": [
+        {"target": "tests/Smoke/SmokeTest.php", "result": "success"},
+        {"target": "tests/AI/SmokeTest.php", "result": "success", "time": "00:00.306"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "Unit Test - URLService",
+      "status": "غير موجود",
+      "files": [
+        "tests/Unit/Services/URLServiceTest.php"
+      ],
+      "actions": [
+        "بحث عن ملف الاختبار أو الخدمة المرتبطة.",
+        "عدم العثور على URLService؛ التوصية بإنشاء اختبار وحدة يغطي بناء وتحقق الروابط."
+      ],
+      "test_runs": [],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "APIServiceTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/Services/APIServiceTest.php"
+      ],
+      "actions": [
+        "إنشاء ملف اختبار والتحقق من خدمات API الأساسية.",
+        "تشغيل phpunit والتحقق من نجاح الاختبارات دون إخفاقات."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/Services/APIServiceTest.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T00:00:00Z"
+    },
+    {
+      "name": "AdvancedTestHelper",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/AdvancedTestHelper.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (syntax check) للأداة المساعدة.",
+        "تأكيد عدم وجود أخطاء قبل استخدامها ضمن أدوات التشغيل."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/AdvancedTestHelper.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "AITest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/AI/AITest.php"
+      ],
+      "actions": [
+        "تشغيل الاختبار بشكل منفصل بصرامة كاملة وتحليل النتائج."
+      ],
+      "test_runs": [
+        {"target": "tests/AI/AITest.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-18T00:00:05Z"
+    },
+    {
+      "name": "ValidationTestCase",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/Validation/ValidationTestCase.php"
+      ],
+      "actions": [
+        "تشغيل اختبار التحقق الأساسي والتأكد من صحة التأكيدات."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/Validation/ValidationTestCase.php", "result": "success", "time": "00:00.601"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "MockeryDebugTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/MockeryDebugTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبار تصحيح Mockery والتحقق من التوافق مع PHPUnit 11."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/MockeryDebugTest.php", "result": "success", "time": "00:11.358"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "SimpleMockeryTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/SimpleMockeryTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبار Mockery البسيط والتأكد من صحة المضاعفات."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/SimpleMockeryTest.php", "result": "success", "time": "00:11.471"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "StrictMockeryTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/StrictMockeryTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبار Mockery الصارم والتأكد من التوافق مع الإعدادات الحديثة."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/StrictMockeryTest.php", "result": "success", "time": "00:10.850"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "FactoriesTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/Factories/FactoriesTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبار المصانع والتأكد من إنشاء البيانات التجريبية بشكل صحيح."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/Factories/FactoriesTest.php", "result": "success", "time": "00:11.289"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "ComprehensiveTestCommand",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/ComprehensiveTestCommand.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (php -l) للأمر الشامل."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/ComprehensiveTestCommand.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "ComprehensiveTestRunner",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/ComprehensiveTestRunner.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (php -l) لعارض التشغيل الشامل."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/ComprehensiveTestRunner.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "TestReportGenerator",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/TestReportGenerator.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (php -l) للمولِّد."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/TestReportGenerator.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "TestReportProcessor",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/TestReportProcessor.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (php -l) للمعالج."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/TestReportProcessor.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "TestRunner",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/TestRunner.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (php -l) لـ TestRunner."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/TestRunner.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "TestSuiteValidator",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/TestUtilities/TestSuiteValidator.php"
+      ],
+      "actions": [
+        "التحقق من سلامة الصياغة (php -ل) لمتحقق مجموعة الاختبارات."
+      ],
+      "test_runs": [
+        {"target": "tests/TestUtilities/TestSuiteValidator.php", "result": "success"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "TestErrorHandler",
+      "status": "تم بنجاح مع مخاطر",
+      "files": [
+        "tests/Unit/TestErrorHandler.php"
+      ],
+      "actions": [
+        "تشغيل PHPUnit وتسجيل نتيجة المخاطر (risk)."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/TestErrorHandler.php", "result": "risky", "time": "00:06.023"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "MockAIService",
+      "status": "غير قابل للتشغيل عبر PHPUnit",
+      "files": [
+        "tests/AI/MockAIService.php"
+      ],
+      "actions": [
+        "الملف ليس TestCase ويورث فئة نهائية؛ التوصية بإنشاء MockAIServiceTest يمتد TestCase أو استخدام واجهات/Traits."
+      ],
+      "test_runs": [],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "MockAIServiceTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/AI/MockAIServiceTest.php"
+      ],
+      "actions": [
+        "تشغيل اختبار MockAIService والتحقق من التحليل والتصنيف والتوصيات والصور."
+      ],
+      "test_runs": [
+        {"target": "tests/AI/MockAIServiceTest.php", "result": "success", "time": "00:00.803"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "URLServiceTest",
+      "status": "تم بنجاح",
+      "files": [
+        "tests/Unit/URLServiceTest.php"
+      ],
+      "actions": [
+        "اختبار توليد رابط الأفلييت والتأكد من الترميز وحقن الكود."
+      ],
+      "test_runs": [
+        {"target": "tests/Unit/URLServiceTest.php", "result": "success", "time": "00:01.003"}
+      ],
+      "timestamp": "2025-10-19T00:00:00Z"
+    },
+    {
+      "name": "Trivy",
+      "status": "تم بنجاح",
+      "files": [
+        "trivy-fs.json",
+        "docker/ssl/coprra.key"
+      ],
+      "actions": [
+        "تشغيل فحص Trivy على نظام الملفات بصرامة HIGH/CRITICAL مع كشف الأسرار.",
+        "اكتشاف مفتاح خاص عالي الخطورة في docker/ssl/coprra.key.",
+        "إزالة محتوى المفتاح من المستودع واستبداله بحافظة فارغة آمنة.",
+        "إعادة تشغيل الفحص والتأكد من زوال إنذار الأسرار وعدم وجود ثغرات عالية/حرجة."
+      ],
+      "test_runs": [
+        {"target": "trivy fs .", "result": "success", "format": "json", "output": "trivy-fs.json"}
+      ],
+      "regression_check": {
+        "last_run": "2025-10-19T09:32:00Z",
+        "regression_detected": false,
+        "notes": [
+          "لا توجد أسرار مكتشفة بعد الإصلاح.",
+          "نتيجة الثغرات: صفر HIGH/CRITICAL وفق التقرير."
+        ]
+      },
+      "timestamp": "2025-10-19T09:32:10Z"
+    },
+    {
+      "name": "Gitleaks",
+      "status": "تم بنجاح",
+      "files": [
+        "gitleaks-report.json",
+        ".gitleaks.toml"
+      ],
+      "actions": [
+        "إنشاء إعداد .gitleaks.toml لتجاهل مجلدات الاعتماديات والملفات غير البرمجية.",
+        "تشغيل gitleaks على كامل المشروع بصرامة دون Git وبصيغة JSON.",
+        "التحقق من عدم وجود تسريبات فعلية ضمن app/config/routes/resources/tests."
+      ],
+      "test_runs": [
+        {"target": "gitleaks detect", "result": "success", "format": "json", "output": "gitleaks-report.json"}
+      ],
+      "regression_check": {
+        "last_run": "2025-10-19T10:04:00Z",
+        "regression_detected": false,
+        "notes": [
+          "لا توجد تسريبات في الشفرة المصدرية.",
+          "تم تقليص الضجيج عبر allowlist للمسارات الثقيلة."
+        ]
+      },
+      "timestamp": "2025-10-19T10:04:10Z"
+    },
+    {
+      "name": "Gitleaks-CI",
+      "status": "تم بنجاح",
+      "files": [
+        ".github/workflows/security-audit.yml",
+        "gitleaks-report.json"
+      ],
+      "actions": [
+        "دمج خطوة Gitleaks ضمن تدفق Security Audit لتوليد تقرير JSON ورفع artifact.",
+        "تشغيل actionlint للتحقق من صحة تدفقات GitHub Actions بعد التعديل."
+      ],
+      "test_runs": [
+        {"target": "Security Audit workflow", "result": "configured", "step": "Gitleaks via Docker", "artifact": "gitleaks-report.json"},
+        {"target": "actionlint .github/workflows/*.yml", "result": "success"}
+      ],
+      "regression_check": {
+        "last_run": "2025-10-19T10:20:05Z",
+        "regression_detected": false,
+        "notes": [
+          "Gitleaks مدمج في CI، سيفشل البناء إذا وُجدت تسريبات.",
+          "التقرير يُرفع دائماً كـ artifact للاطلاع السريع."
+        ]
+      },
+      "timestamp": "2025-10-19T10:20:00Z"
+    },
+    {
+      "name": "Enlightn Security Checker",
+      "status": "مُهيأ في CI",
+      "files": [
+        ".github/workflows/security-audit.yml",
+        "security-checker-report.json"
+      ],
+      "actions": [
+        "إضافة خطوة Enlightn Security Checker ضمن Security Audit لإخراج JSON ورفع artifact.",
+        "محاولة تشغيل محلياً داخل Docker للتأكيد (واجه نقص zip/unzip في البيئة)."
+      ],
+      "test_runs": [
+        {"target": "./vendor/bin/security-checker security:check --format=json", "result": "error", "message": "The unzip command and zip php extension are both missing."}
+      ],
+      "regression_check": {
+        "last_run": "2025-10-19T10:28:00Z",
+        "regression_detected": false,
+        "notes": [
+          "التحقق سيعمل على GitHub Runner حيث تتوفر المتطلبات غالباً.",
+          "يمكن تثبيت ext-zip و unzip عند الحاجة داخل الحاوية."
+        ]
+      },
+      "timestamp": "2025-10-19T10:28:05Z"
+    },
+    {
+      "name": "Enlightn-CI-Enhancements",
+      "status": "تم بنجاح",
+      "files": [
+        ".github/workflows/security-audit.yml",
+        "security-checker-report.json"
+      ],
+      "actions": [
+        "إضافة شرط فشل صريح للبناء عند اكتشاف ثغرات بواسطة Enlightn عبر خطوة تقييم JSON (actions/github-script) مع الاستمرار في رفع artifacts.",
+        "دمج تعليق تلقائي على طلبات الدمج يلخص النتائج ويُحدَّث تعليقاً واحداً بعلامة مميِّزة."
+      ],
+      "test_runs": [
+        {"target": "Security Audit workflow", "result": "configured", "step": "Evaluate Enlightn Results (fail on findings)"},
+        {"target": "Pull Request comment", "result": "configured", "marker": "<!-- enlightn-security-checker -->"},
+        {"target": "actionlint .github/workflows/*.yml", "result": "pending (local actionlint not available)"}
+      ],
+      "regression_check": {
+        "last_run": "2025-10-19T10:40:00Z",
+        "regression_detected": false,
+        "notes": [
+          "البناء يفشل برسالة واضحة عند وجود حزم مصابة.",
+          "تعليق PR يتم إنشاؤه/تحديثه تلقائياً بملخص أعلى 10 حزم."
+        ]
+      },
+      "timestamp": "2025-10-19T10:40:00Z"
+    }
+  ]
+}

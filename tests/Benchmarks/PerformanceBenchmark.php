@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Benchmarks;
 
 use PHPUnit\Framework\Attributes\PreserveGlobalState;
@@ -39,3 +41,5 @@ class PerformanceBenchmark extends TestCase
         $this->assertTrue(true);
     }
 }
+
+

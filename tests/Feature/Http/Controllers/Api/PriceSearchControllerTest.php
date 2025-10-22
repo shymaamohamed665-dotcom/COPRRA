@@ -329,7 +329,7 @@ class PriceSearchControllerTest extends TestCase
     public function test_handles_search_with_unicode_characters()
     {
         $response = $this->getJson('/api/price-search/search', [
-            'q' => '测试产品 🛍️',
+            'q' => 'æµ‹è¯•äº§å“ ðŸ›ï¸',
         ]);
 
         $response->assertStatus(200)

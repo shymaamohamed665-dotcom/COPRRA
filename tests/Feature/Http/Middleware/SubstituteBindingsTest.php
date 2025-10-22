@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Http\Middleware;
 
 use App\Models\User;
@@ -58,7 +60,7 @@ class SubstituteBindingsTest extends TestCase
     {
         $request = Request::create('/test', 'GET');
 
-        // وفّر Route فارغ لضمان عدم فشل الوسيط عند عدم وجود Route فعلي
+        // ÙˆÙÙ‘Ø± Route ÙØ§Ø±Øº Ù„Ø¶Ù…Ø§Ù† Ø¹Ø¯Ù… ÙØ´Ù„ Ø§Ù„ÙˆØ³ÙŠØ· Ø¹Ù†Ø¯ Ø¹Ø¯Ù… ÙˆØ¬ÙˆØ¯ Route ÙØ¹Ù„ÙŠ
         $request->setRouteResolver(function () use ($request) {
             $route = new \Illuminate\Routing\Route(['GET'], '/test', ['uses' => function () {}]);
             $route->bind($request);

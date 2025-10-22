@@ -1,0 +1,2 @@
+Test #1: PHPStan - المستوى 8 (Maximum Strictness)
+Status: TIMEOUT after 300s

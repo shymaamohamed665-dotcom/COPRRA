@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Browser\Pages;
 
 use PHPUnit\Framework\TestCase;
@@ -65,3 +67,5 @@ class Page extends TestCase
         $this->assertEquals('/contact', $navigation['contact']);
     }
 }
+
+

@@ -1,0 +1,467 @@
+
+  [90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m
+  [90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m
+  [31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m
+  [31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m
+  [31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m
+  [31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m
+  [31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m
+  [90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[31;1m⨯[39;22m[90m.[39m[31;1m⨯[39;22m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m[90m.[39m
+
+  [90m────────────────────────────────────────────────────────────────────────────────────────────────────────────[39m [90mLaravel[39m  
+  [37;41;1m  FAIL  [39;49;22m [90m...............................................................................[39m 877 files, 454 style issues  
+  [31;1m⨯[39;22m app\Console\Commands\AgentProposeFixCommand.php [90m           new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\AnalyzeDatabaseCommand.php [90m                                   concat_space, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Console\Commands\CacheManagement.php [90m                          concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\CleanAnalytics.php [90m                                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\GenerateSitemap.php [90m                                                             concat_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\OptimizeDatabase.php [90m                                                            concat_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\SEOAudit.php [90m                                              new_with_parentheses, concat_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\StatsCommand.php [90m                                                                concat_space[39m  
+  [31;1m⨯[39;22m app\Console\Commands\UpdatePricesCommand.php [90m                              new_with_parentheses, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Console\Kernel.php [90m                                                         new_with_parentheses, concat_space[39m  
+  [31;1m⨯[39;22m app\Contracts\StoreAdapter.php [90m                                                                  phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\DTO\AnalysisResult.php [90m                                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\DTO\ProcessResult.php [90m                               not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\DataObjects\Ai\Stage.php [90m                                                               single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\DataObjects\Ai\StageResult.php [90m                                                         single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\DataObjects\StorageBreakdown.php [90m                                                       single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\DataObjects\StorageStatistics.php [90m                                                      single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\DataObjects\StorageUsage.php [90m                                                           single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Events\OrderStatusChanged.php [90m                                                          single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Exceptions\GlobalExceptionHandler.php [90m                                    concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Exceptions\ProductUpdate.php [90m                                                           single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Helpers\OrderHelper.php [90m                                                                          concat_space[39m  
+  [31;1m⨯[39;22m app\Helpers\PriceHelper.php [90m                                       concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\AdminController.php [90m                                        not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Admin\AIControlPanelController.php [90m                                    single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Admin\DashboardController.php [90m                                                   concat_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\AnalyticsController.php [90m            not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Api\AuthController.php [90m                                     not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Api\OrderController.php [90m                                                         concat_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Api\PriceSearchController.php [90m                concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Api\ProductController.php [90mconcat_space, phpdoc_separation, not_operator_with_successor_space…[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Api\V2\BaseApiController.php [90m                                               phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Auth\AuthController.php [90m                                                         concat_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\Auth\EmailVerificationController.php [90m                                  single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\BackupController.php [90m   new_with_parentheses, concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\BrandController.php [90m                          concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\CartController.php [90m                                                         phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\CategoryController.php [90m                                                single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\ErrorController.php [90m                not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\FileController.php [90m                           concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\HealthController.php [90m                         concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\LogController.php [90m         concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\OrderController.php [90m  concat_space, not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\PaymentController.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\PointsController.php [90m                                                  single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\PriceComparisonController.php [90m      not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\ProductController.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\ProfileController.php [90m                        concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\RecommendationController.php [90m       not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\ReportController.php [90m                                                  single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\SettingController.php [90m                                                           concat_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\SystemController.php [90m      concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\UploadController.php [90m                         concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\UserController.php [90m   concat_space, not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\WebhookController.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Controllers\WishlistController.php [90m                                     not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\AddQueuedCookiesToResponse.php [90m                              not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\AdminMiddleware.php [90m                                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\AuthenticateSession.php [90m                                     not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\AuthenticateWithBasicAuth.php [90m                                          single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\Authorize.php [90m                                               not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\CheckPermission.php [90m                                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\CheckUserRole.php [90m                                           not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\CompressionMiddleware.php [90m                                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\ConvertEmptyStringsToNull.php [90m                               not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\EnsureEmailIsVerified.php [90m                                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\HandlePrecognitiveRequests.php [90m                              not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\InputSanitizationMiddleware.php [90m          phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\LocaleMiddleware.php [90m                                                   single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\RTLMiddleware.php [90m                                           not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\RequirePassword.php [90m                                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\SecurityHeaders.php [90m                           concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\SessionManagementMiddleware.php [90m                             not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\SetCacheHeaders.php [90m                           concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\SetLocale.php [90m                                               not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\ShareErrorsFromSession.php [90m                                  not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\StartSession.php [90m                                            not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\SubstituteBindings.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\ThrottleRequests.php [90m                                        not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\ThrottleSensitiveOperations.php [90m               concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\TrustProxies.php [90m                                            not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Middleware\ValidateApiRequest.php [90m                   phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Requests\ChangePasswordRequest.php [90m                                                single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\LoginRequest.php [90m                                              not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Requests\ProductRequest.php [90m                              concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Http\Requests\StoreBrandRequest.php [90m                                                    single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\StorePriceAlertRequest.php [90m                                               single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\SwitchLanguageRequest.php [90m                                                single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\UpdateBrandRequest.php [90m                                                   single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\UpdatePriceAlertRequest.php [90m                                              single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\UpdateProductRequest.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\UpdateReviewRequest.php [90m                                                  single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\UpdateUserRequest.php [90m                                                    single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Http\Requests\UploadFileRequest.php [90m                                                              concat_space[39m  
+  [31;1m⨯[39;22m app\Jobs\FetchDailyPriceUpdates.php [90m                                                                  concat_space[39m  
+  [31;1m⨯[39;22m app\Jobs\ProcessHeavyOperation.php [90m                                                         single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Jobs\SendPriceAlert.php [90m                                                     not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Models\AuditLog.php [90m                                      phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Models\Brand.php [90m                                                                            phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Models\Category.php [90m                                                   new_with_parentheses, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Models\Notification.php [90m                                  phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Models\Reward.php [90m                                                                           phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Models\User.php [90m                                                             not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Models\ValidatableModel.php [90m                                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m app\Models\Wishlist.php [90m                                                                      new_with_parentheses[39m  
+  [31;1m⨯[39;22m app\Notifications\PriceAlertNotification.php [90m           new_with_parentheses, concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Notifications\PriceDropNotification.php [90m                                                single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Observers\ProductObserver.php [90m                                                                    concat_space[39m  
+  [31;1m⨯[39;22m app\Providers\ApiServiceProvider.php [90m                                                       single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Providers\AppServiceProvider.php [90m                      new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Providers\CompressionServiceProvider.php [90m                                               single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Providers\LogProcessingServiceProvider.php [90m                                             single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Providers\SecurityHeadersServiceProvider.php [90m                               new_with_parentheses, concat_space[39m  
+  [31;1m⨯[39;22m app\Providers\ViewServiceProvider.php [90m                   not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Repositories\ProductRepository.php [90m                                    new_with_parentheses, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Rules\DimensionSum.php [90m                                        concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Rules\PasswordValidator.php [90m                                                 not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Rules\ValidOrderStatus.php [90m                                                  not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Rules\ValidOrderStatusTransition.php [90m                not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\BrandSchema.php [90m                                                                single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\CategorySchema.php [90m                                                             single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\PaginationLinksSchema.php [90m                                                      single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\PaginationMetaSchema.php [90m                                                       single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\PriceOfferSchema.php [90m                                                           single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\ProductCreateRequestSchema.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\ProductDetailSchema.php [90m                                                        single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\ProductSchema.php [90m                                                              single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\ProductUpdateRequestSchema.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Schemas\ReviewSchema.php [90m                                                               single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\AIService.php [90m              phpdoc_separation, no_extra_blank_lines, blank_line_between_import_groups[39m  
+  [31;1m⨯[39;22m app\Services\AI\ContinuousQualityMonitor.php [90mnew_with_parentheses, concat_space, phpdoc_separation, not_operator_…[39m  
+  [31;1m⨯[39;22m app\Services\AI\HealthScoreCalculator.php [90m                                       not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\AI\Services\AIImageAnalysisService.php [90m                                             phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\AI\Services\AIRequestService.php [90m  concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\AI\Services\AITextAnalysisService.php [90m           phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\AI\Services\RuleValidatorService.php [90m                               not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\AI\StrictQualityAgent.php [90m                            concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\ActivityChecker.php [90m                             phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\ActivityFactory.php [90m                                                                phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\Activity\Services\ActivityThresholdService.php [90m                     not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Activity\Services\ActivityValidationService.php [90m phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Activity\Services\LocationCheckService.php [90m      phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\AgentFixer\AgentFixerFactory.php [90m                                              single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\AgentFixer\AnalysisFixer.php [90m concat_space, not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\AgentFixer\FixExecutionService.php [90m         not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\AgentFixer\GitWorkflowService.php [90m                               concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\AgentFixer\PullRequestService.php [90m                               concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\AgentFixer\StyleFixer.php [90m                                       concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\Amazon\AmazonClient.php [90m                                                                 concat_space[39m  
+  [31;1m⨯[39;22m app\Services\AnalyticsService.php [90m                                               not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Api\PaginationService.php [90m                       phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Api\RequestParameterService.php [90m                                    not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Api\ResponseBuilderService.php [90m                                                     phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\AuditService.php [90m                                                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\BackupService.php [90m                 concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\BackupFileService.php [90m                         concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\BackupListService.php [90m      concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\BackupManagerService.php [90m   concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\BackupService.php [90mnew_with_parentheses, concat_space, phpdoc_separation, not_operator_with_su…[39m  
+  [31;1m⨯[39;22m app\Services\Backup\BackupValidator.php [90m                                                              concat_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\RestoreService.php [90mnew_with_parentheses, concat_space, phpdoc_separation, not_operator_with_s…[39m  
+  [31;1m⨯[39;22m app\Services\Backup\Services\BackupCompressionService.php [90m         concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\Services\BackupConfigurationService.php [90mconcat_space, phpdoc_separation, not_operator_with_su…[39m  
+  [31;1m⨯[39;22m app\Services\Backup\Services\BackupDatabaseService.php [90mconcat_space, phpdoc_separation, not_operator_with_success…[39m  
+  [31;1m⨯[39;22m app\Services\Backup\Services\BackupFileSystemService.php [90mconcat_space, phpdoc_separation, not_operator_with_succe…[39m  
+  [31;1m⨯[39;22m app\Services\Backup\Services\BackupValidatorService.php [90m           concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Backup\Strategies\BackupStrategyInterface.php [90m                                      phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\BehaviorAnalysisService.php [90m                                        not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CDNService.php [90m                    concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CDN\Contracts\CDNProviderInterface.php [90m                                             phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\CDN\Providers\CloudflareProvider.php [90m                 concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CDN\Providers\GoogleCloudProvider.php [90m                concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CDN\Providers\S3Provider.php [90m                         concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CDN\Services\CDNFileService.php [90m                 phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CacheService.php [90m                  concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\CacheStatisticsDisplayer.php [90m                                                  single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\Compression\BrotliCompressionStrategy.php [90m                          not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Compression\CompressionResponseService.php [90m                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Compression\CompressionService.php [90m                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m app\Services\Compression\GzipCompressionStrategy.php [90m                            not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Contracts\StoreAdapterContract.php [90m                                                 phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\EnvironmentChecker.php [90m                                            new_with_parentheses, concat_space[39m  
+  [31;1m⨯[39;22m app\Services\ExchangeRateService.php [90m                         phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\ExternalStoreService.php [90m                                                           phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\FactoryConfigurationService.php [90m                                 concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\FileCleanupService.php [90mnew_with_parentheses, concat_space, phpdoc_separation, not_operator_with_succ…[39m  
+  [31;1m⨯[39;22m app\Services\FileCleanup\DirectoryCleaner.php [90m                                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\FinancialTransactionService.php [90m            not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\ImageOptimizationService.php [90m      concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\LogProcessing\ErrorStatisticsCalculator.php [90m                phpdoc_separation, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\LogProcessing\LogProcessingService.php [90m                     phpdoc_separation, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\LogProcessing\SystemHealthChecker.php [90m                                                   concat_space[39m  
+  [31;1m⨯[39;22m app\Services\LoginAttemptService.php [90m                                            not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\NotificationService.php [90m                    not_operator_with_successor_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\OptimizedQueryService.php [90m                            concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\OrderService.php [90m               new_with_parentheses, concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\PasswordHistoryService.php [90m                           concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\PasswordPolicyService.php [90mnew_with_parentheses, concat_space, phpdoc_separation, not_operator_with_s…[39m  
+  [31;1m⨯[39;22m app\Services\PasswordResetService.php [90m                             concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\PaymentService.php [90m                concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\PerformanceAnalysisService.php [90m                                                          concat_space[39m  
+  [31;1m⨯[39;22m app\Services\PerformanceMonitoringService.php [90m                                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Performance\CacheOptimizerService.php [90m                                         single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\Performance\DatabaseOptimizerService.php [90m                        concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\Performance\PerformanceReporter.php [90mconcat_space, not_operator_with_successor_space, single_line_emp…[39m  
+  [31;1m⨯[39;22m app\Services\Performance\PerformanceReporterService.php [90m                      concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\Performance\SystemOptimizerService.php [90m                          concat_space, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\PointsService.php [90m                               phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\PriceComparisonService.php [90mconcat_space, phpdoc_separation, not_operator_with_successor_space, singl…[39m  
+  [31;1m⨯[39;22m app\Services\PriceSearchService.php [90m                                                        single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\PriceUpdate\PriceQueryBuilderService.php [90m                             concat_space, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\PriceUpdate\PriceUpdateDisplayService.php [90m                                               concat_space[39m  
+  [31;1m⨯[39;22m app\Services\PriceUpdate\PriceUpdateProcessorService.php [90mnew_with_parentheses, phpdoc_separation, not_operator_wi…[39m  
+  [31;1m⨯[39;22m app\Services\ProcessService.php [90m                              phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\ProductService.php [90m     new_with_parentheses, concat_space, phpdoc_separation, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\Product\SearchFilterBuilder.php [90m                                                         concat_space[39m  
+  [31;1m⨯[39;22m app\Services\Product\Services\ProductCacheService.php [90m                             concat_space, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\Product\Services\ProductPriceService.php [90m                           not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Product\Services\ProductQueryBuilderService.php [90mconcat_space, phpdoc_separation, not_operator_with_s…[39m  
+  [31;1m⨯[39;22m app\Services\Product\Services\ProductValidationService.php [90m   phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\QualityAnalysisService.php [90m                           concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\RecommendationService.php [90m new_with_parentheses, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\ReportService.php [90m                                          phpdoc_separation, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\RouteConfigurationService.php [90m                                                 single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\SEOService.php [90mconcat_space, phpdoc_separation, not_operator_with_successor_space, single_line_empty…[39m  
+  [31;1m⨯[39;22m app\Services\SEO\SEOAuditResult.php [90m                                                        single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\SEO\SEOAuditor.php [90m                                                                 phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\SEO\SEOIssueFixer.php [90m                           phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\SEO\SEORouteAuditor.php [90m                         phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\SecurityAnalysisService.php [90m                          concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Security\Headers\SecurityHeaderStrategyFactory.php [90m                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m app\Services\Security\Headers\StandardSecurityHeaderStrategy.php [90m                not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Security\Headers\StrictTransportSecurityHeaderStrategy.php [90m         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Security\SecurityHeadersService.php [90m                                not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\Security\VirusScanner.php [90m                                          not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\StorageManagementService.php [90mnew_with_parentheses, concat_space, phpdoc_separation, not_operator_wit…[39m  
+  [31;1m⨯[39;22m app\Services\StoreAdapterManager.php [90m                                            not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\StoreAdapters\AmazonAdapter.php [90m   concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\StoreAdapters\EbayAdapter.php [90m     concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\StoreAdapters\NoonAdapter.php [90m                   phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\StoreAdapters\StoreAdapter.php [90m                             phpdoc_separation, single_line_empty_body[39m  
+  [31;1m⨯[39;22m app\Services\StoreClients\BaseStoreClient.php [90m                                     concat_space, phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\Services\StoreClients\GenericStoreClient.php [90m             phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\StoreClients\StoreClientFactory.php [90m                                not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\SuspiciousActivityNotifier.php [90m                                                          concat_space[39m  
+  [31;1m⨯[39;22m app\Services\SuspiciousActivityService.php [90m                                      not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\TestAnalysisService.php [90m                      new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\UserBanService.php [90m        new_with_parentheses, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\Services\WebhookService.php [90m                concat_space, phpdoc_separation, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m app\View\Composers\AppComposer.php [90m                                                              phpdoc_separation[39m  
+  [31;1m⨯[39;22m app\_ide_helper_cart.php [90m                                                                   single_line_empty_body[39m  
+  [31;1m⨯[39;22m config\broadcasting.php [90m                                                                              concat_space[39m  
+  [31;1m⨯[39;22m config\cache.php [90m                                                                                     concat_space[39m  
+  [31;1m⨯[39;22m config\database.php [90m                                                                                  concat_space[39m  
+  [31;1m⨯[39;22m config\filesystems.php [90m                                                                               concat_space[39m  
+  [31;1m⨯[39;22m config\logging.php [90m                                                                                   concat_space[39m  
+  [31;1m⨯[39;22m config\security.php [90m                                                                                  concat_space[39m  
+  [31;1m⨯[39;22m config\session.php [90m                                                                                   concat_space[39m  
+  [31;1m⨯[39;22m database\factories\BrandFactory.php [90m                                                                  concat_space[39m  
+  [31;1m⨯[39;22m database\factories\CategoryFactory.php [90m                                                               concat_space[39m  
+  [31;1m⨯[39;22m database\factories\LanguageFactory.php [90m                                                               concat_space[39m  
+  [31;1m⨯[39;22m database\factories\OrderFactory.php [90m                                                                  concat_space[39m  
+  [31;1m⨯[39;22m database\factories\PriceOfferFactory.php [90m                                                             concat_space[39m  
+  [31;1m⨯[39;22m database\factories\ProductFactory.php [90m                                                                concat_space[39m  
+  [31;1m⨯[39;22m database\factories\StoreFactory.php [90m                                                                  concat_space[39m  
+  [31;1m⨯[39;22m database\migrations\0001_01_01_000000_create_users_table.php [90mnew_with_parentheses, class_definition, braces_posit…[39m  
+  [31;1m⨯[39;22m database\migrations\0001_01_01_000001_create_cache_table.php [90mnew_with_parentheses, class_definition, braces_posit…[39m  
+  [31;1m⨯[39;22m database\migrations\0001_01_01_000002_create_jobs_table.php [90mnew_with_parentheses, class_definition, braces_positi…[39m  
+  [31;1m⨯[39;22m database\migrations\2018_08_08_100000_create_telescope_entries_table.php [90m new_with_parentheses, class_definition,…[39m  
+  [31;1m⨯[39;22m database\migrations\2019_12_14_000001_create_personal_access_tokens_table.php [90mnew_with_parentheses, class_definit…[39m  
+  [31;1m⨯[39;22m database\migrations\2024_09_27_000000_add_password_confirmed_at_to_users_table.php [90mnew_with_parentheses, class_de…[39m  
+  [31;1m⨯[39;22m database\migrations\2024_10_01_000002_create_analytics_events_table.php [90mnew_with_parentheses, class_definition, b…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_01_15_000002_add_encrypted_fields.php [90mnew_with_parentheses, class_definition, braces_pos…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_01_15_000003_create_audit_logs_table.php [90mnew_with_parentheses, class_definition, braces_…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_01_15_000004_create_notifications_table.php [90mnew_with_parentheses, class_definition, brac…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_02_01_000001_create_cart_items_table.php [90mnew_with_parentheses, class_definition, braces_…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_02_01_000002_alter_notifications_add_user_id.php [90mnew_with_parentheses, class_definition,…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_18_145450_create_brands_table.php [90mnew_with_parentheses, class_definition, braces_posi…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_18_145451_create_categories_table.php [90mnew_with_parentheses, class_definition, braces_…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_18_145452_create_products_table.php [90mnew_with_parentheses, class_definition, braces_po…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_18_145453_create_languages_and_currencies_tables.php [90mnew_with_parentheses, class_defi…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_18_145454_create_stores_table.php [90mnew_with_parentheses, class_definition, braces_posi…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_21_180931_create_price_offers_table.php [90mnew_with_parentheses, class_definition, brace…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_21_184616_create_reviews_table.php [90mnew_with_parentheses, class_definition, braces_pos…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_21_184634_create_wishlists_table.php [90mnew_with_parentheses, class_definition, braces_p…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_08_21_184657_create_price_alerts_table.php [90mnew_with_parentheses, class_definition, brace…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_07_055316_add_image_to_products_table.php [90mnew_with_parentheses, class_definition, bra…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_07_073043_add_is_admin_to_users_table.php [90mnew_with_parentheses, class_definition, bra…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_000000_add_role_to_users_table.php [90mnew_with_parentheses, class_definition, braces_…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_025634_add_soft_deletes_to_brands_table.php [90mnew_with_parentheses, class_definition…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_025841_add_soft_deletes_to_categories_table.php [90mnew_with_parentheses, class_defini…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_030119_add_soft_deletes_to_stores_table.php [90mnew_with_parentheses, class_definition…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_030214_add_description_to_stores_table.php [90mnew_with_parentheses, class_definition,…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_030254_add_logo_url_to_stores_table.php [90mnew_with_parentheses, class_definition, br…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_030441_add_affiliate_code_to_stores_table.php [90mnew_with_parentheses, class_definiti…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_030534_add_store_id_to_products_table.php [90m new_with_parentheses, class_definition,…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_030823_add_soft_deletes_to_price_alerts_table.php [90mnew_with_parentheses, class_defi…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_041809_add_soft_deletes_to_products_table.php [90mnew_with_parentheses, class_definiti…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_042807_add_decimal_places_to_currencies_table.php [90mnew_with_parentheses, class_defi…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_08_064338_add_is_available_and_original_price_to_price_offers_table.php [90mnew_with_pare…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_10_064350_add_ban_fields_to_users_table.php [90mnew_with_parentheses, class_definition, b…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_11_233947_add_session_id_to_users_table.php [90mnew_with_parentheses, class_definition, b…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_14_065423_create_permission_tables.php [90mnew_with_parentheses, class_definition, braces…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_19_033122_add_stock_quantity_to_products_table.php [90mnew_with_parentheses, class_defini…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_19_033158_add_is_active_to_users_table.php [90mnew_with_parentheses, class_definition, br…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_20_000000_add_is_featured_to_products_table.php [90mnew_with_parentheses, class_definitio…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_21_225510_add_currency_to_price_offers_table.php [90mnew_with_parentheses, class_definiti…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_21_225619_recreate_price_offers_table.php [90mnew_with_parentheses, class_definition, bra…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_155133_create_custom_notifications_table.php [90mnew_with_parentheses, class_definitio…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_185824_create_orders_table.php [90mnew_with_parentheses, class_definition, braces_posi…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_185845_create_order_items_table.php [90mnew_with_parentheses, class_definition, braces…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_185900_create_payment_methods_table.php [90mnew_with_parentheses, class_definition, br…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_185904_create_payments_table.php [90mnew_with_parentheses, class_definition, braces_po…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_185925_create_rewards_table.php [90mnew_with_parentheses, class_definition, braces_pos…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_185943_create_user_points_table.php [90mnew_with_parentheses, class_definition, braces…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_25_190659_create_user_behaviors_table.php [90mnew_with_parentheses, class_definition, bra…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_09_30_000001_add_performance_indexes.php [90mnew_with_parentheses, class_definition, braces_…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_01_000001_create_exchange_rates_table.php [90mnew_with_parentheses, class_definition, bra…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_01_000003_create_webhooks_table.php [90mnew_with_parentheses, class_definition, braces_po…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_02_000000_create_price_histories_table.php [90mnew_with_parentheses, class_definition, br…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_08_000001_add_phone_and_email_validation_to_users_table.php [90mnew_with_parentheses, cla…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_08_000002_add_order_date_validation_to_orders_table.php [90mnew_with_parentheses, class_d…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_09_163500_add_currency_id_to_products_table.php [90mnew_with_parentheses, class_definitio…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_09_163600_create_product_store_pivot_table.php [90mnew_with_parentheses, class_definition…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_09_163700_add_quantity_to_products_table.php [90m new_with_parentheses, class_definition,…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_13_000001_create_price_histories_table.php [90mnew_with_parentheses, class_definition, br…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_13_000002_create_price_alerts_table.php [90mnew_with_parentheses, class_definition, brace…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_14_000000_create_notifications_table.php [90mnew_with_parentheses, class_definition, brac…[39m  
+  [31;1m⨯[39;22m database\migrations\2025_10_14_120000_add_seo_meta_to_products_table.php [90m new_with_parentheses, class_definition,…[39m  
+  [31;1m⨯[39;22m database\seeders\BrandSeeder.php [90m                                                           single_line_empty_body[39m  
+  [31;1m⨯[39;22m database\seeders\CategorySeeder.php [90m                                                        single_line_empty_body[39m  
+  [31;1m⨯[39;22m database\seeders\LanguagesAndCurrenciesSeeder.php [90m                                          single_line_empty_body[39m  
+  [31;1m⨯[39;22m database\seeders\PriceOfferSeeder.php [90m                                                      single_line_empty_body[39m  
+  [31;1m⨯[39;22m database\seeders\ProductSeeder.php [90m                                                         single_line_empty_body[39m  
+  [31;1m⨯[39;22m database\seeders\StoreSeeder.php [90m                                                           single_line_empty_body[39m  
+  [31;1m⨯[39;22m reports\php-cs-fixer.php [90m                             new_with_parentheses, concat_space, single_blank_line_at_eof[39m  
+  [31;1m⨯[39;22m routes\api.php [90m                                                                  not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\AI\AIAccuracyTest.php [90m                                                     not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\AI\AIModelPerformanceTest.php [90m                                                          new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\AI\AITestTrait.php [90m                                                                     new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\CreatesApplication.php [90m                                                                         concat_space[39m  
+  [31;1m⨯[39;22m tests\DatabaseSetup.php [90m                                                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\DuskTestCase.php [90m                                    new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\EnhancedTestIsolation.php [90m                                   concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Api\DebugHealthContentTest.php [90m                                                         concat_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Controllers\Api\AuthControllerTest.php [90m                                            concat_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Controllers\Api\DocumentationControllerTest.php [90mnew_with_parentheses, class_definition, braces…[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Controllers\BrandControllerTest.php [90m                                               concat_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\AddQueuedCookiesToResponseTest.php [90m                             new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\AdminMiddlewareTest.php [90m                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ApiErrorHandlerTest.php [90m                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\AuthenticateSessionTest.php [90m                                    new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\AuthorizeTest.php [90m                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ConvertEmptyStringsToNullTest.php [90m                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\EnsureEmailIsVerifiedTest.php [90m                                  new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\HandlePrecognitiveRequestsTest.php [90m                             new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\InputSanitizationMiddlewareTest.php [90m                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\RedirectIfAuthenticatedTest.php [90m                                new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\RequirePasswordTest.php [90m                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\SessionManagementMiddlewareTest.php [90m                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\SetCacheHeadersTest.php [90m                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\SetLocaleAndCurrencyTest.php [90m                                   new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ShareErrorsFromSessionTest.php [90m                                 new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\StartSessionTest.php [90m                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ThrottleSensitiveOperationsTest.php [90m                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\TrimStringsTest.php [90m                                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\TrustProxiesTest.php [90m                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ValidateApiRequestTest.php [90m                                     new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ValidatePostSizeTest.php [90m                                       new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Http\Middleware\ValidateSignatureTest.php [90m                                      new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\AuditLogSimpleTest.php [90m                                                  new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\AuditLogTest.php [90m                                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\BrandTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\CategoryTest.php [90m                                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\CurrencyTest.php [90m                                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\LanguageTest.php [90m                                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\NotificationSimpleTest.php [90m                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\NotificationTest.php [90m                                                    new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\OrderTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\PaymentMethodTest.php [90m                                                   new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\PaymentTest.php [90m                                                         new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\PriceAlertTest.php [90m                                                      new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\PriceOfferTest.php [90m                                                      new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\ProductTest.php [90m                                                         new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\ReviewTest.php [90m                                                          new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\RewardTest.php [90m                                                          new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\StoreTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\UserLocaleSettingTest.php [90m                                               new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\UserPointTest.php [90m                                                       new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\UserTest.php [90m                                                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Models\WishlistTest.php [90m                                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\AuditServiceTest.php [90m                                                  new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\BackupServiceTest.php [90mnew_with_parentheses, class_definition, concat_space, braces_positio…[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\CacheServiceTest.php [90m                                                  new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\FileCleanupServiceTest.php [90mnew_with_parentheses, concat_space, not_operator_with_successor…[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\LoginAttemptServiceTest.php [90m        new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\NotificationServiceTest.php [90m                                                   concat_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\PasswordHistoryServiceTest.php [90m                                        new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\PasswordPolicyServiceTest.php [90m      new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\PasswordResetServiceTest.php [90m                                          new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\ProcessServiceTest.php [90m                                                new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Feature\Services\UserBanServiceTest.php [90m                                                new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\SafeMiddlewareTestBase.php [90mnew_with_parentheses, class_definition, braces_position, not_operator_with_succe…[39m  
+  [31;1m⨯[39;22m tests\SafeTestBase.php [90m                                                                               concat_space[39m  
+  [31;1m⨯[39;22m tests\Security\SQLInjectionTest.php [90m                                                                  concat_space[39m  
+  [31;1m⨯[39;22m tests\Security\XSSTest.php [90m                                                                           concat_space[39m  
+  [31;1m⨯[39;22m tests\Support\FakerFactoryStub.php [90m                      class_definition, braces_position, single_line_empty_body[39m  
+  [31;1m⨯[39;22m tests\TestCase.php [90m                                                concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\AdvancedTestHelper.php [90m                new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\ComprehensiveTestCommand.php [90mnew_with_parentheses, concat_space, not_operator_with_successor_…[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\ComprehensiveTestRunner.php [90m                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\IntegrationTestSuite.php [90m              new_with_parentheses, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\PerformanceTestSuite.php [90m                                   new_with_parentheses, concat_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\QualityAssurance.php [90m    new_with_parentheses, concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\SecurityTestSuite.php [90m                                      new_with_parentheses, concat_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\ServiceTestFactory.php [90m                                                   new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\TestConfiguration.php [90m                                       not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\TestReportGenerator.php [90m                       concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\TestRunner.php [90m          new_with_parentheses, concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\TestUtilities\TestSuiteValidator.php [90m  new_with_parentheses, concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\COPRRA\CacheServiceTest.php [90m                                                       new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\COPRRA\ExchangeRateServiceTest.php [90m                                                new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\COPRRA\WebhookServiceTest.php [90m                                                     new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Controllers\BaseApiControllerTest.php [90m                                             new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\AuditLogTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\BrandTest.php [90m                                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\CategoryTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\CurrencyTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\LanguageTest.php [90m                                                           new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\NotificationTest.php [90m                                                       new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\OrderItemTest.php [90m                                                          new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\OrderTest.php [90m                                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\PaymentMethodTest.php [90m                                                      new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\PaymentTest.php [90m                                                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\PriceAlertTest.php [90m                                                         new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\ProductTest.php [90m                                                            new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\ReviewTest.php [90m                                                             new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\StoreTest.php [90m                                                              new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Models\UserTest.php [90m                                                               new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\BrandRecommendationTest.php [90m                          not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\CollaborativeFilteringTest.php [90m                       not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\ContentBasedFilteringTest.php [90m                        not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\HybridRecommendationTest.php [90m                         not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\PersonalizedRecommendationTest.php [90m                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\SimilarProductTest.php [90m                 concat_space, not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\TrendingProductTest.php [90m                              not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Recommendations\UserBehaviorRecommendationTest.php [90m                   not_operator_with_successor_space[39m  
+  [31;1m⨯[39;22m tests\Unit\Rules\ValidOrderStatusTest.php [90m                                                    new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Services\BehaviorAnalysisServiceTest.php [90m                                          new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Services\ExternalStoreServiceTest.php [90m                                             new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Services\OrderServiceTest.php [90m                                                     new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\Services\PointsServiceTest.php [90m                                                    new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\Unit\StoreModelTest.php [90m                                                                new_with_parentheses[39m  
+  [31;1m⨯[39;22m tests\bootstrap.php [90m                                               concat_space, not_operator_with_successor_space[39m  
+

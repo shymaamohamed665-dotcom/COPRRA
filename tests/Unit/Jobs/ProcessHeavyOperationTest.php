@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Jobs;
 
 use App\Jobs\ProcessHeavyOperation;
@@ -202,3 +204,5 @@ class ProcessHeavyOperationTest extends TestCase
         $this->assertTrue(true); // Job completed without exception
     }
 }
+
+

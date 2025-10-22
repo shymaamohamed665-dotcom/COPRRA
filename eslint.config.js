@@ -136,7 +136,8 @@ export default [
       "public/build/**",
       "public/hot",
       "*.min.js",
-      "*.bundle.js"
+      "*.bundle.js",
+      "resources/js/state/Store.js"
     ]
   }
 ];

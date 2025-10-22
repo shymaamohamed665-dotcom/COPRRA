@@ -64,12 +64,20 @@ final class AIServiceTest extends TestCase
     public static function sentimentTextProvider(): array
     {
         return [
-            'positive_arabic' => ['منتج ممتاز ورائع جداً', 'positive'],
-            'negative_arabic' => ['منتج سيء ورديء', 'negative'],
-            'neutral_arabic' => ['منتج عادي', 'neutral'],
+            'positive_arabic' => ['Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø² ÙˆØ±Ø§Ø¦Ø¹ Ø¬Ø¯Ø§Ù‹', 'positive'],
+            'negative_arabic' => ['Ù…Ù†ØªØ¬ Ø³ÙŠØ¡ ÙˆØ±Ø¯ÙŠØ¡', 'negative'],
+            'neutral_arabic' => ['Ù…Ù†ØªØ¬ Ø¹Ø§Ø¯ÙŠ', 'neutral'],
             'positive_english' => ['excellent product', 'positive'],
             'mixed_sentiment' => ['good but expensive', 'positive'],
         ];
+    }
+
+    #[Test]
+    public function test_analyze_text_whitespace_only_returns_neutral(): void
+    {
+        $result = $this->aiService->analyzeText('   ');
+        $this->assertArrayHasKey('sentiment', $result);
+        $this->assertEquals('neutral', $result['sentiment']);
     }
 
     #[Test]
@@ -115,7 +123,7 @@ final class AIServiceTest extends TestCase
     #[Test]
     public function test_analyze_text_with_special_characters(): void
     {
-        $text = 'Amazing!!! @#$%^&*() product 😊';
+        $text = 'Amazing!!! @#$%^&*() product ðŸ˜Š';
         $result = $this->aiService->analyzeText($text);
 
         $this->assertIsArray($result);
@@ -132,6 +140,32 @@ final class AIServiceTest extends TestCase
         $this->assertIsArray($result);
         $this->assertArrayHasKey('result', $result);
         $this->assertNotEmpty($result['result']);
+    }
+
+    #[Test]
+    #[DataProvider('caseInsensitiveProvider')]
+    public function test_analyze_text_case_insensitive(string $text): void
+    {
+        $result = $this->aiService->analyzeText($text);
+        $this->assertArrayHasKey('sentiment', $result);
+        $this->assertEquals('positive', $result['sentiment']);
+    }
+
+    public static function caseInsensitiveProvider(): array
+    {
+        return [
+            'capitalized' => ['Excellent product'],
+            'uppercase' => ['EXCELLENT item'],
+            'mixed_case' => ['ExCeLlEnT choice'],
+        ];
+    }
+
+    #[Test]
+    public function test_analyze_text_mixed_equal_positive_negative_returns_neutral(): void
+    {
+        $result = $this->aiService->analyzeText('good and bad');
+        $this->assertArrayHasKey('sentiment', $result);
+        $this->assertEquals('neutral', $result['sentiment']);
     }
 
     // ==================== classifyProduct Tests ====================
@@ -168,11 +202,11 @@ final class AIServiceTest extends TestCase
     public static function productDescriptionProvider(): array
     {
         return [
-            'electronics' => ['هاتف آيفون 15 برو'],
-            'clothing' => ['قميص قطني أزرق'],
-            'books' => ['كتاب تعلم البرمجة'],
-            'sports' => ['كرة قدم احترافية'],
-            'furniture' => ['كرسي مكتب مريح'],
+            'electronics' => ['Ù‡Ø§ØªÙ Ø¢ÙŠÙÙˆÙ† 15 Ø¨Ø±Ùˆ'],
+            'clothing' => ['Ù‚Ù…ÙŠØµ Ù‚Ø·Ù†ÙŠ Ø£Ø²Ø±Ù‚'],
+            'books' => ['ÙƒØªØ§Ø¨ ØªØ¹Ù„Ù… Ø§Ù„Ø¨Ø±Ù…Ø¬Ø©'],
+            'sports' => ['ÙƒØ±Ø© Ù‚Ø¯Ù… Ø§Ø­ØªØ±Ø§ÙÙŠØ©'],
+            'furniture' => ['ÙƒØ±Ø³ÙŠ Ù…ÙƒØªØ¨ Ù…Ø±ÙŠØ­'],
             'empty' => [''],
             'very_short' => ['A'],
             'very_long' => [str_repeat('Product description ', 50)],
@@ -197,6 +231,21 @@ final class AIServiceTest extends TestCase
         $this->assertArrayHasKey('tags', $result);
         $this->assertIsArray($result['tags']);
         $this->assertGreaterThanOrEqual(0, count($result['tags']));
+    }
+
+    #[Test]
+    public function test_classify_product_tags_count_and_strings(): void
+    {
+        $result = $this->aiService->classifyProduct('Generic product');
+        $this->assertArrayHasKey('tags', $result);
+        $this->assertIsArray($result['tags']);
+        $this->assertCount(2, $result['tags']);
+        foreach ($result['tags'] as $tag) {
+            $this->assertIsString($tag);
+            $this->assertNotEmpty($tag);
+        }
+        $this->assertArrayHasKey('category', $result);
+        $this->assertNotEmpty($result['category']);
     }
 
     #[Test]
@@ -319,12 +368,22 @@ final class AIServiceTest extends TestCase
     }
 
     #[Test]
-    public function test_analyze_image_recommendations_is_array(): void
+    public function test_analyze_image_with_invalid_url_returns_structure(): void
     {
-        $result = $this->aiService->analyzeImage('https://example.com/test.jpg');
-
+        $result = $this->aiService->analyzeImage('not-a-url');
+        $this->assertArrayHasKey('category', $result);
         $this->assertArrayHasKey('recommendations', $result);
-        $this->assertIsArray($result['recommendations']);
+        $this->assertArrayHasKey('sentiment', $result);
+        $this->assertArrayHasKey('confidence', $result);
+        $this->assertArrayHasKey('description', $result);
+    }
+
+    #[Test]
+    public function test_analyze_image_description_contains_mock_keyword(): void
+    {
+        $result = $this->aiService->analyzeImage('https://example.com/img.jpg');
+        $this->assertArrayHasKey('description', $result);
+        $this->assertStringContainsString('Mock image analysis', $result['description']);
     }
 
     #[Test]
@@ -368,7 +427,7 @@ final class AIServiceTest extends TestCase
     #[Test]
     public function test_service_handles_unicode_correctly(): void
     {
-        $unicodeText = 'منتج رائع 👍 مع emoji وحروف عربية';
+        $unicodeText = 'Ù…Ù†ØªØ¬ Ø±Ø§Ø¦Ø¹ ðŸ‘ Ù…Ø¹ emoji ÙˆØ­Ø±ÙˆÙ Ø¹Ø±Ø¨ÙŠØ©';
         $result = $this->aiService->analyzeText($unicodeText);
 
         $this->assertIsArray($result);

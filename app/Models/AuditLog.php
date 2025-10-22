@@ -18,9 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property array<string, string|int|bool|null>|null $old_values
  * @property array<string, string|int|bool|null>|null $new_values
  * @property array<string, string|int|bool|null>|null $metadata
- *
- * @pfinal roperty string|null $url
- *
+ * @property string|null $url
  * @property string|null $method
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
@@ -198,10 +196,9 @@ class AuditLog extends Model
     /**
      * Ensure attribute value is an array when stored as JSON or array-like.
      *
-     * @param  mixed  $value
      * @return array<string, mixed>|null
      */
-    private function normalizeAttributeToArray($value): ?array
+    private function normalizeAttributeToArray(mixed $value): ?array
     {
         if ($value === null) {
             return null;

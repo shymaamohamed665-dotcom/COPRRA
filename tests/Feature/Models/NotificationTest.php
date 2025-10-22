@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Models;
 
 use App\Models\Notification;
@@ -392,6 +394,20 @@ class NotificationTest extends TestCase
     }
 
     #[\PHPUnit\Framework\Attributes\Test]
+    public function test_get_icon_by_type(): void
+    {
+        $priceDrop = Notification::factory()->create(['type' => 'price_drop']);
+        $newProduct = Notification::factory()->create(['type' => 'new_product']);
+        $system = Notification::factory()->create(['type' => 'system']);
+        $custom = Notification::factory()->create(['type' => 'custom_type']);
+
+        $this->assertEquals('💰', $priceDrop->getIcon());
+        $this->assertEquals('🆕', $newProduct->getIcon());
+        $this->assertEquals('⚙️', $system->getIcon());
+        $this->assertEquals('📢', $custom->getIcon());
+    }
+
+    #[\PHPUnit\Framework\Attributes\Test]
     public function test_get_type_display_name(): void
     {
         $priceDrop = Notification::factory()->create(['type' => 'price_drop']);
@@ -762,3 +778,4 @@ class NotificationTest extends TestCase
         $this->assertEquals($hidden, (new Notification)->getHidden());
     }
 }
+

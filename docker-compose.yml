@@ -1,9 +1,29 @@
-version: "3.8"
 services:
   app:
-    container_name: "coprra-dev-app"
-    image: "mcr.microsoft.com/windows/servercore:ltsc2019"
-    isolation: "hyperv"
+    build:
+      context: .
+      dockerfile: dev-docker/Dockerfile
+    container_name: coprra-app
     volumes:
-      - "C:\\Users\\Gaser\\Desktop\\COPRRA:C:\\app"
-    command: ["powershell", "-NoProfile", "-Command", "$null = New-Item -ItemType Directory -Path 'C:\\app' -Force; Set-Content -Path 'C:\\app\\container_to_local.txt' -Value 'ContainerToLocal' -Encoding ASCII; while ($true) { if (Test-Path 'C:\\app\\local_to_container.txt') { Set-Content -Path 'C:\\app\\local_detected.txt' -Value 'DETECTED' -Encoding ASCII }; Start-Sleep -Seconds 2 }" ]
+      - .:/var/www/html
+    expose:
+      - "9000"
+    networks:
+      - coprra-net
+
+  nginx:
+    image: nginx:stable
+    container_name: coprra-nginx
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./dev-docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - coprra-net
+
+networks:
+  coprra-net:
+    driver: bridge

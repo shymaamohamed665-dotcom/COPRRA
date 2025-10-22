@@ -1,0 +1,954 @@
+﻿تقرير الفروقات بين التقارير (مقارنة سطرية)
+الملف الأصلي: قائمة_الاختبارات_والأدوات.txt
+الملف الجديد: جرد_الاختبارات_والأدوات.txt
+عدد الفروقات: 949
+---- الفروقات التفصيلية ----
+فقط في التقرير الجديد: Ø¹Ù†ÙˆØ§Ù†: Ø¬Ø±Ø¯ ÙƒØ§Ù…Ù„ Ù„Ù„Ø£Ø¯ÙˆØ§Øª ÙˆØ§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙÙŠ Ù…Ø´Ø±ÙˆØ¹ COPRRA
+فقط في التقرير الجديد: Ù…Ù„Ø§Ø­Ø¸Ø©: ÙŠØªØ¶Ù…Ù† Ù‡Ø°Ø§ Ø§Ù„Ø¬Ø±Ø¯ Ù…Ù„ÙØ§Øª Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯ ÙˆØ§Ù„ØªÙ†ÙÙŠØ° Ù„Ù„Ø£Ø¯ÙˆØ§ØªØŒ ÙˆÙ…Ù„ÙØ§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± Ø§Ù„Ù…ØµØ¯Ø±ÙŠØ© ÙˆØ§Ù„Ø¯Ø§Ø¹Ù…Ø©. ØªÙ… Ø§Ø³ØªØ¨Ø¹Ø§Ø¯ Ù…Ù„ÙØ§Øª Ø§Ù„Ù…Ø®Ø±Ø¬Ø§Øª ÙˆØ§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„ØªÙˆÙ„ÙŠØ¯ÙŠØ©.
+فقط في التقرير الجديد: 1) Ø£Ø¯Ø§Ø©: .editorconfig â€” ØªÙ‡ÙŠØ¦Ø© ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„Ù…Ø­Ø±Ø±Ø§Øª
+فقط في التقرير الجديد: 2) Ø£Ø¯Ø§Ø©: .gitattributes â€” Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø®ØµØ§Ø¦Øµ Git
+فقط في التقرير الجديد: 3) Ø£Ø¯Ø§Ø©: .gitignore â€” Ø§Ø³ØªØ«Ù†Ø§Ø¡Ø§Øª ØªØªØ¨Ø¹ Git
+فقط في التقرير الجديد: 4) Ø£Ø¯Ø§Ø©: .dockerignore â€” Ø§Ø³ØªØ«Ù†Ø§Ø¡Ø§Øª Docker
+فقط في التقرير الجديد: 5) Ø£Ø¯Ø§Ø©: .devcontainer/devcontainer.json â€” Ø¥Ø¹Ø¯Ø§Ø¯ devcontainer
+فقط في التقرير الجديد: 6) Ø£Ø¯Ø§Ø©: .husky/pre-commit â€” Ø®Ø·Ù‘Ø§Ù ÙØ­Øµ Ù‚Ø¨Ù„ Ø§Ù„Ø§Ù„ØªØ²Ø§Ù…
+فقط في التقرير الجديد: 7) Ø£Ø¯Ø§Ø©: .husky/pre-commit-enhanced â€” Ø®Ø·Ù‘Ø§Ù ÙØ­Øµ Ù‚Ø¨Ù„ Ø§Ù„Ø§Ù„ØªØ²Ø§Ù… (Ù…Ø­Ø³Ù‘Ù†)
+فقط في التقرير الجديد: 8) Ø£Ø¯Ø§Ø©: .husky/pre-push â€” Ø®Ø·Ù‘Ø§Ù ÙØ­Øµ Ù‚Ø¨Ù„ Ø§Ù„Ø¯ÙØ¹
+فقط في التقرير الجديد: 9) Ø£Ø¯Ø§Ø©: .stylelintrc.json â€” Ø¥Ø¹Ø¯Ø§Ø¯ Stylelint
+فقط في التقرير الجديد: 10) Ø£Ø¯Ø§Ø©: .php-cs-fixer.php â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP-CS-Fixer
+فقط في التقرير الجديد: 11) Ø£Ø¯Ø§Ø©: .php-cs-fixer.dist.php â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP-CS-Fixer (ØªÙˆØ²ÙŠØ¹)
+فقط في التقرير الجديد: 12) Ø£Ø¯Ø§Ø©: deptrac.yaml â€” ØªØ­Ù„ÙŠÙ„Ø§Øª Ø§Ù„Ø¨Ù†ÙŠØ© (Deptrac)
+فقط في التقرير الجديد: 13) Ø£Ø¯Ø§Ø©: eslint.config.js â€” Ø¥Ø¹Ø¯Ø§Ø¯ ESLint
+فقط في التقرير الجديد: 14) Ø£Ø¯Ø§Ø©: infection.json.dist â€” Ø¥Ø¹Ø¯Ø§Ø¯ Infection (Ø§Ø®ØªØ¨Ø§Ø± Ø§Ù„Ø·ÙØ±Ø§Øª)
+فقط في التقرير الجديد: 15) Ø£Ø¯Ø§Ø©: pint.json â€” Ø¥Ø¹Ø¯Ø§Ø¯ Laravel Pint (ØªÙ†Ø³ÙŠÙ‚ Ø§Ù„ÙƒÙˆØ¯)
+فقط في التقرير الجديد: 16) Ø£Ø¯Ø§Ø©: phpinsights.php â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP Insights (ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¬ÙˆØ¯Ø©)
+فقط في التقرير الجديد: 17) Ø£Ø¯Ø§Ø©: phpmd.xml â€” Ù‚ÙˆØ§Ø¹Ø¯ PHP Mess Detector
+فقط في التقرير الجديد: 18) Ø£Ø¯Ø§Ø©: phpmd-naming.xml â€” Ù‚ÙˆØ§Ø¹Ø¯ ØªØ³Ù…ÙŠØ© PHP MD
+فقط في التقرير الجديد: 19) Ø£Ø¯Ø§Ø©: phpmd-cleancode-only.xml â€” Ù‚ÙˆØ§Ø¹Ø¯ Ø§Ù„Ù†Ø¸Ø§ÙØ© Ø§Ù„Ø¨Ø±Ù…Ø¬ÙŠØ© PHP MD
+فقط في التقرير الجديد: 20) Ø£Ø¯Ø§Ø©: phpmd-ruleset.xml â€” Ù…Ø¬Ù…ÙˆØ¹Ø© Ù‚ÙˆØ§Ø¹Ø¯ PHP MD
+فقط في التقرير الجديد: 21) Ø£Ø¯Ø§Ø©: phpmetrics.json â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP Metrics
+فقط في التقرير الجديد: 22) Ø£Ø¯Ø§Ø©: phpstan.neon â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHPStan (ØªØ­Ù„ÙŠÙ„ Ø³Ø§ÙƒÙ†)
+فقط في التقرير الجديد: 23) Ø£Ø¯Ø§Ø©: phpstan-baseline.neon â€” Ø®Ø· Ø£Ø³Ø§Ø³ PHPStan
+فقط في التقرير الجديد: 24) Ø£Ø¯Ø§Ø©: phpstan-baseline-full-report.json â€” ØªÙ‚Ø±ÙŠØ± Ø®Ø· Ø£Ø³Ø§Ø³ PHPStan
+فقط في التقرير الجديد: 25) Ø£Ø¯Ø§Ø©: phpstan/ â€” Ù…Ù„ÙØ§Øª Ø¥Ø¹Ø¯Ø§Ø¯ Ø¥Ø¶Ø§ÙÙŠØ© Ù„Ù€ PHPStan
+فقط في التقرير الجديد: 26) Ø£Ø¯Ø§Ø©: psalm.xml â€” Ø¥Ø¹Ø¯Ø§Ø¯ Psalm (ØªØ­Ù„ÙŠÙ„ Ø³Ø§ÙƒÙ†)
+فقط في التقرير الجديد: 27) Ø£Ø¯Ø§Ø©: psalm-baseline.xml â€” Ø®Ø· Ø£Ø³Ø§Ø³ Psalm
+فقط في التقرير الجديد: 28) Ø£Ø¯Ø§Ø©: rector.php â€” Ø¥Ø¹Ø¯Ø§Ø¯ Rector (ØªØ±Ù‚ÙŠØ©/Ø¥ØµÙ„Ø§Ø­ ØªÙ„Ù‚Ø§Ø¦ÙŠ)
+فقط في التقرير الجديد: 29) Ø£Ø¯Ø§Ø©: vite.config.js â€” Ø¥Ø¹Ø¯Ø§Ø¯ Vite (Ø¨Ù†Ø§Ø¡ Ø§Ù„ÙˆØ§Ø¬Ù‡Ø§Øª)
+فقط في التقرير الجديد: 30) Ø£Ø¯Ø§Ø©: composer.json â€” ØªØ¹Ø±ÙŠÙ Ø§Ù„Ø­Ø²Ù… (Composer)
+فقط في التقرير الجديد: 31) Ø£Ø¯Ø§Ø©: composer.lock â€” ØªØ«Ø¨ÙŠØª Ù†Ø³Ø® Ø§Ù„Ø­Ø²Ù… (Composer)
+فقط في التقرير الجديد: 32) Ø£Ø¯Ø§Ø©: composer.phar â€” Ù…Ù„Ù ØªÙ†ÙÙŠØ° Composer
+فقط في التقرير الجديد: 33) Ø£Ø¯Ø§Ø©: composer-setup.php â€” Ù…Ø«Ø¨Øª Composer
+فقط في التقرير الجديد: 34) Ø£Ø¯Ø§Ø©: Dockerfile â€” ØªØ¹Ø±ÙŠÙ ØµÙˆØ±Ø© Docker
+فقط في التقرير الجديد: 35) Ø£Ø¯Ø§Ø©: docker-compose.yml â€” Ø¥Ø¯Ø§Ø±Ø© Ø®Ø¯Ù…Ø§Øª Docker (Compose)
+فقط في التقرير الجديد: 36) Ø£Ø¯Ø§Ø©: docker-compose â€” Ù…Ù„Ù ØªØ´ØºÙŠÙ„ Compose (Ø¬Ø°Ø±)
+فقط في التقرير الجديد: 37) Ø£Ø¯Ø§Ø©: docker-compose.override.yml â€” ØªØ±Ø§ÙƒØ¨ Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Compose
+فقط في التقرير الجديد: 38) Ø£Ø¯Ø§Ø©: docker-compose.prod.yml â€” Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Ø¥Ù†ØªØ§Ø¬ Compose
+فقط في التقرير الجديد: 39) Ø£Ø¯Ø§Ø©: docker-compose.swarm.yml â€” Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Swarm Compose
+فقط في التقرير الجديد: 40) Ø£Ø¯Ø§Ø©: docker-compose.enhanced.yml â€” Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª Compose Ù…Ø­Ø³Ù‘Ù†Ø©
+فقط في التقرير الجديد: 41) Ø£Ø¯Ø§Ø©: docker/apache.conf â€” Ø¥Ø¹Ø¯Ø§Ø¯ Apache Ø¯Ø§Ø®Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 42) Ø£Ø¯Ø§Ø©: docker/nginx.conf â€” Ø¥Ø¹Ø¯Ø§Ø¯ Nginx Ø¯Ø§Ø®Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 43) Ø£Ø¯Ø§Ø©: docker/nginx-ssl.conf â€” Ø¥Ø¹Ø¯Ø§Ø¯ Nginx Ù…Ø¹ SSL Ø¯Ø§Ø®Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 44) Ø£Ø¯Ø§Ø©: docker/php.ini â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP Ø¯Ø§Ø®Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 45) Ø£Ø¯Ø§Ø©: docker/redis/redis.conf â€” Ø¥Ø¹Ø¯Ø§Ø¯ Redis Ø¯Ø§Ø®Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 46) Ø£Ø¯Ø§Ø©: docker/monitoring/prometheus.yml â€” Ø¥Ø¹Ø¯Ø§Ø¯ Prometheus Ù„Ù„Ù…Ø±Ø§Ù‚Ø¨Ø©
+فقط في التقرير الجديد: 47) Ø£Ø¯Ø§Ø©: docker/monitoring/grafana/provisioning/datasources/datasource.yml â€” Ø¥Ø¹Ø¯Ø§Ø¯ Ù…ØµØ¯Ø± Ø¨ÙŠØ§Ù†Ø§Øª Grafana
+فقط في التقرير الجديد: 48) Ø£Ø¯Ø§Ø©: docker/supervisord.conf â€” Ø¥Ø¹Ø¯Ø§Ø¯ Supervisor Ø¯Ø§Ø®Ù„ Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 49) Ø£Ø¯Ø§Ø©: dev-docker/php.ini â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP Ù„Ø¨ÙŠØ¦Ø© Ø§Ù„ØªØ·ÙˆÙŠØ± Ø¨Ø§Ù„Ø­Ø§ÙˆÙŠØ©
+فقط في التقرير الجديد: 50) Ø£Ø¯Ø§Ø©: .github/workflows/ci.yml â€” Ø®Ø· Ø£Ù†Ø§Ø¨ÙŠØ¨ CI Ø£Ø³Ø§Ø³ÙŠ
+فقط في التقرير الجديد: 51) Ø£Ø¯Ø§Ø©: .github/workflows/ci-comprehensive.yml â€” Ø®Ø· Ø£Ù†Ø§Ø¨ÙŠØ¨ CI Ø´Ø§Ù…Ù„
+فقط في التقرير الجديد: 52) Ø£Ø¯Ø§Ø©: .github/workflows/comprehensive-tests.yml â€” ØªØ´ØºÙŠÙ„ Ù…Ø¬Ù…ÙˆØ¹Ø© Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø´Ø§Ù…Ù„Ø©
+فقط في التقرير الجديد: 53) Ø£Ø¯Ø§Ø©: .github/workflows/deployment.yml â€” Ù†Ø´Ø± ØªÙ„Ù‚Ø§Ø¦ÙŠ
+فقط في التقرير الجديد: 54) Ø£Ø¯Ø§Ø©: .github/workflows/performance-tests.yml â€” Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ø£Ø¯Ø§Ø¡ Ø¯Ø§Ø®Ù„ CI
+فقط في التقرير الجديد: 55) Ø£Ø¯Ø§Ø©: .github/workflows/security-audit.yml â€” ØªØ¯Ù‚ÙŠÙ‚ Ø£Ù…Ù†ÙŠ Ø¯Ø§Ø®Ù„ CI
+فقط في التقرير الجديد: 56) Ø£Ø¯Ø§Ø©: phpunit.xml â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHPUnit
+فقط في التقرير الجديد: 57) Ø£Ø¯Ø§Ø©: phpunit.phar â€” Ù…Ù„Ù ØªÙ†ÙÙŠØ° PHPUnit
+فقط في التقرير الجديد: 58) Ø£Ø¯Ø§Ø©: run-phpunit.php â€” Ø³ÙƒØ±Ø¨Øª ØªØ´ØºÙŠÙ„ PHPUnit
+فقط في التقرير الجديد: 59) Ø£Ø¯Ø§Ø©: project-self-test.ps1 â€” Ø³ÙƒØ±Ø¨Øª Ø§Ø®ØªØ¨Ø§Ø± Ø°Ø§ØªÙŠ Ù„Ù„Ù…Ø´Ø±ÙˆØ¹
+فقط في التقرير الجديد: 60) Ø£Ø¯Ø§Ø©: run-tests-with-fixes.ps1 â€” Ø³ÙƒØ±Ø¨Øª ØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ù…Ø¹ Ø¥ØµÙ„Ø§Ø­Ø§Øª
+فقط في التقرير الجديد: 61) Ø£Ø¯Ø§Ø©: run_and_fix_tests.php â€” Ø³ÙƒØ±Ø¨Øª Ø¥ØµÙ„Ø§Ø­ ÙˆØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 62) Ø£Ø¯Ø§Ø©: fix_all_tests.php â€” Ø³ÙƒØ±Ø¨Øª Ù…Ø³Ø§Ø¹Ø¯ Ù„Ø¥ØµÙ„Ø§Ø­ Ø´Ø§Ù…Ù„ Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 63) Ø£Ø¯Ø§Ø©: scripts/backup.sh â€” Ø³ÙƒØ±Ø¨Øª Ù†Ø³Ø® Ø§Ø­ØªÙŠØ§Ø·ÙŠ
+فقط في التقرير الجديد: 64) Ø£Ø¯Ø§Ø©: scripts/check_csp.php â€” ÙØ­Øµ Ø³ÙŠØ§Ø³Ø© Ø£Ù…Ù† Ø§Ù„Ù…Ø­ØªÙˆÙ‰
+فقط في التقرير الجديد: 65) Ø£Ø¯Ø§Ø©: scripts/debug_csp.php â€” ØªØµØ­ÙŠØ­ Ø³ÙŠØ§Ø³Ø© Ø£Ù…Ù† Ø§Ù„Ù…Ø­ØªÙˆÙ‰
+فقط في التقرير الجديد: 66) Ø£Ø¯Ø§Ø©: scripts/deploy-to-hostinger.php â€” Ø³ÙƒØ±Ø¨Øª Ù†Ø´Ø±
+فقط في التقرير الجديد: 67) Ø£Ø¯Ø§Ø©: scripts/generate-pwa-icons.php â€” ØªÙˆÙ„ÙŠØ¯ Ø£ÙŠÙ‚ÙˆÙ†Ø§Øª PWA
+فقط في التقرير الجديد: 68) Ø£Ø¯Ø§Ø©: scripts/headers_check.php â€” ÙØ­Øµ Ø§Ù„Ø±Ø¤ÙˆØ³
+فقط في التقرير الجديد: 69) Ø£Ø¯Ø§Ø©: scripts/health-check.sh â€” ÙØ­Øµ Ø§Ù„ØµØ­Ø©
+فقط في التقرير الجديد: 70) Ø£Ø¯Ø§Ø©: scripts/install-xdebug.ps1 â€” ØªØ«Ø¨ÙŠØª Xdebug
+فقط في التقرير الجديد: 71) Ø£Ø¯Ø§Ø©: scripts/php.ini â€” Ø¥Ø¹Ø¯Ø§Ø¯ PHP Ø®Ø§Øµ Ø¨Ø§Ù„Ø³ÙƒØ±Ø¨ØªØ§Øª
+فقط في التقرير الجديد: 72) Ø£Ø¯Ø§Ø©: scripts/register-startup-task.ps1 â€” ØªØ³Ø¬ÙŠÙ„ Ù…Ù‡Ù…Ø© Ø¨Ø¯Ø¡ Ø§Ù„ØªØ´ØºÙŠÙ„
+فقط في التقرير الجديد: 73) Ø£Ø¯Ø§Ø©: scripts/reset-test-environment.ps1 â€” Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø¨ÙŠØ¦Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± (ÙˆÙŠÙ†Ø¯ÙˆØ²)
+فقط في التقرير الجديد: 74) Ø£Ø¯Ø§Ø©: scripts/reset-test-environment.sh â€” Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø· Ø¨ÙŠØ¦Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± (Ù„ÙŠÙ†ÙƒØ³)
+فقط في التقرير الجديد: 75) Ø£Ø¯Ø§Ø©: scripts/run-feature-tests.ps1 â€” ØªØ´ØºÙŠÙ„ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ø®ØµØ§Ø¦Øµ
+فقط في التقرير الجديد: 76) Ø£Ø¯Ø§Ø©: scripts/run-tests-isolated.ps1 â€” ØªØ´ØºÙŠÙ„ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ù…Ø¹Ø²ÙˆÙ„Ø©
+فقط في التقرير الجديد: 77) Ø£Ø¯Ø§Ø©: scripts/run_security_middleware.php â€” ØªØ´ØºÙŠÙ„ ÙØ­ÙˆØµ Ø§Ù„Ø£Ù…Ø§Ù† Ù„Ù„ÙˆØ³ÙŠØ·Ø§Øª
+فقط في التقرير الجديد: 78) Ø£Ø¯Ø§Ø©: scripts/run_tests_docker.sh â€” ØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø¯Ø§Ø®Ù„ Docker
+فقط في التقرير الجديد: 79) Ø£Ø¯Ø§Ø©: scripts/simple_response.php â€” Ø£Ø¯Ø§Ø© Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ø¨Ø³ÙŠØ·Ø©
+فقط في التقرير الجديد: 80) Ø£Ø¯Ø§Ø©: scripts/startup-sync-check.ps1 â€” ÙØ­Øµ Ù…Ø²Ø§Ù…Ù†Ø© Ø§Ù„Ø¨Ø¯Ø¡
+فقط في التقرير الجديد: 81) Ø£Ø¯Ø§Ø©: scripts/validate-setup.ps1 â€” Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯ (ÙˆÙŠÙ†Ø¯ÙˆØ²)
+فقط في التقرير الجديد: 82) Ø£Ø¯Ø§Ø©: scripts/validate-setup.sh â€” Ø§Ù„ØªØ­Ù‚Ù‚ Ù…Ù† Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯ (Ù„ÙŠÙ†ÙƒØ³)
+فقط في التقرير الجديد: 83) Ø£Ø¯Ø§Ø©: .lighthouseci/ â€” ØªÙƒØ§Ù…Ù„ Lighthouse CI (Ø§Ù„Ù…Ø¬Ù„Ø¯ ÙØ§Ø±Øº Ø­Ø§Ù„ÙŠØ§Ù‹)
+فقط في التقرير الجديد: 84) Ø£Ø¯Ø§Ø©: package.json â€” ØªØ¹Ø±ÙŠÙ Ø­Ø²Ù… Node (Ø£Ø¯ÙˆØ§Øª Ø§Ù„ÙˆØ§Ø¬Ù‡Ø©)
+فقط في التقرير الجديد: 85) Ø£Ø¯Ø§Ø©: package-lock.json â€” Ù‚ÙÙ„ Ù†Ø³Ø® Ø­Ø²Ù… Node
+فقط في التقرير الجديد: 86) Ø£Ø¯Ø§Ø©: audit.ps1 â€” Ø³ÙƒØ±Ø¨Øª ØªØ¯Ù‚ÙŠÙ‚ Ø´Ø§Ù…Ù„
+فقط في التقرير الجديد: 87) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/README.md â€” ÙˆØ«Ø§Ø¦Ù‚ Ù…Ù…Ø§Ø±Ø³Ø§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 88) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/TEST_BEST_PRACTICES.md â€” Ø£ÙØ¶Ù„ Ù…Ù…Ø§Ø±Ø³Ø§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 89) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/TestCase.php â€” Ø§Ù„ÙØ¦Ø© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 90) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/CreatesApplication.php â€” ØªÙ‡ÙŠØ¦Ø© Ø§Ù„ØªØ·Ø¨ÙŠÙ‚ Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 91) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/DatabaseSetup.php â€” Ø¥Ø¹Ø¯Ø§Ø¯ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±
+فقط في التقرير الجديد: 92) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/DuskTestCase.php â€” Ø£Ø³Ø§Ø³ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ù…ØªØµÙØ­ Dusk
+فقط في التقرير الجديد: 93) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/EnhancedTestIsolation.php â€” Ø¹Ø²Ù„ Ù…ÙØ­Ø³Ù‘Ù† Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 94) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/SafeLaravelTest.php â€” Ø£Ø³Ø§Ø³ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Laravel Ø§Ù„Ø¢Ù…Ù†Ø©
+فقط في التقرير الجديد: 95) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/SafeMiddlewareTestBase.php â€” Ø£Ø³Ø§Ø³ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„ÙˆØ³ÙŠØ·Ø§Øª
+فقط في التقرير الجديد: 96) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/SafeTestBase.php â€” Ø£Ø³Ø§Ø³ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø¢Ù…Ù†Ø©
+فقط في التقرير الجديد: 97) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/bootstrap.php â€” Bootstrap Ù„Ù…Ù†Ø¸ÙˆÙ…Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في التقرير الجديد: 98) Ø§Ø®ØªØ¨Ø§Ø±: tests/Architecture/ArchTest.php
+فقط في التقرير الجديد: 99) Ø§Ø®ØªØ¨Ø§Ø±: tests/Benchmarks/PerformanceBenchmark.php
+فقط في التقرير الجديد: 100) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AIAccuracyTest.php
+فقط في التقرير الجديد: 101) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/AI/AIBaseTestCase.php
+فقط في التقرير الجديد: 102) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AIErrorHandlingTest.php
+فقط في التقرير الجديد: 103) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AILearningTest.php
+فقط في التقرير الجديد: 104) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AIModelPerformanceTest.php
+فقط في التقرير الجديد: 105) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AIModelTest.php
+فقط في التقرير الجديد: 106) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AIResponseTimeTest.php
+فقط في التقرير الجديد: 107) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AIServiceTest.php
+فقط في التقرير الجديد: 108) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AITest.php
+فقط في التقرير الجديد: 109) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/AITestTrait.php
+فقط في التقرير الجديد: 110) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/ContinuousQualityMonitorTest.php
+فقط في التقرير الجديد: 111) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/ImageProcessingTest.php
+فقط في التقرير الجديد: 112) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/ProductClassificationTest.php
+فقط في التقرير الجديد: 113) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/RecommendationSystemTest.php
+فقط في التقرير الجديد: 114) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/SmokeTest.php
+فقط في التقرير الجديد: 115) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/StrictQualityAgentTest.php
+فقط في التقرير الجديد: 116) Ø§Ø®ØªØ¨Ø§Ø±: tests/AI/TextProcessingTest.php
+فقط في التقرير الجديد: 117) Ø§Ø®ØªØ¨Ø§Ø±: tests/Browser/E2ETest.php
+فقط في التقرير الجديد: 118) Ø§Ø®ØªØ¨Ø§Ø±: tests/Browser/ExampleTest.php
+فقط في التقرير الجديد: 119) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/Browser/Pages/HomePage.php
+فقط في التقرير الجديد: 120) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/Browser/Pages/Page.php
+فقط في التقرير الجديد: 121) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/Feature/FeatureTest.php
+فقط في التقرير الجديد: 122) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/ApiEndpointsTest.php
+فقط في التقرير الجديد: 123) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/ApiRateLimitingTest.php
+فقط في التقرير الجديد: 124) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/ApiVersioningTest.php
+فقط في التقرير الجديد: 125) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Auth/AuthControllerTest.php
+فقط في التقرير الجديد: 126) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/AuthenticationTest.php
+فقط في التقرير الجديد: 127) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/COPRRA/PriceComparisonTest.php
+فقط في التقرير الجديد: 128) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/CacheFunctionalityTest.php
+فقط في التقرير الجديد: 129) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Cart/CartControllerTest.php
+فقط في التقرير الجديد: 130) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Console/Commands/AgentProposeFixCommandTest.php
+فقط في التقرير الجديد: 131) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Console/Commands/StatsCommandTest.php
+فقط في التقرير الجديد: 132) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Console/Commands/UpdatePricesCommandTest.php
+فقط في التقرير الجديد: 133) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/DatabaseConnectionTest.php
+فقط في التقرير الجديد: 134) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/DatabaseMigrationTest.php
+فقط في التقرير الجديد: 135) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/E2E/AuthenticationFlowTest.php
+فقط في التقرير الجديد: 136) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/E2E/OrderFlowTest.php
+فقط في التقرير الجديد: 137) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/EmailSendingTest.php
+فقط في التقرير الجديد: 138) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/FileUploadTest.php
+فقط في التقرير الجديد: 139) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/FormValidationTest.php
+فقط في التقرير الجديد: 140) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/HostingerTest.php
+فقط في التقرير الجديد: 141) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/AdminControllerTest.php
+فقط في التقرير الجديد: 142) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/Api/AuthControllerTest.php
+فقط في التقرير الجديد: 143) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/Api/DocumentationControllerTest.php
+فقط في التقرير الجديد: 144) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/Api/PriceSearchControllerTest.php
+فقط في التقرير الجديد: 145) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/Api/ProductControllerTest.php
+فقط في التقرير الجديد: 146) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/BackupControllerTest.php
+فقط في التقرير الجديد: 147) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/BrandControllerTest.php
+فقط في التقرير الجديد: 148) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/CartControllerTest.php
+فقط في التقرير الجديد: 149) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/ErrorControllerTest.php
+فقط في التقرير الجديد: 150) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/HealthControllerTest.php
+فقط في التقرير الجديد: 151) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/HomeControllerTest.php
+فقط في التقرير الجديد: 152) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/LocaleControllerTest.php
+فقط في التقرير الجديد: 153) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/LogControllerTest.php
+فقط في التقرير الجديد: 154) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/PriceAlertControllerTest.php
+فقط في التقرير الجديد: 155) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/ProductControllerTest.php
+فقط في التقرير الجديد: 156) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/ReportControllerTest.php
+فقط في التقرير الجديد: 157) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/ReviewControllerTest.php
+فقط في التقرير الجديد: 158) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/SettingControllerTest.php
+فقط في التقرير الجديد: 159) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/SystemControllerTest.php
+فقط في التقرير الجديد: 160) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/UserControllerTest.php
+فقط في التقرير الجديد: 161) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/WishlistControllerTest.php
+فقط في التقرير الجديد: 162) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/AddQueuedCookiesToResponseTest.php
+فقط في التقرير الجديد: 163) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/AdminMiddlewareTest.php
+فقط في التقرير الجديد: 164) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ApiErrorHandlerTest.php
+فقط في التقرير الجديد: 165) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/AuthenticateSessionTest.php
+فقط في التقرير الجديد: 166) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/AuthenticateTest.php
+فقط في التقرير الجديد: 167) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/AuthenticateWithBasicAuthTest.php
+فقط في التقرير الجديد: 168) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/AuthorizeTest.php
+فقط في التقرير الجديد: 169) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ConvertEmptyStringsToNullTest.php
+فقط في التقرير الجديد: 170) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/EncryptCookiesTest.php
+فقط في التقرير الجديد: 171) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/EnsureEmailIsVerifiedTest.php
+فقط في التقرير الجديد: 172) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/HandleCorsTest.php
+فقط في التقرير الجديد: 173) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/HandlePrecognitiveRequestsTest.php
+فقط في التقرير الجديد: 174) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/InputSanitizationMiddlewareTest.php
+فقط في التقرير الجديد: 175) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/LocaleMiddlewareTest.php
+فقط في التقرير الجديد: 176) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/PreventRequestsDuringMaintenanceTest.php
+فقط في التقرير الجديد: 177) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/RedirectIfAuthenticatedTest.php
+فقط في التقرير الجديد: 178) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/RequirePasswordTest.php
+فقط في التقرير الجديد: 179) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/SecurityHeadersMiddlewareTest.php
+فقط في التقرير الجديد: 180) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/SecurityHeadersTest.php
+فقط في التقرير الجديد: 181) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/SessionManagementMiddlewareTest.php
+فقط في التقرير الجديد: 182) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/SetCacheHeadersTest.php
+فقط في التقرير الجديد: 183) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/SetLocaleAndCurrencyTest.php
+فقط في التقرير الجديد: 184) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ShareErrorsFromSessionTest.php
+فقط في التقرير الجديد: 185) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/StartSessionTest.php
+فقط في التقرير الجديد: 186) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/SubstituteBindingsTest.php
+فقط في التقرير الجديد: 187) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ThrottleRequestsTest.php
+فقط في التقرير الجديد: 188) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ThrottleSensitiveOperationsTest.php
+فقط في التقرير الجديد: 189) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/TrimStringsTest.php
+فقط في التقرير الجديد: 190) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/TrustHostsTest.php
+فقط في التقرير الجديد: 191) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/TrustProxiesTest.php
+فقط في التقرير الجديد: 192) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ValidateApiRequestTest.php
+فقط في التقرير الجديد: 193) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ValidatePostSizeTest.php
+فقط في التقرير الجديد: 194) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/ValidateSignatureTest.php
+فقط في التقرير الجديد: 195) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Middleware/VerifyCsrfTokenTest.php
+فقط في التقرير الجديد: 196) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Integration/PriceSearchIntegrationTest.php
+فقط في التقرير الجديد: 197) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/LinkCheckerTest.php
+فقط في التقرير الجديد: 198) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/MemoryLeakTest.php
+فقط في التقرير الجديد: 199) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Models/* â€” Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ù†Ù…Ø§Ø°Ø¬ (Ù‚Ø§Ø¦Ù…Ø© Ù…ÙˆØ³Ù‘Ø¹Ø© ÙÙŠ Unit)
+فقط في التقرير الجديد: 200) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/PermissionControlTest.php
+فقط في التقرير الجديد: 201) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/RoutingTest.php
+فقط في التقرير الجديد: 202) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/SEOTest.php
+فقط في التقرير الجديد: 203) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Security/SecurityTest.php
+فقط في التقرير الجديد: 204) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/AuditServiceTest.php
+فقط في التقرير الجديد: 205) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/BackupServiceTest.php
+فقط في التقرير الجديد: 206) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/CacheServiceTest.php
+فقط في التقرير الجديد: 207) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/FileCleanupServiceTest.php
+فقط في التقرير الجديد: 208) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/FinancialTransactionServiceTest.php
+فقط في التقرير الجديد: 209) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/LoginAttemptServiceTest.php
+فقط في التقرير الجديد: 210) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/NotificationServiceTest.php
+فقط في التقرير الجديد: 211) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/PasswordHistoryServiceTest.php
+فقط في التقرير الجديد: 212) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/PasswordPolicyServiceTest.php
+فقط في التقرير الجديد: 213) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/PasswordResetServiceTest.php
+فقط في التقرير الجديد: 214) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/ProcessServiceTest.php
+فقط في التقرير الجديد: 215) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/ProductServiceTest.php
+فقط في التقرير الجديد: 216) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/QualityAnalysisServiceTest.php
+فقط في التقرير الجديد: 217) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/ReportServiceTest.php
+فقط في التقرير الجديد: 218) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Services/UserBanServiceTest.php
+فقط في التقرير الجديد: 219) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/SessionManagementTest.php
+فقط في التقرير الجديد: 220) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/ThirdPartyApiTest.php
+فقط في التقرير الجديد: 221) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/UITest.php
+فقط في التقرير الجديد: 222) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/Api/Admin/BrandControllerTest.php
+فقط في التقرير الجديد: 223) Ø§Ø®ØªØ¨Ø§Ø±: tests/Feature/Http/Controllers/Api/Admin/CategoryControllerTest.php
+فقط في التقرير الجديد: 224) Ø§Ø®ØªØ¨Ø§Ø±: tests/Integration/AdvancedIntegrationTest.php
+فقط في التقرير الجديد: 225) Ø§Ø®ØªØ¨Ø§Ø±: tests/Integration/CompleteWorkflowTest.php
+فقط في التقرير الجديد: 226) Ø§Ø®ØªØ¨Ø§Ø±: tests/Integration/IntegrationTest.php
+فقط في التقرير الجديد: 227) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/AdvancedPerformanceTest.php
+فقط في التقرير الجديد: 228) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/ApiResponseTimeTest.php
+فقط في التقرير الجديد: 229) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/CachePerformanceTest.php
+فقط في التقرير الجديد: 230) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/DatabasePerformanceTest.php
+فقط في التقرير الجديد: 231) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/LoadTestingTest.php
+فقط في التقرير الجديد: 232) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/LoadTimeTest.php
+فقط في التقرير الجديد: 233) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/MemoryUsageTest.php
+فقط في التقرير الجديد: 234) Ø§Ø®ØªØ¨Ø§Ø±: tests/Performance/PerformanceBenchmarkTest.php
+فقط في التقرير الجديد: 235) Ø§Ø®ØªØ¨Ø§Ø±: tests/Security/AuthenticationSecurityTest.php
+فقط في التقرير الجديد: 236) Ø§Ø®ØªØ¨Ø§Ø±: tests/Security/CSRFTest.php
+فقط في التقرير الجديد: 237) Ø§Ø®ØªØ¨Ø§Ø±: tests/Security/DataEncryptionTest.php
+فقط في التقرير الجديد: 238) Ø§Ø®ØªØ¨Ø§Ø±: tests/Security/PermissionSecurityTest.php
+فقط في التقرير الجديد: 239) Ø§Ø®ØªØ¨Ø§Ø±: tests/Security/SQLInjectionTest.php
+فقط في التقرير الجديد: 240) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/Security/SecurityAudit.php
+فقط في التقرير الجديد: 241) Ø§Ø®ØªØ¨Ø§Ø±: tests/Security/XSSTest.php
+فقط في التقرير الجديد: 242) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/Support/FakerFactoryStub.php
+فقط في التقرير الجديد: 243) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/AdvancedTestHelper.php
+فقط في التقرير الجديد: 244) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/ComprehensiveTestCommand.php
+فقط في التقرير الجديد: 245) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/ComprehensiveTestRunner.php
+فقط في التقرير الجديد: 246) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/IntegrationTestSuite.php
+فقط في التقرير الجديد: 247) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/PerformanceTestSuite.php
+فقط في التقرير الجديد: 248) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/QualityAssurance.php
+فقط في التقرير الجديد: 249) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/README.md
+فقط في التقرير الجديد: 250) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/SecurityTestSuite.php
+فقط في التقرير الجديد: 251) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/ServiceTestFactory.php
+فقط في التقرير الجديد: 252) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/TestConfiguration.php
+فقط في التقرير الجديد: 253) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/TestReportGenerator.php
+فقط في التقرير الجديد: 254) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/TestReportProcessor.php
+فقط في التقرير الجديد: 255) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/TestRunner.php
+فقط في التقرير الجديد: 256) Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø±: tests/TestUtilities/TestSuiteValidator.php
+فقط في التقرير الجديد: 257) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/AnalyticsServiceTest.php
+فقط في التقرير الجديد: 258) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/CacheServiceTest.php
+فقط في التقرير الجديد: 259) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/CoprraServiceProviderTest.php
+فقط في التقرير الجديد: 260) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/ExchangeRateServiceTest.php
+فقط في التقرير الجديد: 261) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/PriceHelperTest.php
+فقط في التقرير الجديد: 262) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/StoreAdapterManagerTest.php
+فقط في التقرير الجديد: 263) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/COPRRA/WebhookServiceTest.php
+فقط في التقرير الجديد: 264) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Controllers/AnalyticsControllerTest.php
+فقط في التقرير الجديد: 265) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Controllers/BaseApiControllerTest.php
+فقط في التقرير الجديد: 266) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Controllers/OrderControllerTest.php
+فقط في التقرير الجديد: 267) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/CreatesApplicationTest.php
+فقط في التقرير الجديد: 268) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/CurrencyConversionTest.php
+فقط في التقرير الجديد: 269) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/DataConsistencyTest.php
+فقط في التقرير الجديد: 270) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/DataIntegrityTest.php
+فقط في التقرير الجديد: 271) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/DataValidationTest.php
+فقط في التقرير الجديد: 272) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/DiscountCalculationTest.php
+فقط في التقرير الجديد: 273) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/InventoryAccuracyTest.php
+فقط في التقرير الجديد: 274) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/OrderAccuracyTest.php
+فقط في التقرير الجديد: 275) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/PaymentAccuracyTest.php
+فقط في التقرير الجديد: 276) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/PriceAccuracyTest.php
+فقط في التقرير الجديد: 277) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php
+فقط في التقرير الجديد: 278) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/ProductMatchingTest.php
+فقط في التقرير الجديد: 279) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/ShippingAccuracyTest.php
+فقط في التقرير الجديد: 280) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/StoreDataValidationTest.php
+فقط في التقرير الجديد: 281) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataAccuracy/TaxCalculationTest.php
+فقط في التقرير الجديد: 282) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataAccuracyTest.php
+فقط في التقرير الجديد: 283) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataCompletenessTest.php
+فقط في التقرير الجديد: 284) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataDuplicationTest.php
+فقط في التقرير الجديد: 285) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataFreshnessTest.php
+فقط في التقرير الجديد: 286) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataQualityMetricsTest.php
+فقط في التقرير الجديد: 287) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataRelevanceTest.php
+فقط في التقرير الجديد: 288) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataReliabilityTest.php
+فقط في التقرير الجديد: 289) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataTimelinessTest.php
+فقط في التقرير الجديد: 290) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataUniquenessTest.php
+فقط في التقرير الجديد: 291) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DataValidityTest.php
+فقط في التقرير الجديد: 292) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/DataQuality/DuplicateDetectionTest.php
+فقط في التقرير الجديد: 293) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/BlueGreenDeploymentTest.php
+فقط في التقرير الجديد: 294) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/CanaryDeploymentTest.php
+فقط في التقرير الجديد: 295) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/CloudDeploymentTest.php
+فقط في التقرير الجديد: 296) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/ConfigurationTest.php
+فقط في التقرير الجديد: 297) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/DevelopmentDeploymentTest.php
+فقط في التقرير الجديد: 298) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/DockerDeploymentTest.php
+فقط في التقرير الجديد: 299) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/EnvironmentConfigurationTest.php
+فقط في التقرير الجديد: 300) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/InfrastructureTest.php
+فقط في التقرير الجديد: 301) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/KubernetesDeploymentTest.php
+فقط في التقرير الجديد: 302) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/ProductionDeploymentTest.php
+فقط في التقرير الجديد: 303) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/RollbackTest.php
+فقط في التقرير الجديد: 304) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/RollingDeploymentTest.php
+فقط في التقرير الجديد: 305) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/StagingDeploymentTest.php
+فقط في التقرير الجديد: 306) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Deployment/TestingDeploymentTest.php
+فقط في التقرير الجديد: 307) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Enums/OrderStatusTest.php
+فقط في التقرير الجديد: 308) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Enums/UserRoleTest.php
+فقط في التقرير الجديد: 309) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Factories/FactoriesTest.php
+فقط في التقرير الجديد: 310) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Helpers/OrderHelperTest.php
+فقط في التقرير الجديد: 311) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Helpers/PriceHelperTest.php
+فقط في التقرير الجديد: 312) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/APIIntegrationTest.php
+فقط في التقرير الجديد: 313) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/AnalyticsIntegrationTest.php
+فقط في التقرير الجديد: 314) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/CurrencyIntegrationTest.php
+فقط في التقرير الجديد: 315) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/EmailIntegrationTest.php
+فقط في التقرير الجديد: 316) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/EndToEndIntegrationTest.php
+فقط في التقرير الجديد: 317) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/InventoryIntegrationTest.php
+فقط في التقرير الجديد: 318) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/NotificationIntegrationTest.php
+فقط في التقرير الجديد: 319) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/PaymentIntegrationTest.php
+فقط في التقرير الجديد: 320) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/PushNotificationTest.php
+فقط في التقرير الجديد: 321) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/SMSIntegrationTest.php
+فقط في التقرير الجديد: 322) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/SearchIntegrationTest.php
+فقط في التقرير الجديد: 323) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/ShippingIntegrationTest.php
+فقط في التقرير الجديد: 324) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/StoreAPIIntegrationTest.php
+فقط في التقرير الجديد: 325) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/ThirdPartyAPIIntegrationTest.php
+فقط في التقرير الجديد: 326) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Integration/WebhookTest.php
+فقط في التقرير الجديد: 327) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/IsolatedStrictTest.php
+فقط في التقرير الجديد: 328) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Jobs/ProcessHeavyOperationTest.php
+فقط في التقرير الجديد: 329) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Middleware/AdminMiddlewareTest.php
+فقط في التقرير الجديد: 330) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/MockeryDebugTest.php
+فقط في التقرير الجديد: 331) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/ModelRelationsTest.php
+فقط في التقرير الجديد: 332) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/AuditLogTest.php
+فقط في التقرير الجديد: 333) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/BrandTest.php
+فقط في التقرير الجديد: 334) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/CategoryTest.php
+فقط في التقرير الجديد: 335) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/CurrencyTest.php
+فقط في التقرير الجديد: 336) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/LanguageTest.php
+فقط في التقرير الجديد: 337) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/NotificationTest.php
+فقط في التقرير الجديد: 338) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/OrderItemTest.php
+فقط في التقرير الجديد: 339) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/OrderTest.php
+فقط في التقرير الجديد: 340) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/PaymentMethodTest.php
+فقط في التقرير الجديد: 341) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/PaymentTest.php
+فقط في التقرير الجديد: 342) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/PriceAlertTest.php
+فقط في التقرير الجديد: 343) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/ProductTest.php
+فقط في التقرير الجديد: 344) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/ReviewTest.php
+فقط في التقرير الجديد: 345) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/StoreTest.php
+فقط في التقرير الجديد: 346) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Models/UserTest.php
+فقط في التقرير الجديد: 347) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/AvailabilityTestingTest.php
+فقط في التقرير الجديد: 348) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/CPUUsageTest.php
+فقط في التقرير الجديد: 349) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/CacheHitRateTest.php
+فقط في التقرير الجديد: 350) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/ConcurrentUserTest.php
+فقط في التقرير الجديد: 351) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/DatabaseQueryTimeTest.php
+فقط في التقرير الجديد: 352) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/FilteringPerformanceTest.php
+فقط في التقرير الجديد: 353) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/ImageLoadTimeTest.php
+فقط في التقرير الجديد: 354) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Performance/PageLoadTimeTest.php
+فقط في التقرير الجديد: 355) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/ProcessIsolationTest.php
+فقط في التقرير الجديد: 356) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/PureUnitTest.php
+فقط في التقرير الجديد: 357) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/BestDealRecommendationTest.php
+فقط في التقرير الجديد: 358) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/BrandRecommendationTest.php
+فقط في التقرير الجديد: 359) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/CategoryRecommendationTest.php
+فقط في التقرير الجديد: 360) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/CollaborativeFilteringTest.php
+فقط في التقرير الجديد: 361) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/ContentBasedFilteringTest.php
+فقط في التقرير الجديد: 362) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/CrossSellRecommendationTest.php
+فقط في التقرير الجديد: 363) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/HybridRecommendationTest.php
+فقط في التقرير الجديد: 364) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/PersonalizedRecommendationTest.php
+فقط في التقرير الجديد: 365) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/SimilarProductTest.php
+فقط في التقرير الجديد: 366) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/TrendingProductTest.php
+فقط في التقرير الجديد: 367) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/UpsellRecommendationTest.php
+فقط في التقرير الجديد: 368) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Recommendations/UserBehaviorRecommendationTest.php
+فقط في التقرير الجديد: 369) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Rules/ValidOrderStatusTest.php
+فقط في التقرير الجديد: 370) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Security/DataBackupTest.php
+فقط في التقرير الجديد: 371) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Services/BehaviorAnalysisServiceTest.php
+فقط في التقرير الجديد: 372) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Services/ExternalStoreServiceTest.php
+فقط في التقرير الجديد: 373) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Services/OrderServiceTest.php
+فقط في التقرير الجديد: 374) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Services/PointsServiceTest.php
+فقط في التقرير الجديد: 375) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/SimpleMockeryTest.php
+فقط في التقرير الجديد: 376) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/StoreModelTest.php
+فقط في التقرير الجديد: 377) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/StrictMockeryTest.php
+فقط في التقرير الجديد: 378) Ø§Ø®ØªØ¨Ø§Ø±/Ø¯Ø¹Ù…: tests/Unit/TestErrorHandler.php
+فقط في التقرير الجديد: 379) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Validation/BasicValidationTest.php
+فقط في التقرير الجديد: 380) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Validation/ComprehensiveValidationTest.php
+فقط في التقرير الجديد: 381) Ø§Ø®ØªØ¨Ø§Ø±: tests/Unit/Validation/ValidationTestCase.php
+فقط في التقرير الجديد: Ø§Ù†ØªÙ‡Ù‰ Ø§Ù„Ø¬Ø±Ø¯.
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي:         Ù‚Ø§Ø¦Ù…Ø© Ø´Ø§Ù…Ù„Ø© Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙˆØ§Ù„Ø£Ø¯ÙˆØ§Øª - Ù…Ø´Ø±ÙˆØ¹ COPRRA
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: ØªØ§Ø±ÙŠØ® Ø§Ù„ØªÙˆÙ„ÙŠØ¯: 2025-10-16 16:45:00
+فقط في الملف الأصلي: Ù…Ø³Ø§Ø± Ø§Ù„Ù…Ø´Ø±ÙˆØ¹: /var/www/html
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: ðŸ“Š Ø§Ù„Ø¥Ø­ØµØ§Ø¦ÙŠØ§Øª Ø§Ù„Ø¹Ø§Ù…Ø©:
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: â€¢ Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ù…Ù„ÙØ§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± (Project): 288
+فقط في الملف الأصلي: â€¢ Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ù…Ù„ÙØ§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± (Ø´Ø§Ù…Ù„ Vendor): 782
+فقط في الملف الأصلي: â€¢ Ø£Ø¯ÙˆØ§Øª vendor/bin: 73
+فقط في الملف الأصلي: â€¢ Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª Ø§Ù„ØªØ´ØºÙŠÙ„: 22
+فقط في الملف الأصلي: â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+فقط في الملف الأصلي: â–¶ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹ Ø§Ù„ÙƒÙ„ÙŠ: 877 Ø¹Ù†ØµØ±
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: ðŸ¤– Ù…Ø¬Ù„Ø¯ Ù†Ù…ÙˆØ°Ø¬ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ (AI Model Folder)
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: ðŸ“ Ø§Ù„Ù…Ø³Ø§Ø±: ./app/Services/AI/
+فقط في الملف الأصلي: Ù…Ø­ØªÙˆÙŠØ§Øª Ø§Ù„Ù…Ø¬Ù„Ø¯:
+فقط في الملف الأصلي:   â€¢ ContinuousQualityMonitor.php (19K)
+فقط في الملف الأصلي:   â€¢ HealthScoreCalculator.php (2.8K)
+فقط في الملف الأصلي:   â€¢ Services/ (Ù…Ø¬Ù„Ø¯ Ø§Ù„Ø®Ø¯Ù…Ø§Øª Ø§Ù„ÙØ±Ø¹ÙŠØ©)
+فقط في الملف الأصلي:   â€¢ StrictQualityAgent.php (13K)
+فقط في الملف الأصلي: Ù…Ù„Ø§Ø­Ø¸Ø©: Ù‡Ø°Ø§ Ø§Ù„Ù…Ø¬Ù„Ø¯ ÙŠØ­ØªÙˆÙŠ Ø¹Ù„Ù‰ Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¨Ù…Ø§ ÙÙŠ Ø°Ù„Ùƒ:
+فقط في الملف الأصلي:   - StrictQualityAgent.php (ÙˆÙƒÙŠÙ„ Ø¶Ù…Ø§Ù† Ø§Ù„Ø¬ÙˆØ¯Ø© Ø§Ù„ØµØ§Ø±Ù…)
+فقط في الملف الأصلي:   - ContinuousQualityMonitor.php (Ù…Ø±Ø§Ù‚Ø¨ Ø§Ù„Ø¬ÙˆØ¯Ø© Ø§Ù„Ù…Ø³ØªÙ…Ø±)
+فقط في الملف الأصلي:   - HealthScoreCalculator.php (Ø­Ø§Ø³Ø¨Ø© Ù†Ù‚Ø§Ø· Ø§Ù„ØµØ­Ø©)
+فقط في الملف الأصلي:   - Services/ (Ø®Ø¯Ù…Ø§Øª AI Ø§Ù„ÙØ±Ø¹ÙŠØ©: ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù†ØµÙˆØµØŒ ØªØ­Ù„ÙŠÙ„ Ø§Ù„ØµÙˆØ±ØŒ Ø¥Ø¯Ø§Ø±Ø© Ø§Ù„ØªÙ†Ø¨ÙŠÙ‡Ø§Øª)
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: ðŸ“‹ Ø§Ù„Ù‚Ø³Ù… Ø§Ù„Ø£ÙˆÙ„: Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ù…Ø´Ø±ÙˆØ¹ (288 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: ðŸ”¹ 1. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„ÙˆØ­Ø¯Ø© (Unit Tests) - 123 Ø§Ø®ØªØ¨Ø§Ø±
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./tests/Unit/
+فقط في الملف الأصلي: Ø§Ù„Ø£Ù…Ø±: docker exec coprra-app bash -c "./vendor/bin/phpunit --testsuite Unit"
+فقط في الملف الأصلي: Ø§Ù„ØªØµÙ†ÙŠÙØ§Øª Ø§Ù„ÙØ±Ø¹ÙŠØ©:
+فقط في الملف الأصلي:   1.1 Controllers (3 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ AnalyticsControllerTest.php
+فقط في الملف الأصلي:     â€¢ BaseApiControllerTest.php
+فقط في الملف الأصلي:     â€¢ OrderControllerTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.2 COPRRA (10 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ AnalyticsServiceTest.php
+فقط في الملف الأصلي:     â€¢ CacheServiceTest.php
+فقط في الملف الأصلي:     â€¢ CoprraServiceProviderTest.php
+فقط في الملف الأصلي:     â€¢ ExchangeRateServiceTest.php
+فقط في الملف الأصلي:     â€¢ PriceHelperTest.php
+فقط في الملف الأصلي:     â€¢ StoreAdapterManagerTest.php
+فقط في الملف الأصلي:     â€¢ WebhookServiceTest.php
+فقط في الملف الأصلي:     â€¢ ÙˆØºÙŠØ±Ù‡Ø§...
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.3 DataAccuracy (14 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ CurrencyConversionTest.php
+فقط في الملف الأصلي:     â€¢ DataConsistencyTest.php
+فقط في الملف الأصلي:     â€¢ DataIntegrityTest.php
+فقط في الملف الأصلي:     â€¢ DataValidationTest.php
+فقط في الملف الأصلي:     â€¢ DiscountCalculationTest.php
+فقط في الملف الأصلي:     â€¢ InventoryAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ OrderAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ PaymentAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ PriceAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ PriceHistoryAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ ProductMatchingTest.php
+فقط في الملف الأصلي:     â€¢ ShippingAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ StoreDataValidationTest.php
+فقط في الملف الأصلي:     â€¢ TaxCalculationTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.4 DataQuality (11 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ DataAccuracyTest.php
+فقط في الملف الأصلي:     â€¢ DataCompletenessTest.php
+فقط في الملف الأصلي:     â€¢ DataDuplicationTest.php
+فقط في الملف الأصلي:     â€¢ DataFreshnessTest.php
+فقط في الملف الأصلي:     â€¢ DataQualityMetricsTest.php
+فقط في الملف الأصلي:     â€¢ DataRelevanceTest.php
+فقط في الملف الأصلي:     â€¢ DataReliabilityTest.php
+فقط في الملف الأصلي:     â€¢ DataTimelinessTest.php
+فقط في الملف الأصلي:     â€¢ DataUniquenessTest.php
+فقط في الملف الأصلي:     â€¢ DataValidityTest.php
+فقط في الملف الأصلي:     â€¢ DuplicateDetectionTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.5 Deployment (14 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ BlueGreenDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ CanaryDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ CloudDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ ConfigurationTest.php
+فقط في الملف الأصلي:     â€¢ DevelopmentDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ DockerDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ EnvironmentConfigurationTest.php
+فقط في الملف الأصلي:     â€¢ InfrastructureTest.php
+فقط في الملف الأصلي:     â€¢ KubernetesDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ ProductionDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ RollbackTest.php
+فقط في الملف الأصلي:     â€¢ RollingDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ StagingDeploymentTest.php
+فقط في الملف الأصلي:     â€¢ TestingDeploymentTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.6 Integration (15 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ APIIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ AnalyticsIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ CurrencyIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ EmailIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ EndToEndIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ InventoryIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ NotificationIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ PaymentIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ PushNotificationTest.php
+فقط في الملف الأصلي:     â€¢ SMSIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ SearchIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ ShippingIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ StoreAPIIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ ThirdPartyAPIIntegrationTest.php
+فقط في الملف الأصلي:     â€¢ WebhookTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.7 Performance (8 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ AvailabilityTestingTest.php
+فقط في الملف الأصلي:     â€¢ CPUUsageTest.php
+فقط في الملف الأصلي:     â€¢ CacheHitRateTest.php
+فقط في الملف الأصلي:     â€¢ ConcurrentUserTest.php
+فقط في الملف الأصلي:     â€¢ DatabaseQueryTimeTest.php
+فقط في الملف الأصلي:     â€¢ FilteringPerformanceTest.php
+فقط في الملف الأصلي:     â€¢ ImageLoadTimeTest.php
+فقط في الملف الأصلي:     â€¢ PageLoadTimeTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.8 Recommendations (10 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ BestDealRecommendationTest.php
+فقط في الملف الأصلي:     â€¢ BrandRecommendationTest.php
+فقط في الملف الأصلي:     â€¢ CategoryRecommendationTest.php
+فقط في الملف الأصلي:     â€¢ CollaborativeFilteringTest.php
+فقط في الملف الأصلي:     â€¢ ContentBasedFilteringTest.php
+فقط في الملف الأصلي:     â€¢ CrossSellRecommendationTest.php
+فقط في الملف الأصلي:     â€¢ HybridRecommendationTest.php
+فقط في الملف الأصلي:     â€¢ TrendingProductTest.php
+فقط في الملف الأصلي:     â€¢ UpsellRecommendationTest.php
+فقط في الملف الأصلي:     â€¢ UserBehaviorRecommendationTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.9 Security (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ DataBackupTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.10 Services (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ BehaviorAnalysisServiceTest.php
+فقط في الملف الأصلي:     â€¢ PointsServiceTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.11 Validation (3 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ BasicValidationTest.php
+فقط في الملف الأصلي:     â€¢ ComprehensiveValidationTest.php
+فقط في الملف الأصلي:     â€¢ ValidationTestCase.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   1.12 Other (Ù…ØªÙ†ÙˆØ¹)
+فقط في الملف الأصلي:     â€¢ Enums/
+فقط في الملف الأصلي:     â€¢ Factories/
+فقط في الملف الأصلي:     â€¢ Helpers/
+فقط في الملف الأصلي:     â€¢ Jobs/
+فقط في الملف الأصلي:     â€¢ Middleware/
+فقط في الملف الأصلي:     â€¢ Models/
+فقط في الملف الأصلي:     â€¢ Rules/
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 2. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ù…ÙŠØ²Ø§Øª (Feature Tests) - 128 Ø§Ø®ØªØ¨Ø§Ø±
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./tests/Feature/
+فقط في الملف الأصلي: Ø§Ù„Ø£Ù…Ø±: docker exec coprra-app bash -c "./vendor/bin/phpunit --testsuite Feature"
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ø§Ù„ØªØµÙ†ÙŠÙØ§Øª Ø§Ù„ÙØ±Ø¹ÙŠØ©:
+فقط في الملف الأصلي:   2.1 Api (4 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ ComprehensiveApiTest.php
+فقط في الملف الأصلي:     â€¢ DebugHealthContentTest.php
+فقط في الملف الأصلي:     â€¢ OrderApiTest.php
+فقط في الملف الأصلي:     â€¢ ProductApiTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.2 Auth (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ AuthControllerTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.3 COPRRA (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ PriceComparisonTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.4 Cart (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ CartControllerTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.5 Console/Commands (3 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ AgentProposeFixCommandTest.php
+فقط في الملف الأصلي:     â€¢ StatsCommandTest.php
+فقط في الملف الأصلي:     â€¢ UpdatePricesCommandTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.6 E2E (2 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ AuthenticationFlowTest.php
+فقط في الملف الأصلي:     â€¢ OrderFlowTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.7 Http/Controllers (23 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ AdminControllerTest.php
+فقط في الملف الأصلي:     â€¢ BackupControllerTest.php
+فقط في الملف الأصلي:     â€¢ CartControllerTest.php
+فقط في الملف الأصلي:     â€¢ ErrorControllerTest.php
+فقط في الملف الأصلي:     â€¢ HealthControllerTest.php
+فقط في الملف الأصلي:     â€¢ HomeControllerTest.php
+فقط في الملف الأصلي:     â€¢ LocaleControllerTest.php
+فقط في الملف الأصلي:     â€¢ LogControllerTest.php
+فقط في الملف الأصلي:     â€¢ PriceAlertControllerTest.php
+فقط في الملف الأصلي:     â€¢ ReportControllerTest.php
+فقط في الملف الأصلي:     â€¢ ReviewControllerTest.php
+فقط في الملف الأصلي:     â€¢ SettingControllerTest.php
+فقط في الملف الأصلي:     â€¢ Api/Admin/BrandControllerTest.php
+فقط في الملف الأصلي:     â€¢ Api/Admin/CategoryControllerTest.php
+فقط في الملف الأصلي:     â€¢ Api/AuthControllerTest.php
+فقط في الملف الأصلي:     â€¢ Api/DocumentationControllerTest.php
+فقط في الملف الأصلي:     â€¢ Api/PriceSearchControllerTest.php
+فقط في الملف الأصلي:     â€¢ Api/ProductControllerTest.php
+فقط في الملف الأصلي:     â€¢ ÙˆØºÙŠØ±Ù‡Ø§...
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.8 Http/Middleware (39 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ AddQueuedCookiesToResponseTest.php
+فقط في الملف الأصلي:     â€¢ AdminMiddlewareTest.php
+فقط في الملف الأصلي:     â€¢ ApiErrorHandlerTest.php
+فقط في الملف الأصلي:     â€¢ AuthenticateSessionTest.php
+فقط في الملف الأصلي:     â€¢ AuthenticateTest.php
+فقط في الملف الأصلي:     â€¢ AuthenticateWithBasicAuthTest.php
+فقط في الملف الأصلي:     â€¢ AuthorizeTest.php
+فقط في الملف الأصلي:     â€¢ ConvertEmptyStringsToNullTest.php
+فقط في الملف الأصلي:     â€¢ EncryptCookiesTest.php
+فقط في الملف الأصلي:     â€¢ EnsureEmailIsVerifiedTest.php
+فقط في الملف الأصلي:     â€¢ HandleCorsTest.php
+فقط في الملف الأصلي:     â€¢ HandlePrecognitiveRequestsTest.php
+فقط في الملف الأصلي:     â€¢ InputSanitizationMiddlewareTest.php
+فقط في الملف الأصلي:     â€¢ LocaleMiddlewareTest.php
+فقط في الملف الأصلي:     â€¢ PreventRequestsDuringMaintenanceTest.php
+فقط في الملف الأصلي:     â€¢ RedirectIfAuthenticatedTest.php
+فقط في الملف الأصلي:     â€¢ RequirePasswordTest.php
+فقط في الملف الأصلي:     â€¢ SecurityHeadersMiddlewareTest.php
+فقط في الملف الأصلي:     â€¢ SecurityHeadersTest.php
+فقط في الملف الأصلي:     â€¢ SessionManagementMiddlewareTest.php
+فقط في الملف الأصلي:     â€¢ SetCacheHeadersTest.php
+فقط في الملف الأصلي:     â€¢ SetLocaleAndCurrencyTest.php
+فقط في الملف الأصلي:     â€¢ ShareErrorsFromSessionTest.php
+فقط في الملف الأصلي:     â€¢ StartSessionTest.php
+فقط في الملف الأصلي:     â€¢ SubstituteBindingsTest.php
+فقط في الملف الأصلي:     â€¢ ThrottleRequestsTest.php
+فقط في الملف الأصلي:     â€¢ ThrottleSensitiveOperationsTest.php
+فقط في الملف الأصلي:     â€¢ TrimStringsTest.php
+فقط في الملف الأصلي:     â€¢ TrustHostsTest.php
+فقط في الملف الأصلي:     â€¢ TrustProxiesTest.php
+فقط في الملف الأصلي:     â€¢ ValidateApiRequestTest.php
+فقط في الملف الأصلي:     â€¢ ValidatePostSizeTest.php
+فقط في الملف الأصلي:     â€¢ ValidateSignatureTest.php
+فقط في الملف الأصلي:     â€¢ VerifyCsrfTokenTest.php
+فقط في الملف الأصلي:     â€¢ ÙˆØºÙŠØ±Ù‡Ø§...
+فقط في الملف الأصلي:   2.9 Integration (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ PriceSearchIntegrationTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.10 Models (19 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ AuditLogSimpleTest.php
+فقط في الملف الأصلي:     â€¢ AuditLogTest.php
+فقط في الملف الأصلي:     â€¢ BrandTest.php
+فقط في الملف الأصلي:     â€¢ CategoryTest.php
+فقط في الملف الأصلي:     â€¢ CurrencyTest.php
+فقط في الملف الأصلي:     â€¢ LanguageTest.php
+فقط في الملف الأصلي:     â€¢ NotificationSimpleTest.php
+فقط في الملف الأصلي:     â€¢ NotificationTest.php
+فقط في الملف الأصلي:     â€¢ OrderTest.php
+فقط في الملف الأصلي:     â€¢ PaymentMethodTest.php
+فقط في الملف الأصلي:     â€¢ PaymentTest.php
+فقط في الملف الأصلي:     â€¢ PriceAlertTest.php
+فقط في الملف الأصلي:     â€¢ PriceOfferTest.php
+فقط في الملف الأصلي:     â€¢ ProductTest.php
+فقط في الملف الأصلي:     â€¢ ReviewTest.php
+فقط في الملف الأصلي:     â€¢ RewardTest.php
+فقط في الملف الأصلي:     â€¢ StoreTest.php
+فقط في الملف الأصلي:     â€¢ UserLocaleSettingTest.php
+فقط في الملف الأصلي:     â€¢ UserPointTest.php
+فقط في الملف الأصلي:     â€¢ UserTest.php
+فقط في الملف الأصلي:     â€¢ WishlistTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.11 Performance (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ PerformanceTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.12 Security (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ SecurityTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.13 Services (3 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي:     â€¢ BackupServiceTest.php
+فقط في الملف الأصلي:     â€¢ CacheServiceTest.php
+فقط في الملف الأصلي:     â€¢ FileCleanupServiceTest.php
+فقط في الملف الأصلي:     â€¢ NotificationServiceTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   2.14 Other
+فقط في الملف الأصلي:     â€¢ ApiEndpointsTest.php
+فقط في الملف الأصلي:     â€¢ ApiRateLimitingTest.php
+فقط في الملف الأصلي:     â€¢ ApiVersioningTest.php
+فقط في الملف الأصلي:     â€¢ AuthenticationTest.php
+فقط في الملف الأصلي:     â€¢ CacheFunctionalityTest.php
+فقط في الملف الأصلي:     â€¢ DatabaseConnectionTest.php
+فقط في الملف الأصلي:     â€¢ DatabaseMigrationTest.php
+فقط في الملف الأصلي:     â€¢ EmailSendingTest.php
+فقط في الملف الأصلي:     â€¢ FeatureTest.php
+فقط في الملف الأصلي:     â€¢ FileUploadTest.php
+فقط في الملف الأصلي:     â€¢ FormValidationTest.php
+فقط في الملف الأصلي:     â€¢ HostingerTest.php
+فقط في الملف الأصلي:     â€¢ LinkCheckerTest.php
+فقط في الملف الأصلي:     â€¢ MemoryLeakTest.php
+فقط في الملف الأصلي:     â€¢ PermissionControlTest.php
+فقط في الملف الأصلي:     â€¢ RoutingTest.php
+فقط في الملف الأصلي:     â€¢ SessionManagementTest.php
+فقط في الملف الأصلي:     â€¢ ThirdPartyApiTest.php
+فقط في الملف الأصلي:     â€¢ UITest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 3. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ (AI Tests) - 15 Ø§Ø®ØªØ¨Ø§Ø±
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./tests/AI/
+فقط في الملف الأصلي: Ø§Ù„Ø£Ù…Ø±: docker exec coprra-app bash -c "./vendor/bin/phpunit --testsuite AI"
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª:
+فقط في الملف الأصلي:   1. AIAccuracyTest.php
+فقط في الملف الأصلي:   2. AIErrorHandlingTest.php
+فقط في الملف الأصلي:   3. AILearningTest.php
+فقط في الملف الأصلي:   4. AIModelPerformanceTest.php
+فقط في الملف الأصلي:   5. AIModelTest.php
+فقط في الملف الأصلي:   6. AIResponseTimeTest.php
+فقط في الملف الأصلي:   7. AIServiceTest.php
+فقط في الملف الأصلي:   8. AITest.php
+فقط في الملف الأصلي:   9. ContinuousQualityMonitorTest.php
+فقط في الملف الأصلي:   10. ImageProcessingTest.php
+فقط في الملف الأصلي:   11. ProductClassificationTest.php
+فقط في الملف الأصلي:   12. RecommendationSystemTest.php
+فقط في الملف الأصلي:   13. SmokeTest.php
+فقط في الملف الأصلي:   14. StrictQualityAgentTest.php
+فقط في الملف الأصلي:   15. TextProcessingTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù…Ù„Ø§Ø­Ø¸Ø§Øª:
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ù‡Ø°Ù‡ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø© Ø®Ø¯Ù…Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ
+فقط في الملف الأصلي:   â€¢ ØªØªØ¶Ù…Ù† Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø¯Ù‚Ø© Ø§Ù„Ù†Ù…ÙˆØ°Ø¬ ÙˆØ£Ø¯Ø§Ø¡Ù‡
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù†ØµÙˆØµ ÙˆØ§Ù„ØµÙˆØ±
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ù†Ø¸Ø§Ù… Ø§Ù„ØªÙˆØµÙŠØ§Øª Ø¨Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 4. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ø£Ù…Ø§Ù† (Security Tests) - 6 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./tests/Security/
+فقط في الملف الأصلي: Ø§Ù„Ø£Ù…Ø±: docker exec coprra-app bash -c "./vendor/bin/phpunit --testsuite Security"
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª:
+فقط في الملف الأصلي:   1. AuthenticationSecurityTest.php
+فقط في الملف الأصلي:   2. CSRFTest.php
+فقط في الملف الأصلي:   3. DataEncryptionTest.php
+فقط في الملف الأصلي:   4. PermissionSecurityTest.php
+فقط في الملف الأصلي:   5. SQLInjectionTest.php
+فقط في الملف الأصلي:   6. SecurityAudit.php
+فقط في الملف الأصلي:   7. XSSTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù…Ù„Ø§Ø­Ø¸Ø§Øª:
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø­Ù…Ø§ÙŠØ© Ù…Ù† Ù‡Ø¬Ù…Ø§Øª XSS
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø­Ù…Ø§ÙŠØ© Ù…Ù† Ù‡Ø¬Ù…Ø§Øª SQL Injection
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± CSRF Token
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø§Ù„ØªØ´ÙÙŠØ± ÙˆØ¥Ø¯Ø§Ø±Ø© Ø§Ù„ØµÙ„Ø§Ø­ÙŠØ§Øª
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 5. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ø£Ø¯Ø§Ø¡ (Performance Tests) - 8 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./tests/Performance/
+فقط في الملف الأصلي: Ø§Ù„Ø£Ù…Ø±: docker exec coprra-app bash -c "./vendor/bin/phpunit --testsuite Performance"
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª:
+فقط في الملف الأصلي:   1. AdvancedPerformanceTest.php
+فقط في الملف الأصلي:   2. ApiResponseTimeTest.php
+فقط في الملف الأصلي:   3. CachePerformanceTest.php
+فقط في الملف الأصلي:   4. DatabasePerformanceTest.php
+فقط في الملف الأصلي:   5. LoadTestingTest.php
+فقط في الملف الأصلي:   6. LoadTimeTest.php
+فقط في الملف الأصلي:   7. MemoryUsageTest.php
+فقط في الملف الأصلي:   8. PerformanceBenchmarkTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù…Ù„Ø§Ø­Ø¸Ø§Øª:
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø£ÙˆÙ‚Ø§Øª Ø§Ù„Ø§Ø³ØªØ¬Ø§Ø¨Ø© Ù„Ù„Ù€ API
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø£Ø¯Ø§Ø¡ Ù‚Ø§Ø¹Ø¯Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø°Ø§ÙƒØ±Ø©
+فقط في الملف الأصلي:   â€¢ ØªØ®ØªØ¨Ø± Ø£Ø¯Ø§Ø¡ Ø§Ù„ÙƒØ§Ø´
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 6. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„ØªÙƒØ§Ù…Ù„ (Integration Tests) - 3 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./tests/Integration/
+فقط في الملف الأصلي: Ø§Ù„Ø£Ù…Ø±: docker exec coprra-app bash -c "./vendor/bin/phpunit --testsuite Integration"
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª:
+فقط في الملف الأصلي:   1. AdvancedIntegrationTest.php
+فقط في الملف الأصلي:   2. CompleteWorkflowTest.php
+فقط في الملف الأصلي:   3. IntegrationTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 7. Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø£Ø®Ø±Ù‰ (5 Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª)
+فقط في الملف الأصلي: â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي:   7.1 Architecture (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ ./tests/Architecture/ArchTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   7.2 Browser/Dusk (2 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ ./tests/Browser/E2ETest.php
+فقط في الملف الأصلي:     â€¢ ./tests/Browser/ExampleTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   7.3 Benchmarks (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ ./tests/Benchmarks/PerformanceBenchmark.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   7.4 Root Level (1 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:     â€¢ ./tests/ErrorHandlerManagerTest.php
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ“¦ Ø§Ù„Ù‚Ø³Ù… Ø§Ù„Ø«Ø§Ù†ÙŠ: Ø£Ø¯ÙˆØ§Øª Ø§Ù„ØªØ·ÙˆÙŠØ± (73 Ø£Ø¯Ø§Ø©)
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: ./vendor/bin/
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø£Ø¯ÙˆØ§Øª Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©:
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”§ 1. Ø£Ø¯ÙˆØ§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± (Testing Tools):
+فقط في الملف الأصلي:   1. phpunit - Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø± PHPUnit Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©
+فقط في الملف الأصلي:   2. behat - Ø£Ø¯Ø§Ø© Ø§Ø®ØªØ¨Ø§Ø± BDD
+فقط في الملف الأصلي:   3. codecept - Ø£Ø¯Ø§Ø© Codeception Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±
+فقط في الملف الأصلي:   4. infection - Ø£Ø¯Ø§Ø© Mutation Testing
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”§ 2. Ø£Ø¯ÙˆØ§Øª Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø«Ø§Ø¨Øª (Static Analysis):
+فقط في الملف الأصلي:   5. phpstan - Ø£Ø¯Ø§Ø© Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø«Ø§Ø¨Øª PHPStan
+فقط في الملف الأصلي:   6. psalm - Ø£Ø¯Ø§Ø© Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø«Ø§Ø¨Øª Psalm
+فقط في الملف الأصلي:   7. phpmd - PHP Mess Detector
+فقط في الملف الأصلي:   8. pdepend - Ø£Ø¯Ø§Ø© ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ÙŠØ§Øª
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”§ 3. Ø£Ø¯ÙˆØ§Øª Ø¬ÙˆØ¯Ø© Ø§Ù„ÙƒÙˆØ¯ (Code Quality):
+فقط في الملف الأصلي:   9. php-cs-fixer - Ø£Ø¯Ø§Ø© Ø¥ØµÙ„Ø§Ø­ Ù†Ù…Ø· Ø§Ù„ÙƒÙˆØ¯
+فقط في الملف الأصلي:   10. phpcs - PHP Code Sniffer (ÙØ­Øµ)
+فقط في الملف الأصلي:   11. phpcbf - PHP Code Beautifier (Ø¥ØµÙ„Ø§Ø­)
+فقط في الملف الأصلي:   12. rector - Ø£Ø¯Ø§Ø© Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„Ø¨Ù†Ø§Ø¡ Ø§Ù„ØªÙ„Ù‚Ø§Ø¦ÙŠØ©
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”§ 4. Ø£Ø¯ÙˆØ§Øª Ø§Ù„Ø£Ù…Ø§Ù† (Security Tools):
+فقط في الملف الأصلي:   13. security-checker - ÙØ­Øµ Ø§Ù„Ø«ØºØ±Ø§Øª Ø§Ù„Ø£Ù…Ù†ÙŠØ© (Ø¹Ø¨Ø± Composer)
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”§ 5. Ø£Ø¯ÙˆØ§Øª Ø§Ù„ØªÙˆØ«ÙŠÙ‚ (Documentation):
+فقط في الملف الأصلي:   14. phpdoc - PHPDoc Generator
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”§ 6. Ø£Ø¯ÙˆØ§Øª Ø£Ø®Ø±Ù‰ (Utilities):
+فقط في الملف الأصلي:   15. parallel-lint - ÙØ­Øµ Ø§Ù„Ø£Ø®Ø·Ø§Ø¡ Ø§Ù„Ù†Ø­ÙˆÙŠØ© Ø¨Ø§Ù„ØªÙˆØ§Ø²ÙŠ
+فقط في الملف الأصلي:   16. composer-unused - Ø§ÙƒØªØ´Ø§Ù Ø§Ù„Ù…ÙƒØªØ¨Ø§Øª ØºÙŠØ± Ø§Ù„Ù…Ø³ØªØ®Ø¯Ù…Ø©
+فقط في الملف الأصلي:   17. deptrac - ØªØ­Ù„ÙŠÙ„ Ø·Ø¨Ù‚Ø§Øª Ø§Ù„Ù…Ø¹Ù…Ø§Ø±ÙŠØ©
+فقط في الملف الأصلي:   18. patch-type-declarations - ØªØµØ­ÙŠØ­ Type Declarations
+فقط في الملف الأصلي:   19. php-parse - Ù…Ø­Ù„Ù„ PHP Parser
+فقط في الملف الأصلي:   20. carbon - Ø£Ø¯Ø§Ø© Ù…Ø³Ø§Ø¹Ø¯Ø© Ù„Ù„ØªØ¹Ø§Ù…Ù„ Ù…Ø¹ Ø§Ù„ØªÙˆØ§Ø±ÙŠØ®
+فقط في الملف الأصلي:   21. blade-icons-generate - Ø£Ø¯Ø§Ø© ØªÙˆÙ„ÙŠØ¯ Ø£ÙŠÙ‚ÙˆÙ†Ø§Øª Blade
+فقط في الملف الأصلي:   22. json5 - Ù…Ø¹Ø§Ù„Ø¬ JSON5
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ø§Ù„Ø£ÙˆØ§Ù…Ø± Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ©:
+فقط في الملف الأصلي:   â€¢ docker exec coprra-app bash -c "./vendor/bin/phpunit"
+فقط في الملف الأصلي:   â€¢ docker exec coprra-app bash -c "./vendor/bin/phpstan analyse"
+فقط في الملف الأصلي:   â€¢ docker exec coprra-app bash -c "./vendor/bin/psalm"
+فقط في الملف الأصلي:   â€¢ docker exec coprra-app bash -c "./vendor/bin/php-cs-fixer fix"
+فقط في الملف الأصلي:   â€¢ docker exec coprra-app bash -c "./vendor/bin/phpcs"
+فقط في الملف الأصلي:   â€¢ docker exec coprra-app bash -c "./vendor/bin/phpcbf"
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: âš™ï¸ Ø§Ù„Ù‚Ø³Ù… Ø§Ù„Ø«Ø§Ù„Ø«: Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ (22 Ø³ÙƒØ±ÙŠØ¨Øª)
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 1. Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª Shell (.sh):
+فقط في الملف الأصلي: Ø§Ù„Ù…Ø³Ø§Ø±: Ù…ØªÙ†ÙˆØ¹ ÙÙŠ Ø§Ù„Ù…Ø´Ø±ÙˆØ¹
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ø£Ù…Ø«Ù„Ø©:
+فقط في الملف الأصلي:   â€¢ ./scripts/deploy.sh - Ø³ÙƒØ±ÙŠØ¨Øª Ø§Ù„Ù†Ø´Ø±
+فقط في الملف الأصلي:   â€¢ ./scripts/setup.sh - Ø³ÙƒØ±ÙŠØ¨Øª Ø§Ù„ØªØ«Ø¨ÙŠØª Ø§Ù„Ø£ÙˆÙ„ÙŠ
+فقط في الملف الأصلي:   â€¢ ./scripts/test.sh - Ø³ÙƒØ±ÙŠØ¨Øª ØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª
+فقط في الملف الأصلي:   â€¢ ./scripts/backup.sh - Ø³ÙƒØ±ÙŠØ¨Øª Ø§Ù„Ù†Ø³Ø® Ø§Ù„Ø§Ø­ØªÙŠØ§Ø·ÙŠ
+فقط في الملف الأصلي:   â€¢ ./docker/*.sh - Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª Docker
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 2. Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª Python (.py):
+فقط في الملف الأصلي:   â€¢ Ø£Ø¯ÙˆØ§Øª Ù…Ø³Ø§Ø¹Ø¯Ø© Ù„Ù„ØªØ­Ù„ÙŠÙ„
+فقط في الملف الأصلي:   â€¢ Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª Ø§Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ø¢Ù„ÙŠ
+فقط في الملف الأصلي:   â€¢ Ø£Ø¯ÙˆØ§Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ”¹ 3. Makefiles:
+فقط في الملف الأصلي:   â€¢ Makefile - Ø£ÙˆØ§Ù…Ø± make Ù„Ù„ØªØ´ØºÙŠÙ„ Ø§Ù„Ø³Ø±ÙŠØ¹
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ” Ø§Ù„Ù‚Ø³Ù… Ø§Ù„Ø±Ø§Ø¨Ø¹: Ù…Ù„ÙØ§Øª Ø§Ù„ØªÙƒÙˆÙŠÙ† (Configuration Files)
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù…Ù„ÙØ§Øª ØªÙƒÙˆÙŠÙ† Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±:
+فقط في الملف الأصلي:   1. phpunit.xml - ØªÙƒÙˆÙŠÙ† PHPUnit
+فقط في الملف الأصلي:   2. phpstan.neon - ØªÙƒÙˆÙŠÙ† PHPStan
+فقط في الملف الأصلي:   3. phpstan-baseline.neon - Baseline Ù„Ù€ PHPStan
+فقط في الملف الأصلي:   4. psalm.xml - ØªÙƒÙˆÙŠÙ† Psalm
+فقط في الملف الأصلي:   5. psalm-baseline.xml - Baseline Ù„Ù€ Psalm
+فقط في الملف الأصلي:   6. phpinsights.php - ØªÙƒÙˆÙŠÙ† PHP Insights
+فقط في الملف الأصلي:   7. phpmd.xml - ØªÙƒÙˆÙŠÙ† PHP Mess Detector
+فقط في الملف الأصلي:   8. phpmd-cleancode-only.xml - ØªÙƒÙˆÙŠÙ† PHPMD (Clean Code ÙÙ‚Ø·)
+فقط في الملف الأصلي:   9. .php-cs-fixer.php - ØªÙƒÙˆÙŠÙ† PHP CS Fixer
+فقط في الملف الأصلي:   10. infection.json.dist - ØªÙƒÙˆÙŠÙ† Infection
+فقط في الملف الأصلي:   11. behat.yml - ØªÙƒÙˆÙŠÙ† Behat
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù…Ù„ÙØ§Øª ØªÙƒÙˆÙŠÙ† Docker:
+فقط في الملف الأصلي:   12. docker-compose.yml - ØªÙƒÙˆÙŠÙ† Docker Compose
+فقط في الملف الأصلي:   13. Dockerfile - Ù…Ù„Ù Docker Ù„Ù„ØªØ·Ø¨ÙŠÙ‚
+فقط في الملف الأصلي:   14. .dockerignore - Ù…Ù„ÙØ§Øª Ù…Ø³ØªØ¨Ø¹Ø¯Ø© Ù…Ù† Docker
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ù…Ù„ÙØ§Øª ØªÙƒÙˆÙŠÙ† Ø§Ù„Ù…Ø´Ø±ÙˆØ¹:
+فقط في الملف الأصلي:   15. composer.json - Ø§Ø¹ØªÙ…Ø§Ø¯ÙŠØ§Øª PHP
+فقط في الملف الأصلي:   16. package.json - Ø§Ø¹ØªÙ…Ø§Ø¯ÙŠØ§Øª Node.js
+فقط في الملف الأصلي:   17. vite.config.js - ØªÙƒÙˆÙŠÙ† Vite
+فقط في الملف الأصلي:   18. tailwind.config.js - ØªÙƒÙˆÙŠÙ† Tailwind CSS
+فقط في الملف الأصلي:   19. .env.example - Ù…Ø«Ø§Ù„ Ù„Ù…Ù„Ù Ø§Ù„Ø¨ÙŠØ¦Ø©
+فقط في الملف الأصلي:   20. .editorconfig - ØªÙƒÙˆÙŠÙ† Ø§Ù„Ù…Ø­Ø±Ø±
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: âš ï¸ Ø§Ù„Ù‚Ø³Ù… Ø§Ù„Ø®Ø§Ù…Ø³: Ù…Ù„Ø§Ø­Ø¸Ø§Øª ÙˆØªÙ†Ø¨ÙŠÙ‡Ø§Øª
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: âœ… Ù…ÙƒØªÙ…Ù„ ÙˆÙ…ÙÙØ¹Ù‘Ù„:
+فقط في الملف الأصلي:   â€¢ Ø¬Ù…ÙŠØ¹ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª PHPUnit (288 Ø§Ø®ØªØ¨Ø§Ø±)
+فقط في الملف الأصلي:   â€¢ PHPStan Level 8 Ù…Ø¹ Baseline
+فقط في الملف الأصلي:   â€¢ Psalm Ù…Ø¹ Baseline
+فقط في الملف الأصلي:   â€¢ PHP Insights (Ø¯Ø±Ø¬Ø© 93.15%)
+فقط في الملف الأصلي:   â€¢ PHPMD Clean Code (0 Ù…Ø´Ø§ÙƒÙ„)
+فقط في الملف الأصلي:   â€¢ Ø¬Ù…ÙŠØ¹ ÙØ§Ø­ØµØ§Øª Ø§Ù„Ø£Ù…Ø§Ù† (0 Ø«ØºØ±Ø§Øª)
+فقط في الملف الأصلي:   â€¢ PHP 8.2+ Compatibility
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: âš ï¸ ÙŠØ­ØªØ§Ø¬ Ø¥Ù„Ù‰ ØªÙƒÙˆÙŠÙ†:
+فقط في الملف الأصلي:   â€¢ Infection (ÙŠØªØ·Ù„Ø¨ Xdebug Ø£Ùˆ PCOV)
+فقط في الملف الأصلي:   â€¢ Behat (BDD Tests)
+فقط في الملف الأصلي:   â€¢ Codeception
+فقط في الملف الأصلي:   â€¢ Ø¨Ø¹Ø¶ Ø£Ø¯ÙˆØ§Øª Profiling
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ“ ØªÙˆØµÙŠØ§Øª:
+فقط في الملف الأصلي:   1. ØªØ´ØºÙŠÙ„ Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø¨Ø§Ù†ØªØ¸Ø§Ù… Ù‚Ø¨Ù„ ÙƒÙ„ Commit
+فقط في الملف الأصلي:   2. Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø£Ø¯ÙˆØ§Øª Ø§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø«Ø§Ø¨Øª (PHPStan, Psalm)
+فقط في الملف الأصلي:   3. Ù…Ø±Ø§Ø¬Ø¹Ø© Baselines Ø¨Ø´ÙƒÙ„ Ø¯ÙˆØ±ÙŠ
+فقط في الملف الأصلي:   4. Ø§Ù„Ø­ÙØ§Ø¸ Ø¹Ù„Ù‰ ØªØºØ·ÙŠØ© Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª ÙÙˆÙ‚ 90%
+فقط في الملف الأصلي:   5. ØªÙØ¹ÙŠÙ„ Mutation Testing Ø¹Ù†Ø¯ ØªÙˆÙØ± Xdebug
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸ“Š Ø§Ù„Ù…Ù„Ø®Øµ Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠØ§Øª Ø­Ø³Ø¨ Ø§Ù„ÙØ¦Ø©:
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Unit: 123
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Feature: 128
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª AI: 15
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Security: 6
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Performance: 8
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Integration: 3
+فقط في الملف الأصلي:   â€¢ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø£Ø®Ø±Ù‰: 5
+فقط في الملف الأصلي:   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي:   â€¢ Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„Ù…Ø´Ø±ÙˆØ¹: 288
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي:   â€¢ Ø£Ø¯ÙˆØ§Øª vendor/bin: 73
+فقط في الملف الأصلي:   â€¢ Ø³ÙƒØ±ÙŠØ¨ØªØ§Øª: 22
+فقط في الملف الأصلي:   â€¢ Ù…Ù„ÙØ§Øª ØªÙƒÙˆÙŠÙ†: ~20
+فقط في الملف الأصلي:   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+فقط في الملف الأصلي:   â€¢ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹ Ø§Ù„ÙƒÙ„ÙŠ: 877+ Ø¹Ù†ØµØ±
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: Ø­Ø§Ù„Ø© Ø§Ù„Ù…Ø´Ø±ÙˆØ¹:
+فقط في الملف الأصلي:   âœ… Ø¬Ø§Ù‡Ø² Ù„Ù„Ø¥Ù†ØªØ§Ø¬ (Production-Ready)
+فقط في الملف الأصلي:   âœ… ØªØºØ·ÙŠØ© Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø´Ø§Ù…Ù„Ø©
+فقط في الملف الأصلي:   âœ… Ø¬ÙˆØ¯Ø© ÙƒÙˆØ¯ Ø¹Ø§Ù„ÙŠØ©
+فقط في الملف الأصلي:   âœ… Ø£Ù…Ø§Ù† Ù…Ø­Ù‚Ù‚
+فقط في الملف الأصلي:   âœ… Ø£Ø¯Ø§Ø¡ Ù…Ø­Ø³Ù‘Ù†
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ðŸŽ¯ Ù†Ù‡Ø§ÙŠØ© Ø§Ù„Ù‚Ø§Ø¦Ù…Ø© Ø§Ù„Ø´Ø§Ù…Ù„Ø©
+فقط في الملف الأصلي: â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+فقط في الملف الأصلي: 
+فقط في الملف الأصلي: ØªÙ… Ø¥Ù†Ø´Ø§Ø¡ Ù‡Ø°Ø§ Ø§Ù„ØªÙ‚Ø±ÙŠØ± Ø¨ÙˆØ§Ø³Ø·Ø©: Claude Code AI Assistant
+فقط في الملف الأصلي: Ø§Ù„ØªØ§Ø±ÙŠØ®: 2025-10-16
+فقط في الملف الأصلي: Ø§Ù„Ø¥ØµØ¯Ø§Ø±: 1.0

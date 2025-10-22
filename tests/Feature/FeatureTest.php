@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -7,7 +9,7 @@ use Tests\TestCase;
 
 /**
  * Feature Test Suite
- * مجموعة اختبارات للميزات العامة.
+ * Ù…Ø¬Ù…ÙˆØ¹Ø© Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ù„Ù„Ù…ÙŠØ²Ø§Øª Ø§Ù„Ø¹Ø§Ù…Ø©.
  */
 class FeatureTest extends TestCase
 {
@@ -37,3 +39,5 @@ class FeatureTest extends TestCase
         parent::tearDown();
     }
 }
+
+

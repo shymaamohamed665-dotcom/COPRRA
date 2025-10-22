@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Performance;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -43,3 +45,5 @@ class PerformanceTest extends TestCase
         parent::tearDown();
     }
 }
+
+

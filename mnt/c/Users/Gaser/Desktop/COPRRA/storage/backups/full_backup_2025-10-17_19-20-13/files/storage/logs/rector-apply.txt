@@ -1,0 +1,4353 @@
+   0/142 [>---------------------------]   0%[1G[2K  16/142 [===>------------------------]  11%[1G[2K  48/142 [=========>------------------]  33%[1G[2K  64/142 [============>---------------]  45%[1G[2K  80/142 [===============>------------]  56%[1G[2K  96/142 [==================>---------]  67%[1G[2K 112/142 [======================>-----]  78%[1G[2K 128/142 [=========================>--]  90%[1G[2K 142/142 [============================] 100%
+[33m142 files with changes[39m
+[33m======================[39m
+
+[1m1) app/Http/Middleware/SecurityHeaders.php:19[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class SecurityHeaders
+ {
+[31m-    private SecurityHeadersService $securityHeadersService;[39m
+[32m+    private readonly SecurityHeadersService $securityHeadersService;[39m
+
+[31m-    private LoggerInterface $logger;[39m
+[32m+    private readonly LoggerInterface $logger;[39m
+
+     public function __construct(?SecurityHeadersService $securityHeadersService = null, ?LoggerInterface $logger = null)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m2) app/Http/Middleware/SecurityHeadersMiddleware.php:14[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class SecurityHeadersMiddleware
+ {
+[31m-    private SecurityHeadersService $securityHeadersService;[39m
+[32m+    private readonly SecurityHeadersService $securityHeadersService;[39m
+
+     public function __construct(SecurityHeadersService $securityHeadersService)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m3) app/Http/Middleware/ThrottleRequests.php:14[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class ThrottleRequests
+ {
+[31m-    private CacheManager $cache;[39m
+[32m+    private readonly CacheManager $cache;[39m
+
+     public function __construct(CacheManager $cache)
+     {
+[36m@@ @@[39m
+     public function handle(Request $request, Closure $next): Response
+     {
+         $response = $this->handleThrottling($request);
+[31m-        if ($response) {[39m
+[32m+        if ($response instanceof \Illuminate\Http\JsonResponse) {[39m
+             return $response;
+         }
+
+[36m@@ @@[39m
+             $attempts = $this->cache->get("throttle:{$key}", 0);
+             if ($attempts >= $maxAttempts) {
+                 return response()->json(['message' => 'Too Many Requests'], 429)
+[31m-                    ->header('Retry-After', (string) ($decayMinutes * 60));[39m
+[32m+                    ->header('Retry-After', (string) (60));[39m
+             }
+             $this->cache->put("throttle:{$key}", $attempts + 1, $decayMinutes);
+         } else {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * RemoveDeadZeroAndOneOperationRector
+ * ReadOnlyPropertyRector
+
+
+[1m4) app/Http/Middleware/TrustProxies.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     /**
+      * The trusted proxies for this application.
+      */
+[31m-    protected $proxies = null;[39m
+[32m+    protected $proxies;[39m
+
+     /**
+      * The headers that should be used to detect proxies.
+[36m@@ @@[39m
+
+         if (is_string($configured) && trim($configured) !== '') {
+             $list = array_filter(array_map('trim', explode(',', $configured)));
+[31m-            $this->proxies = $list ? $list : null;[39m
+[31m-        } elseif (is_array($configured) && ! empty($configured)) {[39m
+[32m+            $this->proxies = $list !== [] ? $list : null;[39m
+[32m+        } elseif (is_array($configured) && $configured !== []) {[39m
+             $this->proxies = $configured;
+         } else {
+             $this->proxies = app()->environment('production') ? null : '*';
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyEmptyCheckOnEmptyArrayRector
+ * ExplicitBoolCompareRector
+ * RemoveNullPropertyInitializationRector
+
+
+[1m5) app/Http/Middleware/ValidateApiRequest.php:21[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         }
+
+         $validationRules = $this->getValidationRules($rules);
+[31m-        if (! $validationRules) {[39m
+[32m+        if ($validationRules === []) {[39m
+             return $next($request);
+         }
+
+[36m@@ @@[39m
+          *
+          * @psalm-return array<int, string>|string
+          */
+[31m-            static function ($value): string|array {[39m
+[32m+            static function (array|string $value): string|array {[39m
+                 if (is_array($value)) {
+                     return array_map(strval(...), $value);
+                 }
+
+[31m-                return is_string($value) || is_numeric($value) ? (string) $value : '';[39m
+[32m+                return is_string($value) || is_numeric($value) ? $value : '';[39m
+             },
+             $rules
+         );
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * RecastingRemovalRector
+ * AddArrayFunctionClosureParamTypeRector
+
+
+[1m6) app/Http/Requests/ProductSearchRequest.php:215[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     private function prepareTagsForValidation(): array
+     {
+[31m-        return is_array($this->tags) ? array_map(static fn ($tag) => is_string($tag) ? trim($tag) : '', $this->tags) : [];[39m
+[32m+        return is_array($this->tags) ? array_map(static fn ($tag): string => is_string($tag) ? trim($tag) : '', $this->tags) : [];[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m7) app/Http/Requests/ProductUpdateRequest.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class ProductUpdateRequest extends FormRequest
+ {
+[31m-    private \App\Services\Validators\PriceChangeValidator $priceChangeValidator;[39m
+[32m+    private readonly \App\Services\Validators\PriceChangeValidator $priceChangeValidator;[39m
+
+     public function __construct(PriceChangeValidator $priceChangeValidator)
+     {
+[36m@@ @@[39m
+             'name' => is_string($this->name) ? trim($this->name) : null,
+             'description' => is_string($this->description) ? trim($this->description) : null,
+             'sku' => is_string($this->sku) ? strtoupper(trim($this->sku)) : null,
+[31m-            'tags' => is_array($this->tags) ? array_map(static fn ($tag) => is_string($tag) ? trim($tag) : '', $this->tags) : null,[39m
+[32m+            'tags' => is_array($this->tags) ? array_map(static fn ($tag): string => is_string($tag) ? trim($tag) : '', $this->tags) : null,[39m
+         ]));
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m8) app/Jobs/FetchDailyPriceUpdates.php:28[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+                 try {
+                     // Assume Product has getCurrentPrice() implemented
+                     $currentPrice = $product->getCurrentPrice();
+[31m-                    if ($currentPrice !== null) {[39m
+[31m-                        PriceHistory::create([[39m
+[31m-                            'product_id' => $product->id,[39m
+[31m-                            'price' => $currentPrice,[39m
+[31m-                            'effective_date' => now(),[39m
+[31m-                        ]);[39m
+[31m-                    }[39m
+[32m+                    PriceHistory::create([[39m
+[32m+                        'product_id' => $product->id,[39m
+[32m+                        'price' => $currentPrice,[39m
+[32m+                        'effective_date' => now(),[39m
+[32m+                    ]);[39m
+                 } catch (\Throwable $e) {
+                     logger()->warning('Failed to capture price for product '.$product->id.': '.$e->getMessage());
+                 }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveAlwaysTrueIfConditionRector
+
+
+[1m9) app/Models/Category.php:159[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     #[\Override]
+     public function getErrors(): array
+     {
+[31m-        return $this->errors ? $this->errors->toArray() : [];[39m
+[32m+        return $this->errors instanceof \Illuminate\Support\MessageBag ? $this->errors->toArray() : [];[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+
+
+[1m10) app/Models/Notification.php:286[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         }
+
+         $created = $this->created_at instanceof Carbon ? $this->created_at : null;
+[31m-        if ($created === null) {[39m
+[31m-            // If expiration days are set but creation time is unavailable, treat as expired.[39m
+[31m-            return true;[39m
+[31m-        }[39m
+
+         return $created->copy()->addDays($days)->lte(now());
+     }
+[36m@@ @@[39m
+      */
+     public function removeTag(string $tag): bool
+     {
+[31m-        $tags = array_values(array_filter($this->getTags(), static fn ($t) => $t !== $tag));[39m
+[32m+        $tags = array_values(array_filter($this->getTags(), static fn (string $t): bool => $t !== $tag));[39m
+
+         return $this->updateTags($tags);
+     }
+[36m@@ @@[39m
+      */
+     private function processTags(array $tags): array
+     {
+[31m-        return is_array($tags) ? array_map(static fn ($tag) => is_string($tag) ? $tag : 'tag', $tags) : [];[39m
+[32m+        return is_array($tags) ? array_map(static fn (string $tag): string => is_string($tag) ? $tag : 'tag', $tags) : [];[39m
+     }
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * FlipTypeControlToUseExclusiveTypeRector
+ * RemoveDeadInstanceOfRector
+ * AddArrowFunctionReturnTypeRector
+ * AddArrayFunctionClosureParamTypeRector
+
+
+[1m11) app/Models/Order.php:445[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     public function getStatusEnumAttribute(): OrderStatus
+     {
+[31m-        $raw = is_string($this->attributes['status'] ?? '') ? strtolower($this->attributes['status']) : ($this->attributes['status'] ?? '');[39m
+[32m+        $raw = is_string($this->attributes['status'] ?? '') ? strtolower((string) $this->attributes['status']) : ($this->attributes['status'] ?? '');[39m
+
+         if ($raw === 'completed') {
+             return OrderStatus::DELIVERED;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * NullToStrictStringFuncCallArgRector
+
+
+[1m12) app/Models/Wishlist.php:89[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     #[\Override]
+     public function getErrors(): array
+     {
+[31m-        return $this->errors ? $this->errors->toArray() : [];[39m
+[32m+        return $this->errors instanceof \Illuminate\Support\MessageBag ? $this->errors->toArray() : [];[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+
+
+[1m13) app/Providers/AppServiceProvider.php:25[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     #[\Override]
+     public function register(): void
+     {
+[31m-        $this->app->singleton(PriceSearchService::class, static function () {[39m
+[32m+        $this->app->singleton(PriceSearchService::class, static function (): \App\Services\PriceSearchService {[39m
+             return new PriceSearchService;
+         });
+
+[36m@@ @@[39m
+         // Bind CacheServiceContract to concrete CacheService
+         $this->app->singleton(CacheServiceContract::class, CacheService::class);
+         $this->app->singleton(ProductRepository::class);
+[31m-        $this->app->singleton(ProductService::class, static function (Application $app) {[39m
+[32m+        $this->app->singleton(ProductService::class, static function (Application $app): \App\Services\ProductService {[39m
+             $repository = $app->make(ProductRepository::class);
+             if (! ($repository instanceof ProductRepository)) {
+                 throw new RuntimeException('Failed to resolve ProductRepository');
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ClosureReturnTypeRector
+
+
+[1m14) app/Providers/CompressionServiceProvider.php:21[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+         $this->app->singleton(CompressionService::class);
+
+[31m-        $this->app->singleton(CompressionResponseService::class, function ($app) {[39m
+[32m+        $this->app->singleton(CompressionResponseService::class, function ($app): \App\Services\Compression\CompressionResponseService {[39m
+             return new CompressionResponseService(
+                 $app->make(CompressionService::class),
+                 $app->make(ContentTypeService::class)
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ClosureReturnTypeRector
+
+
+[1m15) app/Providers/LogProcessingServiceProvider.php:24[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         $this->app->singleton(ErrorStatisticsCalculator::class);
+         $this->app->singleton(SystemHealthChecker::class);
+
+[31m-        $this->app->singleton(LogProcessingService::class, function ($app) {[39m
+[32m+        $this->app->singleton(LogProcessingService::class, function ($app): \App\Services\LogProcessing\LogProcessingService {[39m
+             return new LogProcessingService(
+                 $app->make(LogFileReader::class),
+                 $app->make(LogLineParser::class),
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ClosureReturnTypeRector
+
+
+[1m16) app/Providers/SecurityHeadersServiceProvider.php:18[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     public function register(): void
+     {
+         // Register SecurityHeaderStrategyFactory as singleton
+[31m-        $this->app->singleton(SecurityHeaderStrategyFactory::class, function () {[39m
+[32m+        $this->app->singleton(SecurityHeaderStrategyFactory::class, function (): \App\Services\Security\Headers\SecurityHeaderStrategyFactory {[39m
+             return new SecurityHeaderStrategyFactory;
+         });
+
+         // Register SecurityHeaderConfiguration as singleton
+[31m-        $this->app->singleton(SecurityHeaderConfiguration::class, function () {[39m
+[32m+        $this->app->singleton(SecurityHeaderConfiguration::class, function (): \App\Services\Security\SecurityHeaderConfiguration {[39m
+             $configuration = new SecurityHeaderConfiguration;
+             $configuration->loadFromConfig();
+
+[36m@@ @@[39m
+         });
+
+         // Register SecurityHeadersService as singleton
+[31m-        $this->app->singleton(SecurityHeadersService::class, function ($app) {[39m
+[32m+        $this->app->singleton(SecurityHeadersService::class, function ($app): \App\Services\Security\SecurityHeadersService {[39m
+             return new SecurityHeadersService(
+                 $app->make(SecurityHeaderConfiguration::class),
+                 $app->make(SecurityHeaderStrategyFactory::class)
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ClosureReturnTypeRector
+
+
+[1m17) app/Providers/TelescopeServiceProvider.php:25[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+         $isLocal = $this->app->environment('local');
+
+[31m-        Telescope::filter(static function (IncomingEntry $entry) use ($isLocal) {[39m
+[32m+        Telescope::filter(static function (IncomingEntry $entry) use ($isLocal): bool {[39m
+             return $isLocal ||
+                 $entry->isReportableException() ||
+                 $entry->isFailedRequest() ||
+[36m@@ @@[39m
+     #[\Override]
+     protected function gate(): void
+     {
+[31m-        Gate::define('viewTelescope', static function ($user) {[39m
+[32m+        Gate::define('viewTelescope', static function ($user): bool {[39m
+             /** @var \App\Models\User $user */
+             $userEmail = is_string($user->email) ? $user->email : '';
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ClosureReturnTypeRector
+
+
+[1m18) app/Repositories/ProductRepository.php:19[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class ProductRepository
+ {
+[31m-    private ProductValidationService $validationService;[39m
+[32m+    private readonly ProductValidationService $validationService;[39m
+
+[31m-    private ProductQueryBuilderService $queryBuilderService;[39m
+[32m+    private readonly ProductQueryBuilderService $queryBuilderService;[39m
+
+[31m-    private ProductCacheService $cacheService;[39m
+[32m+    private readonly ProductCacheService $cacheService;[39m
+
+[31m-    private ProductPriceService $priceService;[39m
+[32m+    private readonly ProductPriceService $priceService;[39m
+
+     public function __construct()
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m19) app/Rules/DimensionSum.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class DimensionSum implements Rule
+ {
+[31m-    private int $maxSum;[39m
+[32m+    private readonly int $maxSum;[39m
+
+     public function __construct(int $maxSum = 2000)
+     {
+[36m@@ @@[39m
+             }
+         }
+
+[31m-        $total = array_sum(array_map(static fn ($val) => (float) $val, $values));[39m
+[32m+        $total = array_sum(array_map(static fn ($val): float => (float) $val, $values));[39m
+
+         return $total <= $this->maxSum;
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m20) app/Rules/PasswordValidator.php:159[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             $score += $diversity;
+         }
+
+[31m-        return (int) min($score, 10);[39m
+[32m+        return min($score, 10);[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+
+
+[1m21) app/Rules/ValidOrderStatusTransition.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Models\Order;
+ use Closure;
+
+[31m-final class ValidOrderStatusTransition implements RuleValidationRule[39m
+[32m+final readonly class ValidOrderStatusTransition implements RuleValidationRule[39m
+ {
+[31m-    public function __construct(private readonly Order $order) {}[39m
+[32m+    public function __construct(private Order $order) {}[39m
+
+     /**
+      * Run the validation rule.
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m22) app/Services/AIService.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class AIService
+ {
+[31m-    private AIRequestService $requestService;[39m
+[32m+    private readonly AIRequestService $requestService;[39m
+
+[31m-    private AITextAnalysisService $textAnalysisService;[39m
+[32m+    private readonly AITextAnalysisService $textAnalysisService;[39m
+
+[31m-    private AIImageAnalysisService $imageAnalysisService;[39m
+[32m+    private readonly AIImageAnalysisService $imageAnalysisService;[39m
+
+     public function __construct()
+     {
+[36m@@ @@[39m
+         }
+
+         // Fallback to raw analysis output if no products provided
+[31m-        if (empty($recommendations) && is_array($raw)) {[39m
+[32m+        if ($recommendations === [] && is_array($raw)) {[39m
+             foreach ($raw as $rec) {
+                 $productId = (string) ($rec['product_id'] ?? '1');
+                 $reason = (string) ($rec['reason'] ?? 'recommended');
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyEmptyCheckOnEmptyArrayRector
+ * ReadOnlyPropertyRector
+
+
+[1m23) app/Services/AI/ContinuousQualityMonitor.php:26[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+     private int $checkInterval = 300; // 5 minutes
+
+[31m-    private HealthScoreCalculator $scoreCalculator;[39m
+[32m+    private readonly HealthScoreCalculator $scoreCalculator;[39m
+
+     public function __construct()
+     {
+[36m@@ @@[39m
+
+         return [
+             'name' => is_string($rule['name'] ?? null) ? $rule['name'] : 'Unknown',
+[31m-            'success' => $result ? $result->successful() : false,[39m
+[31m-            'health_score' => $result ? $this->scoreCalculator->calculate($ruleId, $result) : 0,[39m
+[32m+            'success' => $result instanceof \Illuminate\Contracts\Process\ProcessResult && $result->successful(),[39m
+[32m+            'health_score' => $result instanceof \Illuminate\Contracts\Process\ProcessResult ? $this->scoreCalculator->calculate($ruleId, $result) : 0,[39m
+             'duration' => $duration,
+[31m-            'output' => $result ? $result->output() : '',[39m
+[31m-            'errors' => $result ? $result->errorOutput() : [],[39m
+[32m+            'output' => $result instanceof \Illuminate\Contracts\Process\ProcessResult ? $result->output() : '',[39m
+[32m+            'errors' => $result instanceof \Illuminate\Contracts\Process\ProcessResult ? $result->errorOutput() : [],[39m
+             'timestamp' => now()->toISOString(),
+             'critical' => (bool) ($rule['critical'] ?? false),
+         ];
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * TernaryToBooleanOrFalseToBooleanAndRector
+ * ReadOnlyPropertyRector
+
+
+[1m24) app/Services/AI/Services/AIImageAnalysisService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class AIImageAnalysisService
+ {
+[31m-    private AIRequestService $requestService;[39m
+[32m+    private readonly AIRequestService $requestService;[39m
+
+     public function __construct(AIRequestService $requestService)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m25) app/Services/AI/Services/AIRequestService.php:12[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class AIRequestService
+ {
+[31m-    private string $apiKey;[39m
+[32m+    private readonly string $apiKey;[39m
+
+[31m-    private string $baseUrl;[39m
+[32m+    private readonly string $baseUrl;[39m
+
+[31m-    private int $timeout;[39m
+[32m+    private readonly int $timeout;[39m
+
+     public function __construct(string $apiKey, string $baseUrl, int $timeout = 60)
+     {
+[36m@@ @@[39m
+     {
+         // Short-circuit in testing to avoid external calls
+         $disableExternal = (bool) config('ai.disable_external_calls', false);
+[31m-        if ($disableExternal || (empty($this->apiKey) && (env('APP_ENV') === 'testing'))) {[39m
+[32m+        if ($disableExternal || (($this->apiKey === '' || $this->apiKey === '0') && (env('APP_ENV') === 'testing'))) {[39m
+             Log::info('🧪 تعطيل الاتصال الخارجي للذكاء الاصطناعي في الاختبارات');
+
+             // Build input-aware mock content so tests can assert structure and values
+[36m@@ @@[39m
+             if (is_string($userContent)) {
+                 if (preg_match('/Analyze the following text for\s+([a-z_]+):\s*(.*)$/i', $userContent, $m)) {
+                     $type = strtolower(trim($m[1]));
+[31m-                    $text = trim((string) $m[2]);[39m
+[32m+                    $text = trim($m[2]);[39m
+                 } elseif (str_contains($userContent, 'User preferences:')) {
+                     $type = 'recommendations';
+                     $text = $userContent;
+[36m@@ @@[39m
+                 }
+             }
+
+[31m-            $confidence = $sentiment === 'neutral' ? (empty($text) ? 0.5 : 0.6) : 0.85;[39m
+[32m+            $confidence = $sentiment === 'neutral' ? ($text === '' || $text === '0' ? 0.5 : 0.6) : 0.85;[39m
+
+             // Simple category inference (Arabic + English)
+             $categories = [];
+[36m@@ @@[39m
+             if (preg_match('/كتاب|برمجة|books?/i', $text)) {
+                 $categories[] = 'كتب';
+             }
+[31m-            if (! $categories) {[39m
+[32m+            if ($categories === []) {[39m
+                 $categories[] = 'عام';
+             }
+
+             // Naive keyword extraction
+[31m-            $words = preg_split('/\s+/u', trim((string) $text));[39m
+[32m+            $words = preg_split('/\s+/u', trim($text));[39m
+             $keywords = [];
+             foreach ($words as $word) {
+                 $w = trim((string) $word, ".,!?:;\"'()[]{}|\\");
+[36m@@ @@[39m
+                 foreach ($categories as $cat) {
+                     $recommendationLines[] = "recommendation: مناسب لفئة {$cat}";
+                 }
+[31m-                if (! $recommendationLines) {[39m
+[32m+                if ($recommendationLines === []) {[39m
+                     $recommendationLines[] = 'recommendation: قم باختيار أفضل منتج';
+                 }
+             }
+[36m@@ @@[39m
+             foreach ($keywords as $k) {
+                 $lines[] = "keyword: {$k}";
+             }
+[31m-            if (! empty($text)) {[39m
+[32m+            if ($text !== '' && $text !== '0') {[39m
+                 $lines[] = "original_text: {$text}"; // include feedback context in result
+             }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * RecastingRemovalRector
+ * ReadOnlyPropertyRector
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m26) app/Services/AI/Services/AITextAnalysisService.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class AITextAnalysisService
+ {
+[31m-    private AIRequestService $requestService;[39m
+[32m+    private readonly AIRequestService $requestService;[39m
+
+     public function __construct(AIRequestService $requestService)
+     {
+[36m@@ @@[39m
+
+         $response = $this->requestService->makeRequest('/chat/completions', $data);
+
+[31m-        return $this->parseTextAnalysis($response, $type);[39m
+[32m+        return $this->parseTextAnalysis($response);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      *     keywords: list<string>
+      * }
+      */
+[31m-    private function parseTextAnalysis(array $response, string $type): array[39m
+[32m+    private function parseTextAnalysis(array $response): array[39m
+     {
+         $content = $response['choices'][0]['message']['content'] ?? '';
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodParameterRector
+ * ReadOnlyPropertyRector
+
+
+[1m27) app/Services/ActivityChecker.php:13[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     private array $config = [];
+
+[31m-    private CacheManager $cache;[39m
+[32m+    private readonly CacheManager $cache;[39m
+
+[31m-    private GeolocationService $geolocationService;[39m
+[32m+    private readonly GeolocationService $geolocationService;[39m
+
+[31m-    private ActivityFactory $activityFactory;[39m
+[32m+    private readonly ActivityFactory $activityFactory;[39m
+
+     public function __construct(
+         CacheManager $cache,
+[36m@@ @@[39m
+         if (! isset($data['user_id']) || ! is_numeric($data['user_id'])) {
+             return false;
+         }
+[31m-[39m
+[31m-        if (! isset($data['ip_address']) || ! is_string($data['ip_address'])) {[39m
+[31m-            return false;[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        return true;[39m
+[32m+        return isset($data['ip_address']) && is_string($data['ip_address']);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      */
+     private function handleLoginFailed(array $data): array
+     {
+[31m-        $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;[39m
+[32m+        $userId = isset($data['user_id']) ? $data['user_id'] : 0;[39m
+         $ipAddress = isset($data['ip_address']) && is_string($data['ip_address']) ? $data['ip_address'] : '';
+
+         return $this->checkMultipleFailedLogins($userId, $ipAddress);
+[36m@@ @@[39m
+      */
+     private function handleLoginSuccess(array $data): array
+     {
+[31m-        $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;[39m
+[32m+        $userId = isset($data['user_id']) ? $data['user_id'] : 0;[39m
+         $ipAddress = isset($data['ip_address']) && is_string($data['ip_address']) ? $data['ip_address'] : '';
+         $location = is_array($data['location'] ?? null) ? $data['location'] : [];
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyDeMorganBinaryRector
+ * SimplifyIfReturnBoolRector
+ * RecastingRemovalRector
+ * ReadOnlyPropertyRector
+
+
+[1m28) app/Services/ActivityProcessor.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Exception;
+ use Psr\Log\LoggerInterface;
+
+[31m-final class ActivityProcessor[39m
+[32m+final readonly class ActivityProcessor[39m
+ {
+     private LoggerInterface $logger;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m29) app/Services/Activity/Services/ActivityThresholdService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class ActivityThresholdService
+ {
+[31m-    private CacheManager $cache;[39m
+[32m+    private readonly CacheManager $cache;[39m
+
+     public function __construct(CacheManager $cache)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m30) app/Services/Activity/Services/ActivityValidationService.php:19[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         if (! isset($data['user_id']) || ! is_numeric($data['user_id'])) {
+             return false;
+         }
+[31m-[39m
+[31m-        if (! isset($data['ip_address']) || ! is_string($data['ip_address'])) {[39m
+[31m-            return false;[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        return true;[39m
+[32m+        return isset($data['ip_address']) && is_string($data['ip_address']);[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyDeMorganBinaryRector
+ * SimplifyIfReturnBoolRector
+
+
+[1m31) app/Services/Activity/Services/LocationCheckService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class LocationCheckService
+ {
+[31m-    private GeolocationService $geolocationService;[39m
+[32m+    private readonly GeolocationService $geolocationService;[39m
+
+     public function __construct(GeolocationService $geolocationService)
+     {
+[36m@@ @@[39m
+             return null;
+         }
+
+[31m-        $previousLocations = $this->getUserPreviousLocations($userId);[39m
+[32m+        $previousLocations = $this->getUserPreviousLocations();[39m
+         if ($previousLocations === [] || ! $this->isLocationUnusual($location, $previousLocations)) {
+             return null;
+         }
+[36m@@ @@[39m
+      *
+      * @psalm-return array<never, never>
+      */
+[31m-    private function getUserPreviousLocations(int $userId): array[39m
+[32m+    private function getUserPreviousLocations(): array[39m
+     {
+         // This should be implemented to fetch user's previous locations from a database or cache.
+         // For now, return empty array as in original implementation
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodParameterRector
+ * ReadOnlyPropertyRector
+
+
+[1m32) app/Services/AgentFixer/AgentFixerFactory.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\ProcessService;
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class AgentFixerFactory[39m
+[32m+final readonly class AgentFixerFactory[39m
+ {
+     public function __construct(
+[31m-        private readonly ProcessService $processService,[39m
+[31m-        private readonly OutputStyle $output[39m
+[32m+        private ProcessService $processService,[39m
+[32m+        private OutputStyle $output[39m
+     ) {}
+
+     public function create(string $type): StyleFixer|AnalysisFixer
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m33) app/Http/Controllers/Api/PriceSearchController.php:192[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         try {
+             // If headers provide multiple values or non-scalar values, treat as invalid
+             foreach (['q', 'query', 'name'] as $param) {
+[31m-                $headerValues = $request->headers->get($param, null, false);[39m
+[32m+                $headerValues = $request->headers->get($param, null);[39m
+                 if (is_array($headerValues)) {
+                     if (count($headerValues) !== 1) {
+                         return response()->json([
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveExtraParametersRector
+
+
+[1m34) app/Http/Controllers/Api/ProductController.php:20[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ final class ProductController extends Controller
+ {
+[31m-    public function __construct(private readonly ProductService $productService) {}[39m
+[32m+    public function __construct()[39m
+[32m+    {[39m
+[32m+    }[39m
+
+     public function store(StoreProductRequest $request): JsonResponse
+     {
+[36m@@ @@[39m
+
+         $paginator = $query->paginate($perPage);
+
+[31m-        $data = collect($paginator->items())->map(function (Product $product) {[39m
+[32m+        $data = collect($paginator->items())->map(function (Product $product): array {[39m
+             return $this->formatProductResponse($product);
+         });
+
+[36m@@ @@[39m
+         if ($request->has($paramName)) {
+             $value = $request->input($paramName);
+             if ($value !== null && $value !== '') {
+[31m-                $query->where($fieldName, 'like', '%'.(string) $value.'%');[39m
+[32m+                $query->where($fieldName, 'like', '%'.$value.'%');[39m
+             }
+         }
+
+[36m@@ @@[39m
+         }
+
+         if ($product->relationLoaded('stores') && $product->stores) {
+[31m-            $response['stores'] = $product->stores->map(function ($store) {[39m
+[32m+            $response['stores'] = $product->stores->map(function ($store): array {[39m
+                 return [
+                     'id' => $store->id,
+                     'name' => $store->name,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPromotedPropertyRector
+ * RemoveConcatAutocastRector
+ * ClosureReturnTypeRector
+
+
+[1m35) app/Http/Controllers/BackupController.php:18[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class BackupController extends Controller
+ {
+[31m-    private BackupService $backupService;[39m
+[32m+    private readonly BackupService $backupService;[39m
+
+[31m-    private BackupValidator $backupValidator;[39m
+[32m+    private readonly BackupValidator $backupValidator;[39m
+
+[31m-    private BackupListService $backupListService;[39m
+[32m+    private readonly BackupListService $backupListService;[39m
+
+[31m-    private BackupFileService $backupFileService;[39m
+[32m+    private readonly BackupFileService $backupFileService;[39m
+
+[31m-    private RestoreService $restoreService;[39m
+[32m+    private readonly RestoreService $restoreService;[39m
+
+[31m-    private string $backupPath;[39m
+[32m+    private readonly string $backupPath;[39m
+
+     public function __construct()
+     {
+[36m@@ @@[39m
+      */
+     private function buildDownloadUrl(array $backup): string
+     {
+[31m-        $filename = is_string($backup['filename'] ?? '') ? (string) ($backup['filename'] ?? '') : '';[39m
+[32m+        $filename = is_string($backup['filename'] ?? '') ? $backup['filename'] ?? '' : '';[39m
+
+         return url('storage/backups/'.$filename);
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * ReadOnlyPropertyRector
+
+
+[1m36) app/Http/Controllers/BrandController.php:36[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+         $brands = $query->paginate(10);
+
+[31m-        return view('brands.index', compact('brands'));[39m
+[32m+        return view('brands.index', ['brands' => $brands]);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+             abort(404);
+         }
+
+[31m-        return view('brands.show', compact('brand'));[39m
+[32m+        return view('brands.show', ['brand' => $brand]);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+             abort(404);
+         }
+
+[31m-        return view('brands.edit', compact('brand'));[39m
+[32m+        return view('brands.edit', ['brand' => $brand]);[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * CompactToVariablesRector
+
+
+[1m37) app/Http/Controllers/ErrorController.php:16[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ final class ErrorController extends Controller
+ {
+     public function __construct(
+[31m-        private LogProcessingService $logProcessingService[39m
+[32m+        private readonly LogProcessingService $logProcessingService[39m
+     ) {}
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m38) app/Http/Controllers/LogController.php:118[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     public function parseLogFile(array $allowedLevels = []): array
+     {
+[31m-        return $this->executeLogOperation(function () use ($allowedLevels) {[39m
+[32m+        return $this->executeLogOperation(function () use ($allowedLevels): array {[39m
+             if (! File::exists($this->logPath)) {
+                 return [
+                     'success' => false,
+[36m@@ @@[39m
+      */
+     public function parseAccessLogFile(): array
+     {
+[31m-        return $this->executeLogOperation(function () {[39m
+[32m+        return $this->executeLogOperation(function (): array {[39m
+             $accessLogPath = storage_path('logs/access.log');
+
+             if (! File::exists($accessLogPath)) {
+[36m@@ @@[39m
+      */
+     public function getSystemLogsForExport(): array
+     {
+[31m-        return $this->executeWithErrorHandling(function () {[39m
+[32m+        return $this->executeWithErrorHandling(function (): array {[39m
+             return $this->parseLogFile();
+         }, 'getting system logs');
+     }
+[36m@@ @@[39m
+      */
+     public function getAccessLogsForExport(): array
+     {
+[31m-        return $this->executeWithErrorHandling(function () {[39m
+[32m+        return $this->executeWithErrorHandling(function (): array {[39m
+             return $this->parseAccessLogFile();
+         }, 'getting access logs');
+     }
+[36m@@ @@[39m
+      */
+     private function filterLinesByLevels(array $lines, array $allowedLevels): array
+     {
+[31m-        if (empty($allowedLevels)) {[39m
+[32m+        if ($allowedLevels === []) {[39m
+             return $lines;
+         }
+
+[31m-        return array_filter($lines, static function ($line) use ($allowedLevels): bool {[39m
+[32m+        return array_filter($lines, static function (string $line) use ($allowedLevels): bool {[39m
+             foreach ($allowedLevels as $level) {
+                 if (str_contains($line, $level)) {
+                     return true;
+[36m@@ @@[39m
+
+         try {
+             fputcsv($file, ['Timestamp', 'Level', 'Message']);
+[31m-            fputcsv($file, array_values(array_map(static fn ($log) => is_string($log) ? $log : 'log', $logs)));[39m
+[32m+            fputcsv($file, array_values(array_map(static fn (array $log): string => is_string($log) ? $log : 'log', $logs)));[39m
+         } finally {
+             fclose($file);
+         }
+[36m@@ @@[39m
+             return $lines;
+         }
+
+[31m-        return array_filter($lines, static fn ($line): bool => str_contains($line, $level));[39m
+[32m+        return array_filter($lines, static fn (string $line): bool => str_contains($line, $level));[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyEmptyCheckOnEmptyArrayRector
+ * AddArrowFunctionReturnTypeRector
+ * ClosureReturnTypeRector
+ * AddArrayFunctionClosureParamTypeRector
+
+
+[1m39) app/Http/Controllers/OrderController.php:209[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+                 'notifiable_id' => $user->id,
+                 'data' => json_encode([
+                     'title' => 'تحديث حالة الطلب',
+[31m-                    'message' => 'تم تحديث حالة الطلب إلى '.($status ? $status : 'غير معروف'),[39m
+[32m+                    'message' => 'تم تحديث حالة الطلب إلى '.($status !== '' && $status !== '0' ? $status : 'غير معروف'),[39m
+                     'order_id' => $order->id,
+                     'status' => $status,
+                 ], JSON_UNESCAPED_UNICODE),
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+
+
+[1m40) app/Http/Controllers/PriceComparisonController.php:45[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         $prices = $this->priceComparisonService->markBestDeal($prices);
+
+         $showHistory = $request->boolean('history', false);
+[31m-        $priceHistory = $showHistory ? $this->getPriceHistory($product) : [];[39m
+[32m+        $priceHistory = $showHistory ? $this->getPriceHistory() : [];[39m
+
+         return view('products.price-comparison', [
+             'product' => $product,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveExtraParametersRector
+
+
+[1m41) app/Http/Controllers/ProductController.php:48[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     {
+         $product = $this->productService->getBySlug($slug);
+
+[31m-        if ($product === null) {[39m
+[32m+        if (!$product instanceof \App\Models\Product) {[39m
+             abort(404);
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * FlipTypeControlToUseExclusiveTypeRector
+
+
+[1m42) app/Http/Controllers/ProfileController.php:59[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+         if ($request->filled('new_password')) {
+             $passwordUpdateResult = $this->updatePassword($request, $user);
+[31m-            if ($passwordUpdateResult) {[39m
+[32m+            if ($passwordUpdateResult instanceof \Illuminate\Http\RedirectResponse) {[39m
+                 // Convert redirect with errors to JSON format
+                 return response()->json([
+                     'success' => false,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+
+
+[1m43) app/Http/Controllers/RecommendationController.php:14[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class RecommendationController extends Controller
+ {
+[31m-    public function __construct(private RecommendationService $recommendationService) {}[39m
+[32m+    public function __construct(private readonly RecommendationService $recommendationService) {}[39m
+
+     public function index(Request $request): JsonResponse
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m44) app/Http/Controllers/SystemController.php:73[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             $startRef = defined('LARAVEL_START') ? (float) LARAVEL_START : (float) (request()->server('REQUEST_TIME_FLOAT') ?? microtime(true));
+             $executionTime = (float) (microtime(true) - $startRef);
+
+[31m-            $databaseConnections = (int) count(config('database.connections', []));[39m
+[32m+            $databaseConnections = count(config('database.connections', []));[39m
+
+             // Cache hits metric is not tracked natively; provide a placeholder integer
+             $cacheHits = 0;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+
+
+[1m45) app/Http/Middleware/AddCspNonce.php:21[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         $request->attributes->set('cspNonce', $nonce);
+         view()->share('cspNonce', $nonce);
+
+[31m-        /** @var Response $response */[39m
+         return $next($request);
+     }
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveNonExistingVarAnnotationRector
+
+
+[1m46) app/Http/Middleware/CompressionMiddleware.php:14[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class CompressionMiddleware
+ {
+[31m-    private CompressionResponseService $compressionResponseService;[39m
+[32m+    private readonly CompressionResponseService $compressionResponseService;[39m
+
+     public function __construct(CompressionResponseService $compressionResponseService)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m47) app/Http/Middleware/LocaleMiddleware.php:16[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ class LocaleMiddleware
+ {
+     public function __construct(
+[31m-        private Guard $auth,[39m
+[31m-        private Store $session[39m
+[32m+        private readonly Guard $auth,[39m
+[32m+        private readonly Store $session[39m
+     ) {}
+
+     public function handle(Request $request, Closure $next)
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m48) app/Http/Middleware/RTLMiddleware.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     /** @var array<string> */
+     private array $rtlLanguages = ['ar', 'he', 'fa', 'ur'];
+
+[31m-    /**[39m
+[31m-     * @return \Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response[39m
+[31m-     */[39m
+     public function handle(Request $request, Closure $next): \Symfony\Component\HttpFoundation\Response
+     {
+         $locale = app()->getLocale();
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUselessReturnTagRector
+
+
+[1m49) app/Console/Commands/AnalyzeDatabaseCommand.php:20[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     protected $description = 'Analyze database performance and provide insights';
+
+[31m-    private DatabaseManager $database;[39m
+[32m+    private readonly DatabaseManager $database;[39m
+
+[31m-    private ConfigRepository $config;[39m
+[32m+    private readonly ConfigRepository $config;[39m
+
+     public function __construct(DatabaseManager $database, ConfigRepository $config)
+     {
+[36m@@ @@[39m
+     {
+         $this->table(
+             ['Table', 'Size (MB)', 'Rows'],
+[31m-            array_map(fn ($row) => (array) $row, $data)[39m
+[32m+            array_map(fn (array|object $row): array => (array) $row, $data)[39m
+         );
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * AddArrowFunctionReturnTypeRector
+ * AddArrayFunctionClosureParamTypeRector
+
+
+[1m50) app/Console/Commands/CleanAnalytics.php:37[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     {
+         $days = (int) $this->option('days');
+
+[31m-        if (! $this->option('force')) {[39m
+[31m-            if (! $this->confirm("This will delete analytics data older than {$days} days. Continue?")) {[39m
+[31m-                $this->info('Operation cancelled.');[39m
+[31m-[39m
+[31m-                return self::SUCCESS;[39m
+[31m-            }[39m
+[32m+        if (!$this->option('force') && ! $this->confirm("This will delete analytics data older than {$days} days. Continue?")) {[39m
+[32m+            $this->info('Operation cancelled.');[39m
+[32m+            return self::SUCCESS;[39m
+         }
+
+         $this->info("🗑️  Cleaning analytics data older than {$days} days...");
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * CombineIfRector
+
+
+[1m51) app/Console/Commands/GenerateSitemap.php:26[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     protected $description = 'Generate XML sitemap for SEO optimization';
+
+[31m-    private Filesystem $filesystem;[39m
+[32m+    private readonly Filesystem $filesystem;[39m
+
+     public function __construct(Filesystem $filesystem)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m52) app/Console/Commands/OptimizeDatabase.php:22[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     protected $description = 'Optimize database performance by adding indexes and analyzing tables';
+
+[31m-    private DatabaseManager $database;[39m
+[32m+    private readonly DatabaseManager $database;[39m
+
+     public function __construct(DatabaseManager $database)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m53) app/Console/Commands/StatsCommand.php:104[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         $maxPrice = is_numeric($maxPriceValue) ? (float) $maxPriceValue : 0.0;
+
+         $this->table(['Price Metric', 'Value'], [
+[31m-            ['Average Price', '$'.number_format((float) $avgPrice, 2)],[39m
+[31m-            ['Minimum Price', '$'.number_format((float) $minPrice, 2)],[39m
+[31m-            ['Maximum Price', '$'.number_format((float) $maxPrice, 2)],[39m
+[32m+            ['Average Price', '$'.number_format($avgPrice, 2)],[39m
+[32m+            ['Minimum Price', '$'.number_format($minPrice, 2)],[39m
+[32m+            ['Maximum Price', '$'.number_format($maxPrice, 2)],[39m
+         ]);
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+
+
+[1m54) app/Console/Commands/UpdatePricesCommand.php:32[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+     private PriceUpdateDisplayService $displayService;
+
+[31m-    private PriceFetcherService $priceFetcherService;[39m
+[31m-[39m
+     /**
+      * Execute the console command.
+      *
+[36m@@ @@[39m
+         $this->displayService = new PriceUpdateDisplayService($this);
+         $this->queryBuilderService = new PriceQueryBuilderService;
+         $this->priceProcessor = new PriceUpdateProcessorService($this->displayService);
+[31m-        $this->priceFetcherService = new PriceFetcherService;[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivatePropertyRector
+
+
+[1m55) app/DTO/ProcessResult.php:4[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ namespace App\DTO;
+
+[31m-final class ProcessResult[39m
+[32m+final readonly class ProcessResult[39m
+ {
+     /**
+      * Create a new process result instance.
+[36m@@ @@[39m
+         /**
+          * The exit code of the process.
+          */
+[31m-        public readonly int $exitCode,[39m
+[32m+        public int $exitCode,[39m
+         /**
+          * The output of the process.
+          */
+[31m-        public readonly string $output,[39m
+[32m+        public string $output,[39m
+         /**
+          * The error output of the process.
+          */
+[31m-        public readonly string $errorOutput[39m
+[32m+        public string $errorOutput[39m
+     ) {}
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m56) app/DataObjects/Ai/Stage.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use App\Enums\Ai\AgentStage;
+
+[31m-final class Stage[39m
+[32m+final readonly class Stage[39m
+ {
+     public function __construct(
+[31m-        public readonly AgentStage $name,[39m
+[31m-        public readonly string $command,[39m
+[31m-        public readonly bool $strict,[39m
+[31m-        public readonly bool $required,[39m
+[31m-        public readonly ?array $files = null[39m
+[32m+        public AgentStage $name,[39m
+[32m+        public string $command,[39m
+[32m+        public bool $strict,[39m
+[32m+        public bool $required,[39m
+[32m+        public ?array $files = null[39m
+     ) {}
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m57) app/DataObjects/Ai/StageResult.php:4[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ namespace App\DataObjects\Ai;
+
+[31m-final class StageResult[39m
+[32m+final readonly class StageResult[39m
+ {
+     /**
+      * @param  list<string>  $errors
+      */
+     public function __construct(
+[31m-        public readonly bool $success,[39m
+[31m-        public readonly string $output,[39m
+[31m-        public readonly array $errors,[39m
+[31m-        public readonly float $duration,[39m
+[31m-        public readonly string $timestamp[39m
+[32m+        public bool $success,[39m
+[32m+        public string $output,[39m
+[32m+        public array $errors,[39m
+[32m+        public float $duration,[39m
+[32m+        public string $timestamp[39m
+     ) {}
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m58) app/DataObjects/StorageBreakdown.php:4[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ namespace App\DataObjects;
+
+[31m-final class StorageBreakdown[39m
+[32m+final readonly class StorageBreakdown[39m
+ {
+     public function __construct(
+[31m-        public readonly float $sizeMb,[39m
+[31m-        public readonly int $sizeBytes,[39m
+[31m-        public readonly string $path,[39m
+[32m+        public float $sizeMb,[39m
+[32m+        public int $sizeBytes,[39m
+[32m+        public string $path,[39m
+     ) {}
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m59) app/DataObjects/StorageStatistics.php:4[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ namespace App\DataObjects;
+
+[31m-final class StorageStatistics[39m
+[32m+final readonly class StorageStatistics[39m
+ {
+     /**
+      * @param  array{current_size_mb: float, max_size_mb: float, usage_percentage: float, status: string, needs_cleanup: bool, breakdown: array<string, array{size_mb: float, size_bytes: int, path: string}>}  $usage
+[36m@@ @@[39m
+      * @param  array<string, mixed>  $config
+      */
+     public function __construct(
+[31m-        public readonly array $usage,[39m
+[31m-        public readonly array $breakdown,[39m
+[31m-        public readonly array $recommendations,[39m
+[31m-        public readonly array $fileStats,[39m
+[31m-        public readonly array $config,[39m
+[32m+        public array $usage,[39m
+[32m+        public array $breakdown,[39m
+[32m+        public array $recommendations,[39m
+[32m+        public array $fileStats,[39m
+[32m+        public array $config,[39m
+     ) {}
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m60) app/DataObjects/StorageUsage.php:4[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ namespace App\DataObjects;
+
+[31m-final class StorageUsage[39m
+[32m+final readonly class StorageUsage[39m
+ {
+     public function __construct(
+[31m-        public readonly float $currentSizeMb,[39m
+[31m-        public readonly float $maxSizeMb,[39m
+[31m-        public readonly float $usagePercentage,[39m
+[31m-        public readonly string $status,[39m
+[31m-        public readonly bool $needsCleanup,[39m
+[32m+        public float $currentSizeMb,[39m
+[32m+        public float $maxSizeMb,[39m
+[32m+        public float $usagePercentage,[39m
+[32m+        public string $status,[39m
+[32m+        public bool $needsCleanup,[39m
+         /** @var array<string, array{size_mb: float, size_bytes: int, path: string}> */
+[31m-        public readonly array $breakdown[39m
+[32m+        public array $breakdown[39m
+     ) {}
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m61) app/Exceptions/GlobalExceptionHandler.php:35[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         'password_confirmation',
+     ];
+
+[31m-    private LoggerInterface $logger;[39m
+[32m+    private readonly LoggerInterface $logger;[39m
+
+[31m-    private Mailer $mailer;[39m
+[32m+    private readonly Mailer $mailer;[39m
+
+[31m-    public function __construct($app, ?LoggerInterface $logger = null, ?Mailer $mailer = null)[39m
+[32m+    public function __construct(\Illuminate\Contracts\Container\Container $app, ?LoggerInterface $logger = null, ?Mailer $mailer = null)[39m
+     {
+         parent::__construct($app);
+         $this->logger = $logger ?? app(LoggerInterface::class);
+[36m@@ @@[39m
+     private function getExceptionHandlers(): array
+     {
+         return [
+[31m-            ValidationException::class => fn ($exception) => $this->handleValidationException($exception),[39m
+[31m-            AuthenticationException::class => fn () => $this->handleAuthenticationException(),[39m
+[31m-            AuthorizationException::class => fn () => $this->handleAuthorizationException(),[39m
+[31m-            ModelNotFoundException::class => fn () => $this->handleModelNotFoundException(),[39m
+[31m-            QueryException::class => fn ($exception) => $this->handleQueryException($exception),[39m
+[31m-            NotFoundHttpException::class => fn () => $this->handleNotFoundHttpException(),[39m
+[31m-            MethodNotAllowedHttpException::class => fn ($exception) => $this->handleMethodNotAllowedHttpException($exception),[39m
+[31m-            HttpException::class => fn ($exception) => $this->handleHttpException($exception),[39m
+[32m+            ValidationException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleValidationException($exception),[39m
+[32m+            AuthenticationException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleAuthenticationException(),[39m
+[32m+            AuthorizationException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleAuthorizationException(),[39m
+[32m+            ModelNotFoundException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleModelNotFoundException(),[39m
+[32m+            QueryException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleQueryException($exception),[39m
+[32m+            NotFoundHttpException::class => fn (): \Illuminate\Http\JsonResponse => $this->handleNotFoundHttpException(),[39m
+[32m+            MethodNotAllowedHttpException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleMethodNotAllowedHttpException($exception),[39m
+[32m+            HttpException::class => fn ($exception): \Illuminate\Http\JsonResponse => $this->handleHttpException($exception),[39m
+         ];
+     }
+
+[36m@@ @@[39m
+     private function handleHttpException(HttpException $exception): JsonResponse
+     {
+         $statusCode = $exception->getStatusCode();
+[31m-        $message = $exception->getMessage() ? $exception->getMessage() : $this->getHttpStatusMessage($statusCode);[39m
+[32m+        $message = $exception->getMessage() !== '' && $exception->getMessage() !== '0' ? $exception->getMessage() : $this->getHttpStatusMessage($statusCode);[39m
+
+         return $this->createErrorResponse(
+             $message,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * ReadOnlyPropertyRector
+ * AddArrowFunctionReturnTypeRector
+ * ParamTypeByParentCallTypeRector
+
+
+[1m62) app/Http/Controllers/Admin/DashboardController.php:21[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ final class DashboardController extends Controller
+ {
+[31m-    private LoginAttemptService $loginAttemptService;[39m
+[32m+    private readonly LoginAttemptService $loginAttemptService;[39m
+
+[31m-    private UserBanService $userBanService;[39m
+[32m+    private readonly UserBanService $userBanService;[39m
+
+[31m-    private FileSecurityService $fileSecurityService;[39m
+[32m+    private readonly FileSecurityService $fileSecurityService;[39m
+
+[31m-    private User $user;[39m
+[32m+    private readonly User $user;[39m
+
+[31m-    private Product $product;[39m
+[32m+    private readonly Product $product;[39m
+
+[31m-    private Cache $cache;[39m
+[32m+    private readonly Cache $cache;[39m
+
+[31m-    private DB $db;[39m
+[32m+    private readonly DB $db;[39m
+
+[31m-    private Storage $storage;[39m
+[32m+    private readonly Storage $storage;[39m
+
+     public function __construct(
+         LoginAttemptService $loginAttemptService,
+[36m@@ @@[39m
+     private function checkDatabaseHealth(): array
+     {
+         return $this->performHealthCheck(
+[31m-            function () {[39m
+[32m+            function (): true {[39m
+                 $this->db->connection()->getPdo();
+
+                 return true;
+[36m@@ @@[39m
+     private function checkCacheHealth(): array
+     {
+         return $this->performHealthCheck(
+[31m-            function () {[39m
+[32m+            function (): bool {[39m
+                 $this->cache->put('health_check', 'ok', 1);
+                 $result = $this->cache->get('health_check');
+                 $this->cache->forget('health_check');
+[36m@@ @@[39m
+     private function checkStorageHealth(): array
+     {
+         return $this->performHealthCheck(
+[31m-            function () {[39m
+[32m+            function (): bool {[39m
+                 $testFile = 'health_check_'.time().'.txt';
+                 $this->storage->put($testFile, 'test');
+                 $result = $this->storage->get($testFile);
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ClosureReturnTypeRector
+
+
+[1m63) app/Http/Controllers/AnalyticsController.php:13[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class AnalyticsController extends Controller
+ {
+[31m-    public function __construct(private BehaviorAnalysisService $behaviorAnalysisService) {}[39m
+[32m+    public function __construct(private readonly BehaviorAnalysisService $behaviorAnalysisService) {}[39m
+
+     public function userAnalytics(Request $request): JsonResponse
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m64) app/Http/Controllers/Api/AIController.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class AIController extends BaseApiController
+ {
+[31m-    private AIService $aiService;[39m
+[32m+    private readonly AIService $aiService;[39m
+
+     public function __construct(AIService $aiService)
+     {
+[36m@@ @@[39m
+             $price = $validated['price'] ?? 0;
+
+             // Use AIService for actual classification
+[31m-            $result = $this->aiService->classifyProduct($name, $description, $price);[39m
+[32m+            $result = $this->aiService->classifyProduct($name);[39m
+
+             return response()->json([
+                 'success' => true,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveExtraParametersRector
+ * ReadOnlyPropertyRector
+
+
+[1m65) app/Services/Backup/Strategies/FilesBackupStrategy.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\Backup\Services\BackupFileSystemService;
+ use Exception;
+
+[31m-final class FilesBackupStrategy implements BackupStrategyInterface[39m
+[32m+final readonly class FilesBackupStrategy implements BackupStrategyInterface[39m
+ {
+     private BackupFileSystemService $fileSystemService;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m66) app/Services/BehaviorAnalysisService.php:396[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     }
+
+     /**
+[31m-     * Get user segments[39m
+[31m-     *[39m
+[31m-     * @return array<string, int>[39m
+[31m-     */[39m
+[31m-    private function getUserSegments(): array[39m
+[31m-    {[39m
+[31m-        return [[39m
+[31m-            'high_value' => User::whereHas('orders', static function ($query): void {[39m
+[31m-                $query->where('total_amount', '>', 500);[39m
+[31m-            })->count(),[39m
+[31m-            'frequent_buyers' => User::whereHas('orders', static function ($query): void {[39m
+[31m-                $query->where('created_at', '>=', now()->subDays(30));[39m
+[31m-            }, '>=', 3)->count(),[39m
+[31m-            'new_customers' => User::where('created_at', '>=', now()->subDays(30))->count(),[39m
+[31m-        ];[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+      * Get most viewed categories for user
+      *
+      * @return array<int, int>
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodRector
+
+
+[1m67) app/Services/CDNService.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * CDN Service - Facade for CDN operations using provider pattern
+  */
+[31m-final class CDNService[39m
+[32m+final readonly class CDNService[39m
+ {
+     private CDNProviderInterface $provider;
+
+[36m@@ @@[39m
+      */
+     private array $config;
+
+[31m-    private readonly string $providerName;[39m
+[32m+    private string $providerName;[39m
+
+     public function __construct()
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m68) app/Services/CDN/Providers/CloudflareProvider.php:12[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Cloudflare CDN Provider Implementation
+  */
+[31m-final class CloudflareProvider implements CDNProviderInterface[39m
+[32m+final readonly class CloudflareProvider implements CDNProviderInterface[39m
+ {
+     private string $apiToken;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m69) app/Services/CDN/Providers/GoogleCloudProvider.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Google Cloud CDN Provider Implementation
+  */
+[31m-final class GoogleCloudProvider implements CDNProviderInterface[39m
+[32m+final readonly class GoogleCloudProvider implements CDNProviderInterface[39m
+ {
+     private string $bucket;
+
+[36m@@ @@[39m
+     #[\Override]
+     public function getUrl(string $path): string
+     {
+[31m-        if (! empty($this->baseUrl)) {[39m
+[32m+        if ($this->baseUrl !== '' && $this->baseUrl !== '0') {[39m
+             return rtrim($this->baseUrl, '/').'/'.ltrim($path, '/');
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m70) app/Services/CDN/Providers/S3Provider.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * AWS S3 CDN Provider Implementation
+  */
+[31m-final class S3Provider implements CDNProviderInterface[39m
+[32m+final readonly class S3Provider implements CDNProviderInterface[39m
+ {
+     private string $bucket;
+
+[36m@@ @@[39m
+     #[\Override]
+     public function getUrl(string $path): string
+     {
+[31m-        if (! empty($this->baseUrl)) {[39m
+[32m+        if ($this->baseUrl !== '' && $this->baseUrl !== '0') {[39m
+             return rtrim($this->baseUrl, '/').'/'.ltrim($path, '/');
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m71) app/Services/CDN/Services/CDNCacheService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Service for handling CDN cache operations
+  */
+[31m-final class CDNCacheService[39m
+[32m+final readonly class CDNCacheService[39m
+ {
+     private CDNProviderInterface $provider;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m72) app/Services/CDN/Services/CDNFileService.php:12[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Service for handling CDN file operations
+  */
+[31m-final class CDNFileService[39m
+[32m+final readonly class CDNFileService[39m
+ {
+     private CDNProviderInterface $provider;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m73) app/Services/CDN/Services/CDNMonitorService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Service for handling CDN monitoring and statistics
+  */
+[31m-final class CDNMonitorService[39m
+[32m+final readonly class CDNMonitorService[39m
+ {
+     private CDNProviderInterface $provider;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m74) app/Services/CacheStatisticsDisplayer.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class CacheStatisticsDisplayer[39m
+[32m+final readonly class CacheStatisticsDisplayer[39m
+ {
+[31m-    public function __construct(private readonly OutputStyle $output) {}[39m
+[32m+    public function __construct(private OutputStyle $output) {}[39m
+
+     /**
+      * @param  array<string, string|int|float|array|null>  $stats
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m75) app/Services/Compression/CompressionResponseService.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class CompressionResponseService
+ {
+[31m-    private CompressionService $compressionService;[39m
+[32m+    private readonly CompressionService $compressionService;[39m
+
+[31m-    private ContentTypeService $contentTypeService;[39m
+[32m+    private readonly ContentTypeService $contentTypeService;[39m
+
+     public function __construct(
+         CompressionService $compressionService,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m76) app/Services/Compression/ContentTypeService.php:26[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         $contentType = $response->headers->get('Content-Type', '');
+
+         foreach (self::COMPRESSIBLE_TYPES as $type) {
+[31m-            if (str_contains($contentType, $type)) {[39m
+[32m+            if (str_contains((string) $contentType, $type)) {[39m
+                 return true;
+             }
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * NullToStrictStringFuncCallArgRector
+
+
+[1m77) app/Services/ConfigurationService.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use Illuminate\Contracts\Config\Repository;
+
+[31m-final class ConfigurationService[39m
+[32m+final readonly class ConfigurationService[39m
+ {
+     private Repository $configRepository;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m78) app/Services/ExchangeRateService.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Support\Facades\Http;
+ use Illuminate\Support\Facades\Log;
+
+[31m-final class ExchangeRateService[39m
+[32m+final readonly class ExchangeRateService[39m
+ {
+     /**
+      * Base currency for exchange rates.
+[36m@@ @@[39m
+     private const BASE_CURRENCY = 'USD';
+
+     /**
+[31m-     * Cache duration in seconds (24 hours).[39m
+[31m-     */[39m
+[31m-    private const CACHE_DURATION = 86400;[39m
+[31m-[39m
+[31m-    /**[39m
+      * Supported currencies.
+      */
+     private const SUPPORTED_CURRENCIES = ['USD', 'EUR', 'GBP', 'JPY', 'SAR', 'AED', 'EGP'];
+[36m@@ @@[39m
+             ['rate' => $rate, 'source' => 'api', 'fetched_at' => now()]
+         );
+
+[31m-        if (is_numeric($rate) && $rate > 0) {[39m
+[32m+        if ($rate > 0) {[39m
+             ExchangeRate::updateOrCreate(
+                 ['from_currency' => $toCurrency, 'to_currency' => $from],
+[31m-                ['rate' => 1 / (float) $rate, 'source' => 'api', 'fetched_at' => now()][39m
+[32m+                ['rate' => 1 / $rate, 'source' => 'api', 'fetched_at' => now()][39m
+             );
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * RemoveUnusedPrivateClassConstantRector
+ * RemoveAlwaysTrueIfConditionRector
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m79) app/Services/ExchangeRates/RateProvider.php:19[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+         $rate = $this->fromCache($from, $to) ?? $this->fromDatabase($from, $to);
+
+[31m-        return $rate ? (float) $rate : null;[39m
+[32m+        return $rate ? $rate : null;[39m
+     }
+
+     private function fromCache(string $from, string $to): ?float
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+
+
+[1m80) app/Services/ExternalStoreService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Support\Facades\Config;
+ use Illuminate\Support\Facades\Log;
+
+[31m-final class ExternalStoreService[39m
+[32m+final readonly class ExternalStoreService[39m
+ {
+     /** @var array<string, mixed> */
+     private array $storeConfigs;
+[36m@@ @@[39m
+         foreach (array_keys($this->storeConfigs) as $storeName) {
+             try {
+                 $client = StoreClientFactory::create($storeName);
+[31m-                if ($client) {[39m
+[32m+                if ($client instanceof \App\Services\StoreClients\GenericStoreClient) {[39m
+                     $storeResults = $client->search($query, $filters);
+                     $results = array_merge($results, $this->normalizeProducts($storeResults, $storeName));
+                 }
+[36m@@ @@[39m
+      */
+     public function getProductDetails(string $storeName, string $productId): ?array
+     {
+[31m-        return Cache::remember("external_product_{$storeName}_{$productId}", 3600, function () use ($storeName, $productId) {[39m
+[32m+        return Cache::remember("external_product_{$storeName}_{$productId}", 3600, function () use ($storeName, $productId): ?array {[39m
+             try {
+                 $client = StoreClientFactory::create($storeName);
+[31m-                if ($client) {[39m
+[32m+                if ($client instanceof \App\Services\StoreClients\GenericStoreClient) {[39m
+                     $productData = $client->getProduct($productId);
+
+                     return $productData ? $this->normalizeProductData($productData, $storeName) : null;
+[36m@@ @@[39m
+
+         try {
+             $client = StoreClientFactory::create($storeName);
+[31m-            if ($client) {[39m
+[32m+            if ($client instanceof \App\Services\StoreClients\GenericStoreClient) {[39m
+                 $client->syncProducts(function ($productData) use ($storeName, &$syncedCount): void {
+                     $this->syncProduct($productData, $storeName);
+                     $syncedCount++;
+[36m@@ @@[39m
+         foreach (array_keys($this->storeConfigs) as $storeName) {
+             try {
+                 $client = StoreClientFactory::create($storeName);
+[31m-                $status[$storeName] = $client ? $client->getStatus() : ['status' => 'error', 'error' => 'Invalid configuration'];[39m
+[32m+                $status[$storeName] = $client instanceof \App\Services\StoreClients\GenericStoreClient ? $client->getStatus() : ['status' => 'error', 'error' => 'Invalid configuration'];[39m
+                 $status[$storeName]['last_check'] = now()->toISOString();
+             } catch (\Exception $e) {
+                 $status[$storeName] = ['status' => 'error', 'error' => $e->getMessage(), 'last_check' => now()->toISOString()];
+[36m@@ @@[39m
+      */
+     private function normalizeProducts(array $products, string $storeName): array
+     {
+[31m-        return array_map(fn ($product) => $this->normalizeProductData($product, $storeName), $products);[39m
+[32m+        return array_map(fn (array $product): array => $this->normalizeProductData($product, $storeName), $products);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+     private function sortAndFilterResults(array $results, array $filters): array
+     {
+         if (isset($filters['sort_by']) && $filters['sort_by'] === 'price') {
+[31m-            usort($results, fn ($a, $b) => ($a['price'] ?? 0) <=> ($b['price'] ?? 0));[39m
+[32m+            usort($results, fn (array $a, array $b): int => ($a['price'] ?? 0) <=> ($b['price'] ?? 0));[39m
+         }
+
+         if (isset($filters['min_price'])) {
+[31m-            $results = array_filter($results, fn ($product) => ($product['price'] ?? 0) >= $filters['min_price']);[39m
+[32m+            $results = array_filter($results, fn (array $product): bool => ($product['price'] ?? 0) >= $filters['min_price']);[39m
+         }
+
+         if (isset($filters['max_price'])) {
+[31m-            $results = array_filter($results, fn ($product) => ($product['price'] ?? 0) <= $filters['max_price']);[39m
+[32m+            $results = array_filter($results, fn (array $product): bool => ($product['price'] ?? 0) <= $filters['max_price']);[39m
+         }
+
+         return array_values($results);
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+ * AddArrowFunctionReturnTypeRector
+ * ClosureReturnTypeRector
+ * AddArrayFunctionClosureParamTypeRector
+ * AddArrowFunctionParamArrayWhereDimFetchRector
+
+
+[1m81) app/Services/AgentFixer/AnalysisFixer.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\ProcessService;
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class AnalysisFixer implements AgentFixerInterface[39m
+[32m+final readonly class AnalysisFixer implements AgentFixerInterface[39m
+ {
+     public function __construct(
+[31m-        private readonly ProcessService $processService,[39m
+[31m-        private readonly OutputStyle $output[39m
+[32m+        private ProcessService $processService,[39m
+[32m+        private OutputStyle $output[39m
+     ) {}
+
+     #[\Override]
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m82) app/Services/AgentFixer/FixExecutionService.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\ProcessService;
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class FixExecutionService[39m
+[32m+final readonly class FixExecutionService[39m
+ {
+     public function __construct(
+[31m-        private readonly ProcessService $processService,[39m
+[31m-        private readonly OutputStyle $output[39m
+[32m+        private OutputStyle $output[39m
+     ) {}
+
+     public function executeFixerProcess(string $type, AgentFixerFactory $agentFixerFactory): bool
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPromotedPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m83) app/Services/AgentFixer/GitWorkflowService.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\ProcessService;
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class GitWorkflowService[39m
+[32m+final readonly class GitWorkflowService[39m
+ {
+     public function __construct(
+[31m-        private readonly ProcessService $processService,[39m
+[31m-        private readonly OutputStyle $output[39m
+[32m+        private ProcessService $processService,[39m
+[32m+        private OutputStyle $output[39m
+     ) {}
+
+     public function createBranch(string $branchName): bool
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m84) app/Services/AgentFixer/PullRequestService.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\ProcessService;
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class PullRequestService[39m
+[32m+final readonly class PullRequestService[39m
+ {
+     public function __construct(
+[31m-        private readonly ProcessService $processService,[39m
+[31m-        private readonly OutputStyle $output[39m
+[32m+        private ProcessService $processService,[39m
+[32m+        private OutputStyle $output[39m
+     ) {}
+
+     public function createPullRequest(string $branchName, string $prTitle, string $prBody): bool
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m85) app/Services/AgentFixer/StyleFixer.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\ProcessService;
+ use Illuminate\Console\OutputStyle;
+
+[31m-final class StyleFixer implements AgentFixerInterface[39m
+[32m+final readonly class StyleFixer implements AgentFixerInterface[39m
+ {
+     public function __construct(
+[31m-        private readonly ProcessService $processService,[39m
+[31m-        private readonly OutputStyle $output[39m
+[32m+        private ProcessService $processService,[39m
+[32m+        private OutputStyle $output[39m
+     ) {}
+
+     #[\Override]
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m86) app/Services/AnalyticsService.php:199[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             ->orderByDesc('views')
+             ->limit($limit)
+             ->get()
+[31m-            ->map(fn ($row) => ['product_id' => $row->product_id, 'view_count' => (int) $row->views])[39m
+[32m+            ->map(fn ($row): array => ['product_id' => $row->product_id, 'view_count' => (int) $row->views])[39m
+             ->toArray();
+     }
+
+[36m@@ @@[39m
+         }
+
+         // Sort by count desc, then by query asc for stability
+[31m-        uasort($counts, function ($a, $b) {[39m
+[32m+        uasort($counts, function ($a, $b): int {[39m
+             if ($a === $b) {
+                 return 0;
+             }
+[36m@@ @@[39m
+         $limited = array_slice($counts, 0, $limit, true);
+
+         // Ensure integer values
+[31m-        return array_map(fn ($c) => (int) $c, $limited);[39m
+[32m+        return array_map(fn (int $c): int => $c, $limited);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+             ->orderByDesc('click_count')
+             ->limit($limit)
+             ->get()
+[31m-            ->map(fn ($row) => ['store_id' => $row->store_id, 'click_count' => (int) $row->click_count])[39m
+[32m+            ->map(fn ($row): array => ['store_id' => $row->store_id, 'click_count' => (int) $row->click_count])[39m
+             ->toArray();
+     }
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * AddArrowFunctionReturnTypeRector
+ * ClosureReturnTypeRector
+ * AddArrayFunctionClosureParamTypeRector
+
+
+[1m87) app/Services/BackupService.php:21[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ class BackupService
+ {
+[31m-    private BackupManagerService $backupManager;[39m
+[32m+    private readonly BackupManagerService $backupManager;[39m
+
+[31m-    private BackupValidatorService $validator;[39m
+[31m-[39m
+     /**
+      * @var array<string, \App\Services\Backup\Strategies\BackupStrategyInterface>
+      */
+[36m@@ @@[39m
+         ConfigurationBackupStrategy $configStrategy
+     ) {
+         $this->backupManager = $backupManager;
+[31m-        $this->validator = $validator;[39m
+
+         // Register strategies
+         $this->strategies['database'] = $databaseStrategy;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivatePropertyRector
+ * ReadOnlyPropertyRector
+
+
+[1m88) app/Services/Backup/BackupFileService.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class BackupFileService
+ {
+[31m-    private string $backupPath;[39m
+[32m+    private readonly string $backupPath;[39m
+
+     public function __construct(string $backupPath)
+     {
+[36m@@ @@[39m
+      */
+     public function getBackupFilePath(array $backup): string
+     {
+[31m-        $filename = is_string($backup['filename'] ?? '') ? (string) ($backup['filename'] ?? '') : '';[39m
+[32m+        $filename = is_string($backup['filename'] ?? '') ? $backup['filename'] ?? '' : '';[39m
+
+         return $this->backupPath.'/'.$filename;
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * ReadOnlyPropertyRector
+
+
+[1m89) app/Services/Backup/BackupListService.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class BackupListService
+ {
+[31m-    private string $backupPath;[39m
+[32m+    private readonly string $backupPath;[39m
+
+     public function __construct(string $backupPath)
+     {
+[36m@@ @@[39m
+      */
+     private function isValidBackupFile(string $file): bool
+     {
+[31m-        return $file !== '.' && $file !== '..' && is_file($this->backupPath.'/'.(string) $file);[39m
+[32m+        return $file !== '.' && $file !== '..' && is_file($this->backupPath.'/'.$file);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      */
+     private function createBackupMetadata(string $file): ?array
+     {
+[31m-        $filePath = $this->backupPath.'/'.(string) $file;[39m
+[32m+        $filePath = $this->backupPath.'/'.$file;[39m
+         $fileSize = filesize($filePath);
+         $fileTime = filemtime($filePath);
+
+[36m@@ @@[39m
+      */
+     private function sortBackupsByDate(array $backups): array
+     {
+[31m-        usort($backups, static fn (array $a, array $b): int => strtotime($b['created_at']) - strtotime($a['created_at']));[39m
+[32m+        usort($backups, static fn (array $a, array $b): int => strtotime((string) $b['created_at']) - strtotime((string) $a['created_at']));[39m
+
+         return $backups;
+     }
+[36m@@ @@[39m
+         $totalSize = 0;
+
+         foreach ($backups as $backup) {
+[31m-            $filePath = $this->backupPath.'/'.(string) $backup['filename'];[39m
+[32m+            $filePath = $this->backupPath.'/'.$backup['filename'];[39m
+             if (file_exists($filePath)) {
+                 $totalSize += filesize($filePath);
+             }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveConcatAutocastRector
+ * NullToStrictStringFuncCallArgRector
+ * ReadOnlyPropertyRector
+
+
+[1m90) app/Services/Backup/BackupManagerService.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ final class BackupManagerService
+ {
+[31m-    private BackupValidatorService $validatorService;[39m
+[32m+    private readonly BackupValidatorService $validatorService;[39m
+
+[31m-    private BackupCompressionService $compressionService;[39m
+[32m+    private readonly BackupCompressionService $compressionService;[39m
+
+[31m-    private BackupDatabaseService $databaseService;[39m
+[32m+    private readonly BackupDatabaseService $databaseService;[39m
+
+[31m-    private BackupFileSystemService $fileSystemService;[39m
+[32m+    private readonly BackupFileSystemService $fileSystemService;[39m
+
+[31m-    private BackupConfigurationService $configurationService;[39m
+[32m+    private readonly BackupConfigurationService $configurationService;[39m
+
+     /**
+      * @var array<string, BackupStrategyInterface>
+[36m@@ @@[39m
+         $backupDir = $this->createBackupDirectory($name);
+
+         try {
+[31m-            $manifest = $this->executeBackupComponents($backupDir, $type, $options);[39m
+[32m+            $manifest = $this->executeBackupComponents($backupDir, $type);[39m
+             $manifest['name'] = $name;
+             $manifest['type'] = $type;
+             $manifest['created_at'] = now()->toIso8601String();
+[36m@@ @@[39m
+      *
+      * @throws Exception
+      */
+[31m-    private function executeBackupComponents(string $backupDir, string $type, array $options): array[39m
+[32m+    private function executeBackupComponents(string $backupDir, string $type): array[39m
+     {
+         $components = [];
+         $totalSize = 0;
+[36m@@ @@[39m
+         foreach ($requestedComponents as $component) {
+             if (isset($manifest['components'][$component])) {
+                 $strategy = $this->findStrategyForComponent($component);
+[31m-                if ($strategy) {[39m
+[32m+                if ($strategy instanceof \App\Services\Backup\Strategies\BackupStrategyInterface) {[39m
+                     $results[$component] = $strategy->restore($extractDir, $manifest['components'][$component]);
+                 }
+             }
+[36m@@ @@[39m
+         $backupDir = storage_path('backups/'.$name);
+
+         // If the directory already exists, reuse it to align with tests
+[31m-        if (! is_dir($backupDir)) {[39m
+[31m-            if (! mkdir($backupDir, 0o755, true)) {[39m
+[31m-                throw new Exception("Failed to create backup directory: {$backupDir}");[39m
+[31m-            }[39m
+[32m+        if (!is_dir($backupDir) && ! mkdir($backupDir, 0o755, true)) {[39m
+[32m+            throw new Exception("Failed to create backup directory: {$backupDir}");[39m
+         }
+
+         return $backupDir;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * CombineIfRector
+ * ExplicitBoolCompareRector
+ * RemoveUnusedPrivateMethodParameterRector
+ * ReadOnlyPropertyRector
+
+
+[1m91) app/Services/Backup/BackupService.php:13[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class BackupService
+ {
+[31m-    private string $backupPath;[39m
+[32m+    private readonly string $backupPath;[39m
+
+     public function __construct(string $backupPath)
+     {
+[36m@@ @@[39m
+      */
+     private function generateBackupFilename(string $name): string
+     {
+[31m-        return (is_string($name) ? (string) $name : 'backup').'.zip';[39m
+[32m+        return (is_string($name) ? $name : 'backup').'.zip';[39m
+     }
+
+     /**
+[36m@@ @@[39m
+             mkdir($this->backupPath, 0o755, true);
+         }
+
+[31m-        return $this->backupPath.'/'.(string) $filename;[39m
+[32m+        return $this->backupPath.'/'.$filename;[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      */
+     private function createBackupResult(string $filename, string $type, string $description): array
+     {
+[31m-        $filePath = $this->backupPath.'/'.(string) $filename;[39m
+[32m+        $filePath = $this->backupPath.'/'.$filename;[39m
+         $fileSize = filesize($filePath);
+
+         Log::info('Backup created: '.$filename);
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * RemoveConcatAutocastRector
+ * ReadOnlyPropertyRector
+
+
+[1m92) app/Services/Backup/RestoreService.php:12[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class RestoreService
+ {
+[31m-    private string $backupPath;[39m
+[32m+    private readonly string $backupPath;[39m
+
+     public function __construct(string $backupPath)
+     {
+[36m@@ @@[39m
+     {
+         try {
+             $filename = is_string($backup['filename'] ?? '')
+[31m-            ? (string) ($backup['filename'] ?? '')[39m
+[32m+            ? $backup['filename'] ?? ''[39m
+             : '';
+             $filePath = $this->backupPath.'/'.$filename;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * ReadOnlyPropertyRector
+
+
+[1m93) app/Services/Backup/Services/BackupFileSystemService.php:109[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     private function joinPaths(string ...$parts): string
+     {
+[31m-        $trimmed = array_map(static fn (string $p) => trim($p, '\\/'), $parts);[39m
+[32m+        $trimmed = array_map(static fn (string $p): string => trim($p, '\\/'), $parts);[39m
+
+         return implode(DIRECTORY_SEPARATOR, $trimmed);
+     }
+[36m@@ @@[39m
+      */
+     private function processSingleItemCopy(\SplFileInfo $item, string $dest, RecursiveIteratorIterator $iterator): void
+     {
+[31m-        if ($item instanceof \SplFileInfo) {[39m
+[31m-            $destPath = $dest.DIRECTORY_SEPARATOR.$iterator->getSubPathName();[39m
+[31m-[39m
+[31m-            if ($item->isDir()) {[39m
+[31m-                mkdir($destPath, 0o755, true);[39m
+[31m-            } else {[39m
+[31m-                copy($item->getPathname(), $destPath);[39m
+[31m-            }[39m
+[32m+        $destPath = $dest.DIRECTORY_SEPARATOR.$iterator->getSubPathName();[39m
+[32m+        if ($item->isDir()) {[39m
+[32m+            mkdir($destPath, 0o755, true);[39m
+[32m+        } else {[39m
+[32m+            copy($item->getPathname(), $destPath);[39m
+         }
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveAlwaysTrueIfConditionRector
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m94) app/Services/Backup/Services/BackupValidatorService.php:16[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     public function validateBackupParameters(string $type, array $options): void
+     {
+         $this->validateBackupType($type);
+[31m-        $this->validateBackupOptions($type, $options);[39m
+[32m+        $this->validateBackupOptions($options);[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      *
+      * @throws Exception
+      */
+[31m-    private function validateBackupOptions(string $type, array $options): void[39m
+[32m+    private function validateBackupOptions(array $options): void[39m
+     {
+         if (isset($options['directories']) && ! is_array($options['directories'])) {
+             throw new Exception('Backup directories must be an array');
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodParameterRector
+
+
+[1m95) app/Services/Backup/Strategies/ConfigurationBackupStrategy.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\Backup\Services\BackupConfigurationService;
+ use Exception;
+
+[31m-final class ConfigurationBackupStrategy implements BackupStrategyInterface[39m
+[32m+final readonly class ConfigurationBackupStrategy implements BackupStrategyInterface[39m
+ {
+     private BackupConfigurationService $configurationService;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m96) app/Services/Backup/Strategies/DatabaseBackupStrategy.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use App\Services\Backup\Services\BackupDatabaseService;
+ use Exception;
+
+[31m-final class DatabaseBackupStrategy implements BackupStrategyInterface[39m
+[32m+final readonly class DatabaseBackupStrategy implements BackupStrategyInterface[39m
+ {
+     private BackupDatabaseService $databaseService;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m97) app/Services/FactoryConfigurationService.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use Illuminate\Database\Eloquent\Factories\Factory;
+
+[31m-final class FactoryConfigurationService[39m
+[32m+final readonly class FactoryConfigurationService[39m
+ {
+[31m-    public function __construct(private readonly string $factoryClass = Factory::class) {}[39m
+[32m+    public function __construct(private string $factoryClass = Factory::class) {}[39m
+
+     public function configureNaming(): void
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m98) app/Services/FileCleanupService.php:16[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     /** @var array<string, int|string> */
+     public array $config = [];
+
+[31m-    private DirectoryCleaner $cleaner;[39m
+[32m+    private readonly DirectoryCleaner $cleaner;[39m
+
+     public function __construct(?DirectoryCleaner $cleaner = null)
+     {
+[36m@@ @@[39m
+             if (is_file($path)) {
+                 $fileSize = filesize($path);
+                 if ($fileSize !== false) {
+[31m-                    $size += (int) $fileSize;[39m
+[32m+                    $size += $fileSize;[39m
+                 }
+             } elseif (is_dir($path)) {
+                 $size += $this->getDirectorySize($path);
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * ReadOnlyPropertyRector
+
+
+[1m99) app/Services/FileCleanup/Strategies/BackupFilesCleanupStrategy.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use App\Services\FileCleanup\DirectoryCleaner;
+
+[31m-final class BackupFilesCleanupStrategy implements CleanupStrategy[39m
+[32m+final readonly class BackupFilesCleanupStrategy implements CleanupStrategy[39m
+ {
+     private DirectoryCleaner $cleaner;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m100) app/Services/FileCleanup/Strategies/CacheFilesCleanupStrategy.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Exception;
+ use Illuminate\Support\Facades\Log;
+
+[31m-final class CacheFilesCleanupStrategy implements CleanupStrategy[39m
+[32m+final readonly class CacheFilesCleanupStrategy implements CleanupStrategy[39m
+ {
+     private DirectoryCleaner $cleaner;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m101) app/Services/FileCleanup/Strategies/LogFilesCleanupStrategy.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use App\Services\FileCleanup\DirectoryCleaner;
+
+[31m-final class LogFilesCleanupStrategy implements CleanupStrategy[39m
+[32m+final readonly class LogFilesCleanupStrategy implements CleanupStrategy[39m
+ {
+     private DirectoryCleaner $cleaner;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m102) app/Services/FileCleanup/Strategies/TempFilesCleanupStrategy.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use App\Services\FileCleanup\DirectoryCleaner;
+
+[31m-final class TempFilesCleanupStrategy implements CleanupStrategy[39m
+[32m+final readonly class TempFilesCleanupStrategy implements CleanupStrategy[39m
+ {
+     private DirectoryCleaner $cleaner;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m103) app/Services/FileCleanup/Strategies/UploadedFilesCleanupStrategy.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use App\Services\FileCleanup\DirectoryCleaner;
+
+[31m-final class UploadedFilesCleanupStrategy implements CleanupStrategy[39m
+[32m+final readonly class UploadedFilesCleanupStrategy implements CleanupStrategy[39m
+ {
+     private DirectoryCleaner $cleaner;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m104) app/Services/FinancialTransactionService.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Support\Facades\DB;
+ use Illuminate\Support\Facades\Log;
+
+[31m-final class FinancialTransactionService[39m
+[32m+final readonly class FinancialTransactionService[39m
+ {
+[31m-    public function __construct(private readonly AuditService $auditService) {}[39m
+[32m+    public function __construct(private AuditService $auditService) {}[39m
+
+     public function updateProductPrice(Product $product, float $newPrice, ?string $reason = null): bool
+     {
+[36m@@ @@[39m
+
+     public function updatePriceOffer(PriceOffer $priceOffer, array $updateData): PriceOffer
+     {
+[31m-        return DB::transaction(function () use ($priceOffer, $updateData) {[39m
+[32m+        return DB::transaction(function () use ($priceOffer, $updateData): \App\Models\PriceOffer {[39m
+             $this->validateOfferUpdateData($updateData);
+
+             $oldData = $priceOffer->toArray();
+[36m@@ @@[39m
+
+     public function deletePriceOffer(PriceOffer $priceOffer): bool
+     {
+[31m-        return DB::transaction(function () use ($priceOffer) {[39m
+[32m+        return DB::transaction(function () use ($priceOffer): true {[39m
+             $priceOffer->delete();
+
+             $this->logOfferDeletion($priceOffer);
+[36m@@ @@[39m
+         $this->auditService->logDeleted($priceOffer);
+
+         Log::info('Price offer deleted successfully', ['offer_id' => $priceOffer->id]);
+[31m-    }[39m
+[31m-[39m
+[31m-    private function isLowestPriceOffer(PriceOffer $offer): bool[39m
+[31m-    {[39m
+[31m-        $lowestOffer = PriceOffer::where('product_id', $offer->product_id)[39m
+[31m-            ->where('is_available', true)[39m
+[31m-            ->orderBy('price')[39m
+[31m-            ->first();[39m
+[31m-[39m
+[31m-        return $lowestOffer && $lowestOffer->id === $offer->id;[39m
+     }
+
+     private function updateProductPriceFromOffer(PriceOffer $priceOffer): void
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodRector
+ * ReadOnlyClassRector
+ * ClosureReturnTypeRector
+
+
+[1m105) app/Services/ImageOptimizationService.php:35[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+                     continue;
+                 }
+
+[31m-                $width = (int) $dimensions[0];[39m
+[31m-                $height = (int) $dimensions[1];[39m
+[32m+                $width = $dimensions[0];[39m
+[32m+                $height = $dimensions[1];[39m
+
+                 $sizeNameStr = (string) $sizeName;
+                 $optimizedPath = $this->generateOptimizedPath($path, $sizeNameStr);
+[36m@@ @@[39m
+                     if (method_exists($constraint, 'aspectRatio')) {
+                         $constraint->aspectRatio();
+                     }
+[31m-                    if (is_object($constraint) && method_exists($constraint, 'upsize')) {[39m
+[32m+                    if (method_exists($constraint, 'upsize')) {[39m
+                         $constraint->upsize();
+                     }
+                 });
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RecastingRemovalRector
+ * RemoveAlwaysTrueIfConditionRector
+
+
+[1m106) app/Services/LogProcessing/ErrorStatisticsCalculator.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ class ErrorStatisticsCalculator
+ {
+     public function __construct(
+[31m-        private LogFileReader $fileReader,[39m
+[31m-        private LogLineParser $lineParser[39m
+[32m+        private readonly LogFileReader $fileReader,[39m
+[32m+        private readonly LogLineParser $lineParser[39m
+     ) {}
+
+     /**
+[36m@@ @@[39m
+     private function processLogFileForStats(array &$stats, string $logFile): void
+     {
+         $content = $this->fileReader->readFile($logFile);
+[31m-        if (empty($content)) {[39m
+[32m+        if ($content === '' || $content === '0') {[39m
+             return;
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m107) app/Services/LogProcessing/LogProcessingService.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ class LogProcessingService
+ {
+     public function __construct(
+[31m-        private LogFileReader $fileReader,[39m
+[31m-        private LogLineParser $lineParser,[39m
+[31m-        private ErrorStatisticsCalculator $statisticsCalculator,[39m
+[31m-        private SystemHealthChecker $healthChecker[39m
+[32m+        private readonly LogFileReader $fileReader,[39m
+[32m+        private readonly LogLineParser $lineParser,[39m
+[32m+        private readonly ErrorStatisticsCalculator $statisticsCalculator,[39m
+[32m+        private readonly SystemHealthChecker $healthChecker[39m
+     ) {}
+
+     /**
+[36m@@ @@[39m
+     private function processSingleLogFile(string $logFile): array
+     {
+         $content = $this->fileReader->readFile($logFile);
+[31m-        if (empty($content)) {[39m
+[32m+        if ($content === '' || $content === '0') {[39m
+             return [];
+         }
+
+[36m@@ @@[39m
+     private function searchErrorInLogFile(string $logFile, string $id): ?array
+     {
+         $content = $this->fileReader->readFile($logFile);
+[31m-        if (empty($content)) {[39m
+[32m+        if ($content === '' || $content === '0') {[39m
+             return null;
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m108) app/Services/OrderService.php:192[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     private function calculateSubtotal(array $cartItems): float
+     {
+[31m-        return collect($cartItems)->sum(static function ($item) {[39m
+[32m+        return collect($cartItems)->sum(static function (array $item): float|int {[39m
+             $product = Product::find($item['product_id']);
+
+             return $product ? (float) $product->price * $item['quantity'] : 0;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * StrictArrayParamDimFetchRector
+ * ClosureReturnTypeRector
+
+
+[1m109) app/Services/PasswordPolicyService.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     private array $config;
+
+[31m-    private PasswordHistoryService $passwordHistoryService;[39m
+[32m+    private readonly PasswordHistoryService $passwordHistoryService;[39m
+
+     /**
+      * @param  array<string, bool|int|array<int, string>>  $config
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m110) app/Services/PaymentService.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Srmklive\PayPal\Services\PayPal;
+ use Stripe\StripeClient;
+
+[31m-final class PaymentService[39m
+[32m+final readonly class PaymentService[39m
+ {
+     private StripeClient $stripe;
+
+[36m@@ @@[39m
+                 case 'stripe':
+                     $gatewayResponse = $payment->gateway_response;
+                     $paymentIntentId = is_array($gatewayResponse) && is_string($gatewayResponse['id'] ?? null) ? $gatewayResponse['id'] : '';
+[31m-                    if ($paymentIntentId) {[39m
+[32m+                    if ($paymentIntentId !== '' && $paymentIntentId !== '0') {[39m
+                         $this->stripe->refunds->create([
+                             'payment_intent' => $paymentIntentId,
+                             'amount' => (int) round($refundAmount * 100),
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m111) app/Services/PerformanceMonitoringService.php:344[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             is_numeric($metrics['queries_count']) &&
+             $metrics['queries_count'] > (int) $config['query_count_threshold'];
+     }
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Get execution time.[39m
+[31m-     */[39m
+[31m-    private function getExecutionTime(): void[39m
+[31m-    {[39m
+[31m-        // This would need to be implemented based on your cache driver[39m
+[31m-    }[39m
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodRector
+
+
+[1m112) app/Services/Performance/CacheOptimizerService.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Console\OutputStyle;
+ use Illuminate\Contracts\Console\Kernel;
+
+[31m-final class CacheOptimizerService[39m
+[32m+final readonly class CacheOptimizerService[39m
+ {
+     public function __construct(
+[31m-        private readonly OutputStyle $output,[39m
+[31m-        private readonly Kernel $kernel[39m
+[32m+        private OutputStyle $output,[39m
+[32m+        private Kernel $kernel[39m
+     ) {}
+
+     public function clearCaches(): void
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m113) app/Services/Performance/DatabaseOptimizerService.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Contracts\Console\Kernel;
+ use Illuminate\Database\DatabaseManager;
+
+[31m-final class DatabaseOptimizerService[39m
+[32m+final readonly class DatabaseOptimizerService[39m
+ {
+     public function __construct(
+[31m-        private readonly OutputStyle $output,[39m
+[31m-        private readonly DatabaseManager $database,[39m
+[31m-        private readonly Kernel $kernel[39m
+[32m+        private OutputStyle $output,[39m
+[32m+        private DatabaseManager $database,[39m
+[32m+        private Kernel $kernel[39m
+     ) {}
+
+     public function optimizeDatabase(): void
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m114) app/Services/Performance/PerformanceReporter.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Console\OutputStyle;
+ use Illuminate\Http\Client\Factory as HttpFactory;
+
+[31m-final class PerformanceReporter[39m
+[32m+final readonly class PerformanceReporter[39m
+ {
+     public function __construct(
+[31m-        private readonly OutputStyle $output,[39m
+[31m-        private readonly HttpFactory $http[39m
+[32m+        private OutputStyle $output,[39m
+[32m+        private HttpFactory $http[39m
+     ) {}
+
+     public function displayRecommendations(): void
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m115) app/Services/Performance/PerformanceReporterService.php:7[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Console\OutputStyle;
+ use Illuminate\Contracts\Cache\Repository;
+
+[31m-final class PerformanceReporterService[39m
+[32m+final readonly class PerformanceReporterService[39m
+ {
+     public function __construct(
+[31m-        private readonly OutputStyle $output,[39m
+[31m-        private readonly Repository $cache[39m
+[32m+        private OutputStyle $output,[39m
+[32m+        private Repository $cache[39m
+     ) {}
+
+     public function displayRecommendations(): void
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m116) app/Services/Performance/SystemOptimizerService.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Console\OutputStyle;
+ use Illuminate\Contracts\Console\Kernel;
+
+[31m-final class SystemOptimizerService[39m
+[32m+final readonly class SystemOptimizerService[39m
+ {
+     public function __construct(
+[31m-        private readonly OutputStyle $output,[39m
+[31m-        private readonly Kernel $kernel[39m
+[32m+        private OutputStyle $output,[39m
+[32m+        private Kernel $kernel[39m
+     ) {}
+
+     public function optimizeAutoloader(): void
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m117) app/Services/PointsService.php:173[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             return false;
+         }
+
+[31m-        return DB::transaction(function () use ($user, $reward) {[39m
+[32m+        return DB::transaction(function () use ($user, $reward): true {[39m
+             $this->redeemPoints($user, $reward->points_required, "Redeemed reward: {$reward->name}");
+
+             // Apply reward benefits
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ClosureReturnTypeRector
+
+
+[1m118) app/Services/PriceComparisonService.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use App\Models\Product;
+
+[31m-final class PriceComparisonService[39m
+[32m+final readonly class PriceComparisonService[39m
+ {
+[31m-    public function __construct(private readonly StoreAdapterManager $storeAdapterManager) {}[39m
+[32m+    public function __construct(private StoreAdapterManager $storeAdapterManager) {}[39m
+
+     /**
+      * Fetch prices from all available stores.
+[36m@@ @@[39m
+
+             if ($productData) {
+                 $price = isset($productData['price']) && is_numeric($productData['price']) ? (float) $productData['price'] : 0.0;
+[31m-                $currency = isset($productData['currency']) && is_string($productData['currency']) ? (string) $productData['currency'] : '';[39m
+[32m+                $currency = isset($productData['currency']) && is_string($productData['currency']) ? $productData['currency'] : '';[39m
+                 $inStock = isset($productData['availability']) && $productData['availability'] === 'in_stock';
+
+                 $prices[] = [
+[36m@@ @@[39m
+      */
+     public function markBestDeal(array $deals): array
+     {
+[31m-        $filtered = array_filter($deals, fn ($item) => isset($item['price'], $item['in_stock'], $item['is_best_deal']) &&[39m
+[32m+        $filtered = array_filter($deals, fn (array $item): bool => isset($item['price'], $item['in_stock'], $item['is_best_deal']) &&[39m
+             is_numeric($item['price']) &&
+             is_bool($item['in_stock']) &&
+             is_bool($item['is_best_deal']));
+
+[31m-        if (! $filtered) {[39m
+[32m+        if ($filtered === []) {[39m
+             return $deals;
+         }
+
+[31m-        $inStockPrices = array_filter($filtered, fn (array $item): bool => (bool) ($item['in_stock'] ?? false));[39m
+[32m+        $inStockPrices = array_filter($filtered, fn (array $item): bool => $item['in_stock'] ?? false);[39m
+
+[31m-        if (! $inStockPrices) {[39m
+[32m+        if ($inStockPrices === []) {[39m
+             return $deals;
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * RecastingRemovalRector
+ * ReadOnlyClassRector
+ * AddArrowFunctionReturnTypeRector
+ * AddArrowFunctionParamArrayWhereDimFetchRector
+
+
+[1m119) app/Services/PriceUpdate/PriceUpdateDisplayService.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Service responsible for displaying price update information and results.
+  */
+[31m-final class PriceUpdateDisplayService[39m
+[32m+final readonly class PriceUpdateDisplayService[39m
+ {
+     private Command $command;
+
+[36m@@ @@[39m
+         $store = $priceOffer->store;
+         $productName = $product && is_string($product->name) ? $product->name : 'Unknown Product';
+         $storeName = $store && is_string($store->name) ? $store->name : 'Unknown Store';
+[31m-        $this->command->error("\n❌ Error updating ".(string) $productName.' at '.(string) $storeName.': '.$e->getMessage());[39m
+[32m+        $this->command->error("\n❌ Error updating ".$productName.' at '.$storeName.': '.$e->getMessage());[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveConcatAutocastRector
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m120) app/Services/PriceUpdate/PriceUpdateProcessorService.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * Service responsible for processing price updates and handling validation.
+  */
+[31m-final class PriceUpdateProcessorService[39m
+[32m+final readonly class PriceUpdateProcessorService[39m
+ {
+     private PriceUpdateDisplayService $displayService;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m121) app/Services/Product/Services/ProductPriceService.php:53[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+                     ]);
+
+                     // Create price history record (if priceHistory method exists)
+[31m-                    $this->createPriceHistory($lockedProduct, $oldPrice, $newPrice, $userId);[39m
+[32m+                    $this->createPriceHistory($lockedProduct, $newPrice);[39m
+
+                     return true;
+                 }
+[36m@@ @@[39m
+      *
+      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+      */
+[31m-    private function createPriceHistory(Product $product, float $oldPrice, float $newPrice, ?int $userId): void[39m
+[32m+    private function createPriceHistory(Product $product, float $newPrice): void[39m
+     {
+         if (! method_exists($product, 'priceHistory')) {
+             return;
+[36m@@ @@[39m
+         }
+
+         $priceHistory = $product->priceHistory();
+[31m-        if (is_object($priceHistory) && method_exists($priceHistory, 'create')) {[39m
+[32m+        if (method_exists($priceHistory, 'create')) {[39m
+             $priceHistory->create([
+                 'price' => $newPrice,
+                 'effective_date' => now(),
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodParameterRector
+ * RemoveAlwaysTrueIfConditionRector
+
+
+[1m122) app/Services/Product/Services/ProductQueryBuilderService.php:29[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             ->where('is_active', true);
+
+         // Apply search query
+[31m-        if (! empty($query)) {[39m
+[32m+        if ($query !== '' && $query !== '0') {[39m
+             $productsQuery->where(function (Builder $q) use ($query): void {
+                 $searchTerm = '%'.addcslashes($query, '%_').'%';
+                 $q->where('name', 'like', $searchTerm)
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m123) app/Services/Product/Services/ProductValidationService.php:124[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+             };
+         }
+
+[31m-        return array_filter($sanitized, fn ($value) => $value !== null);[39m
+[32m+        return array_filter($sanitized, fn ($value): bool => $value !== null);[39m
+     }
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m124) app/Services/RecommendationService.php:401[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     }
+
+     /**
+[31m-     * @return \Illuminate\Support\Collection<int, User>[39m
+[31m-     */[39m
+[31m-    private function getSimilarUsersByProduct(Product $product): \Illuminate\Support\Collection[39m
+[31m-    {[39m
+[31m-        $userIds = OrderItem::whereHas('order', function ($query) use ($product): void {[39m
+[31m-            $query->where('product_id', $product->id);[39m
+[31m-        })->pluck('order.user_id')->unique();[39m
+[31m-[39m
+[31m-        return User::whereIn('id', $userIds)->get();[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+      * @return \Illuminate\Support\Collection<int, OrderItem>
+      */
+     private function getUserPurchaseHistory(User $user): \Illuminate\Support\Collection
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedPrivateMethodRector
+
+
+[1m125) app/Services/ReportService.php:18[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
+  * @SuppressWarnings(PHPMD.StaticAccess)
+  */
+[31m-final class ReportService[39m
+[32m+final readonly class ReportService[39m
+ {
+[32m+    public $userModel;[39m
+     public function __construct(
+[31m-        private readonly Product $productModel,[39m
+[31m-        private readonly PriceOffer $priceOfferModel,[39m
+[31m-        private readonly Order $orderModel,[39m
+[31m-        private readonly OrderItem $orderItemModel,[39m
+[31m-        private readonly DatabaseManager $dbManager[39m
+[32m+        private Product $productModel,[39m
+[32m+        private PriceOffer $priceOfferModel,[39m
+[32m+        private DatabaseManager $dbManager[39m
+     ) {}
+
+     /**
+[36m@@ @@[39m
+     }
+
+     /**
+[31m-     * Get product details.[39m
+[31m-     *[39m
+[31m-     * @return array{[39m
+[31m-     *     id: int,[39m
+[31m-     *     name: string,[39m
+[31m-     *     price: float,[39m
+[31m-     *     wishlists_count: int,[39m
+[31m-     *     price_alerts_count: int,[39m
+[31m-     *     reviews_count: int[39m
+[31m-     * }[39m
+[31m-     */[39m
+[31m-    private function getProductDetails(Product $product): array[39m
+[31m-    {[39m
+[31m-        return [[39m
+[31m-            'id' => $this->getProductProperty($product, 'id', 0),[39m
+[31m-            'name' => $this->getProductProperty($product, 'name', ''),[39m
+[31m-            'price' => $this->getProductProperty($product, 'price', 0.0),[39m
+[31m-            'wishlists_count' => $this->getProductProperty($product, 'wishlists_count', 0),[39m
+[31m-            'price_alerts_count' => $this->getProductProperty($product, 'price_alerts_count', 0),[39m
+[31m-            'reviews_count' => $this->getProductProperty($product, 'reviews_count', 0),[39m
+[31m-        ];[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Get product property with fallback value.[39m
+[31m-     *[39m
+[31m-     * @psalm-param ''|0|float $default[39m
+[31m-     */[39m
+[31m-    private function getProductProperty(Product $product, string $property, string|int|float $default): mixed[39m
+[31m-    {[39m
+[31m-        return property_exists($product, $property) ? $product->$property : $default;[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+      * Get price trends.
+      *
+      * @return array<int, array<string, string|float>>
+[36m@@ @@[39m
+             'date' => property_exists($trend, 'date') && is_string($trend->date) ? $trend->date : '',
+             'average_price' => round($avgPrice, 2),
+         ];
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Calculate price trend.[39m
+[31m-     *[39m
+[31m-     * @param  array<float>  $prices[39m
+[31m-     *[39m
+[31m-     * @psalm-return 'decreasing'|'increasing'|'stable'[39m
+[31m-     */[39m
+[31m-    private function calculatePriceTrend(array $prices): string[39m
+[31m-    {[39m
+[31m-        if (count($prices) < 2) {[39m
+[31m-            return 'stable';[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        $percentage = $this->calculatePricePercentage($prices);[39m
+[31m-[39m
+[31m-        return $this->determineTrendDirection($percentage);[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Calculate price percentage change.[39m
+[31m-     *[39m
+[31m-     * @param  array<float>  $prices[39m
+[31m-     */[39m
+[31m-    private function calculatePricePercentage(array $prices): float[39m
+[31m-    {[39m
+[31m-        $firstPrice = $prices[0];[39m
+[31m-        $lastPrice = end($prices);[39m
+[31m-        $change = $lastPrice - $firstPrice;[39m
+[31m-[39m
+[31m-        return $change / $firstPrice * 100;[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Determine trend direction based on percentage.[39m
+[31m-     *[39m
+[31m-     * @psalm-return 'decreasing'|'increasing'|'stable'[39m
+[31m-     */[39m
+[31m-    private function determineTrendDirection(float $percentage): string[39m
+[31m-    {[39m
+[31m-        if ($percentage > 5) {[39m
+[31m-            return 'increasing';[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        if ($percentage < -5) {[39m
+[31m-            return 'decreasing';[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        return 'stable';[39m
+     }
+ }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * CompleteDynamicPropertiesRector
+ * RemoveUnusedPrivateMethodRector
+ * RemoveUnusedPromotedPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m126) app/Services/RouteConfigurationService.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Contracts\Routing\Registrar as Router;
+ use Illuminate\Http\Request;
+
+[31m-final class RouteConfigurationService[39m
+[32m+final readonly class RouteConfigurationService[39m
+ {
+[31m-    public function __construct(private readonly RateLimiter $rateLimiter, private readonly Router $router) {}[39m
+[32m+    public function __construct(private RateLimiter $rateLimiter, private Router $router) {}[39m
+
+     public function configureRateLimiting(): void
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m127) app/Services/SEOService.php:18[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+  * @SuppressWarnings(PHPMD.StaticAccess)
+  */
+[31m-final class SEOService[39m
+[32m+final readonly class SEOService[39m
+ {
+     public function __construct(
+[31m-        private readonly UrlGenerator $urlGenerator,[39m
+[31m-        private readonly Repository $configRepository,[39m
+[31m-        private readonly Str $str[39m
+[32m+        private UrlGenerator $urlGenerator,[39m
+[32m+        private Repository $configRepository,[39m
+[32m+        private Str $str[39m
+     ) {}
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyClassRector
+
+
+[1m128) app/Services/SEO/SEOAuditReporter.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use Illuminate\Console\Command;
+
+[31m-final class SEOAuditReporter[39m
+[32m+final readonly class SEOAuditReporter[39m
+ {
+     private Command $command;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m129) app/Services/SEO/SEOAuditResult.php:6[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ use Illuminate\Database\Eloquent\Model;
+
+[31m-final class SEOAuditResult[39m
+[32m+final readonly class SEOAuditResult[39m
+ {
+     /**
+      * @param  array<string, mixed>  $metaData
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m130) app/Services/SEO/SEOAuditor.php:11[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Database\Eloquent\Model;
+ use Illuminate\Support\Collection;
+
+[31m-final class SEOAuditor[39m
+[32m+final readonly class SEOAuditor[39m
+ {
+     private SEOService $seoService;
+
+[36m@@ @@[39m
+      */
+     public function auditModels(string $modelClass): Collection
+     {
+[31m-        return $modelClass::all()->map(function (Model $model) {[39m
+[32m+        return $modelClass::all()->map(function (Model $model): \App\Services\SEO\SEOAuditResult {[39m
+             return $this->auditModel($model);
+         });
+     }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+ * ClosureReturnTypeRector
+
+
+[1m131) app/Services/SEO/SEORouteAuditor.php:48[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+     {
+         $routeCounts = array_count_values($routes);
+
+[31m-        return array_filter($routeCounts, fn ($count) => $count > 1);[39m
+[32m+        return array_filter($routeCounts, fn (int $count): bool => $count > 1);[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * AddArrowFunctionReturnTypeRector
+ * AddArrayFunctionClosureParamTypeRector
+
+
+[1m132) app/Services/Security/Headers/StandardSecurityHeaderStrategy.php:8[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class StandardSecurityHeaderStrategy implements SecurityHeaderStrategyInterface
+ {
+[31m-    private string $headerName;[39m
+[32m+    private readonly string $headerName;[39m
+
+[31m-    private string $defaultValue;[39m
+[32m+    private readonly string $defaultValue;[39m
+
+     public function __construct(string $headerName, string $defaultValue)
+     {
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m133) app/Services/Security/SecurityHeadersService.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+
+ class SecurityHeadersService
+ {
+[31m-    private SecurityHeaderConfiguration $configuration;[39m
+[32m+    private readonly SecurityHeaderConfiguration $configuration;[39m
+
+[31m-    private SecurityHeaderStrategyFactory $strategyFactory;[39m
+[32m+    private readonly SecurityHeaderStrategyFactory $strategyFactory;[39m
+
+     public function __construct(SecurityHeaderConfiguration $configuration, SecurityHeaderStrategyFactory $strategyFactory)
+     {
+[36m@@ @@[39m
+         }
+
+         // Unconditionally set CSP to ensure presence in tests
+[31m-        $response->headers->set('Content-Security-Policy', (string) $this->getContentSecurityPolicy($request));[39m
+[32m+        $response->headers->set('Content-Security-Policy', $this->getContentSecurityPolicy($request));[39m
+
+         // Defensive fallback: if CSP is somehow missing, set a minimal default
+         if (! $response->headers->has('Content-Security-Policy')) {
+[36m@@ @@[39m
+     }
+
+     /**
+[31m-     * Determine if a header should be applied based on its configuration.[39m
+[31m-     *[39m
+[31m-     * @SuppressWarnings(PHPMD.UnusedPrivateMethod)[39m
+[31m-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)[39m
+[31m-     */[39m
+[31m-    private function shouldApplyHeader(string $header, array $config, Request $request): bool[39m
+[31m-    {[39m
+[31m-        // Check if header is enabled[39m
+[31m-        if (! ($config['enabled'] ?? true)) {[39m
+[31m-            return false;[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        // Check conditional requirements[39m
+[31m-        if (isset($config['conditions'])) {[39m
+[31m-            foreach ($config['conditions'] as $condition => $required) {[39m
+[31m-                if (! $this->checkCondition($condition, $required, $request)) {[39m
+[31m-                    return false;[39m
+[31m-                }[39m
+[31m-            }[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        return true;[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+      * Get the value for a header based on its configuration.
+      *
+      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+[36m@@ @@[39m
+         }
+
+         // Defensive override for well-known sensitive paths (ensures tests pass even if config is altered)
+[31m-        if ($header === 'X-Frame-Options' && ($value === null || $value === 'SAMEORIGIN')) {[39m
+[31m-            if ([39m
+[31m-                $request->is('admin/*') ||[39m
+[31m-                $request->is('settings/*') ||[39m
+[31m-                $request->is('profile/*') ||[39m
+[31m-                $request->is('billing/*') ||[39m
+[31m-                $request->is('api/*/admin/*')[39m
+[31m-            ) {[39m
+[31m-                $value = 'DENY';[39m
+[31m-            }[39m
+[32m+        if ($header === 'X-Frame-Options' && ($value === null || $value === 'SAMEORIGIN') && ($request->is('admin/*') || $request->is('settings/*') || $request->is('profile/*') || $request->is('billing/*') || $request->is('api/*/admin/*'))) {[39m
+[32m+            $value = 'DENY';[39m
+         }
+
+         // Handle dynamic values
+[36m@@ @@[39m
+         }
+
+         return is_string($value) ? $value : null;
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Check a condition for header application.[39m
+[31m-     */[39m
+[31m-    private function checkCondition(string $condition, $required, Request $request): bool[39m
+[31m-    {[39m
+[31m-        return match ($condition) {[39m
+[31m-            'https_only' => $required ? $request->isSecure() : true,[39m
+[31m-            'environment' => $this->checkEnvironmentCondition($required),[39m
+[31m-            'route_pattern' => $this->checkRoutePattern($required, $request),[39m
+[31m-            default => true,[39m
+[31m-        };[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Check environment condition.[39m
+[31m-     */[39m
+[31m-    private function checkEnvironmentCondition($environments): bool[39m
+[31m-    {[39m
+[31m-        if (! is_array($environments)) {[39m
+[31m-            $environments = [$environments];[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        return in_array(app()->environment(), $environments, true);[39m
+[31m-    }[39m
+[31m-[39m
+[31m-    /**[39m
+[31m-     * Check route pattern condition.[39m
+[31m-     */[39m
+[31m-    private function checkRoutePattern($patterns, Request $request): bool[39m
+[31m-    {[39m
+[31m-        if (! is_array($patterns)) {[39m
+[31m-            $patterns = [$patterns];[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        foreach ($patterns as $pattern) {[39m
+[31m-            if ($request->is($pattern)) {[39m
+[31m-                return true;[39m
+[31m-            }[39m
+[31m-        }[39m
+[31m-[39m
+[31m-        return false;[39m
+     }
+
+     /**
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * CombineIfRector
+ * RecastingRemovalRector
+ * RemoveUnusedPrivateMethodParameterRector
+ * RemoveUnusedPrivateMethodRector
+ * ReadOnlyPropertyRector
+
+
+[1m134) app/Services/StorageManagementService.php:118[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     public function compressOldFiles(): array
+     {
+[31m-        return $this->executeStorageOperation('compression', function () {[39m
+[32m+        return $this->executeStorageOperation('compression', function (): array {[39m
+             return $this->executeCompression();
+         }, [
+             'files_compressed' => 0,
+[36m@@ @@[39m
+      */
+     public function archiveOldFiles(): array
+     {
+[31m-        return $this->executeStorageOperation('archival', function () {[39m
+[32m+        return $this->executeStorageOperation('archival', function (): array {[39m
+             return $this->executeArchival();
+         }, [
+             'files_archived' => 0,
+[36m@@ @@[39m
+      */
+     private function addDirectoryRecommendations(?array $breakdown, array &$recommendations): void
+     {
+[31m-        if (empty($breakdown)) {[39m
+[32m+        if ($breakdown === null || $breakdown === []) {[39m
+             return;
+         }
+
+[36m@@ @@[39m
+             RecursiveIteratorIterator::LEAVES_ONLY
+         );
+
+[31m-        foreach ($files as $name => $file) {[39m
+[32m+        foreach ($files as $file) {[39m
+             if (! $file->isDir()) {
+                 $filePath = $file->getRealPath();
+[31m-                $relativePath = substr($filePath, strlen($directory) + 1);[39m
+[32m+                $relativePath = substr((string) $filePath, strlen($directory) + 1);[39m
+                 $zip->addFile($filePath, $relativePath);
+             }
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveUnusedForeachKeyRector
+ * NullToStrictStringFuncCallArgRector
+ * DisallowedEmptyRuleFixerRector
+ * ClosureReturnTypeRector
+
+
+[1m135) app/Services/StoreAdapterManager.php:30[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+         // If no adapters provided, register default adapters
+         $adaptersArray = is_array($adapters) ? $adapters : iterator_to_array($adapters);
+
+[31m-        if (empty($adaptersArray)) {[39m
+[32m+        if ($adaptersArray === []) {[39m
+             $this->registerDefaultAdapters();
+
+             return;
+[36m@@ @@[39m
+     {
+         return array_filter(
+             $this->adapters,
+[31m-            fn (StoreAdapterContract $adapter) => $adapter->isAvailable()[39m
+[32m+            fn (StoreAdapterContract $adapter): bool => $adapter->isAvailable()[39m
+         );
+     }
+
+[36m@@ @@[39m
+     {
+         $adapter = $this->getAdapter($storeIdentifier);
+
+[31m-        if (! $adapter) {[39m
+[32m+        if (!$adapter instanceof \App\Services\Contracts\StoreAdapterContract) {[39m
+             return false;
+         }
+
+[36m@@ @@[39m
+     {
+         $adapter = $this->getAdapter($storeIdentifier);
+
+[31m-        if (! $adapter) {[39m
+[32m+        if (!$adapter instanceof \App\Services\Contracts\StoreAdapterContract) {[39m
+             return null;
+         }
+
+[36m@@ @@[39m
+     {
+         $adapter = $this->getAdapter($storeIdentifier);
+
+[31m-        if (! $adapter) {[39m
+[32m+        if (!$adapter instanceof \App\Services\Contracts\StoreAdapterContract) {[39m
+             return null;
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyEmptyCheckOnEmptyArrayRector
+ * ExplicitBoolCompareRector
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m136) app/Services/StoreAdapters/AmazonAdapter.php:16[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ final class AmazonAdapter extends StoreAdapter
+ {
+[31m-    private string $apiKey;[39m
+[32m+    private readonly string $apiKey;[39m
+
+[31m-    private string $apiSecret;[39m
+[32m+    private readonly string $apiSecret;[39m
+
+[31m-    private string $region;[39m
+[32m+    private readonly string $region;[39m
+
+     public function __construct(HttpFactory $http, CacheRepository $cache, LoggerInterface $logger)
+     {
+[36m@@ @@[39m
+     #[\Override]
+     public function isAvailable(): bool
+     {
+[31m-        return ! empty($this->apiKey) && ! empty($this->apiSecret);[39m
+[32m+        return $this->apiKey !== '' && $this->apiKey !== '0' && ($this->apiSecret !== '' && $this->apiSecret !== '0');[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      * @psalm-return 'Amazon API integration not yet implemented. Please configure Amazon Product Advertising API.'
+      */
+     #[\Override]
+[31m-    public function getLastError(): ?string[39m
+[32m+    public function getLastError(): string[39m
+     {
+         $this->lastError = 'Amazon API integration not yet implemented. '.
+             'Please configure Amazon Product Advertising API.';
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * NarrowTooWideReturnTypeRector
+ * ReadOnlyPropertyRector
+ * DisallowedEmptyRuleFixerRector
+
+
+[1m137) app/Services/StoreAdapters/EbayAdapter.php:13[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ final class EbayAdapter extends StoreAdapter
+ {
+[31m-    private string $appId;[39m
+[32m+    private readonly string $appId;[39m
+
+     public function __construct(HttpFactory $http, CacheRepository $cache, LoggerInterface $logger)
+     {
+[36m@@ @@[39m
+             }
+
+             return array_values(array_filter(array_map(
+[31m-                function ($item) {[39m
+[32m+                function ($item): ?array {[39m
+                     if (! is_array($item)) {
+                         return null;
+                     }
+[36m@@ @@[39m
+     #[\Override]
+     public function getRateLimits(): array
+     {
+[31m-        /** @var array<string, int> $rateLimits */[39m
+         return [
+             'requests_per_minute' => 20,
+             'requests_per_hour' => 1000,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * RemoveNonExistingVarAnnotationRector
+ * ReadOnlyPropertyRector
+ * ClosureReturnTypeRector
+
+
+[1m138) app/Services/StoreAdapters/NoonAdapter.php:13[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+  */
+ final class NoonAdapter extends StoreAdapter
+ {
+[31m-    private string $apiKey;[39m
+[32m+    private readonly string $apiKey;[39m
+
+[31m-    private string $country;[39m
+[32m+    private readonly string $country;[39m
+
+     public function __construct(HttpFactory $http, CacheRepository $cache, LoggerInterface $logger)
+     {
+[36m@@ @@[39m
+             $products = $response['products'];
+
+             return array_values(array_map(
+[31m-                fn (array $product) => $this->normalizeNoonData($product),[39m
+[32m+                fn (array $product): array => $this->normalizeNoonData($product),[39m
+                 $products
+             ));
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * AddArrowFunctionReturnTypeRector
+
+
+[1m139) app/Services/SuspiciousActivityNotifier.php:9[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Contracts\Mail\Mailer;
+ use Psr\Log\LoggerInterface;
+
+[31m-final class SuspiciousActivityNotifier[39m
+[32m+final readonly class SuspiciousActivityNotifier[39m
+ {
+     private LoggerInterface $logger;
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m140) app/Services/SuspiciousActivityService.php:15[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+      */
+     private array $config = [];
+
+[31m-    private LoggerInterface $logger;[39m
+[32m+    private readonly LoggerInterface $logger;[39m
+
+[31m-    private ActivityProcessor $activityProcessor;[39m
+[32m+    private readonly ActivityProcessor $activityProcessor;[39m
+
+[31m-    private ActivityChecker $activityChecker;[39m
+[32m+    private readonly ActivityChecker $activityChecker;[39m
+
+     public function __construct(
+         LoggerInterface $logger,
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ReadOnlyPropertyRector
+
+
+[1m141) app/Services/UserBanService.php:13[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ /**
+  * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+  */
+[31m-final class UserBanService[39m
+[32m+final readonly class UserBanService[39m
+ {
+     private const BAN_REASONS = [
+         'spam' => 'إرسال رسائل مزعجة',
+[36m@@ @@[39m
+      *
+      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+      */
+[31m-    public function getBanHistory(User $user): array[39m
+[32m+    public function getBanHistory(): array[39m
+     {
+         // Placeholder: in real app, fetch from audit/logs table
+         return [];
+[36m@@ @@[39m
+      *
+      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+      */
+[31m-    public function extendBan(User $user, Carbon $newExpiry): bool[39m
+[32m+    public function extendBan(User $user): bool[39m
+     {
+[31m-        if ($user->ban_expires_at === null) {[39m
+[31m-            return false;[39m
+[31m-        }[39m
+[31m-[39m
+         // In real app, you would update expiry and persist
+         // $user->ban_expires_at = $newExpiry;
+         // $user->save();
+[31m-[39m
+[31m-        return false;[39m
+[32m+        return $user->ban_expires_at !== null;[39m
+     }
+
+     /**
+[36m@@ @@[39m
+      *
+      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+      */
+[31m-    public function reduceBan(User $user, Carbon $newExpiry): bool[39m
+[32m+    public function reduceBan(User $user): bool[39m
+     {
+[31m-        if ($user->ban_expires_at === null) {[39m
+[31m-            return false;[39m
+[31m-        }[39m
+[31m-[39m
+         // In real app, you would update expiry and persist
+         // $user->ban_expires_at = $newExpiry;
+         // $user->save();
+[31m-[39m
+[31m-        return false;[39m
+[32m+        return $user->ban_expires_at !== null;[39m
+     }
+
+     private function isValidBanReason(string $reason): bool
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * SimplifyIfReturnBoolRector
+ * RemoveUnusedPublicMethodParameterRector
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[1m142) app/Services/WebhookService.php:10[22m
+
+[33m    ---------- begin diff ----------[39m
+[36m@@ @@[39m
+ use Illuminate\Contracts\Bus\Dispatcher;
+ use Psr\Log\LoggerInterface;
+
+[31m-final class WebhookService[39m
+[32m+final readonly class WebhookService[39m
+ {
+     private CacheService $cacheService;
+
+[36m@@ @@[39m
+     {
+         $product = $this->findOrCreateProduct($webhook);
+
+[31m-        if ($product) {[39m
+[32m+        if ($product instanceof \App\Models\Product) {[39m
+             $webhook->update(['product_id' => $product->id]);
+         }
+
+[36m@@ @@[39m
+      */
+     private function handlePriceUpdate(Webhook $webhook, ?Product $product): void
+     {
+[31m-        if (! $product) {[39m
+[32m+        if (!$product instanceof \App\Models\Product) {[39m
+             throw new Exception('Product not found for price update');
+         }
+
+[36m@@ @@[39m
+      */
+     private function handleStockUpdate(Webhook $webhook, ?Product $product): void
+     {
+[31m-        if (! $product) {[39m
+[32m+        if (!$product instanceof \App\Models\Product) {[39m
+             throw new Exception('Product not found for stock update');
+         }
+
+[36m@@ @@[39m
+      */
+     private function handleProductUpdate(Webhook $webhook, ?Product $product): void
+     {
+[31m-        if (! $product) {[39m
+[32m+        if (!$product instanceof \App\Models\Product) {[39m
+             throw new Exception('Product not found for product update');
+         }
+[33m    ----------- end diff -----------[39m
+
+[4mApplied rules:[24m
+ * ExplicitBoolCompareRector
+ * ReadOnlyPropertyRector
+ * ReadOnlyClassRector
+
+
+[30;42m                                                                                                                       [39;49m
+[30;42m [OK] 142 files have been changed by Rector                                                                            [39;49m
+[30;42m                                                                                                                       [39;49m
+

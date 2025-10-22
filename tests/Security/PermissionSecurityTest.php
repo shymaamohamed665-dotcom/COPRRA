@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Security;
 
 use Tests\TestCase;
@@ -31,3 +33,5 @@ class PermissionSecurityTest extends TestCase
         parent::tearDown();
     }
 }
+
+

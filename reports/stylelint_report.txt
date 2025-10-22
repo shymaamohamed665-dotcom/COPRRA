@@ -1,0 +1,39 @@
+
+Invalid Option: Invalid option value "true" for rule "rule-empty-line-before"
+
+resources/css/app.scss
+   39:1  ✖  Unexpected unknown at-rule "@mixin"                           at-rule-no-unknown
+   59:1  ✖  Unexpected unknown at-rule "@mixin"                           at-rule-no-unknown
+   67:1  ✖  Unexpected unknown at-rule "@mixin"                           at-rule-no-unknown
+   95:1  ✖  Unexpected unknown at-rule "@mixin"                           at-rule-no-unknown
+   96:5  ✖  Unexpected unknown at-rule "@if"                              at-rule-no-unknown
+  102:5  ✖  Unexpected unknown at-rule "@if"                              at-rule-no-unknown
+  108:5  ✖  Unexpected unknown at-rule "@if"                              at-rule-no-unknown
+  229:5  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  244:5  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  277:9  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  289:9  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  300:9  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  310:9  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  322:9  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  345:5  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  368:5  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  372:5  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  379:5  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  393:5  ✖  Unexpected qualifying type selector "input[type="checkbox"]"  selector-no-qualifying-type
+  405:5  ✖  Unexpected qualifying type selector "input[type="radio"]"     selector-no-qualifying-type
+  606:1  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  620:1  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+  634:1  ✖  Unexpected unknown at-rule "@include"                         at-rule-no-unknown
+
+✖ 23 problems (23 errors, 0 warnings)
+
+3 sources checked
+  C:\Users\Gaser\Desktop\COPRRA\resources\css\app.css
+  C:\Users\Gaser\Desktop\COPRRA\resources\css\app.scss
+  C:\Users\Gaser\Desktop\COPRRA\resources\css\critical.css
+
+23 errors found
+  at-rule-no-unknown: 21
+  selector-no-qualifying-type: 2
+

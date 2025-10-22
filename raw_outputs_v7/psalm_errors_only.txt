@@ -1,0 +1,23 @@
+﻿
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\app\Services\FinancialTransactionService.php#L54\app/Services/[1;31mFinancialTransactionService.php:54:13[0m]8;;\ - Unable to determine the type of this assignment (see https://psalm.dev/032)
+            [97;41m$offerData['is_available'][0m = $offerData['is_available'] ?? true;
+
+  The type of $offerData['is_available'] is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\app\Services\FinancialTransactionService.php#L44\app/Services/[1;31mFinancialTransactionService.php:44:56[0m]8;;\
+        $priceOffer = DB::transaction(function () use ([30;47m$offerData[0m): PriceOffer {
+
+
+
+------------------------------
+[0;31m1 errors[0m found
+------------------------------
+4024 other issues found.
+You can display them with [30;48;5;195m--show-info=true[0m
+------------------------------
+Psalm can automatically fix 703 of these issues.
+Run Psalm again with 
+[30;48;5;195m--alter --issues=InvalidReturnType,MissingOverrideAttribute,UnusedVariable,ClassMustBeFinal,PossiblyUnusedMethod,UnusedMethod --dry-run[0m
+to see what it can fix.
+------------------------------
+
+Checks took 54.29 seconds and used 841.910MB of memory
+Psalm was able to infer types for 94.7175% of the codebase

@@ -1,0 +1,107 @@
+C:\Users\Gaser\Desktop\COPRRA\app\Contracts\LoginAttemptService.php:29                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Contracts\LoginAttemptService.php:39                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Contracts\LoginAttemptService.php:49                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Contracts\LoginAttemptService.php:59                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Exceptions\Handler.php:47                                 ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Exceptions\Handler.php:58                                 ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Exceptions\Handler.php:73                                 ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Helpers\PriceHelper.php:93                                ShortVariable    Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Admin\DashboardController.php:33         ShortVariable    Avoid variables with short names like $db. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Admin\DashboardController.php:44         ShortVariable    Avoid variables with short names like $db. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\AnalyticsController.php:13               LongVariable     Avoid excessively long variable names like $behaviorAnalysisService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\AuthController.php:96                ShortMethodName  Avoid using short method names like AuthController::me(). The configured minimum method name length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\PriceSearchController.php:197        ShortVariable    Avoid variables with short names like $hv. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\ProductController.php:189            ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\ProductController.php:239            ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\ProductController.php:308            ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\ProductController.php:411            ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\ProductController.php:421            ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\Api\V2\BaseApiController.php:51          LongVariable     Avoid excessively long variable names like $requestParameterService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BackupController.php:72                  ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BackupController.php:94                  ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BackupController.php:114                 ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BackupController.php:207                 ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BrandController.php:75                   ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BrandController.php:88                   ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BrandController.php:101                  ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\BrandController.php:130                  ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\ErrorController.php:45                   ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\ErrorController.php:90                   ShortVariable    Avoid variables with short names like $a. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\ErrorController.php:90                   ShortVariable    Avoid variables with short names like $b. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\HealthController.php:101                 ShortVariable    Avoid variables with short names like $ok. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\PriceComparisonController.php:21         LongVariable     Avoid excessively long variable names like $priceComparisonService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\RecommendationController.php:14          LongVariable     Avoid excessively long variable names like $recommendationService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\SystemController.php:23                  ShortVariable    Avoid variables with short names like $os. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\UserController.php:20                    LongVariable     Avoid excessively long variable names like $passwordPolicyService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Controllers\WishlistController.php:78                ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\CompressionMiddleware.php:14              LongVariable     Avoid excessively long variable names like $compressionResponseService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\CompressionMiddleware.php:16              LongVariable     Avoid excessively long variable names like $compressionResponseService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\SecurityHeaders.php:19                    LongVariable     Avoid excessively long variable names like $securityHeadersService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\SecurityHeaders.php:23                    LongVariable     Avoid excessively long variable names like $securityHeadersService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\SecurityHeadersMiddleware.php:14          LongVariable     Avoid excessively long variable names like $securityHeadersService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\SecurityHeadersMiddleware.php:16          LongVariable     Avoid excessively long variable names like $securityHeadersService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Http\Middleware\ThrottleSensitiveOperations.php:58        ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Notification.php:549                               ShortVariable    Avoid variables with short names like $t. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:398                                    LongVariable     Avoid excessively long variable names like $priceChangePercentage. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Rules\DimensionSum.php:43                                 ShortVariable    Avoid variables with short names like $v. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AIService.php:100                                ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AIRequestService.php:51              ShortVariable    Avoid variables with short names like $m. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AIRequestService.php:71              ShortVariable    Avoid variables with short names like $lc. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AITextAnalysisService.php:301        ShortVariable    Avoid variables with short names like $lc. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\StrictQualityAgent.php:279                    ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\StrictQualityAgent.php:384                    ShortVariable    Avoid variables with short names like $r. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AnalyticsService.php:230                         ShortVariable    Avoid variables with short names like $a. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AnalyticsService.php:230                         ShortVariable    Avoid variables with short names like $b. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AnalyticsService.php:242                         ShortVariable    Avoid variables with short names like $c. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\BackupService.php:278                            ShortVariable    Avoid variables with short names like $a. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\BackupService.php:278                            ShortVariable    Avoid variables with short names like $b. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\BackupListService.php:41                  ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\BackupListService.php:206                 ShortVariable    Avoid variables with short names like $a. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\BackupListService.php:206                 ShortVariable    Avoid variables with short names like $b. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\Services\BackupFileSystemService.php:113  ShortVariable    Avoid variables with short names like $p. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\BehaviorAnalysisService.php:301                  LongVariable     Avoid excessively long variable names like $daysSinceFirstPurchase. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:192                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:200                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:208                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:216                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:224                             ShortVariable    Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:251                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:266                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:280                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:295                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:337                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:348                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\CacheService.php:359                             ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\EnvironmentChecker.php:139                       LongVariable     Avoid excessively long variable names like $recommendedExtensions. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ExchangeRateService.php:252                      ShortVariable    Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ExchangeRates\RateProvider.php:14                ShortVariable    Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ExchangeRates\RateProvider.php:25                ShortVariable    Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ExchangeRates\RateProvider.php:41                ShortVariable    Avoid variables with short names like $to. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ExternalStoreService.php:162                     ShortVariable    Avoid variables with short names like $a. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ExternalStoreService.php:162                     ShortVariable    Avoid variables with short names like $b. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LogProcessing\LogProcessingService.php:90        ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LogProcessing\LogProcessingService.php:193       ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LogProcessing\LogProcessingService.php:219       ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:71                       ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:92                       ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:116                      ShortVariable    Avoid variables with short names like $ts. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:132                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:143                      ShortVariable    Avoid variables with short names like $ts. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:166                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:177                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\LoginAttemptService.php:222                      ShortVariable    Avoid variables with short names like $ip. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\OptimizedQueryService.php:132                    ShortVariable    Avoid variables with short names like $q. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\OptimizedQueryService.php:145                    ShortVariable    Avoid variables with short names like $q. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PasswordPolicyService.php:18                     LongVariable     Avoid excessively long variable names like $passwordHistoryService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PasswordPolicyService.php:23                     LongVariable     Avoid excessively long variable names like $passwordHistoryService. Keep variable name length under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PasswordPolicyService.php:169                    ShortVariable    Avoid variables with short names like $j. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PriceComparisonService.php:81                    ShortVariable    Avoid variables with short names like $p. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PriceUpdate\PriceQueryBuilderService.php:52      ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PriceUpdate\PriceQueryBuilderService.php:69      ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PriceUpdate\PriceUpdateDisplayService.php:45     ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PriceUpdate\PriceUpdateDisplayService.php:76     ShortVariable    Avoid variables with short names like $id. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Security\VirusScanner.php:82                     ShortVariable    Avoid variables with short names like $fp. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:270                 ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:424                 ShortVariable    Avoid variables with short names like $a. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:424                 ShortVariable    Avoid variables with short names like $b. Configured minimum length is 3.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\WebhookService.php:164                           ShortVariable    Avoid variables with short names like $e. Configured minimum length is 3.

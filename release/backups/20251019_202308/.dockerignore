@@ -1,0 +1,154 @@
+# Git and version control
+.git
+.gitignore
+.gitattributes
+
+# Docker files
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Environment files (keep .env.example for reference)
+.env
+.env.*
+!.env.example
+
+# Documentation
+README.md
+CONTRIBUTING.md
+CHANGELOG.md
+LICENSE.md
+*.md
+
+# Development dependencies
+vendor
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE and editor files
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Laravel development files
+.env
+.env.*
+!.env.example
+!.env.testing
+.env.backup
+
+# Storage and cache
+storage/app/public
+storage/framework/cache
+storage/framework/sessions
+storage/framework/views
+storage/logs
+bootstrap/cache
+
+# Build artifacts
+public/build
+public/hot
+public/storage
+
+# Test files
+tests
+phpunit.xml
+.phpunit.cache
+
+# Analysis and reports
+reports
+*.json
+!composer.json
+!package.json
+*.txt
+*.xml
+!phpunit.xml
+phpstan_report.json
+phpstan-baseline.neon
+phpmetrics.json
+codecov.yml
+sonar-project.properties
+lighthouserc.js
+
+# IDE helper files
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# Cache files
+.deptrac.cache
+.php-cs-fixer.cache
+.blackfire.yml
+
+# Deployment scripts
+deploy.sh
+setup_hostinger.sh
+test_deployment.sh
+crontab.txt
+
+# Nginx and PHP configs (exclude only root-level files)
+/nginx.conf
+/php.ini
+
+# Secrets directory must never be sent to build context
+secrets/
+.secrets/
+
+# Lock files (keep composer.lock for reproducible builds)
+*.lock
+!composer.lock
+!package-lock.json
+
+# Temporary files
+*.tmp
+*.temp
+
+# Additional Docker-specific exclusions
+# Keep only essential files for production
+*.md
+*.txt
+*.json
+!composer.json
+!package.json
+!package-lock.json
+!composer.lock
+
+# Development tools
+.phpunit.cache
+.deptrac.cache
+.php-cs-fixer.cache
+.blackfire.yml
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and caches
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/
+
+# Test files
+tests/
+phpunit.xml
+.phpunit.cache
+
+# Coverage and reports
+coverage/
+reports/
+*.log

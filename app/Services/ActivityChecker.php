@@ -13,11 +13,11 @@ final class ActivityChecker
      */
     private array $config = [];
 
-    private CacheManager $cache;
+    private readonly CacheManager $cache;
 
-    private GeolocationService $geolocationService;
+    private readonly GeolocationService $geolocationService;
 
-    private ActivityFactory $activityFactory;
+    private readonly ActivityFactory $activityFactory;
 
     public function __construct(
         CacheManager $cache,
@@ -40,7 +40,7 @@ final class ActivityChecker
      *     resource?: string,
      *     changes?: array<string, array<string, int|string>|bool|float|int|string|null>
      * }  $data
-     * @return App\Services\SuspiciousActivity[]
+     * @return array<App\Services\SuspiciousActivity>
      *
      * @psalm-return list<App\Services\SuspiciousActivity>
      */
@@ -63,14 +63,14 @@ final class ActivityChecker
      * Handles API request activities.
      *
      * @param  array<string, array<string, int|string>|bool|float|int|string|null>  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     public function handleApiRequest(array $data): array
     {
         $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;
-        $ipAddress = (isset($data['ip_address']) && is_string($data['ip_address'])) ? $data['ip_address'] : '';
+        $ipAddress = isset($data['ip_address']) && is_string($data['ip_address']) ? $data['ip_address'] : '';
 
         return $this->checkRapidApiRequests($userId, $ipAddress);
     }
@@ -79,14 +79,14 @@ final class ActivityChecker
      * Handles data access activities.
      *
      * @param  array<string, array<string, int|string>|bool|float|int|string|null>  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     public function handleDataAccess(array $data): array
     {
         $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;
-        $ipAddress = (isset($data['ip_address']) && is_string($data['ip_address'])) ? $data['ip_address'] : '';
+        $ipAddress = isset($data['ip_address']) && is_string($data['ip_address']) ? $data['ip_address'] : '';
 
         $shapeData = ['user_id' => $userId, 'ip_address' => $ipAddress];
         if (isset($data['data_type']) && is_string($data['data_type'])) {
@@ -100,9 +100,9 @@ final class ActivityChecker
      * Handles admin action activities.
      *
      * @param  array<string, array<string, int|string>|bool|float|int|string|null>  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     public function handleAdminAction(array $data): array
     {
@@ -118,15 +118,11 @@ final class ActivityChecker
             return false;
         }
 
-        if (! isset($data['ip_address']) || ! is_string($data['ip_address'])) {
-            return false;
-        }
-
-        return true;
+        return isset($data['ip_address']) && is_string($data['ip_address']);
     }
 
     /**
-     * @return \Closure[]
+     * @return array<\Closure>
      *
      * @psalm-return array{login_failed: \Closure(array):list<App\Services\SuspiciousActivity>, login_success: \Closure(array):list<App\Services\SuspiciousActivity>, api_request: \Closure(array):list<App\Services\SuspiciousActivity>, data_access: \Closure(array):list<App\Services\SuspiciousActivity>, admin_action: \Closure(array):list<App\Services\SuspiciousActivity>}
      */
@@ -134,31 +130,31 @@ final class ActivityChecker
     {
         return [
             'login_failed' => /**
-             * @return SuspiciousActivity[]
+             * @return array<SuspiciousActivity>
              *
              * @psalm-return list<App\Services\SuspiciousActivity>
              */
             fn (array $data): array => $this->handleLoginFailed($data),
             'login_success' => /**
-             * @return SuspiciousActivity[]
+             * @return array<SuspiciousActivity>
              *
              * @psalm-return list<App\Services\SuspiciousActivity>
              */
             fn (array $data): array => $this->handleLoginSuccess($data),
             'api_request' => /**
-             * @return SuspiciousActivity[]
+             * @return array<SuspiciousActivity>
              *
              * @psalm-return list<App\Services\SuspiciousActivity>
              */
             fn (array $data): array => $this->handleApiRequest($data),
             'data_access' => /**
-             * @return SuspiciousActivity[]
+             * @return array<SuspiciousActivity>
              *
              * @psalm-return list<App\Services\SuspiciousActivity>
              */
             fn (array $data): array => $this->handleDataAccess($data),
             'admin_action' => /**
-             * @return SuspiciousActivity[]
+             * @return array<SuspiciousActivity>
              *
              * @psalm-return list<App\Services\SuspiciousActivity>
              */
@@ -175,14 +171,14 @@ final class ActivityChecker
      *     resource?: string,
      *     changes?: array<string, array<string, int|string>|bool|float|int|string|null>
      * }  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function handleLoginFailed(array $data): array
     {
-        $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;
-        $ipAddress = (isset($data['ip_address']) && is_string($data['ip_address'])) ? $data['ip_address'] : '';
+        $userId = $data['user_id'];
+        $ipAddress = $data['ip_address'];
 
         return $this->checkMultipleFailedLogins($userId, $ipAddress);
     }
@@ -196,23 +192,23 @@ final class ActivityChecker
      *     resource?: string,
      *     changes?: array<string, array<string, int|string>|bool|float|int|string|null>
      * }  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function handleLoginSuccess(array $data): array
     {
-        $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;
-        $ipAddress = (isset($data['ip_address']) && is_string($data['ip_address'])) ? $data['ip_address'] : '';
+        $userId = $data['user_id'];
+        $ipAddress = $data['ip_address'];
         $location = is_array($data['location'] ?? null) ? $data['location'] : [];
 
         return $this->checkUnusualLoginLocation($userId, $location, $ipAddress);
     }
 
     /**
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function checkMultipleFailedLogins(int $userId, string $ipAddress): array
     {
@@ -242,9 +238,9 @@ final class ActivityChecker
 
     /**
      * @param  array<string, float>  $location
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function checkUnusualLoginLocation(int $userId, array $location, string $ipAddress): array
     {
@@ -268,9 +264,9 @@ final class ActivityChecker
     }
 
     /**
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function checkRapidApiRequests(int $userId, string $ipAddress): array
     {
@@ -300,9 +296,9 @@ final class ActivityChecker
 
     /**
      * @param  array{user_id: int, ip_address: string, data_type?: string}  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function checkUnusualDataAccess(int $userId, array $data): array
     {
@@ -346,15 +342,15 @@ final class ActivityChecker
         return [
             'access_count' => $accessCount,
             'time_window' => (int) ($rule['time_window'] ?? 60),
-            'data_type' => (isset($data['data_type']) && is_string($data['data_type'])) ? $data['data_type'] : 'unknown',
+            'data_type' => isset($data['data_type']) && is_string($data['data_type']) ? $data['data_type'] : 'unknown',
         ];
     }
 
     /**
      * @param  iterable<string, array<string, int|string>|bool|float|int|string|null>  $data
-     * @return (((array|null|scalar)[]|int|string)[]|int|string)[][]
+     * @return array<array<array<array<array|scalar|null>|int|string>|int|string>>
      *
-     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|null|scalar>|int|string>, timestamp: string, ip_address?: string}}
+     * @psalm-return list{0?: array{type: string, severity: string, user_id: int, details: array<string, array<string, array|scalar|null>|int|string>, timestamp: string, ip_address?: string}}
      */
     private function checkAdminActions(array $data): array
     {
@@ -365,12 +361,12 @@ final class ActivityChecker
         }
 
         $userId = isset($data['user_id']) ? (int) $data['user_id'] : 0;
-        $ipAddress = (isset($data['ip_address']) && is_string($data['ip_address'])) ? $data['ip_address'] : '';
+        $ipAddress = isset($data['ip_address']) && is_string($data['ip_address']) ? $data['ip_address'] : '';
 
         $activityData = [
-            'action' => (isset($data['action']) && is_string($data['action'])) ? $data['action'] : 'unknown',
-            'resource' => (isset($data['resource']) && is_string($data['resource'])) ? $data['resource'] : 'unknown',
-            'changes' => (isset($data['changes']) && is_array($data['changes'])) ? $data['changes'] : [],
+            'action' => isset($data['action']) && is_string($data['action']) ? $data['action'] : 'unknown',
+            'resource' => isset($data['resource']) && is_string($data['resource']) ? $data['resource'] : 'unknown',
+            'changes' => isset($data['changes']) && is_array($data['changes']) ? $data['changes'] : [],
         ];
 
         return [$this->activityFactory->create('admin_action', $userId, $ipAddress, $rule, $activityData)];
@@ -421,11 +417,11 @@ final class ActivityChecker
     }
 
     /**
-     * @return (int|string)[]|scalar
+     * @return array<int|string>|scalar
      *
      * @psalm-return array<string, int|string>|scalar
      */
-    private function getMonitoringRule(string $ruleName)
+    private function getMonitoringRule(string $ruleName): array|string|int|float|bool
     {
         return $this->config['monitoring_rules'][$ruleName] ?? [];
     }

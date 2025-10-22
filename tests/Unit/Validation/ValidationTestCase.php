@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Validation;
 
 use PHPUnit\Framework\TestCase;
@@ -78,3 +80,5 @@ class ValidationTestCase extends TestCase
         $this->assertNotEquals(1, 2);
     }
 }
+
+

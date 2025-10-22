@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ruleset name="Laravel Project Clean Code Rules"
+         xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
+
+    <description>Clean Code rules only (excluding StaticAccess and ElseExpression for Laravel)</description>
+
+    <!-- Include selected Clean Code rules (excluding StaticAccess, ElseExpression, IfStatementAssignment) -->
+    <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
+    <rule ref="rulesets/cleancode.xml/DuplicatedArrayKey"/>
+    <rule ref="rulesets/cleancode.xml/ErrorControlOperator"/>
+    <rule ref="rulesets/cleancode.xml/MissingImport">
+        <properties>
+            <property name="ignore-global" value="true"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/cleancode.xml/UndefinedVariable"/>
+
+</ruleset>

@@ -1,0 +1,5 @@
+PHPUnit 12.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+

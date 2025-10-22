@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\DataAccuracy;
 
 use App\Models\Currency;
@@ -64,3 +66,5 @@ class CurrencyConversionTest extends TestCase
         parent::tearDown();
     }
 }
+
+

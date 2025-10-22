@@ -1,0 +1,397 @@
+15,php -d memory_limit=1G ./vendor/bin/phpunit --filter ExampleTest --bootstrap tests/bootstrap.php,FAILED,255
+8,php -d memory_limit=1G ./vendor/bin/phpunit --filter ImageProcessingTest --bootstrap tests/bootstrap.php,FAILED,255
+7,php -d memory_limit=1G ./vendor/bin/phpunit --filter ContinuousQualityMonitorTest --bootstrap tests/bootstrap.php,FAILED,255
+12,php -d memory_limit=1G ./vendor/bin/phpunit --filter TextProcessingTest --bootstrap tests/bootstrap.php,FAILED,255
+11,php -d memory_limit=1G ./vendor/bin/phpunit --filter StrictQualityAgentTest --bootstrap tests/bootstrap.php,FAILED,255
+10,php -d memory_limit=1G ./vendor/bin/phpunit --filter RecommendationSystemTest --bootstrap tests/bootstrap.php,FAILED,255
+14,php -d memory_limit=1G ./vendor/bin/phpunit --filter E2ETest --bootstrap tests/bootstrap.php,FAILED,255
+16,php -d memory_limit=1G ./vendor/bin/phpunit --filter ErrorHandlerManagerTest --bootstrap tests/bootstrap.php,FAILED,255
+3,php -d memory_limit=1G ./vendor/bin/phpunit --filter AILearningTest --bootstrap tests/bootstrap.php,FAILED,255
+5,php -d memory_limit=1G ./vendor/bin/phpunit --filter AIModelTest --bootstrap tests/bootstrap.php,FAILED,255
+4,php -d memory_limit=1G ./vendor/bin/phpunit --filter AIModelPerformanceTest --bootstrap tests/bootstrap.php,FAILED,255
+2,php -d memory_limit=1G ./vendor/bin/phpunit --filter AIErrorHandlingTest --bootstrap tests/bootstrap.php,FAILED,255
+6,php -d memory_limit=1G ./vendor/bin/phpunit --filter AIResponseTimeTest --bootstrap tests/bootstrap.php,FAILED,255
+1,php -d memory_limit=1G ./vendor/bin/phpunit --filter AIAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+13,php -d memory_limit=1G ./vendor/bin/phpunit --filter ArchTest --bootstrap tests/bootstrap.php,FAILED,255
+9,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductClassificationTest --bootstrap tests/bootstrap.php,FAILED,255
+20,php -d memory_limit=1G ./vendor/bin/phpunit --filter ApiEndpointsTest --bootstrap tests/bootstrap.php,FAILED,255
+17,php -d memory_limit=1G ./vendor/bin/phpunit --filter ComprehensiveApiTest --bootstrap tests/bootstrap.php,FAILED,255
+19,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductApiTest --bootstrap tests/bootstrap.php,FAILED,255
+18,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderApiTest --bootstrap tests/bootstrap.php,FAILED,255
+22,php -d memory_limit=1G ./vendor/bin/phpunit --filter ApiVersioningTest --bootstrap tests/bootstrap.php,FAILED,255
+21,php -d memory_limit=1G ./vendor/bin/phpunit --filter ApiRateLimitingTest --bootstrap tests/bootstrap.php,FAILED,255
+23,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+24,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthenticationTest --bootstrap tests/bootstrap.php,FAILED,255
+25,php -d memory_limit=1G ./vendor/bin/phpunit --filter CacheFunctionalityTest --bootstrap tests/bootstrap.php,FAILED,255
+28,php -d memory_limit=1G ./vendor/bin/phpunit --filter StatsCommandTest --bootstrap tests/bootstrap.php,FAILED,255
+26,php -d memory_limit=1G ./vendor/bin/phpunit --filter CartControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+27,php -d memory_limit=1G ./vendor/bin/phpunit --filter AgentProposeFixCommandTest --bootstrap tests/bootstrap.php,FAILED,255
+29,php -d memory_limit=1G ./vendor/bin/phpunit --filter UpdatePricesCommandTest --bootstrap tests/bootstrap.php,FAILED,255
+30,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceComparisonTest --bootstrap tests/bootstrap.php,FAILED,255
+33,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthenticationFlowTest --bootstrap tests/bootstrap.php,FAILED,255
+31,php -d memory_limit=1G ./vendor/bin/phpunit --filter DatabaseConnectionTest --bootstrap tests/bootstrap.php,FAILED,255
+32,php -d memory_limit=1G ./vendor/bin/phpunit --filter DatabaseMigrationTest --bootstrap tests/bootstrap.php,FAILED,255
+36,php -d memory_limit=1G ./vendor/bin/phpunit --filter FileUploadTest --bootstrap tests/bootstrap.php,FAILED,255
+34,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderFlowTest --bootstrap tests/bootstrap.php,FAILED,255
+38,php -d memory_limit=1G ./vendor/bin/phpunit --filter HostingerTest --bootstrap tests/bootstrap.php,FAILED,255
+37,php -d memory_limit=1G ./vendor/bin/phpunit --filter FormValidationTest --bootstrap tests/bootstrap.php,FAILED,255
+35,php -d memory_limit=1G ./vendor/bin/phpunit --filter EmailSendingTest --bootstrap tests/bootstrap.php,FAILED,255
+39,php -d memory_limit=1G ./vendor/bin/phpunit --filter AdminControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+40,php -d memory_limit=1G ./vendor/bin/phpunit --filter BrandControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+43,php -d memory_limit=1G ./vendor/bin/phpunit --filter DocumentationControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+41,php -d memory_limit=1G ./vendor/bin/phpunit --filter CategoryControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+42,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+44,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceSearchControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+47,php -d memory_limit=1G ./vendor/bin/phpunit --filter BrandControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+45,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+52,php -d memory_limit=1G ./vendor/bin/phpunit --filter LocaleControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+48,php -d memory_limit=1G ./vendor/bin/phpunit --filter CartControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+49,php -d memory_limit=1G ./vendor/bin/phpunit --filter ErrorControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+46,php -d memory_limit=1G ./vendor/bin/phpunit --filter BackupControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+56,php -d memory_limit=1G ./vendor/bin/phpunit --filter ReportControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+54,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceAlertControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+50,php -d memory_limit=1G ./vendor/bin/phpunit --filter HealthControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+55,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+51,php -d memory_limit=1G ./vendor/bin/phpunit --filter HomeControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+53,php -d memory_limit=1G ./vendor/bin/phpunit --filter LogControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+57,php -d memory_limit=1G ./vendor/bin/phpunit --filter ReviewControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+58,php -d memory_limit=1G ./vendor/bin/phpunit --filter SettingControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+60,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+59,php -d memory_limit=1G ./vendor/bin/phpunit --filter SystemControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+62,php -d memory_limit=1G ./vendor/bin/phpunit --filter AddQueuedCookiesToResponseTest --bootstrap tests/bootstrap.php,FAILED,255
+63,php -d memory_limit=1G ./vendor/bin/phpunit --filter AdminMiddlewareTest --bootstrap tests/bootstrap.php,FAILED,255
+64,php -d memory_limit=1G ./vendor/bin/phpunit --filter ApiErrorHandlerTest --bootstrap tests/bootstrap.php,FAILED,255
+61,php -d memory_limit=1G ./vendor/bin/phpunit --filter WishlistControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+65,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthenticateSessionTest --bootstrap tests/bootstrap.php,FAILED,255
+66,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthenticateTest --bootstrap tests/bootstrap.php,FAILED,255
+67,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthenticateWithBasicAuthTest --bootstrap tests/bootstrap.php,FAILED,255
+68,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthorizeTest --bootstrap tests/bootstrap.php,FAILED,255
+69,php -d memory_limit=1G ./vendor/bin/phpunit --filter ConvertEmptyStringsToNullTest --bootstrap tests/bootstrap.php,FAILED,255
+70,php -d memory_limit=1G ./vendor/bin/phpunit --filter EncryptCookiesTest --bootstrap tests/bootstrap.php,FAILED,255
+71,php -d memory_limit=1G ./vendor/bin/phpunit --filter EnsureEmailIsVerifiedTest --bootstrap tests/bootstrap.php,FAILED,255
+72,php -d memory_limit=1G ./vendor/bin/phpunit --filter HandleCorsTest --bootstrap tests/bootstrap.php,FAILED,255
+74,php -d memory_limit=1G ./vendor/bin/phpunit --filter InputSanitizationMiddlewareTest --bootstrap tests/bootstrap.php,FAILED,255
+73,php -d memory_limit=1G ./vendor/bin/phpunit --filter HandlePrecognitiveRequestsTest --bootstrap tests/bootstrap.php,FAILED,255
+75,php -d memory_limit=1G ./vendor/bin/phpunit --filter LocaleMiddlewareTest --bootstrap tests/bootstrap.php,FAILED,255
+77,php -d memory_limit=1G ./vendor/bin/phpunit --filter RedirectIfAuthenticatedTest --bootstrap tests/bootstrap.php,FAILED,255
+76,php -d memory_limit=1G ./vendor/bin/phpunit --filter PreventRequestsDuringMaintenanceTest --bootstrap tests/bootstrap.php,FAILED,255
+80,php -d memory_limit=1G ./vendor/bin/phpunit --filter SecurityHeadersTest --bootstrap tests/bootstrap.php,FAILED,255
+78,php -d memory_limit=1G ./vendor/bin/phpunit --filter RequirePasswordTest --bootstrap tests/bootstrap.php,FAILED,255
+79,php -d memory_limit=1G ./vendor/bin/phpunit --filter SecurityHeadersMiddlewareTest --bootstrap tests/bootstrap.php,FAILED,255
+82,php -d memory_limit=1G ./vendor/bin/phpunit --filter SetCacheHeadersTest --bootstrap tests/bootstrap.php,FAILED,255
+81,php -d memory_limit=1G ./vendor/bin/phpunit --filter SessionManagementMiddlewareTest --bootstrap tests/bootstrap.php,FAILED,255
+83,php -d memory_limit=1G ./vendor/bin/phpunit --filter SetLocaleAndCurrencyTest --bootstrap tests/bootstrap.php,FAILED,255
+85,php -d memory_limit=1G ./vendor/bin/phpunit --filter StartSessionTest --bootstrap tests/bootstrap.php,FAILED,255
+87,php -d memory_limit=1G ./vendor/bin/phpunit --filter ThrottleRequestsTest --bootstrap tests/bootstrap.php,FAILED,255
+84,php -d memory_limit=1G ./vendor/bin/phpunit --filter ShareErrorsFromSessionTest --bootstrap tests/bootstrap.php,FAILED,255
+88,php -d memory_limit=1G ./vendor/bin/phpunit --filter ThrottleSensitiveOperationsTest --bootstrap tests/bootstrap.php,FAILED,255
+86,php -d memory_limit=1G ./vendor/bin/phpunit --filter SubstituteBindingsTest --bootstrap tests/bootstrap.php,FAILED,255
+90,php -d memory_limit=1G ./vendor/bin/phpunit --filter TrustHostsTest --bootstrap tests/bootstrap.php,FAILED,255
+89,php -d memory_limit=1G ./vendor/bin/phpunit --filter TrimStringsTest --bootstrap tests/bootstrap.php,FAILED,255
+93,php -d memory_limit=1G ./vendor/bin/phpunit --filter ValidatePostSizeTest --bootstrap tests/bootstrap.php,FAILED,255
+91,php -d memory_limit=1G ./vendor/bin/phpunit --filter TrustProxiesTest --bootstrap tests/bootstrap.php,FAILED,255
+94,php -d memory_limit=1G ./vendor/bin/phpunit --filter ValidateSignatureTest --bootstrap tests/bootstrap.php,FAILED,255
+92,php -d memory_limit=1G ./vendor/bin/phpunit --filter ValidateApiRequestTest --bootstrap tests/bootstrap.php,FAILED,255
+98,php -d memory_limit=1G ./vendor/bin/phpunit --filter MemoryLeakTest --bootstrap tests/bootstrap.php,FAILED,255
+96,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceSearchIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+95,php -d memory_limit=1G ./vendor/bin/phpunit --filter VerifyCsrfTokenTest --bootstrap tests/bootstrap.php,FAILED,255
+97,php -d memory_limit=1G ./vendor/bin/phpunit --filter LinkCheckerTest --bootstrap tests/bootstrap.php,FAILED,255
+99,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuditLogSimpleTest --bootstrap tests/bootstrap.php,FAILED,255
+100,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuditLogTest --bootstrap tests/bootstrap.php,FAILED,255
+101,php -d memory_limit=1G ./vendor/bin/phpunit --filter BrandTest --bootstrap tests/bootstrap.php,FAILED,255
+104,php -d memory_limit=1G ./vendor/bin/phpunit --filter LanguageTest --bootstrap tests/bootstrap.php,FAILED,255
+102,php -d memory_limit=1G ./vendor/bin/phpunit --filter CategoryTest --bootstrap tests/bootstrap.php,FAILED,255
+103,php -d memory_limit=1G ./vendor/bin/phpunit --filter CurrencyTest --bootstrap tests/bootstrap.php,FAILED,255
+105,php -d memory_limit=1G ./vendor/bin/phpunit --filter NotificationSimpleTest --bootstrap tests/bootstrap.php,FAILED,255
+107,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderTest --bootstrap tests/bootstrap.php,FAILED,255
+108,php -d memory_limit=1G ./vendor/bin/phpunit --filter PaymentMethodTest --bootstrap tests/bootstrap.php,FAILED,255
+106,php -d memory_limit=1G ./vendor/bin/phpunit --filter NotificationTest --bootstrap tests/bootstrap.php,FAILED,255
+109,php -d memory_limit=1G ./vendor/bin/phpunit --filter PaymentTest --bootstrap tests/bootstrap.php,FAILED,255
+110,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceAlertTest --bootstrap tests/bootstrap.php,FAILED,255
+112,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductTest --bootstrap tests/bootstrap.php,FAILED,255
+111,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceOfferTest --bootstrap tests/bootstrap.php,FAILED,255
+115,php -d memory_limit=1G ./vendor/bin/phpunit --filter StoreTest --bootstrap tests/bootstrap.php,FAILED,255
+114,php -d memory_limit=1G ./vendor/bin/phpunit --filter RewardTest --bootstrap tests/bootstrap.php,FAILED,255
+113,php -d memory_limit=1G ./vendor/bin/phpunit --filter ReviewTest --bootstrap tests/bootstrap.php,FAILED,255
+117,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserPointTest --bootstrap tests/bootstrap.php,FAILED,255
+116,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserLocaleSettingTest --bootstrap tests/bootstrap.php,FAILED,255
+118,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserTest --bootstrap tests/bootstrap.php,FAILED,255
+122,php -d memory_limit=1G ./vendor/bin/phpunit --filter RoutingTest --bootstrap tests/bootstrap.php,FAILED,255
+121,php -d memory_limit=1G ./vendor/bin/phpunit --filter PermissionControlTest --bootstrap tests/bootstrap.php,FAILED,255
+120,php -d memory_limit=1G ./vendor/bin/phpunit --filter PerformanceTest --bootstrap tests/bootstrap.php,FAILED,255
+124,php -d memory_limit=1G ./vendor/bin/phpunit --filter SEOTest --bootstrap tests/bootstrap.php,FAILED,255
+119,php -d memory_limit=1G ./vendor/bin/phpunit --filter WishlistTest --bootstrap tests/bootstrap.php,FAILED,255
+123,php -d memory_limit=1G ./vendor/bin/phpunit --filter SecurityTest --bootstrap tests/bootstrap.php,FAILED,255
+126,php -d memory_limit=1G ./vendor/bin/phpunit --filter BackupServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+125,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuditServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+128,php -d memory_limit=1G ./vendor/bin/phpunit --filter FileCleanupServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+127,php -d memory_limit=1G ./vendor/bin/phpunit --filter CacheServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+129,php -d memory_limit=1G ./vendor/bin/phpunit --filter FinancialTransactionServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+131,php -d memory_limit=1G ./vendor/bin/phpunit --filter NotificationServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+130,php -d memory_limit=1G ./vendor/bin/phpunit --filter LoginAttemptServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+133,php -d memory_limit=1G ./vendor/bin/phpunit --filter PasswordPolicyServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+134,php -d memory_limit=1G ./vendor/bin/phpunit --filter PasswordResetServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+132,php -d memory_limit=1G ./vendor/bin/phpunit --filter PasswordHistoryServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+137,php -d memory_limit=1G ./vendor/bin/phpunit --filter QualityAnalysisServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+138,php -d memory_limit=1G ./vendor/bin/phpunit --filter ReportServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+135,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProcessServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+136,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+140,php -d memory_limit=1G ./vendor/bin/phpunit --filter SessionManagementTest --bootstrap tests/bootstrap.php,FAILED,255
+144,php -d memory_limit=1G ./vendor/bin/phpunit --filter CompleteWorkflowTest --bootstrap tests/bootstrap.php,FAILED,255
+139,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserBanServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+141,php -d memory_limit=1G ./vendor/bin/phpunit --filter ThirdPartyApiTest --bootstrap tests/bootstrap.php,FAILED,255
+142,php -d memory_limit=1G ./vendor/bin/phpunit --filter UITest --bootstrap tests/bootstrap.php,FAILED,255
+143,php -d memory_limit=1G ./vendor/bin/phpunit --filter AdvancedIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+146,php -d memory_limit=1G ./vendor/bin/phpunit --filter AdvancedPerformanceTest --bootstrap tests/bootstrap.php,FAILED,255
+145,php -d memory_limit=1G ./vendor/bin/phpunit --filter IntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+148,php -d memory_limit=1G ./vendor/bin/phpunit --filter CachePerformanceTest --bootstrap tests/bootstrap.php,FAILED,255
+147,php -d memory_limit=1G ./vendor/bin/phpunit --filter ApiResponseTimeTest --bootstrap tests/bootstrap.php,FAILED,255
+153,php -d memory_limit=1G ./vendor/bin/phpunit --filter PerformanceBenchmarkTest --bootstrap tests/bootstrap.php,FAILED,255
+150,php -d memory_limit=1G ./vendor/bin/phpunit --filter LoadTestingTest --bootstrap tests/bootstrap.php,FAILED,255
+151,php -d memory_limit=1G ./vendor/bin/phpunit --filter LoadTimeTest --bootstrap tests/bootstrap.php,FAILED,255
+154,php -d memory_limit=1G ./vendor/bin/phpunit --filter SafeLaravelTest --bootstrap tests/bootstrap.php,FAILED,255
+149,php -d memory_limit=1G ./vendor/bin/phpunit --filter DatabasePerformanceTest --bootstrap tests/bootstrap.php,FAILED,255
+152,php -d memory_limit=1G ./vendor/bin/phpunit --filter MemoryUsageTest --bootstrap tests/bootstrap.php,FAILED,255
+155,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuthenticationSecurityTest --bootstrap tests/bootstrap.php,FAILED,255
+156,php -d memory_limit=1G ./vendor/bin/phpunit --filter CSRFTest --bootstrap tests/bootstrap.php,FAILED,255
+159,php -d memory_limit=1G ./vendor/bin/phpunit --filter SQLInjectionTest --bootstrap tests/bootstrap.php,FAILED,255
+157,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataEncryptionTest --bootstrap tests/bootstrap.php,FAILED,255
+158,php -d memory_limit=1G ./vendor/bin/phpunit --filter PermissionSecurityTest --bootstrap tests/bootstrap.php,FAILED,255
+163,php -d memory_limit=1G ./vendor/bin/phpunit --filter BaseApiControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+160,php -d memory_limit=1G ./vendor/bin/phpunit --filter XSSTest --bootstrap tests/bootstrap.php,FAILED,255
+161,php -d memory_limit=1G ./vendor/bin/phpunit --filter BaseTest --bootstrap tests/bootstrap.php,FAILED,255
+162,php -d memory_limit=1G ./vendor/bin/phpunit --filter AnalyticsControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+167,php -d memory_limit=1G ./vendor/bin/phpunit --filter CoprraServiceProviderTest --bootstrap tests/bootstrap.php,FAILED,255
+166,php -d memory_limit=1G ./vendor/bin/phpunit --filter CacheServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+165,php -d memory_limit=1G ./vendor/bin/phpunit --filter AnalyticsServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+164,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderControllerTest --bootstrap tests/bootstrap.php,FAILED,255
+168,php -d memory_limit=1G ./vendor/bin/phpunit --filter ExchangeRateServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+172,php -d memory_limit=1G ./vendor/bin/phpunit --filter CreatesApplicationTest --bootstrap tests/bootstrap.php,FAILED,255
+171,php -d memory_limit=1G ./vendor/bin/phpunit --filter WebhookServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+173,php -d memory_limit=1G ./vendor/bin/phpunit --filter CurrencyConversionTest --bootstrap tests/bootstrap.php,FAILED,255
+169,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceHelperTest --bootstrap tests/bootstrap.php,FAILED,255
+170,php -d memory_limit=1G ./vendor/bin/phpunit --filter StoreAdapterManagerTest --bootstrap tests/bootstrap.php,FAILED,255
+176,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataValidationTest --bootstrap tests/bootstrap.php,FAILED,255
+174,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataConsistencyTest --bootstrap tests/bootstrap.php,FAILED,255
+177,php -d memory_limit=1G ./vendor/bin/phpunit --filter DiscountCalculationTest --bootstrap tests/bootstrap.php,FAILED,255
+175,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataIntegrityTest --bootstrap tests/bootstrap.php,FAILED,255
+178,php -d memory_limit=1G ./vendor/bin/phpunit --filter InventoryAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+180,php -d memory_limit=1G ./vendor/bin/phpunit --filter PaymentAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+179,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+182,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceHistoryAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+181,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+186,php -d memory_limit=1G ./vendor/bin/phpunit --filter TaxCalculationTest --bootstrap tests/bootstrap.php,FAILED,255
+183,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductMatchingTest --bootstrap tests/bootstrap.php,FAILED,255
+187,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+188,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataCompletenessTest --bootstrap tests/bootstrap.php,FAILED,255
+184,php -d memory_limit=1G ./vendor/bin/phpunit --filter ShippingAccuracyTest --bootstrap tests/bootstrap.php,FAILED,255
+185,php -d memory_limit=1G ./vendor/bin/phpunit --filter StoreDataValidationTest --bootstrap tests/bootstrap.php,FAILED,255
+189,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataDuplicationTest --bootstrap tests/bootstrap.php,FAILED,255
+190,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataFreshnessTest --bootstrap tests/bootstrap.php,FAILED,255
+191,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataQualityMetricsTest --bootstrap tests/bootstrap.php,FAILED,255
+192,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataRelevanceTest --bootstrap tests/bootstrap.php,FAILED,255
+193,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataReliabilityTest --bootstrap tests/bootstrap.php,FAILED,255
+194,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataTimelinessTest --bootstrap tests/bootstrap.php,FAILED,255
+196,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataValidityTest --bootstrap tests/bootstrap.php,FAILED,255
+195,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataUniquenessTest --bootstrap tests/bootstrap.php,FAILED,255
+197,php -d memory_limit=1G ./vendor/bin/phpunit --filter DuplicateDetectionTest --bootstrap tests/bootstrap.php,FAILED,255
+198,php -d memory_limit=1G ./vendor/bin/phpunit --filter BlueGreenDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+199,php -d memory_limit=1G ./vendor/bin/phpunit --filter CanaryDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+201,php -d memory_limit=1G ./vendor/bin/phpunit --filter ConfigurationTest --bootstrap tests/bootstrap.php,FAILED,255
+200,php -d memory_limit=1G ./vendor/bin/phpunit --filter CloudDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+202,php -d memory_limit=1G ./vendor/bin/phpunit --filter DevelopmentDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+203,php -d memory_limit=1G ./vendor/bin/phpunit --filter DockerDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+204,php -d memory_limit=1G ./vendor/bin/phpunit --filter EnvironmentConfigurationTest --bootstrap tests/bootstrap.php,FAILED,255
+205,php -d memory_limit=1G ./vendor/bin/phpunit --filter InfrastructureTest --bootstrap tests/bootstrap.php,FAILED,255
+208,php -d memory_limit=1G ./vendor/bin/phpunit --filter RollbackTest --bootstrap tests/bootstrap.php,FAILED,255
+209,php -d memory_limit=1G ./vendor/bin/phpunit --filter RollingDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+206,php -d memory_limit=1G ./vendor/bin/phpunit --filter KubernetesDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+207,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductionDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+211,php -d memory_limit=1G ./vendor/bin/phpunit --filter TestingDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+212,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderStatusTest --bootstrap tests/bootstrap.php,FAILED,255
+210,php -d memory_limit=1G ./vendor/bin/phpunit --filter StagingDeploymentTest --bootstrap tests/bootstrap.php,FAILED,255
+213,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserRoleTest --bootstrap tests/bootstrap.php,FAILED,255
+215,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderHelperTest --bootstrap tests/bootstrap.php,FAILED,255
+214,php -d memory_limit=1G ./vendor/bin/phpunit --filter FactoriesTest --bootstrap tests/bootstrap.php,FAILED,255
+216,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceHelperTest --bootstrap tests/bootstrap.php,FAILED,255
+217,php -d memory_limit=1G ./vendor/bin/phpunit --filter AnalyticsIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+218,php -d memory_limit=1G ./vendor/bin/phpunit --filter APIIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+219,php -d memory_limit=1G ./vendor/bin/phpunit --filter CurrencyIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+222,php -d memory_limit=1G ./vendor/bin/phpunit --filter InventoryIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+220,php -d memory_limit=1G ./vendor/bin/phpunit --filter EmailIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+224,php -d memory_limit=1G ./vendor/bin/phpunit --filter PaymentIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+223,php -d memory_limit=1G ./vendor/bin/phpunit --filter NotificationIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+221,php -d memory_limit=1G ./vendor/bin/phpunit --filter EndToEndIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+228,php -d memory_limit=1G ./vendor/bin/phpunit --filter SMSIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+226,php -d memory_limit=1G ./vendor/bin/phpunit --filter SearchIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+225,php -d memory_limit=1G ./vendor/bin/phpunit --filter PushNotificationTest --bootstrap tests/bootstrap.php,FAILED,255
+227,php -d memory_limit=1G ./vendor/bin/phpunit --filter ShippingIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+230,php -d memory_limit=1G ./vendor/bin/phpunit --filter ThirdPartyAPIIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+229,php -d memory_limit=1G ./vendor/bin/phpunit --filter StoreAPIIntegrationTest --bootstrap tests/bootstrap.php,FAILED,255
+231,php -d memory_limit=1G ./vendor/bin/phpunit --filter WebhookTest --bootstrap tests/bootstrap.php,FAILED,255
+235,php -d memory_limit=1G ./vendor/bin/phpunit --filter MockeryDebugTest --bootstrap tests/bootstrap.php,FAILED,255
+233,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProcessHeavyOperationTest --bootstrap tests/bootstrap.php,FAILED,255
+234,php -d memory_limit=1G ./vendor/bin/phpunit --filter AdminMiddlewareTest --bootstrap tests/bootstrap.php,FAILED,255
+232,php -d memory_limit=1G ./vendor/bin/phpunit --filter IsolatedStrictTest --bootstrap tests/bootstrap.php,FAILED,255
+236,php -d memory_limit=1G ./vendor/bin/phpunit --filter ModelRelationsTest --bootstrap tests/bootstrap.php,FAILED,255
+237,php -d memory_limit=1G ./vendor/bin/phpunit --filter AuditLogTest --bootstrap tests/bootstrap.php,FAILED,255
+239,php -d memory_limit=1G ./vendor/bin/phpunit --filter CategoryTest --bootstrap tests/bootstrap.php,FAILED,255
+238,php -d memory_limit=1G ./vendor/bin/phpunit --filter BrandTest --bootstrap tests/bootstrap.php,FAILED,255
+240,php -d memory_limit=1G ./vendor/bin/phpunit --filter CurrencyTest --bootstrap tests/bootstrap.php,FAILED,255
+241,php -d memory_limit=1G ./vendor/bin/phpunit --filter LanguageTest --bootstrap tests/bootstrap.php,FAILED,255
+242,php -d memory_limit=1G ./vendor/bin/phpunit --filter NotificationTest --bootstrap tests/bootstrap.php,FAILED,255
+243,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderItemTest --bootstrap tests/bootstrap.php,FAILED,255
+244,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderTest --bootstrap tests/bootstrap.php,FAILED,255
+246,php -d memory_limit=1G ./vendor/bin/phpunit --filter PaymentTest --bootstrap tests/bootstrap.php,FAILED,255
+248,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProductTest --bootstrap tests/bootstrap.php,FAILED,255
+245,php -d memory_limit=1G ./vendor/bin/phpunit --filter PaymentMethodTest --bootstrap tests/bootstrap.php,FAILED,255
+247,php -d memory_limit=1G ./vendor/bin/phpunit --filter PriceAlertTest --bootstrap tests/bootstrap.php,FAILED,255
+249,php -d memory_limit=1G ./vendor/bin/phpunit --filter ReviewTest --bootstrap tests/bootstrap.php,FAILED,255
+250,php -d memory_limit=1G ./vendor/bin/phpunit --filter StoreTest --bootstrap tests/bootstrap.php,FAILED,255
+251,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserTest --bootstrap tests/bootstrap.php,FAILED,255
+252,php -d memory_limit=1G ./vendor/bin/phpunit --filter AvailabilityTestingTest --bootstrap tests/bootstrap.php,FAILED,255
+253,php -d memory_limit=1G ./vendor/bin/phpunit --filter CacheHitRateTest --bootstrap tests/bootstrap.php,FAILED,255
+254,php -d memory_limit=1G ./vendor/bin/phpunit --filter ConcurrentUserTest --bootstrap tests/bootstrap.php,FAILED,255
+256,php -d memory_limit=1G ./vendor/bin/phpunit --filter DatabaseQueryTimeTest --bootstrap tests/bootstrap.php,FAILED,255
+255,php -d memory_limit=1G ./vendor/bin/phpunit --filter CPUUsageTest --bootstrap tests/bootstrap.php,FAILED,255
+257,php -d memory_limit=1G ./vendor/bin/phpunit --filter FilteringPerformanceTest --bootstrap tests/bootstrap.php,FAILED,255
+259,php -d memory_limit=1G ./vendor/bin/phpunit --filter PageLoadTimeTest --bootstrap tests/bootstrap.php,FAILED,255
+260,php -d memory_limit=1G ./vendor/bin/phpunit --filter ProcessIsolationTest --bootstrap tests/bootstrap.php,FAILED,255
+258,php -d memory_limit=1G ./vendor/bin/phpunit --filter ImageLoadTimeTest --bootstrap tests/bootstrap.php,FAILED,255
+262,php -d memory_limit=1G ./vendor/bin/phpunit --filter BestDealRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+261,php -d memory_limit=1G ./vendor/bin/phpunit --filter PureUnitTest --bootstrap tests/bootstrap.php,FAILED,255
+263,php -d memory_limit=1G ./vendor/bin/phpunit --filter BrandRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+271,php -d memory_limit=1G ./vendor/bin/phpunit --filter TrendingProductTest --bootstrap tests/bootstrap.php,FAILED,255
+264,php -d memory_limit=1G ./vendor/bin/phpunit --filter CategoryRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+267,php -d memory_limit=1G ./vendor/bin/phpunit --filter CrossSellRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+265,php -d memory_limit=1G ./vendor/bin/phpunit --filter CollaborativeFilteringTest --bootstrap tests/bootstrap.php,FAILED,255
+266,php -d memory_limit=1G ./vendor/bin/phpunit --filter ContentBasedFilteringTest --bootstrap tests/bootstrap.php,FAILED,255
+268,php -d memory_limit=1G ./vendor/bin/phpunit --filter HybridRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+272,php -d memory_limit=1G ./vendor/bin/phpunit --filter UpsellRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+269,php -d memory_limit=1G ./vendor/bin/phpunit --filter PersonalizedRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+274,php -d memory_limit=1G ./vendor/bin/phpunit --filter ValidOrderStatusTest --bootstrap tests/bootstrap.php,FAILED,255
+270,php -d memory_limit=1G ./vendor/bin/phpunit --filter SimilarProductTest --bootstrap tests/bootstrap.php,FAILED,255
+275,php -d memory_limit=1G ./vendor/bin/phpunit --filter DataBackupTest --bootstrap tests/bootstrap.php,FAILED,255
+273,php -d memory_limit=1G ./vendor/bin/phpunit --filter UserBehaviorRecommendationTest --bootstrap tests/bootstrap.php,FAILED,255
+276,php -d memory_limit=1G ./vendor/bin/phpunit --filter BehaviorAnalysisServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+277,php -d memory_limit=1G ./vendor/bin/phpunit --filter ExternalStoreServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+278,php -d memory_limit=1G ./vendor/bin/phpunit --filter OrderServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+279,php -d memory_limit=1G ./vendor/bin/phpunit --filter PointsServiceTest --bootstrap tests/bootstrap.php,FAILED,255
+280,php -d memory_limit=1G ./vendor/bin/phpunit --filter SimpleMockeryTest --bootstrap tests/bootstrap.php,FAILED,255
+282,php -d memory_limit=1G ./vendor/bin/phpunit --filter StrictMockeryTest --bootstrap tests/bootstrap.php,FAILED,255
+281,php -d memory_limit=1G ./vendor/bin/phpunit --filter StoreModelTest --bootstrap tests/bootstrap.php,FAILED,255
+283,php -d memory_limit=1G ./vendor/bin/phpunit --filter BasicValidationTest --bootstrap tests/bootstrap.php,FAILED,255
+284,php -d memory_limit=1G ./vendor/bin/phpunit --filter ComprehensiveValidationTest --bootstrap tests/bootstrap.php,FAILED,255
+6,./vendor/bin/pint,FAILED,127
+15,./vendor/bin/phpmetrics --config=phpmetrics.json app,FAILED,127
+7,./vendor/bin/pint --test,FAILED,127
+17,./vendor/bin/rector process app,FAILED,127
+16,./vendor/bin/phpcpd app/,FAILED,255
+8,composer audit,FAILED,2
+9,vendor/bin/phpunit,FAILED,255
+10,vendor/bin/phpunit --testsuite AI,FAILED,255
+12,vendor/bin/phpunit --testsuite Performance,FAILED,255
+26,./comprehensive-quality-audit.sh,FAILED,1
+13,vendor/bin/phpunit --testsuite Integration,FAILED,255
+28,./execute_task4_individual_tests.sh,FAILED,126
+27,./comprehensive-audit-execution.sh,FAILED,1
+29,./execute_task4_batch_runner.sh,FAILED,1
+18,./vendor/bin/php-cs-fixer fix,FAILED,1
+32,./cleanup-problematic-dirs.sh,FAILED,126
+11,vendor/bin/phpunit --testsuite Security,FAILED,255
+14,vendor/bin/phpunit --configuration=phpunit.xml --log-junit=storage/logs/junit.xml --coverage-html=storage/logs/coverage,FAILED,255
+33,./setup.sh,FAILED,100
+22,./run-all-checks.sh,FAILED,1
+5,./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode,FAILED,3
+20,./vendor/bin/composer-unused,FAILED,1
+4,./vendor/bin/phpinsights analyse app,FAILED,0
+30,./execute_task4_demo.sh,FAILED,1
+1,php -d memory_limit=1G ./vendor/bin/phpstan analyse --memory-limit=2G,FAILED,255
+2,php -d memory_limit=1G ./vendor/bin/phpstan analyse,FAILED,255
+3,./vendor/bin/psalm,FAILED,2
+6,./vendor/bin/pint,FAILED,127
+8,./vendor/bin/phpcpd app/,FAILED,255
+22,npm run clean,FAILED,1
+19,npm run analyze,FAILED,1
+20,npm run optimize,FAILED,1
+23,npm run assets,FAILED,1
+7,./vendor/bin/php-cs-fixer fix,FAILED,1
+13,npm run lint,FAILED,1
+14,npm run lint:fix,FAILED,1
+28,vendor/bin/phpunit --testsuite Feature,FAILED,255
+27,vendor/bin/phpunit --testsuite Unit,FAILED,255
+18,npm run test:frontend,FAILED,1
+5,./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode,FAILED,3
+29,vendor/bin/phpunit --testsuite AI,FAILED,255
+10,./vendor/bin/composer-unused,FAILED,1
+30,vendor/bin/phpunit --testsuite Security,FAILED,255
+24,npm run check,FAILED,1
+4,./vendor/bin/phpinsights analyse app,FAILED,0
+31,vendor/bin/phpunit --testsuite Performance,FAILED,255
+32,vendor/bin/phpunit --testsuite Integration,FAILED,255
+33,vendor/bin/phpunit --configuration phpunit.xml --coverage-html coverage --log-junit junit.xml,FAILED,255
+40,composer test:infection,FAILED,127
+45,composer analyse:security,FAILED,2
+37,composer test,FAILED,255
+38,composer test:coverage,FAILED,255
+39,composer test:dusk,FAILED,255
+54,./setup.sh,FAILED,100
+48,composer fix:rector,FAILED,127
+41,composer test:all,FAILED,255
+47,composer fix:style,FAILED,1
+59,./comprehensive-quality-audit.sh,FAILED,1
+60,./comprehensive-audit-execution.sh,FAILED,1
+61,./execute_task4_individual_tests.sh,FAILED,126
+62,./execute_task4_batch_runner.sh,FAILED,1
+2,./vendor/bin/phpstan analyse,FAILED,255
+50,composer metrics,FAILED,127
+65,./cleanup-problematic-dirs.sh,FAILED,126
+57,./run-all-checks.sh,FAILED,1
+44,composer analyse:insights,FAILED,0
+63,./execute_task4_demo.sh,FAILED,1
+68,php artisan test,FAILED,255
+69,php artisan test --parallel,FAILED,255
+36,composer analyse,FAILED,255
+70,php artisan dusk,FAILED,255
+71,php artisan route:test,FAILED,255
+78,./vendor/bin/phpmetrics --config=phpmetrics.json app,FAILED,127
+79,./vendor/bin/rector process app,FAILED,127
+80,./vendor/bin/infection --threads=max,FAILED,127
+49,composer fix:all,FAILED,1
+42,composer analyse:phpstan,FAILED,255
+72,php artisan check:security,FAILED,255
+73,php artisan check:performance,FAILED,255
+74,php artisan insights:analyze,FAILED,255
+75,php artisan test:coverage,FAILED,255
+84,./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose,FAILED,16
+85,./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode --strict,FAILED,3
+46,composer analyse:all,FAILED,255
+51,composer quality,FAILED,1
+81,./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G,FAILED,255
+83,./vendor/bin/phpinsights analyse app --min-quality=90 --min-complexity=85 --min-architecture=90 --min-style=90,FAILED,1
+6,./vendor/bin/pint,FAILED,127
+15,./vendor/bin/phpmetrics --config=phpmetrics.json app,FAILED,127
+7,./vendor/bin/pint --test,FAILED,127
+17,./vendor/bin/rector process app,FAILED,127
+16,./vendor/bin/phpcpd app/,FAILED,255
+8,composer audit,FAILED,2
+14,vendor/bin/phpunit --configuration=phpunit.xml --log-junit=storage/logs/junit.xml --coverage-html=storage/logs/coverage,FAILED,255
+9,vendor/bin/phpunit,FAILED,255
+10,vendor/bin/phpunit --testsuite AI,FAILED,255
+12,vendor/bin/phpunit --testsuite Performance,FAILED,255
+26,./comprehensive-quality-audit.sh,FAILED,1
+27,./comprehensive-audit-execution.sh,FAILED,1
+28,./execute_task4_individual_tests.sh,FAILED,126
+29,./execute_task4_batch_runner.sh,FAILED,1
+18,./vendor/bin/php-cs-fixer fix,FAILED,1
+32,./cleanup-problematic-dirs.sh,FAILED,126
+11,vendor/bin/phpunit --testsuite Security,FAILED,255
+13,vendor/bin/phpunit --testsuite Integration,FAILED,255
+33,./setup.sh,FAILED,100
+22,./run-all-checks.sh,FAILED,1
+5,./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode,FAILED,3
+20,./vendor/bin/composer-unused,FAILED,1
+4,./vendor/bin/phpinsights analyse app,FAILED,0
+30,./execute_task4_demo.sh,FAILED,1
+1,php -d memory_limit=1G ./vendor/bin/phpstan analyse --memory-limit=2G,FAILED,255
+2,php -d memory_limit=1G ./vendor/bin/phpstan analyse,FAILED,255

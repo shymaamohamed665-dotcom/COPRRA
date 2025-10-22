@@ -1,0 +1,5 @@
+﻿| old_name | new_name | full_path_after_update |
+| legacy_arabic_folder | tools_and_tests | c:\Users\Gaser\Desktop\COPRRA\tools_and_tests |
+| legacy_fixed_list.txt | fixed_tools_and_tests.txt | .\tools_and_tests\fixed_tools_and_tests.txt |
+
+All paths and names converted to English successfully, environment fully compatible with Docker, Hostinger, and modern CI.

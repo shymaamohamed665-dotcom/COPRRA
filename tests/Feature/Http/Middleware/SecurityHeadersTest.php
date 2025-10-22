@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Http\Middleware;
 
 use Illuminate\Http\Request;
@@ -11,11 +13,18 @@ use Tests\TestCase;
  */
 class SecurityHeadersTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        // Allow debug logs without explicit expectations
+        Log::shouldReceive('debug')->zeroOrMoreTimes();
+    }
+
     public function test_security_headers_middleware_adds_security_headers(): void
     {
         $request = Request::create('/test', 'GET');
 
-        // استخدم الحاوية لإنشاء الوسيط ليتم حقن الخدمة تلقائيًا
+        // Ø§Ø³ØªØ®Ø¯Ù… Ø§Ù„Ø­Ø§ÙˆÙŠØ© Ù„Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ÙˆØ³ÙŠØ· Ù„ÙŠØªÙ… Ø­Ù‚Ù† Ø§Ù„Ø®Ø¯Ù…Ø© ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§
         $middleware = $this->app->make(\App\Http\Middleware\SecurityHeaders::class);
         $response = $middleware->handle($request, function ($req) {
             return response('OK', 200);

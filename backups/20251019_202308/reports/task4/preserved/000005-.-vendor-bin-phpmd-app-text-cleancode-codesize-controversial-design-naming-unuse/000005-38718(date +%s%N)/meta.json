@@ -1,0 +1,2 @@
+{"command": "./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode", "start": "2025-10-02T03:57:43+00:00"}
+{"end": "2025-10-02T03:58:51+00:00", "exit_code": 3 }

@@ -8,10 +8,9 @@ use App\Helpers\PriceHelper;
 use App\Models\Currency;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @covers \App\Helpers\PriceHelper
- */
+#[CoversClass(PriceHelper::class)]
 class PriceHelperTest extends TestCase
 {
     use RefreshDatabase;
@@ -32,7 +31,7 @@ class PriceHelperTest extends TestCase
         Currency::create([
             'code' => 'EUR',
             'name' => 'Euro',
-            'symbol' => '€',
+            'symbol' => 'â‚¬',
             'exchange_rate' => 0.85,
             'decimal_places' => 2,
         ]);
@@ -40,7 +39,7 @@ class PriceHelperTest extends TestCase
         Currency::create([
             'code' => 'SAR',
             'name' => 'Saudi Riyal',
-            'symbol' => 'ر.س',
+            'symbol' => 'Ø±.Ø³',
             'exchange_rate' => 3.75,
             'decimal_places' => 2,
         ]);
@@ -61,7 +60,7 @@ class PriceHelperTest extends TestCase
 
         $this->assertIsString($result);
         $this->assertStringContainsString('100.50', $result);
-        $this->assertStringContainsString('€', $result);
+        $this->assertStringContainsString('â‚¬', $result);
     }
 
     public function test_it_formats_price_with_sar_currency(): void
@@ -70,7 +69,7 @@ class PriceHelperTest extends TestCase
 
         $this->assertIsString($result);
         $this->assertStringContainsString('100.50', $result);
-        $this->assertStringContainsString('ر.س', $result);
+        $this->assertStringContainsString('Ø±.Ø³', $result);
     }
 
     public function test_it_handles_non_existent_currency(): void

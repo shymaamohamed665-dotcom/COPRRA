@@ -10,27 +10,100 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
-final class FinancialTransactionService
+final readonly class FinancialTransactionService
 {
-    public function __construct(private readonly AuditService $auditService) {}
+    public function __construct(private AuditService $auditService) {}
 
     public function updateProductPrice(Product $product, float $newPrice, ?string $reason = null): bool
     {
-        return DB::transaction(/**
-         * @return true
-         */
-            function () use ($product, $newPrice, $reason): bool {
-                $oldPrice = (float) $product->price;
-                $this->validatePrice($newPrice);
+        /** @var bool $result */
+        $result = DB::transaction(function () use ($product, $newPrice, $reason): bool {
+            $oldPrice = (float) $product->price;
+            $this->validatePrice($newPrice);
 
-                $product->update(['price' => $newPrice]);
+            $product->update(['price' => $newPrice]);
 
-                $this->logPriceUpdate($product, $oldPrice, $newPrice, $reason);
+            $this->logPriceUpdate($product, $oldPrice, $newPrice, $reason);
 
-                $this->checkPriceAlerts();
+            $this->checkPriceAlerts();
 
-                return true;
-            });
+            return true;
+        });
+
+        return $result;
+    }
+
+    /**
+     * @psalm-param array{product_id:int|string, new_price:numeric-string|float, price?:float, is_available?:bool, expires_at?:string|null, status?:string} $offerData
+     */
+    public function createPriceOffer(array $offerData): PriceOffer
+    {
+        /** @var PriceOffer $priceOffer */
+        $priceOffer = DB::transaction(function () use ($offerData): PriceOffer {
+            $this->validateOfferData($offerData);
+
+            // Map new_price to actual persisted price column
+            if (isset($offerData['new_price'])) {
+                $offerData['price'] = (float) $offerData['new_price'];
+                unset($offerData['new_price']);
+            }
+
+            // Default new offers to available unless explicitly provided
+            $offerData['is_available'] = isset($offerData['is_available']) ? $offerData['is_available'] : true;
+
+            $offerData['status'] = 'active';
+            $newOffer = PriceOffer::query()->create($offerData);
+
+            $this->logOfferCreation($newOffer);
+
+            $this->updateProductPriceFromOffer($newOffer);
+
+            return $newOffer;
+        });
+
+        return $priceOffer;
+    }
+
+    /**
+     * @param  array<string, mixed>  $updateData
+     */
+    public function updatePriceOffer(PriceOffer $priceOffer, array $updateData): PriceOffer
+    {
+        /** @var PriceOffer $updated */
+        $updated = DB::transaction(function () use ($priceOffer, $updateData): PriceOffer {
+            $this->validateOfferUpdateData($updateData);
+
+            // Map new_price to actual persisted price column on updates
+            if (isset($updateData['new_price'])) {
+                $updateData['price'] = (float) $updateData['new_price'];
+                unset($updateData['new_price']);
+            }
+
+            $oldData = $priceOffer->toArray();
+            $priceOffer->update($updateData);
+
+            $this->logOfferUpdate($priceOffer, $oldData);
+
+            $this->updateProductPriceFromOffer($priceOffer);
+
+            return $priceOffer;
+        });
+
+        return $updated;
+    }
+
+    public function deletePriceOffer(PriceOffer $priceOffer): bool
+    {
+        /** @var bool $deleted */
+        $deleted = DB::transaction(function () use ($priceOffer): bool {
+            $priceOffer->delete();
+
+            $this->logOfferDeletion($priceOffer);
+
+            return true;
+        });
+
+        return $deleted;
     }
 
     private function validatePrice(float $price): void
@@ -51,7 +124,7 @@ final class FinancialTransactionService
             'old_price' => $oldPrice,
             'new_price' => $newPrice,
             'price_change' => $newPrice - $oldPrice,
-            'percentage_change' => $oldPrice > 0 ? (($newPrice - $oldPrice) / $oldPrice) * 100 : 0,
+            'percentage_change' => $oldPrice > 0 ? ($newPrice - $oldPrice) / $oldPrice * 100 : 0,
         ]);
 
         Log::info('Product price updated successfully', [
@@ -62,25 +135,9 @@ final class FinancialTransactionService
         ]);
     }
 
-    public function createPriceOffer(array $offerData): PriceOffer
-    {
-        return DB::transaction(function () use ($offerData) {
-            $this->validateOfferData($offerData);
-
-            $offerData['status'] = 'active';
-            $priceOffer = PriceOffer::create($offerData);
-
-            $this->logOfferCreation($priceOffer);
-
-            $this->updateProductPriceFromOffer($priceOffer);
-
-            return $priceOffer;
-        });
-    }
-
     private function validateOfferData(array $offerData): void
     {
-        if (empty($offerData['product_id']) || empty($offerData['new_price'])) {
+        if (! isset($offerData['product_id']) || ! isset($offerData['new_price'])) {
             throw new Exception('Missing required offer data');
         }
 
@@ -98,22 +155,6 @@ final class FinancialTransactionService
         $this->auditService->logCreated($priceOffer);
 
         Log::info('Price offer created successfully', ['offer_id' => $priceOffer->id]);
-    }
-
-    public function updatePriceOffer(PriceOffer $priceOffer, array $updateData): PriceOffer
-    {
-        return DB::transaction(function () use ($priceOffer, $updateData) {
-            $this->validateOfferUpdateData($updateData);
-
-            $oldData = $priceOffer->toArray();
-            $priceOffer->update($updateData);
-
-            $this->logOfferUpdate($priceOffer, $oldData);
-
-            $this->updateProductPriceFromOffer($priceOffer);
-
-            return $priceOffer;
-        });
     }
 
     private function validateOfferUpdateData(array $updateData): void
@@ -134,32 +175,11 @@ final class FinancialTransactionService
         Log::info('Price offer updated successfully', ['offer_id' => $priceOffer->id]);
     }
 
-    public function deletePriceOffer(PriceOffer $priceOffer): bool
-    {
-        return DB::transaction(function () use ($priceOffer) {
-            $priceOffer->delete();
-
-            $this->logOfferDeletion($priceOffer);
-
-            return true;
-        });
-    }
-
     private function logOfferDeletion(PriceOffer $priceOffer): void
     {
         $this->auditService->logDeleted($priceOffer);
 
         Log::info('Price offer deleted successfully', ['offer_id' => $priceOffer->id]);
-    }
-
-    private function isLowestPriceOffer(PriceOffer $offer): bool
-    {
-        $lowestOffer = PriceOffer::where('product_id', $offer->product_id)
-            ->where('is_available', true)
-            ->orderBy('price')
-            ->first();
-
-        return $lowestOffer && $lowestOffer->id === $offer->id;
     }
 
     private function updateProductPriceFromOffer(PriceOffer $priceOffer): void

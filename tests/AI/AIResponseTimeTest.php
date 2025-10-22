@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 // Removed PreserveGlobalState to avoid risky test flags
@@ -16,7 +18,7 @@ class AIResponseTimeTest extends TestCase
         $aiService = $this->getAIService();
 
         $startTime = microtime(true);
-        $result = $aiService->analyzeText('منتج ممتاز');
+        $result = $aiService->analyzeText('Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø²');
         $endTime = microtime(true);
 
         $responseTime = ($endTime - $startTime) * 1000; // Convert to milliseconds
@@ -30,7 +32,7 @@ class AIResponseTimeTest extends TestCase
     {
         $aiService = $this->getAIService();
 
-        $productDescription = 'هاتف ذكي متطور';
+        $productDescription = 'Ù‡Ø§ØªÙ Ø°ÙƒÙŠ Ù…ØªØ·ÙˆØ±';
 
         $startTime = microtime(true);
         $result = $aiService->classifyProduct($productDescription);
@@ -48,9 +50,9 @@ class AIResponseTimeTest extends TestCase
         $aiService = $this->getAIService();
 
         $userPreferences = [
-            'categories' => ['إلكترونيات'],
+            'categories' => ['Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª'],
             'price_range' => [1000, 5000],
-            'brands' => ['سامسونج', 'أبل'],
+            'brands' => ['Ø³Ø§Ù…Ø³ÙˆÙ†Ø¬', 'Ø£Ø¨Ù„'],
         ];
 
         $products = [];
@@ -70,7 +72,7 @@ class AIResponseTimeTest extends TestCase
     {
         $aiService = $this->getAIService();
 
-        // اختبار بسيط بدون إنشاء صور
+        // Ø§Ø®ØªØ¨Ø§Ø± Ø¨Ø³ÙŠØ· Ø¨Ø¯ÙˆÙ† Ø¥Ù†Ø´Ø§Ø¡ ØµÙˆØ±
         $imagePath = 'test-image.jpg';
 
         $startTime = microtime(true);
@@ -90,11 +92,11 @@ class AIResponseTimeTest extends TestCase
 
         /** @var array<int, string> $texts */
         $texts = [
-            'منتج ممتاز',
-            'منتج سيء',
-            'منتج عادي',
-            'منتج رائع',
-            'منتج متوسط',
+            'Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø²',
+            'Ù…Ù†ØªØ¬ Ø³ÙŠØ¡',
+            'Ù…Ù†ØªØ¬ Ø¹Ø§Ø¯ÙŠ',
+            'Ù…Ù†ØªØ¬ Ø±Ø§Ø¦Ø¹',
+            'Ù…Ù†ØªØ¬ Ù…ØªÙˆØ³Ø·',
         ];
 
         $startTime = microtime(true);
@@ -119,9 +121,9 @@ class AIResponseTimeTest extends TestCase
         $startTime = microtime(true);
         $results = [];
 
-        // محاكاة طلبات متزامنة
+        // Ù…Ø­Ø§ÙƒØ§Ø© Ø·Ù„Ø¨Ø§Øª Ù…ØªØ²Ø§Ù…Ù†Ø©
         for ($i = 0; $i < 5; $i++) {
-            $results[] = $aiService->analyzeText("طلب رقم {$i}");
+            $results[] = $aiService->analyzeText("Ø·Ù„Ø¨ Ø±Ù‚Ù… {$i}");
         }
 
         $endTime = microtime(true);
@@ -136,7 +138,7 @@ class AIResponseTimeTest extends TestCase
     {
         $aiService = $this->getAIService();
 
-        $text = 'منتج ممتاز ورائع';
+        $text = 'Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø² ÙˆØ±Ø§Ø¦Ø¹';
 
         // First request
         $startTime = microtime(true);
@@ -150,7 +152,7 @@ class AIResponseTimeTest extends TestCase
 
         $this->assertTrue(isset($result1['result']) || isset($result1['error']));
         $this->assertTrue(isset($result2['result']) || isset($result2['error']));
-        // اختبار بسيط - لا نتحقق من أن الطلب الثاني أسرع //
+        // Ø§Ø®ØªØ¨Ø§Ø± Ø¨Ø³ÙŠØ· - Ù„Ø§ Ù†ØªØ­Ù‚Ù‚ Ù…Ù† Ø£Ù† Ø§Ù„Ø·Ù„Ø¨ Ø§Ù„Ø«Ø§Ù†ÙŠ Ø£Ø³Ø±Ø¹ //
     }
 
     #[Test]
@@ -158,8 +160,8 @@ class AIResponseTimeTest extends TestCase
     {
         $aiService = $this->getAIService();
 
-        $smallText = 'منتج ممتاز';
-        $largeText = str_repeat('منتج ممتاز ورائع ', 100);
+        $smallText = 'Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø²';
+        $largeText = str_repeat('Ù…Ù†ØªØ¬ Ù…Ù…ØªØ§Ø² ÙˆØ±Ø§Ø¦Ø¹ ', 100);
 
         // Small text
         $startTime = microtime(true);

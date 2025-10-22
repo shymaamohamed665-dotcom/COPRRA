@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Factories;
 
 use Tests\TestCase;
@@ -37,3 +39,5 @@ class FactoriesTest extends TestCase
         parent::tearDown();
     }
 }
+
+

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 // Removed PreserveGlobalState to avoid risky test flags
@@ -73,3 +75,5 @@ class ContinuousQualityMonitorTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(true);
     }
 }
+
+

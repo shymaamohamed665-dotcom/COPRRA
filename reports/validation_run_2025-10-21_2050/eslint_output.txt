@@ -1,0 +1,4 @@
+
+> coprra@0.0.0 lint
+> npx eslint --ext .js,.vue resources/js
+

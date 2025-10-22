@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit\Controllers;
 
 use App\Http\Controllers\OrderController;
@@ -319,3 +321,4 @@ class OrderControllerTest extends TestCase
         ], $response->getData(true));
     }
 }
+

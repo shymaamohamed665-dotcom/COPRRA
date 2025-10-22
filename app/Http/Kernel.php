@@ -26,7 +26,6 @@ class Kernel extends HttpKernel
         // Generate CSP nonce before applying security headers
         \App\Http\Middleware\AddCspNonce::class,
         \App\Http\Middleware\SecurityHeadersMiddleware::class,
-        // Session middleware is included in the 'web' group
     ];
 
     /**
@@ -73,7 +72,7 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'locale' => \App\Http\Middleware\LocaleMiddleware::class, // ✅ تم إضافة هذا السطر
+        'locale' => \App\Http\Middleware\LocaleMiddleware::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
 

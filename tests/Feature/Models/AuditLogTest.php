@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Models;
 
 use App\Models\AuditLog;
@@ -205,7 +207,7 @@ class AuditLogTest extends TestCase
             'new_values' => ['name' => 'New Name', 'price' => 150],
         ]);
 
-        $summary = $auditLog->changes_summary;
+        $summary = $auditLog->getChangesSummaryAttribute();
         $this->assertStringContainsString('name: Old Name → New Name', $summary);
         $this->assertStringContainsString('price: 100 → 150', $summary);
     }
@@ -262,7 +264,7 @@ class AuditLogTest extends TestCase
             'new_values' => ['name' => 'New Name', 'active' => false, 'count' => 10],
         ]);
 
-        $summary = $auditLog->changes_summary;
+        $summary = $auditLog->getChangesSummaryAttribute();
         $this->assertStringContainsString('name: Old Name → New Name', $summary);
         $this->assertStringContainsString('active: 1 → 0', $summary);
         $this->assertStringContainsString('count: 5 → 10', $summary);
@@ -299,3 +301,4 @@ class AuditLogTest extends TestCase
         $this->assertEquals($fillable, (new AuditLog)->getFillable());
     }
 }
+

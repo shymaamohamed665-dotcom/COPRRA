@@ -1,0 +1,241 @@
+{
+    "name": "coprra/price-comparison-platform",
+    "type": "project",
+    "description": "COPRRA - Advanced Price Comparison Platform for comparing prices across multiple stores and finding the best deals.",
+    "keywords": [
+        "coprra",
+        "price-comparison",
+        "e-commerce",
+        "shopping",
+        "deals",
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "blade-ui-kit/blade-heroicons": "^2.0",
+        "darryldecode/cart": "^4.2",
+        "doctrine/dbal": "^4.3",
+        "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^2.7",
+        "laravel/framework": "^12.0",
+        "laravel/sanctum": "^3.3|^4.0",
+        "laravel/telescope": "^5.12.0",
+        "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.0",
+        "predis/predis": "^2.0",
+        "spatie/laravel-backup": "^9.3.4",
+        "spatie/laravel-permission": "^6.21.0",
+        "srmklive/paypal": "^3.0.40",
+        "stripe/stripe-php": "^17.6.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.13",
+        "codeception/codeception": "^5.0",
+        "deptrac/deptrac": "^4.2",
+        "enlightn/security-checker": "^2.0",
+        "fakerphp/faker": "^1.24.1",
+        "friendsofphp/php-cs-fixer": "^3.64",
+        "icanhazstring/composer-unused": "^0.9.5",
+        "infection/infection": "^0.31",
+        "larastan/larastan": "^3.7",
+        "laravel/dusk": "^8.3",
+        "laravel/pint": "^1.16",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/phpinsights": "^2.13",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpmd/phpmd": "^2.15",
+        "phpmetrics/phpmetrics": "^2.9",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11",
+        "povils/phpmnd": "*",
+        "rector/rector": "^2.2",
+        "vimeo/psalm": "^6.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "classmap": [
+            "tests/",
+            "tests/AI"
+        ]
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-install-cmd": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan package:discover --ansi || true"
+        ],
+        "post-update-cmd": [
+            "@php artisan package:discover --ansi || true",
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force || true"
+        ],
+        "pre-commit": [
+            "vendor/bin/phpunit",
+            "@php ./vendor/bin/phpstan analyse",
+            "@php ./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode"
+        ],
+        "format": [
+            "@php ./vendor/bin/pint"
+        ],
+        "format-test": [
+            "@php ./vendor/bin/pint --test"
+        ],
+        "analyse": [
+            "@php ./vendor/bin/phpstan analyse --memory-limit=2G",
+            "@php ./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode"
+        ],
+        "test": [
+            "@php artisan config:clear",
+            "vendor/bin/phpunit"
+        ],
+        "test:with-progress": [
+            "vendor/bin/phpunit"
+        ],
+        "test:no-progress": [
+            "vendor/bin/phpunit --no-progress"
+        ],
+        "test:coverage": [
+            "vendor/bin/phpunit --coverage-html storage/logs/coverage"
+        ],
+        "test:dusk": [
+            "@php artisan dusk"
+        ],
+        "test:infection": [
+            "infection --threads=max"
+        ],
+        "test:all": [
+            "vendor/bin/phpunit",
+            "@test:dusk",
+            "@test:infection"
+        ],
+        "test:feature": [
+            "vendor/bin/phpunit --testsuite Feature"
+        ],
+        "test:unit": [
+            "vendor/bin/phpunit --testsuite Unit"
+        ],
+        "test:ai": [
+            "vendor/bin/phpunit --testsuite AI"
+        ],
+        "test:security": [
+            "vendor/bin/phpunit --testsuite Security"
+        ],
+        "test:performance": [
+            "vendor/bin/phpunit --testsuite Performance"
+        ],
+        "test:integration": [
+            "vendor/bin/phpunit --testsuite Integration"
+        ],
+        "test:comprehensive": [
+            "vendor/bin/phpunit --configuration=phpunit.xml --log-junit=storage/logs/junit.xml --coverage-html=storage/logs/coverage"
+        ],
+        "test:30": [
+            "@test:ai",
+            "@test:security",
+            "@test:performance",
+            "@test:integration",
+            "@test:comprehensive"
+        ],
+        "analyse:phpstan": [
+            "php -d memory_limit=1G ./vendor/bin/phpstan analyse"
+        ],
+        "analyse:psalm": [
+            "./vendor/bin/psalm"
+        ],
+        "analyse:insights": [
+            "./vendor/bin/phpinsights"
+        ],
+        "analyse:security": [
+            "composer audit",
+            "./vendor/bin/security-checker security:check"
+        ],
+        "analyse:all": [
+            "@analyse:phpstan",
+            "@analyse:psalm",
+            "@analyse:insights",
+            "@analyse:security"
+        ],
+        "fix:style": [
+            "./vendor/bin/php-cs-fixer fix"
+        ],
+        "fix:rector": [
+            "./vendor/bin/rector process app"
+        ],
+        "fix:all": [
+            "@fix:style",
+            "@fix:rector"
+        ],
+        "metrics": [
+            "./vendor/bin/phpmetrics --config=phpmetrics.json app"
+        ],
+        "quality": [
+            "@format-test",
+            "@analyse",
+            "@test"
+        ],
+        "quality:full": [
+            "@fix:all",
+            "@analyse:all",
+            "@test:all"
+        ],
+        "measure:all": [
+            "./vendor/bin/pint --test",
+            "./vendor/bin/phpstan analyse --memory-limit=1G",
+            "./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode",
+            "composer audit",
+            "@test:comprehensive"
+        ],
+        "clear-all": [
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "composer dump-autoload -o"
+        ],
+        "cache-all": [
+            "@php artisan config:cache",
+            "@php artisan route:cache",
+            "@php artisan view:cache"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "spatie/laravel-ignition"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "infection/extension-installer": true,
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        },
+        "process-timeout": 600
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

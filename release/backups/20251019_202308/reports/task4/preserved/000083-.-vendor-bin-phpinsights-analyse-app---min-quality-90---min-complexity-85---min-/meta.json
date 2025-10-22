@@ -1,0 +1,2 @@
+{"command": "./vendor/bin/phpinsights analyse app --min-quality=90 --min-complexity=85 --min-architecture=90 --min-style=90", "start": "2025-10-02T03:51:50+00:00"}
+{"end": "2025-10-02T03:54:43+00:00", "exit_code": 1 }

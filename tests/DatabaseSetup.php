@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
 trait DatabaseSetup
@@ -30,7 +32,7 @@ trait DatabaseSetup
         // Create tables manually without migrations (idempotent: uses IF NOT EXISTS or existence checks)
         $this->createTablesManually();
 
-        // لا تبدأ معاملة هنا لتجنب التداخل مع معاملات أدوات الاختبار
+        // Ù„Ø§ ØªØ¨Ø¯Ø£ Ù…Ø¹Ø§Ù…Ù„Ø© Ù‡Ù†Ø§ Ù„ØªØ¬Ù†Ø¨ Ø§Ù„ØªØ¯Ø§Ø®Ù„ Ù…Ø¹ Ù…Ø¹Ø§Ù…Ù„Ø§Øª Ø£Ø¯ÙˆØ§Øª Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø±
     }
 
     /**
@@ -64,8 +66,8 @@ trait DatabaseSetup
         // Avoid dropping tables to prevent FK-related issues on SQLite.
         // Since tests use in-memory SQLite, tables start empty in each process.
 
-        // ابقِ قيود المفاتيح الأجنبية معطلة أثناء إنشاء/تهيئة الجداول لتجنب
-        // التعارضات مع عمليات drop التي ينفذها RefreshDatabase على SQLite.
+        // Ø§Ø¨Ù‚Ù Ù‚ÙŠÙˆØ¯ Ø§Ù„Ù…ÙØ§ØªÙŠØ­ Ø§Ù„Ø£Ø¬Ù†Ø¨ÙŠØ© Ù…Ø¹Ø·Ù„Ø© Ø£Ø«Ù†Ø§Ø¡ Ø¥Ù†Ø´Ø§Ø¡/ØªÙ‡ÙŠØ¦Ø© Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ Ù„ØªØ¬Ù†Ø¨
+        // Ø§Ù„ØªØ¹Ø§Ø±Ø¶Ø§Øª Ù…Ø¹ Ø¹Ù…Ù„ÙŠØ§Øª drop Ø§Ù„ØªÙŠ ÙŠÙ†ÙØ°Ù‡Ø§ RefreshDatabase Ø¹Ù„Ù‰ SQLite.
 
         // Create essential tables for testing
         $this->createUsersTable($connection);

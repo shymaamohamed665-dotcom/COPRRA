@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 // Removed PreserveGlobalState to avoid risky test flags
@@ -55,3 +57,5 @@ class ImageProcessingTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(true);
     }
 }
+
+

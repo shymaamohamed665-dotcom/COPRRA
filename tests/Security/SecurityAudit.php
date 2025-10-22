@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Security;
 
 use Tests\TestCase;
@@ -55,3 +57,5 @@ class SecurityAudit extends TestCase
         $this->assertContains($response->status(), [200, 404, 500]);
     }
 }
+
+

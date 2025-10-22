@@ -14,7 +14,7 @@ trait CreatesApplication
      */
     public function createApplication(): Application
     {
-        // تعيين APP_KEY قبل إنشاء التطبيق
+        // ØªØ¹ÙŠÙŠÙ† APP_KEY Ù‚Ø¨Ù„ Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„ØªØ·Ø¨ÙŠÙ‚
         putenv('APP_KEY=base64:mAkbpuXF7OVTRIDCIMkD8+xw6xVi7pge9CFImeqZaxE=');
 
         // Force the test database connection BEFORE creating the application

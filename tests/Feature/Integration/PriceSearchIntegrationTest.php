@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Integration;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -43,3 +45,5 @@ class PriceSearchIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
+
+

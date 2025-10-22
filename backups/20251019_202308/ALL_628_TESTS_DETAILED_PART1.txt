@@ -1,0 +1,74 @@
+# ================================================================================
+# القائمة المفصلة لجميع الـ 628 اختبار وأداة
+# تاريخ الإنشاء: 2025-10-02
+# ================================================================================
+
+# --------------------------------------------------------------------------------
+# [1] اختبارات PHPUnit الأساسية (7 اختبارات)
+# --------------------------------------------------------------------------------
+001. PHPUnit AI Service Tests|vendor/bin/phpunit --filter=AIServiceTest
+002. PHPUnit AI Model Tests|vendor/bin/phpunit --filter=AIModelTest
+003. PHPUnit AI Integration Tests|vendor/bin/phpunit --filter=AIIntegrationTest
+004. PHPUnit AI Endpoint Tests|vendor/bin/phpunit --filter=AIEndpointTest
+005. PHPUnit AI Performance Tests|vendor/bin/phpunit --filter=AIPerformanceTest
+006. PHPUnit AI Security Tests|vendor/bin/phpunit --filter=AISecurityTest
+007. PHPUnit AI Comprehensive Tests|vendor/bin/phpunit --testsuite AI
+
+# --------------------------------------------------------------------------------
+# [2] اختبارات الأمن الأساسية (15 اختبارات)
+# --------------------------------------------------------------------------------
+008. Security Authentication Tests|vendor/bin/phpunit --filter=AuthenticationSecurityTest
+009. Security Authorization Tests|vendor/bin/phpunit --filter=AuthorizationSecurityTest
+010. Security Session Tests|vendor/bin/phpunit --filter=SessionSecurityTest
+011. Security CSRF Tests|vendor/bin/phpunit --filter=CSRFSecurityTest
+012. Security XSS Tests|vendor/bin/phpunit --filter=XSSSecurityTest
+013. Security SQL Injection Tests|vendor/bin/phpunit --filter=SQLInjectionTest
+014. Security File Upload Tests|vendor/bin/phpunit --filter=FileUploadSecurityTest
+015. Security Password Policy Tests|vendor/bin/phpunit --filter=PasswordPolicyTest
+016. Security Rate Limiting Tests|vendor/bin/phpunit --filter=RateLimitingTest
+017. Security Headers Tests|vendor/bin/phpunit --filter=SecurityHeadersTest
+018. Security Cookie Tests|vendor/bin/phpunit --filter=CookieSecurityTest
+019. Security JWT Tests|vendor/bin/phpunit --filter=JWTSecurityTest
+020. Security API Tests|vendor/bin/phpunit --filter=APISecurityTest
+021. Security Data Encryption Tests|vendor/bin/phpunit --filter=DataEncryptionTest
+022. Security Comprehensive Tests|vendor/bin/phpunit --testsuite Security
+
+# --------------------------------------------------------------------------------
+# [3] اختبارات الأداء الأساسية (12 اختبارات)
+# --------------------------------------------------------------------------------
+023. Performance Database Query Tests|vendor/bin/phpunit --filter=DatabaseQueryPerformanceTest
+024. Performance Cache Tests|vendor/bin/phpunit --filter=CachePerformanceTest
+025. Performance API Response Tests|vendor/bin/phpunit --filter=APIResponsePerformanceTest
+026. Performance Memory Usage Tests|vendor/bin/phpunit --filter=MemoryUsageTest
+027. Performance CPU Usage Tests|vendor/bin/phpunit --filter=CPUUsageTest
+028. Performance Load Tests|vendor/bin/phpunit --filter=LoadPerformanceTest
+029. Performance Concurrency Tests|vendor/bin/phpunit --filter=ConcurrencyTest
+030. Performance Queue Processing Tests|vendor/bin/phpunit --filter=QueuePerformanceTest
+031. Performance File Operation Tests|vendor/bin/phpunit --filter=FileOperationPerformanceTest
+032. Performance Session Handling Tests|vendor/bin/phpunit --filter=SessionPerformanceTest
+033. Performance Asset Loading Tests|vendor/bin/phpunit --filter=AssetLoadingTest
+034. Performance Comprehensive Tests|vendor/bin/phpunit --testsuite Performance
+
+# --------------------------------------------------------------------------------
+# [4] اختبارات التكامل الأساسية (20 اختبارات)
+# --------------------------------------------------------------------------------
+035. Integration Database Tests|vendor/bin/phpunit --filter=DatabaseIntegrationTest
+036. Integration Cache Tests|vendor/bin/phpunit --filter=CacheIntegrationTest
+037. Integration Queue Tests|vendor/bin/phpunit --filter=QueueIntegrationTest
+038. Integration Email Tests|vendor/bin/phpunit --filter=EmailIntegrationTest
+039. Integration SMS Tests|vendor/bin/phpunit --filter=SMSIntegrationTest
+040. Integration Payment Gateway Tests|vendor/bin/phpunit --filter=PaymentGatewayTest
+041. Integration Search Service Tests|vendor/bin/phpunit --filter=SearchServiceTest
+042. Integration File Storage Tests|vendor/bin/phpunit --filter=FileStorageTest
+043. Integration API Client Tests|vendor/bin/phpunit --filter=APIClientTest
+044. Integration Third Party Service Tests|vendor/bin/phpunit --filter=ThirdPartyServiceTest
+045. Integration Authentication Tests|vendor/bin/phpunit --filter=AuthenticationIntegrationTest
+046. Integration Authorization Tests|vendor/bin/phpunit --filter=AuthorizationIntegrationTest
+047. Integration Session Tests|vendor/bin/phpunit --filter=SessionIntegrationTest
+048. Integration Cache Tests|vendor/bin/phpunit --filter=CacheIntegrationTest
+049. Integration Event Tests|vendor/bin/phpunit --filter=EventIntegrationTest
+050. Integration Job Tests|vendor/bin/phpunit --filter=JobIntegrationTest
+051. Integration Notification Tests|vendor/bin/phpunit --filter=NotificationIntegrationTest
+052. Integration Webhook Tests|vendor/bin/phpunit --filter=WebhookIntegrationTest
+053. Integration Logger Tests|vendor/bin/phpunit --filter=LoggerIntegrationTest
+054. Integration Comprehensive Tests|vendor/bin/phpunit --testsuite Integration

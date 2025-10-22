@@ -1,0 +1,10 @@
+﻿PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+
+........................                                          24 / 24 (100%)
+
+Time: 00:07.957, Memory: 68.00 MB
+
+OK (24 tests, 128 assertions)

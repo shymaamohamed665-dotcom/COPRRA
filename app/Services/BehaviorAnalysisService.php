@@ -55,9 +55,9 @@ class BehaviorAnalysisService
         $cacheKey = "user_analytics_{$user->id}";
 
         return Cache::remember($cacheKey, 1800, /**
-         * @return ((((null|scalar)[][]|null|scalar)[]|int)[]|float)[]
+         * @return array<array<array<array<array<scalar|null>>|scalar|null>|int>|float>
          *
-         * @psalm-return array{purchase_history: array<int, array<string, array<int, array<string, null|scalar>>|null|scalar>>, browsing_patterns: array<string, array<int, int>|int>, preferences: array<string, array<int, float|int|null>>, engagement_score: float, lifetime_value: float, recommendation_score: float}
+         * @psalm-return array{purchase_history: array<int, array<string, array<int, array<string, scalar|null>>|scalar|null>>, browsing_patterns: array<string, array<int, int>|int>, preferences: array<string, array<int, float|int|null>>, engagement_score: float, lifetime_value: float, recommendation_score: float}
          */
             function () use ($user): array {
                 return [
@@ -81,9 +81,9 @@ class BehaviorAnalysisService
         $cacheKey = 'site_analytics';
 
         return Cache::remember($cacheKey, 3600, /**
-         * @return ((int|string|null)[][]|float|int|mixed)[]
+         * @return array<array<array<int|string|null>>|float|int|mixed>
          *
-         * @psalm-return array{total_users: mixed, active_users: int, total_orders: mixed, total_revenue: mixed, average_order_value: mixed, conversion_rate: float, most_viewed_products: array<int, array<string, int|null|string>>, top_selling_products: array<int, array<string, int|null|string>>}
+         * @psalm-return array{total_users: mixed, active_users: int, total_orders: mixed, total_revenue: mixed, average_order_value: mixed, conversion_rate: float, most_viewed_products: array<int, array<string, int|string|null>>, top_selling_products: array<int, array<string, int|string|null>>}
          */
             function (): array {
                 return [
@@ -122,7 +122,7 @@ class BehaviorAnalysisService
                         'status' => $order->status,
                         'created_at' => $order->created_at,
                         'products' => $order->items->map(/**
-                     * @return (mixed|string)[]
+                     * @return array<mixed|string>
                      *
                      * @psalm-return array{name: ''|mixed, price: mixed, quantity: mixed}
                      */
@@ -134,9 +134,11 @@ class BehaviorAnalysisService
                                     'price' => $item->unit_price,
                                     'quantity' => $item->quantity,
                                 ];
-                            })->toArray(),
+                            }
+                        )->toArray(),
                     ];
-                })
+                }
+            )
             ->toArray();
 
         return $history;
@@ -145,7 +147,7 @@ class BehaviorAnalysisService
     /**
      * Get user's browsing patterns
      *
-     * @return (int|int[])[]
+     * @return array<int|array<int>>
      *
      * @psalm-return array{page_views: int<0, max>, product_views: int<0, max>, search_queries: int<0, max>, cart_additions: int<0, max>, wishlist_additions: int<0, max>, most_viewed_categories: array<int, int>, peak_activity_hours: array<int, int>}
      */
@@ -173,7 +175,7 @@ class BehaviorAnalysisService
     /**
      * Get user preferences based on purchase history
      *
-     * @return (array|mixed)[]
+     * @return array<array|mixed>
      *
      * @psalm-return array{preferred_categories?: mixed, preferred_brands?: mixed, price_range?: array{min: mixed, max: mixed, average: mixed}}
      */
@@ -332,9 +334,9 @@ class BehaviorAnalysisService
     /**
      * Get most viewed products
      *
-     * @return (int|null|string)[][]
+     * @return array<array<int|string|null>>
      *
-     * @psalm-return array<int, array<string, int|null|string>>
+     * @psalm-return array<int, array<string, int|string|null>>
      */
     private function getMostViewedProducts(): array
     {
@@ -344,9 +346,9 @@ class BehaviorAnalysisService
     /**
      * Get top selling products
      *
-     * @return (int|null|string)[][]
+     * @return array<array<int|string|null>>
      *
-     * @psalm-return array<int, array<string, int|null|string>>
+     * @psalm-return array<int, array<string, int|string|null>>
      */
     private function getTopSellingProducts(): array
     {
@@ -356,9 +358,9 @@ class BehaviorAnalysisService
     /**
      * Get top products by purchase count
      *
-     * @return (int|null|string)[][]
+     * @return array<array<int|string|null>>
      *
-     * @psalm-return array<int, array<string, int|null|string>>
+     * @psalm-return array<int, array<string, int|string|null>>
      */
     private function getTopProducts(): array
     {
@@ -376,7 +378,7 @@ class BehaviorAnalysisService
             ->limit(10)
             ->get()
             ->map(/**
-             * @return (int|string)[]
+             * @return array<int|string>
              *
              * @psalm-return array{id: int, name: string, purchase_count: int}
              */
@@ -386,28 +388,11 @@ class BehaviorAnalysisService
                         'name' => $product->name,
                         'purchase_count' => $product->purchase_count ?? 0,
                     ];
-                })
+                }
+            )
             ->toArray();
 
         return $topProducts;
-    }
-
-    /**
-     * Get user segments
-     *
-     * @return array<string, int>
-     */
-    private function getUserSegments(): array
-    {
-        return [
-            'high_value' => User::whereHas('orders', static function ($query): void {
-                $query->where('total_amount', '>', 500);
-            })->count(),
-            'frequent_buyers' => User::whereHas('orders', static function ($query): void {
-                $query->where('created_at', '>=', now()->subDays(30));
-            }, '>=', 3)->count(),
-            'new_customers' => User::where('created_at', '>=', now()->subDays(30))->count(),
-        ];
     }
 
     /**
@@ -421,7 +406,7 @@ class BehaviorAnalysisService
         $query = DB::table('user_behaviors')
             ->where('user_id', $user->id)
             ->where('action', 'product_view')
-            ->where('created_at', '>=', now()->subDays(30));
+            ->where('user_behaviors.created_at', '>=', now()->subDays(30));
 
         /** @var array<int, int> $mostViewedCategories */
         $mostViewedCategories = $query->join('products', static function ($join): void {
@@ -446,15 +431,27 @@ class BehaviorAnalysisService
      */
     private function getPeakActivityHours(User $user): array
     {
-        return DB::table('user_behaviors')
+        $driver = DB::connection()->getDriverName();
+        $hourExpr = $driver === 'sqlite'
+            ? "CAST(STRFTIME('%H', user_behaviors.created_at) AS INTEGER)"
+            : 'HOUR(user_behaviors.created_at)';
+
+        /** @var \Illuminate\Support\Collection<int, int|string> $hoursCollection */
+        $hoursCollection = DB::table('user_behaviors')
             ->where('user_id', $user->id)
             ->where('created_at', '>=', now()->subDays(30))
-            ->selectRaw('HOUR(created_at) as hour')
+            ->selectRaw($hourExpr.' as hour')
             ->selectRaw('COUNT(*) as count')
             ->groupBy('hour')
             ->orderByDesc('count')
             ->limit(3)
-            ->pluck('hour')
-            ->toArray();
+            ->pluck('hour');
+
+        $hours = $hoursCollection
+            ->map(static fn (int|string $h): int => (int) $h)
+            ->values()
+            ->all();
+
+        return $hours;
     }
 }

@@ -1,0 +1,406 @@
+AIModel Training (Tests\Unit\AI\AIModelTraining)
+ [x] It trains model with training data
+ [x] It validates training data format
+ [x] It splits data into train validation sets
+ [x] It applies data preprocessing
+ [x] It applies feature scaling
+ [x] It applies feature engineering
+ [x] It handles missing values
+ [x] It handles outliers
+ [x] It applies data augmentation
+ [x] It implements early stopping
+ [x] It implements learning rate scheduling
+ [x] It implements regularization
+ [x] It implements dropout
+ [x] It implements batch normalization
+ [x] It implements gradient clipping
+ [x] It implements momentum
+ [x] It implements adaptive learning rates
+ [x] It implements cross validation
+ [x] It implements hyperparameter tuning
+ [x] It implements model ensemble
+ [x] It implements transfer learning
+ [x] It implements federated learning
+ [x] It implements online learning
+ [x] It generates training report
+
+AIModel Validation (Tests\Unit\AI\AIModelValidation)
+ [x] It validates model architecture
+ [x] It validates model parameters
+ [x] It validates model input format
+ [x] It validates model output format
+ [x] It validates model prediction consistency
+ [x] It validates model prediction range
+ [x] It validates model prediction probability
+ [x] It validates model confidence scores
+ [x] It validates model uncertainty quantification
+ [x] It validates model robustness
+ [x] It validates model fairness
+ [x] It validates model bias
+ [x] It validates model explainability
+ [x] It validates model interpretability
+ [x] It validates model adversarial robustness
+ [x] It validates model generalization
+ [x] It validates model calibration
+ [x] It validates model confidence calibration
+ [x] It validates model uncertainty estimation
+ [x] It validates model anomaly detection
+ [x] It validates model drift detection
+ [x] It validates model performance degradation
+ [x] It validates model security
+ [x] It generates validation report
+
+Admin Middleware (Tests\Unit\Middleware\AdminMiddleware)
+ [ ] It allows admin users
+ [ ] It blocks non admin users
+ [ ] It redirects guests
+
+Alternative Mockery (Tests\Unit\AlternativeMockery)
+ [x] Mock database operations
+ [x] Mock cache operations
+ [x] Mock queue operations
+ [x] Mock http requests
+ [x] Mock file operations
+ [x] Mock mail operations
+ [x] Mock validation operations
+ [x] Mock event operations
+ [x] Mock service container
+ [x] Mock config operations
+ [x] Mock session operations
+
+Brand (Tests\Unit\Models\Brand)
+ [ ] It can create a brand
+ [x] It has products relationship
+ [x] It can validate required fields
+ [x] It can validate name length
+ [x] It can validate website url format
+ [x] It can validate logo url format
+ [x] It can scope active brands
+ [x] It can search brands by name
+ [x] It can get brand with products count
+ [x] It can soft delete brand
+ [x] It can restore soft deleted brand
+
+Category (Tests\Unit\Models\Category)
+ [x] It can create a category
+ [ ] It has products relationship
+ [x] It can validate required fields
+ [x] It can validate name length
+ [x] It can scope active categories
+ [x] It can search categories by name
+ [x] It can get category with products count
+ [x] It can soft delete category
+ [x] It can restore soft deleted category
+ [x] It auto generates slug from name
+ [x] It updates slug when name changes
+
+Classification Accuracy (Tests\Unit\AI\ClassificationAccuracy)
+ [x] It validates product classification accuracy
+ [x] It validates sentiment classification accuracy
+ [x] It validates brand classification accuracy
+ [x] It validates price range classification accuracy
+ [x] It validates quality classification accuracy
+ [x] It validates urgency classification accuracy
+ [x] It validates priority classification accuracy
+ [x] It validates risk classification accuracy
+ [x] It validates complexity classification accuracy
+ [x] It validates multi class classification accuracy
+ [x] It validates binary classification accuracy
+ [x] It validates confidence scores
+ [x] It validates classification precision
+ [x] It validates classification recall
+ [x] It validates classification f1 score
+ [x] It validates confusion matrix
+ [x] It validates class balance
+
+Currency (Tests\Unit\Models\Currency)
+ [x] It can validate required fields
+ [x] It can create currency
+ [x] It can save currency
+
+Data Quality Metrics (Tests\Unit\DataQuality\DataQualityMetrics)
+ [x] It calculates completeness metrics
+ [x] It calculates accuracy metrics
+ [x] It calculates consistency metrics
+ [x] It calculates timeliness metrics
+ [x] It calculates validity metrics
+ [x] It calculates uniqueness metrics
+ [x] It calculates integrity metrics
+ [x] It calculates overall quality score
+ [x] It generates quality report
+ [x] It calculates field level metrics
+ [x] It calculates trend metrics
+ [x] It calculates benchmark metrics
+
+Data Reliability (Tests\Unit\DataQuality\DataReliability)
+ [x] It measures data consistency across sources
+ [x] It detects data anomalies
+ [x] It calculates data confidence score
+ [x] It validates data source reliability
+ [x] It measures data freshness
+ [x] It calculates data accuracy percentage
+ [x] It detects data drift
+ [x] It validates data integrity constraints
+ [x] It calculates data quality score
+
+Data Validation (Tests\Unit\DataAccuracy\DataValidation)
+ [x] It validates email format
+ [x] It validates phone number format
+ [x] It validates url format
+ [x] It validates date format
+ [x] It validates currency code
+ [x] It validates product sku format
+ [x] It validates postal code format
+ [x] It validates credit card number
+ [x] It validates ip address
+ [x] It validates json format
+ [x] It validates required fields
+ [x] It validates field length
+ [x] It validates numeric range
+ [x] It validates array structure
+
+Duplicate Detection (Tests\Unit\DataQuality\DuplicateDetection)
+ [x] It detects exact duplicates
+ [x] It detects similar duplicates
+ [x] It detects price duplicates
+ [x] It detects url duplicates
+ [x] It detects image duplicates
+ [x] It detects description duplicates
+ [x] It detects category duplicates
+ [x] It detects brand duplicates
+ [x] It detects store duplicates
+ [x] It detects user duplicates
+ [x] It calculates duplicate percentage
+
+Hybrid Recommendation (Tests\Unit\Recommendations\HybridRecommendation)
+ [x] It combines collaborative and content based filtering
+ [x] It handles weighted ensemble method
+ [x] It handles switching hybrid approach
+ [x] It handles mixed hybrid approach
+ [x] It handles cascade hybrid approach
+ [x] It handles feature combination hybrid
+ [x] It handles meta learning hybrid
+ [x] It handles dynamic weight adjustment
+ [x] It handles confidence weighted hybrid
+ [x] It handles temporal hybrid approach
+ [x] It evaluates hybrid recommendation quality
+
+Image Recognition (Tests\Unit\AI\ImageRecognition)
+ [x] It loads and preprocesses images
+ [x] It classifies objects in images
+ [x] It detects faces in images
+ [x] It performs optical character recognition
+ [x] It detects edges and contours
+ [x] It performs image segmentation
+ [x] It recognizes text in images
+ [x] It detects colors and dominant colors
+ [x] It performs image similarity matching
+ [x] It handles different image formats
+ [x] It performs image enhancement
+ [x] It detects image anomalies
+ [x] It performs style transfer
+ [x] It generates image captions
+ [x] It performs image super resolution
+ [x] It detects image quality metrics
+
+Language (Tests\Unit\Models\Language)
+ [x] It can create a language
+ [x] It can create language with factory
+ [x] It can check if rtl
+ [x] It can find by code
+ [x] It returns null when code not found
+ [x] It can scope active languages
+ [x] It can scope ordered languages
+ [x] It can have currencies relationship
+ [x] It can get default currency
+ [x] It returns null when no default currency
+ [x] It can have user locale settings
+ [x] It can create english language
+ [x] It can create default language
+ [x] It can set direction
+ [x] It can set sort order
+ [x] It can toggle active status
+
+Machine Learning Accuracy (Tests\Unit\AI\MachineLearningAccuracy)
+ [x] It validates model accuracy
+ [x] It validates precision score
+ [x] It validates recall score
+ [x] It validates f1 score
+ [x] It validates confusion matrix
+ [x] It validates roc auc score
+ [x] It validates mean squared error
+ [x] It validates mean absolute error
+ [x] It validates r2 score
+ [x] It validates cross validation score
+ [x] It validates learning curve
+ [x] It validates feature importance
+ [x] It validates model comparison
+
+NLPAccuracy (Tests\Unit\AI\NLPAccuracy)
+ [x] It validates text classification accuracy
+ [x] It validates named entity recognition accuracy
+ [x] It validates sentiment analysis accuracy
+ [x] It validates language detection accuracy
+ [x] It validates text similarity accuracy
+ [x] It validates keyword extraction accuracy
+ [x] It validates text summarization accuracy
+ [x] It validates question answering accuracy
+ [x] It validates text translation accuracy
+ [x] It validates text generation accuracy
+ [x] It validates text parsing accuracy
+ [x] It validates text embeddings accuracy
+ [x] It validates text preprocessing accuracy
+ [x] It validates text tokenization accuracy
+ [x] It validates text normalization accuracy
+
+Natural Language Processing (Tests\Unit\AI\NaturalLanguageProcessing)
+ [x] It tokenizes text
+ [x] It removes stop words
+ [x] It performs sentiment analysis
+ [x] It extracts named entities
+ [x] It performs text classification
+ [x] It calculates text similarity
+ [x] It generates text embeddings
+ [x] It performs language detection
+ [x] It performs text summarization
+ [x] It extracts keywords
+ [x] It performs part of speech tagging
+ [x] It performs dependency parsing
+ [x] It handles multilingual text
+ [x] It performs text normalization
+ [x] It calculates readability score
+
+Price Alert (Tests\Unit\Models\PriceAlert)
+ [x] It can create a price alert
+ [x] It has user relationship
+ [x] It has product relationship
+ [x] It can validate required fields
+ [x] It can validate target price is numeric
+ [x] It can validate target price is positive
+ [x] It can scope active alerts
+ [x] It can scope alerts for user
+ [x] It can scope alerts for product
+ [x] It can soft delete price alert
+ [x] It can restore soft deleted price alert
+ [x] It can check if price target reached
+ [x] It can activate alert
+ [x] It can deactivate alert
+
+Price Helper (Tests\Unit\Helpers\PriceHelper)
+ [ ] It can format price with currency symbol
+ [ ] It formats price with default currency when none specified
+ [ ] It formats price with currency code when currency not found
+ [ ] It formats price with two decimal places
+ [ ] It can calculate price difference percentage
+ [ ] It calculates negative price difference
+ [ ] It returns zero for same prices
+ [ ] It returns zero for zero original price
+ [ ] It returns zero for negative original price
+ [ ] It can get price difference string positive
+ [ ] It can get price difference string negative
+ [ ] It can get price difference string zero
+ [ ] It formats price difference with one decimal
+ [ ] It can identify good deal
+ [ ] It can identify not good deal
+ [ ] It returns false for good deal with empty prices
+ [ ] It can get best price from array
+ [ ] It returns null for best price with empty array
+ [ ] It can get best price with single price
+ [ ] It can convert usd to eur
+ [ ] It can convert eur to usd
+ [ ] It returns same amount for same currency
+ [ ] It handles unknown currency conversion
+ [ ] It can convert to egyptian pounds
+ [ ] It can format price range with different prices
+ [ ] It can format price range with same prices
+ [ ] It formats price range with currency code when not found
+ [ ] It formats price range with default currency
+ [ ] It handles precise calculations
+ [ ] It handles very small prices
+ [ ] It handles large prices
+ [ ] It calculates good deal threshold correctly
+
+Price History Accuracy (Tests\Unit\DataAccuracy\PriceHistoryAccuracy)
+ [x] It validates price history chronology
+ [x] It validates price history completeness
+ [x] It validates price history consistency
+ [x] It validates price history accuracy
+ [x] It validates price trend calculation
+ [x] It validates price volatility calculation
+ [x] It validates price outlier detection
+ [x] It validates price gap detection
+ [x] It validates price history duplicates
+ [x] It validates price history anomalies
+
+Price Offer (Tests\Unit\Models\PriceOffer)
+ [ ] It can validate required fields
+
+Product (Tests\Unit\Models\Product)
+ [ ] It can create a product
+ [ ] It has brand relationship
+ [ ] It has category relationship
+ [ ] It has store relationship
+ [ ] It has price offers relationship
+ [ ] It has reviews relationship
+ [ ] It has wishlist relationship
+ [ ] It can scope active products
+ [ ] It can scope products by brand
+ [ ] It can scope products by category
+
+Simple Validation (Tests\Unit\Validation\SimpleValidation)
+ [x] Product validation rules work
+ [x] User validation rules work
+ [x] Review validation rules work
+
+Speech Recognition (Tests\Unit\AI\SpeechRecognition)
+ [x] It processes audio input
+ [x] It converts speech to text
+ [x] It handles different languages
+ [x] It detects speech activity
+ [x] It identifies speakers
+ [x] It handles noise reduction
+ [x] It performs voice activity detection
+ [x] It handles real time streaming
+ [x] It calculates confidence scores
+ [x] It handles accent detection
+ [x] It performs emotion recognition
+ [x] It handles audio format conversion
+ [x] It performs audio enhancement
+ [x] It handles multiple audio sources
+ [x] It performs keyword spotting
+ [x] It handles audio segmentation
+
+Stats Command (Tests\Unit\Commands\StatsCommand)
+ [ ] It can run stats command
+ [ ] It displays correct statistics
+ [ ] It handles empty database
+
+Update Prices Command (Tests\Unit\Commands\UpdatePricesCommand)
+ [ ] It can run update prices command
+ [ ] It updates prices for products
+ [ ] It handles empty products gracefully
+ [ ] It can run with verbose output
+
+User (Tests\Unit\Models\User)
+ [x] It can create a user
+ [x] It can check if user is admin
+ [x] It has wishlist relationship
+ [x] It has reviews relationship
+ [x] It has price alerts relationship
+ [x] It has locale setting relationship
+
+Wishlist (Tests\Unit\Models\Wishlist)
+ [x] It can create a wishlist item
+ [x] It has user relationship
+ [x] It has product relationship
+ [x] It can validate required fields
+ [ ] It can validate notes length
+ [x] It can scope wishlist for user
+ [x] It can scope wishlist for product
+ [x] It can soft delete wishlist item
+ [x] It can restore soft deleted wishlist item
+ [x] It can check if product is in wishlist
+ [x] It can add product to wishlist
+ [x] It can remove product from wishlist
+ [x] It can get wishlist count for user
+

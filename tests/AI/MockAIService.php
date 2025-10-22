@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AI;
 
 use App\Services\AIService;
 
 /**
  * Mock AI Service for testing purposes
- * يحاكي خدمة AI الحقيقية بدون الحاجة لـ API key.
+ * ÙŠØ­Ø§ÙƒÙŠ Ø®Ø¯Ù…Ø© AI Ø§Ù„Ø­Ù‚ÙŠÙ‚ÙŠØ© Ø¨Ø¯ÙˆÙ† Ø§Ù„Ø­Ø§Ø¬Ø© Ù„Ù€ API key.
  */
 class MockAIService extends AIService
 {
@@ -18,7 +20,7 @@ class MockAIService extends AIService
 
     public function analyzeText(string $text, string $type = 'sentiment'): array
     {
-        // محاكاة تحليل النص
+        // Ù…Ø­Ø§ÙƒØ§Ø© ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù†Øµ
         $sentiment = $this->extractSentiment($text);
 
         return [
@@ -30,10 +32,10 @@ class MockAIService extends AIService
 
     public function classifyProduct(string $description): array
     {
-        // محاكاة تصنيف المنتج
-        $categories = ['إلكترونيات', 'ملابس', 'أدوات منزلية', 'كتب', 'رياضة'];
-        $subcategories = ['فرعي 1', 'فرعي 2', 'فرعي 3'];
-        $tags = ['جديد', 'مميز', 'عرض خاص'];
+        // Ù…Ø­Ø§ÙƒØ§Ø© ØªØµÙ†ÙŠÙ Ø§Ù„Ù…Ù†ØªØ¬
+        $categories = ['Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ§Øª', 'Ù…Ù„Ø§Ø¨Ø³', 'Ø£Ø¯ÙˆØ§Øª Ù…Ù†Ø²Ù„ÙŠØ©', 'ÙƒØªØ¨', 'Ø±ÙŠØ§Ø¶Ø©'];
+        $subcategories = ['ÙØ±Ø¹ÙŠ 1', 'ÙØ±Ø¹ÙŠ 2', 'ÙØ±Ø¹ÙŠ 3'];
+        $tags = ['Ø¬Ø¯ÙŠØ¯', 'Ù…Ù…ÙŠØ²', 'Ø¹Ø±Ø¶ Ø®Ø§Øµ'];
 
         return [
             'category' => $categories[array_rand($categories)],
@@ -50,7 +52,7 @@ class MockAIService extends AIService
      */
     public function generateRecommendations(array $userPreferences, array $products): array
     {
-        // محاكاة توليد التوصيات
+        // Ù…Ø­Ø§ÙƒØ§Ø© ØªÙˆÙ„ÙŠØ¯ Ø§Ù„ØªÙˆØµÙŠØ§Øª
         return [
             'recommendations' => [
                 'Recommendation 1',
@@ -64,10 +66,10 @@ class MockAIService extends AIService
 
     public function analyzeImage(string $imageUrl, string $prompt = 'Analyze this image and provide insights'): array
     {
-        // محاكاة تحليل الصور
+        // Ù…Ø­Ø§ÙƒØ§Ø© ØªØ­Ù„ÙŠÙ„ Ø§Ù„ØµÙˆØ±
         return [
             'category' => 'product',
-            'recommendations' => ['منتج ذو جودة عالية', 'مناسب للاستخدام اليومي'],
+            'recommendations' => ['Ù…Ù†ØªØ¬ Ø°Ùˆ Ø¬ÙˆØ¯Ø© Ø¹Ø§Ù„ÙŠØ©', 'Ù…Ù†Ø§Ø³Ø¨ Ù„Ù„Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„ÙŠÙˆÙ…ÙŠ'],
             'sentiment' => 'positive',
             'confidence' => 0.80,
             'description' => 'Mock image analysis result for testing',
@@ -77,14 +79,14 @@ class MockAIService extends AIService
     private function extractSentiment(string $text): string
     {
         // Arabic positive words
-        $positiveWords = ['ممتاز', 'رائع', 'جيد', 'مفيد', 'مثالي', 'ممتازة', 'رائعة', 'جيدة', 'مفيدة', 'مثالية'];
+        $positiveWords = ['Ù…Ù…ØªØ§Ø²', 'Ø±Ø§Ø¦Ø¹', 'Ø¬ÙŠØ¯', 'Ù…ÙÙŠØ¯', 'Ù…Ø«Ø§Ù„ÙŠ', 'Ù…Ù…ØªØ§Ø²Ø©', 'Ø±Ø§Ø¦Ø¹Ø©', 'Ø¬ÙŠØ¯Ø©', 'Ù…ÙÙŠØ¯Ø©', 'Ù…Ø«Ø§Ù„ÙŠØ©'];
         // English positive words
         $positiveWords = array_merge($positiveWords, [
             'excellent', 'great', 'good', 'amazing', 'wonderful', 'fantastic', 'perfect', 'outstanding', 'superb', 'brilliant',
         ]);
 
         // Arabic negative words
-        $negativeWords = ['سيء', 'رديء', 'مشكلة', 'خطأ', 'فاشل', 'سيئة', 'رديئة', 'مشاكل', 'أخطاء', 'فاشلة'];
+        $negativeWords = ['Ø³ÙŠØ¡', 'Ø±Ø¯ÙŠØ¡', 'Ù…Ø´ÙƒÙ„Ø©', 'Ø®Ø·Ø£', 'ÙØ§Ø´Ù„', 'Ø³ÙŠØ¦Ø©', 'Ø±Ø¯ÙŠØ¦Ø©', 'Ù…Ø´Ø§ÙƒÙ„', 'Ø£Ø®Ø·Ø§Ø¡', 'ÙØ§Ø´Ù„Ø©'];
         // English negative words
         $negativeWords = array_merge($negativeWords, [
             'bad', 'poor', 'terrible', 'awful', 'horrible', 'disappointing', 'worst', 'useless', 'defective', 'broken',

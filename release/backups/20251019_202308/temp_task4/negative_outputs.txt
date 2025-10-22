@@ -1,0 +1,76 @@
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|1|temp_task4/test_1_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|1|temp_task4/test_2_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|1|temp_task4/test_3_output.txt
+TEST_4|./vendor/bin/psalm --show-info=true --config=psalm.xml|2|temp_task4/test_4_output.txt
+TEST_5|./vendor/bin/psalm --taint-analysis --config=psalm.xml|0|temp_task4/test_5_output.txt
+TEST_6|./vendor/bin/psalm --find-dead-code --config=psalm.xml|2|temp_task4/test_6_output.txt
+TEST_7|./vendor/bin/phpmd app,tests text phpmd.xml|2|temp_task4/test_7_output.txt
+TEST_8|./vendor/bin/phpmd app text cleancode|2|temp_task4/test_8_output.txt
+TEST_9|./vendor/bin/phpmd app text codesize|2|temp_task4/test_9_output.txt
+TEST_10|./vendor/bin/phpmd app text controversial|2|temp_task4/test_10_output.txt
+TEST_11|./vendor/bin/phpmd app text design|2|temp_task4/test_11_output.txt
+TEST_12|./vendor/bin/phpmd app text naming|2|temp_task4/test_12_output.txt
+TEST_13|./vendor/bin/phpmd app text unusedcode|2|temp_task4/test_13_output.txt
+TEST_14|./vendor/bin/phpcpd app/ --min-lines=3 --min-tokens=40|255|temp_task4/test_14_output.txt
+TEST_15|./vendor/bin/phpcpd app/ --min-lines=2 --min-tokens=30|255|temp_task4/test_15_output.txt
+TEST_16|./vendor/bin/pint --test|127|temp_task4/test_16_output.txt
+TEST_17|./vendor/bin/pint --test --verbose|127|temp_task4/test_17_output.txt
+TEST_18|./vendor/bin/phpcs --standard=PSR12 app/|2|temp_task4/test_18_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|255|temp_task4/test_1_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|255|temp_task4/test_2_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|255|temp_task4/test_3_output.txt
+TEST_4|./vendor/bin/psalm --show-info=true --config=psalm.xml|124|temp_task4/test_4_output.txt
+TEST_5|./vendor/bin/psalm --taint-analysis --config=psalm.xml|0|temp_task4/test_5_output.txt
+TEST_6|./vendor/bin/psalm --find-dead-code --config=psalm.xml|2|temp_task4/test_6_output.txt
+TEST_7|./vendor/bin/phpmd app,tests text phpmd.xml|3|temp_task4/test_7_output.txt
+TEST_8|./vendor/bin/phpmd app text cleancode|3|temp_task4/test_8_output.txt
+TEST_9|./vendor/bin/phpmd app text codesize|3|temp_task4/test_9_output.txt
+TEST_10|./vendor/bin/phpmd app text controversial|3|temp_task4/test_10_output.txt
+TEST_11|./vendor/bin/phpmd app text design|3|temp_task4/test_11_output.txt
+TEST_12|./vendor/bin/phpmd app text naming|3|temp_task4/test_12_output.txt
+TEST_13|./vendor/bin/phpmd app text unusedcode|3|temp_task4/test_13_output.txt
+TEST_14|./vendor/bin/phpcpd app/ --min-lines=3 --min-tokens=40|255|temp_task4/test_14_output.txt
+TEST_15|./vendor/bin/phpcpd app/ --min-lines=2 --min-tokens=30|255|temp_task4/test_15_output.txt
+TEST_16|./vendor/bin/pint --test|127|temp_task4/test_16_output.txt
+TEST_17|./vendor/bin/pint --test --verbose|127|temp_task4/test_17_output.txt
+TEST_18|./vendor/bin/phpcs --standard=PSR12 app/|2|temp_task4/test_18_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|255|temp_task4/test_1_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|255|temp_task4/test_1_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|255|temp_task4/test_2_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|255|temp_task4/test_2_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|255|temp_task4/test_3_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|255|temp_task4/test_3_output.txt
+TEST_4|./vendor/bin/psalm --show-info=true --config=psalm.xml|124|temp_task4/test_4_output.txt
+TEST_4|./vendor/bin/psalm --show-info=true --config=psalm.xml|124|temp_task4/test_4_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|255|temp_task4/test_1_output.txt
+TEST_5|./vendor/bin/psalm --taint-analysis --config=psalm.xml|124|temp_task4/test_5_output.txt
+TEST_5|./vendor/bin/psalm --taint-analysis --config=psalm.xml|124|temp_task4/test_5_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|255|temp_task4/test_2_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|255|temp_task4/test_3_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|255|temp_task4/test_1_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|255|temp_task4/test_1_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|255|temp_task4/test_2_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|255|temp_task4/test_2_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|255|temp_task4/test_3_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|255|temp_task4/test_3_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|1|temp_task4/test_1_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|1|temp_task4/test_2_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|1|temp_task4/test_1_output.txt
+TEST_2|./vendor/bin/phpstan analyse --memory-limit=2G --configuration=phpstan.neon|1|temp_task4/test_2_output.txt
+TEST_3|./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G|1|temp_task4/test_3_output.txt
+TEST_4|./vendor/bin/psalm --show-info=true --config=psalm.xml|2|temp_task4/test_4_output.txt
+TEST_5|./vendor/bin/psalm --taint-analysis --config=psalm.xml|0|temp_task4/test_5_output.txt
+TEST_6|./vendor/bin/psalm --find-dead-code --config=psalm.xml|2|temp_task4/test_6_output.txt
+TEST_7|./vendor/bin/phpmd app,tests text phpmd.xml|3|temp_task4/test_7_output.txt
+TEST_8|./vendor/bin/phpmd app text cleancode|3|temp_task4/test_8_output.txt
+TEST_9|./vendor/bin/phpmd app text codesize|3|temp_task4/test_9_output.txt
+TEST_10|./vendor/bin/phpmd app text controversial|3|temp_task4/test_10_output.txt
+TEST_11|./vendor/bin/phpmd app text design|3|temp_task4/test_11_output.txt
+TEST_12|./vendor/bin/phpmd app text naming|3|temp_task4/test_12_output.txt
+TEST_13|./vendor/bin/phpmd app text unusedcode|3|temp_task4/test_13_output.txt
+TEST_14|./vendor/bin/phpcpd app/ --min-lines=3 --min-tokens=40|255|temp_task4/test_14_output.txt
+TEST_15|./vendor/bin/phpcpd app/ --min-lines=2 --min-tokens=30|255|temp_task4/test_15_output.txt
+TEST_16|./vendor/bin/pint --test|127|temp_task4/test_16_output.txt
+TEST_17|./vendor/bin/pint --test --verbose|127|temp_task4/test_17_output.txt
+TEST_18|./vendor/bin/phpcs --standard=PSR12 app/|2|temp_task4/test_18_output.txt
+TEST_1|./vendor/bin/phpstan analyse --memory-limit=2G --level=8|124|temp_task4/test_1_output.txt

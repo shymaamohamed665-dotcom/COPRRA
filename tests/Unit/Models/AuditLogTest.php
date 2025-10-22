@@ -9,12 +9,12 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
 /**
  * Unit tests for the AuditLog model.
- *
- * @covers \App\Models\AuditLog
  */
+#[CoversClass(AuditLog::class)]
 class AuditLogTest extends TestCase
 {
     /**
@@ -225,3 +225,4 @@ class AuditLogTest extends TestCase
         $this->assertEquals('', $auditLog->changes_summary);
     }
 }
+

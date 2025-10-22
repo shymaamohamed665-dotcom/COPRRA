@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Amazon;
 
 use Illuminate\Support\Facades\Cache;
@@ -16,9 +18,9 @@ class AmazonClient
 
     public function __construct()
     {
-        $this->accessKey = (string) env('AMAZON_ACCESS_KEY', '');
-        $this->secretKey = (string) env('AMAZON_SECRET_KEY', '');
-        $this->associateTag = (string) env('AMAZON_ASSOCIATE_TAG', '');
+        $this->accessKey = (string) config('services.amazon.access_key', '');
+        $this->secretKey = (string) config('services.amazon.secret_key', '');
+        $this->associateTag = (string) config('services.amazon.associate_tag', '');
     }
 
     /**

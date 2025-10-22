@@ -510,3 +510,5 @@ class LoginAttemptServiceTest extends TestCase
         }
     }
 }
+
+

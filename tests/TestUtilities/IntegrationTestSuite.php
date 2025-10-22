@@ -800,3 +800,5 @@ class IntegrationTestSuite
         return $recommendations;
     }
 }
+
+

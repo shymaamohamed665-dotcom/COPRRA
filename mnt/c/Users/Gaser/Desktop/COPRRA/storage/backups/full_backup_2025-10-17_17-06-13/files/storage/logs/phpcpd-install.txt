@@ -1,0 +1,25 @@
+[32m./composer.json has been updated[39m
+[32mRunning composer update sebastian/phpcpd[39m
+[32mLoading composer repositories with package information[39m
+[32mUpdating dependencies[39m
+[32mLock file operations: 3 installs, 0 updates, 0 removals[39m
+  - Locking [32msebastian/finder-facade[39m ([33m1.1.0[39m)
+  - Locking [32msebastian/phpcpd[39m ([33m2.0.1[39m)
+  - Locking [32mtheseer/fdomdocument[39m ([33m1.6.7[39m)
+[32mWriting lock file[39m
+[32mInstalling dependencies from lock file (including require-dev)[39m
+[32mPackage operations: 3 installs, 0 updates, 0 removals[39m
+    0 [>---------------------------][1G[2K    0 [->--------------------------][1G[2K    0 [--->------------------------][1G[2K  - Installing [32mtheseer/fdomdocument[39m ([33m1.6.7[39m): Extracting archive
+  - Installing [32msebastian/finder-facade[39m ([33m1.1.0[39m): Extracting archive
+  - Installing [32msebastian/phpcpd[39m ([33m2.0.1[39m): Extracting archive
+ 0/3 [>---------------------------]   0%[1G[2K 3/3 [============================] 100%[1G[2K[30;43mPackage sebastian/finder-facade is abandoned, you should avoid using it. No replacement was suggested.[39;49m
+[30;43mPackage sebastian/phpcpd is abandoned, you should avoid using it. No replacement was suggested.[39;49m
+[30;43mPackage theseer/fdomdocument is abandoned, you should avoid using it. No replacement was suggested.[39;49m
+[32mGenerating optimized autoload files[39m
+[30;43mClass Darryldecode\Cart\Facades\CartFacade located in ./app/_ide_helper_cart.php does not comply with psr-4 autoloading standard (rule: App\ => ./app). Skipping.[39;49m
+[30;43mCould not scan for classes inside "C:\Users\Gaser\Desktop\COPRRA\vendor/sebastian/phpcpd/src/" which does not appear to be a file nor a folder[39;49m
+[30;43mCould not scan for classes inside "C:\Users\Gaser\Desktop\COPRRA\vendor/sebastian/finder-facade/src/" which does not appear to be a file nor a folder[39;49m
+[30;43mCould not scan for classes inside "C:\Users\Gaser\Desktop\COPRRA\vendor/theseer/fdomdocument/src/" which does not appear to be a file nor a folder[39;49m
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+[37;41mScript @php artisan package:discover --ansi handling the post-autoload-dump event returned with error code -1073741502[39;49m

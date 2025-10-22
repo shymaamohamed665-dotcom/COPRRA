@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -40,16 +42,16 @@ class TestCase extends BaseTestCase
             return;
         }
 
-        // تأكد من أن المخطط موجود للاختبارات التي لا تستخدم RefreshDatabase
-        // الميجريشن مع SQLite in-memory سريعة وتمنع أخطاء الجداول المفقودة
+        // ØªØ£ÙƒØ¯ Ù…Ù† Ø£Ù† Ø§Ù„Ù…Ø®Ø·Ø· Ù…ÙˆØ¬ÙˆØ¯ Ù„Ù„Ø§Ø®ØªØ¨Ø§Ø±Ø§Øª Ø§Ù„ØªÙŠ Ù„Ø§ ØªØ³ØªØ®Ø¯Ù… RefreshDatabase
+        // Ø§Ù„Ù…ÙŠØ¬Ø±ÙŠØ´Ù† Ù…Ø¹ SQLite in-memory Ø³Ø±ÙŠØ¹Ø© ÙˆØªÙ…Ù†Ø¹ Ø£Ø®Ø·Ø§Ø¡ Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ù…ÙÙ‚ÙˆØ¯Ø©
         if (! $this->usesRefreshDatabase() && ! \Illuminate\Support\Facades\Schema::hasTable('users')) {
             \Illuminate\Support\Facades\Artisan::call('migrate', [
                 '--database' => env('DB_CONNECTION', 'sqlite'),
             ]);
         }
 
-        // أنشئ الجداول الأساسية يدويًا بشكل idempotent لتغطية الجداول غير المُنشأة عبر الميجريشن
-        // هذا يعمل سواءً استخدم الاختبار RefreshDatabase أم لا
+        // Ø£Ù†Ø´Ø¦ Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© ÙŠØ¯ÙˆÙŠÙ‹Ø§ Ø¨Ø´ÙƒÙ„ idempotent Ù„ØªØºØ·ÙŠØ© Ø§Ù„Ø¬Ø¯Ø§ÙˆÙ„ ØºÙŠØ± Ø§Ù„Ù…ÙÙ†Ø´Ø£Ø© Ø¹Ø¨Ø± Ø§Ù„Ù…ÙŠØ¬Ø±ÙŠØ´Ù†
+        // Ù‡Ø°Ø§ ÙŠØ¹Ù…Ù„ Ø³ÙˆØ§Ø¡Ù‹ Ø§Ø³ØªØ®Ø¯Ù… Ø§Ù„Ø§Ø®ØªØ¨Ø§Ø± RefreshDatabase Ø£Ù… Ù„Ø§
         $this->setUpDatabase();
 
         static::$databaseSetUp = true;

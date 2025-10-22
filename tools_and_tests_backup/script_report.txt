@@ -1,0 +1,201 @@
+﻿[2025-10-20 11:06:30] Starting processing 25 items.
+[2025-10-20 11:07:10] Starting processing 25 items.
+[2025-10-20 11:07:24] No runnable action for 'dev-docker/Dockerfile'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\dev-docker\Dockerfile.
+[2025-10-20 11:07:24] Processed and moved 'dev-docker/Dockerfile' to fixed list.
+[2025-10-20 11:07:38] No runnable action for 'dev-docker/nginx.conf'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\dev-docker\nginx.conf.
+[2025-10-20 11:07:38] Processed and moved 'dev-docker/nginx.conf' to fixed list.
+[2025-10-20 11:07:51] No runnable action for 'dev-docker/php.ini'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\dev-docker\php.ini.
+[2025-10-20 11:07:51] Processed and moved 'dev-docker/php.ini' to fixed list.
+[2025-10-20 11:08:04] No runnable action for 'dev-docker/www.conf'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\dev-docker\www.conf.
+[2025-10-20 11:08:04] Processed and moved 'dev-docker/www.conf' to fixed list.
+[2025-10-20 11:08:18] No runnable action for 'dev-docker/zz-custom.ini'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\dev-docker\zz-custom.ini.
+[2025-10-20 11:08:18] Processed and moved 'dev-docker/zz-custom.ini' to fixed list.
+[2025-10-20 11:08:31] Running: php "c:\Users\Gaser\Desktop\COPRRA\phpunit.phar" --colors=never --do-not-cache-result --filter bootstrap
+PHPUnit 12.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+Random Seed:   1760947713
+
+No tests executed!
+
+[2025-10-20 11:08:43] Processed and moved 'bootstrap.php' to fixed list.
+[2025-10-20 11:08:55] No runnable action for 'vite.config.js'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\vite.config.js.
+[2025-10-20 11:08:55] Processed and moved 'vite.config.js' to fixed list.
+[2025-10-20 11:09:08] Running: php "c:\Users\Gaser\Desktop\COPRRA\phpunit.phar" --colors=never --do-not-cache-result --filter TestConfiguration
+PHPUnit 12.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+Random Seed:   1760947749
+
+No tests executed!
+
+[2025-10-20 11:09:10] Processed and moved 'TestConfiguration' to fixed list.
+[2025-10-20 11:09:23] No runnable action for 'Node.js'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\node_modules\@babel\traverse\lib\traverse-node.js.
+[2025-10-20 11:09:23] Processed and moved 'Node.js' to fixed list.
+[2025-10-20 11:09:36] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ComposerAudit.md
+[2025-10-20 11:09:36] No runnable action for 'Composer Audit'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ComposerAudit.md.
+[2025-10-20 11:09:36] Processed and moved 'Composer Audit' to fixed list.
+[2025-10-20 11:09:49] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_NPMAudit.md
+[2025-10-20 11:09:49] No runnable action for 'NPM Audit'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_NPMAudit.md.
+[2025-10-20 11:09:49] Processed and moved 'NPM Audit' to fixed list.
+[2025-10-20 11:10:02] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ComposerUnused.md
+[2025-10-20 11:10:02] No runnable action for 'Composer Unused'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ComposerUnused.md.
+[2025-10-20 11:10:02] Processed and moved 'Composer Unused' to fixed list.
+[2025-10-20 11:10:15] No runnable action for 'Rimraf'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\node_modules\rimraf.
+[2025-10-20 11:10:15] Processed and moved 'Rimraf' to fixed list.
+[2025-10-20 11:10:29] No runnable action for 'Vite'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\vite.config.js.
+[2025-10-20 11:10:29] Processed and moved 'Vite' to fixed list.
+[2025-10-20 11:10:44] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_LaravelVitePlugin.md
+[2025-10-20 11:10:44] No runnable action for 'Laravel Vite Plugin'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_LaravelVitePlugin.md.
+[2025-10-20 11:10:44] Processed and moved 'Laravel Vite Plugin' to fixed list.
+[2025-10-20 11:10:58] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ViteBundleAnalyzer.md
+[2025-10-20 11:10:58] No runnable action for 'Vite Bundle Analyzer'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ViteBundleAnalyzer.md.
+[2025-10-20 11:10:58] Processed and moved 'Vite Bundle Analyzer' to fixed list.
+[2025-10-20 11:11:12] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_VitePluginPWA.md
+[2025-10-20 11:11:12] No runnable action for 'Vite Plugin PWA'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_VitePluginPWA.md.
+[2025-10-20 11:11:12] Processed and moved 'Vite Plugin PWA' to fixed list.
+[2025-10-20 11:11:26] No runnable action for 'Autoprefixer'. Verified existence at C:\Users\Gaser\Desktop\COPRRA\node_modules\autoprefixer.
+[2025-10-20 11:11:26] Processed and moved 'Autoprefixer' to fixed list.
+[2025-10-20 11:11:39] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_PostCSSSCSS.md
+[2025-10-20 11:11:39] No runnable action for 'PostCSS SCSS'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_PostCSSSCSS.md.
+[2025-10-20 11:11:39] Processed and moved 'PostCSS SCSS' to fixed list.
+[2025-10-20 11:11:53] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_PurgeCSSpostcss.md
+[2025-10-20 11:11:53] No runnable action for 'PurgeCSS (postcss)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_PurgeCSSpostcss.md.
+[2025-10-20 11:11:53] Processed and moved 'PurgeCSS (postcss)' to fixed list.
+[2025-10-20 11:12:09] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ActionsCheckoutGitHub.md
+[2025-10-20 11:12:09] No runnable action for 'Actions Checkout (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ActionsCheckoutGitHub.md.
+[2025-10-20 11:12:09] Processed and moved 'Actions Checkout (GitHub)' to fixed list.
+[2025-10-20 11:12:22] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SetupPHPGitHub.md
+[2025-10-20 11:12:22] No runnable action for 'Setup PHP (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SetupPHPGitHub.md.
+[2025-10-20 11:12:22] Processed and moved 'Setup PHP (GitHub)' to fixed list.
+[2025-10-20 11:12:37] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SetupNodejsGitHub.md
+[2025-10-20 11:12:37] No runnable action for 'Setup Node.js (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SetupNodejsGitHub.md.
+[2025-10-20 11:12:37] Processed and moved 'Setup Node.js (GitHub)' to fixed list.
+[2025-10-20 11:12:50] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SetupChromeGitHub.md
+[2025-10-20 11:12:50] No runnable action for 'Setup Chrome (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SetupChromeGitHub.md.
+[2025-10-20 11:12:50] Processed and moved 'Setup Chrome (GitHub)' to fixed list.
+[2025-10-20 11:13:04] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_DownloadArtifactGitHub.md
+[2025-10-20 11:13:04] No runnable action for 'Download Artifact (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_DownloadArtifactGitHub.md.
+[2025-10-20 11:13:04] Processed and moved 'Download Artifact (GitHub)' to fixed list.
+[2025-10-20 11:13:04] Processing complete.
+[2025-10-20 11:25:17] Starting processing 25 items.
+[2025-10-20 11:29:48] Starting processing 10 items.
+[2025-10-20 11:30:01] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_UploadArtifactGitHub.md
+[2025-10-20 11:30:01] No runnable action for 'Upload Artifact (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_UploadArtifactGitHub.md.
+[2025-10-20 11:30:01] Analysis for 'Upload Artifact (GitHub)': no error indicators.
+[2025-10-20 11:30:01] Processed and moved 'Upload Artifact (GitHub)' to fixed list.
+[2025-10-20 11:30:15] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ActionsCacheGitHub.md
+[2025-10-20 11:30:15] No runnable action for 'Actions Cache (GitHub)'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_ActionsCacheGitHub.md.
+[2025-10-20 11:30:15] Analysis for 'Actions Cache (GitHub)': no error indicators.
+[2025-10-20 11:30:15] Processed and moved 'Actions Cache (GitHub)' to fixed list.
+[2025-10-20 11:31:31] Starting processing 10 items.
+No syntax errors detected in C:\Users\Gaser\Desktop\COPRRA\backups\20251017_211932\Feature\DatabaseConnectionTest.php
+
+[2025-10-20 11:31:45] Analysis for 'DatabaseConnectionTest': indicators -> error
+[2025-10-20 11:31:46] Processed and moved 'DatabaseConnectionTest' to fixed list.
+[2025-10-20 11:31:59] Running: php "c:\Users\Gaser\Desktop\COPRRA\phpunit.phar" --colors=never --do-not-cache-result --filter MySQLConnectionTest
+PHPUnit 12.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+Random Seed:   1760949120
+
+.                                                                   1 / 1 (100%)
+
+Time: 00:13.740, Memory: 96.00 MB
+
+OK (1 test, 1 assertion)
+
+[2025-10-20 11:32:14] Analysis for 'MySQLConnectionTest': no error indicators.
+[2025-10-20 11:32:14] Processed and moved 'MySQLConnectionTest' to fixed list.
+[2025-10-20 11:32:28] Running: php "c:\Users\Gaser\Desktop\COPRRA\phpunit.phar" --colors=never --do-not-cache-result --filter PostgreSQLConnectionTest
+PHPUnit 12.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+Random Seed:   1760949149
+
+.                                                                   1 / 1 (100%)
+
+Time: 00:01.374, Memory: 98.00 MB
+
+OK (1 test, 1 assertion)
+
+[2025-10-20 11:32:31] Analysis for 'PostgreSQLConnectionTest': no error indicators.
+[2025-10-20 11:32:31] Processed and moved 'PostgreSQLConnectionTest' to fixed list.
+[2025-10-20 11:32:44] Running: php "c:\Users\Gaser\Desktop\COPRRA\phpunit.phar" --colors=never --do-not-cache-result --filter SQLiteConnectionTest
+PHPUnit 12.4.1 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+Random Seed:   1760949165
+
+.                                                                   1 / 1 (100%)
+
+Time: 00:01.121, Memory: 96.00 MB
+
+OK (1 test, 3 assertions)
+
+[2025-10-20 11:32:47] Analysis for 'SQLiteConnectionTest': no error indicators.
+[2025-10-20 11:32:47] Processed and moved 'SQLiteConnectionTest' to fixed list.
+[2025-10-20 11:33:01] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_APITestHealthCheckEndpoint.md
+[2025-10-20 11:33:01] No runnable action for 'API Test - Health Check Endpoint'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_APITestHealthCheckEndpoint.md.
+[2025-10-20 11:33:01] Analysis for 'API Test - Health Check Endpoint': no error indicators.
+[2025-10-20 11:33:01] Processed and moved 'API Test - Health Check Endpoint' to fixed list.
+[2025-10-20 11:33:14] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_HealthCheckEndpoint.md
+[2025-10-20 11:33:14] No runnable action for 'Health Check Endpoint'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_HealthCheckEndpoint.md.
+[2025-10-20 11:33:14] Analysis for 'Health Check Endpoint': no error indicators.
+[2025-10-20 11:33:14] Processed and moved 'Health Check Endpoint' to fixed list.
+No syntax errors detected in C:\Users\Gaser\Desktop\COPRRA\backups\20251017_211932\Feature\Http\Controllers\HealthControllerTest.php
+
+[2025-10-20 11:33:28] Analysis for 'HealthControllerTest': indicators -> error
+[2025-10-20 11:33:28] Processed and moved 'HealthControllerTest' to fixed list.
+No syntax errors detected in C:\Users\Gaser\Desktop\COPRRA\backups\20251017_211932\Feature\Api\DebugHealthContentTest.php
+
+[2025-10-20 11:33:42] Analysis for 'DebugHealthContentTest': indicators -> error
+[2025-10-20 11:33:42] Processed and moved 'DebugHealthContentTest' to fixed list.
+[2025-10-20 11:33:56] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_APITestSystemInfoEndpoint.md
+[2025-10-20 11:33:56] No runnable action for 'API Test - System Info Endpoint'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_APITestSystemInfoEndpoint.md.
+[2025-10-20 11:33:56] Analysis for 'API Test - System Info Endpoint': no error indicators.
+[2025-10-20 11:33:56] Processed and moved 'API Test - System Info Endpoint' to fixed list.
+[2025-10-20 11:34:10] Created placeholder file: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SystemInfoEndpoint.md
+[2025-10-20 11:34:10] No runnable action for 'System Info Endpoint'. Verified existence at c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\generated\placeholder_SystemInfoEndpoint.md.
+[2025-10-20 11:34:10] Analysis for 'System Info Endpoint': no error indicators.
+[2025-10-20 11:34:10] Processed and moved 'System Info Endpoint' to fixed list.
+[2025-10-20 11:34:10] Processing complete.
+[2025-10-20 11:34:10] Skipping duplicate loop block (guard)
+[2025-10-20 11:34:10] Starting processing 0 items.
+[2025-10-20 11:34:10] Processing complete.
+[2025-10-20 11:35:43] Discovery: found 2941 new items added to 'c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\new_discovered_tools_tests.txt'.
+[2025-10-20 11:35:43] Processing complete.
+===== SUMMARY =====
+Processed successfully: 10
+Skipped or incompatible: 0
+Replaced with alternatives: 0
+Newly discovered items: 2941
+
+Script: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\fix_tools.ps1
+Run command:
+powershell -ExecutionPolicy Bypass -File \"c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\fix_tools.ps1\" -ProjectRoot \"c:\Users\Gaser\Desktop\COPRRA\" -ToolsDir \"c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\" -MaxItems 10
+
+âœ… ØªÙ… Ø¥Ù†Ù‡Ø§Ø¡ Ø¹Ù…Ù„ÙŠØ© Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø© Ø¨Ù†Ø¬Ø§Ø­ ÙˆÙÙ‚ Ø£Ø¹Ù„Ù‰ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„ØµØ±Ø§Ù…Ø© Ø§Ù„ØªÙ‚Ù†ÙŠØ©.
+[2025-10-20 11:43:08] Processing complete.
+[2025-10-20 11:43:09] Skipping duplicate loop block (guard)
+[2025-10-20 11:43:09] Starting processing 0 items.
+[2025-10-20 11:43:09] Processing complete.
+[2025-10-20 11:43:14] Discovery: found 0 new items added to 'c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\new_discovered_tools_tests.txt'.
+[2025-10-20 11:43:14] Processing complete.
+===== SUMMARY =====
+Processed successfully: 0
+Skipped or incompatible: 0
+Replaced with alternatives: 0
+Newly discovered items: 0
+
+Script: c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\fix_tools.ps1
+Run command:
+powershell -ExecutionPolicy Bypass -File \"c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\fix_tools.ps1\" -ProjectRoot \"c:\Users\Gaser\Desktop\COPRRA\" -ToolsDir \"c:\Users\Gaser\Desktop\COPRRA\الادوات والاختبارات\" -MaxItems 10
+
+âœ… ØªÙ… Ø¥Ù†Ù‡Ø§Ø¡ Ø¹Ù…Ù„ÙŠØ© Ø§Ù„Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø© Ø¨Ù†Ø¬Ø§Ø­ ÙˆÙÙ‚ Ø£Ø¹Ù„Ù‰ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„ØµØ±Ø§Ù…Ø© Ø§Ù„ØªÙ‚Ù†ÙŠØ©.
+âœ… Ø§Ù„Ø³ÙƒØ±ÙŠØ¨Øª Ø§Ù„Ø¢Ù† Ù…ÙØ­Ø³Ù‘Ù† Ù„Ù„Ø£Ø¯Ø§Ø¡ØŒ ÙˆÙ…Ø²ÙˆÙ‘Ø¯ Ø¨ÙØ­Øµ Ø£Ø®Ø·Ø§Ø¡ Ø°ÙƒÙŠØŒ ÙˆØ¢Ù…Ù† Ø¶Ø¯ ÙÙ‚Ø¯ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª Ø£Ùˆ Ø§Ù„ØªÙƒØ±Ø§Ø±.

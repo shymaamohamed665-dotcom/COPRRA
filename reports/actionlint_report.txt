@@ -1,0 +1,7 @@
+﻿actionlint : could not read "never": open never: The system cannot find the file specified.
+At line:1 char:1
++ actionlint -color never 2>&1 | Out-File -FilePath reports/actionlint_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (could not read ...file specified.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

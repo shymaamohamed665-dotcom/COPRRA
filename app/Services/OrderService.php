@@ -29,8 +29,9 @@ class OrderService
      */
     public function createOrder(User $user, array $cartItems, array $addresses): Order
     {
-        return DB::transaction(function () use ($user, $cartItems, $addresses) {
-            $order = Order::create([
+        /** @var Order $order */
+        $order = DB::transaction(function () use ($user, $cartItems, $addresses): Order {
+            $order = Order::query()->create([
                 'order_number' => $this->generateOrderNumber(),
                 'user_id' => $user->id,
                 'status' => OrderStatus::PENDING,
@@ -77,11 +78,13 @@ class OrderService
                     ];
                 }
 
-                OrderItem::create($orderItemData);
+                OrderItem::query()->create($orderItemData);
             }
 
             return $order;
         });
+
+        return $order;
     }
 
     /**
@@ -192,7 +195,7 @@ class OrderService
      */
     private function calculateSubtotal(array $cartItems): float
     {
-        return collect($cartItems)->sum(static function ($item) {
+        return collect($cartItems)->sum(static function (array $item): float|int {
             $product = Product::find($item['product_id']);
 
             return $product ? (float) $product->price * $item['quantity'] : 0;
@@ -207,21 +210,22 @@ class OrderService
     private function calculateTax(array $cartItems): float
     {
         $subtotal = $this->calculateSubtotal($cartItems);
+        $taxRate = (float) config('coprra.tax.rate', 0.1);
 
-        return $subtotal * 0.1; // 10% tax rate
+        return $subtotal * $taxRate;
     }
 
     /**
      * Calculate shipping cost
      *
      * @param  array<int, array{product_id: int, quantity: int}>  $cartItems
-     *
-     * @psalm-return 0|10
      */
-    private function calculateShipping(array $cartItems): int
+    private function calculateShipping(array $cartItems): float
     {
         $subtotal = $this->calculateSubtotal($cartItems);
+        $freeShippingThreshold = (float) config('coprra.shipping.free_threshold', 100);
+        $standardShippingFee = (float) config('coprra.shipping.standard_fee', 10);
 
-        return $subtotal > 100 ? 0 : 10; // Free shipping over $100
+        return $subtotal > $freeShippingThreshold ? 0.0 : $standardShippingFee;
     }
 }

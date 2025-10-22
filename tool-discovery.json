@@ -1,0 +1,54 @@
+{
+    "php": {
+        "version": "PHP 8.4.13 (cli) (built: Sep 23 2025 15:17:27) (NTS Visual C++ 2022 x64)",
+        "path": "C:\\tools\\php84\\php.exe"
+    },
+    "composer": {
+        "version": "Composer version 2.8.12 2025-09-19 13:41:59",
+        "path": "C:\\ProgramData\\ComposerSetup\\bin\\composer"
+    },
+    "phpunit": {
+        "version": "PHPUnit 11.5.42 by Sebastian Bergmann and contributors.",
+        "path": "vendor/bin/phpunit"
+    },
+    "phpstan": {
+        "version": "PHPStan - PHP Static Analysis Tool 2.1.31",
+        "path": "vendor/bin/phpstan"
+    },
+    "psalm": {
+        "version": "Psalm 6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51",
+        "path": "vendor/bin/psalm"
+    },
+    "phpmd": {
+        "version": "PHPMD 2.15.0",
+        "path": "vendor/bin/phpmd"
+    },
+    "node": {
+        "version": "v22.20.0",
+        "path": "C:\\Program Files\\nodejs\\node.exe"
+    },
+    "npm": {
+        "version": "11.6.2",
+        "path": "C:\\Program Files\\nodejs\\npm"
+    },
+    "eslint": {
+        "version": "v9.35.0",
+        "path": "node_modules/eslint"
+    },
+    "stylelint": {
+        "version": "16.24.0",
+        "path": "node_modules/stylelint"
+    },
+    "prettier": {
+        "version": "3.6.2",
+        "path": "node_modules/prettier"
+    },
+    "docker": {
+        "version": "Docker version 28.5.1, build e180ab8",
+        "path": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker"
+    },
+    "git": {
+        "version": "git version 2.51.0.windows.1",
+        "path": "C:\\Program Files\\Git\\cmd\\git.exe"
+    }
+}

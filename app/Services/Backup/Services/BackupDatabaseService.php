@@ -53,7 +53,7 @@ final class BackupDatabaseService
      * Restore database.
      *
      * @param  array{filename?: string}  $dbInfo
-     * @return string[]
+     * @return array<string>
      *
      * @psalm-return array{status: 'completed'}
      *
@@ -103,7 +103,7 @@ final class BackupDatabaseService
      */
     private function getDatabaseCredentials(): array
     {
-        $dbConfig = config('database.connections.mysql');
+        $dbConfig = config('database.connections.mysql', null);
         $dbConfigArray = is_array($dbConfig) ? $dbConfig : [];
 
         return [

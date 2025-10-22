@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Security;
 
 use App\Models\Product;
@@ -168,3 +170,5 @@ class XSSTest extends TestCase
         parent::tearDown();
     }
 }
+
+

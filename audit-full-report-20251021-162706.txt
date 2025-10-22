@@ -1,0 +1,13 @@
+
+--- Running: Secrets Scan (Gitleaks) ---
+
+
+--- Running: Composer Audit (Security) ---
+
+
+--- Running: NPM Audit (Security) ---
+
+found 0 vulnerabilities
+
+--- Running: PHP Syntax Check (Fatal Errors) ---
+

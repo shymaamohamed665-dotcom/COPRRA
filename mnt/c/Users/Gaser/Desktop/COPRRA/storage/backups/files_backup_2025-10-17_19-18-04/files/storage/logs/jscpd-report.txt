@@ -1,0 +1,205 @@
+Clone found (php):
+ - [1m[32mapp\Services\FileCleanup\Strategies\TempFilesCleanupStrategy.php[39m[22m [9:2 - 39:13] (30 lines, 130 tokens)
+   [1m[32mapp\Services\FileCleanup\Strategies\UploadedFilesCleanupStrategy.php[39m[22m [9:2 - 39:17]
+
+Clone found (php):
+ - [1m[32mapp\Services\FileCleanup\Strategies\CacheFilesCleanupStrategy.php[39m[22m [11:2 - 41:14] (30 lines, 130 tokens)
+   [1m[32mapp\Services\FileCleanup\Strategies\UploadedFilesCleanupStrategy.php[39m[22m [9:2 - 39:17]
+
+Clone found (php):
+ - [1m[32mapp\Services\FileCleanup\Strategies\BackupFilesCleanupStrategy.php[39m[22m [9:2 - 35:15] (26 lines, 149 tokens)
+   [1m[32mapp\Services\FileCleanup\Strategies\LogFilesCleanupStrategy.php[39m[22m [9:2 - 35:12]
+
+Clone found (php):
+ - [1m[32mapp\Services\AI\Services\AIImageAnalysisService.php[39m[22m [115:17 - 141:2] (26 lines, 136 tokens)
+   [1m[32mapp\Services\AI\Services\AITextAnalysisService.php[39m[22m [205:2 - 236:8]
+
+Clone found (php):
+ - [1m[32mapp\Services\Activity\Services\ActivityThresholdService.php[39m[22m [61:22 - 76:8] (15 lines, 83 tokens)
+   [1m[32mapp\Services\Activity\Services\ActivityThresholdService.php[39m[22m [45:18 - 60:8]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\Api\ProductController.php[39m[22m [385:9 - 391:25] (6 lines, 79 tokens)
+   [1m[32mapp\Http\Controllers\Api\ProductController.php[39m[22m [109:9 - 115:10]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\Api\ProductController.php[39m[22m [392:9 - 401:11] (9 lines, 115 tokens)
+   [1m[32mapp\Http\Controllers\Api\ProductController.php[39m[22m [115:9 - 124:6]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\Api\PriceSearchController.php[39m[22m [90:17 - 100:9] (10 lines, 82 tokens)
+   [1m[32mapp\Http\Controllers\Api\PriceSearchController.php[39m[22m [47:17 - 57:79]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\Api\PriceSearchController.php[39m[22m [103:17 - 113:41] (10 lines, 82 tokens)
+   [1m[32mapp\Http\Controllers\Api\PriceSearchController.php[39m[22m [47:17 - 57:79]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\Api\AIController.php[39m[22m [73:34 - 84:24] (11 lines, 121 tokens)
+   [1m[32mapp\Http\Controllers\Api\AIController.php[39m[22m [37:34 - 48:18]
+
+Clone found (php):
+ - [1m[32mapp\Services\StoreAdapters\EbayAdapter.php[39m[22m [82:6 - 105:58] (23 lines, 105 tokens)
+   [1m[32mapp\Services\StoreAdapters\NoonAdapter.php[39m[22m [82:9 - 105:33]
+
+Clone found (php):
+ - [1m[32mapp\Services\Security\SecurityHeadersService.php[39m[22m [64:9 - 89:8] (25 lines, 129 tokens)
+   [1m[32mapp\Services\Security\Headers\StandardSecurityHeaderStrategy.php[39m[22m [43:8 - 62:13]
+
+Clone found (php):
+ - [1m[32mapp\Services\Security\SecurityHeadersService.php[39m[22m [131:5 - 173:8] (42 lines, 283 tokens)
+   [1m[32mapp\Services\Security\Headers\StandardSecurityHeaderStrategy.php[39m[22m [71:5 - 110:2]
+
+Clone found (php):
+ - [1m[32mapp\Services\Performance\DatabaseOptimizerService.php[39m[22m [71:12 - 90:2] (19 lines, 133 tokens)
+   [1m[32mapp\Services\Performance\SystemOptimizerService.php[39m[22m [68:2 - 87:2]
+
+Clone found (php):
+ - [1m[32mapp\Services\Backup\BackupManagerService.php[39m[22m [322:2 - 352:2] (30 lines, 182 tokens)
+   [1m[32mapp\Services\Backup\Services\BackupCompressionService.php[39m[22m [110:2 - 140:2]
+
+Clone found (php):
+ - [1m[32mapp\Services\Backup\BackupListService.php[39m[22m [247:5 - 262:2] (15 lines, 153 tokens)
+   [1m[32mapp\Services\Backup\BackupService.php[39m[22m [254:5 - 269:2]
+
+Clone found (php):
+ - [1m[32mapp\Services\Backup\BackupFileService.php[39m[22m [79:2 - 92:2] (13 lines, 124 tokens)
+   [1m[32mapp\Services\Backup\RestoreService.php[39m[22m [244:2 - 257:2]
+
+Clone found (php):
+ - [1m[32mapp\Services\AI\ContinuousQualityMonitor.php[39m[22m [159:2 - 180:8] (21 lines, 77 tokens)
+   [1m[32mapp\Services\AI\Services\RuleValidatorService.php[39m[22m [17:2 - 29:8]
+
+Clone found (php):
+ - [1m[32mapp\Services\AI\ContinuousQualityMonitor.php[39m[22m [250:9 - 258:6] (8 lines, 102 tokens)
+   [1m[32mapp\Services\AI\ContinuousQualityMonitor.php[39m[22m [219:9 - 227:15]
+
+Clone found (php):
+ - [1m[32mapp\Services\AI\ContinuousQualityMonitor.php[39m[22m [547:2 - 553:8] (6 lines, 79 tokens)
+   [1m[32mapp\Services\AI\ContinuousQualityMonitor.php[39m[22m [515:2 - 521:9]
+
+Clone found (php):
+ - [1m[32mapp\Http\Requests\ProductCreateRequest.php[39m[22m [72:22 - 115:8] (43 lines, 234 tokens)
+   [1m[32mapp\Http\Requests\ProductUpdateRequest.php[39m[22m [72:33 - 113:8]
+
+Clone found (php):
+ - [1m[32mapp\Http\Requests\ProductCreateRequest.php[39m[22m [237:9 - 271:8] (34 lines, 130 tokens)
+   [1m[32mapp\Http\Requests\ProductUpdateRequest.php[39m[22m [257:9 - 291:8]
+
+Clone found (php):
+ - [1m[32mapp\Http\Middleware\SetCacheHeaders.php[39m[22m [14:1 - 26:9] (12 lines, 93 tokens)
+   [1m[32mapp\Http\Middleware\ShareErrorsFromSession.php[39m[22m [14:1 - 26:11]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\WishlistController.php[39m[22m [46:7 - 55:65] (9 lines, 90 tokens)
+   [1m[32mapp\Http\Controllers\WishlistController.php[39m[22m [26:6 - 35:10]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\WishlistController.php[39m[22m [97:7 - 106:6] (9 lines, 102 tokens)
+   [1m[32mapp\Http\Controllers\WishlistController.php[39m[22m [26:6 - 35:14]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\OrderController.php[39m[22m [130:13 - 144:6] (14 lines, 114 tokens)
+   [1m[32mapp\Http\Controllers\Api\OrderController.php[39m[22m [69:13 - 83:27]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\LogController.php[39m[22m [93:14 - 103:7] (10 lines, 85 tokens)
+   [1m[32mapp\Http\Controllers\LogController.php[39m[22m [63:9 - 73:10]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\ErrorController.php[39m[22m [161:2 - 169:8] (8 lines, 78 tokens)
+   [1m[32mapp\Services\LogProcessing\SystemHealthChecker.php[39m[22m [21:2 - 28:2]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\CartController.php[39m[22m [70:13 - 88:7] (18 lines, 168 tokens)
+   [1m[32mapp\Http\Controllers\CartController.php[39m[22m [38:9 - 55:2]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\BrandController.php[39m[22m [119:7 - 125:2] (6 lines, 79 tokens)
+   [1m[32mapp\Http\Controllers\BrandController.php[39m[22m [63:7 - 69:12]
+
+Clone found (php):
+ - [1m[32mapp\Http\Controllers\AdminController.php[39m[22m [38:6 - 45:7] (7 lines, 79 tokens)
+   [1m[32mapp\Http\Controllers\AdminController.php[39m[22m [16:10 - 23:7]
+
+Clone found (php):
+ - [1m[32mapp\Services\EnvironmentChecker.php[39m[22m [400:26 - 406:36] (6 lines, 74 tokens)
+   [1m[32mapp\Services\EnvironmentChecker.php[39m[22m [333:21 - 339:30]
+
+Clone found (php):
+ - [1m[32mapp\Services\BehaviorAnalysisService.php[39m[22m [182:5 - 194:11] (12 lines, 115 tokens)
+   [1m[32mapp\Services\RecommendationService.php[39m[22m [139:5 - 151:6]
+
+Clone found (php):
+ - [1m[32mapp\Services\BackupService.php[39m[22m [482:5 - 510:2] (28 lines, 175 tokens)
+   [1m[32mapp\Services\Backup\Services\BackupCompressionService.php[39m[22m [112:5 - 140:2]
+
+Clone found (php):
+ - [1m[32mapp\Services\ActivityChecker.php[39m[22m [89:17 - 94:11] (5 lines, 78 tokens)
+   [1m[32mapp\Services\ActivityChecker.php[39m[22m [72:17 - 77:7]
+
+Clone found (php):
+ - [1m[32mapp\Services\ActivityChecker.php[39m[22m [119:2 - 136:8] (17 lines, 100 tokens)
+   [1m[32mapp\Services\Activity\Services\ActivityValidationService.php[39m[22m [17:2 - 34:8]
+
+Clone found (php):
+ - [1m[32mapp\Services\ActivityChecker.php[39m[22m [187:18 - 192:26] (5 lines, 83 tokens)
+   [1m[32mapp\Services\ActivityChecker.php[39m[22m [72:17 - 77:22]
+
+Clone found (php):
+ - [1m[32mapp\Services\ActivityChecker.php[39m[22m [417:2 - 437:8] (20 lines, 128 tokens)
+   [1m[32mapp\Services\Activity\Services\ActivityThresholdService.php[39m[22m [24:2 - 44:8]
+
+Clone found (php):
+ - [1m[32mapp\Rules\ValidOrderStatus.php[39m[22m [14:5 - 34:15] (20 lines, 107 tokens)
+   [1m[32mapp\Rules\ValidOrderStatusTransition.php[39m[22m [19:5 - 39:4]
+
+Clone found (php):
+ - [1m[32mapp\Models\Store.php[39m[22m [166:22 - 185:8] (19 lines, 115 tokens)
+   [1m[32mapp\Models\Store.php[39m[22m [129:31 - 148:8]
+
+Clone found (php):
+ - [1m[32mapp\Models\Reward.php[39m[22m [69:8 - 77:2] (8 lines, 94 tokens)
+   [1m[32mapp\Models\Reward.php[39m[22m [52:5 - 65:8]
+
+Clone found (php):
+ - [1m[32mapp\Models\OrderItem.php[39m[22m [203:2 - 214:14] (11 lines, 92 tokens)
+   [1m[32mapp\Models\OrderItem.php[39m[22m [192:4 - 203:8]
+
+Clone found (php):
+ - [1m[32mapp\Models\Order.php[39m[22m [209:2 - 223:73] (14 lines, 158 tokens)
+   [1m[32mapp\Models\Order.php[39m[22m [187:2 - 201:55]
+
+Clone found (php):
+ - [1m[32mapp\Models\Order.php[39m[22m [296:2 - 305:23] (9 lines, 92 tokens)
+   [1m[32mapp\Models\Order.php[39m[22m [170:10 - 179:23]
+
+Clone found (php):
+ - [1m[32mapp\Models\Order.php[39m[22m [311:15 - 320:23] (9 lines, 92 tokens)
+   [1m[32mapp\Models\Order.php[39m[22m [283:2 - 292:23]
+
+Clone found (php):
+ - [1m[32mapp\Models\Order.php[39m[22m [324:15 - 335:2] (11 lines, 98 tokens)
+   [1m[32mapp\Models\Order.php[39m[22m [170:10 - 182:84]
+
+Clone found (php):
+ - [1m[32mapp\Models\Order.php[39m[22m [370:6 - 384:2] (14 lines, 142 tokens)
+   [1m[32mapp\Models\Order.php[39m[22m [266:7 - 281:69]
+
+Clone found (php):
+ - [1m[32mapp\Models\Order.php[39m[22m [403:10 - 415:59] (12 lines, 99 tokens)
+   [1m[32mapp\Models\Order.php[39m[22m [283:2 - 323:4]
+
+Clone found (php):
+ - [1m[32mapp\Models\Category.php[39m[22m [140:5 - 169:8] (29 lines, 161 tokens)
+   [1m[32mapp\Models\Wishlist.php[39m[22m [68:5 - 97:8]
+
+[90m┌────────[39m[90m┬────────────────[39m[90m┬─────────────[39m[90m┬──────────────[39m[90m┬──────────────[39m[90m┬──────────────────[39m[90m┬───────────────────┐[39m
+[90m│[39m[31m Format [39m[90m│[39m[31m Files analyzed [39m[90m│[39m[31m Total lines [39m[90m│[39m[31m Total tokens [39m[90m│[39m[31m Clones found [39m[90m│[39m[31m Duplicated lines [39m[90m│[39m[31m Duplicated tokens [39m[90m│[39m
+[90m├────────[39m[90m┼────────────────[39m[90m┼─────────────[39m[90m┼──────────────[39m[90m┼──────────────[39m[90m┼──────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m php    [90m│[39m 381            [90m│[39m 43469       [90m│[39m 269735       [90m│[39m 49           [90m│[39m 794 (1.83%)      [90m│[39m 5729 (2.12%)      [90m│[39m
+[90m├────────[39m[90m┼────────────────[39m[90m┼─────────────[39m[90m┼──────────────[39m[90m┼──────────────[39m[90m┼──────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m [1mTotal:[22m [90m│[39m 381            [90m│[39m 43469       [90m│[39m 269735       [90m│[39m 49           [90m│[39m 794 (1.83%)      [90m│[39m 5729 (2.12%)      [90m│[39m
+[90m└────────[39m[90m┴────────────────[39m[90m┴─────────────[39m[90m┴──────────────[39m[90m┴──────────────[39m[90m┴──────────────────[39m[90m┴───────────────────┘[39m
+[90mFound 49 clones.[39m
+[3m[90mDetection time:[39m[23m: 5.503s

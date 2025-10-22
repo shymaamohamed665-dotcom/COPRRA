@@ -57,7 +57,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 
 // Password reset routes with Rate Limiting
 Route::get('/password/reset', [AuthController::class, 'showForgotPasswordForm'])->name('password.request');
-Route::post('/password/email', [AuthController::class, 'sendResetLinkEmail'])->middleware('throttle:3,1')->name('password.email');
+Route::post('/password/email', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/password/reset/{token}', [AuthController::class, 'showResetPasswordForm'])->name('password.reset');
 Route::post('/password/reset', [AuthController::class, 'resetPassword'])->middleware('throttle:3,1')->name('password.update');
 

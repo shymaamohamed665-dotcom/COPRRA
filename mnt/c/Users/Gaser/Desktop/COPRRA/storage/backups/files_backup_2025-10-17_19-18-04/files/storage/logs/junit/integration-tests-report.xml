@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/phpunit.xml" tests="9" assertions="18" errors="0" failures="0" skipped="0" time="12.684449">
+    <testsuite name="Integration" tests="9" assertions="18" errors="0" failures="0" skipped="0" time="12.684449">
+      <testsuite name="Tests\Integration\AdvancedIntegrationTest" file="/var/www/html/tests/Integration/AdvancedIntegrationTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="7.654258">
+        <testcase name="full_workflow_integration" file="/var/www/html/tests/Integration/AdvancedIntegrationTest.php" line="17" class="Tests\Integration\AdvancedIntegrationTest" classname="Tests.Integration.AdvancedIntegrationTest" assertions="2" time="6.539262"/>
+        <testcase name="api_database_integration" file="/var/www/html/tests/Integration/AdvancedIntegrationTest.php" line="28" class="Tests\Integration\AdvancedIntegrationTest" classname="Tests.Integration.AdvancedIntegrationTest" assertions="2" time="0.487927"/>
+        <testcase name="frontend_backend_integration" file="/var/www/html/tests/Integration/AdvancedIntegrationTest.php" line="39" class="Tests\Integration\AdvancedIntegrationTest" classname="Tests.Integration.AdvancedIntegrationTest" assertions="2" time="0.627069"/>
+      </testsuite>
+      <testsuite name="Tests\Integration\CompleteWorkflowTest" file="/var/www/html/tests/Integration/CompleteWorkflowTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="3.258799">
+        <testcase name="user_registration_workflow" file="/var/www/html/tests/Integration/CompleteWorkflowTest.php" line="17" class="Tests\Integration\CompleteWorkflowTest" classname="Tests.Integration.CompleteWorkflowTest" assertions="2" time="0.513362"/>
+        <testcase name="product_purchase_workflow" file="/var/www/html/tests/Integration/CompleteWorkflowTest.php" line="33" class="Tests\Integration\CompleteWorkflowTest" classname="Tests.Integration.CompleteWorkflowTest" assertions="2" time="1.944305"/>
+        <testcase name="admin_management_workflow" file="/var/www/html/tests/Integration/CompleteWorkflowTest.php" line="44" class="Tests\Integration\CompleteWorkflowTest" classname="Tests.Integration.CompleteWorkflowTest" assertions="2" time="0.801131"/>
+      </testsuite>
+      <testsuite name="Tests\Integration\IntegrationTest" file="/var/www/html/tests/Integration/IntegrationTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="1.771393">
+        <testcase name="basic_integration_works" file="/var/www/html/tests/Integration/IntegrationTest.php" line="17" class="Tests\Integration\IntegrationTest" classname="Tests.Integration.IntegrationTest" assertions="2" time="0.551363"/>
+        <testcase name="service_integration_works" file="/var/www/html/tests/Integration/IntegrationTest.php" line="28" class="Tests\Integration\IntegrationTest" classname="Tests.Integration.IntegrationTest" assertions="2" time="0.403516"/>
+        <testcase name="component_integration_works" file="/var/www/html/tests/Integration/IntegrationTest.php" line="39" class="Tests\Integration\IntegrationTest" classname="Tests.Integration.IntegrationTest" assertions="2" time="0.816514"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/phpunit.xml" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="17.552424">
+    <testsuite name="Unit" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="17.552424">
+      <testsuite name="Tests\Unit\COPRRA\AnalyticsServiceTest" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="17.552424">
+        <testcase name="it_tracks_price_comparison_event" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="36" class="Tests\Unit\COPRRA\AnalyticsServiceTest" classname="Tests.Unit.COPRRA.AnalyticsServiceTest" assertions="1" time="17.552424">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Unit\COPRRA\AnalyticsServiceTest::it_tracks_price_comparison_event
+Failed asserting that null is an instance of class App\Models\AnalyticsEvent.
+
+/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php:43
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

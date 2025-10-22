@@ -12,12 +12,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\CoversClass;
 
-/**
- * @covers \App\Services\SEOService
- * @covers \App\Console\Commands\SEOAudit
- * @covers \App\Console\Commands\GenerateSitemap
- */
+#[CoversClass(\App\Services\SEOService::class)]
+#[CoversClass(\App\Console\Commands\SEOAudit::class)]
+#[CoversClass(\App\Console\Commands\GenerateSitemap::class)]
 class SEOTest extends TestCase
 {
     use RefreshDatabase;
@@ -27,7 +26,7 @@ class SEOTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        // استخدم الحاوية لإنشاء الخدمة مع حقن الاعتماديات تلقائيًا
+        // Ø§Ø³ØªØ®Ø¯Ù… Ø§Ù„Ø­Ø§ÙˆÙŠØ© Ù„Ø¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ø®Ø¯Ù…Ø© Ù…Ø¹ Ø­Ù‚Ù† Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯ÙŠØ§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠÙ‹Ø§
         $this->seoService = $this->app->make(SEOService::class);
     }
 

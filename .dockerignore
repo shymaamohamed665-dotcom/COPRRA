@@ -58,6 +58,11 @@ public/build
 public/hot
 public/storage
 
+# Heavy data and backups
+backups/
+logs/
+nul
+
 # Test files
 tests
 phpunit.xml

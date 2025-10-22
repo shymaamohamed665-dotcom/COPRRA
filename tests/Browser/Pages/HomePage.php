@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Browser\Pages;
 
 use PHPUnit\Framework\TestCase;
@@ -86,3 +88,5 @@ class HomePage extends TestCase
         $this->assertEquals('/login', $navigation['user_menu']['login']);
     }
 }
+
+

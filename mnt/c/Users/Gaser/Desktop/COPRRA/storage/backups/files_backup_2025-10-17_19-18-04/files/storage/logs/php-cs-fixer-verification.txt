@@ -1,0 +1,7 @@
+PHPUnit 12.0.0 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.13
+Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
+Random Seed:   1760566996
+
+PHP Fatal error:  Type of App\Console\Commands\StatsCommand::$signature must not be defined (as in class Illuminate\Console\Command) in C:\Users\Gaser\Desktop\COPRRA\app\Console\Commands\StatsCommand.php on line 21

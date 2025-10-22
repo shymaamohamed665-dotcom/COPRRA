@@ -13,9 +13,9 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-/**
- * @covers \App\Helpers\PriceHelper
- */
+use PHPUnit\Framework\Attributes\CoversClass;
+
+#[CoversClass(\App\Helpers\PriceHelper::class)]
 class PriceComparisonTest extends TestCase
 {
     use RefreshDatabase;
@@ -53,7 +53,7 @@ class PriceComparisonTest extends TestCase
         $this->sar = Currency::create([
             'code' => 'SAR',
             'name' => 'Saudi Riyal',
-            'symbol' => 'ر.س',
+            'symbol' => 'Ø±.Ø³',
             'exchange_rate' => 3.75,
             'decimal_places' => 2,
         ]);
@@ -164,7 +164,7 @@ class PriceComparisonTest extends TestCase
         $this->assertStringContainsString('100.00', $formattedUSD);
 
         $formattedSAR = PriceHelper::formatPrice(375.00, 'SAR');
-        $this->assertStringContainsString('ر.س', $formattedSAR);
+        $this->assertStringContainsString('Ø±.Ø³', $formattedSAR);
         $this->assertStringContainsString('375.00', $formattedSAR);
     }
 
@@ -325,3 +325,4 @@ class PriceComparisonTest extends TestCase
         $this->assertGreaterThan(0, $updateInterval);
     }
 }
+

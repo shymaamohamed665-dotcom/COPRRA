@@ -6,6 +6,8 @@ namespace App\Console;
 
 use App\Jobs\FetchDailyPriceUpdates;
 use App\Jobs\SendPriceAlert;
+use App\Services\AI\ContinuousQualityMonitor;
+use App\Services\AI\StrictQualityAgent;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Psr\Log\LoggerInterface;
@@ -43,20 +45,18 @@ class Kernel extends ConsoleKernel
 
     /**
      * Define the application's command schedule.
-     *
-     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      */
     #[\Override]
     protected function schedule(Schedule $schedule): void
     {
         // Ensure we have a PSR logger without using static facades
-        /** @var LoggerInterface $logger */
         $logger = $this->app->make(LoggerInterface::class);
 
         $this->scheduleSystemMaintenance($schedule, $logger);
         $this->scheduleBackups($schedule, $logger);
         $this->scheduleCopRraTasks($schedule, $logger);
         $this->schedulePriceJobs($schedule, $logger);
+        $this->scheduleAiAgents($schedule, $logger);
     }
 
     /**
@@ -106,7 +106,8 @@ class Kernel extends ConsoleKernel
     private function scheduleBackups(Schedule $schedule, LoggerInterface $logger): void
     {
         // Backups (Spatie) — gated by config('backup.enabled')
-        if (config('backup.enabled', true)) {
+        $backupEnabled = config('backup.enabled');
+        if ($backupEnabled === true) {
             // Run full backup daily at 2 AM
             $schedule->command('backup:run')->dailyAt('02:00')
                 ->onFailure(function () use ($logger): void {
@@ -193,6 +194,109 @@ class Kernel extends ConsoleKernel
             })
             ->onFailure(function () use ($logger): void {
                 $logger->error('Price alert dispatch failed');
+            });
+    }
+
+    private function scheduleAiAgents(Schedule $schedule, LoggerInterface $logger): void
+    {
+        // ContinuousQualityMonitor — gated by config('ai.monitor.enabled')
+        $schedule->call(function () use ($logger): void {
+            $monitorEnabled = config('ai.monitor.enabled');
+            if ($monitorEnabled !== true) {
+                return;
+            }
+            if ($this->app->environment('testing')) {
+                return;
+            }
+
+            $dir = base_path('logs/agent');
+            if (! is_dir($dir)) {
+                try {
+                    mkdir($dir, 0777, true);
+                } catch (\Throwable $e) {
+                    $logger->error('Failed to create logs/agent directory', ['error' => $e->getMessage()]);
+                }
+            }
+
+            try {
+                $monitor = new ContinuousQualityMonitor;
+                $result = $monitor->performQualityCheck();
+                $overall = (int) ($result['overall_health'] ?? 0);
+                $logger->info('ContinuousQualityMonitor executed', ['overall_health' => $overall]);
+                try {
+                    file_put_contents($dir.'/monitor.log', '['.now()->toDateTimeString().'] overall_health='.$overall."\n", FILE_APPEND);
+                } catch (\Throwable $e) {
+                    $logger->error('Failed writing monitor log', ['error' => $e->getMessage()]);
+                }
+            } catch (\Throwable $e) {
+                $logger->error('ContinuousQualityMonitor failed', ['error' => $e->getMessage()]);
+                try {
+                    file_put_contents($dir.'/monitor.log', '['.now()->toDateTimeString().'] ERROR: '.$e->getMessage()."\n", FILE_APPEND);
+                } catch (\Throwable $writeError) {
+                    $logger->error('Failed writing monitor error log', ['error' => $writeError->getMessage()]);
+                }
+            }
+        })
+            ->hourly()
+            ->name('ai:monitor')
+            ->withoutOverlapping()
+            ->onFailure(function () use ($logger): void {
+                $logger->error('Scheduled ai:monitor job failed');
+                try {
+                    file_put_contents(base_path('logs/agent/monitor.log'), '['.now()->toDateTimeString()."] SCHEDULE FAILURE\n", FILE_APPEND);
+                } catch (\Throwable $e) {
+                    $logger->error('Failed writing monitor schedule failure log', ['error' => $e->getMessage()]);
+                }
+            });
+
+        // StrictQualityAgent — gated by config('ai.strict_agent.enabled')
+        $schedule->call(function () use ($logger): void {
+            $strictAgentEnabled = config('ai.strict_agent.enabled');
+            if ($strictAgentEnabled !== true) {
+                return;
+            }
+            if ($this->app->environment('testing')) {
+                return;
+            }
+
+            $dir = base_path('logs/agent');
+            if (! is_dir($dir)) {
+                try {
+                    mkdir($dir, 0777, true);
+                } catch (\Throwable $e) {
+                    $logger->error('Failed to create logs/agent directory', ['error' => $e->getMessage()]);
+                }
+            }
+
+            try {
+                $agent = new StrictQualityAgent;
+                $summary = $agent->executeAllStages();
+                $success = (bool) ($summary['overall_success'] ?? false);
+                $logger->info('StrictQualityAgent executed', ['overall_success' => $success]);
+                try {
+                    file_put_contents($dir.'/quality_agent.log', '['.now()->toDateTimeString().'] overall_success='.($success ? 'true' : 'false')."\n", FILE_APPEND);
+                } catch (\Throwable $e) {
+                    $logger->error('Failed writing quality_agent log', ['error' => $e->getMessage()]);
+                }
+            } catch (\Throwable $e) {
+                $logger->error('StrictQualityAgent failed', ['error' => $e->getMessage()]);
+                try {
+                    file_put_contents($dir.'/quality_agent.log', '['.now()->toDateTimeString().'] ERROR: '.$e->getMessage()."\n", FILE_APPEND);
+                } catch (\Throwable $writeError) {
+                    $logger->error('Failed writing quality_agent error log', ['error' => $writeError->getMessage()]);
+                }
+            }
+        })
+            ->dailyAt('02:30')
+            ->name('ai:strict-quality-agent')
+            ->withoutOverlapping()
+            ->onFailure(function () use ($logger): void {
+                $logger->error('Scheduled ai:strict-quality-agent job failed');
+                try {
+                    file_put_contents(base_path('logs/agent/quality_agent.log'), '['.now()->toDateTimeString()."] SCHEDULE FAILURE\n", FILE_APPEND);
+                } catch (\Throwable $e) {
+                    $logger->error('Failed writing quality_agent schedule failure log', ['error' => $e->getMessage()]);
+                }
             });
     }
 }

@@ -13,7 +13,9 @@ use App\Services\CacheService;
 use App\Services\Contracts\CacheServiceContract;
 use App\Services\PriceSearchService;
 use App\Services\ProductService;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use RuntimeException;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +25,7 @@ final class AppServiceProvider extends ServiceProvider
     #[\Override]
     public function register(): void
     {
-        $this->app->singleton(PriceSearchService::class, static function () {
+        $this->app->singleton(PriceSearchService::class, static function (): \App\Services\PriceSearchService {
             return new PriceSearchService;
         });
 
@@ -32,18 +34,22 @@ final class AppServiceProvider extends ServiceProvider
         // Bind CacheServiceContract to concrete CacheService
         $this->app->singleton(CacheServiceContract::class, CacheService::class);
         $this->app->singleton(ProductRepository::class);
-        $this->app->singleton(ProductService::class, static function (\Illuminate\Contracts\Foundation\Application $app) {
+        $this->app->singleton(ProductService::class, static function (Application $app): \App\Services\ProductService {
             $repository = $app->make(ProductRepository::class);
             if (! ($repository instanceof ProductRepository)) {
-                throw new \RuntimeException('Failed to resolve ProductRepository');
+                throw new RuntimeException('Failed to resolve ProductRepository');
             }
             $cache = $app->make(CacheServiceContract::class);
             if (! ($cache instanceof CacheServiceContract)) {
-                throw new \RuntimeException('Failed to resolve CacheServiceContract');
+                throw new RuntimeException('Failed to resolve CacheServiceContract');
             }
 
             return new ProductService($repository, $cache);
         });
+
+        if ($this->app->environment('local', 'testing') === true && class_exists(\Laravel\Dusk\DuskServiceProvider::class)) {
+            $this->app->register(\Laravel\Dusk\DuskServiceProvider::class);
+        }
     }
 
     /**

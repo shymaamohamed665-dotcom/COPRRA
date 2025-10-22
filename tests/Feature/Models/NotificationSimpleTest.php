@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Models;
 
 use App\Models\Notification;
@@ -416,3 +418,4 @@ class NotificationSimpleTest extends TestCase
         $this->assertFalse($notification->canRetry(3));
     }
 }
+

@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Log;
  */
 class AIRequestService
 {
-    private string $apiKey;
+    private readonly string $apiKey;
 
-    private string $baseUrl;
+    private readonly string $baseUrl;
 
-    private int $timeout;
+    private readonly int $timeout;
 
     public function __construct(string $apiKey, string $baseUrl, int $timeout = 60)
     {
@@ -38,7 +38,7 @@ class AIRequestService
     {
         // Short-circuit in testing to avoid external calls
         $disableExternal = (bool) config('ai.disable_external_calls', false);
-        if ($disableExternal || (empty($this->apiKey) && (env('APP_ENV') === 'testing'))) {
+        if ($disableExternal || (($this->apiKey === '' || $this->apiKey === '0') && (config('app.env') === 'testing'))) {
             Log::info('🧪 تعطيل الاتصال الخارجي للذكاء الاصطناعي في الاختبارات');
 
             // Build input-aware mock content so tests can assert structure and values
@@ -49,7 +49,7 @@ class AIRequestService
             if (is_string($userContent)) {
                 if (preg_match('/Analyze the following text for\s+([a-z_]+):\s*(.*)$/i', $userContent, $m)) {
                     $type = strtolower(trim($m[1]));
-                    $text = trim((string) $m[2]);
+                    $text = trim($m[2]);
                 } elseif (str_contains($userContent, 'User preferences:')) {
                     $type = 'recommendations';
                     $text = $userContent;
@@ -62,6 +62,7 @@ class AIRequestService
                 foreach ($userContent as $seg) {
                     if (is_array($seg) && (($seg['type'] ?? '') === 'text')) {
                         $text = (string) ($seg['text'] ?? '');
+
                         break;
                     }
                 }
@@ -75,6 +76,7 @@ class AIRequestService
             foreach ($positiveWords as $w) {
                 if (str_contains($lc, $w)) {
                     $sentiment = 'positive';
+
                     break;
                 }
             }
@@ -82,12 +84,13 @@ class AIRequestService
                 foreach ($negativeWords as $w) {
                     if (str_contains($lc, $w)) {
                         $sentiment = 'negative';
+
                         break;
                     }
                 }
             }
 
-            $confidence = $sentiment === 'neutral' ? (empty($text) ? 0.5 : 0.6) : 0.85;
+            $confidence = $sentiment === 'neutral' ? ($text === '' || $text === '0' ? 0.5 : 0.6) : 0.85;
 
             // Simple category inference (Arabic + English)
             $categories = [];
@@ -100,12 +103,12 @@ class AIRequestService
             if (preg_match('/كتاب|برمجة|books?/i', $text)) {
                 $categories[] = 'كتب';
             }
-            if (! $categories) {
+            if ($categories === []) {
                 $categories[] = 'عام';
             }
 
             // Naive keyword extraction
-            $words = preg_split('/\s+/u', trim((string) $text));
+            $words = preg_split('/\s+/u', trim($text));
             $keywords = [];
             foreach ($words as $word) {
                 $w = trim((string) $word, ".,!?:;\"'()[]{}|\\");
@@ -121,7 +124,7 @@ class AIRequestService
                 foreach ($categories as $cat) {
                     $recommendationLines[] = "recommendation: مناسب لفئة {$cat}";
                 }
-                if (! $recommendationLines) {
+                if ($recommendationLines === []) {
                     $recommendationLines[] = 'recommendation: قم باختيار أفضل منتج';
                 }
             }
@@ -138,7 +141,7 @@ class AIRequestService
             foreach ($keywords as $k) {
                 $lines[] = "keyword: {$k}";
             }
-            if (! empty($text)) {
+            if ($text !== '' && $text !== '0') {
                 $lines[] = "original_text: {$text}"; // include feedback context in result
             }
 
@@ -188,6 +191,7 @@ class AIRequestService
             throw new \Exception('AI request failed: '.$response->status().' - '.$response->body());
         } catch (\Exception $e) {
             Log::error('❌ خطأ في طلب الذكاء الاصطناعي', ['error' => $e->getMessage()]);
+
             throw $e;
         }
     }

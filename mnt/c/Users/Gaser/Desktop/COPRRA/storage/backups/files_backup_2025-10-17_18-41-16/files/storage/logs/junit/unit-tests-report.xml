@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/var/www/html/phpunit.xml" tests="227" assertions="310" errors="73" failures="1" skipped="0" time="519.765017">
+    <testsuite name="Unit" tests="227" assertions="310" errors="73" failures="1" skipped="0" time="519.765017">
+      <testsuite name="Tests\Unit\AnalyticsServiceTest" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" tests="13" assertions="43" errors="0" failures="0" skipped="0" time="21.314447">
+        <testcase name="it_tracks_price_comparison_event" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="25" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="4" time="8.848464"/>
+        <testcase name="it_tracks_product_view_event" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="40" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="3" time="0.892476"/>
+        <testcase name="it_tracks_search_event" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="53" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="4" time="0.776507"/>
+        <testcase name="it_tracks_store_click_event" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="68" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="4" time="1.732122"/>
+        <testcase name="it_gets_most_viewed_products" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="83" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="3" time="0.969468"/>
+        <testcase name="it_gets_most_searched_queries" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="106" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="4" time="0.754771"/>
+        <testcase name="it_gets_most_popular_stores" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="122" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="3" time="1.137861"/>
+        <testcase name="it_gets_price_comparison_statistics" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="146" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="4" time="1.271801"/>
+        <testcase name="it_gets_dashboard_data" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="165" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="5" time="0.748104"/>
+        <testcase name="it_cleans_old_analytics_data" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="184" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="3" time="1.325038"/>
+        <testcase name="it_does_not_track_when_disabled" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="204" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="2" time="0.717137"/>
+        <testcase name="it_handles_null_user_id" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="219" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="2" time="0.800125"/>
+        <testcase name="it_handles_empty_metadata" file="/var/www/html/tests/Unit/COPRRA/AnalyticsServiceTest.php" line="231" class="Tests\Unit\AnalyticsServiceTest" classname="Tests.Unit.AnalyticsServiceTest" assertions="2" time="1.340572"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\COPRRA\CacheServiceTest" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" tests="19" assertions="36" errors="0" failures="0" skipped="0" time="17.099969">
+        <testcase name="it_generates_correct_product_cache_key" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="36" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="2.269463"/>
+        <testcase name="it_generates_correct_category_cache_key" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="44" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="0.993787"/>
+        <testcase name="it_generates_correct_store_cache_key" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="52" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="0.832515"/>
+        <testcase name="it_generates_correct_price_comparison_cache_key" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="60" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="1.095651"/>
+        <testcase name="it_generates_correct_exchange_rate_cache_key" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="68" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="0.712727"/>
+        <testcase name="it_generates_correct_search_cache_key" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="76" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.650423"/>
+        <testcase name="it_generates_search_cache_key_with_filters" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="85" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.690482"/>
+        <testcase name="it_caches_product_data" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="95" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.783347"/>
+        <testcase name="it_caches_price_comparison_data" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="108" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.745278"/>
+        <testcase name="it_caches_search_results" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="127" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.658808"/>
+        <testcase name="it_invalidates_product_cache" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="143" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="1.675212"/>
+        <testcase name="it_invalidates_category_cache" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="156" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.673164"/>
+        <testcase name="it_invalidates_store_cache" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="169" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.829267"/>
+        <testcase name="it_returns_null_for_non_existent_cache" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="182" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="0.774968"/>
+        <testcase name="it_returns_cache_statistics" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="190" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="4" time="0.784557"/>
+        <testcase name="it_uses_remember_method_correctly" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="201" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="2" time="0.708109"/>
+        <testcase name="it_clears_all_cache" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="221" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="4" time="0.744660"/>
+        <testcase name="it_respects_custom_cache_duration" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="238" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="1" time="0.676890"/>
+        <testcase name="it_handles_search_with_different_filters" file="/var/www/html/tests/Unit/COPRRA/CacheServiceTest.php" line="250" class="Tests\Unit\COPRRA\CacheServiceTest" classname="Tests.Unit.COPRRA.CacheServiceTest" assertions="3" time="0.800660"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\COPRRA\CoprraServiceProviderTest" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" tests="28" assertions="79" errors="0" failures="0" skipped="0" time="16.191371">
+        <testcase name="it_registers_coprra_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="26" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.613348"/>
+        <testcase name="it_has_coprra_name_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="33" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="0.788585"/>
+        <testcase name="it_has_coprra_version_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="43" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="0.608278"/>
+        <testcase name="it_has_default_currency_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="53" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="0.442112"/>
+        <testcase name="it_has_default_language_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="63" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="1.410054"/>
+        <testcase name="it_has_price_comparison_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="73" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="0.436034"/>
+        <testcase name="it_has_search_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="84" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="0.459331"/>
+        <testcase name="it_has_exchange_rates_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="95" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="5" time="0.429490"/>
+        <testcase name="it_has_pagination_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="107" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="0.499038"/>
+        <testcase name="it_has_api_configuration" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="118" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="0.488747"/>
+        <testcase name="it_has_media_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="129" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="5" time="0.488971"/>
+        <testcase name="it_has_analytics_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="141" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="0.428561"/>
+        <testcase name="it_has_security_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="151" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="0.450659"/>
+        <testcase name="it_has_performance_settings" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="162" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="0.426250"/>
+        <testcase name="it_shares_coprra_name_with_views" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="173" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="1" time="0.433556"/>
+        <testcase name="it_shares_coprra_version_with_views" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="179" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="1" time="0.466075"/>
+        <testcase name="it_shares_default_currency_with_views" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="185" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="1" time="0.481726"/>
+        <testcase name="it_shares_default_language_with_views" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="191" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="1" time="0.441789"/>
+        <testcase name="it_registers_currency_blade_directive" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="197" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.446774"/>
+        <testcase name="it_registers_pricecompare_blade_directive" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="206" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.430496"/>
+        <testcase name="it_registers_rtl_blade_directive" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="215" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.457129"/>
+        <testcase name="currency_directive_generates_correct_php_code" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="224" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="0.913707"/>
+        <testcase name="pricecompare_directive_generates_correct_php_code" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="237" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="3" time="0.532429"/>
+        <testcase name="rtl_directive_generates_correct_php_code" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="250" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="4" time="1.357780"/>
+        <testcase name="it_validates_price_cache_duration_is_numeric" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="264" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.497841"/>
+        <testcase name="it_validates_max_stores_per_product_is_numeric" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="273" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.562447"/>
+        <testcase name="it_validates_search_max_results_is_numeric" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="282" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.596267"/>
+        <testcase name="it_validates_api_rate_limit_is_numeric" file="/var/www/html/tests/Unit/COPRRA/CoprraServiceProviderTest.php" line="291" class="Tests\Unit\COPRRA\CoprraServiceProviderTest" classname="Tests.Unit.COPRRA.CoprraServiceProviderTest" assertions="2" time="0.603896"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\COPRRA\ExchangeRateServiceTest" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" tests="12" assertions="1" errors="11" failures="0" skipped="0" time="12.540102">
+        <testcase name="it_returns_one_for_same_currency" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="32" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="1" time="0.773920"/>
+        <testcase name="it_seeds_exchange_rates_from_config" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="40" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="1.290509">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_seeds_exchange_rates_from_config
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: select * from "exchange_rates" where ("from_currency" = USD and "to_currency" = EUR) limit 1)
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:397
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3188
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3173
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3763
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3172
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:902
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:884
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:366
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:708
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:740
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/app/Services/ExchangeRateService.php:210
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:42
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_rate_from_database" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="55" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.956200">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_gets_rate_from_database
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:04, 2025-10-03 19:30:04, 2025-10-03 19:30:04))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:57
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_caches_exchange_rates" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="71" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.799319">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_caches_exchange_rates
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:04, 2025-10-03 19:30:04, 2025-10-03 19:30:04))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:73
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_converts_currency_correctly" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="96" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.725961">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_converts_currency_correctly
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:05, 2025-10-03 19:30:05, 2025-10-03 19:30:05))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:98
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_identifies_stale_rates" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="112" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.830418">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_identifies_stale_rates
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:06, 2025-10-03 19:30:06, 2025-10-03 19:30:06))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:114
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_fresh_rates_only" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="135" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.872887">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_gets_fresh_rates_only
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:07, 2025-10-03 19:30:07, 2025-10-03 19:30:07))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:137
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_stale_rates_only" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="160" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="2.414448">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_gets_stale_rates_only
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:09, 2025-10-03 19:30:09, 2025-10-03 19:30:09))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:162
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_returns_supported_currencies" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="185" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.881752">
+          <error type="Error">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_returns_supported_currencies
+Error: Call to undefined method App\Services\ExchangeRateService::getSupportedCurrencies()
+
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:187
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_uses_fallback_rate_when_not_in_database" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="196" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="1.249911">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_uses_fallback_rate_when_not_in_database
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: select * from "exchange_rates" where "from_currency" = USD and "to_currency" = EUR order by "updated_at" desc limit 1)
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:397
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3188
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3173
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3763
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3172
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:902
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:884
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:366
+/var/www/html/app/Models/ExchangeRate.php:60
+/var/www/html/app/Services/ExchangeRateService.php:48
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:199
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_handles_reverse_conversion" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="207" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.921582">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_handles_reverse_conversion
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-03 19:30:12, 2025-10-03 19:30:12, 2025-10-03 19:30:12))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:209
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_updates_existing_rates" file="/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php" line="233" class="Tests\Unit\COPRRA\ExchangeRateServiceTest" classname="Tests.Unit.COPRRA.ExchangeRateServiceTest" assertions="0" time="0.823196">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\ExchangeRateServiceTest::it_updates_existing_rates
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: insert into "exchange_rates" ("from_currency", "to_currency", "rate", "source", "fetched_at", "updated_at", "created_at") values (USD, EUR, 0.85, test, 2025-10-02 19:30:13, 2025-10-03 19:30:13, 2025-10-03 19:30:13))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/ExchangeRateServiceTest.php:235
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\COPRRA\PriceHelperTest" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" tests="27" assertions="51" errors="2" failures="0" skipped="0" time="17.717585">
+        <testcase name="it_formats_price_with_default_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="50" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="3" time="0.599019"/>
+        <testcase name="it_formats_price_with_specific_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="60" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="3" time="0.548947"/>
+        <testcase name="it_formats_price_with_sar_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="70" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="3" time="0.518030"/>
+        <testcase name="it_handles_non_existent_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="80" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="3" time="0.611536"/>
+        <testcase name="it_calculates_price_difference_percentage" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="90" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="2" time="0.618026"/>
+        <testcase name="it_calculates_negative_price_difference" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="99" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="2" time="0.588289"/>
+        <testcase name="it_returns_zero_for_same_prices" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="108" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="1.028305"/>
+        <testcase name="it_handles_zero_original_price" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="116" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="1.047950"/>
+        <testcase name="it_handles_negative_original_price" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="124" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.508751"/>
+        <testcase name="it_formats_positive_price_difference_string" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="132" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="4" time="0.549202"/>
+        <testcase name="it_formats_negative_price_difference_string" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="143" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="3" time="0.527555"/>
+        <testcase name="it_formats_zero_price_difference_string" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="153" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.594737"/>
+        <testcase name="it_identifies_good_deal" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="161" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.835309"/>
+        <testcase name="it_identifies_not_good_deal" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="170" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.735533"/>
+        <testcase name="it_handles_empty_prices_array_for_good_deal" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="179" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.491678"/>
+        <testcase name="it_gets_best_price_from_array" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="187" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.581858"/>
+        <testcase name="it_returns_null_for_empty_prices_array" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="196" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.503695"/>
+        <testcase name="it_converts_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="204" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="0" time="0.638808">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\PriceHelperTest::it_converts_currency
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: select * from "exchange_rates" where "from_currency" = USD and "to_currency" = EUR order by "updated_at" desc limit 1)
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:397
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3188
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3173
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3763
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3172
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:902
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:884
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:366
+/var/www/html/app/Models/ExchangeRate.php:60
+/var/www/html/app/Services/ExchangeRateService.php:48
+/var/www/html/app/Services/ExchangeRateService.php:78
+/var/www/html/app/Helpers/PriceHelper.php:96
+/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php:206
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_converts_currency_to_sar" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="214" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="0" time="0.587914">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\PriceHelperTest::it_converts_currency_to_sar
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: exchange_rates (Connection: testing, SQL: select * from "exchange_rates" where "from_currency" = USD and "to_currency" = SAR order by "updated_at" desc limit 1)
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:397
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3188
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3173
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3763
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3172
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:902
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:884
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:366
+/var/www/html/app/Models/ExchangeRate.php:60
+/var/www/html/app/Services/ExchangeRateService.php:48
+/var/www/html/app/Services/ExchangeRateService.php:78
+/var/www/html/app/Helpers/PriceHelper.php:96
+/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php:216
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_formats_price_range_with_same_prices" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="224" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="4" time="0.595201"/>
+        <testcase name="it_formats_price_range_with_different_prices" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="235" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="5" time="0.702459"/>
+        <testcase name="it_formats_price_range_with_default_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="247" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="2" time="0.725576"/>
+        <testcase name="it_formats_price_range_with_non_existent_currency" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="256" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="4" time="1.189772"/>
+        <testcase name="it_handles_decimal_prices_correctly" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="267" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.567579"/>
+        <testcase name="it_handles_large_prices" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="275" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.686810"/>
+        <testcase name="it_calculates_accurate_percentage_for_small_differences" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="283" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.604592"/>
+        <testcase name="it_calculates_accurate_percentage_for_large_differences" file="/var/www/html/tests/Unit/COPRRA/PriceHelperTest.php" line="291" class="Tests\Unit\COPRRA\PriceHelperTest" classname="Tests.Unit.COPRRA.PriceHelperTest" assertions="1" time="0.530453"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\COPRRA\StoreAdapterManagerTest" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" tests="17" assertions="1" errors="16" failures="0" skipped="0" time="7.845818">
+        <testcase name="it_registers_default_adapters" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="28" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.416877">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_registers_default_adapters
+Error: Call to undefined method App\Services\StoreAdapterManager::getAllAdapters()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:30
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_adapter_by_identifier" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="39" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.467550">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_adapter_by_identifier
+Error: Interface "App\Services\Contracts\StoreAdapterInterface" not found
+
+/var/www/html/app/Services/StoreAdapters/AbstractStoreAdapter.php:15
+/var/www/html/app/Services/StoreAdapters/AmazonAdapter.php:13
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:43
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_returns_null_for_unknown_adapter" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="48" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="1" time="0.427869"/>
+        <testcase name="it_checks_if_store_is_supported" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="56" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.397864">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_checks_if_store_is_supported
+Error: Call to undefined method App\Services\StoreAdapterManager::isStoreSupported()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:58
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_supported_stores" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="65" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.430033">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_supported_stores
+Error: Call to undefined method App\Services\StoreAdapterManager::getSupportedStores()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:67
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_validates_amazon_identifier" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="76" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.406190">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_validates_amazon_identifier
+Error: Call to undefined method App\Services\StoreAdapterManager::validateIdentifier()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:78
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_validates_ebay_identifier" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="84" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.388604">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_validates_ebay_identifier
+Error: Call to undefined method App\Services\StoreAdapterManager::validateIdentifier()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:86
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_validates_noon_identifier" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="92" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.384910">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_validates_noon_identifier
+Error: Call to undefined method App\Services\StoreAdapterManager::validateIdentifier()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:94
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_product_url_for_amazon" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="100" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.392865">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_product_url_for_amazon
+Error: Call to undefined method App\Services\StoreAdapterManager::getProductUrl()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:102
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_product_url_for_ebay" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="109" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.408578">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_product_url_for_ebay
+Error: Call to undefined method App\Services\StoreAdapterManager::getProductUrl()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:111
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_product_url_for_noon" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="118" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.423162">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_product_url_for_noon
+Error: Call to undefined method App\Services\StoreAdapterManager::getProductUrl()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:120
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_returns_null_for_unknown_store_url" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="127" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.411400">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_returns_null_for_unknown_store_url
+Error: Call to undefined method App\Services\StoreAdapterManager::getProductUrl()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:129
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_statistics" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="135" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.391420">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_statistics
+Error: Call to undefined method App\Services\StoreAdapterManager::getStatistics()
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:137
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_adapter_rate_limits" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="147" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.396013">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::it_gets_adapter_rate_limits
+Error: Call to a member function getRateLimits() on null
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:150
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="amazon_adapter_has_correct_properties" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="159" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.395220">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::amazon_adapter_has_correct_properties
+Error: Call to a member function getStoreName() on null
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:163
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="ebay_adapter_has_correct_properties" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="168" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="1.278297">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::ebay_adapter_has_correct_properties
+Error: Call to a member function getStoreName() on null
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:172
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="noon_adapter_has_correct_properties" file="/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php" line="177" class="Tests\Unit\COPRRA\StoreAdapterManagerTest" classname="Tests.Unit.COPRRA.StoreAdapterManagerTest" assertions="0" time="0.428968">
+          <error type="Error">Tests\Unit\COPRRA\StoreAdapterManagerTest::noon_adapter_has_correct_properties
+Error: Call to a member function getStoreName() on null
+
+/var/www/html/tests/Unit/COPRRA/StoreAdapterManagerTest.php:181
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\COPRRA\WebhookServiceTest" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" tests="11" assertions="0" errors="11" failures="0" skipped="0" time="6.666172">
+        <testcase name="it_creates_webhook_record" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="32" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.756100">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\WebhookServiceTest::it_creates_webhook_record
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: webhooks (Connection: testing, SQL: insert into "webhooks" ("store_identifier", "event_type", "product_identifier", "payload", "signature", "status", "updated_at", "created_at") values (amazon, price_update, B08N5WRWNW, {"product_identifier":"B08N5WRWNW","price":99.99,"currency":"USD"}, ?, pending, 2025-10-03 19:30:40, 2025-10-03 19:30:40))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/app/Services/WebhookService.php:23
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_processes_price_update_webhook" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="51" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.598598">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\WebhookServiceTest::it_processes_price_update_webhook
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named store_mappings (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "store_mappings", "updated_at", "created_at") values (nam exercitationem quia Product, sint-pariatur-facere, Consequatur praesentium amet nam rerum quisquam eligendi nostrum laboriosam. Qui quas qui ut laudantium cumque consectetur ipsam. Fuga voluptatem facere ullam dolorem harum est saepe minima., 105.11, https://via.placeholder.com/400x400.png/009977?text=omnis, 1, 1, 1, 1, ?, 2025-10-03 19:30:40, 2025-10-03 19:30:40))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:53
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_marks_webhook_as_failed_on_error" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="80" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.695563">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\WebhookServiceTest::it_marks_webhook_as_failed_on_error
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: webhooks (Connection: testing, SQL: insert into "webhooks" ("store_identifier", "event_type", "product_identifier", "payload", "status", "updated_at", "created_at") values (amazon, price_update, INVALID, [], pending, 2025-10-03 19:30:41, 2025-10-03 19:30:41))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:82
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_adds_logs_to_webhook" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="98" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.632302">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\COPRRA\WebhookServiceTest::it_adds_logs_to_webhook
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: webhooks (Connection: testing, SQL: insert into "webhooks" ("store_identifier", "event_type", "product_identifier", "payload", "status", "updated_at", "created_at") values (amazon, price_update, B08N5WRWNW, [], pending, 2025-10-03 19:30:41, 2025-10-03 19:30:41))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1219
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:1218
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2556
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:100
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_gets_webhook_statistics" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="116" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.580520">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::it_gets_webhook_statistics
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:118
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="webhook_can_be_marked_as_processing" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="131" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.516774">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::webhook_can_be_marked_as_processing
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:133
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="webhook_can_be_marked_as_completed" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="141" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.571135">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::webhook_can_be_marked_as_completed
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:143
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="webhook_can_be_marked_as_failed" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="152" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.605611">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::webhook_can_be_marked_as_failed
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:154
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_filters_webhooks_by_status" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="164" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.583792">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::it_filters_webhooks_by_status
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:166
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_filters_webhooks_by_store" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="177" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.548384">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::it_filters_webhooks_by_store
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:179
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="it_filters_webhooks_by_event_type" file="/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php" line="190" class="Tests\Unit\COPRRA\WebhookServiceTest" classname="Tests.Unit.COPRRA.WebhookServiceTest" assertions="0" time="0.577394">
+          <error type="ParseError">Tests\Unit\COPRRA\WebhookServiceTest::it_filters_webhooks_by_event_type
+ParseError: syntax error, unexpected identifier "se"
+
+/var/www/html/database/factories/WebhookFactory.php:8
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:919
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/HasFactory.php:21
+/var/www/html/tests/Unit/COPRRA/WebhookServiceTest.php:192
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\Controllers\AnalyticsControllerTest" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" tests="9" assertions="0" errors="9" failures="0" skipped="0" time="0.000000">
+        <testcase name="test_user_analytics_returns_analytics_for_authenticated_user" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="40" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_user_analytics_returns_analytics_for_authenticated_user
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_user_analytics_returns_unauthorized_for_unauthenticated_user" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="60" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_user_analytics_returns_unauthorized_for_unauthenticated_user
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_site_analytics_returns_site_analytics" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="75" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_site_analytics_returns_site_analytics
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_track_behavior_returns_success_for_valid_authenticated_request" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="92" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_track_behavior_returns_success_for_valid_authenticated_request
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_track_behavior_returns_unauthorized_for_unauthenticated_user" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="122" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_track_behavior_returns_unauthorized_for_unauthenticated_user
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_track_behavior_fails_validation_for_invalid_action" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="144" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_track_behavior_fails_validation_for_invalid_action
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_user_analytics_throws_exception_when_service_fails" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="160" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_user_analytics_throws_exception_when_service_fails
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_site_analytics_throws_exception_when_service_fails" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="175" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_site_analytics_throws_exception_when_service_fails
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_track_behavior_throws_exception_when_service_fails" file="/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php" line="187" class="Tests\Unit\Controllers\AnalyticsControllerTest" classname="Tests.Unit.Controllers.AnalyticsControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\AnalyticsControllerTest::test_track_behavior_throws_exception_when_service_fails
+Mockery\Exception: The class \App\Services\BehaviorAnalysisService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/AnalyticsControllerTest.php:28
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\Controllers\BaseApiControllerTest" file="/var/www/html/tests/Unit/Controllers/BaseApiControllerTest.php" tests="4" assertions="29" errors="0" failures="0" skipped="0" time="1.994137">
+        <testcase name="test_success_response" file="/var/www/html/tests/Unit/Controllers/BaseApiControllerTest.php" line="63" class="Tests\Unit\Controllers\BaseApiControllerTest" classname="Tests.Unit.Controllers.BaseApiControllerTest" assertions="7" time="0.619349"/>
+        <testcase name="test_error_response" file="/var/www/html/tests/Unit/Controllers/BaseApiControllerTest.php" line="87" class="Tests\Unit\Controllers\BaseApiControllerTest" classname="Tests.Unit.Controllers.BaseApiControllerTest" assertions="7" time="0.442480"/>
+        <testcase name="test_paginated_response" file="/var/www/html/tests/Unit/Controllers/BaseApiControllerTest.php" line="111" class="Tests\Unit\Controllers\BaseApiControllerTest" classname="Tests.Unit.Controllers.BaseApiControllerTest" assertions="8" time="0.497346"/>
+        <testcase name="test_get_rate_limit_info" file="/var/www/html/tests/Unit/Controllers/BaseApiControllerTest.php" line="140" class="Tests\Unit\Controllers\BaseApiControllerTest" classname="Tests.Unit.Controllers.BaseApiControllerTest" assertions="7" time="0.434962"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\Controllers\OrderControllerTest" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" tests="12" assertions="0" errors="12" failures="0" skipped="0" time="0.000000">
+        <testcase name="test_index_returns_orders_for_authenticated_user" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="47" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_index_returns_orders_for_authenticated_user
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_index_returns_unauthorized_for_unauthenticated_user" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="66" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_index_returns_unauthorized_for_unauthenticated_user
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_show_returns_order_with_loaded_relationships" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="80" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_show_returns_order_with_loaded_relationships
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_create_creates_order_and_awards_points_for_valid_request" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="99" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_create_creates_order_and_awards_points_for_valid_request
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_create_returns_unauthorized_for_unauthenticated_user" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="136" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_create_returns_unauthorized_for_unauthenticated_user
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_update_status_updates_status_and_sends_notification" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="152" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_update_status_updates_status_and_sends_notification
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_update_status_returns_error_when_update_fails" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="180" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_update_status_returns_error_when_update_fails
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_cancel_cancels_order_successfully" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="203" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_cancel_cancels_order_successfully
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_cancel_returns_error_when_cancel_fails" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="227" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_cancel_returns_error_when_cancel_fails
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_show_throws_authorization_exception_when_not_authorized" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="249" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_show_throws_authorization_exception_when_not_authorized
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_update_status_returns_error_for_invalid_transition" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="260" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_update_status_returns_error_for_invalid_transition
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_cancel_returns_error_for_invalid_status" file="/var/www/html/tests/Unit/Controllers/OrderControllerTest.php" line="285" class="Tests\Unit\Controllers\OrderControllerTest" classname="Tests.Unit.Controllers.OrderControllerTest" assertions="0" time="0.000000">
+          <error type="Mockery\Exception">Tests\Unit\Controllers\OrderControllerTest::test_cancel_returns_error_for_invalid_status
+Mockery\Exception: The class \App\Services\OrderService is marked final and its methods cannot be replaced. Classes marked final can be passed in to \Mockery::mock() as instantiated objects to create a partial mock, but only if the mock is not subject to type hinting checks.
+
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:367
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php:182
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php:66
+/var/www/html/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php:41
+/var/www/html/vendor/mockery/mockery/library/Mockery/Container.php:395
+/var/www/html/vendor/mockery/mockery/library/Mockery.php:477
+/var/www/html/tests/Unit/Controllers/OrderControllerTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\CreatesApplicationTest" file="/var/www/html/tests/Unit/CreatesApplicationTest.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="7.809985">
+        <testcase name="test_application_can_be_created" file="/var/www/html/tests/Unit/CreatesApplicationTest.php" line="12" class="Tests\Unit\CreatesApplicationTest" classname="Tests.Unit.CreatesApplicationTest" assertions="2" time="7.809985"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\CurrencyConversionTest" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" tests="6" assertions="6" errors="0" failures="0" skipped="0" time="6.029921">
+        <testcase name="test_basic_conversion" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" line="14" class="Tests\Unit\DataAccuracy\CurrencyConversionTest" classname="Tests.Unit.DataAccuracy.CurrencyConversionTest" assertions="1" time="3.134904"/>
+        <testcase name="test_inverse_conversion" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" line="21" class="Tests\Unit\DataAccuracy\CurrencyConversionTest" classname="Tests.Unit.DataAccuracy.CurrencyConversionTest" assertions="1" time="0.653278"/>
+        <testcase name="test_zero_value_handling" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" line="28" class="Tests\Unit\DataAccuracy\CurrencyConversionTest" classname="Tests.Unit.DataAccuracy.CurrencyConversionTest" assertions="1" time="0.506336"/>
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" line="35" class="Tests\Unit\DataAccuracy\CurrencyConversionTest" classname="Tests.Unit.DataAccuracy.CurrencyConversionTest" assertions="1" time="0.633834"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" line="42" class="Tests\Unit\DataAccuracy\CurrencyConversionTest" classname="Tests.Unit.DataAccuracy.CurrencyConversionTest" assertions="1" time="0.535800"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/CurrencyConversionTest.php" line="49" class="Tests\Unit\DataAccuracy\CurrencyConversionTest" classname="Tests.Unit.DataAccuracy.CurrencyConversionTest" assertions="1" time="0.565771"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\DataConsistencyTest" file="/var/www/html/tests/Unit/DataAccuracy/DataConsistencyTest.php" tests="3" assertions="3" errors="1" failures="0" skipped="0" time="26.931800">
+        <testcase name="test_order_total_matches_items_sum" file="/var/www/html/tests/Unit/DataAccuracy/DataConsistencyTest.php" line="20" class="Tests\Unit\DataAccuracy\DataConsistencyTest" classname="Tests.Unit.DataAccuracy.DataConsistencyTest" assertions="1" time="7.989336"/>
+        <testcase name="test_order_items_product_reference" file="/var/www/html/tests/Unit/DataAccuracy/DataConsistencyTest.php" line="42" class="Tests\Unit\DataAccuracy\DataConsistencyTest" classname="Tests.Unit.DataAccuracy.DataConsistencyTest" assertions="2" time="9.747478"/>
+        <testcase name="test_order_status_consistency" file="/var/www/html/tests/Unit/DataAccuracy/DataConsistencyTest.php" line="57" class="Tests\Unit\DataAccuracy\DataConsistencyTest" classname="Tests.Unit.DataAccuracy.DataConsistencyTest" assertions="0" time="9.194986">
+          <error type="ValueError">Tests\Unit\DataAccuracy\DataConsistencyTest::test_order_status_consistency
+ValueError: "completed" is not a valid backing value for enum App\Enums\OrderStatus
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:1291
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:1276
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:1079
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:619
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:305
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:854
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:459
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php:157
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:458
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:429
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:318
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataAccuracy/DataConsistencyTest.php:59</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\DataIntegrityTest" file="/var/www/html/tests/Unit/DataAccuracy/DataIntegrityTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="22.423022">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/DataIntegrityTest.php" line="13" class="Tests\Unit\DataAccuracy\DataIntegrityTest" classname="Tests.Unit.DataAccuracy.DataIntegrityTest" assertions="1" time="8.533826"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/DataIntegrityTest.php" line="20" class="Tests\Unit\DataAccuracy\DataIntegrityTest" classname="Tests.Unit.DataAccuracy.DataIntegrityTest" assertions="1" time="6.861792"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/DataIntegrityTest.php" line="27" class="Tests\Unit\DataAccuracy\DataIntegrityTest" classname="Tests.Unit.DataAccuracy.DataIntegrityTest" assertions="1" time="7.027403"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\DataValidationTest" file="/var/www/html/tests/Unit/DataAccuracy/DataValidationTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="22.629330">
+        <testcase name="test_integer_validation" file="/var/www/html/tests/Unit/DataAccuracy/DataValidationTest.php" line="14" class="Tests\Unit\DataAccuracy\DataValidationTest" classname="Tests.Unit.DataAccuracy.DataValidationTest" assertions="2" time="6.674477"/>
+        <testcase name="test_date_validation" file="/var/www/html/tests/Unit/DataAccuracy/DataValidationTest.php" line="27" class="Tests\Unit\DataAccuracy\DataValidationTest" classname="Tests.Unit.DataAccuracy.DataValidationTest" assertions="2" time="7.843044"/>
+        <testcase name="test_url_validation" file="/var/www/html/tests/Unit/DataAccuracy/DataValidationTest.php" line="40" class="Tests\Unit\DataAccuracy\DataValidationTest" classname="Tests.Unit.DataAccuracy.DataValidationTest" assertions="2" time="8.111808"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\DiscountCalculationTest" file="/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php" tests="3" assertions="0" errors="3" failures="0" skipped="0" time="26.970933">
+        <testcase name="test_percentage_discount" file="/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php" line="17" class="Tests\Unit\DataAccuracy\DiscountCalculationTest" classname="Tests.Unit.DataAccuracy.DiscountCalculationTest" assertions="0" time="8.733871">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\DiscountCalculationTest::test_percentage_discount
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named discount (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "discount", "discount_type", "updated_at", "created_at") values (quas illo quasi Product, ipsa-amet-nulla-qui, Omnis odit alias veritatis dolor quibusdam quibusdam. Explicabo voluptatibus animi distinctio temporibus officiis laudantium saepe quod. Et deleniti aut et cumque pariatur. Dolores non recusandae suscipit et blanditiis nostrum. Assumenda dolorum magni provident illo aut non atque., 200, https://via.placeholder.com/400x400.png/0000cc?text=omnis, 1, 1, 1, 1, 0.2, percentage, 2025-10-03 19:36:09, 2025-10-03 19:36:09))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php:19</error>
+        </testcase>
+        <testcase name="test_fixed_amount_discount" file="/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php" line="29" class="Tests\Unit\DataAccuracy\DiscountCalculationTest" classname="Tests.Unit.DataAccuracy.DiscountCalculationTest" assertions="0" time="10.082598">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\DiscountCalculationTest::test_fixed_amount_discount
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named discount (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "discount", "discount_type", "updated_at", "created_at") values (dolor facere magnam Product, aut-veritatis-vero, Perferendis eligendi illo possimus temporibus harum sapiente. Eius perferendis officiis sed modi. Reprehenderit deleniti vel porro non. Officiis dolorum est tempora quia soluta et., 150, https://via.placeholder.com/400x400.png/0055bb?text=ut, 1, 1, 1, 1, 30, fixed, 2025-10-03 19:36:37, 2025-10-03 19:36:37))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php:31</error>
+        </testcase>
+        <testcase name="test_discount_expiration" file="/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php" line="41" class="Tests\Unit\DataAccuracy\DiscountCalculationTest" classname="Tests.Unit.DataAccuracy.DiscountCalculationTest" assertions="0" time="8.154464">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\DiscountCalculationTest::test_discount_expiration
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named discount (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "discount", "discount_expires_at", "updated_at", "created_at") values (soluta quis aut Product, deleniti-repudiandae, Molestiae veniam ut cumque optio. Cumque sint rem aut numquam soluta. Est ex sed ullam ratione enim id ipsum necessitatibus., 100, https://via.placeholder.com/400x400.png/008888?text=repellendus, 1, 1, 1, 1, 0.25, 2025-10-02 19:37:06, 2025-10-03 19:37:06, 2025-10-03 19:37:06))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataAccuracy/DiscountCalculationTest.php:43</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\InventoryAccuracyTest" file="/var/www/html/tests/Unit/DataAccuracy/InventoryAccuracyTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="18.523420">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/InventoryAccuracyTest.php" line="13" class="Tests\Unit\DataAccuracy\InventoryAccuracyTest" classname="Tests.Unit.DataAccuracy.InventoryAccuracyTest" assertions="1" time="8.588289"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/InventoryAccuracyTest.php" line="20" class="Tests\Unit\DataAccuracy\InventoryAccuracyTest" classname="Tests.Unit.DataAccuracy.InventoryAccuracyTest" assertions="1" time="5.394298"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/InventoryAccuracyTest.php" line="27" class="Tests\Unit\DataAccuracy\InventoryAccuracyTest" classname="Tests.Unit.DataAccuracy.InventoryAccuracyTest" assertions="1" time="4.540832"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\OrderAccuracyTest" file="/var/www/html/tests/Unit/DataAccuracy/OrderAccuracyTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="16.399326">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/OrderAccuracyTest.php" line="13" class="Tests\Unit\DataAccuracy\OrderAccuracyTest" classname="Tests.Unit.DataAccuracy.OrderAccuracyTest" assertions="1" time="5.378412"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/OrderAccuracyTest.php" line="20" class="Tests\Unit\DataAccuracy\OrderAccuracyTest" classname="Tests.Unit.DataAccuracy.OrderAccuracyTest" assertions="1" time="5.411836"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/OrderAccuracyTest.php" line="27" class="Tests\Unit\DataAccuracy\OrderAccuracyTest" classname="Tests.Unit.DataAccuracy.OrderAccuracyTest" assertions="1" time="5.609079"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\PaymentAccuracyTest" file="/var/www/html/tests/Unit/DataAccuracy/PaymentAccuracyTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="15.688943">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/PaymentAccuracyTest.php" line="13" class="Tests\Unit\DataAccuracy\PaymentAccuracyTest" classname="Tests.Unit.DataAccuracy.PaymentAccuracyTest" assertions="1" time="5.465270"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/PaymentAccuracyTest.php" line="20" class="Tests\Unit\DataAccuracy\PaymentAccuracyTest" classname="Tests.Unit.DataAccuracy.PaymentAccuracyTest" assertions="1" time="5.292066"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/PaymentAccuracyTest.php" line="27" class="Tests\Unit\DataAccuracy\PaymentAccuracyTest" classname="Tests.Unit.DataAccuracy.PaymentAccuracyTest" assertions="1" time="4.931606"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\PriceAccuracyTest" file="/var/www/html/tests/Unit/DataAccuracy/PriceAccuracyTest.php" tests="3" assertions="1" errors="2" failures="0" skipped="0" time="2.727760">
+        <testcase name="test_base_price_calculation" file="/var/www/html/tests/Unit/DataAccuracy/PriceAccuracyTest.php" line="14" class="Tests\Unit\DataAccuracy\PriceAccuracyTest" classname="Tests.Unit.DataAccuracy.PriceAccuracyTest" assertions="1" time="1.293202"/>
+        <testcase name="test_tax_inclusive_pricing" file="/var/www/html/tests/Unit/DataAccuracy/PriceAccuracyTest.php" line="21" class="Tests\Unit\DataAccuracy\PriceAccuracyTest" classname="Tests.Unit.DataAccuracy.PriceAccuracyTest" assertions="0" time="0.741331">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\PriceAccuracyTest::test_tax_inclusive_pricing
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named tax_rate (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "tax_rate", "updated_at", "created_at") values (accusantium quia quia Product, perspiciatis-nobis-assumenda-et, Facilis aliquid totam placeat rem qui. Veniam illo voluptatem est soluta. Magnam aut eveniet et iusto et. Excepturi voluptas cupiditate dignissimos laboriosam velit dicta inventore., 100, https://via.placeholder.com/400x400.png/00bb00?text=exercitationem, 1, 1, 1, 1, 0.15, 2025-10-03 19:40:30, 2025-10-03 19:40:30))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataAccuracy/PriceAccuracyTest.php:23
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_discount_application_accuracy" file="/var/www/html/tests/Unit/DataAccuracy/PriceAccuracyTest.php" line="32" class="Tests\Unit\DataAccuracy\PriceAccuracyTest" classname="Tests.Unit.DataAccuracy.PriceAccuracyTest" assertions="0" time="0.693227">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\PriceAccuracyTest::test_discount_application_accuracy
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named discount (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "discount", "updated_at", "created_at") values (eum ea quia Product, et-corporis-quibusdam-quo, Consequatur commodi quas aut rerum fugit. Rem blanditiis aliquid eos maxime vero aut dolores. Numquam perspiciatis sint perspiciatis., 200, https://via.placeholder.com/400x400.png/0022dd?text=nam, 1, 1, 1, 1, 0.25, 2025-10-03 19:40:31, 2025-10-03 19:40:31))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataAccuracy/PriceAccuracyTest.php:34
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest" file="/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php" tests="3" assertions="0" errors="3" failures="0" skipped="0" time="27.963816">
+        <testcase name="test_price_history_records_changes" file="/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php" line="17" class="Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest" classname="Tests.Unit.DataAccuracy.PriceHistoryAccuracyTest" assertions="0" time="9.466562">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest::test_price_history_records_changes
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: price_histories (Connection: testing, SQL: select * from "price_histories" where "price_histories"."product_id" = 1 and "price_histories"."product_id" is not null)
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:397
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3188
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3173
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3763
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3172
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:902
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:884
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasMany.php:41
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:635
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:573
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:494
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2423
+/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php:24</error>
+        </testcase>
+        <testcase name="test_historical_prices_accuracy" file="/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php" line="30" class="Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest" classname="Tests.Unit.DataAccuracy.PriceHistoryAccuracyTest" assertions="0" time="9.050355">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest::test_historical_prices_accuracy
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: price_histories (Connection: testing, SQL: insert into "price_histories" ("price", "effective_date", "product_id", "updated_at", "created_at") values (180, 2025-09-30 19:41:24, 1, 2025-10-03 19:41:24, 2025-10-03 19:41:24))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php:367
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php:422
+/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php:39</error>
+        </testcase>
+        <testcase name="test_price_fluctuation_detection" file="/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php" line="46" class="Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest" classname="Tests.Unit.DataAccuracy.PriceHistoryAccuracyTest" assertions="0" time="9.446898">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataAccuracy\PriceHistoryAccuracyTest::test_price_fluctuation_detection
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 no such table: price_histories (Connection: testing, SQL: select * from "price_histories" where "price_histories"."product_id" = 1 and "price_histories"."product_id" is not null)
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:397
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3188
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3173
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3763
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3172
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:902
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:884
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasMany.php:41
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:635
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:573
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/HasAttributes.php:494
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2423
+/var/www/html/app/Models/Product.php:151
+/var/www/html/tests/Unit/DataAccuracy/PriceHistoryAccuracyTest.php:53</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\ProductMatchingTest" file="/var/www/html/tests/Unit/DataAccuracy/ProductMatchingTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="25.369890">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/ProductMatchingTest.php" line="13" class="Tests\Unit\DataAccuracy\ProductMatchingTest" classname="Tests.Unit.DataAccuracy.ProductMatchingTest" assertions="1" time="7.753880"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/ProductMatchingTest.php" line="20" class="Tests\Unit\DataAccuracy\ProductMatchingTest" classname="Tests.Unit.DataAccuracy.ProductMatchingTest" assertions="1" time="11.135705"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/ProductMatchingTest.php" line="27" class="Tests\Unit\DataAccuracy\ProductMatchingTest" classname="Tests.Unit.DataAccuracy.ProductMatchingTest" assertions="1" time="6.480305"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\ShippingAccuracyTest" file="/var/www/html/tests/Unit/DataAccuracy/ShippingAccuracyTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="19.137379">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/ShippingAccuracyTest.php" line="13" class="Tests\Unit\DataAccuracy\ShippingAccuracyTest" classname="Tests.Unit.DataAccuracy.ShippingAccuracyTest" assertions="1" time="6.925438"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/ShippingAccuracyTest.php" line="20" class="Tests\Unit\DataAccuracy\ShippingAccuracyTest" classname="Tests.Unit.DataAccuracy.ShippingAccuracyTest" assertions="1" time="6.252750"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/ShippingAccuracyTest.php" line="27" class="Tests\Unit\DataAccuracy\ShippingAccuracyTest" classname="Tests.Unit.DataAccuracy.ShippingAccuracyTest" assertions="1" time="5.959191"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\StoreDataValidationTest" file="/var/www/html/tests/Unit/DataAccuracy/StoreDataValidationTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="28.668556">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/StoreDataValidationTest.php" line="13" class="Tests\Unit\DataAccuracy\StoreDataValidationTest" classname="Tests.Unit.DataAccuracy.StoreDataValidationTest" assertions="1" time="6.022219"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/StoreDataValidationTest.php" line="20" class="Tests\Unit\DataAccuracy\StoreDataValidationTest" classname="Tests.Unit.DataAccuracy.StoreDataValidationTest" assertions="1" time="13.515685"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/StoreDataValidationTest.php" line="27" class="Tests\Unit\DataAccuracy\StoreDataValidationTest" classname="Tests.Unit.DataAccuracy.StoreDataValidationTest" assertions="1" time="9.130651"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataAccuracy\TaxCalculationTest" file="/var/www/html/tests/Unit/DataAccuracy/TaxCalculationTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="20.404354">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataAccuracy/TaxCalculationTest.php" line="13" class="Tests\Unit\DataAccuracy\TaxCalculationTest" classname="Tests.Unit.DataAccuracy.TaxCalculationTest" assertions="1" time="5.810945"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataAccuracy/TaxCalculationTest.php" line="20" class="Tests\Unit\DataAccuracy\TaxCalculationTest" classname="Tests.Unit.DataAccuracy.TaxCalculationTest" assertions="1" time="6.901820"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataAccuracy/TaxCalculationTest.php" line="27" class="Tests\Unit\DataAccuracy\TaxCalculationTest" classname="Tests.Unit.DataAccuracy.TaxCalculationTest" assertions="1" time="7.691589"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataAccuracyTest" file="/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php" tests="4" assertions="2" errors="3" failures="0" skipped="0" time="4.142624">
+        <testcase name="test_price_calculation_accuracy" file="/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php" line="16" class="Tests\Unit\DataQuality\DataAccuracyTest" classname="Tests.Unit.DataQuality.DataAccuracyTest" assertions="0" time="1.352974">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataQuality\DataAccuracyTest::test_price_calculation_accuracy
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named tax_rate (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "tax_rate", "updated_at", "created_at") values (et qui ea Product, sed-velit-dolore-et, Iusto earum commodi velit repellat. Soluta nihil quaerat ab illo consectetur. Voluptatem ut eum aut repellat sapiente velit., 99.99, https://via.placeholder.com/400x400.png/00cc55?text=non, 1, 1, 1, 1, 0.2, 2025-10-03 19:47:54, 2025-10-03 19:47:54))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php:19
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_currency_conversion_edge_cases" file="/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php" line="35" class="Tests\Unit\DataQuality\DataAccuracyTest" classname="Tests.Unit.DataQuality.DataAccuracyTest" assertions="2" time="0.667528"/>
+        <testcase name="test_complex_order_scenarios" file="/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php" line="47" class="Tests\Unit\DataQuality\DataAccuracyTest" classname="Tests.Unit.DataQuality.DataAccuracyTest" assertions="0" time="1.159984">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataQuality\DataAccuracyTest::test_complex_order_scenarios
+Illuminate\Database\QueryException: SQLSTATE[23000]: Integrity constraint violation: 19 NOT NULL constraint failed: order_items.price (Connection: testing, SQL: insert into "order_items" ("product_id", "quantity", "order_id", "updated_at", "created_at") values (1, 3, 1, 2025-10-03 19:47:56, 2025-10-03 19:47:56))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/helpers.php:390
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Relations/HasOneOrMany.php:367
+/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php:53
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:115
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:68
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php:113
+/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php:23
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:2540
+/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php:53
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+        <testcase name="test_negative_values_handling" file="/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php" line="72" class="Tests\Unit\DataQuality\DataAccuracyTest" classname="Tests.Unit.DataQuality.DataAccuracyTest" assertions="0" time="0.962138">
+          <error type="Illuminate\Database\QueryException">Tests\Unit\DataQuality\DataAccuracyTest::test_negative_values_handling
+Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1 table products has no column named discount (Connection: testing, SQL: insert into "products" ("name", "slug", "description", "price", "image", "brand_id", "category_id", "store_id", "is_active", "discount", "updated_at", "created_at") values (repudiandae aut quia Product, est-qui-distinctio-tempore, Repellendus temporibus aut omnis consectetur. Debitis ipsam odio nisi iste voluptas aut ipsa et. Animi aut consequatur dolor nisi qui ut. Qui ex unde id quos eligendi aliquam dolorem tempore. Dolore repudiandae ut tempora tempora aut., 100, https://via.placeholder.com/400x400.png/00ff55?text=veniam, 1, 1, 1, 1, 0.15, 2025-10-03 19:47:57, 2025-10-03 19:47:57))
+
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:778
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:559
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php:523
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/Processor.php:32
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php:3853
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php:2235
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1436
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1401
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php:1240
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:370
+/var/www/html/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php:271
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:365
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:321
+/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Factories/Factory.php:315
+/var/www/html/tests/Unit/DataQuality/DataAccuracyTest.php:75
+/var/www/html/vendor/phpunit/phpunit/phpunit:104</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataCompletenessTest" file="/var/www/html/tests/Unit/DataQuality/DataCompletenessTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.136343">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataCompletenessTest.php" line="13" class="Tests\Unit\DataQuality\DataCompletenessTest" classname="Tests.Unit.DataQuality.DataCompletenessTest" assertions="1" time="5.518560"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataCompletenessTest.php" line="20" class="Tests\Unit\DataQuality\DataCompletenessTest" classname="Tests.Unit.DataQuality.DataCompletenessTest" assertions="1" time="4.019609"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataCompletenessTest.php" line="27" class="Tests\Unit\DataQuality\DataCompletenessTest" classname="Tests.Unit.DataQuality.DataCompletenessTest" assertions="1" time="4.598174"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataDuplicationTest" file="/var/www/html/tests/Unit/DataQuality/DataDuplicationTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.447135">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataDuplicationTest.php" line="13" class="Tests\Unit\DataQuality\DataDuplicationTest" classname="Tests.Unit.DataQuality.DataDuplicationTest" assertions="1" time="4.606207"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataDuplicationTest.php" line="20" class="Tests\Unit\DataQuality\DataDuplicationTest" classname="Tests.Unit.DataQuality.DataDuplicationTest" assertions="1" time="4.984153"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataDuplicationTest.php" line="27" class="Tests\Unit\DataQuality\DataDuplicationTest" classname="Tests.Unit.DataQuality.DataDuplicationTest" assertions="1" time="4.856775"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataFreshnessTest" file="/var/www/html/tests/Unit/DataQuality/DataFreshnessTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.387767">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataFreshnessTest.php" line="13" class="Tests\Unit\DataQuality\DataFreshnessTest" classname="Tests.Unit.DataQuality.DataFreshnessTest" assertions="1" time="4.065171"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataFreshnessTest.php" line="20" class="Tests\Unit\DataQuality\DataFreshnessTest" classname="Tests.Unit.DataQuality.DataFreshnessTest" assertions="1" time="4.881287"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataFreshnessTest.php" line="27" class="Tests\Unit\DataQuality\DataFreshnessTest" classname="Tests.Unit.DataQuality.DataFreshnessTest" assertions="1" time="5.441310"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataQualityMetricsTest" file="/var/www/html/tests/Unit/DataQuality/DataQualityMetricsTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="19.313576">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataQualityMetricsTest.php" line="13" class="Tests\Unit\DataQuality\DataQualityMetricsTest" classname="Tests.Unit.DataQuality.DataQualityMetricsTest" assertions="1" time="6.088385"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataQualityMetricsTest.php" line="20" class="Tests\Unit\DataQuality\DataQualityMetricsTest" classname="Tests.Unit.DataQuality.DataQualityMetricsTest" assertions="1" time="7.908497"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataQualityMetricsTest.php" line="27" class="Tests\Unit\DataQuality\DataQualityMetricsTest" classname="Tests.Unit.DataQuality.DataQualityMetricsTest" assertions="1" time="5.316694"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataRelevanceTest" file="/var/www/html/tests/Unit/DataQuality/DataRelevanceTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="16.152777">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataRelevanceTest.php" line="13" class="Tests\Unit\DataQuality\DataRelevanceTest" classname="Tests.Unit.DataQuality.DataRelevanceTest" assertions="1" time="4.559326"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataRelevanceTest.php" line="20" class="Tests\Unit\DataQuality\DataRelevanceTest" classname="Tests.Unit.DataQuality.DataRelevanceTest" assertions="1" time="6.100895"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataRelevanceTest.php" line="27" class="Tests\Unit\DataQuality\DataRelevanceTest" classname="Tests.Unit.DataQuality.DataRelevanceTest" assertions="1" time="5.492557"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataReliabilityTest" file="/var/www/html/tests/Unit/DataQuality/DataReliabilityTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.613805">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataReliabilityTest.php" line="13" class="Tests\Unit\DataQuality\DataReliabilityTest" classname="Tests.Unit.DataQuality.DataReliabilityTest" assertions="1" time="4.650691"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataReliabilityTest.php" line="20" class="Tests\Unit\DataQuality\DataReliabilityTest" classname="Tests.Unit.DataQuality.DataReliabilityTest" assertions="1" time="4.663738"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataReliabilityTest.php" line="27" class="Tests\Unit\DataQuality\DataReliabilityTest" classname="Tests.Unit.DataQuality.DataReliabilityTest" assertions="1" time="5.299376"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataTimelinessTest" file="/var/www/html/tests/Unit/DataQuality/DataTimelinessTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="13.261105">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataTimelinessTest.php" line="13" class="Tests\Unit\DataQuality\DataTimelinessTest" classname="Tests.Unit.DataQuality.DataTimelinessTest" assertions="1" time="4.718937"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataTimelinessTest.php" line="20" class="Tests\Unit\DataQuality\DataTimelinessTest" classname="Tests.Unit.DataQuality.DataTimelinessTest" assertions="1" time="3.933246"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataTimelinessTest.php" line="27" class="Tests\Unit\DataQuality\DataTimelinessTest" classname="Tests.Unit.DataQuality.DataTimelinessTest" assertions="1" time="4.608922"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataUniquenessTest" file="/var/www/html/tests/Unit/DataQuality/DataUniquenessTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="14.106866">
+        <testcase name="test_basic_functionality" file="/var/www/html/tests/Unit/DataQuality/DataUniquenessTest.php" line="13" class="Tests\Unit\DataQuality\DataUniquenessTest" classname="Tests.Unit.DataQuality.DataUniquenessTest" assertions="1" time="4.512585"/>
+        <testcase name="test_expected_behavior" file="/var/www/html/tests/Unit/DataQuality/DataUniquenessTest.php" line="20" class="Tests\Unit\DataQuality\DataUniquenessTest" classname="Tests.Unit.DataQuality.DataUniquenessTest" assertions="1" time="4.837012"/>
+        <testcase name="test_validation" file="/var/www/html/tests/Unit/DataQuality/DataUniquenessTest.php" line="27" class="Tests\Unit\DataQuality\DataUniquenessTest" classname="Tests.Unit.DataQuality.DataUniquenessTest" assertions="1" time="4.757270"/>
+      </testsuite>
+      <testsuite name="Tests\Unit\DataQuality\DataValidityTest" file="/var/www/html/tests/Unit/DataQuality/DataValidityTest.php" tests="1" assertions="2" errors="0" failures="1" skipped="0" time="6.154985">
+        <testcase name="test_email_format_validity" file="/var/www/html/tests/Unit/DataQuality/DataValidityTest.php" line="18" class="Tests\Unit\DataQuality\DataValidityTest" classname="Tests.Unit.DataQuality.DataValidityTest" assertions="2" time="6.154985">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Unit\DataQuality\DataValidityTest::test_email_format_validity
+Failed asserting that exception of type "Illuminate\Database\QueryException" is thrown.</failure>
+        </testcase>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
