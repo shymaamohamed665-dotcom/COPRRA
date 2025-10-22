@@ -56,6 +56,13 @@ jobs:
       - name: Install NPM Dependencies
         run: npm ci
 
+      - name: Setup Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+        env:
+          APP_ENV: testing
+
       - name: Run Composer Security Audit
         run: composer audit --format=json > composer-security-report.json
 

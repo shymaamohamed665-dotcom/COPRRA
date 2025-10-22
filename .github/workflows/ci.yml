@@ -70,14 +70,18 @@ jobs:
         run: |
           composer audit --no-interaction || true
           npm audit --audit-level=high || true
+      - name: Setup Laravel
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+        env:
+          APP_ENV: testing
       - name: Static analysis
         run: |
           vendor/bin/phpstan analyse --no-progress
           vendor/bin/psalm --no-cache
       - name: Insights
         run: vendor/bin/phpinsights analyse app --no-interaction || true
-      - name: Prepare env
-        run: cp .env.example .env
       - name: Ensure reports directory
         run: mkdir -p reports
       - name: Run tests with coverage
