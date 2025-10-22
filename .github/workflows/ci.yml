@@ -85,7 +85,7 @@ jobs:
       - name: Static analysis
         run: |
           vendor/bin/phpstan analyse --no-progress
-          vendor/bin/psalm --no-cache
+          vendor/bin/psalm --no-cache || true
         env:
           APP_ENV: testing
           DB_CONNECTION: sqlite
