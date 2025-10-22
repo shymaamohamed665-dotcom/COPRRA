@@ -17,7 +17,36 @@
          displayDetailsOnTestsThatTriggerDeprecations="true"
          displayDetailsOnTestsThatTriggerErrors="true"
          displayDetailsOnTestsThatTriggerNotices="true"
-         displayDetailsOnTestsThatTriggerWarnings="true">
+         displayDetailsOnTestsThatTriggerWarnings="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         enforceTimeLimit="true"
+         defaultTimeLimit="10"
+         timeoutForSmallTests="5"
+         timeoutForMediumTests="10"
+         timeoutForLargeTests="60"
+         xsi:schemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd">
+
+  <!-- CODE COVERAGE CONFIGURATION - ENGINEERING EXCELLENCE PROTOCOL -->
+  <coverage includeUncoveredFiles="true"
+            pathCoverage="false"
+            ignoreDeprecatedCodeUnits="true"
+            disableCodeCoverageIgnore="false">
+    <report>
+      <clover outputFile="reports/coverage.xml"/>
+      <html outputDirectory="reports/coverage-html" lowUpperBound="85" highLowerBound="90"/>
+      <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="false"/>
+    </report>
+    <include>
+      <directory suffix=".php">app</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">app/Exceptions</directory>
+      <file>app/Http/Kernel.php</file>
+      <file>app/Providers/RouteServiceProvider.php</file>
+      <file>app/Console/Kernel.php</file>
+    </exclude>
+  </coverage>
+
   <testsuites>
     <testsuite name="Unit">
       <directory suffix="Test.php">./tests/Unit</directory>

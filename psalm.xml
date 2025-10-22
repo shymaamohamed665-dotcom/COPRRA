@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0"?>
 <psalm
     errorLevel="1"
-    baseline="psalm-baseline.xml"
     resolveFromConfigFile="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
-    findUnusedBaselineEntry="false"
+    findUnusedBaselineEntry="true"
     findUnusedCode="true"
     strictMixedIssues="true"
     strictUnnecessaryNullChecks="true"
@@ -18,7 +17,16 @@
     taintAnalysis="true"
     trackTaintsInPath="true"
     autoloader="vendor/autoload.php"
-    errorBaseline="psalm.baseline.xml"
+    ensureArrayStringOffsetsExist="true"
+    ensureArrayIntOffsetsExist="true"
+    reportMixedIssues="true"
+    totallyTyped="true"
+    sealAllMethods="false"
+    sealAllProperties="false"
+    memoizeMethodCallResults="true"
+    hoistConstants="true"
+    addParamTypehints="true"
+    reportInfo="true"
 >
     <projectFiles>
         <directory name="app" />

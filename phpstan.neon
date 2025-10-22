@@ -1,14 +1,38 @@
 includes:
     - vendor/larastan/larastan/extension.neon
-    - phpstan-baseline.neon
+    # BASELINE DISABLED FOR MAXIMUM STRICTNESS
+    # - phpstan-baseline.neon
 
 parameters:
-    level: 8
+    level: max
     paths:
         - app
     tmpDir: tmp/phpstan/cache
-    reportUnmatchedIgnoredErrors: false
+    reportUnmatchedIgnoredErrors: true
     treatPhpDocTypesAsCertain: false
     fileExtensions:
         - php
         - stub
+
+    # ADVANCED STRICTNESS CHECKS
+    checkMissingIterableValueType: true
+    checkGenericClassInNonGenericObjectType: true
+    checkMissingCallableSignature: true
+    checkUninitializedProperties: true
+    checkDynamicProperties: true
+    checkImplicitMixed: true
+    checkBenevolentUnionTypes: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkUninitializedProperties: true
+    polluteScopeWithLoopInitialAssignments: false
+    polluteScopeWithAlwaysIterableForeach: false
+    checkAlwaysTrueCheckTypeFunctionCall: true
+    checkAlwaysTrueInstanceof: true
+    checkAlwaysTrueStrictComparison: true
+    checkExplicitMixedMissingReturn: true
+    checkPhpDocMissingReturn: true
+    checkPhpDocMethodSignatures: true
+    checkExtraArguments: true
+    checkMissingOverrideMethodAttribute: true
+    reportMaybesInMethodSignatures: true
+    reportStaticMethodSignatures: true
