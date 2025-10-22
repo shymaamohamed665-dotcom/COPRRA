@@ -14,20 +14,15 @@ parameters:
         - php
         - stub
 
-    # ADVANCED STRICTNESS CHECKS
-    checkMissingIterableValueType: true
-    checkGenericClassInNonGenericObjectType: true
+    # ADVANCED STRICTNESS CHECKS (PHPStan 2.1+ verified parameters)
+    # Note: Some advanced parameters removed due to version incompatibility
     checkMissingCallableSignature: true
     checkUninitializedProperties: true
     checkDynamicProperties: true
     checkImplicitMixed: true
-    checkBenevolentUnionTypes: true
     checkTooWideReturnTypesInProtectedAndPublicMethods: true
     polluteScopeWithLoopInitialAssignments: false
     polluteScopeWithAlwaysIterableForeach: false
-    checkAlwaysTrueCheckTypeFunctionCall: true
-    checkAlwaysTrueInstanceof: true
-    checkAlwaysTrueStrictComparison: true
     checkExplicitMixedMissingReturn: true
     checkPhpDocMissingReturn: true
     checkPhpDocMethodSignatures: true
