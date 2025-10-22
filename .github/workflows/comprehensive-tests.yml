@@ -114,6 +114,15 @@ jobs:
       - name: Fix Permissions
         run: chmod -R +x vendor/bin
 
+      - name: Prepare Laravel directories
+        run: |
+          mkdir -p storage/framework/cache
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
+          mkdir -p storage/logs
+          mkdir -p bootstrap/cache
+          chmod -R 777 storage bootstrap/cache
+
       - name: Setup Laravel
         run: |
           cp .env.example .env
