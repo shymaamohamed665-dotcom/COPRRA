@@ -6,9 +6,9 @@ namespace App\Http\Controllers;
 
 use App\Services\Backup\BackupFileService;
 use App\Services\Backup\BackupListService;
-use App\Services\Backup\BackupService;
 use App\Services\Backup\BackupValidator;
 use App\Services\Backup\RestoreService;
+use App\Services\BackupService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -30,7 +30,7 @@ class BackupController extends Controller
     public function __construct()
     {
         $this->backupPath = storage_path('app/backups');
-        $this->backupService = new BackupService($this->backupPath);
+        $this->backupService = app(\App\Services\BackupService::class);
         $this->backupValidator = new BackupValidator;
         $this->backupListService = new BackupListService($this->backupPath);
         $this->backupFileService = new BackupFileService($this->backupPath);
@@ -58,7 +58,15 @@ class BackupController extends Controller
     {
         try {
             $backupConfig = $this->backupValidator->validateBackupRequest($request);
-            $backup = $this->backupService->createBackup($backupConfig);
+            $type = is_array($backupConfig) ? ($backupConfig['type'] ?? 'full') : 'full';
+
+            if ($type === 'database') {
+                $backup = $this->backupService->createDatabaseBackup();
+            } elseif ($type === 'files') {
+                $backup = $this->backupService->createFilesBackup();
+            } else {
+                $backup = $this->backupService->createFullBackup();
+            }
 
             return $this->createSuccessResponse($backup, 'Backup created successfully');
         } catch (\Exception $e) {
