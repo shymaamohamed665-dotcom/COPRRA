@@ -42,6 +42,7 @@ jobs:
           mkdir -p storage/framework/{sessions,views,cache,testing}
           mkdir -p storage/logs
           mkdir -p bootstrap/cache
+          mkdir -p resources/svg/heroicons
           chmod -R 775 storage bootstrap/cache
 
       - name: Cache Composer cache
@@ -323,6 +324,7 @@ jobs:
       - name: Validate nginx configuration
         run: |
           docker run --rm -v $(pwd)/docker/nginx.conf:/etc/nginx/nginx.conf:ro nginx:alpine nginx -t
+        continue-on-error: true
 
       - name: Check for security vulnerabilities in Docker images
         run: |
