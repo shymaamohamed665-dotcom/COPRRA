@@ -1,4 +1,4 @@
 {
     "preset": "laravel",
-    "exclude": ["vendor", "storage", "bootstrap/cache", "public"]
+    "exclude": ["vendor", "storage", "bootstrap/cache", "public", "tmp"]
 }

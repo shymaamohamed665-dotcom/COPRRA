@@ -58,7 +58,7 @@ class BackupController extends Controller
     {
         try {
             $backupConfig = $this->backupValidator->validateBackupRequest($request);
-            $type = is_array($backupConfig) ? ($backupConfig['type'] ?? 'full') : 'full';
+            $type = $backupConfig['type'] ?? 'full';
 
             if ($type === 'database') {
                 $backup = $this->backupService->createDatabaseBackup();
