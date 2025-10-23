@@ -651,3 +651,4 @@ composer run format
 - `APP_DEBUG` is `true` in `.env.example` for local debugging; set `false` in production.
 - `HEALTH_CHECKS_ENDPOINT` defaults to `/api/health`.
 - For cross-origin SPA auth, set: `SESSION_SAME_SITE=none`, `SESSION_SECURE_COOKIE=true`, and align `SESSION_DOMAIN`/`SESSION_PATH` with your domains.
+
