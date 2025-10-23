@@ -39,5 +39,3 @@ class DatabaseConnectionTest extends TestCase
         parent::tearDown();
     }
 }
-
-

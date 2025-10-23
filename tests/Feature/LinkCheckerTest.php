@@ -45,5 +45,3 @@ class LinkCheckerTest extends TestCase
         parent::tearDown();
     }
 }
-
-

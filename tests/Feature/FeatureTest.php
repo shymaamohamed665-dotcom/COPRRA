@@ -39,5 +39,3 @@ class FeatureTest extends TestCase
         parent::tearDown();
     }
 }
-
-

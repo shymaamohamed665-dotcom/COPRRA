@@ -51,4 +51,4 @@ date_default_timezone_set('UTC');
 // Notes:
 // - phpunit.xml sets DB to in-memory sqlite and uses array drivers for cache/session/queue.
 // - Avoid loading .env.testing here to prevent overriding phpunit.xml values.
-// - Tests using RefreshDatabase/LazilyRefreshDatabase will manage migrations automatically.
+// - Tests using RefreshDatabase/LazilyRefreshDatabase will manage migrations automatically.

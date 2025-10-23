@@ -45,5 +45,3 @@ class EmailSendingTest extends TestCase
         parent::tearDown();
     }
 }
-
-

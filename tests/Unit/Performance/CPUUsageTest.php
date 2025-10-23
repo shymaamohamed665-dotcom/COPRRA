@@ -39,5 +39,3 @@ class CPUUsageTest extends TestCase
         parent::tearDown();
     }
 }
-
-

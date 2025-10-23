@@ -1,1 +1,0 @@
-﻿No non-ASCII names detected at project root.

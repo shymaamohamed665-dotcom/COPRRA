@@ -33,5 +33,3 @@ class MemoryUsageTest extends TestCase
         parent::tearDown();
     }
 }
-
-

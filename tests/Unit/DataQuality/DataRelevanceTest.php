@@ -39,5 +39,3 @@ class DataRelevanceTest extends TestCase
         parent::tearDown();
     }
 }
-
-

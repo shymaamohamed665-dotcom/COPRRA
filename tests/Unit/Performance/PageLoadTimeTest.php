@@ -39,5 +39,3 @@ class PageLoadTimeTest extends TestCase
         parent::tearDown();
     }
 }
-
-

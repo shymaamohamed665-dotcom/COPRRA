@@ -39,5 +39,3 @@ class PureUnitTest extends TestCase
         parent::tearDown();
     }
 }
-
-

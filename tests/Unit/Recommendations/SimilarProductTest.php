@@ -522,5 +522,3 @@ class SimilarProductTest extends TestCase
         // Cleanup without calling parent to avoid error handler modifications
     }
 }
-
-

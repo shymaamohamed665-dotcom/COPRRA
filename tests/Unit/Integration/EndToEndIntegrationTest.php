@@ -39,5 +39,3 @@ class EndToEndIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

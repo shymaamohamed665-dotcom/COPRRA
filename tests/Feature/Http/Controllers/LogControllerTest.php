@@ -33,5 +33,3 @@ class LogControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

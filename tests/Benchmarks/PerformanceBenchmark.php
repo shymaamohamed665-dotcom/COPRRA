@@ -41,5 +41,3 @@ class PerformanceBenchmark extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

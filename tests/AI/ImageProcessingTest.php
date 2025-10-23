@@ -57,5 +57,3 @@ class ImageProcessingTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(true);
     }
 }
-
-

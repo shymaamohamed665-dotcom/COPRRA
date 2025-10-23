@@ -39,5 +39,3 @@ class ShippingIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

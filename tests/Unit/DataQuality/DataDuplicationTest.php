@@ -39,5 +39,3 @@ class DataDuplicationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

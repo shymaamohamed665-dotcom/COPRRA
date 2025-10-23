@@ -45,5 +45,3 @@ class FileUploadTest extends TestCase
         parent::tearDown();
     }
 }
-
-

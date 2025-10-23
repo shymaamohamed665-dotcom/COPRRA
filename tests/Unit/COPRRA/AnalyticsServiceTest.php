@@ -10,8 +10,8 @@ use App\Models\Store;
 use App\Models\User;
 use App\Services\AnalyticsService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(AnalyticsService::class)]
 #[CoversClass(AnalyticsEvent::class)]

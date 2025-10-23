@@ -45,5 +45,3 @@ class SecurityTest extends TestCase
         parent::tearDown();
     }
 }
-
-

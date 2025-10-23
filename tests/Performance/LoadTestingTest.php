@@ -33,5 +33,3 @@ class LoadTestingTest extends TestCase
         parent::tearDown();
     }
 }
-
-

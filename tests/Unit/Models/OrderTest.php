@@ -11,8 +11,8 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Mockery;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 /**
  * Unit tests for the Order model.

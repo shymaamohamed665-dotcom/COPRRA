@@ -45,5 +45,3 @@ class MemoryLeakTest extends TestCase
         parent::tearDown();
     }
 }
-
-

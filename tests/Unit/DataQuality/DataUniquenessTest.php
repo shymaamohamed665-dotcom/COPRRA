@@ -39,5 +39,3 @@ class DataUniquenessTest extends TestCase
         parent::tearDown();
     }
 }
-
-

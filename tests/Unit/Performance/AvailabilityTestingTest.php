@@ -39,5 +39,3 @@ class AvailabilityTestingTest extends TestCase
         parent::tearDown();
     }
 }
-
-

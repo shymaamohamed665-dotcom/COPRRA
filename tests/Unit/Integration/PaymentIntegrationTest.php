@@ -39,5 +39,3 @@ class PaymentIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

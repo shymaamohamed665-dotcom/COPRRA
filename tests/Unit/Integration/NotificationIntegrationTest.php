@@ -39,5 +39,3 @@ class NotificationIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

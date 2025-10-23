@@ -75,5 +75,3 @@ class ContinuousQualityMonitorTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(true);
     }
 }
-
-

@@ -778,4 +778,3 @@ class NotificationTest extends TestCase
         $this->assertEquals($hidden, (new Notification)->getHidden());
     }
 }
-

@@ -33,5 +33,3 @@ class ApiResponseTimeTest extends TestCase
         parent::tearDown();
     }
 }
-
-

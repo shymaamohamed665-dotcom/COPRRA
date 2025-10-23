@@ -45,5 +45,3 @@ class DatabaseMigrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

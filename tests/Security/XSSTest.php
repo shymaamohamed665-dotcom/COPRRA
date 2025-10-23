@@ -170,5 +170,3 @@ class XSSTest extends TestCase
         parent::tearDown();
     }
 }
-
-

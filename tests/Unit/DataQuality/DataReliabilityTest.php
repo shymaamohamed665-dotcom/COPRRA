@@ -39,5 +39,3 @@ class DataReliabilityTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -39,5 +39,3 @@ class PaymentAccuracyTest extends TestCase
         parent::tearDown();
     }
 }
-
-

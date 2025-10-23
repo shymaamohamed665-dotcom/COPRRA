@@ -39,5 +39,3 @@ class EnvironmentConfigurationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

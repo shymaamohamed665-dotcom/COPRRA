@@ -33,5 +33,3 @@ class DatabasePerformanceTest extends TestCase
         parent::tearDown();
     }
 }
-
-

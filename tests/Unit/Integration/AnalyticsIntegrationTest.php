@@ -39,5 +39,3 @@ class AnalyticsIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

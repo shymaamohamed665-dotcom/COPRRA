@@ -88,5 +88,3 @@ class HomePage extends TestCase
         $this->assertEquals('/login', $navigation['user_menu']['login']);
     }
 }
-
-

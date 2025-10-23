@@ -39,5 +39,3 @@ class InfrastructureTest extends TestCase
         parent::tearDown();
     }
 }
-
-

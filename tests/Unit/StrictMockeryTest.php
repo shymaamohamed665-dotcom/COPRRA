@@ -39,5 +39,3 @@ class StrictMockeryTest extends TestCase
         parent::tearDown();
     }
 }
-
-

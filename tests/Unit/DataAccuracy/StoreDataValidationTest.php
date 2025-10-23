@@ -39,5 +39,3 @@ class StoreDataValidationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

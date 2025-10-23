@@ -970,5 +970,3 @@ class ComprehensiveTestRunner
         Mockery::close();
     }
 }
-
-

@@ -25,5 +25,3 @@ class DebugHealthContentTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

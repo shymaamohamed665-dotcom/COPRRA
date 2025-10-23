@@ -39,5 +39,3 @@ class AdminMiddlewareTest extends TestCase
         parent::tearDown();
     }
 }
-
-

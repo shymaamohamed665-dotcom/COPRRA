@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1761101651,
+	'lastFullAnalysisTime' => 1761209452,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.31',
@@ -19,7 +19,7 @@ return [
   ),
   'composerLocks' => 
   array (
-    'C:/Users/Gaser/Desktop/COPRRA/composer.lock' => 'cae2dbce5b2934d005642ade4612940ff3d711ef',
+    'C:/Users/Gaser/Desktop/COPRRA/composer.lock' => 'c30336e3119e296c64dcf5427ba6a3a4fe077acf',
   ),
   'composerInstalled' => 
   array (
@@ -391,6 +391,18 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'darkaonline/l5-swagger' => 
+        array (
+          'pretty_version' => '9.0.1',
+          'version' => '9.0.1.0',
+          'reference' => '2c26427f8c41db8e72232415e7287313e6b6a2e2',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../darkaonline/l5-swagger',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'darryldecode/cart' => 
         array (
           'pretty_version' => '4.2.6',
@@ -470,6 +482,18 @@ return [
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'doctrine/annotations' => 
+        array (
+          'pretty_version' => '2.0.2',
+          'version' => '2.0.2.0',
+          'reference' => '901c2ee5d26eb64ff43c47976e114bf00843acf7',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../doctrine/annotations',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'doctrine/dbal' => 
         array (
@@ -1765,7 +1789,7 @@ return [
           'aliases' => 
           array (
           ),
-          'dev_requirement' => true,
+          'dev_requirement' => false,
         ),
         'phpstan/phpstan' => 
         array (
@@ -2609,6 +2633,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'swagger-api/swagger-ui' => 
+        array (
+          'pretty_version' => 'v5.29.5',
+          'version' => '5.29.5.0',
+          'reference' => '04b9ad7b37f02bce0e1cb8c521e40b68585ccf9f',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../swagger-api/swagger-ui',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'symfony/cache' => 
         array (
           'pretty_version' => 'v7.3.4',
@@ -3199,7 +3235,7 @@ return [
           'aliases' => 
           array (
           ),
-          'dev_requirement' => true,
+          'dev_requirement' => false,
         ),
         'thecodingmachine/safe' => 
         array (
@@ -3296,6 +3332,18 @@ return [
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'zircote/swagger-php' => 
+        array (
+          'pretty_version' => '5.5.1',
+          'version' => '5.5.1.0',
+          'reference' => 'a1b6fba7695bed5ba8a0052f615fe828912e3f5a',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../zircote/swagger-php',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
       ),
     ),
@@ -4472,12 +4520,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationData() has parameter $data with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 69,
+       'line' => 55,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 69,
+       'nodeLine' => 55,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.generics',
        'metadata' => 
@@ -4489,12 +4537,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationData() has parameter $data with generic interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator but does not specify its types: TKey, TValue',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 69,
+       'line' => 55,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 69,
+       'nodeLine' => 55,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.generics',
        'metadata' => 
@@ -4506,12 +4554,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationData() has parameter $data with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 69,
+       'line' => 55,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 69,
+       'nodeLine' => 55,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4523,12 +4571,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getMethodValue() has parameter $object with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 79,
+       'line' => 65,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 79,
+       'nodeLine' => 65,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.generics',
        'metadata' => 
@@ -4539,6 +4587,57 @@ return [
     4 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getMethodValue() has parameter $object with generic interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator but does not specify its types: TKey, TValue',
+       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'line' => 65,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 65,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.generics',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getMethodValue() has parameter $object with no value type specified in iterable type array.',
+       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'line' => 65,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 65,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to protected method getMethodValue() of class App\\Services\\Api\\PaginationService.',
+       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'line' => 67,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 67,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.protected',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationLinks() has parameter $data with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'line' => 79,
        'canBeIgnored' => true,
@@ -4553,9 +4652,26 @@ return [
       ),
        'fixedErrorDiff' => NULL,
     )),
-    5 => 
+    8 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getMethodValue() has parameter $object with no value type specified in iterable type array.',
+       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationLinks() has parameter $data with generic interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator but does not specify its types: TKey, TValue',
+       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'line' => 79,
+       'canBeIgnored' => true,
+       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 79,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.generics',
+       'metadata' => 
+      array (
+      ),
+       'fixedErrorDiff' => NULL,
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationLinks() has parameter $data with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'line' => 79,
        'canBeIgnored' => true,
@@ -4570,9 +4686,9 @@ return [
       ),
        'fixedErrorDiff' => NULL,
     )),
-    6 => 
+    10 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to protected method getMethodValue() of class App\\Services\\Api\\PaginationService.',
+       'message' => 'Call to protected method getPaginationLinks() of class App\\Services\\Api\\PaginationService.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'line' => 81,
        'canBeIgnored' => true,
@@ -4587,84 +4703,16 @@ return [
       ),
        'fixedErrorDiff' => NULL,
     )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationLinks() has parameter $data with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 93,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 93,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationLinks() has parameter $data with generic interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator but does not specify its types: TKey, TValue',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 93,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 93,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getPaginationLinks() has parameter $data with no value type specified in iterable type array.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 93,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 93,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to protected method getPaginationLinks() of class App\\Services\\Api\\PaginationService.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 95,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 95,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.protected',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
     11 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::successResponse() has parameter $data with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 101,
+       'line' => 87,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 101,
+       'nodeLine' => 87,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4676,12 +4724,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::successResponse() has parameter $meta with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 101,
+       'line' => 87,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 101,
+       'nodeLine' => 87,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4693,12 +4741,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::errorResponse() has parameter $errors with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 113,
+       'line' => 99,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 113,
+       'nodeLine' => 99,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4710,12 +4758,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::errorResponse() has parameter $meta with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 113,
+       'line' => 99,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 113,
+       'nodeLine' => 99,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4727,12 +4775,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::paginatedResponse() has parameter $data with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 125,
+       'line' => 111,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 125,
+       'nodeLine' => 111,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.generics',
        'metadata' => 
@@ -4744,12 +4792,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::paginatedResponse() has parameter $data with generic interface Illuminate\\Contracts\\Pagination\\LengthAwarePaginator but does not specify its types: TKey, TValue',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 125,
+       'line' => 111,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 125,
+       'nodeLine' => 111,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.generics',
        'metadata' => 
@@ -4761,12 +4809,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::paginatedResponse() has parameter $data with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 125,
+       'line' => 111,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 125,
+       'nodeLine' => 111,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4778,12 +4826,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::paginatedResponse() has parameter $meta with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 125,
+       'line' => 111,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 125,
+       'nodeLine' => 111,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -4795,12 +4843,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\Api\\V2\\BaseApiController::getSearchParams() return type has no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
-       'line' => 206,
+       'line' => 192,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 206,
+       'nodeLine' => 192,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -21935,7 +21983,7 @@ return [
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\Api\\V2\\BaseApiController.php' => 
   array (
-    'fileHash' => 'c16d952749f6fd091f957570d8263c8622f61781',
+    'fileHash' => '4fd2435da23daa994a81ae29fe03791b07a696a6',
     'dependentFiles' => 
     array (
     ),
@@ -36516,21 +36564,7 @@ return [
        'phpDoc' => 
       \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
          'phpDocString' => '/**
- * @OA\\Info(
- *     title="COPRRA API v2",
- *     version="2.0.0",
- *     description="Enhanced API for COPRRA - Price Comparison Platform v2",
- *
- *     @OA\\Contact(
- *         email="api@coprra.com",
- *         name="COPRRA API Support"
- *     ),
- *
- *     @OA\\License(
- *         name="MIT",
- *         url="https://opensource.org/licenses/MIT"
- *     )
- * )
+ * Base API Controller for v2 endpoints
  *
  * @OA\\Server(
  *     url="https://api.coprra.com/v2",

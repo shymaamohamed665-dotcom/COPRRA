@@ -7,8 +7,8 @@ namespace Tests\Unit\COPRRA;
 use App\Providers\CoprraServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(CoprraServiceProvider::class)]
 class CoprraServiceProviderTest extends TestCase

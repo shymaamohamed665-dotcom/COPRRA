@@ -33,5 +33,3 @@ class PermissionSecurityTest extends TestCase
         parent::tearDown();
     }
 }
-
-

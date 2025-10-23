@@ -39,5 +39,3 @@ class ImageLoadTimeTest extends TestCase
         parent::tearDown();
     }
 }
-
-

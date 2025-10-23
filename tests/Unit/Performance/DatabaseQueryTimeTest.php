@@ -39,5 +39,3 @@ class DatabaseQueryTimeTest extends TestCase
         parent::tearDown();
     }
 }
-
-

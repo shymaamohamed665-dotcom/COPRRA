@@ -486,5 +486,3 @@ class PasswordPolicyServiceTest extends TestCase
         }
     }
 }
-
-

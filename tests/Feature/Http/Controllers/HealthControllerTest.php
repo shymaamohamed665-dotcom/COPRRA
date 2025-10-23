@@ -113,5 +113,3 @@ class HealthControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

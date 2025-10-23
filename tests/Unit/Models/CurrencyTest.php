@@ -9,8 +9,8 @@ use App\Models\Language;
 use App\Models\Store;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 /**
  * Unit tests for the Currency model.

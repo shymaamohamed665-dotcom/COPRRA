@@ -15,5 +15,3 @@ final class SmokeTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

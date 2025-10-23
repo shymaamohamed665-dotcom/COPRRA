@@ -55,5 +55,3 @@ class PriceOfferTest extends TestCase
         parent::tearDown();
     }
 }
-
-

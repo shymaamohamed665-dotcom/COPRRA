@@ -34,5 +34,3 @@ class BackupControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

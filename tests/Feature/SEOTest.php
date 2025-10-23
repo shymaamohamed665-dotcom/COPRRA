@@ -11,8 +11,8 @@ use App\Services\SEOService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(\App\Services\SEOService::class)]
 #[CoversClass(\App\Console\Commands\SEOAudit::class)]

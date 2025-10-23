@@ -7,8 +7,8 @@ namespace Tests\Unit\COPRRA;
 use App\Helpers\PriceHelper;
 use App\Models\Currency;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(PriceHelper::class)]
 class PriceHelperTest extends TestCase

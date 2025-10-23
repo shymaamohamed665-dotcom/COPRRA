@@ -7,8 +7,8 @@ namespace Tests\Unit\COPRRA;
 use App\Services\CacheService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(CacheService::class)]
 class CacheServiceTest extends TestCase

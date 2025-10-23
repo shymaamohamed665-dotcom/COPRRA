@@ -379,7 +379,6 @@ Route::middleware(['throttle:api'])->prefix('reports')->group(function (): void 
     Route::get('/most-viewed-products', [\App\Http\Controllers\ReportController::class, 'getMostViewedProducts']);
 });
 
-
 // Analytics API routes
 Route::middleware(['throttle:public'])->group(function (): void {
     Route::get('/analytics/site', [\App\Http\Controllers\AnalyticsController::class, 'siteAnalytics']);

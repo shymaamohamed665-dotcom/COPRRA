@@ -45,5 +45,3 @@ class UITest extends TestCase
         parent::tearDown();
     }
 }
-
-

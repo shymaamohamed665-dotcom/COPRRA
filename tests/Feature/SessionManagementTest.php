@@ -45,5 +45,3 @@ class SessionManagementTest extends TestCase
         parent::tearDown();
     }
 }
-
-

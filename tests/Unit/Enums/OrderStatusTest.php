@@ -144,4 +144,3 @@ class OrderStatusTest extends TestCase
         OrderStatus::from('invalid');
     }
 }
-

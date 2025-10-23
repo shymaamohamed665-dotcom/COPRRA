@@ -39,5 +39,3 @@ class DataFreshnessTest extends TestCase
         parent::tearDown();
     }
 }
-
-

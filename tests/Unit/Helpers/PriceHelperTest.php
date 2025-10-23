@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Helpers;
 
-use Tests\TestCase;
-
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(\App\Helpers\PriceHelper::class)]
 class PriceHelperTest extends TestCase
@@ -42,5 +41,3 @@ class PriceHelperTest extends TestCase
         parent::tearDown();
     }
 }
-
-

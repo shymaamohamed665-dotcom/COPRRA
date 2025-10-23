@@ -55,5 +55,3 @@ class LanguageTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -39,5 +39,3 @@ class ThirdPartyAPIIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

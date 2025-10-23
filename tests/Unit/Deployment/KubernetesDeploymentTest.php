@@ -39,5 +39,3 @@ class KubernetesDeploymentTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -569,6 +569,7 @@ class BackupServiceTest extends TestCase
 
             if ($item->isDir()) {
                 @rmdir($path);
+
                 continue;
             }
 

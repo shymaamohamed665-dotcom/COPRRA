@@ -22,5 +22,3 @@ class AITest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

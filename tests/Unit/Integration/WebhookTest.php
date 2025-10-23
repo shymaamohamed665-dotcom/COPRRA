@@ -39,5 +39,3 @@ class WebhookTest extends TestCase
         parent::tearDown();
     }
 }
-
-

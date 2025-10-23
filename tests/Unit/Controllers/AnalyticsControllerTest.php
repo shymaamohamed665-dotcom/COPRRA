@@ -15,10 +15,10 @@ use Illuminate\Validation\ValidationException;
 use Mockery;
 use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\Attributes\UsesClass;
+use Tests\TestCase;
 
 /**
  * Analytics Controller Test Suite
@@ -42,18 +42,14 @@ class AnalyticsControllerTest extends TestCase
 
     private AnalyticsController $controller;
 
-    /** @var BehaviorAnalysisService&MockInterface */
     private BehaviorAnalysisService|MockInterface $serviceMock;
 
     private User $user;
 
-    /** @var Request&LegacyMockInterface */
     private Request|LegacyMockInterface $requestMock;
 
     /**
      * Set up test environment before each test
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -71,8 +67,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Clean up test environment after each test
-     *
-     * @return void
      */
     protected function tearDown(): void
     {
@@ -82,8 +76,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that userAnalytics returns analytics for authenticated user
-     *
-     * @return void
      */
     public function test_user_analytics_returns_analytics_for_authenticated_user(): void
     {
@@ -111,8 +103,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that userAnalytics returns unauthorized for unauthenticated user
-     *
-     * @return void
      */
     public function test_user_analytics_returns_unauthorized_for_unauthenticated_user(): void
     {
@@ -132,8 +122,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that siteAnalytics returns site analytics data
-     *
-     * @return void
      */
     public function test_site_analytics_returns_site_analytics(): void
     {
@@ -156,8 +144,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that trackBehavior returns success for valid authenticated request
-     *
-     * @return void
      */
     public function test_track_behavior_returns_success_for_valid_authenticated_request(): void
     {
@@ -197,8 +183,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that trackBehavior returns unauthorized for unauthenticated user
-     *
-     * @return void
      */
     public function test_track_behavior_returns_unauthorized_for_unauthenticated_user(): void
     {
@@ -228,8 +212,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that trackBehavior fails validation for invalid action
-     *
-     * @return void
      */
     public function test_track_behavior_fails_validation_for_invalid_action(): void
     {
@@ -251,8 +233,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that userAnalytics throws exception when service fails
-     *
-     * @return void
      */
     public function test_user_analytics_throws_exception_when_service_fails(): void
     {
@@ -274,8 +254,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that siteAnalytics throws exception when service fails
-     *
-     * @return void
      */
     public function test_site_analytics_throws_exception_when_service_fails(): void
     {
@@ -292,8 +270,6 @@ class AnalyticsControllerTest extends TestCase
 
     /**
      * Test that trackBehavior throws exception when service fails
-     *
-     * @return void
      */
     public function test_track_behavior_throws_exception_when_service_fails(): void
     {
@@ -325,4 +301,3 @@ class AnalyticsControllerTest extends TestCase
         $this->controller->trackBehavior($this->requestMock);
     }
 }
-

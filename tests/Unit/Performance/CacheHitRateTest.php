@@ -39,5 +39,3 @@ class CacheHitRateTest extends TestCase
         parent::tearDown();
     }
 }
-
-

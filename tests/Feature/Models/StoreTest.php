@@ -55,5 +55,3 @@ class StoreTest extends TestCase
         parent::tearDown();
     }
 }
-
-

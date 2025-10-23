@@ -45,5 +45,3 @@ class ThirdPartyApiTest extends TestCase
         parent::tearDown();
     }
 }
-
-

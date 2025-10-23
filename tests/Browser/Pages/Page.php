@@ -67,5 +67,3 @@ class Page extends TestCase
         $this->assertEquals('/contact', $navigation['contact']);
     }
 }
-
-

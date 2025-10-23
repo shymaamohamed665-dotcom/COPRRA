@@ -57,5 +57,3 @@ class ReportControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

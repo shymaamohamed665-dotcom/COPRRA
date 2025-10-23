@@ -57,5 +57,3 @@ class LocaleControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

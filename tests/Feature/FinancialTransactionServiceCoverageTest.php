@@ -18,7 +18,7 @@ use Tests\TestCase;
  */
 class FinancialTransactionServiceCoverageTest extends TestCase
 {
-    public function testCreatePriceOfferUpdatesProductPriceFromNewOffer(): void
+    public function test_create_price_offer_updates_product_price_from_new_offer(): void
     {
         $product = Product::factory()->create(['price' => 100.00]);
         $store = Store::factory()->create();
@@ -40,7 +40,7 @@ class FinancialTransactionServiceCoverageTest extends TestCase
         $this->assertSame(79.99, (float) $product->price);
     }
 
-    public function testUpdateProductPriceRejectsNegativeValue(): void
+    public function test_update_product_price_rejects_negative_value(): void
     {
         $product = Product::factory()->create(['price' => 50.00]);
         $audit = Mockery::mock(AuditService::class);
@@ -52,7 +52,7 @@ class FinancialTransactionServiceCoverageTest extends TestCase
         $service->updateProductPrice($product, -5.0, 'Invalid test');
     }
 
-    public function testUpdatePriceOfferChangesPriceAndUpdatesProductToLowestAvailable(): void
+    public function test_update_price_offer_changes_price_and_updates_product_to_lowest_available(): void
     {
         $product = Product::factory()->create(['price' => 120.00]);
         $store = Store::factory()->create();
@@ -96,16 +96,16 @@ class FinancialTransactionServiceCoverageTest extends TestCase
         $this->assertTrue($lower->exists);
     }
 
-    public function testUpdatePriceOfferUnavailableRecalculatesToNextLowestAvailableOffer(): void
+    public function test_update_price_offer_unavailable_recalculates_to_next_lowest_available_offer(): void
     {
         $product = Product::factory()->create(['price' => 120.00]);
         $store = Store::factory()->create();
-    
+
         $audit = Mockery::mock(AuditService::class);
         $audit->shouldReceive('logCreated')->atLeast()->once();
         $audit->shouldReceive('logUpdated')->atLeast()->once();
         $service = new FinancialTransactionService($audit);
-    
+
         // Create lowest offer via service at 80 (available)
         $lowest = $service->createPriceOffer([
             'product_id' => $product->id,
@@ -113,10 +113,10 @@ class FinancialTransactionServiceCoverageTest extends TestCase
             'new_price' => 80.00,
             'is_available' => true,
         ]);
-    
+
         $product->refresh();
         $this->assertSame(80.00, (float) $product->price);
-    
+
         // Create another available offer at 90 (second-lowest)
         $second = PriceOffer::query()->create([
             'product_id' => $product->id,
@@ -125,23 +125,23 @@ class FinancialTransactionServiceCoverageTest extends TestCase
             'is_available' => true,
             'status' => 'active',
         ]);
-    
+
         // Mark the lowest offer unavailable; product price should update to 90
         $updated = $service->updatePriceOffer($lowest, [
             'is_available' => false,
         ]);
-    
+
         $this->assertInstanceOf(PriceOffer::class, $updated);
-    
+
         $product->refresh();
         $this->assertSame(90.00, (float) $product->price);
-    
+
         // Sanity check: the second offer still exists and is available
         $this->assertTrue($second->exists);
         $this->assertTrue((bool) $second->is_available);
     }
 
-    public function testDeletePriceOfferReturnsTrue(): void
+    public function test_delete_price_offer_returns_true(): void
     {
         $product = Product::factory()->create(['price' => 60.00]);
         $store = Store::factory()->create();
@@ -158,4 +158,4 @@ class FinancialTransactionServiceCoverageTest extends TestCase
 
         $this->assertTrue($service->deletePriceOffer($offer));
     }
-}
+}

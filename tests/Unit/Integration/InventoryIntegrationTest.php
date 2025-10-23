@@ -39,5 +39,3 @@ class InventoryIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -6,8 +6,8 @@ namespace Tests\Unit\COPRRA;
 
 use App\Services\StoreAdapterManager;
 use App\Services\StoreAdapters\AmazonAdapter;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(StoreAdapterManager::class)]
 class StoreAdapterManagerTest extends TestCase

@@ -301,4 +301,3 @@ class AuditLogTest extends TestCase
         $this->assertEquals($fillable, (new AuditLog)->getFillable());
     }
 }
-

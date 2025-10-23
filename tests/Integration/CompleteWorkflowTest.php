@@ -18,7 +18,7 @@ class CompleteWorkflowTest extends TestCase
 
         $response = $this->post('/register', [
             'name' => 'Test User Integration',
-            'email' => 'integration_test_' . time() . '@example.com',
+            'email' => 'integration_test_'.time().'@example.com',
             'password' => 'SecurePassword123!@#',
             'password_confirmation' => 'SecurePassword123!@#',
             'phone' => '+1234567890',

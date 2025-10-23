@@ -39,5 +39,3 @@ class CanaryDeploymentTest extends TestCase
         parent::tearDown();
     }
 }
-
-

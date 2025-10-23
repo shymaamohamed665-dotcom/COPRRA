@@ -39,5 +39,3 @@ class BasicValidationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

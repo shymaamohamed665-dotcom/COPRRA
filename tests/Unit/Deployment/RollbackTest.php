@@ -39,5 +39,3 @@ class RollbackTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -55,7 +55,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\AIErrorHandlingTest.php' => 
     array (
-      0 => '50d6f0a17055bb85dbe2aa02d57419553e8bbe39',
+      0 => '418b093b6e8e4ea75328377ddf1e0666412b440a',
       1 => 
       array (
         0 => 'tests\\ai\\aierrorhandlingtest',
@@ -157,7 +157,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\AIServiceTest.php' => 
     array (
-      0 => '5510ad613954028bf13f19d6979ac79aae500eca',
+      0 => '9f7a57c2fc83ae6a2774f2b9e1ad5436829d6caa',
       1 => 
       array (
         0 => 'tests\\ai\\aiservicetest',
@@ -208,7 +208,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\AITest.php' => 
     array (
-      0 => '63217028322253566bce45be820a8e34e2cd81a7',
+      0 => '961db4faa290948cd99c67be2e2b0ec35f6383c3',
       1 => 
       array (
         0 => 'tests\\ai\\aitest',
@@ -241,7 +241,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\ContinuousQualityMonitorTest.php' => 
     array (
-      0 => '35800b9e68f5c0554cac1003eda4628fa06524cc',
+      0 => '6aadbf798b8461643fb0fa2d799e9b76a14d86b3',
       1 => 
       array (
         0 => 'tests\\ai\\continuousqualitymonitortest',
@@ -266,7 +266,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\ImageProcessingTest.php' => 
     array (
-      0 => '714042810b5c48cf570c8eea253f146920a1beea',
+      0 => '1e09558f785888a539f282b2e8ecdc89b75c81b5',
       1 => 
       array (
         0 => 'tests\\ai\\imageprocessingtest',
@@ -308,17 +308,17 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\MockAIServiceTest.php' => 
     array (
-      0 => '2fa3d52099de5a7d95c26c77b097f5ff819ebc1b',
+      0 => 'd4871b34ab64a30c279b3a97b395628880c9c89c',
       1 => 
       array (
         0 => 'tests\\ai\\mockaiservicetest',
       ),
       2 => 
       array (
-        0 => 'tests\\ai\\testanalyzetextreturnspositivesentimentandstructure',
-        1 => 'tests\\ai\\testclassifyproductreturnsvalidkeys',
-        2 => 'tests\\ai\\testgeneraterecommendationsreturnsthreewithconfidence',
-        3 => 'tests\\ai\\testanalyzeimagereturnsexpectedstructure',
+        0 => 'tests\\ai\\test_analyze_text_returns_positive_sentiment_and_structure',
+        1 => 'tests\\ai\\test_classify_product_returns_valid_keys',
+        2 => 'tests\\ai\\test_generate_recommendations_returns_three_with_confidence',
+        3 => 'tests\\ai\\test_analyze_image_returns_expected_structure',
       ),
       3 => 
       array (
@@ -326,7 +326,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\ProductClassificationTest.php' => 
     array (
-      0 => '7bdf36f83f9cb66e85eab30842fb15895bbf37d7',
+      0 => 'f523f41c93cf652e5344ce1cc4ab273c5f74a6fb',
       1 => 
       array (
         0 => 'tests\\ai\\productclassificationtest',
@@ -348,7 +348,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\RecommendationSystemTest.php' => 
     array (
-      0 => '37c92d9f1c3b1d22e61a42b0481fcf1af618fffe',
+      0 => 'fcd84370c41037950181126fb858f6e5e42316cd',
       1 => 
       array (
         0 => 'tests\\ai\\recommendationsystemtest',
@@ -370,7 +370,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\SmokeTest.php' => 
     array (
-      0 => '285253546afe1feafb87e6f746242ee829aeeed3',
+      0 => 'f085dbd77e9408a6dce48928e2444da330db349e',
       1 => 
       array (
         0 => 'tests\\ai\\smoketest',
@@ -385,7 +385,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\StrictQualityAgentTest.php' => 
     array (
-      0 => '8e400d8005c6c3e6d8c9315ab6520afb6e0e9323',
+      0 => 'd9f569c299157e854d1bd22dcef1f7d4c1d928ad',
       1 => 
       array (
         0 => 'tests\\ai\\strictqualityagenttest',
@@ -409,7 +409,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\TextProcessingTest.php' => 
     array (
-      0 => '6ac712c65d5f518dbb1b1b99809719db9519df74',
+      0 => '6f4498b1a5e95c70824e71ff7a86c54fc4ffbdfd',
       1 => 
       array (
         0 => 'tests\\ai\\textprocessingtest',

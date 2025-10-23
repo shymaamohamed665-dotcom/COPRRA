@@ -66,5 +66,3 @@ class CurrencyConversionTest extends TestCase
         parent::tearDown();
     }
 }
-
-

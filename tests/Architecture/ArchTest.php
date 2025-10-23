@@ -39,5 +39,3 @@ class ArchTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

@@ -39,5 +39,3 @@ class PushNotificationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

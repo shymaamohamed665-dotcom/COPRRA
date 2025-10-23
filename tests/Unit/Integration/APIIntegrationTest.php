@@ -39,5 +39,3 @@ class APIIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

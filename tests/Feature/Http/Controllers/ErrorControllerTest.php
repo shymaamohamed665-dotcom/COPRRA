@@ -107,5 +107,3 @@ class ErrorControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

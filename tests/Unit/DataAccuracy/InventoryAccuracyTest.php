@@ -39,5 +39,3 @@ class InventoryAccuracyTest extends TestCase
         parent::tearDown();
     }
 }
-
-

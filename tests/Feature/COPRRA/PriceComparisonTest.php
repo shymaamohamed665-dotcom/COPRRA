@@ -11,9 +11,8 @@ use App\Models\Product;
 use App\Models\Store;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
-
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(\App\Helpers\PriceHelper::class)]
 class PriceComparisonTest extends TestCase
@@ -325,4 +324,3 @@ class PriceComparisonTest extends TestCase
         $this->assertGreaterThan(0, $updateInterval);
     }
 }
-

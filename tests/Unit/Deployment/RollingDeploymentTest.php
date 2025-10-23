@@ -39,5 +39,3 @@ class RollingDeploymentTest extends TestCase
         parent::tearDown();
     }
 }
-
-

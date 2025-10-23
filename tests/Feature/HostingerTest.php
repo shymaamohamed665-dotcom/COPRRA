@@ -45,5 +45,3 @@ class HostingerTest extends TestCase
         parent::tearDown();
     }
 }
-
-

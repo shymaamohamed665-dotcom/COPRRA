@@ -39,5 +39,3 @@ class CloudDeploymentTest extends TestCase
         parent::tearDown();
     }
 }
-
-

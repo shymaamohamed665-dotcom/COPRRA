@@ -118,5 +118,3 @@ class AIErrorHandlingTest extends TestCase
         $this->assertCount(5, $results);
     }
 }
-
-

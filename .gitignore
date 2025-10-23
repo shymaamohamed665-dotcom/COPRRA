@@ -98,3 +98,5 @@ IlluminateFoundation*
 /backups/
 release/
 backups/
+storage/reports/
+*.out

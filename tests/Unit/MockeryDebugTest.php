@@ -39,5 +39,3 @@ class MockeryDebugTest extends TestCase
         parent::tearDown();
     }
 }
-
-

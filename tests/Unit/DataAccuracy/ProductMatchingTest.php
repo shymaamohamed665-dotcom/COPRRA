@@ -39,5 +39,3 @@ class ProductMatchingTest extends TestCase
         parent::tearDown();
     }
 }
-
-

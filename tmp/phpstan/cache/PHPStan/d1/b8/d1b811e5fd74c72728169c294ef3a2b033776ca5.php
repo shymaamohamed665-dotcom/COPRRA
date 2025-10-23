@@ -1,9 +1,10 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 // odsl-C:/Users/Gaser/Desktop/COPRRA/vendor/composer/../sebastian/object-reflector/src/
-return \PHPStan\Cache\CacheItem::__set_state(array(
-   'variableKey' => 'v1',
-   'data' => 
-  array (
-  ),
-));
+return \PHPStan\Cache\CacheItem::__set_state([
+    'variableKey' => 'v1',
+    'data' => [
+    ],
+]);

@@ -41,5 +41,3 @@ class E2ETest extends DuskTestCase
         $this->assertTrue(true);
     }
 }
-
-

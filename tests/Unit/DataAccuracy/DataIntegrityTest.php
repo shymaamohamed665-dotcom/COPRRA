@@ -39,5 +39,3 @@ class DataIntegrityTest extends TestCase
         parent::tearDown();
     }
 }
-
-

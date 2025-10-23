@@ -8,8 +8,8 @@ use App\Models\AuditLog;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 /**
  * Unit tests for the AuditLog model.
@@ -225,4 +225,3 @@ class AuditLogTest extends TestCase
         $this->assertEquals('', $auditLog->changes_summary);
     }
 }
-

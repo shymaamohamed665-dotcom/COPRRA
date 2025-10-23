@@ -42,5 +42,3 @@ class ApiRateLimitingTest extends PureUnitTest
         parent::tearDown();
     }
 }
-
-

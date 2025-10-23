@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Unit;
@@ -12,4 +13,3 @@ final class AccessControlTest extends TestCase
         $this->assertTrue(true);
     }
 }
-

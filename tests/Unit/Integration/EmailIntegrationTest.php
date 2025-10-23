@@ -39,5 +39,3 @@ class EmailIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

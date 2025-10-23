@@ -39,5 +39,3 @@ class DataQualityMetricsTest extends TestCase
         parent::tearDown();
     }
 }
-
-

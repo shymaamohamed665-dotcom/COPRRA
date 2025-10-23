@@ -39,5 +39,3 @@ class BlueGreenDeploymentTest extends TestCase
         parent::tearDown();
     }
 }
-
-

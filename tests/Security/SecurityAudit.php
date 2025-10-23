@@ -57,5 +57,3 @@ class SecurityAudit extends TestCase
         $this->assertContains($response->status(), [200, 404, 500]);
     }
 }
-
-

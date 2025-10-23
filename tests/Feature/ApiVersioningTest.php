@@ -45,5 +45,3 @@ class ApiVersioningTest extends TestCase
         parent::tearDown();
     }
 }
-
-

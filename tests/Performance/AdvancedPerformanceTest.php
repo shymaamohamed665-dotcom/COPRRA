@@ -33,5 +33,3 @@ class AdvancedPerformanceTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -33,5 +33,3 @@ class CachePerformanceTest extends TestCase
         parent::tearDown();
     }
 }
-
-

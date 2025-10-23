@@ -55,5 +55,3 @@ class CurrencyTest extends TestCase
         parent::tearDown();
     }
 }
-
-

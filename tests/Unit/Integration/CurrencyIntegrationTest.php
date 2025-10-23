@@ -39,5 +39,3 @@ class CurrencyIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

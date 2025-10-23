@@ -39,5 +39,3 @@ class ConcurrentUserTest extends TestCase
         parent::tearDown();
     }
 }
-
-

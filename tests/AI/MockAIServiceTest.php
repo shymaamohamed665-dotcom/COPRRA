@@ -6,13 +6,13 @@ namespace Tests\AI;
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/MockAIService.php';
+require_once __DIR__.'/MockAIService.php';
 
 final class MockAIServiceTest extends TestCase
 {
-    public function testAnalyzeTextReturnsPositiveSentimentAndStructure(): void
+    public function test_analyze_text_returns_positive_sentiment_and_structure(): void
     {
-        $service = new MockAIService();
+        $service = new MockAIService;
         $text = 'This is an excellent, wonderful product. Ø±Ø§Ø¦Ø¹ ÙˆÙ…Ù…ØªØ§Ø².';
 
         $result = $service->analyzeText($text, 'sentiment');
@@ -28,9 +28,9 @@ final class MockAIServiceTest extends TestCase
         $this->assertEquals(0.85, $result['confidence']);
     }
 
-    public function testClassifyProductReturnsValidKeys(): void
+    public function test_classify_product_returns_valid_keys(): void
     {
-        $service = new MockAIService();
+        $service = new MockAIService;
         $description = 'Gaming laptop with high performance and great battery life';
 
         $result = $service->classifyProduct($description);
@@ -48,9 +48,9 @@ final class MockAIServiceTest extends TestCase
         $this->assertEquals(0.85, $result['confidence']);
     }
 
-    public function testGenerateRecommendationsReturnsThreeWithConfidence(): void
+    public function test_generate_recommendations_returns_three_with_confidence(): void
     {
-        $service = new MockAIService();
+        $service = new MockAIService;
         $userPreferences = ['category' => 'Electronics', 'budget' => 1000];
         $products = [
             ['id' => '101', 'category' => 'Electronics', 'brand' => 'BrandA'],
@@ -71,9 +71,9 @@ final class MockAIServiceTest extends TestCase
         $this->assertSame(3, $result['count']);
     }
 
-    public function testAnalyzeImageReturnsExpectedStructure(): void
+    public function test_analyze_image_returns_expected_structure(): void
     {
-        $service = new MockAIService();
+        $service = new MockAIService;
         $imageUrl = 'https://example.com/image.jpg';
 
         $result = $service->analyzeImage($imageUrl);

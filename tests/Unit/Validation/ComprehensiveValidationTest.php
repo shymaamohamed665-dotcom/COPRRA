@@ -39,5 +39,3 @@ class ComprehensiveValidationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

@@ -55,7 +55,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\AIErrorHandlingTest.php' => 
     array (
-      0 => '50d6f0a17055bb85dbe2aa02d57419553e8bbe39',
+      0 => '418b093b6e8e4ea75328377ddf1e0666412b440a',
       1 => 
       array (
         0 => 'tests\\ai\\aierrorhandlingtest',
@@ -157,7 +157,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\AIServiceTest.php' => 
     array (
-      0 => '5510ad613954028bf13f19d6979ac79aae500eca',
+      0 => '9f7a57c2fc83ae6a2774f2b9e1ad5436829d6caa',
       1 => 
       array (
         0 => 'tests\\ai\\aiservicetest',
@@ -208,7 +208,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\AITest.php' => 
     array (
-      0 => '63217028322253566bce45be820a8e34e2cd81a7',
+      0 => '961db4faa290948cd99c67be2e2b0ec35f6383c3',
       1 => 
       array (
         0 => 'tests\\ai\\aitest',
@@ -241,7 +241,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\ContinuousQualityMonitorTest.php' => 
     array (
-      0 => '35800b9e68f5c0554cac1003eda4628fa06524cc',
+      0 => '6aadbf798b8461643fb0fa2d799e9b76a14d86b3',
       1 => 
       array (
         0 => 'tests\\ai\\continuousqualitymonitortest',
@@ -266,7 +266,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\ImageProcessingTest.php' => 
     array (
-      0 => '714042810b5c48cf570c8eea253f146920a1beea',
+      0 => '1e09558f785888a539f282b2e8ecdc89b75c81b5',
       1 => 
       array (
         0 => 'tests\\ai\\imageprocessingtest',
@@ -308,17 +308,17 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\MockAIServiceTest.php' => 
     array (
-      0 => '2fa3d52099de5a7d95c26c77b097f5ff819ebc1b',
+      0 => 'd4871b34ab64a30c279b3a97b395628880c9c89c',
       1 => 
       array (
         0 => 'tests\\ai\\mockaiservicetest',
       ),
       2 => 
       array (
-        0 => 'tests\\ai\\testanalyzetextreturnspositivesentimentandstructure',
-        1 => 'tests\\ai\\testclassifyproductreturnsvalidkeys',
-        2 => 'tests\\ai\\testgeneraterecommendationsreturnsthreewithconfidence',
-        3 => 'tests\\ai\\testanalyzeimagereturnsexpectedstructure',
+        0 => 'tests\\ai\\test_analyze_text_returns_positive_sentiment_and_structure',
+        1 => 'tests\\ai\\test_classify_product_returns_valid_keys',
+        2 => 'tests\\ai\\test_generate_recommendations_returns_three_with_confidence',
+        3 => 'tests\\ai\\test_analyze_image_returns_expected_structure',
       ),
       3 => 
       array (
@@ -326,7 +326,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\ProductClassificationTest.php' => 
     array (
-      0 => '7bdf36f83f9cb66e85eab30842fb15895bbf37d7',
+      0 => 'f523f41c93cf652e5344ce1cc4ab273c5f74a6fb',
       1 => 
       array (
         0 => 'tests\\ai\\productclassificationtest',
@@ -348,7 +348,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\RecommendationSystemTest.php' => 
     array (
-      0 => '37c92d9f1c3b1d22e61a42b0481fcf1af618fffe',
+      0 => 'fcd84370c41037950181126fb858f6e5e42316cd',
       1 => 
       array (
         0 => 'tests\\ai\\recommendationsystemtest',
@@ -370,7 +370,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\SmokeTest.php' => 
     array (
-      0 => '285253546afe1feafb87e6f746242ee829aeeed3',
+      0 => 'f085dbd77e9408a6dce48928e2444da330db349e',
       1 => 
       array (
         0 => 'tests\\ai\\smoketest',
@@ -385,7 +385,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\StrictQualityAgentTest.php' => 
     array (
-      0 => '8e400d8005c6c3e6d8c9315ab6520afb6e0e9323',
+      0 => 'd9f569c299157e854d1bd22dcef1f7d4c1d928ad',
       1 => 
       array (
         0 => 'tests\\ai\\strictqualityagenttest',
@@ -409,7 +409,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\AI\\TextProcessingTest.php' => 
     array (
-      0 => '6ac712c65d5f518dbb1b1b99809719db9519df74',
+      0 => '6f4498b1a5e95c70824e71ff7a86c54fc4ffbdfd',
       1 => 
       array (
         0 => 'tests\\ai\\textprocessingtest',
@@ -431,7 +431,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Architecture\\ArchTest.php' => 
     array (
-      0 => '0459c2a2ccbd7fe7aefeb5d5f19b4292b6f39766',
+      0 => '7237b331bedf36ebfc02b42f7f86c20bac59c01c',
       1 => 
       array (
         0 => 'tests\\architecture\\archtest',
@@ -450,7 +450,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Benchmarks\\PerformanceBenchmark.php' => 
     array (
-      0 => '7eec08acc9cd07e5210e6396ff06bf70ea068c2e',
+      0 => 'bbae40530a8423a85987892cf6102efc493d63cf',
       1 => 
       array (
         0 => 'tests\\benchmarks\\performancebenchmark',
@@ -469,7 +469,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\bootstrap.php' => 
     array (
-      0 => 'f78285fdb20f9ec994a76ea394fbc98642a62b5e',
+      0 => 'b9404b976d3ed2bc70ade13dc0ad87a752c21557',
       1 => 
       array (
       ),
@@ -482,7 +482,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Browser\\E2ETest.php' => 
     array (
-      0 => '1ab105e427e1735bc749cd63b92ef2db8952c917',
+      0 => '04c9b1647f8f6836945d589b94c9df67f4908ca4',
       1 => 
       array (
         0 => 'tests\\browser\\e2etest',
@@ -501,7 +501,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Browser\\ExampleTest.php' => 
     array (
-      0 => 'ab4a4947ce207d2ed9268d7f88d529c14b257b89',
+      0 => 'ca25de75caca9c7b9b09e1769d86c0b10fca8b02',
       1 => 
       array (
         0 => 'tests\\browser\\exampletest',
@@ -516,7 +516,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Browser\\Pages\\HomePage.php' => 
     array (
-      0 => 'b5fd137ff108fee2ebf99d045d9ed515200c4c22',
+      0 => '434d6ca2fd03ee04ed85a3b982b39037a59b32fa',
       1 => 
       array (
         0 => 'tests\\browser\\pages\\homepage',
@@ -533,7 +533,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Browser\\Pages\\Page.php' => 
     array (
-      0 => '6b4781cf2489ddceabbf36251c8c00894df4c4a1',
+      0 => '7f63816f76f48d9752cbb0f7ea260e57235bcead',
       1 => 
       array (
         0 => 'tests\\browser\\pages\\page',
@@ -675,7 +675,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Api\\AnalyticsEndpointTest.php' => 
     array (
-      0 => '2b1434aa512c60da2b404e69403aef92e9ce0762',
+      0 => '4f8d9d790102aa50392814028dcce099d949d5d6',
       1 => 
       array (
         0 => 'tests\\feature\\api\\analyticsendpointtest',
@@ -711,7 +711,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Api\\DebugHealthContentTest.php' => 
     array (
-      0 => '996f8713ae53ace0739236ab3fa7a912fe0714d4',
+      0 => '6c8e7cc0c55018aa43aa889b4ba44e92f33c66fe',
       1 => 
       array (
         0 => 'tests\\feature\\api\\debughealthcontenttest',
@@ -778,7 +778,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\ApiEndpointsTest.php' => 
     array (
-      0 => 'fe9a447d342cd8e3274a3230955c6df39ec765f0',
+      0 => '933b2e902e1a44294218fc55474c8746512dde3a',
       1 => 
       array (
         0 => 'tests\\feature\\apiendpointstest',
@@ -797,7 +797,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\ApiRateLimitingTest.php' => 
     array (
-      0 => '87c78a3ac01ae4044639e8461640d6669403e750',
+      0 => 'e1d828fd5e11370dcb0f6da12708131a9a553f4e',
       1 => 
       array (
         0 => 'tests\\feature\\apiratelimitingtest',
@@ -816,7 +816,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\ApiVersioningTest.php' => 
     array (
-      0 => 'f9a00e5f8bc81dc5bde254070dae0495274618aa',
+      0 => 'a2fe78aebd7a01025be5da5861663ba640cd5945',
       1 => 
       array (
         0 => 'tests\\feature\\apiversioningtest',
@@ -860,7 +860,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\AuthenticationTest.php' => 
     array (
-      0 => 'b17fe781fd7530917664e0dfd2aaf87e8060981d',
+      0 => '9a3a632a9516886a9479794c48c47f9c7e1f921f',
       1 => 
       array (
         0 => 'tests\\feature\\authenticationtest',
@@ -879,7 +879,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\CacheFunctionalityTest.php' => 
     array (
-      0 => 'bce6d0983887daa58a6694262afaa09b939f4902',
+      0 => 'e887eeead1d59bac462ff0444f992c7cd7d1032d',
       1 => 
       array (
         0 => 'tests\\feature\\cachefunctionalitytest',
@@ -980,7 +980,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\COPRRA\\PriceComparisonTest.php' => 
     array (
-      0 => 'bb2b496070926a1d74527b42aa92e089098fdb70',
+      0 => '5ad3fd485061b06ce27c92916d58ed4bdecdcc5c',
       1 => 
       array (
         0 => 'tests\\feature\\coprra\\pricecomparisontest',
@@ -1007,7 +1007,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\DatabaseConnectionTest.php' => 
     array (
-      0 => 'aeed5cdbf742d9e3b20d833c826dbbf030783087',
+      0 => 'f93f8eda97c9600254a2b874af0b40e97be7be85',
       1 => 
       array (
         0 => 'tests\\feature\\databaseconnectiontest',
@@ -1026,7 +1026,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\DatabaseMigrationTest.php' => 
     array (
-      0 => 'b5a7bffa75478787666974fb98a8c44e3d022620',
+      0 => '515fd49921dd816d15b8cdb5fd69065932541475',
       1 => 
       array (
         0 => 'tests\\feature\\databasemigrationtest',
@@ -1087,7 +1087,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\EmailSendingTest.php' => 
     array (
-      0 => '0e23b1b506296ed3deb31260b9e2411dd481bcd4',
+      0 => 'a2232115facd400bdceeed49a93718efe11c35a1',
       1 => 
       array (
         0 => 'tests\\feature\\emailsendingtest',
@@ -1106,7 +1106,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\FeatureTest.php' => 
     array (
-      0 => '0468ccec495e623b47a25468cfceae700190776b',
+      0 => 'c459cb51f6db1023d955344598ff27517b3b2b6a',
       1 => 
       array (
         0 => 'tests\\feature\\featuretest',
@@ -1124,7 +1124,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\FileUploadTest.php' => 
     array (
-      0 => '2bd71a82f39660e04b65dbf59bbe3ba66e034ad2',
+      0 => 'fa9a6bc349938e581d8be17bb61543b03c5cc529',
       1 => 
       array (
         0 => 'tests\\feature\\fileuploadtest',
@@ -1143,7 +1143,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\FormValidationTest.php' => 
     array (
-      0 => '0515763b192cc5041fb8d80a2ed4e2f18048b607',
+      0 => '84a396c3ebfc03b66ee0f664589e82c26798efc0',
       1 => 
       array (
         0 => 'tests\\feature\\formvalidationtest',
@@ -1162,7 +1162,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\HostingerTest.php' => 
     array (
-      0 => 'bc5ef00fea951e37f030c638cc32483ada763210',
+      0 => 'd842f763b04939c074af4319d8396b7340732e9d',
       1 => 
       array (
         0 => 'tests\\feature\\hostingertest',
@@ -1399,7 +1399,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\BackupControllerTest.php' => 
     array (
-      0 => '31fae796472c183205a9fe009fdf2e95aefd580b',
+      0 => '07977f714a5dc32192c971169a400a04dc9d6b0c',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\backupcontrollertest',
@@ -1449,7 +1449,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\CartControllerTest.php' => 
     array (
-      0 => '79d554d85427c83c854164e4eb0eb036ae992a46',
+      0 => '3ace1714c17dba8143040e95e0dd1c04372c0486',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\cartcontrollertest',
@@ -1471,7 +1471,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\ErrorControllerTest.php' => 
     array (
-      0 => '0fbdfb4d8e499ba770e3681f3173d11b39c58cf5',
+      0 => 'd9b37e3e60c29eaf6cad0af9ca12608c4dab37c7',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\errorcontrollertest',
@@ -1500,7 +1500,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\HealthControllerTest.php' => 
     array (
-      0 => 'a248e40d43269125289ed451589513b0d4614d5b',
+      0 => 'c04311a7c797cd99b9684c06486fba0d0ff31b44',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\healthcontrollertest',
@@ -1526,7 +1526,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\HomeControllerTest.php' => 
     array (
-      0 => 'c5015c7bf9a71ae7bc3cbe1d87b61c2c25bbb374',
+      0 => '7a5e53f7d707b60f1cf8ac8466853209da01dc24',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\homecontrollertest',
@@ -1543,7 +1543,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\LocaleControllerTest.php' => 
     array (
-      0 => 'ba236131e9fa70134b6c2bfe68006c4faca96528',
+      0 => '8f2b65cd3714e10e1cdbc8da1416a483767a306e',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\localecontrollertest',
@@ -1562,7 +1562,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\LogControllerTest.php' => 
     array (
-      0 => '879d4b4c3712da13730cc939efeceba76abbbdd9',
+      0 => 'f855f0e5fabe7174b6e38c19e09a4b3334157681',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\logcontrollertest',
@@ -1578,7 +1578,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\PriceAlertControllerTest.php' => 
     array (
-      0 => '5759e383354c0e93ccfffb61f93d15d8fd712787',
+      0 => '1ef3dcddb41a2671b936ec0a0d2d1ca9416f8fd4',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\pricealertcontrollertest',
@@ -1618,7 +1618,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\ReportControllerTest.php' => 
     array (
-      0 => 'd7233973ca7c8c3e12f24d861f9fa66a55967a62',
+      0 => '96ecec28e9a2a98ec835da7d9322eca479783022',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\reportcontrollertest',
@@ -1637,7 +1637,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Http\\Controllers\\ReviewControllerTest.php' => 
     array (
-      0 => 'b6903a5111409b51f07218b545ee9126663a610f',
+      0 => '0d40eb03573ba818bba7a40b4096f0d990f09b34',
       1 => 
       array (
         0 => 'tests\\feature\\http\\controllers\\reviewcontrollertest',
@@ -2414,7 +2414,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Integration\\PriceSearchIntegrationTest.php' => 
     array (
-      0 => '12da3fd5d6324f6bc205f6176c9cc64b4dd6d757',
+      0 => '825deb94f057cab07b0699ba5f67f79361261aea',
       1 => 
       array (
         0 => 'tests\\feature\\integration\\pricesearchintegrationtest',
@@ -2433,7 +2433,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\LinkCheckerTest.php' => 
     array (
-      0 => '851ccbf447d2f06706b452a4daf3dca77155c181',
+      0 => 'bd7151ec3436c5b9c6186ace58f477c32f9b405e',
       1 => 
       array (
         0 => 'tests\\feature\\linkcheckertest',
@@ -2452,7 +2452,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\MemoryLeakTest.php' => 
     array (
-      0 => '073e2c3a68a9f927e708ec4d23c747e42fd7013a',
+      0 => 'eb1094428bee95a40f2408e6fa19ac61661e746e',
       1 => 
       array (
         0 => 'tests\\feature\\memoryleaktest',
@@ -2471,7 +2471,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\AuditLogSimpleTest.php' => 
     array (
-      0 => '7a68d39e046687ec648e87bd278c0bd18040662a',
+      0 => 'f61180a3c0363ad99d7c3273a254fb856944b168',
       1 => 
       array (
         0 => 'tests\\feature\\models\\auditlogsimpletest',
@@ -2497,7 +2497,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\AuditLogTest.php' => 
     array (
-      0 => 'ad97580ea940fa887c345152dc86495d9af473f7',
+      0 => '3125fb61d35e3b469ba2499e17f9e2fd39103bdd',
       1 => 
       array (
         0 => 'tests\\feature\\models\\auditlogtest',
@@ -2581,7 +2581,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\CurrencyTest.php' => 
     array (
-      0 => '70efbcc2d98748955395d4bc9fabe2bcbc238d48',
+      0 => 'fd514f862c8ed01d5e3a2f4a3705e8c6df573e33',
       1 => 
       array (
         0 => 'tests\\feature\\models\\currencytest',
@@ -2600,7 +2600,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\LanguageTest.php' => 
     array (
-      0 => '3b26a64cf33b38b041b5015c8e5e490f10d62319',
+      0 => 'ea1be535dbf5b2b268f7235a10af7635becfd602',
       1 => 
       array (
         0 => 'tests\\feature\\models\\languagetest',
@@ -2619,7 +2619,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\NotificationSimpleTest.php' => 
     array (
-      0 => 'a4a7078b1b7bc6654e992410d23139ce959bf5fd',
+      0 => '8b40951a06a5045b3320f8c6c34c18da0fd9c68b',
       1 => 
       array (
         0 => 'tests\\feature\\models\\notificationsimpletest',
@@ -2667,7 +2667,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\NotificationTest.php' => 
     array (
-      0 => 'f183a08ffa885c94715fe46609751496d8e85e64',
+      0 => '8354b77c3a80693fb74c77121071b1469601b6bc',
       1 => 
       array (
         0 => 'tests\\feature\\models\\notificationtest',
@@ -2835,7 +2835,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\PriceOfferTest.php' => 
     array (
-      0 => '506e0376985863cffe728c96fc8dd0ab96685615',
+      0 => '3ea3892dfc3460037892a14b27c1724246002373',
       1 => 
       array (
         0 => 'tests\\feature\\models\\priceoffertest',
@@ -2937,7 +2937,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Models\\StoreTest.php' => 
     array (
-      0 => '7c21b24ec49183dcb625a0b274ab9119ee8b130a',
+      0 => 'efee80ed40d09180df1745ec4a78a27951f115cf',
       1 => 
       array (
         0 => 'tests\\feature\\models\\storetest',
@@ -3071,7 +3071,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\MySQLConnectionTest.php' => 
     array (
-      0 => '116bbfd89fad0eb0860b31fc73a6a2f9a8663b47',
+      0 => 'd773ac406cd7e8ac8cc3b4bbe46e4d586a33f88e',
       1 => 
       array (
         0 => 'tests\\feature\\mysqlconnectiontest',
@@ -3086,7 +3086,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Performance\\PerformanceTest.php' => 
     array (
-      0 => 'bf7856b21546c586a2f648eacec9e6b3e766a034',
+      0 => 'd71736182ccdf4903b648e29b69120a3b81ee294',
       1 => 
       array (
         0 => 'tests\\feature\\performance\\performancetest',
@@ -3105,7 +3105,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\PermissionControlTest.php' => 
     array (
-      0 => '9c03790d0f1752dc8c7a472055b5f97d6cda74ea',
+      0 => 'e0fb4c001817adc3ce20fdab62c834d447f88eba',
       1 => 
       array (
         0 => 'tests\\feature\\permissioncontroltest',
@@ -3124,7 +3124,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\PostgreSQLConnectionTest.php' => 
     array (
-      0 => '42bd8299aa9e021f90bbd865b6c1e846127f90ba',
+      0 => 'f2abdbbae72e932b75fe35598a91f61e69d67d82',
       1 => 
       array (
         0 => 'tests\\feature\\postgresqlconnectiontest',
@@ -3139,7 +3139,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\RoutingTest.php' => 
     array (
-      0 => '3932c431d8e555d5cdfa454bf5831ecf53e8a475',
+      0 => 'b69c8904b9a277ca3c3dd8835ec00dc217d9299c',
       1 => 
       array (
         0 => 'tests\\feature\\routingtest',
@@ -3158,7 +3158,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Security\\SecurityTest.php' => 
     array (
-      0 => 'e2c92929049766901a826ec3fd79bd8cbd3628ac',
+      0 => 'b2b98aa4cf090ca688fb58b2e08bedd565e5faa4',
       1 => 
       array (
         0 => 'tests\\feature\\security\\securitytest',
@@ -3177,7 +3177,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\SEOTest.php' => 
     array (
-      0 => '4bb627cc3906d4b796f59820cd02035dcbe36190',
+      0 => '9cfc6c0905f70c1cdc18180bcf78a89809da4a00',
       1 => 
       array (
         0 => 'tests\\feature\\seotest',
@@ -3239,7 +3239,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Services\\BackupServiceTest.php' => 
     array (
-      0 => '27ed7c548fb5838c3c7ef04e2b1a124ac3a44b7a',
+      0 => '9ee35c17dda8e281dabd11eb7bb8516857f9566f',
       1 => 
       array (
         0 => 'tests\\feature\\services\\backupservicetest',
@@ -3296,7 +3296,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Services\\FileCleanupServiceTest.php' => 
     array (
-      0 => '5fed0cdc1d37f3a07a71d522ce41035060b085ed',
+      0 => '7527260330e81a476425d5cd0a33d21ed956aa2f',
       1 => 
       array (
         0 => 'tests\\feature\\services\\filecleanupservicetest',
@@ -3360,7 +3360,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Services\\LoginAttemptServiceTest.php' => 
     array (
-      0 => '003888acd6754c9da278f7afae58d3baae29ec2d',
+      0 => '1a35157ed87f1c7251ca035beaf1fbffa60fd0bc',
       1 => 
       array (
         0 => 'tests\\feature\\services\\loginattemptservicetest',
@@ -3421,7 +3421,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Services\\PasswordHistoryServiceTest.php' => 
     array (
-      0 => '0feb575dd15bd5ce6b2826ce14eba1cb75e2bb5b',
+      0 => '0d7ce7fd6c12ce4613459fdccc6a7932c462cd4a',
       1 => 
       array (
         0 => 'tests\\feature\\services\\passwordhistoryservicetest',
@@ -3444,7 +3444,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Services\\PasswordPolicyServiceTest.php' => 
     array (
-      0 => 'a8e2264c42b37f1930d0e0e8aab97baa4876e991',
+      0 => '5bd0b6218d22372615f069c198082e1e7da4c4dd',
       1 => 
       array (
         0 => 'tests\\feature\\services\\passwordpolicyservicetest',
@@ -3584,7 +3584,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\Services\\ReportServiceTest.php' => 
     array (
-      0 => '5dc77d5da98318411d08db0251ebebc5a0efdb53',
+      0 => '28cc357352737bcc89d9fc4115c62c58ea545e89',
       1 => 
       array (
         0 => 'tests\\feature\\services\\reportservicetest',
@@ -3640,7 +3640,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\SessionManagementTest.php' => 
     array (
-      0 => '9ea58befb7eb1ce95f035dbcfdac7b001987d7ce',
+      0 => '803900c0504915fc4bc242c929c2f0a398cd5a89',
       1 => 
       array (
         0 => 'tests\\feature\\sessionmanagementtest',
@@ -3659,7 +3659,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\SQLiteConnectionTest.php' => 
     array (
-      0 => '016cc31848cd500fa6ed33d6f768309ed38a9284',
+      0 => '533ecd22c6051f1f34b9dac37fbfb1c73c4974a1',
       1 => 
       array (
         0 => 'tests\\feature\\sqliteconnectiontest',
@@ -3674,7 +3674,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\ThirdPartyApiTest.php' => 
     array (
-      0 => '09f1d7aab1cce3dd28ded11efbe879f0715330ba',
+      0 => '6ef83b25ffe5ca2a7936d504418b2340f82119c5',
       1 => 
       array (
         0 => 'tests\\feature\\thirdpartyapitest',
@@ -3693,7 +3693,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\UITest.php' => 
     array (
-      0 => '5a0b7691e14a9fd88aff43445dea821a8881774e',
+      0 => '0f138a1b425cbd7c4d1e5f81ea0bb9c34f9d283d',
       1 => 
       array (
         0 => 'tests\\feature\\uitest',
@@ -3731,7 +3731,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Integration\\CompleteWorkflowTest.php' => 
     array (
-      0 => '07250952be70c20722a9ae3c925562b4d9b101fd',
+      0 => 'e4fef9d3281d5f6689a8d8c7726d7fb800c3ba7f',
       1 => 
       array (
         0 => 'tests\\integration\\completeworkflowtest',
@@ -3769,7 +3769,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\AdvancedPerformanceTest.php' => 
     array (
-      0 => 'bb41686d5e78a36deed097b862ec866014bcbe52',
+      0 => '340d73358e994bbb5cef7c999aa5b931c1a9657c',
       1 => 
       array (
         0 => 'tests\\performance\\advancedperformancetest',
@@ -3788,7 +3788,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\ApiResponseTimeTest.php' => 
     array (
-      0 => '7a43babfafdb1ea84e21508b211d23cf9ddcc612',
+      0 => '9332ab10caad66fd49b61c3df5e8f4dfd7d362cd',
       1 => 
       array (
         0 => 'tests\\performance\\apiresponsetimetest',
@@ -3807,7 +3807,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\CachePerformanceTest.php' => 
     array (
-      0 => 'd65c5b86a6e7aaf42d8d243957ba4282761e37a3',
+      0 => 'c2154c0f79eef1fb44b3b51e18211063873d7b2f',
       1 => 
       array (
         0 => 'tests\\performance\\cacheperformancetest',
@@ -3826,7 +3826,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\DatabasePerformanceTest.php' => 
     array (
-      0 => '47f1ab75b5e81e4649566d1aedaeb005c62b454e',
+      0 => 'ac86b6b3bd94c10397f29213b755086917a9dc2e',
       1 => 
       array (
         0 => 'tests\\performance\\databaseperformancetest',
@@ -3845,7 +3845,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\LoadTestingTest.php' => 
     array (
-      0 => '85283a068e28d7132023785465a16e5110bdb055',
+      0 => 'd24ae394728dd68d9736d7a5ae064f58bde4fb4f',
       1 => 
       array (
         0 => 'tests\\performance\\loadtestingtest',
@@ -3864,7 +3864,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\LoadTimeTest.php' => 
     array (
-      0 => 'fecb22299376447c667e1eb68e4d77bb5b20ec2b',
+      0 => '378001f09bbd3de1eda597e653b038397986d18e',
       1 => 
       array (
         0 => 'tests\\performance\\loadtimetest',
@@ -3883,7 +3883,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Performance\\MemoryUsageTest.php' => 
     array (
-      0 => 'ae7d3c590d435f4f15864096bec01254b5a8536b',
+      0 => '728d68d15dfd41948634fe64dacd6e40c65b7e4f',
       1 => 
       array (
         0 => 'tests\\performance\\memoryusagetest',
@@ -3957,7 +3957,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\SafeTestBase.php' => 
     array (
-      0 => '0e6ef9b2d1b81e600ac6a09258364403daf1b6a4',
+      0 => 'f6a235d19793f3d58cb8c5b6f3673c23def2d027',
       1 => 
       array (
         0 => 'tests\\safetestbase',
@@ -3975,7 +3975,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Security\\AuthenticationSecurityTest.php' => 
     array (
-      0 => 'db366e38c822eeadb276a1374fa7f74fa516013a',
+      0 => '862a59c60b808744054e9b2aa11443d74ae207d6',
       1 => 
       array (
         0 => 'tests\\security\\authenticationsecuritytest',
@@ -4035,7 +4035,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Security\\PermissionSecurityTest.php' => 
     array (
-      0 => '182b09c2e68ddd68041d0ed3db0591ffce0b441e',
+      0 => '7a44f5d453d8013b4a9862e952d6f6ae53b7859f',
       1 => 
       array (
         0 => 'tests\\security\\permissionsecuritytest',
@@ -4054,7 +4054,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Security\\SecurityAudit.php' => 
     array (
-      0 => '76351f7de46ee58e10f90525b3333eac6d681699',
+      0 => 'e8ed84e17ae4554a6d11987e805a9434572d7d1c',
       1 => 
       array (
         0 => 'tests\\security\\securityaudit',
@@ -4093,7 +4093,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Security\\XSSTest.php' => 
     array (
-      0 => 'ed87d0c752b91c8e7b9b9bca5a8c6e1467e018cf',
+      0 => 'ba15f28b9171c6b1f80386eaf15dbcda094724e8',
       1 => 
       array (
         0 => 'tests\\security\\xsstest',
@@ -4212,7 +4212,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\TestUtilities\\ComprehensiveTestRunner.php' => 
     array (
-      0 => '8af2792abaad6af82af840822b6676c4d7157023',
+      0 => '6a05cecd5ff1f95ef920b747309633b31ed10cb0',
       1 => 
       array (
         0 => 'tests\\testutilities\\comprehensivetestrunner',
@@ -4263,7 +4263,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\TestUtilities\\IntegrationTestSuite.php' => 
     array (
-      0 => 'e0c0bc7c8ae431c78d51c51dd3404a096169a1e8',
+      0 => '1e7070ad2a3c0dee3f2c2cf98a109ca61396f610',
       1 => 
       array (
         0 => 'tests\\testutilities\\integrationtestsuite',
@@ -4395,7 +4395,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\TestUtilities\\ServiceTestFactory.php' => 
     array (
-      0 => 'ed0e84018dd6576b287995ec83da6f3c24244e15',
+      0 => 'c6202dad2f2d54d095a8498530e0fa4ed7598185',
       1 => 
       array (
         0 => 'tests\\testutilities\\servicetestfactory',
@@ -4564,7 +4564,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Controllers\\AnalyticsControllerTest.php' => 
     array (
-      0 => '4c97f484e70b5ae34a949e6315ee4604a0b6a4ee',
+      0 => 'fcd37b5216d8ba07bbdb9fdf7b014b522158026f',
       1 => 
       array (
         0 => 'tests\\unit\\controllers\\analyticscontrollertest',
@@ -4614,7 +4614,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Controllers\\OrderControllerTest.php' => 
     array (
-      0 => '3b81557d609c55083b15876cb5f5c5985d366129',
+      0 => '41977a40abf96a3dc66ef01395bad3183574997b',
       1 => 
       array (
         0 => 'tests\\unit\\controllers\\ordercontrollertest',
@@ -4642,7 +4642,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\AnalyticsServiceTest.php' => 
     array (
-      0 => '869dfe6664a148700716e61bb790b92f7b9ac8a6',
+      0 => 'c6af4d4f527eb0c6ff288b315a52a3ffd8cc5619',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\analyticsservicetest',
@@ -4669,7 +4669,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\CacheServiceTest.php' => 
     array (
-      0 => '8c70e016db15a09f1313e6dd8c5b0569da967aaa',
+      0 => '5fec99c5d2a33ddf564892a4ddddfe5cc5e60ac1',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\cacheservicetest',
@@ -4704,7 +4704,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\CoprraServiceProviderTest.php' => 
     array (
-      0 => '965ddba02dd6e59da245d02d67cb1bf5ba3206d0',
+      0 => 'f12b4830aa35cd090c9108adb7e1996dd57d7e7e',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\coprraserviceprovidertest',
@@ -4747,7 +4747,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\ExchangeRateServiceTest.php' => 
     array (
-      0 => 'c9a0a5e6d79b371509c4ef1e4f9003c3d308d14c',
+      0 => '7b98e452ab19dcd5bfc5b7531176a4f2f80aee14',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\exchangerateservicetest',
@@ -4774,7 +4774,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\PriceHelperTest.php' => 
     array (
-      0 => 'c981eb400c6d3ec34fbe558caa608579efd22ea5',
+      0 => '987a68cf94dd70f600d89a380210b240513b2c76',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\pricehelpertest',
@@ -4816,7 +4816,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\StoreAdapterManagerTest.php' => 
     array (
-      0 => '9a5371cf37675ed2756102b497bb66e832dc0975',
+      0 => '2e6d8476e57256f292c326740e53bbe822d08bc9',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\storeadaptermanagertest',
@@ -4848,7 +4848,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\COPRRA\\WebhookServiceTest.php' => 
     array (
-      0 => '7287bf3d55f2ca62e32ced825a93168d0abf15d1',
+      0 => 'b51d1a963f57486a6af21ea63c8b4544c94cd8ed',
       1 => 
       array (
         0 => 'tests\\unit\\coprra\\webhookservicetest',
@@ -4889,7 +4889,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\CurrencyConversionTest.php' => 
     array (
-      0 => '6c895806075f40e3a00ebbf942c3cfe018818158',
+      0 => '9a6c212c1d1eedbedd24c0b89c9b1a5c5510e51c',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\currencyconversiontest',
@@ -4930,7 +4930,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\DataIntegrityTest.php' => 
     array (
-      0 => '612f7186058d8754a55dcd0059c79535239a4eb4',
+      0 => '3be648988d40d8efba16591e91fa82619a1b5bd3',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\dataintegritytest',
@@ -4987,7 +4987,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\InventoryAccuracyTest.php' => 
     array (
-      0 => '9a2630d0f91f7ea019cdeaec5b51057f81819f8c',
+      0 => '97bea4f2c94362a70ba801d6016ddcb3e5768a73',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\inventoryaccuracytest',
@@ -5006,7 +5006,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\OrderAccuracyTest.php' => 
     array (
-      0 => 'eddfff9966fa734f1dc8d17ef6e44b71a4babd0f',
+      0 => '738e4edeb03b45c3a64b9a8ed33f11f942c42bcb',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\orderaccuracytest',
@@ -5025,7 +5025,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\PaymentAccuracyTest.php' => 
     array (
-      0 => 'a240eb077a1a4f6820bc90fc53a1cb2b4d3bb628',
+      0 => '09bae7ae92f91f81915fde79a0a5fd5d804e53c0',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\paymentaccuracytest',
@@ -5078,7 +5078,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\ProductMatchingTest.php' => 
     array (
-      0 => 'd0983aaa28e88e412aa177e75de87c46289fd142',
+      0 => '44d51860f100afefeed47142e56abc3673ab4c33',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\productmatchingtest',
@@ -5097,7 +5097,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\ShippingAccuracyTest.php' => 
     array (
-      0 => 'ebf6234245e332637e694e865a86d588744c8eb6',
+      0 => '0ce47f9acea4b8cd1b4aa2085772afe61115d76c',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\shippingaccuracytest',
@@ -5116,7 +5116,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\StoreDataValidationTest.php' => 
     array (
-      0 => '198abc6052ad53b8917eab0ce41d967c85c7fcb0',
+      0 => '492e0afdd4d65c4e79cb56fc625f756a424211e7',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\storedatavalidationtest',
@@ -5135,7 +5135,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataAccuracy\\TaxCalculationTest.php' => 
     array (
-      0 => 'cd1f51d9dfedd7bc55ad57a95e58f51d9542cca5',
+      0 => 'ad9f6dc5d1a9afe23b9d9f7a84948bba448bc109',
       1 => 
       array (
         0 => 'tests\\unit\\dataaccuracy\\taxcalculationtest',
@@ -5172,7 +5172,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataCompletenessTest.php' => 
     array (
-      0 => '81ef1dce714aa07cd2f9257da35a3778afe51530',
+      0 => '91ef5ddd6c96a8614cecd3db05926812755b137a',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\datacompletenesstest',
@@ -5191,7 +5191,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataDuplicationTest.php' => 
     array (
-      0 => '10f05dece13e6a7e2087b65fa2349523ee43842f',
+      0 => '45a7d5fad28dabd12f6d445af6bc7bdc63a2d0e2',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\dataduplicationtest',
@@ -5210,7 +5210,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataFreshnessTest.php' => 
     array (
-      0 => '3b9923cb9bf54a5cca757e5b915b80043de28572',
+      0 => 'a203cd27658516ad9aea43850f459d75f43393c0',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\datafreshnesstest',
@@ -5229,7 +5229,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataQualityMetricsTest.php' => 
     array (
-      0 => 'bbbb31f03dc6d084e2dd487e4594764e57bb58f6',
+      0 => '0400827e9cc82f815f0572e0e174b5241054a35c',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\dataqualitymetricstest',
@@ -5248,7 +5248,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataRelevanceTest.php' => 
     array (
-      0 => '76e2a40d84d649a79e336e9505e2e5f0d3124904',
+      0 => '6cc47bdf104739c8f20c2000f7f7ad27efffcea1',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\datarelevancetest',
@@ -5267,7 +5267,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataReliabilityTest.php' => 
     array (
-      0 => '6a69404d6dfefafe05063b6526b10cb209d4a5d6',
+      0 => 'e7189d46d06dc642cb4ef7ee457ccfddad21bf36',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\datareliabilitytest',
@@ -5286,7 +5286,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataTimelinessTest.php' => 
     array (
-      0 => '4104aa36655710e2f04816814db52fd591e900a4',
+      0 => '3e37933bb45bedb27f1674977500454507cd48f6',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\datatimelinesstest',
@@ -5305,7 +5305,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DataUniquenessTest.php' => 
     array (
-      0 => '3dff34ce16f4eb6cc3a1603422b945e0093ff714',
+      0 => '452fb2878b245cee8bd548c2994f311138cf464b',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\datauniquenesstest',
@@ -5343,7 +5343,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataQuality\\DuplicateDetectionTest.php' => 
     array (
-      0 => 'c2ec00b895f9a18bb415641718cbc9f622929cc5',
+      0 => 'e94ea85854579e904a25465c422b3f6b54555cb6',
       1 => 
       array (
         0 => 'tests\\unit\\dataquality\\duplicatedetectiontest',
@@ -5362,7 +5362,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\BlueGreenDeploymentTest.php' => 
     array (
-      0 => '87a57991e094a2b156160782cabda926faf6c23f',
+      0 => '356c3d3fdf18163596f63085f0b13006f998568c',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\bluegreendeploymenttest',
@@ -5381,7 +5381,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\CanaryDeploymentTest.php' => 
     array (
-      0 => '25cebb1eaf54d4a132f313523664824feafe2362',
+      0 => '31181fca96b8306eb251747d0d5a8725df2c7908',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\canarydeploymenttest',
@@ -5400,7 +5400,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\CloudDeploymentTest.php' => 
     array (
-      0 => '8742f3c5dc765722c694b796dcfbf1872616c684',
+      0 => '4dcbee783568e460511036ddf1afe6595a6a1286',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\clouddeploymenttest',
@@ -5419,7 +5419,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\ConfigurationTest.php' => 
     array (
-      0 => '66408a5c064ad955cfa303bb706fdc91858c2741',
+      0 => '7eb73602f390884a875e7749eeacc48bdcfc8401',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\configurationtest',
@@ -5438,7 +5438,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\DevelopmentDeploymentTest.php' => 
     array (
-      0 => '0fed00c9cd73b6410975e1460765199519c01459',
+      0 => '5a274a0aac0fab10f3a205c8c99e4bfedf06763e',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\developmentdeploymenttest',
@@ -5457,7 +5457,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\DockerDeploymentTest.php' => 
     array (
-      0 => 'a24e67e0d64b65052a71e9a6c93741f017efb732',
+      0 => 'b72e18428ecc6b4aa51d784567487d0469db594c',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\dockerdeploymenttest',
@@ -5476,7 +5476,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\EnvironmentConfigurationTest.php' => 
     array (
-      0 => 'ba92bedf0ea1448a14b3055a3d907f581f0d1fdd',
+      0 => '3375446a8ede5b2d7a826585f5308490798913b4',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\environmentconfigurationtest',
@@ -5495,7 +5495,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\InfrastructureTest.php' => 
     array (
-      0 => 'ab4f3cae92ca984e8ce65ea357da5b0ab97e72f8',
+      0 => 'cabc7e0045c679d03a2edef38d9ae568c88a86d1',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\infrastructuretest',
@@ -5514,7 +5514,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\KubernetesDeploymentTest.php' => 
     array (
-      0 => '303ca5e3356a1a5dc46665f4baec4443e930a70a',
+      0 => '5274068b1055d6a5ca1261f2643cc4be73be69e5',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\kubernetesdeploymenttest',
@@ -5533,7 +5533,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\ProductionDeploymentTest.php' => 
     array (
-      0 => 'f8c9b29400d658022fada5ebec7e575dd71ac1a4',
+      0 => '20adcefafb07ad324581f5aa0a825ad5155121ac',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\productiondeploymenttest',
@@ -5552,7 +5552,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\RollbackTest.php' => 
     array (
-      0 => 'c6ddf02596000ad38e1a9291b8e13ae5852a389a',
+      0 => '0d770a848e0daa6a1c1166930323f6393b379675',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\rollbacktest',
@@ -5571,7 +5571,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\RollingDeploymentTest.php' => 
     array (
-      0 => 'bb257e2d72f8ae53538625dce06497ce10983340',
+      0 => 'd43ef7bc404c2ca79a6a729e5f812a84614bdaaa',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\rollingdeploymenttest',
@@ -5590,7 +5590,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\StagingDeploymentTest.php' => 
     array (
-      0 => '3f3e5284f79d38835ed0b4314c7f927cf57f07c9',
+      0 => '83c982e6ef1a62268b4f4913c1786d89b71d3c84',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\stagingdeploymenttest',
@@ -5609,7 +5609,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Deployment\\TestingDeploymentTest.php' => 
     array (
-      0 => 'ebc415c82c781154f81a0f3cc90cad667c4a19ef',
+      0 => '589c21cb9f52e522c90871fa28714e9aebdfcab8',
       1 => 
       array (
         0 => 'tests\\unit\\deployment\\testingdeploymenttest',
@@ -5628,7 +5628,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Enums\\OrderStatusTest.php' => 
     array (
-      0 => '52139ead56a0c95e14cfb1664c304fef0abc71f7',
+      0 => '522d6c8f4265591568c8f39415d43aed60511458',
       1 => 
       array (
         0 => 'tests\\unit\\enums\\orderstatustest',
@@ -5657,7 +5657,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Enums\\UserRoleTest.php' => 
     array (
-      0 => '1eb1513d63e096a369e23eaa53ab5ec68c535002',
+      0 => '283617f1047296a430fe89683a86021d788b4425',
       1 => 
       array (
         0 => 'tests\\unit\\enums\\userroletest',
@@ -5686,7 +5686,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Factories\\FactoriesTest.php' => 
     array (
-      0 => 'd973c4a5d6628786fae269a8f738b836de513fe3',
+      0 => '0f17fd3959f9bd0761fcfd7a451ea889f1fbd953',
       1 => 
       array (
         0 => 'tests\\unit\\factories\\factoriestest',
@@ -5705,7 +5705,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Helpers\\OrderHelperTest.php' => 
     array (
-      0 => 'dc5875f51d39d8bdd48cf1d5ebd14fdc9ab68413',
+      0 => '78a12b80418ace39be4a13822fbe34f885814ce8',
       1 => 
       array (
         0 => 'tests\\unit\\helpers\\orderhelpertest',
@@ -5739,7 +5739,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Helpers\\PriceHelperTest.php' => 
     array (
-      0 => 'a8537ff513fadec36a3399433b2fcc91b12a158e',
+      0 => 'f0afa7724281eca86d5e85124719ba17ed858c5c',
       1 => 
       array (
         0 => 'tests\\unit\\helpers\\pricehelpertest',
@@ -5758,7 +5758,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\AnalyticsIntegrationTest.php' => 
     array (
-      0 => '2ac5871504d70f00e760c25e6de066670ab44462',
+      0 => 'fa8076cb691dc022bdb192e83d193faf5a7bb2ce',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\analyticsintegrationtest',
@@ -5777,7 +5777,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\APIIntegrationTest.php' => 
     array (
-      0 => 'a50b260472b4f33d9c871066637aa6a78e700fe7',
+      0 => '302c78b76b1f90e7704c1fac5e529c3f171dd13a',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\apiintegrationtest',
@@ -5796,7 +5796,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\CurrencyIntegrationTest.php' => 
     array (
-      0 => '51041156af3d837571f3f4d8dc30d1464dcb55c2',
+      0 => '2cb4e7c0c08fa16009eddcdf82511fd17c8e4419',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\currencyintegrationtest',
@@ -5815,7 +5815,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\EmailIntegrationTest.php' => 
     array (
-      0 => '721882252164bc01db3ab4b29a34a3aed392684f',
+      0 => '01b25cec586da0ced53b175a6bcfdc6bf9784595',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\emailintegrationtest',
@@ -5834,7 +5834,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\EndToEndIntegrationTest.php' => 
     array (
-      0 => 'e831f29a585f3520ece99c54d12ef3ce90f3c195',
+      0 => '2bde006ca25af75ef1b564105b3f147c9e216e42',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\endtoendintegrationtest',
@@ -5853,7 +5853,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\InventoryIntegrationTest.php' => 
     array (
-      0 => '2df661b075b1b6055a08a26ea8c279451825ca9d',
+      0 => '707494204b8641cb1f12305f2f114978954dd9ae',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\inventoryintegrationtest',
@@ -5872,7 +5872,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\NotificationIntegrationTest.php' => 
     array (
-      0 => '03b38dde24c00a015c9c3e0274bdb782061ab05f',
+      0 => '62c9e71a3d259d5050285a58471ef79018775e69',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\notificationintegrationtest',
@@ -5891,7 +5891,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\PaymentIntegrationTest.php' => 
     array (
-      0 => '43c6398dbec80a3778f1d295bb4cd0bf61ff55ff',
+      0 => '953b3c24659ee36e7e3fff81d97ac00b657476e5',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\paymentintegrationtest',
@@ -5910,7 +5910,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\PushNotificationTest.php' => 
     array (
-      0 => 'aaddc08e681e4468ab810d4e7becada3924f3a36',
+      0 => 'b46a514c1470c9a80373c891314e93d4c1025350',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\pushnotificationtest',
@@ -5929,7 +5929,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\SearchIntegrationTest.php' => 
     array (
-      0 => 'd05ee9c16879e3b8ac4fec147d3bfe9b8dd05433',
+      0 => 'fea2e8704140047c37160c8dd2686bcde3c5b1e1',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\searchintegrationtest',
@@ -5948,7 +5948,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\ShippingIntegrationTest.php' => 
     array (
-      0 => '812ba81ed2c8bdd5644049c6379a26b66119e741',
+      0 => '9a34aa9fef8cf3114f44a6c372ffafdcfd4c78b5',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\shippingintegrationtest',
@@ -5967,7 +5967,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\SMSIntegrationTest.php' => 
     array (
-      0 => 'aea10933045a035e50af78753e0ad32e550f06fd',
+      0 => 'ee65ac45fcecf9d929aff45a1a590d3ce309eeaa',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\smsintegrationtest',
@@ -5986,7 +5986,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\StoreAPIIntegrationTest.php' => 
     array (
-      0 => '899332ed8809d0c3dbcd5bd8227b17d06a6cfac0',
+      0 => '8cd7bb8353e0601605a425a3cfa315cc126c7a71',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\storeapiintegrationtest',
@@ -6005,7 +6005,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\ThirdPartyAPIIntegrationTest.php' => 
     array (
-      0 => '2dca6d83380d11f7299932f23fd48c2a1408c3b0',
+      0 => 'f21229597893cd6093c606394ec4f17184f9ce73',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\thirdpartyapiintegrationtest',
@@ -6024,7 +6024,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Integration\\WebhookTest.php' => 
     array (
-      0 => 'f45a61b73c0d45cf0f67916ea215757894d04bd5',
+      0 => 'aeee77e4f85b0cb120728733f0daf4df0fb15ec8',
       1 => 
       array (
         0 => 'tests\\unit\\integration\\webhooktest',
@@ -6043,7 +6043,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IsolatedStrictTest.php' => 
     array (
-      0 => 'cfc0c610ca990ec0f45ea996752004b058aeefa6',
+      0 => 'b22aea658de6e0dc06ad8294fd11a4a01d6425ea',
       1 => 
       array (
         0 => 'tests\\unit\\isolatedstricttest',
@@ -6062,7 +6062,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Jobs\\ProcessHeavyOperationTest.php' => 
     array (
-      0 => 'd0b5f80a7599284160252bfa581b6f76ef493fc2',
+      0 => '15c64313ff5946a5eedf85ea6aef9767086d0a82',
       1 => 
       array (
         0 => 'tests\\unit\\jobs\\processheavyoperationtest',
@@ -6091,7 +6091,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Middleware\\AdminMiddlewareTest.php' => 
     array (
-      0 => '6120be75a7d9a8f56cbbc0e0bc2e32a8c7036c62',
+      0 => '17ab67406d163a89765f920c80acf6eef3980d66',
       1 => 
       array (
         0 => 'tests\\unit\\middleware\\adminmiddlewaretest',
@@ -6110,7 +6110,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MockeryDebugTest.php' => 
     array (
-      0 => 'ffa2ab50923b40419720f5ca7c50b2bf928b5ff6',
+      0 => '447d732388d74e0fd63d02f45a7f2647dcb8df65',
       1 => 
       array (
         0 => 'tests\\unit\\mockerydebugtest',
@@ -6129,7 +6129,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelRelationsTest.php' => 
     array (
-      0 => 'b94160637d931a5b579d2efdf6f06714dbfb1a4a',
+      0 => '7add8f61d2d7cf04b8b21faed6e053a75dd3006e',
       1 => 
       array (
         0 => 'tests\\unit\\modelrelationstest',
@@ -6148,7 +6148,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\AuditLogTest.php' => 
     array (
-      0 => '16eefe32515c3448c88230ab225319dc9d5938fd',
+      0 => 'ade23a37d86f2bb46d502a2057f174168e0a6fb2',
       1 => 
       array (
         0 => 'tests\\unit\\models\\auditlogtest',
@@ -6178,7 +6178,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\BrandTest.php' => 
     array (
-      0 => 'b8b78ccedf3a6d20e6dbafcb55494a0f1491add8',
+      0 => '05d527a00b7de0b9d214da851417bfb8ab221611',
       1 => 
       array (
         0 => 'tests\\unit\\models\\brandtest',
@@ -6200,7 +6200,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\CategoryTest.php' => 
     array (
-      0 => '5fb2393afcc7935dff435cd5b8a7394ea2c2e618',
+      0 => '07d3f234bdabaffb9d109bf678aba203cc7ba477',
       1 => 
       array (
         0 => 'tests\\unit\\models\\categorytest',
@@ -6226,7 +6226,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\CurrencyTest.php' => 
     array (
-      0 => '74bce80bad393aeac4fc7c0c52d5affed5f923d8',
+      0 => '929a5e0c4aa51bcbda26e91ed6cf50d61eb5dfd4',
       1 => 
       array (
         0 => 'tests\\unit\\models\\currencytest',
@@ -6243,7 +6243,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\LanguageTest.php' => 
     array (
-      0 => '71a0a6cdd3aee15eeb89176581e067ce1345060c',
+      0 => '7bec72853188c05e5cb08a158bfa4100f400c84e',
       1 => 
       array (
         0 => 'tests\\unit\\models\\languagetest',
@@ -6267,7 +6267,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\NotificationTest.php' => 
     array (
-      0 => '60f16de70f921c802fe6bf74258eabe1d2cb523a',
+      0 => '6a575e17fe804fe41135922f0dccca24b00f64c4',
       1 => 
       array (
         0 => 'tests\\unit\\models\\notificationtest',
@@ -6320,7 +6320,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\OrderItemTest.php' => 
     array (
-      0 => '2d15dcd80850cdc5c4254a809bdfb3d3c56e8ab0',
+      0 => 'c48432b4d56422719e469a83694a8ea041001fab',
       1 => 
       array (
         0 => 'tests\\unit\\models\\orderitemtest',
@@ -6338,7 +6338,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\OrderTest.php' => 
     array (
-      0 => '3dff63a142a232a944dae4b38db2fa390b36825c',
+      0 => '26ebb60cb8f637c2e9a83700bb0dd8b256e501dc',
       1 => 
       array (
         0 => 'tests\\unit\\models\\ordertest',
@@ -6358,7 +6358,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\PaymentMethodTest.php' => 
     array (
-      0 => 'c53bfb48f0de427e3f6bc36805f2b1eb4ab41a98',
+      0 => 'f8cad9c680a6dd49bf21fd2d0b0d6e001ad62cfe',
       1 => 
       array (
         0 => 'tests\\unit\\models\\paymentmethodtest',
@@ -6377,7 +6377,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\PaymentTest.php' => 
     array (
-      0 => '2f6d210060be1f3b5f259a47bee30fd838313415',
+      0 => 'cf8c3f3597df74169338b6968770b1baf6d15e1d',
       1 => 
       array (
         0 => 'tests\\unit\\models\\paymenttest',
@@ -6395,7 +6395,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\PriceAlertTest.php' => 
     array (
-      0 => '3912543b538292789928c3b2c94b0973b26fb5c6',
+      0 => 'c8ca764acfbcc556a6d603462ace413deb193088',
       1 => 
       array (
         0 => 'tests\\unit\\models\\pricealerttest',
@@ -6420,7 +6420,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\ProductTest.php' => 
     array (
-      0 => '680b143b9f2d01ca983019c06b0e383a1bc2064f',
+      0 => '8713049864e2e9bdddb5858a98674600797420bc',
       1 => 
       array (
         0 => 'tests\\unit\\models\\producttest',
@@ -6453,7 +6453,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\ReviewTest.php' => 
     array (
-      0 => '7575dd68981ee636e3b0aea7628701b07d96c043',
+      0 => '546c53780ebcae341e1d4349f72a0479fb91d6e1',
       1 => 
       array (
         0 => 'tests\\unit\\models\\reviewtest',
@@ -6470,7 +6470,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\StoreTest.php' => 
     array (
-      0 => 'eddc9a00e88720fa889244dabad19c029e88962d',
+      0 => '73714bbecbfc7650d9066f171015045040455cd8',
       1 => 
       array (
         0 => 'tests\\unit\\models\\storetest',
@@ -6496,7 +6496,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Models\\UserTest.php' => 
     array (
-      0 => '2f6c0103e8d9e19106d4bf4bfdf1218d35524ca6',
+      0 => 'a297aa7d5aa72cb93520edf366d21708d71c19bb',
       1 => 
       array (
         0 => 'tests\\unit\\models\\usertest',
@@ -6524,7 +6524,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\AvailabilityTestingTest.php' => 
     array (
-      0 => '7b297bc77e76bd75589b6f293509c172da9d02e0',
+      0 => '60556a62a843888ee02231d26407d150ad02cb96',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\availabilitytestingtest',
@@ -6543,7 +6543,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\CacheHitRateTest.php' => 
     array (
-      0 => 'b23bc2ee486464f5f2b672706e66ce8333beca7a',
+      0 => 'c8fa8d2f237f15b3e3e5b6046fe121054ec0824a',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\cachehitratetest',
@@ -6562,7 +6562,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\ConcurrentUserTest.php' => 
     array (
-      0 => 'ae514ccc699486a6ed857abc9b01c65301d71dba',
+      0 => '97c7e5fdf82eb5ed2d118ff085906bc81ab7bfa1',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\concurrentusertest',
@@ -6581,7 +6581,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\CPUUsageTest.php' => 
     array (
-      0 => 'b96b599e965866c4040318d51569a9d0d10ce4e7',
+      0 => 'a898277b515f85ef84d3e671e8f0bcc064313564',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\cpuusagetest',
@@ -6600,7 +6600,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\DatabaseQueryTimeTest.php' => 
     array (
-      0 => 'd8b9eb010be1b4758ef009e9de930263a6387ee8',
+      0 => 'f3bca3b74bf18b0f719cd456cc3fd05606d663b8',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\databasequerytimetest',
@@ -6619,7 +6619,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\FilteringPerformanceTest.php' => 
     array (
-      0 => '0d01f8cd40140d4bc5b8cc6304fcbd73e920e13c',
+      0 => '339a69bf854d68e29523eafbe736686620faf650',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\filteringperformancetest',
@@ -6638,7 +6638,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\ImageLoadTimeTest.php' => 
     array (
-      0 => 'faafddc242f6296fb73925b7a5978796f9ee6258',
+      0 => '4d8fe14d7b0d418cba0a19db7b5c70b6fd142a8e',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\imageloadtimetest',
@@ -6657,7 +6657,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Performance\\PageLoadTimeTest.php' => 
     array (
-      0 => 'b4a49665707ae6d1f3c2e635fbe2ee13ba5f458e',
+      0 => 'c8adbd44b579e8146ab417fc3da5546c2b97481f',
       1 => 
       array (
         0 => 'tests\\unit\\performance\\pageloadtimetest',
@@ -6676,7 +6676,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ProcessIsolationTest.php' => 
     array (
-      0 => '92aa9d85d568d0d4b058e53fd335bf983d111f74',
+      0 => '4d82ec5d59cab4195b3402550460a06955d922c6',
       1 => 
       array (
         0 => 'tests\\unit\\processisolationtest',
@@ -6695,7 +6695,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PureUnitTest.php' => 
     array (
-      0 => 'c1e019fc0aac719ea327dbde771cff161dea5c1e',
+      0 => 'bcaf6a1e762e4a1974f8c291d1b0554498875a4d',
       1 => 
       array (
         0 => 'tests\\unit\\pureunittest',
@@ -7018,7 +7018,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Recommendations\\SimilarProductTest.php' => 
     array (
-      0 => '5336182a09e0572187b660bbc7efaffd00dae73c',
+      0 => '685377c53634e5a2cdb7dacb17905c3aeab06a42',
       1 => 
       array (
         0 => 'tests\\unit\\recommendations\\similarproducttest',
@@ -7209,7 +7209,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Security\\DataBackupTest.php' => 
     array (
-      0 => 'eb14e55dc0715012735edd1442e02bececc3b095',
+      0 => '2d24c8b15f2acb01d18ee2a39216346a09fcc814',
       1 => 
       array (
         0 => 'tests\\unit\\security\\databackuptest',
@@ -7228,7 +7228,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Services\\APIServiceTest.php' => 
     array (
-      0 => '2e15672babed1f339864028827c8ed5a875b7b1c',
+      0 => '6c2bd377d28d3d3656aaab1e8f576f73399bc352',
       1 => 
       array (
         0 => 'tests\\unit\\services\\apiservicetest',
@@ -7370,7 +7370,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StrictMockeryTest.php' => 
     array (
-      0 => '81f76da77b52505e769ad1f442baede674e7c98d',
+      0 => '14df5e6b41a47686652c4142282fd317a0d053b3',
       1 => 
       array (
         0 => 'tests\\unit\\strictmockerytest',
@@ -7389,7 +7389,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TestErrorHandler.php' => 
     array (
-      0 => '7e1e9a43a7628c504e3bfa99ecaed4528f942107',
+      0 => 'b09b5fd48e92306f60ac18ba6e3b56fcf343417f',
       1 => 
       array (
         0 => 'tests\\unit\\testerrorhandler',
@@ -7404,16 +7404,16 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\URLServiceTest.php' => 
     array (
-      0 => '596404d7c2abfd313d9558a641cfdaca1e36e7dd',
+      0 => '1c12efa36027a09c1d3b6f46733723d0d2e90a9a',
       1 => 
       array (
         0 => 'tests\\unit\\urlservicetest',
       ),
       2 => 
       array (
-        0 => 'tests\\unit\\testgenerateaffiliateurlencodesurlandinjectsaffiliatecode',
-        1 => 'tests\\unit\\testgenerateaffiliateurlreturnsoriginalwhenmissingconfig',
-        2 => 'tests\\unit\\testgenerateaffiliateurlkeepspathslashesunencoded',
+        0 => 'tests\\unit\\test_generate_affiliate_url_encodes_url_and_injects_affiliate_code',
+        1 => 'tests\\unit\\test_generate_affiliate_url_returns_original_when_missing_config',
+        2 => 'tests\\unit\\test_generate_affiliate_url_keeps_path_slashes_unencoded',
       ),
       3 => 
       array (
@@ -7421,7 +7421,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Validation\\BasicValidationTest.php' => 
     array (
-      0 => '16f0ec1fc92b3d4e5e36c6142e5910c9eed1283f',
+      0 => '779306cb47dcf4bb50e83fc333ec15e854fdeda3',
       1 => 
       array (
         0 => 'tests\\unit\\validation\\basicvalidationtest',
@@ -7440,7 +7440,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Validation\\ComprehensiveValidationTest.php' => 
     array (
-      0 => '8a5351f1ab51d3340fc6faeff5918c000aabb318',
+      0 => 'c7d2b3a4066496fa25cdb7d777dd8e5432d1e6b2',
       1 => 
       array (
         0 => 'tests\\unit\\validation\\comprehensivevalidationtest',
@@ -7459,7 +7459,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\Validation\\ValidationTestCase.php' => 
     array (
-      0 => '89fa7425e005b6baa3ccb966de2fd98f553138c9',
+      0 => 'ceaa33eb4a301554f96cc6736e76783dfed29cb0',
       1 => 
       array (
         0 => 'tests\\unit\\validation\\validationtestcase',
@@ -7479,18 +7479,18 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\FinancialTransactionServiceCoverageTest.php' => 
     array (
-      0 => 'fdd3f8e9c61b9e49f1bdae180807eb0002df3732',
+      0 => '77385f4e7bad94f3173f0b7c330bdd238b33a1f9',
       1 => 
       array (
         0 => 'tests\\feature\\financialtransactionservicecoveragetest',
       ),
       2 => 
       array (
-        0 => 'tests\\feature\\testcreatepriceofferupdatesproductpricefromnewoffer',
-        1 => 'tests\\feature\\testupdateproductpricerejectsnegativevalue',
-        2 => 'tests\\feature\\testupdatepriceofferchangespriceandupdatesproducttolowestavailable',
-        3 => 'tests\\feature\\testupdatepriceofferunavailablerecalculatestonextlowestavailableoffer',
-        4 => 'tests\\feature\\testdeletepriceofferreturnstrue',
+        0 => 'tests\\feature\\test_create_price_offer_updates_product_price_from_new_offer',
+        1 => 'tests\\feature\\test_update_product_price_rejects_negative_value',
+        2 => 'tests\\feature\\test_update_price_offer_changes_price_and_updates_product_to_lowest_available',
+        3 => 'tests\\feature\\test_update_price_offer_unavailable_recalculates_to_next_lowest_available_offer',
+        4 => 'tests\\feature\\test_delete_price_offer_returns_true',
       ),
       3 => 
       array (
@@ -7498,19 +7498,19 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Feature\\OrderServiceCoverageTest.php' => 
     array (
-      0 => 'fcbbeb8f8f4d29be2dc9ba4a9931272fe9bff7fa',
+      0 => '6902ccc4e16dd42418536b61e60c569ce04c8587',
       1 => 
       array (
         0 => 'tests\\feature\\orderservicecoveragetest',
       ),
       2 => 
       array (
-        0 => 'tests\\feature\\testcreateordercomputestotalsandpersistsitems',
-        1 => 'tests\\feature\\testupdateorderstatusallowstransitionandfiresevent',
-        2 => 'tests\\feature\\testcancelorderrestoresstockandreturnstrueforpending',
-        3 => 'tests\\feature\\testupdateorderstatusrejectsinvalidtransition',
-        4 => 'tests\\feature\\testcreateorderrespectsshippingthresholdboundaryandtaxconfig',
-        5 => 'tests\\feature\\testupdateorderstatusacceptscompletedaliasasdeliveredandfiresevent',
+        0 => 'tests\\feature\\test_create_order_computes_totals_and_persists_items',
+        1 => 'tests\\feature\\test_update_order_status_allows_transition_and_fires_event',
+        2 => 'tests\\feature\\test_cancel_order_restores_stock_and_returns_true_for_pending',
+        3 => 'tests\\feature\\test_update_order_status_rejects_invalid_transition',
+        4 => 'tests\\feature\\test_create_order_respects_shipping_threshold_boundary_and_tax_config',
+        5 => 'tests\\feature\\test_update_order_status_accepts_completed_alias_as_delivered_and_fires_event',
       ),
       3 => 
       array (
@@ -7518,7 +7518,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AccessControlListTest.php' => 
     array (
-      0 => '7748e544d615977cad8013eb0ea9959b5c4d760e',
+      0 => '74e479ce647beaad5c01db093e485ace1391f06e',
       1 => 
       array (
         0 => 'tests\\unit\\accesscontrollisttest',
@@ -7533,7 +7533,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AccessControlTest.php' => 
     array (
-      0 => '866b9631a73fe05b3f55a96e20d303767c6e20aa',
+      0 => '214e81cfff5d3e3500be156c3f8a5f693e3bac7d',
       1 => 
       array (
         0 => 'tests\\unit\\accesscontroltest',
@@ -7548,7 +7548,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AccessibilityTest.php' => 
     array (
-      0 => 'e21096fbd85b935c60c572638f3e3967d11b243d',
+      0 => '912b94b279880f560daa020a7cf51524dd14c336',
       1 => 
       array (
         0 => 'tests\\unit\\accessibilitytest',
@@ -7563,7 +7563,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AccordionComponentTest.php' => 
     array (
-      0 => '7c44e46017e12c254e57e56f6c30c804953d6d5f',
+      0 => '4a989698fee735606d48950f46ef3b2bd79b823e',
       1 => 
       array (
         0 => 'tests\\unit\\accordioncomponenttest',
@@ -7578,7 +7578,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AccountLockoutTest.php' => 
     array (
-      0 => '24b072bbf222a5b450e1ca06dd9e40c2b3926c9f',
+      0 => '4adda18c02c71da3805185f7fcf827b05f91a788',
       1 => 
       array (
         0 => 'tests\\unit\\accountlockouttest',
@@ -7593,7 +7593,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ActionAuthorizationTest.php' => 
     array (
-      0 => '601a7f589c1375b30c87cdaba79a29d2ba20bb18',
+      0 => '72d2bee8cdcd555482594e7ac0f497e91f359829',
       1 => 
       array (
         0 => 'tests\\unit\\actionauthorizationtest',
@@ -7608,7 +7608,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ActiveDirectoryAuthenticationTest.php' => 
     array (
-      0 => '0090745a71a95f53af9559300ccb5da109bd2e51',
+      0 => 'c05b41b3977ee2d53b67748780517b6bea799571',
       1 => 
       array (
         0 => 'tests\\unit\\activedirectoryauthenticationtest',
@@ -7623,7 +7623,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AggregateFunctionsTest.php' => 
     array (
-      0 => '22dca22f8469259a76d7622bd45e7cde59a0437a',
+      0 => 'cdb93743e08d41de170d81e14cb3cbdf2288992f',
       1 => 
       array (
         0 => 'tests\\unit\\aggregatefunctionstest',
@@ -7638,7 +7638,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AlgorithmOptimizationTest.php' => 
     array (
-      0 => 'a6772485833699c63842b5b3cb81976ca5240c31',
+      0 => '75645b6859dce1c065fbe02d942b0fa87baa7fb7',
       1 => 
       array (
         0 => 'tests\\unit\\algorithmoptimizationtest',
@@ -7653,7 +7653,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AnalyticsPageTest.php' => 
     array (
-      0 => '6d73b3f0c598d0ff3236aece3f8f5e10c59c5f28',
+      0 => '95a7bc4440c05569879ecb15e64e11370c6c70b1',
       1 => 
       array (
         0 => 'tests\\unit\\analyticspagetest',
@@ -7668,7 +7668,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ApiAuthorizationTest.php' => 
     array (
-      0 => '6d5192ffd3a71178e4745ddbac355254d254026a',
+      0 => 'af31339cc00c167561363978451ff5158c99986b',
       1 => 
       array (
         0 => 'tests\\unit\\apiauthorizationtest',
@@ -7683,7 +7683,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ArabicLanguageTest.php' => 
     array (
-      0 => '81e9ac440316afc7445eadc2acfa217371195aea',
+      0 => '19023d9628e0546192d9a0b1ed1f13f3f509e5e5',
       1 => 
       array (
         0 => 'tests\\unit\\arabiclanguagetest',
@@ -7698,7 +7698,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ArrayCacheDriverTest.php' => 
     array (
-      0 => 'e1717eb2db68b7e737c3d3d3b0ffca231c47acc8',
+      0 => '3e7ee6f7e027b674b7a94ea4c99349e924de6858',
       1 => 
       array (
         0 => 'tests\\unit\\arraycachedrivertest',
@@ -7713,7 +7713,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ArrayValidationTest.php' => 
     array (
-      0 => '64cc3bedd407fc1cff05ea4a980b9f2cb05ff744',
+      0 => '48710cd8fdb56f047c3594b97a65c7af2ae8b6de',
       1 => 
       array (
         0 => 'tests\\unit\\arrayvalidationtest',
@@ -7728,7 +7728,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AssetLoadingSpeedTest.php' => 
     array (
-      0 => 'c474bc477ca37358baf80ec25f89fae2bf16cd74',
+      0 => '45e34f09d247b0c7bd7c4162aac9e442dc900bcd',
       1 => 
       array (
         0 => 'tests\\unit\\assetloadingspeedtest',
@@ -7743,7 +7743,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AssetOptimizationTest.php' => 
     array (
-      0 => '873a585cb724c47e0bf9c6b474d414f2d3cd0d94',
+      0 => 'ae0ed3d2209805ac708cd7d5867ee24201822df4',
       1 => 
       array (
         0 => 'tests\\unit\\assetoptimizationtest',
@@ -7758,7 +7758,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AuditLoggingTest.php' => 
     array (
-      0 => '1873d7d05ae52f2a6b0c0039126939c4a2f72a68',
+      0 => 'd32112d47153632c11512b6f31411d0979cb60fe',
       1 => 
       array (
         0 => 'tests\\unit\\auditloggingtest',
@@ -7773,7 +7773,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AuthenticationLoggingTest.php' => 
     array (
-      0 => 'a8f4f2f4d3a7a3373e1796a400f93d06d5955acc',
+      0 => 'ee9ed363d698e0c2f36f037affc70638958fe02e',
       1 => 
       array (
         0 => 'tests\\unit\\authenticationloggingtest',
@@ -7788,7 +7788,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AuthServiceTest.php' => 
     array (
-      0 => '2372e0866406cdbd90733620e74baa24e745cfea',
+      0 => '34c10a504a993ed4544087fba46804b7e86fd959',
       1 => 
       array (
         0 => 'tests\\unit\\authservicetest',
@@ -7803,7 +7803,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\AutoLoginTest.php' => 
     array (
-      0 => 'ae0a9a46311b2d29e831533fedfd813b7ad91687',
+      0 => 'b8fe0c88449188f98f04bac53db068509c85fe97',
       1 => 
       array (
         0 => 'tests\\unit\\autologintest',
@@ -7818,7 +7818,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BackupOperationsTest.php' => 
     array (
-      0 => '84a26e79926519b51daf3cb2552aaa98e0d98380',
+      0 => '0c2bef634a3921032a919a7eebf93cfb0a88642c',
       1 => 
       array (
         0 => 'tests\\unit\\backupoperationstest',
@@ -7833,7 +7833,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BackupPageTest.php' => 
     array (
-      0 => 'aa2470b4515e47d4dbbbb287f52c19eae2aea51a',
+      0 => '60a6d183ba9f507f571f7577916ec0295f96426d',
       1 => 
       array (
         0 => 'tests\\unit\\backuppagetest',
@@ -7848,7 +7848,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BaggingMethodsTest.php' => 
     array (
-      0 => '26c0da19c9cf1671ac13b2a4aeb87aa2ab675a0c',
+      0 => '6effe3071f95b209392115a2f1cfbe53959fd611',
       1 => 
       array (
         0 => 'tests\\unit\\baggingmethodstest',
@@ -7863,7 +7863,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BandwidthOptimizationTest.php' => 
     array (
-      0 => '57d818d3f8311eb993916a46d26bc60d936b2397',
+      0 => '36e778b51b62cf7bac0c7fa3e65bf9decffd09fc',
       1 => 
       array (
         0 => 'tests\\unit\\bandwidthoptimizationtest',
@@ -7878,7 +7878,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BaselineTestingTest.php' => 
     array (
-      0 => '23ed3ec42d0dfd608c7e0a552d54d6dfceaec014',
+      0 => '941d251f5b632eb5af4525051a1990c8661d62c3',
       1 => 
       array (
         0 => 'tests\\unit\\baselinetestingtest',
@@ -7893,7 +7893,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BenchmarkTestingTest.php' => 
     array (
-      0 => '4671d05b174be1efed743706cd6b885ef3d7dc31',
+      0 => '76db413ba6fc75084423776adc855bcc52d4b249',
       1 => 
       array (
         0 => 'tests\\unit\\benchmarktestingtest',
@@ -7908,7 +7908,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BiometricAuthenticationTest.php' => 
     array (
-      0 => 'e4ea299ffa2c5d17e320e97d1eec9a91a64b057d',
+      0 => 'c2d3708fda70af1794a985823e7c6f8e86d29674',
       1 => 
       array (
         0 => 'tests\\unit\\biometricauthenticationtest',
@@ -7923,7 +7923,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BooleanValidationTest.php' => 
     array (
-      0 => '1751cb4af36af6e093d00722464c1efa3d093fb6',
+      0 => '0c891152efc59838b38d12974fb271f23bccd2ff',
       1 => 
       array (
         0 => 'tests\\unit\\booleanvalidationtest',
@@ -7938,7 +7938,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BoostingAlgorithmsTest.php' => 
     array (
-      0 => '7e8f385894609280a3250717c32953a7d2304b0d',
+      0 => '0f6a69a3fcc54ef66662f71ebaa920c1a4b8c491',
       1 => 
       array (
         0 => 'tests\\unit\\boostingalgorithmstest',
@@ -7953,7 +7953,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BroadcastAuthorizationTest.php' => 
     array (
-      0 => '078200bf9605f43aaf3d1ee84ee71c236893a6eb',
+      0 => '9742fbfcf3d019835da8a8d5b0b7c170c5081c1b',
       1 => 
       array (
         0 => 'tests\\unit\\broadcastauthorizationtest',
@@ -7968,7 +7968,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BroadcastingSystemTest.php' => 
     array (
-      0 => 'fd65d6d23f71fc6f2b5aab52327edce77aded5f7',
+      0 => '62e15ae08ed2f7989ff8bf231d5b612498c2bdec',
       1 => 
       array (
         0 => 'tests\\unit\\broadcastingsystemtest',
@@ -7983,7 +7983,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BroadcastServiceTest.php' => 
     array (
-      0 => '49f21ebe305ba69c08372feaee3e67b934bb7b4b',
+      0 => '8300e4ae8d1fad421dc120d449932f0d53303c2b',
       1 => 
       array (
         0 => 'tests\\unit\\broadcastservicetest',
@@ -7998,7 +7998,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BruteForceProtectionTest.php' => 
     array (
-      0 => '6c923086096e7cab7745ecbd190594d575da9c9e',
+      0 => '6b1060e074c2371ff441de0078ee973a39e2e658',
       1 => 
       array (
         0 => 'tests\\unit\\bruteforceprotectiontest',
@@ -8013,7 +8013,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\BufferOverflowPreventionTest.php' => 
     array (
-      0 => '1a683db52504ab251d41a2f626882419ecaaadbf',
+      0 => '33acbedd251f2ffdfda9a68085984d205db4cfbf',
       1 => 
       array (
         0 => 'tests\\unit\\bufferoverflowpreventiontest',
@@ -8028,7 +8028,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ButtonActionsTest.php' => 
     array (
-      0 => 'f61940db62c4e43c73059659a83f0fc5a52974f2',
+      0 => '2fd1f93875c51dc06cbc669f9416ea418352ca50',
       1 => 
       array (
         0 => 'tests\\unit\\buttonactionstest',
@@ -8043,7 +8043,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CacheAuthorizationTest.php' => 
     array (
-      0 => 'aeb37a5632f0ae4f128781538a57a1242d9d1ccb',
+      0 => '91c09864d2d957c1dacef951a3b75ae8dc55ba2f',
       1 => 
       array (
         0 => 'tests\\unit\\cacheauthorizationtest',
@@ -8058,7 +8058,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CacheClearEndpointTest.php' => 
     array (
-      0 => 'cefb2b8fd157c1f24d355e0c7fdcd6b8501dbff5',
+      0 => '26cb78790c2f73807bc5b61fd28e967fbea01dc6',
       1 => 
       array (
         0 => 'tests\\unit\\cacheclearendpointtest',
@@ -8073,7 +8073,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CacheIntegrationTest.php' => 
     array (
-      0 => '17f196792ed10c006d807e0d76937870f7b91d2a',
+      0 => '9cfcfef8bfaaae2e6b4f408d9670217532801570',
       1 => 
       array (
         0 => 'tests\\unit\\cacheintegrationtest',
@@ -8088,7 +8088,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CacheOptimizationTest.php' => 
     array (
-      0 => '4cd75867d3694d46ba4a8d635d8dec843e6167ef',
+      0 => '1b8ac9192a25d0c474c7421402c3efce1b284318',
       1 => 
       array (
         0 => 'tests\\unit\\cacheoptimizationtest',
@@ -8103,7 +8103,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CachingStrategyTest.php' => 
     array (
-      0 => '86eb0c9ed777974653478c08e8dac9d1758cd863',
+      0 => '7068cc2b90f59e4abbb525f9ecad743f1b1ff55f',
       1 => 
       array (
         0 => 'tests\\unit\\cachingstrategytest',
@@ -8118,7 +8118,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CalendarPageTest.php' => 
     array (
-      0 => '1c04913145857c51e2aadb22df37495cc5585790',
+      0 => 'c9da09f4a859b0b80b9b6aa818246c8d32e1d9a4',
       1 => 
       array (
         0 => 'tests\\unit\\calendarpagetest',
@@ -8133,7 +8133,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CalendarSystemLocalizationTest.php' => 
     array (
-      0 => 'f7ff8a050efdb1017b895c9598db075fe9ee8ecd',
+      0 => '47a5cca491825f854b6f24c6ffd21d0c9396f31a',
       1 => 
       array (
         0 => 'tests\\unit\\calendarsystemlocalizationtest',
@@ -8148,7 +8148,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CapacityPlanningTest.php' => 
     array (
-      0 => '95cc5426b97d2bdf89f0f1f774de8579f2f4cfbf',
+      0 => 'ad6ff4e4022652e0839a4bb8cb7079b6c808f52f',
       1 => 
       array (
         0 => 'tests\\unit\\capacityplanningtest',
@@ -8163,7 +8163,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CarouselComponentTest.php' => 
     array (
-      0 => '0e3ce8dc0ab7d6c6d75fb19058b1d7bbaadc2382',
+      0 => '313d1ecc4260895824d0ca5101792cc3a815af64',
       1 => 
       array (
         0 => 'tests\\unit\\carouselcomponenttest',
@@ -8178,7 +8178,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CDNIntegrationTest.php' => 
     array (
-      0 => '3dd2e5f304ab17bddb7f25f9a92eca1494e6b416',
+      0 => '788054eb34b5c1b3954f9093363602a1df8e4b6a',
       1 => 
       array (
         0 => 'tests\\unit\\cdnintegrationtest',
@@ -8193,7 +8193,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CertificateAuthenticationTest.php' => 
     array (
-      0 => 'a77986a31e2bb23db9e0ed64736cb792a3235294',
+      0 => '7fa6a4a6401c82222077def7f6349e2c7988bd57',
       1 => 
       array (
         0 => 'tests\\unit\\certificateauthenticationtest',
@@ -8208,7 +8208,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CertificateValidationTest.php' => 
     array (
-      0 => '5e771f5855e95a8eeda626ab214ba2a348665ce1',
+      0 => 'dfe672f9b2edda7cc720ab8f3d70330c56f4e34c',
       1 => 
       array (
         0 => 'tests\\unit\\certificatevalidationtest',
@@ -8223,7 +8223,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ChangeLogTest.php' => 
     array (
-      0 => 'cc7a7efa776b52b248d2bb4c9f2c2dfb20f36e3b',
+      0 => 'ea84babb3b0042799bc4150c1fa2125b90afb39f',
       1 => 
       array (
         0 => 'tests\\unit\\changelogtest',
@@ -8238,7 +8238,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ChineseLanguageTest.php' => 
     array (
-      0 => 'e65f9d4a3bedd836fad0dc5b6446310ee0ff9129',
+      0 => '66f55a78cb4a5b48db2b2f9df2432fe04d4da853',
       1 => 
       array (
         0 => 'tests\\unit\\chineselanguagetest',
@@ -8253,7 +8253,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ClassDocumentationTest.php' => 
     array (
-      0 => '6bb00ad320e74c5f30c5b324117a8e3e0b0e9143',
+      0 => 'ab4c2f9562d078d3f8326ceaf3e9532fb2b6c7b4',
       1 => 
       array (
         0 => 'tests\\unit\\classdocumentationtest',
@@ -8268,7 +8268,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ClassificationAlgorithmTest.php' => 
     array (
-      0 => '0079c73be655663b6733ba14d49b8763ec855595',
+      0 => '7fcc9a23cd3c1ad326aae7d93b50ba4ba46fdacd',
       1 => 
       array (
         0 => 'tests\\unit\\classificationalgorithmtest',
@@ -8283,7 +8283,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ClassOptimizationTest.php' => 
     array (
-      0 => '0c131763a0de07c050fd9fc901336a086013585e',
+      0 => '973809a114a47c789fa32e883358ee30133f8c95',
       1 => 
       array (
         0 => 'tests\\unit\\classoptimizationtest',
@@ -8298,7 +8298,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ClusteringAlgorithmTest.php' => 
     array (
-      0 => '240223f7585b9ce8c30ca8984006cfc12809da54',
+      0 => 'e9368c3d90833348d02aa69f8eb2f5b3b12b1512',
       1 => 
       array (
         0 => 'tests\\unit\\clusteringalgorithmtest',
@@ -8313,7 +8313,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CodeCommentsTest.php' => 
     array (
-      0 => '506cdeae4a824d5a77bf109db16d690aec4fe16a',
+      0 => '80a2415287546c7d55a503a3fabc7322ac568f53',
       1 => 
       array (
         0 => 'tests\\unit\\codecommentstest',
@@ -8328,7 +8328,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CodeExamplesTest.php' => 
     array (
-      0 => 'e62effea7d39e9dbe74b2f0a4f3fdd6bec73db45',
+      0 => '83b2bf3ec1f69975adf7beea926672423133b893',
       1 => 
       array (
         0 => 'tests\\unit\\codeexamplestest',
@@ -8343,7 +8343,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CodeInjectionPreventionTest.php' => 
     array (
-      0 => 'd5c2195bb6710d8194b6e5bdbf9fc2674b6a1599',
+      0 => '31887a476d363fe4c63fec18cdd1c2c8c5a878b8',
       1 => 
       array (
         0 => 'tests\\unit\\codeinjectionpreventiontest',
@@ -8358,7 +8358,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CommandInjectionPreventionTest.php' => 
     array (
-      0 => '3b4b2afa7af684025a08561b84236fe77eee211a',
+      0 => '469c3fe086374e845936c820f3a24ab9959d8727',
       1 => 
       array (
         0 => 'tests\\unit\\commandinjectionpreventiontest',
@@ -8373,7 +8373,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ComplianceCheckTest.php' => 
     array (
-      0 => '61d4ac94f1427e0381bae8a9e42c960c1bac7850',
+      0 => '6e515365d51f327b43757b4ad77a3c30a3466a5b',
       1 => 
       array (
         0 => 'tests\\unit\\compliancechecktest',
@@ -8388,7 +8388,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ComputerVisionTest.php' => 
     array (
-      0 => 'fd47bbeea26f0603774e878a38e9ef00930c8060',
+      0 => 'e20335ac0f6661e1bc9cd468a69124c34bf1a772',
       1 => 
       array (
         0 => 'tests\\unit\\computervisiontest',
@@ -8403,7 +8403,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConcurrentAccessTest.php' => 
     array (
-      0 => 'b703f324013aa4aab453486ae93776f8f8b94aff',
+      0 => 'c8afaf6b0d14b418461aae400fb886fcd1e6180f',
       1 => 
       array (
         0 => 'tests\\unit\\concurrentaccesstest',
@@ -8418,7 +8418,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConcurrentUsersTest.php' => 
     array (
-      0 => '5766281f7e37153798b3cb7ca848d113b6b3c489',
+      0 => 'f52b65a0cdd0a2757f26c6e914f83c5b9a479c3a',
       1 => 
       array (
         0 => 'tests\\unit\\concurrentuserstest',
@@ -8433,7 +8433,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConfigServiceTest.php' => 
     array (
-      0 => 'd351115159b706c0d7c8996c0c0e2b8b65a953c0',
+      0 => '3bd3efef86d6e02ed80bca2d61f56e20af5e67d7',
       1 => 
       array (
         0 => 'tests\\unit\\configservicetest',
@@ -8448,7 +8448,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConfigurationDocumentationTest.php' => 
     array (
-      0 => '6e0c522b53d289a56c2af4a71ed5ff06cb7377e3',
+      0 => '93ea91762ed00c70c540c57e39f2f9e54c8914e9',
       1 => 
       array (
         0 => 'tests\\unit\\configurationdocumentationtest',
@@ -8463,7 +8463,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConfigurationEndpointTest.php' => 
     array (
-      0 => '7c2270b1c30dc8b1e2c4bc8dc57ebc8dcd16f5c9',
+      0 => 'd58a998b5380c8dfa576d9942d31028dd574b91e',
       1 => 
       array (
         0 => 'tests\\unit\\configurationendpointtest',
@@ -8478,7 +8478,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConnectionPoolingTest.php' => 
     array (
-      0 => 'deae0c39516e27d87ec10b966749226b410a1cd7',
+      0 => '56b7e21c6d8547b15f77328c469c72f92225ad05',
       1 => 
       array (
         0 => 'tests\\unit\\connectionpoolingtest',
@@ -8493,7 +8493,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ConsoleAuthorizationTest.php' => 
     array (
-      0 => '4249d39ec89ec30bf6cd0d2c516f9464bccdc110',
+      0 => '4cdf16efda7e0c87e7a2e21c80923b7e17e0fc09',
       1 => 
       array (
         0 => 'tests\\unit\\consoleauthorizationtest',
@@ -8508,7 +8508,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ContentSecurityPolicyTest.php' => 
     array (
-      0 => 'd4b13ef82b784ce09129fb8869fc75971a36e543',
+      0 => '52a91b1c463b75601cdac8863b97b0d2a7d3e4a1',
       1 => 
       array (
         0 => 'tests\\unit\\contentsecuritypolicytest',
@@ -8523,7 +8523,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ControllerAuthorizationTest.php' => 
     array (
-      0 => '45114e6acc6ab35ff81b0794b5c744bd44988183',
+      0 => '7f59dbafb738cf96c23668621f56fea82e0c71b1',
       1 => 
       array (
         0 => 'tests\\unit\\controllerauthorizationtest',
@@ -8538,7 +8538,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ControllerServiceTest.php' => 
     array (
-      0 => 'ef8f62372e7dfae1cad37dd280634fefd47d90cd',
+      0 => 'cbccecfbdfba57ee1c10cae31c7f13f14224f3d2',
       1 => 
       array (
         0 => 'tests\\unit\\controllerservicetest',
@@ -8553,7 +8553,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CookieAuthenticationTest.php' => 
     array (
-      0 => 'b47e12c1000a9395ab3774a7dd9ea50b22bae31e',
+      0 => '5b67c1387eae714640e48a77ff382329d0388571',
       1 => 
       array (
         0 => 'tests\\unit\\cookieauthenticationtest',
@@ -8568,7 +8568,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CookieManagementTest.php' => 
     array (
-      0 => '993e121093e58366de32ad4f838e54bf99520607',
+      0 => 'fb90580e50ecfa79304e7fc4e9de8fd8370e0317',
       1 => 
       array (
         0 => 'tests\\unit\\cookiemanagementtest',
@@ -8583,7 +8583,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CookieSecurityTest.php' => 
     array (
-      0 => '7ca8b055753998068a58d4b6d07bba4a9a8aa047',
+      0 => '28d5c4730a0b5903c2b52c1d11dac47eba600958',
       1 => 
       array (
         0 => 'tests\\unit\\cookiesecuritytest',
@@ -8598,7 +8598,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CookieServiceTest.php' => 
     array (
-      0 => 'db4a591045d82c3d7d3ffc68aa147196d0e7622e',
+      0 => 'f1dcebf10f2c67bb47084460b4ddb38ac7d1af83',
       1 => 
       array (
         0 => 'tests\\unit\\cookieservicetest',
@@ -8613,7 +8613,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CrossBrowserTest.php' => 
     array (
-      0 => 'dd8a11b767408a96b5cb84fe44fd38d0a7f55b88',
+      0 => '4fb69217ea7f39184d92c7b334095d3813c53496',
       1 => 
       array (
         0 => 'tests\\unit\\crossbrowsertest',
@@ -8628,7 +8628,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CrossValidationTest.php' => 
     array (
-      0 => 'c4a7142868480e5d92142f723e6b2aa00f2bdd80',
+      0 => 'd8517080a0684bc984c06f31273b9f3b6071253a',
       1 => 
       array (
         0 => 'tests\\unit\\crossvalidationtest',
@@ -8643,7 +8643,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CSRFPreventionTest.php' => 
     array (
-      0 => '86448f928859fcbe6c1acd018c3dc607ed32c2b2',
+      0 => 'e5347be0be9345329f3267d69b204cbdf8147d67',
       1 => 
       array (
         0 => 'tests\\unit\\csrfpreventiontest',
@@ -8658,7 +8658,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CSVImportTest.php' => 
     array (
-      0 => '18acf7c39feffc6d1bca0a8c1db3f9b48ec63dbf',
+      0 => 'aa583a8c18059a7fdea0ceb56f43a42253530ad9',
       1 => 
       array (
         0 => 'tests\\unit\\csvimporttest',
@@ -8673,7 +8673,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CSVServiceTest.php' => 
     array (
-      0 => '182c9bbb34b46c688c9c158b0034a4274f19741c',
+      0 => '77f213f328ca5d9df46102c675d8e93791c95c0e',
       1 => 
       array (
         0 => 'tests\\unit\\csvservicetest',
@@ -8688,7 +8688,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CurrencyFormatLocalizationTest.php' => 
     array (
-      0 => 'e10928f0e658bc66ae0e0b0854a95a6865df107e',
+      0 => '138dce5d18d4b88056a7701f7ddb62934083aff6',
       1 => 
       array (
         0 => 'tests\\unit\\currencyformatlocalizationtest',
@@ -8703,7 +8703,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\CustomValidationTest.php' => 
     array (
-      0 => '7dccd978828254936f4fe9111c16284622778619',
+      0 => '2b6270a69d64df48ee72c8734fb37d97617668c3',
       1 => 
       array (
         0 => 'tests\\unit\\customvalidationtest',
@@ -8718,7 +8718,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DashboardPageTest.php' => 
     array (
-      0 => 'ba07f40fc2c7e26b6b14ccd7f789e38463d4c964',
+      0 => 'f0e3de1aa3c3280873c7a9e9ae857066f8d52853',
       1 => 
       array (
         0 => 'tests\\unit\\dashboardpagetest',
@@ -8733,7 +8733,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseAuthorizationTest.php' => 
     array (
-      0 => '759d1fc9c526451dbfe2d8fe6e792cb79a8c36bf',
+      0 => '229a05d148cebaf4605f938673b4d9e587842b10',
       1 => 
       array (
         0 => 'tests\\unit\\databaseauthorizationtest',
@@ -8748,7 +8748,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseCacheDriverTest.php' => 
     array (
-      0 => 'e153c4edfd383071dce6734793ba32d8f3589366',
+      0 => 'fe26dfcec33bea958fb6cc484da2a7de7780f1c9',
       1 => 
       array (
         0 => 'tests\\unit\\databasecachedrivertest',
@@ -8763,7 +8763,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseCreationTest.php' => 
     array (
-      0 => 'bec34260cc8b6b17f6311d872df437c80c66eb94',
+      0 => 'b87f5fedba165c5eaaf8eb4de8248aa802efe3b7',
       1 => 
       array (
         0 => 'tests\\unit\\databasecreationtest',
@@ -8778,7 +8778,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseDocumentationTest.php' => 
     array (
-      0 => '1cfbafb8a4d68faac0c2462423068b1ee812bbfd',
+      0 => '2da0e7b378ebd9f880745e6127470cf22ded961e',
       1 => 
       array (
         0 => 'tests\\unit\\databasedocumentationtest',
@@ -8793,7 +8793,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseMigrationsTest.php' => 
     array (
-      0 => 'd38ed33833180e0cb7faea4bd05ad293179c2b0f',
+      0 => 'add53d3a3397ce095d386000e7f46d2d193ed70a',
       1 => 
       array (
         0 => 'tests\\unit\\databasemigrationstest',
@@ -8808,7 +8808,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseQuerySpeedTest.php' => 
     array (
-      0 => '461d1888b6fc5a075286d5f71389ebf60e19b49a',
+      0 => '30f3a5775b0c5daf08e945bbedc359e72ba6cc4b',
       1 => 
       array (
         0 => 'tests\\unit\\databasequeryspeedtest',
@@ -8823,7 +8823,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseSeedingTest.php' => 
     array (
-      0 => '7e149b3c5064fa935d3c0e25d526af642272775f',
+      0 => '69435de2080464a5934fb35214d8e668cea1c6c2',
       1 => 
       array (
         0 => 'tests\\unit\\databaseseedingtest',
@@ -8838,7 +8838,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseServiceTest.php' => 
     array (
-      0 => '741c4cff61407fc2d4df9f18a0b664a9e126c239',
+      0 => '66f969b6662326977d144f2901f86c4847f6c0bf',
       1 => 
       array (
         0 => 'tests\\unit\\databaseservicetest',
@@ -8853,7 +8853,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseShardingTest.php' => 
     array (
-      0 => '146864459d689a951153df7f7f069ec40fdec818',
+      0 => 'de6b43e78d0a02c22ad7fdd80aaa0a75dacc3fd1',
       1 => 
       array (
         0 => 'tests\\unit\\databaseshardingtest',
@@ -8868,7 +8868,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DatabaseTransactionsTest.php' => 
     array (
-      0 => 'c51c8ffc76cd228da892edd90fde7f7ed234cbde',
+      0 => 'c4fc6421e8f636d93e5aa0eaad4a0ccd836952e6',
       1 => 
       array (
         0 => 'tests\\unit\\databasetransactionstest',
@@ -8883,7 +8883,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataDeletionTest.php' => 
     array (
-      0 => '1f913663dca4a8b1c8e537cf99a6850564575c78',
+      0 => 'e2c59e2ffa28383a4adba451aa77611c535cf952',
       1 => 
       array (
         0 => 'tests\\unit\\datadeletiontest',
@@ -8898,7 +8898,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataFilteringTest.php' => 
     array (
-      0 => 'cf4514599de5f6ec9e6e685b914fcd4b44e59a0b',
+      0 => 'f1c020077cc023f55e4ff006e87969ef191b84aa',
       1 => 
       array (
         0 => 'tests\\unit\\datafilteringtest',
@@ -8913,7 +8913,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataInsertionTest.php' => 
     array (
-      0 => '499b05ceb69a7c5ae0f724a7c728a6ab5590e6d5',
+      0 => '19534b096eed8b85bb482305514bf17d74c41079',
       1 => 
       array (
         0 => 'tests\\unit\\datainsertiontest',
@@ -8928,7 +8928,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataPaginationTest.php' => 
     array (
-      0 => '0dcf8ade74c790f72a7bcfee6da0ef3db3e4c250',
+      0 => 'f9b4ff8a418ce35fdca7b1fb708a802d0ab5216d',
       1 => 
       array (
         0 => 'tests\\unit\\datapaginationtest',
@@ -8943,7 +8943,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataSelectionTest.php' => 
     array (
-      0 => '3fa7c9484ebffd210e3769b0bfb976108f8da7f5',
+      0 => '43d01ec730ba95e0fce5d0766a3ca5564cf15a54',
       1 => 
       array (
         0 => 'tests\\unit\\dataselectiontest',
@@ -8958,7 +8958,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataSortingTest.php' => 
     array (
-      0 => 'a7a9ab70335360b0a602de1a77c687df3dfbfb07',
+      0 => '70b7c3ce697fd523e6830d33c91152ef67ef5a6c',
       1 => 
       array (
         0 => 'tests\\unit\\datasortingtest',
@@ -8973,7 +8973,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataTablesTest.php' => 
     array (
-      0 => '30edd8ca84edc1f1d96821e4d184291dc4061ca8',
+      0 => '2e397c1ebe69e01b2e2e6b072cbcbeb5bebaa68b',
       1 => 
       array (
         0 => 'tests\\unit\\datatablestest',
@@ -8988,7 +8988,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DataUpdateTest.php' => 
     array (
-      0 => '6b453cb6d64cd6f44ed2ca2f8ef802fcf7d74cbb',
+      0 => 'f8ed1413908e869ae9571ab1cb5785162d2ccb71',
       1 => 
       array (
         0 => 'tests\\unit\\dataupdatetest',
@@ -9003,7 +9003,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DateFormatLocalizationTest.php' => 
     array (
-      0 => 'c7ed801af7619b5bb053d8f690040495b3d7cc04',
+      0 => '3a61d9e5b6b4882a72e2129af06b4d0d32267d4a',
       1 => 
       array (
         0 => 'tests\\unit\\dateformatlocalizationtest',
@@ -9018,7 +9018,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DateTimeValidationTest.php' => 
     array (
-      0 => 'eb0b99541eb4f1e0bbc23dec2de6c95df31895c7',
+      0 => '03c7a9b9e705ccd7f1a57625ea6d39e9ac8ef8e7',
       1 => 
       array (
         0 => 'tests\\unit\\datetimevalidationtest',
@@ -9033,7 +9033,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DateValidationTest.php' => 
     array (
-      0 => '7828f92aebcc25d8c117900cb5e4fcd26e0978cb',
+      0 => 'bc74ef81260bed15f519a34cbc0c979b59c9d5f1',
       1 => 
       array (
         0 => 'tests\\unit\\datevalidationtest',
@@ -9048,7 +9048,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DecimalSeparatorLocalizationTest.php' => 
     array (
-      0 => '6d865a7809e97dc333baaa530d0e206c06f1be20',
+      0 => '8f9f1231f25984180bbf4a63d1cea03950b65ee8',
       1 => 
       array (
         0 => 'tests\\unit\\decimalseparatorlocalizationtest',
@@ -9063,7 +9063,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DecisionTreeTest.php' => 
     array (
-      0 => '7ca67ed0b79786cc70eaf52ef24d7b2f7be6c7ad',
+      0 => 'afd45ebd11c29d1935d185925695eb0f49b202e2',
       1 => 
       array (
         0 => 'tests\\unit\\decisiontreetest',
@@ -9078,7 +9078,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DeepLearningTest.php' => 
     array (
-      0 => '555ef9fdad0cf8ebe1c4bf386d10e02a41e5227a',
+      0 => 'a1d534de691a2fb4003ba3ad6a28eeee9ab911a4',
       1 => 
       array (
         0 => 'tests\\unit\\deeplearningtest',
@@ -9093,7 +9093,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DeveloperGuideTest.php' => 
     array (
-      0 => 'f27d800b1177fb282b20149e921421ffdd07dbc2',
+      0 => '01790ccad403102d6f38bb403b50034955896795',
       1 => 
       array (
         0 => 'tests\\unit\\developerguidetest',
@@ -9108,7 +9108,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DigitalSignatureTest.php' => 
     array (
-      0 => '0f7060fc9ade0ebdccda764d2881c41216371fc8',
+      0 => 'de7556f5f1cff19d1b4614aae817d3bc7274fc70',
       1 => 
       array (
         0 => 'tests\\unit\\digitalsignaturetest',
@@ -9123,7 +9123,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DimensionalityReductionTest.php' => 
     array (
-      0 => 'abbcd96448e9cb1a14cc5cb27f22d4cbee2ff5b5',
+      0 => 'dd3b5e738d89edaab009e8d6eca8b74234b3069a',
       1 => 
       array (
         0 => 'tests\\unit\\dimensionalityreductiontest',
@@ -9138,7 +9138,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DiskIOTest.php' => 
     array (
-      0 => '353372080486cc7eff59391afa0bb6df6e33d8d0',
+      0 => 'c17a8da9178894934840604e95158dfed8274171',
       1 => 
       array (
         0 => 'tests\\unit\\diskiotest',
@@ -9153,7 +9153,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DocumentAuthorizationTest.php' => 
     array (
-      0 => '22bc7d85fd1b494a00a8f6210d88c6a061dfaa85',
+      0 => '70d89c3fb5a6c6ddb7939842ae7193998f32bd23',
       1 => 
       array (
         0 => 'tests\\unit\\documentauthorizationtest',
@@ -9168,7 +9168,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DocumentsPageTest.php' => 
     array (
-      0 => 'bd34f4ae92f5ae45796ee83ef99ec413a56ab5ac',
+      0 => '8c1fa134758c015f6df07d9b2698b5c8fd9816be',
       1 => 
       array (
         0 => 'tests\\unit\\documentspagetest',
@@ -9183,7 +9183,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DocumentUploadEndpointTest.php' => 
     array (
-      0 => '25cf009e55cf485aea2d74f7a857f1cbaa619c53',
+      0 => 'b8be6f9e0cf5869ed678dcade213a61002aa5a17',
       1 => 
       array (
         0 => 'tests\\unit\\documentuploadendpointtest',
@@ -9198,7 +9198,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DropdownMenusTest.php' => 
     array (
-      0 => '604c7aed1c61da0c3dc5afd63f4581123f97c85d',
+      0 => '7d6e3b400c1128c2cb8128a172fe42d7042e304b',
       1 => 
       array (
         0 => 'tests\\unit\\dropdownmenustest',
@@ -9213,7 +9213,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\DynamicAuthorizationTest.php' => 
     array (
-      0 => 'ade1bb469468158959d44b1640bb4bf74f6a6625',
+      0 => '7ed2550f72a266eafc3f594e34b614df63dcde65',
       1 => 
       array (
         0 => 'tests\\unit\\dynamicauthorizationtest',
@@ -9228,7 +9228,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EagerLoadingTest.php' => 
     array (
-      0 => '557cdcc961b85425e09ca24a82950420aa26a7b7',
+      0 => '6b5c08a5d9d232e0ccfa1cfaeedb6fa28b0d7715',
       1 => 
       array (
         0 => 'tests\\unit\\eagerloadingtest',
@@ -9243,7 +9243,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EmailSendEndpointTest.php' => 
     array (
-      0 => 'c772ff5ea80897ab69750f8c9c0f5164467e6c56',
+      0 => '7bd89d530efd64cefffc4bddb34753a4fa8df8db',
       1 => 
       array (
         0 => 'tests\\unit\\emailsendendpointtest',
@@ -9258,7 +9258,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EmailServiceTest.php' => 
     array (
-      0 => '8d81f19dcbc26fc39abc7014c15b9fc739846988',
+      0 => 'c6f25175b8dc6b59e9e5441fbb0cb7bd9637eaee',
       1 => 
       array (
         0 => 'tests\\unit\\emailservicetest',
@@ -9273,7 +9273,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EmailSystemTest.php' => 
     array (
-      0 => 'fbfe7ebb4f38c4baebc50fb556db099ad9f31811',
+      0 => '51e780b1beb46a0f9eb727e8736d641ec6948290',
       1 => 
       array (
         0 => 'tests\\unit\\emailsystemtest',
@@ -9288,7 +9288,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EmailVerificationTest.php' => 
     array (
-      0 => 'c375b6cc28f7ea996e682eca295cfd06c04f9c75',
+      0 => '7a0f5cbbd080ca0cb1be552d670b49fc8a05933b',
       1 => 
       array (
         0 => 'tests\\unit\\emailverificationtest',
@@ -9303,7 +9303,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EncryptionServiceTest.php' => 
     array (
-      0 => '14ba50e7a20f509d91ed70d83071b2c890ff0703',
+      0 => '4724c34e6d8a16fe3bdd4d0ba299586a9f407303',
       1 => 
       array (
         0 => 'tests\\unit\\encryptionservicetest',
@@ -9318,7 +9318,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EncryptionStandardsTest.php' => 
     array (
-      0 => 'fd9cd6b3a175d181abb0aad50aa6468aedf801c0',
+      0 => '4126911d187a95f02eff1df5c638929055d8ba11',
       1 => 
       array (
         0 => 'tests\\unit\\encryptionstandardstest',
@@ -9333,7 +9333,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EnduranceTestingTest.php' => 
     array (
-      0 => '6a27fb228f43b96e5c47a04126c49a9ddf9eb5ec',
+      0 => '8a882c128b71267543f251cf0e8377c845f9c6d6',
       1 => 
       array (
         0 => 'tests\\unit\\endurancetestingtest',
@@ -9348,7 +9348,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EnglishLanguageTest.php' => 
     array (
-      0 => '26e339cc023f56b198a1a8470087a9d9d3ded396',
+      0 => '0ce0be32b4c031d19d390a745d24ce7c12325a75',
       1 => 
       array (
         0 => 'tests\\unit\\englishlanguagetest',
@@ -9363,7 +9363,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EnsembleMethodsTest.php' => 
     array (
-      0 => '7ccda4a4c3bc94e3236ffc0b48e6e3e7603cc225',
+      0 => '7bc440567a9324b53784d03caa05723f8d6fb9e4',
       1 => 
       array (
         0 => 'tests\\unit\\ensemblemethodstest',
@@ -9378,7 +9378,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EnvironmentDocumentationTest.php' => 
     array (
-      0 => 'bd298ea2d3a283852a22c10d61b6dfc39dd85654',
+      0 => '4db132d75028e234e8b8ecde896a7200865af8ea',
       1 => 
       array (
         0 => 'tests\\unit\\environmentdocumentationtest',
@@ -9393,7 +9393,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ErrorPage404Test.php' => 
     array (
-      0 => '012c38bc22fbf64a3d2f9b244c90cb5d733c48e3',
+      0 => '71ce16abec82b0d1ffd6d800feb653a34702fb4d',
       1 => 
       array (
         0 => 'tests\\unit\\errorpage404test',
@@ -9408,7 +9408,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ErrorPage500Test.php' => 
     array (
-      0 => 'd61b19355880d825950a6c2c4c9b1c3c67f31221',
+      0 => 'c0456d2cb98e2225d2ff5fc8f943f35ebf27af46',
       1 => 
       array (
         0 => 'tests\\unit\\errorpage500test',
@@ -9423,7 +9423,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EventAuthorizationTest.php' => 
     array (
-      0 => '1c8360bbcb5277ea428849d3f4718632a856d6d2',
+      0 => 'c23ecda87c8484939c5e6192b27a150f6941a212',
       1 => 
       array (
         0 => 'tests\\unit\\eventauthorizationtest',
@@ -9438,7 +9438,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EventHandlingTest.php' => 
     array (
-      0 => '6eace9ca62e4d617fa1008665b2fa410204843ed',
+      0 => '1c6dec99bc6c4496f5dd914e9f5b90b0f56ca862',
       1 => 
       array (
         0 => 'tests\\unit\\eventhandlingtest',
@@ -9453,7 +9453,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\EventServiceTest.php' => 
     array (
-      0 => '0475e445d6d4056a9a5ff764834ae7c95789d728',
+      0 => 'ed9fcac5ba61e75780a478bab0c6a03c8fcc2e3d',
       1 => 
       array (
         0 => 'tests\\unit\\eventservicetest',
@@ -9468,7 +9468,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ExistsValidationTest.php' => 
     array (
-      0 => '0d68437e551f73136f16afcdb6e3619ea92f4656',
+      0 => 'a6342b97d2acce69aa1d64d5000752a465e717f9',
       1 => 
       array (
         0 => 'tests\\unit\\existsvalidationtest',
@@ -9483,7 +9483,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ExportEndpointTest.php' => 
     array (
-      0 => '810180d9a466872e8e42cf048c5e16da73228ff2',
+      0 => '92215bb8521814940228b531b43de1e6ed978230',
       1 => 
       array (
         0 => 'tests\\unit\\exportendpointtest',
@@ -9498,7 +9498,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FAQDocumentationTest.php' => 
     array (
-      0 => '9ef7f43aeb1f054e9b1c599ec9d123d76755c3b4',
+      0 => 'fc4fb244bc05c3d32b6a15a68158c683799cbddc',
       1 => 
       array (
         0 => 'tests\\unit\\faqdocumentationtest',
@@ -9513,7 +9513,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FederatedLearningTest.php' => 
     array (
-      0 => 'b540cd5229466d3dd2a4a78e451e05417f6b1adf',
+      0 => 'deccda1b5217bde0778fb75b17e2dde8c3bfded2',
       1 => 
       array (
         0 => 'tests\\unit\\federatedlearningtest',
@@ -9528,7 +9528,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FileCacheDriverTest.php' => 
     array (
-      0 => '135a388e1d525b33cc58783101851628ff1acae6',
+      0 => 'ab311660fad2008e2319a35466058484cf0b0204',
       1 => 
       array (
         0 => 'tests\\unit\\filecachedrivertest',
@@ -9543,7 +9543,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FileServiceTest.php' => 
     array (
-      0 => 'b89a1ecdee223fa20dc6c495dc38d4b605f5de31',
+      0 => 'dec20dc883a225250a83c22e7d573be4cb4dfea3',
       1 => 
       array (
         0 => 'tests\\unit\\fileservicetest',
@@ -9558,7 +9558,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FileUploadEndpointTest.php' => 
     array (
-      0 => '3e6fd2e5d5122cdf1ea0b39d681770518cbbc065',
+      0 => '0182c5469cdb2be2ba2486f64b87fc957fa536bd',
       1 => 
       array (
         0 => 'tests\\unit\\fileuploadendpointtest',
@@ -9573,7 +9573,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FileUploadPageTest.php' => 
     array (
-      0 => '2546a4bb8b1b9476ca2ce115f50041d22735c3ea',
+      0 => '0a3042ab5f849874e254e04999502bd19e6c083d',
       1 => 
       array (
         0 => 'tests\\unit\\fileuploadpagetest',
@@ -9588,7 +9588,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FileValidationTest.php' => 
     array (
-      0 => 'e041d3fd61f911ce603d0d9e08c892cbe69d4e54',
+      0 => 'd309271d60afea618c28a0616a4550a7b576e002',
       1 => 
       array (
         0 => 'tests\\unit\\filevalidationtest',
@@ -9603,7 +9603,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FilterEndpointTest.php' => 
     array (
-      0 => '8e520ea9de34abbefa301fe2959ae8bdafdb55a4',
+      0 => 'bf944c2b83a506a477c17a82e7076ab9e976e50d',
       1 => 
       array (
         0 => 'tests\\unit\\filterendpointtest',
@@ -9618,7 +9618,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FilterFunctionalityTest.php' => 
     array (
-      0 => '6c19dd1ef36736fd16fbe59609fb87f84ffe216e',
+      0 => 'cc0ab3c562ebfc04301889abf54dd789cf885982',
       1 => 
       array (
         0 => 'tests\\unit\\filterfunctionalitytest',
@@ -9633,7 +9633,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FilteringFunctionalityTest.php' => 
     array (
-      0 => 'a1763fc8f6f9043817085497ae9986c457760fd4',
+      0 => 'b16219e9e0c88f7fbd60e1838c25d3c488243b9d',
       1 => 
       array (
         0 => 'tests\\unit\\filteringfunctionalitytest',
@@ -9648,7 +9648,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FirewallRulesTest.php' => 
     array (
-      0 => '80aa59dbad6edc48e1234bf2d311a7abb8813517',
+      0 => 'ccf489ae15fb51e1b7ba589b47d6e99f79281cc2',
       1 => 
       array (
         0 => 'tests\\unit\\firewallrulestest',
@@ -9663,7 +9663,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FloatValidationTest.php' => 
     array (
-      0 => '9d316359f24f38544d1fc3600393f5d38e863b30',
+      0 => '40b8577e00f253cbc4a3a72709323379dec3d12b',
       1 => 
       array (
         0 => 'tests\\unit\\floatvalidationtest',
@@ -9678,7 +9678,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FooterComponentTest.php' => 
     array (
-      0 => '47731fe791e7423e0c39ee74542428ae43858c39',
+      0 => '3ff9d368d60b1420cbf2ffd45de1a2b10d0f1109',
       1 => 
       array (
         0 => 'tests\\unit\\footercomponenttest',
@@ -9693,7 +9693,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ForeignKeysTest.php' => 
     array (
-      0 => '9aeb8ed73d556a27a063a8fb0a3cae7386f698c9',
+      0 => '8d3fc74250d69876dfcac2d6f9c51766b5f7077e',
       1 => 
       array (
         0 => 'tests\\unit\\foreignkeystest',
@@ -9708,7 +9708,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FormatStringPreventionTest.php' => 
     array (
-      0 => 'f7bd998fedec70bc6b159af2bd5dba79a9fc4fff',
+      0 => 'e572882d26f7e61534c8777c39655c2d4b95db6e',
       1 => 
       array (
         0 => 'tests\\unit\\formatstringpreventiontest',
@@ -9723,7 +9723,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FrenchLanguageTest.php' => 
     array (
-      0 => '204a74f3609f65c38cb1915a731c02b5f9b6b7dd',
+      0 => '6e3ea718aa013d971600207a341d1aaee48702ea',
       1 => 
       array (
         0 => 'tests\\unit\\frenchlanguagetest',
@@ -9738,7 +9738,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FunctionAuthorizationTest.php' => 
     array (
-      0 => '10204bc03b2819c0fad8b2195b7b7e1698c89e53',
+      0 => '7f26eb97e4fee477b58b7c3e76eae3533d072d7c',
       1 => 
       array (
         0 => 'tests\\unit\\functionauthorizationtest',
@@ -9753,7 +9753,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FunctionDocumentationTest.php' => 
     array (
-      0 => '58e2b94c0812ed587965ab338ea4000632ef38ea',
+      0 => '76ca539793437fb6971f714ae65ecba624f44ad0',
       1 => 
       array (
         0 => 'tests\\unit\\functiondocumentationtest',
@@ -9768,7 +9768,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\FunctionOptimizationTest.php' => 
     array (
-      0 => 'b2a4b1054f67565943cd3d9d5c859ed439812ff4',
+      0 => 'caa2636edca5780edbae4346137dd2f57ac30045',
       1 => 
       array (
         0 => 'tests\\unit\\functionoptimizationtest',
@@ -9783,7 +9783,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\GDPRComplianceTest.php' => 
     array (
-      0 => '758e4661eee35f6bf94a3a434f3aa3eb0f0b9001',
+      0 => '249267e65e826cabd2590b14a4c1116135a49f1a',
       1 => 
       array (
         0 => 'tests\\unit\\gdprcompliancetest',
@@ -9798,7 +9798,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\GermanLanguageTest.php' => 
     array (
-      0 => '678492c27ceeb3081c77a36576c3012b5cef19f4',
+      0 => '6a626b875c026ecb697bffceddba7019025d7f1b',
       1 => 
       array (
         0 => 'tests\\unit\\germanlanguagetest',
@@ -9813,7 +9813,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HashServiceTest.php' => 
     array (
-      0 => '47f5d4bf24ac7f294f87e96e5832e74284bfeaf6',
+      0 => 'cd606734995880d23827f3d3a1b4012e91379341',
       1 => 
       array (
         0 => 'tests\\unit\\hashservicetest',
@@ -9828,7 +9828,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HeaderComponentTest.php' => 
     array (
-      0 => 'a9f5cb81790048719066ec4c16a669fc013381ab',
+      0 => '1fe99dd87bea3d2139e75c4ab3fa4fe5670521de',
       1 => 
       array (
         0 => 'tests\\unit\\headercomponenttest',
@@ -9843,7 +9843,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HeaderSecurityTest.php' => 
     array (
-      0 => 'e2872ffdebb62a236cefb13987c3126a1c595312',
+      0 => 'e4e8c56fb690c9ec52770ac011e9ec9a6b24ccb1',
       1 => 
       array (
         0 => 'tests\\unit\\headersecuritytest',
@@ -9858,7 +9858,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HelperServiceTest.php' => 
     array (
-      0 => '26f3a3d9d2a70cd16109471bf001ab05ef897fef',
+      0 => 'ffab0e5f3e3a8f0098936e368248e8200eaecd36',
       1 => 
       array (
         0 => 'tests\\unit\\helperservicetest',
@@ -9873,7 +9873,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HindiLanguageTest.php' => 
     array (
-      0 => '0c99b8d9a7c416ddfe8b2cd495a5441a1f9aa84a',
+      0 => '6ba09f434f7b972beb55b9b8aa9665ce1670ade8',
       1 => 
       array (
         0 => 'tests\\unit\\hindilanguagetest',
@@ -9888,7 +9888,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HIPAAComplianceTest.php' => 
     array (
-      0 => '00be4d83917e8b7469f39297b6c1b21e1c39b5b0',
+      0 => '56eb3d17548014b28fb55fbf0024a1946bbb86d9',
       1 => 
       array (
         0 => 'tests\\unit\\hipaacompliancetest',
@@ -9903,7 +9903,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HttpsEnforcementTest.php' => 
     array (
-      0 => '9506467dd59736e13c373f95e0e3a405f871332a',
+      0 => '62e9d2146167c4bbcaef5a28461295d61daf49b0',
       1 => 
       array (
         0 => 'tests\\unit\\httpsenforcementtest',
@@ -9918,7 +9918,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\HyperparameterTuningTest.php' => 
     array (
-      0 => '8a9dde254570a839bc12265c195b82e83c011405',
+      0 => '03bf7028d375c106b0fa2de40c5e3075aacb4b86',
       1 => 
       array (
         0 => 'tests\\unit\\hyperparametertuningtest',
@@ -9933,7 +9933,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImageGalleryPageTest.php' => 
     array (
-      0 => '9262b11c1e4fd7cdb5b9c611499f31b80d3ce983',
+      0 => 'a971454a9611f4bb7461a3535f1d54e5928fae65',
       1 => 
       array (
         0 => 'tests\\unit\\imagegallerypagetest',
@@ -9948,7 +9948,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImageOptimizationTest.php' => 
     array (
-      0 => '5998ee1da118d0273234d24a85ac60f608539ff2',
+      0 => '56e29bfe6304adb61fc56bde122f6ff984dd34b5',
       1 => 
       array (
         0 => 'tests\\unit\\imageoptimizationtest',
@@ -9963,7 +9963,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImageRecognitionTest.php' => 
     array (
-      0 => '23db1e5c4c32fc083f9bd759147bed67bfb70d62',
+      0 => '1aae5ec2e98493432fba9695689e264073c128e3',
       1 => 
       array (
         0 => 'tests\\unit\\imagerecognitiontest',
@@ -9978,7 +9978,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImageServiceTest.php' => 
     array (
-      0 => '380a05c9c7f879639cd1b3f48b36f8b01251bd52',
+      0 => 'd28d12c4b05e68b92b85fbfb98553639501f45b7',
       1 => 
       array (
         0 => 'tests\\unit\\imageservicetest',
@@ -9993,7 +9993,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImageUploadEndpointTest.php' => 
     array (
-      0 => 'b2ccf76bf845b7672ab508c25cd539c9f4c6fdd6',
+      0 => '7fcd30b3b9df8ad9da26a9f8e9d3364bbb5360f0',
       1 => 
       array (
         0 => 'tests\\unit\\imageuploadendpointtest',
@@ -10008,7 +10008,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImageValidationTest.php' => 
     array (
-      0 => '06f1a75fe0adb0c1e09f8584003e62a8976dce20',
+      0 => '438a8ab20d97746e0ae364767e449651fbb60e98',
       1 => 
       array (
         0 => 'tests\\unit\\imagevalidationtest',
@@ -10023,7 +10023,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ImportEndpointTest.php' => 
     array (
-      0 => '913c9f7b0aaf10b27d50bd6141b33958ed505f5e',
+      0 => '3d229a847df94dc885b512a2be163de5c870bf12',
       1 => 
       array (
         0 => 'tests\\unit\\importendpointtest',
@@ -10038,7 +10038,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IndexCreationTest.php' => 
     array (
-      0 => 'f18453d357fd914e5ff9c6e70eb3d8abff83e45d',
+      0 => 'c128bb138d0a33967bdfb7e4759af722913a1e05',
       1 => 
       array (
         0 => 'tests\\unit\\indexcreationtest',
@@ -10053,7 +10053,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IndexOptimizationTest.php' => 
     array (
-      0 => '4c42f7feaf0a18cf93de4578f229249fe5aef531',
+      0 => '99e1e8cd41a51c18c8f51e5345df26f620088fed',
       1 => 
       array (
         0 => 'tests\\unit\\indexoptimizationtest',
@@ -10068,7 +10068,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\InputValidationTest.php' => 
     array (
-      0 => 'a8a2f953257df4ebd93b1adbedae207b9e09f7f1',
+      0 => 'fdd455473e559048b5a3901ce77b3a5cafed8671',
       1 => 
       array (
         0 => 'tests\\unit\\inputvalidationtest',
@@ -10083,7 +10083,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\InstallationGuideTest.php' => 
     array (
-      0 => 'ec9170f07a601abed11c205c0a02c4f45ff37f23',
+      0 => '45d95847afd22dba51cd4d90413009f1d91f5989',
       1 => 
       array (
         0 => 'tests\\unit\\installationguidetest',
@@ -10098,7 +10098,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IntrusionDetectionTest.php' => 
     array (
-      0 => '5422d692ef4c91b694c08243bec5b7e3eb3a14f5',
+      0 => '41ac24754ec1c9bb1fd3a93e1409a7006888a379',
       1 => 
       array (
         0 => 'tests\\unit\\intrusiondetectiontest',
@@ -10113,7 +10113,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IPAddressValidationTest.php' => 
     array (
-      0 => '70976606f39ffe15bddf6b5dc6dd47d01b90cef7',
+      0 => 'd7d672ff648e83f5db3f68cd4bbb64d92b342d9d',
       1 => 
       array (
         0 => 'tests\\unit\\ipaddressvalidationtest',
@@ -10128,7 +10128,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IPBlacklistingTest.php' => 
     array (
-      0 => '17463f362fc5045ed71360e2df2ed0176bb5117d',
+      0 => 'd8c4983634c87efaedc723fcbc5dc84d73956311',
       1 => 
       array (
         0 => 'tests\\unit\\ipblacklistingtest',
@@ -10143,7 +10143,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\IPWhitelistingTest.php' => 
     array (
-      0 => 'f7267ef81067081b716b71ae29690f5e8031e6a2',
+      0 => '6227b7866f97138d88ac4b4eac5a3e6d215d3bdc',
       1 => 
       array (
         0 => 'tests\\unit\\ipwhitelistingtest',
@@ -10158,7 +10158,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ISOComplianceTest.php' => 
     array (
-      0 => '348e32b6ad6649d18ebb432bb0567d5f139b86fa',
+      0 => '5d1f4990838c7e1896f2744df802f865454bce64',
       1 => 
       array (
         0 => 'tests\\unit\\isocompliancetest',
@@ -10173,7 +10173,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ItalianLanguageTest.php' => 
     array (
-      0 => '3cfcae96d2e02719afcc78f9957fa3352d2c461b',
+      0 => 'bd15a388d0889e4be74a8dd3bce2a5695a663ac0',
       1 => 
       array (
         0 => 'tests\\unit\\italianlanguagetest',
@@ -10188,7 +10188,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JapaneseLanguageTest.php' => 
     array (
-      0 => '816d28e8a79499c47f1cf44f2bf280ffda41c3d3',
+      0 => '37708feb186f2c4cac3e4ceb2c019fd7cafcf6f0',
       1 => 
       array (
         0 => 'tests\\unit\\japaneselanguagetest',
@@ -10203,7 +10203,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JobAuthorizationTest.php' => 
     array (
-      0 => 'c173ab577ba13ccd4d296740db984c2e3cadc88c',
+      0 => '24249f452b80f5025f3b080d7aa43113c61023cd',
       1 => 
       array (
         0 => 'tests\\unit\\jobauthorizationtest',
@@ -10218,7 +10218,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JobProcessingTest.php' => 
     array (
-      0 => 'dba0c74d44a06b0b1ee61bc129ad76ca565d1a92',
+      0 => 'f7ca4ca17d949d24832311d762f58643842e5a4f',
       1 => 
       array (
         0 => 'tests\\unit\\jobprocessingtest',
@@ -10233,7 +10233,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JobServiceTest.php' => 
     array (
-      0 => '5e8f8dbc447a4ad0288bc3d55c2f663c185a577c',
+      0 => '86d0c9e3bc029df588a1260caface5d41c3cd6de',
       1 => 
       array (
         0 => 'tests\\unit\\jobservicetest',
@@ -10248,7 +10248,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JoinOperationsTest.php' => 
     array (
-      0 => '7d010a67921188ca705f6a55a983d28ba2245f98',
+      0 => '39ccae96ef826559451a9cd645b7fec6b3af7907',
       1 => 
       array (
         0 => 'tests\\unit\\joinoperationstest',
@@ -10263,7 +10263,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JSONValidationTest.php' => 
     array (
-      0 => '2d947348ae828ce1a9f0cdb3ab1fc6952be35d26',
+      0 => '41319fca8836d74ba54f8ed885b230bef414d114',
       1 => 
       array (
         0 => 'tests\\unit\\jsonvalidationtest',
@@ -10278,7 +10278,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\JWTAuthenticationTest.php' => 
     array (
-      0 => '54052cd912b5dc98c392574cc33c864567e52db8',
+      0 => '30c4a58805341ee9da99bc9a32149c2558456c50',
       1 => 
       array (
         0 => 'tests\\unit\\jwtauthenticationtest',
@@ -10293,7 +10293,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\KeyManagementTest.php' => 
     array (
-      0 => 'a85ac91ba08b2f66a85a661b497720d59edd24d1',
+      0 => '2cdf638c166b6f62037a19880ad10326598df69c',
       1 => 
       array (
         0 => 'tests\\unit\\keymanagementtest',
@@ -10308,7 +10308,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\KMeansClusteringTest.php' => 
     array (
-      0 => 'c36068c13e5de7e206b006572bb4070ba1e3a65a',
+      0 => '6509643b83a00871a313a255eca77570bb11eef0',
       1 => 
       array (
         0 => 'tests\\unit\\kmeansclusteringtest',
@@ -10323,7 +10323,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\KoreanLanguageTest.php' => 
     array (
-      0 => 'b4a75ec570343586b066d3b8afac3f97da61aa53',
+      0 => '0022226a9cc99ca75f035cb9478ac00ded05d0f7',
       1 => 
       array (
         0 => 'tests\\unit\\koreanlanguagetest',
@@ -10338,7 +10338,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LatencyOptimizationTest.php' => 
     array (
-      0 => 'f3e1801ad369db1d7a2123022bf8ddb911767ac9',
+      0 => '2918d0fcb7955e3ed7dc6d423db84eb7af75e0c9',
       1 => 
       array (
         0 => 'tests\\unit\\latencyoptimizationtest',
@@ -10353,7 +10353,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LazyLoadingTest.php' => 
     array (
-      0 => 'd32f967689bfff926a1da972f3a14d438b1e6db5',
+      0 => '8ce41ca4e61d61e1b47846418572acfd1b65b7e7',
       1 => 
       array (
         0 => 'tests\\unit\\lazyloadingtest',
@@ -10368,7 +10368,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LDAPAuthenticationTest.php' => 
     array (
-      0 => '69e565f352e9f445fe84e5b1044114031037e75c',
+      0 => '4a932822c758941ed6d4d677933ceb33d5c55ad7',
       1 => 
       array (
         0 => 'tests\\unit\\ldapauthenticationtest',
@@ -10383,7 +10383,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LDAPInjectionPreventionTest.php' => 
     array (
-      0 => 'ee1de11f9a6b07a5b75a2d1c4fdaa33b2614e642',
+      0 => 'ecffb22e96281a801b94f5f7dfcf9fbc77b22a1e',
       1 => 
       array (
         0 => 'tests\\unit\\ldapinjectionpreventiontest',
@@ -10398,7 +10398,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LengthValidationTest.php' => 
     array (
-      0 => 'e6e60b46d3ab6bb32832e6beed22a55d450d5b07',
+      0 => '59d70199e01406d30abd9ced2ffdd1f73567b113',
       1 => 
       array (
         0 => 'tests\\unit\\lengthvalidationtest',
@@ -10413,7 +10413,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LinearRegressionTest.php' => 
     array (
-      0 => 'b945979e5f81ef15e630f22dbf1dfa8c651e55b7',
+      0 => 'f08faabca2cb3749b0307e701208dbf69adf3c97',
       1 => 
       array (
         0 => 'tests\\unit\\linearregressiontest',
@@ -10428,7 +10428,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LoadingOptimizationTest.php' => 
     array (
-      0 => '20572dda360d67394fa3d4ecc7c9fedc68221014',
+      0 => 'f7fc7f7946336b35703e613e268fcd82c0a1f556',
       1 => 
       array (
         0 => 'tests\\unit\\loadingoptimizationtest',
@@ -10443,7 +10443,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LocaleDetectionTest.php' => 
     array (
-      0 => '0638b1aeca6e2c024eb9e1e503cb196c35a6dfa1',
+      0 => 'a3f998fceaec3842190009c94164643de2cf5ab3',
       1 => 
       array (
         0 => 'tests\\unit\\localedetectiontest',
@@ -10458,7 +10458,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LocaleSwitchingTest.php' => 
     array (
-      0 => '4fb181615a38022d1d09439994919837ef7670b6',
+      0 => '18e58a93f567c4aa1e3463b287046024de89b5cb',
       1 => 
       array (
         0 => 'tests\\unit\\localeswitchingtest',
@@ -10473,7 +10473,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LocaleValidationTest.php' => 
     array (
-      0 => 'dd1c867d5e197817ced2955cf203a56c149a519f',
+      0 => 'b9f754ede03eee206ab3b80880a0dd6834b9cda8',
       1 => 
       array (
         0 => 'tests\\unit\\localevalidationtest',
@@ -10488,7 +10488,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LoggingSystemTest.php' => 
     array (
-      0 => '6991231b9e956bea5d67e186868bf35d074c969c',
+      0 => '270fd98b3f28f9141d15bdb3a79dede039904eb7',
       1 => 
       array (
         0 => 'tests\\unit\\loggingsystemtest',
@@ -10503,7 +10503,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LoginEndpointTest.php' => 
     array (
-      0 => 'c5279390138f55459431caf57922527ba03210fc',
+      0 => 'da347e2b13657aad9ea62a3c89cc181ec719301d',
       1 => 
       array (
         0 => 'tests\\unit\\loginendpointtest',
@@ -10518,7 +10518,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LoginPageTest.php' => 
     array (
-      0 => 'd6c9bca2093c1992e19dc0a71a72706001e526cd',
+      0 => 'f6c38c5dd4efadc0ace17f4ba45375a56787b60c',
       1 => 
       array (
         0 => 'tests\\unit\\loginpagetest',
@@ -10533,7 +10533,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LoginThrottlingTest.php' => 
     array (
-      0 => '6a7a9bdfc8afb24bff5955384c0c7317f7872856',
+      0 => '33585b6c7cf2a9e0f36547a23618de63ea17dd98',
       1 => 
       array (
         0 => 'tests\\unit\\loginthrottlingtest',
@@ -10548,7 +10548,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LogisticRegressionTest.php' => 
     array (
-      0 => 'd34ab716d442474331b94fe53e0fba209a8aace1',
+      0 => '4167d8e8411d233e8392f5efd0dcdd1af1b709a0',
       1 => 
       array (
         0 => 'tests\\unit\\logisticregressiontest',
@@ -10563,7 +10563,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LogoutEndpointTest.php' => 
     array (
-      0 => '7736315b5e44fe93a02a20fcf4c07c696c70269d',
+      0 => '8208fa1512195c8185b2449917db148ff14f0fed',
       1 => 
       array (
         0 => 'tests\\unit\\logoutendpointtest',
@@ -10578,7 +10578,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LogServiceTest.php' => 
     array (
-      0 => '895d820578abca9596e398d2c0be57682adea35a',
+      0 => '7cca2e4633aa1b50616c1c0d1d9ebd33abec1607',
       1 => 
       array (
         0 => 'tests\\unit\\logservicetest',
@@ -10593,7 +10593,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\LoopOptimizationTest.php' => 
     array (
-      0 => 'd6af249f1d81856b9d68434990728ce30851aa87',
+      0 => '7be3f5225137ee138aa796d686f4b00b0ee9f16d',
       1 => 
       array (
         0 => 'tests\\unit\\loopoptimizationtest',
@@ -10608,7 +10608,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MachineLearningModelTest.php' => 
     array (
-      0 => '1de400f10d13f809d760d891d836224cc56817c5',
+      0 => 'c5f3dc8545ffcf87415b8d75fd1c8afa935f8a53',
       1 => 
       array (
         0 => 'tests\\unit\\machinelearningmodeltest',
@@ -10623,7 +10623,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MaintenanceDocumentationTest.php' => 
     array (
-      0 => '14749bb2f43bf2f6a8b1f33f87b6519cbfb0c109',
+      0 => 'a3b4814cc2c7e6a03cba5b320b4489981d0597f9',
       1 => 
       array (
         0 => 'tests\\unit\\maintenancedocumentationtest',
@@ -10638,7 +10638,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MaintenanceEndpointTest.php' => 
     array (
-      0 => '3816b92a732290469606df9c5053661c3ac3f6e7',
+      0 => '1619c338d90224fb451254ae17bb952be1687cd6',
       1 => 
       array (
         0 => 'tests\\unit\\maintenanceendpointtest',
@@ -10653,7 +10653,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MaintenancePageTest.php' => 
     array (
-      0 => '1bd305c3cf5eb4ac139c3ef29b70c36987c2b150',
+      0 => 'a572a29597ed34219a3ada1e1a2eb11142485c65',
       1 => 
       array (
         0 => 'tests\\unit\\maintenancepagetest',
@@ -10668,7 +10668,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MalwareDetectionTest.php' => 
     array (
-      0 => 'a9a41713037b9a544af0fe471a8494345d5113c7',
+      0 => '7e0ae4d3d0a1f1a036891c19f61f0f92efa60a02',
       1 => 
       array (
         0 => 'tests\\unit\\malwaredetectiontest',
@@ -10683,7 +10683,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MaxLengthValidationTest.php' => 
     array (
-      0 => '5903a0ded6e94651a05b9a9c89f74f2e72d4ceb0',
+      0 => '03e71f71ded1473d7a7d3334d83dade379a45aa6',
       1 => 
       array (
         0 => 'tests\\unit\\maxlengthvalidationtest',
@@ -10698,7 +10698,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MemcachedCacheDriverTest.php' => 
     array (
-      0 => 'b06555a927900abff1a3e18ff6e38672a01dbe9c',
+      0 => 'c7d5778dcbc8cb979f022ade8f0b3f9255c5a719',
       1 => 
       array (
         0 => 'tests\\unit\\memcachedcachedrivertest',
@@ -10713,7 +10713,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MemoryOptimizationTest.php' => 
     array (
-      0 => '8864c743a00a42cfdd606925fcaaf3dd41e0d4ef',
+      0 => 'b857d80fa7b553efeacbf23a536c8c4f85336c34',
       1 => 
       array (
         0 => 'tests\\unit\\memoryoptimizationtest',
@@ -10728,7 +10728,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MessagesPageTest.php' => 
     array (
-      0 => 'f0a598d79baaf7ee1d274f62fb45b15ddec87a5b',
+      0 => '6f9a2489759347c3ccae82762ac4729422b7e24a',
       1 => 
       array (
         0 => 'tests\\unit\\messagespagetest',
@@ -10743,7 +10743,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MethodAuthorizationTest.php' => 
     array (
-      0 => '29c6b63728be54adbf8541689c704002f295647f',
+      0 => '79083a14b79ec933ab500109ebfe43003dd5c7b5',
       1 => 
       array (
         0 => 'tests\\unit\\methodauthorizationtest',
@@ -10758,7 +10758,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MethodDocumentationTest.php' => 
     array (
-      0 => '1ecbe75d7cc2d491238cbccbf048188fd952b40a',
+      0 => '95fe2b2becf0ce62d3422dc8ecb37b80f0407e85',
       1 => 
       array (
         0 => 'tests\\unit\\methoddocumentationtest',
@@ -10773,7 +10773,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MiddlewareServiceTest.php' => 
     array (
-      0 => '2b9d28ecce9814f2107bc5f87823bcc3faba9004',
+      0 => 'e7d8afcbdb2c4f5f907d3866ba353e7306ca970b',
       1 => 
       array (
         0 => 'tests\\unit\\middlewareservicetest',
@@ -10788,7 +10788,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MinificationTestingTest.php' => 
     array (
-      0 => '9b0050b9e8626368aec8f1c137ab5580b6f3e981',
+      0 => '561fa5ca0f6ac53de2e66b65f9ac497213ca9301',
       1 => 
       array (
         0 => 'tests\\unit\\minificationtestingtest',
@@ -10803,7 +10803,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MinLengthValidationTest.php' => 
     array (
-      0 => 'edbb36e67d574216aec8fab7e894ab47643e6ca8',
+      0 => 'a36b842cc8afd5e4acae92009c6080d690e184b2',
       1 => 
       array (
         0 => 'tests\\unit\\minlengthvalidationtest',
@@ -10818,7 +10818,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MobileCompatibilityTest.php' => 
     array (
-      0 => '36d4450d762079008953aefd3261e0f27db3cc08',
+      0 => '46185f68e64a3596c0034900fe6fe6b8159dde42',
       1 => 
       array (
         0 => 'tests\\unit\\mobilecompatibilitytest',
@@ -10833,7 +10833,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModalWindowsTest.php' => 
     array (
-      0 => '80bc186bd3407a0f06514bedb09a7b2674c7d96e',
+      0 => '31a7b409e39c35402881f4290eb3d5b797c437ac',
       1 => 
       array (
         0 => 'tests\\unit\\modalwindowstest',
@@ -10848,7 +10848,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelAuthorizationTest.php' => 
     array (
-      0 => '3465c0d9cdf59c98cd719335dcd976942d5afcca',
+      0 => 'a0630bb08603b3866d8b27ac2fa05acbe84a0684',
       1 => 
       array (
         0 => 'tests\\unit\\modelauthorizationtest',
@@ -10863,7 +10863,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelDeploymentTest.php' => 
     array (
-      0 => '17116cd93b48e750166bbf43ccf0db1e2da00914',
+      0 => '5a28487ce89b4eb9e76e14fd9f6b84cc08f0ebea',
       1 => 
       array (
         0 => 'tests\\unit\\modeldeploymenttest',
@@ -10878,7 +10878,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelEvaluationTest.php' => 
     array (
-      0 => '6c03c8ed318eae1cbdadf34d3336f65b05a5d400',
+      0 => '7f9649e3a46b9667f00c96eb5c9250168be881bc',
       1 => 
       array (
         0 => 'tests\\unit\\modelevaluationtest',
@@ -10893,7 +10893,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelMaintenanceTest.php' => 
     array (
-      0 => '3cae3586af4ebcf08e1a1eebbf30e050d49e6d83',
+      0 => 'f6ccf8817a09ae5c4def5db05317651cf7e9dd72',
       1 => 
       array (
         0 => 'tests\\unit\\modelmaintenancetest',
@@ -10908,7 +10908,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelMonitoringTest.php' => 
     array (
-      0 => '846ec7a67505d6822d26c010565e52b061d1bb21',
+      0 => '29337dd93249b034b0ffed6418c96844f289545a',
       1 => 
       array (
         0 => 'tests\\unit\\modelmonitoringtest',
@@ -10923,7 +10923,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelOptimizationTest.php' => 
     array (
-      0 => 'a4cc790aca16c35f83997105615e799c9c57d011',
+      0 => '64ab342bde4e9df74efa16a26f7bbbc8d536246f',
       1 => 
       array (
         0 => 'tests\\unit\\modeloptimizationtest',
@@ -10938,7 +10938,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelServiceTest.php' => 
     array (
-      0 => '8afa1a602d6f05d6693c5e590954eaa045a33ece',
+      0 => '5238842e38c13fe261f9bb05122fd84c6324af7f',
       1 => 
       array (
         0 => 'tests\\unit\\modelservicetest',
@@ -10953,7 +10953,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ModelValidationTest.php' => 
     array (
-      0 => '9c1faed6f4cda5411c57a245175b2d0304c48a5a',
+      0 => 'f4c901536cea2e21dfea5b2ce09b942b0f000f5b',
       1 => 
       array (
         0 => 'tests\\unit\\modelvalidationtest',
@@ -10968,7 +10968,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\MultiFactorAuthenticationTest.php' => 
     array (
-      0 => '784b7b5a13026a1d23293897f25c3de86f3c6655',
+      0 => 'b8db4ca7bd67124f554af731577a9c2b91e8eda3',
       1 => 
       array (
         0 => 'tests\\unit\\multifactorauthenticationtest',
@@ -10983,7 +10983,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NaiveBayesTest.php' => 
     array (
-      0 => '1090b4973229a2051ae7165f08233b74cfff428b',
+      0 => '35106a78456ff9f8f2c678a98470518d478f7d7c',
       1 => 
       array (
         0 => 'tests\\unit\\naivebayestest',
@@ -10998,7 +10998,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NestedValidationTest.php' => 
     array (
-      0 => 'bd4ae0562968a1c6a607bebd893e2c37ff3153ed',
+      0 => '44c4ead7b169bbb93aefd122c5e85e180e5fd8da',
       1 => 
       array (
         0 => 'tests\\unit\\nestedvalidationtest',
@@ -11013,7 +11013,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NetworkLatencyTest.php' => 
     array (
-      0 => '3bccebe58dca715a6cc91d3666e889cdecb6724f',
+      0 => '720d272398222f9ff3e42ed47a46ae0b49dd99c8',
       1 => 
       array (
         0 => 'tests\\unit\\networklatencytest',
@@ -11028,7 +11028,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NetworkOptimizationTest.php' => 
     array (
-      0 => 'cff515505fb689d44400da5056b6346770f582c2',
+      0 => '3e2f1b45a931364eb4f998196255dd845c986ce8',
       1 => 
       array (
         0 => 'tests\\unit\\networkoptimizationtest',
@@ -11043,7 +11043,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NetworkSecurityTest.php' => 
     array (
-      0 => 'f73ef46fb2f4511c7341fbb0eb6854e0ba479b90',
+      0 => 'bb7b5aa0f7f32806154b4cbcf4c8c9ea06622ea4',
       1 => 
       array (
         0 => 'tests\\unit\\networksecuritytest',
@@ -11058,7 +11058,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NeuralNetworkTest.php' => 
     array (
-      0 => '5249b90672fc825661e15c407d28d6196c38b3df',
+      0 => '0350f6dcf6f5f3146ebc19c27925a002b7eee0c7',
       1 => 
       array (
         0 => 'tests\\unit\\neuralnetworktest',
@@ -11073,7 +11073,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NeuralNetworkTrainingTest.php' => 
     array (
-      0 => 'd9c4726cf6b154ed91fa2e74509ce1d80ce4d68d',
+      0 => 'e349780403cb959e83301cb66183f8166ddff1bc',
       1 => 
       array (
         0 => 'tests\\unit\\neuralnetworktrainingtest',
@@ -11088,7 +11088,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NISTComplianceTest.php' => 
     array (
-      0 => '70220857624be2aedc91398418dac0aad7789a91',
+      0 => '9451a3ce19004b9326466d37d21af837a7599689',
       1 => 
       array (
         0 => 'tests\\unit\\nistcompliancetest',
@@ -11103,7 +11103,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NotificationAuthorizationTest.php' => 
     array (
-      0 => '586811bbd0e7c036d1fcee290a24b76bf2915838',
+      0 => '6db0e056c46b607498b048135c66ef1ea5c2e15f',
       1 => 
       array (
         0 => 'tests\\unit\\notificationauthorizationtest',
@@ -11118,7 +11118,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NotificationEndpointTest.php' => 
     array (
-      0 => 'a931e21ba3f99b906da29c0f282e77853ad0a408',
+      0 => '746a12b627b5c3bad2fcd194a5e58536aead7086',
       1 => 
       array (
         0 => 'tests\\unit\\notificationendpointtest',
@@ -11133,7 +11133,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NotificationSystemTest.php' => 
     array (
-      0 => '315d97444580f6d74ecf342e43f74d0838a06e26',
+      0 => '7a0a932f9927610d2fddf04cc33cce25338921ef',
       1 => 
       array (
         0 => 'tests\\unit\\notificationsystemtest',
@@ -11148,7 +11148,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NumberFormatLocalizationTest.php' => 
     array (
-      0 => 'cf9fe116f776515e75d5314c0c5b35b7a3453c07',
+      0 => 'a5165f7f90a7af35572420b6a5c6e7eceb0ce77d',
       1 => 
       array (
         0 => 'tests\\unit\\numberformatlocalizationtest',
@@ -11163,7 +11163,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\NumericValidationTest.php' => 
     array (
-      0 => '422766fad076f7c6adbe652c23a6279f8778d819',
+      0 => 'fb4c212378b91413d5cb8b0dac4ef02a3f699f48',
       1 => 
       array (
         0 => 'tests\\unit\\numericvalidationtest',
@@ -11178,7 +11178,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\OAuthAuthenticationTest.php' => 
     array (
-      0 => '8b346ab45e273e2010daf97aa92e5f5c43856fcb',
+      0 => 'b95c984ddceef2b8369b12085df759276852b7e0',
       1 => 
       array (
         0 => 'tests\\unit\\oauthauthenticationtest',
@@ -11193,7 +11193,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ObjectOptimizationTest.php' => 
     array (
-      0 => '547fab363f3315d6c46e9e5220f5b306af4d2d0d',
+      0 => '967d35388a64e0245170f9feb42f812e69f19bd7',
       1 => 
       array (
         0 => 'tests\\unit\\objectoptimizationtest',
@@ -11208,7 +11208,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ORMFunctionalityTest.php' => 
     array (
-      0 => '66e460446000cdb583c69ced43f79b3a67dcd381',
+      0 => '0e2b2851123801680c1ccae91da2c9029baee568',
       1 => 
       array (
         0 => 'tests\\unit\\ormfunctionalitytest',
@@ -11223,7 +11223,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\OutputEncodingTest.php' => 
     array (
-      0 => '67299d04ab78a51ded045de4837dee7890319f50',
+      0 => '2c4e776a20a843bfef99f02b51d9a47ce6ead60d',
       1 => 
       array (
         0 => 'tests\\unit\\outputencodingtest',
@@ -11238,7 +11238,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\OWASPComplianceTest.php' => 
     array (
-      0 => 'bee68e2d37b5ef70bb0fcac97997d9c49fad53ce',
+      0 => '15fbc787fe2ab6be823962450475f6ab14de06a8',
       1 => 
       array (
         0 => 'tests\\unit\\owaspcompliancetest',
@@ -11253,7 +11253,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PaginationComponentTest.php' => 
     array (
-      0 => '8ccdd1b243912a3e48c56e03f227ec4818acb07c',
+      0 => 'c98bc12488ff06a2984d3935786f2d22e7ac0b61',
       1 => 
       array (
         0 => 'tests\\unit\\paginationcomponenttest',
@@ -11268,7 +11268,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PaginationTest.php' => 
     array (
-      0 => '9eb6ee4e29cb3ddfb67b108cd3053b456ca1031c',
+      0 => '0e78ac2dd876be5a897c913ecbd5863acc946ac2',
       1 => 
       array (
         0 => 'tests\\unit\\paginationtest',
@@ -11283,7 +11283,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PasswordChangeTest.php' => 
     array (
-      0 => 'a30e56030c106a7fe3a685eae612102e7d42f28c',
+      0 => '1d145ece3a9598e94aa20b4203f0f3b335ede34d',
       1 => 
       array (
         0 => 'tests\\unit\\passwordchangetest',
@@ -11298,7 +11298,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PasswordPolicyTest.php' => 
     array (
-      0 => '4ce306344970584ed03270af1b5c4940ad1d3cc3',
+      0 => '32ec33bf29d39db4d13dd71e972ea902d929371a',
       1 => 
       array (
         0 => 'tests\\unit\\passwordpolicytest',
@@ -11313,7 +11313,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PasswordResetEndpointTest.php' => 
     array (
-      0 => '9fe92d27a77f7bdb76d29a18e1596c9cd30b8f54',
+      0 => '525ce0952159ca7063294a327cceecb851b260a7',
       1 => 
       array (
         0 => 'tests\\unit\\passwordresetendpointtest',
@@ -11328,7 +11328,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PasswordResetTest.php' => 
     array (
-      0 => 'b293a4b0b532fa16e82efdc4f807fee5996c05b2',
+      0 => 'e3ac613d229d5cdc5993eaf2dfd58161e978777c',
       1 => 
       array (
         0 => 'tests\\unit\\passwordresettest',
@@ -11343,7 +11343,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PatternRecognitionTest.php' => 
     array (
-      0 => 'bb7128588ac8e10c3190a308aecc913221bb1f5b',
+      0 => '722aa81b9fb89992689be77823c56dd391de21ef',
       1 => 
       array (
         0 => 'tests\\unit\\patternrecognitiontest',
@@ -11358,7 +11358,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PaymentGatewayTest.php' => 
     array (
-      0 => '5dea26e2866f0a6e28ca9c103d97a07d821eea6e',
+      0 => '12f91731e3074d3ddbac65a479bd303cd2d3e5f4',
       1 => 
       array (
         0 => 'tests\\unit\\paymentgatewaytest',
@@ -11373,7 +11373,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PCIComplianceTest.php' => 
     array (
-      0 => '09219b6c58ec2efc2d7a372789fbb8258697b0b2',
+      0 => '5d2714eb7c0644adb16d974c06cc06f92d7056ff',
       1 => 
       array (
         0 => 'tests\\unit\\pcicompliancetest',
@@ -11388,7 +11388,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PDFGenerationTest.php' => 
     array (
-      0 => '7afd7d01bbb71e6569dfc4cf51b86b3e8e5a65f1',
+      0 => '10b89409c9d8485fc48b515c1fda446525db3648',
       1 => 
       array (
         0 => 'tests\\unit\\pdfgenerationtest',
@@ -11403,7 +11403,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PDFServiceTest.php' => 
     array (
-      0 => '444cece858db5bf835495893e439a3f46fe4a7ff',
+      0 => 'ef78e283ea2f53ced11074947603183638eff98f',
       1 => 
       array (
         0 => 'tests\\unit\\pdfservicetest',
@@ -11418,7 +11418,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PerformanceDocumentationTest.php' => 
     array (
-      0 => '8e8c460b3064ded5de14b34e89ee382557a52e85',
+      0 => '5b1b0f864415994316a2365be8255604bca82639',
       1 => 
       array (
         0 => 'tests\\unit\\performancedocumentationtest',
@@ -11433,7 +11433,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PerformanceProfilingTest.php' => 
     array (
-      0 => 'e3a05734bccb5c397fbfb6944f57f0d5c8139fee',
+      0 => 'be5ad17149d57af3af86148d9b0443e2fc97cc4e',
       1 => 
       array (
         0 => 'tests\\unit\\performanceprofilingtest',
@@ -11448,7 +11448,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PermissionSystemTest.php' => 
     array (
-      0 => 'ac4bbf846db44c76a11f29ebf97e1b6c42e9af0e',
+      0 => '5d7ce89306e1f470f1d96dea30e6fcfb2dcf3af4',
       1 => 
       array (
         0 => 'tests\\unit\\permissionsystemtest',
@@ -11463,7 +11463,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PhoneValidationTest.php' => 
     array (
-      0 => '39ed0f9c7759718239f9feff3fefd6d862f13699',
+      0 => '35bedcd410cca2066f5e62b4334b497db06d749d',
       1 => 
       array (
         0 => 'tests\\unit\\phonevalidationtest',
@@ -11478,7 +11478,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PortugueseLanguageTest.php' => 
     array (
-      0 => '0d9aeb1bb97cd7b29464b17ff97d367ac7f0e044',
+      0 => '9c2ffaaa547adfc213d533ca5971830708852416',
       1 => 
       array (
         0 => 'tests\\unit\\portugueselanguagetest',
@@ -11493,7 +11493,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PredictiveAnalyticsTest.php' => 
     array (
-      0 => 'a2c629fc9ea83c87d7f0484c8091b31e460daa09',
+      0 => '9cc77409286e62fff3e933c6c24dcedd0213b0e8',
       1 => 
       array (
         0 => 'tests\\unit\\predictiveanalyticstest',
@@ -11508,7 +11508,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PrintStylesTest.php' => 
     array (
-      0 => '42dd8e990b69e96a1035fd4870899d1f7fedcf19',
+      0 => '334601d607e0a23ddc189b1e5404e72d647b48a6',
       1 => 
       array (
         0 => 'tests\\unit\\printstylestest',
@@ -11523,7 +11523,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PrivacyControlsTest.php' => 
     array (
-      0 => '56ff14a266d8cfc24d966ac694e3cbdcc7a887cf',
+      0 => '31941655d6be2841d7de4a637792e2e5efdb44c9',
       1 => 
       array (
         0 => 'tests\\unit\\privacycontrolstest',
@@ -11538,7 +11538,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ProfileEndpointTest.php' => 
     array (
-      0 => '071a5887eb7a64d1f2a05873dd0087ef049d5ce3',
+      0 => '79638fa361a8077fddaa99a332e34c7ed693e177',
       1 => 
       array (
         0 => 'tests\\unit\\profileendpointtest',
@@ -11553,7 +11553,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ProfilePageTest.php' => 
     array (
-      0 => '8a81aa749bef58bbbcd13d85b30fe1300c86650b',
+      0 => '7b690eddbdf687ce8bff91605b94fb001a35cc65',
       1 => 
       array (
         0 => 'tests\\unit\\profilepagetest',
@@ -11568,7 +11568,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ProfileUpdateEndpointTest.php' => 
     array (
-      0 => 'af3e8dc441b02258c6fc45c4a870caf61be7f100',
+      0 => 'ef75e9787390e9ee013ad45e4d690c7095464b38',
       1 => 
       array (
         0 => 'tests\\unit\\profileupdateendpointtest',
@@ -11583,7 +11583,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ProfileUpdateTest.php' => 
     array (
-      0 => '1220e5a448fca09eadeaee102b6cf23a293aa933',
+      0 => '8fd538f2577c8faa57a2a7a0659495939e07f4d2',
       1 => 
       array (
         0 => 'tests\\unit\\profileupdatetest',
@@ -11598,7 +11598,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ProjectsPageTest.php' => 
     array (
-      0 => '45ebd94e7521b0e2826b225fccf523be57396f8f',
+      0 => '63e95d41e0efe3a5791e4776850fb9290f470281',
       1 => 
       array (
         0 => 'tests\\unit\\projectspagetest',
@@ -11613,7 +11613,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\PushNotificationEndpointTest.php' => 
     array (
-      0 => '7a10cd994f9111d905c305faed73981176997158',
+      0 => 'd15e7bb7d91aab736e599280cdb83f2bc7c6daea',
       1 => 
       array (
         0 => 'tests\\unit\\pushnotificationendpointtest',
@@ -11628,7 +11628,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\QueryBuilderTest.php' => 
     array (
-      0 => 'f71e1b8b12870333ff06b48cc8841220bb07d0c3',
+      0 => '0513356c328c960dec9d240656d3e13aa348fd1a',
       1 => 
       array (
         0 => 'tests\\unit\\querybuildertest',
@@ -11643,7 +11643,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\QueryOptimizationTest.php' => 
     array (
-      0 => 'ea34558173cdb5928e559d63b7ee722172021ce6',
+      0 => 'ee6df91d9fc2ec1f6b355902d5eef4eb1ea5f729',
       1 => 
       array (
         0 => 'tests\\unit\\queryoptimizationtest',
@@ -11658,7 +11658,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\QueueAuthorizationTest.php' => 
     array (
-      0 => 'a667d5ae251391bff40a4efb042e27e232d5b5ae',
+      0 => '0e885e8009702fca67ce25abdfc969a2ab8abe4e',
       1 => 
       array (
         0 => 'tests\\unit\\queueauthorizationtest',
@@ -11673,7 +11673,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\QueueIntegrationTest.php' => 
     array (
-      0 => 'cb024b5bd183f4f8a6596e392ee9ddf069cb121c',
+      0 => 'f736c0de7bb2a3043eb8d925fb13865a3bb9d384',
       1 => 
       array (
         0 => 'tests\\unit\\queueintegrationtest',
@@ -11688,7 +11688,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\QueuePerformancetest.php' => 
     array (
-      0 => '2b3779e52deb32fcc0e95bfca6b61da4412eed22',
+      0 => '14f5074044483249a68e654b36203c69ff3430f2',
       1 => 
       array (
         0 => 'tests\\unit\\queueperformancetest',
@@ -11703,7 +11703,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\QueueServiceTest.php' => 
     array (
-      0 => '8f5d18e453b6a8783546d69a267db262ea2931e3',
+      0 => '794b865a5adcec33538d5516eafad6666e7a547e',
       1 => 
       array (
         0 => 'tests\\unit\\queueservicetest',
@@ -11718,7 +11718,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RaceConditionPreventionTest.php' => 
     array (
-      0 => '70f01f85db7367eb54325725676a514d96e1b5d1',
+      0 => '2010205afe672ac8ebe5441fb4da888225108c52',
       1 => 
       array (
         0 => 'tests\\unit\\raceconditionpreventiontest',
@@ -11733,7 +11733,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RandomForestTest.php' => 
     array (
-      0 => '4ae25f36d1467e8550efa68efb27c7224960cf48',
+      0 => 'ba5487c02f6a0a0fd91adfeabb8fd719840cf87a',
       1 => 
       array (
         0 => 'tests\\unit\\randomforesttest',
@@ -11748,7 +11748,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RangeValidationTest.php' => 
     array (
-      0 => '3aebd5ff6bc22f5173b4269b136a97717ebfbe41',
+      0 => '9e28cd5503a7401f001e3a0dcdacb6106777e486',
       1 => 
       array (
         0 => 'tests\\unit\\rangevalidationtest',
@@ -11763,7 +11763,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\READMEFileTest.php' => 
     array (
-      0 => 'fd1837f12de1a2afefe0a3d5840b1fc60d200b3b',
+      0 => '7af0db5389f762ba1c2d4b882efb8ee0f04416ae',
       1 => 
       array (
         0 => 'tests\\unit\\readmefiletest',
@@ -11778,7 +11778,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RegisterEndpointTest.php' => 
     array (
-      0 => 'a233b6bf66029d74e6119c6234a2cc24a0d08783',
+      0 => 'f0d4ed9cc0cfde5e855ed6baa19ead152818eced',
       1 => 
       array (
         0 => 'tests\\unit\\registerendpointtest',
@@ -11793,7 +11793,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RegisterPageTest.php' => 
     array (
-      0 => 'b8063dec9a07d5cb30ea23d5d01bd6500e63e3c3',
+      0 => 'eb1a7d3151ce6fd20e25d0c9dde6c453c2d7f0e0',
       1 => 
       array (
         0 => 'tests\\unit\\registerpagetest',
@@ -11808,7 +11808,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RegressionAnalysisTest.php' => 
     array (
-      0 => '4fdd7edd5549e1796e39db9029611eb69fd7f797',
+      0 => '6dba356ec1af1be1b3d7721d7552b554cb6db2ea',
       1 => 
       array (
         0 => 'tests\\unit\\regressionanalysistest',
@@ -11823,7 +11823,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ReinforcementLearningTest.php' => 
     array (
-      0 => '6fc80b7d985fd1deb51c3f9a065b18c2e3e9fe3e',
+      0 => 'bdcee47f5ec678e6dff5d81b7157ee4b00b85983',
       1 => 
       array (
         0 => 'tests\\unit\\reinforcementlearningtest',
@@ -11838,7 +11838,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RelationshipMappingTest.php' => 
     array (
-      0 => 'b01a5c65ecf10a3396148c5649b261d92038c453',
+      0 => 'd5df45dc6d2868c21c11340b06ed5b57aa8f8806',
       1 => 
       array (
         0 => 'tests\\unit\\relationshipmappingtest',
@@ -11853,7 +11853,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RememberMeTest.php' => 
     array (
-      0 => '8cb129bf84f50b635e9c2bf6b46c958ba4e73710',
+      0 => 'a5b01ba1db0f9d1912723a38dae679c4561eec3c',
       1 => 
       array (
         0 => 'tests\\unit\\remembermetest',
@@ -11868,7 +11868,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RenderingOptimizationTest.php' => 
     array (
-      0 => '3a05fce932656b2ba6c7baf9af1d7c814c9e8b44',
+      0 => '64dc5c52dd44e47e101f376c4dec7455ff57b352',
       1 => 
       array (
         0 => 'tests\\unit\\renderingoptimizationtest',
@@ -11883,7 +11883,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ReportEndpointTest.php' => 
     array (
-      0 => '6c73a8911bfdf6fb6f014d15fa9fe00b6a4796dc',
+      0 => 'f999e185cf835a1dd41183d91fcaf7fa25ab04c6',
       1 => 
       array (
         0 => 'tests\\unit\\reportendpointtest',
@@ -11898,7 +11898,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ReportGenerationTest.php' => 
     array (
-      0 => 'a200cfe073f3ad9c9dda20a18a1c446ff73a4489',
+      0 => 'b180a202ff0f1836e175e41db28d3567be73d0c3',
       1 => 
       array (
         0 => 'tests\\unit\\reportgenerationtest',
@@ -11913,7 +11913,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ReportsPageTest.php' => 
     array (
-      0 => '5c7f5474600b1fb382d5dc69dbc1c24763a38deb',
+      0 => '4c24dbcbbeb8cbc3c98f924a6f6753b418c209b7',
       1 => 
       array (
         0 => 'tests\\unit\\reportspagetest',
@@ -11928,7 +11928,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RepositoryServiceTest.php' => 
     array (
-      0 => 'bd7daa92704c2d4b56400a369e17df162c78409f',
+      0 => 'c35193703bca0aada4d4aa05bc986a0a17f36798',
       1 => 
       array (
         0 => 'tests\\unit\\repositoryservicetest',
@@ -11943,7 +11943,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RequestServiceTest.php' => 
     array (
-      0 => '7e7ee5e4d8f181ec39252c3524f3d8c7735505a7',
+      0 => 'd8876096c2d9f5db4e1f7cadedea2665b8497dec',
       1 => 
       array (
         0 => 'tests\\unit\\requestservicetest',
@@ -11958,7 +11958,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RequiredFieldTest.php' => 
     array (
-      0 => '5468a6c90efbb63c27c5fec3172150efec6ecea8',
+      0 => 'cca5e9327d8cd5ee57a60adade4b05c9bdf6e8eb',
       1 => 
       array (
         0 => 'tests\\unit\\requiredfieldtest',
@@ -11973,7 +11973,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RequirementsDocumentationTest.php' => 
     array (
-      0 => 'e1e60197125f20c64408173e3292ba1abce6fa0c',
+      0 => 'cc5d6b5c87df1c6b39012dcb056c9d76996a2368',
       1 => 
       array (
         0 => 'tests\\unit\\requirementsdocumentationtest',
@@ -11988,7 +11988,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ResourceAccessTest.php' => 
     array (
-      0 => '8a2d12433d4d1c3396ced38034766cc1372fd79c',
+      0 => '1c773b4b327086473495530b0940f42045e013f9',
       1 => 
       array (
         0 => 'tests\\unit\\resourceaccesstest',
@@ -12003,7 +12003,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ResponseOptimizationTest.php' => 
     array (
-      0 => 'd02954e0ef9508c7e232264f6b23d037f717c224',
+      0 => '593ebd8e4fc4c5ff60da5de969118c0a72ca562a',
       1 => 
       array (
         0 => 'tests\\unit\\responseoptimizationtest',
@@ -12018,7 +12018,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ResponsiveDesignTest.php' => 
     array (
-      0 => '1c53fd1077120a73fe0504cbffba23f7fed5e938',
+      0 => '46e69eb4f523e38ab0997964d4b3a486a206a4a5',
       1 => 
       array (
         0 => 'tests\\unit\\responsivedesigntest',
@@ -12033,7 +12033,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RestoreEndpointTest.php' => 
     array (
-      0 => 'fc65fcdd167c43c44702b6ff29b0531888dee52f',
+      0 => '5376328dd8edce4250c43a373b24d06b27a98399',
       1 => 
       array (
         0 => 'tests\\unit\\restoreendpointtest',
@@ -12048,7 +12048,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RestoreOperationsTest.php' => 
     array (
-      0 => '79f4db1928416cf5d0394dbd61acad58efd5d8dc',
+      0 => '217d0e92958fc6eb3656e03708b912e00b9aa8d1',
       1 => 
       array (
         0 => 'tests\\unit\\restoreoperationstest',
@@ -12063,7 +12063,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RoleAssignmentTest.php' => 
     array (
-      0 => 'd3d5805d3f573708e08014c2fdf0fa12540fff66',
+      0 => '61a8ef46e6cfdd14989438a2a5169770ab5f92d8',
       1 => 
       array (
         0 => 'tests\\unit\\roleassignmenttest',
@@ -12078,7 +12078,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RoleBasedAccessTest.php' => 
     array (
-      0 => 'ff2226fe08324deda8e8923db791649da85c6a92',
+      0 => 'adca585697fecd15d5f1b4792eb25e905568b9c4',
       1 => 
       array (
         0 => 'tests\\unit\\rolebasedaccesstest',
@@ -12093,7 +12093,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RoleCreationTest.php' => 
     array (
-      0 => 'b898dffa251c2d2ed3ec34d7b472eb02c618bcd9',
+      0 => '3b3c00cd8e47b5d045e99aab62a260902c626dcf',
       1 => 
       array (
         0 => 'tests\\unit\\rolecreationtest',
@@ -12108,7 +12108,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RoleDeletionTest.php' => 
     array (
-      0 => '552ec52b33333e2b4bcb6d3a6731bf1bbd5dcf1f',
+      0 => 'bc685a13d98613b37f3f16f22d5232232c9a2f03',
       1 => 
       array (
         0 => 'tests\\unit\\roledeletiontest',
@@ -12123,7 +12123,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RoleRevocationTest.php' => 
     array (
-      0 => '91db88fa8869036b63f6b0346d98badc89d438a9',
+      0 => 'd592717945d91b97cab6eb10c75bc8bfe5aca69c',
       1 => 
       array (
         0 => 'tests\\unit\\rolerevocationtest',
@@ -12138,7 +12138,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RoleUpdateTest.php' => 
     array (
-      0 => '94736cd8905dc50190984c9c01e4026e85230104',
+      0 => 'e5f6f08b9f1c43cacf020823c8e554a4952c05ed',
       1 => 
       array (
         0 => 'tests\\unit\\roleupdatetest',
@@ -12153,7 +12153,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RollbackSupportTest.php' => 
     array (
-      0 => 'f507b9cb6c3467c398fba80c03141657ca030ce5',
+      0 => 'b7d2932ffa6b3ad61dca63b5def65612aea22f53',
       1 => 
       array (
         0 => 'tests\\unit\\rollbacksupporttest',
@@ -12168,7 +12168,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RouteAuthorizationTest.php' => 
     array (
-      0 => '767f9e86f814415950c865b525845eba6aeed52b',
+      0 => '5de7e12afa4e7fdd3541981b2d3068a673eb9d86',
       1 => 
       array (
         0 => 'tests\\unit\\routeauthorizationtest',
@@ -12183,7 +12183,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RouterServiceTest.php' => 
     array (
-      0 => '50c5a1037eb4ea738ff0025e44d911691149fb00',
+      0 => '80598ff9a1204fbc7a4c921fab72ddf507961199',
       1 => 
       array (
         0 => 'tests\\unit\\routerservicetest',
@@ -12198,7 +12198,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RuleExecutorServiceTest.php' => 
     array (
-      0 => '96a084d59ecda1bfa577216ae5810371d6ac037e',
+      0 => '2c26678a91b72c5016c4144dc47ff3a9504f9848',
       1 => 
       array (
         0 => 'tests\\unit\\ruleexecutorservicetest',
@@ -12213,7 +12213,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\RussianLanguageTest.php' => 
     array (
-      0 => '626493aab73bc64a5ad9f480804203afcff62e4e',
+      0 => 'f59de5ab8dfb81be7b1b85b9cec44ee6af50d2f4',
       1 => 
       array (
         0 => 'tests\\unit\\russianlanguagetest',
@@ -12228,7 +12228,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SAMLAuthenticationTest.php' => 
     array (
-      0 => 'b06d22392a0bc399261636f59d70b2134642113d',
+      0 => '8973841f954465bb93d06861e820c9bdd486cf02',
       1 => 
       array (
         0 => 'tests\\unit\\samlauthenticationtest',
@@ -12243,7 +12243,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ScalabilityTestingTest.php' => 
     array (
-      0 => '21089ece7230219c12810026a86b3435b3193c78',
+      0 => '28ab9ad02d10d8c078ee9041f89b56899599384a',
       1 => 
       array (
         0 => 'tests\\unit\\scalabilitytestingtest',
@@ -12258,7 +12258,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SchemaBuilderTest.php' => 
     array (
-      0 => 'ddbbc4b77d0cab418a110665fb0e1b2aa3ed8d34',
+      0 => '21b95e3f6d83f6fb6b1551e3bf3b9f5743954535',
       1 => 
       array (
         0 => 'tests\\unit\\schemabuildertest',
@@ -12273,7 +12273,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SearchEndpointTest.php' => 
     array (
-      0 => '262e01b11d095ee3383b639b7b5d31a25ba63c8d',
+      0 => 'eda7868f051f69139c769616c63992ddfc51679b',
       1 => 
       array (
         0 => 'tests\\unit\\searchendpointtest',
@@ -12288,7 +12288,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SearchFunctionalityTest.php' => 
     array (
-      0 => 'ac9b347a50f03d545f3f4aa931bd3ad75b9b5efd',
+      0 => '9bbe6eb3eb2b6e165abca3d0aa1c3b639f59a348',
       1 => 
       array (
         0 => 'tests\\unit\\searchfunctionalitytest',
@@ -12303,7 +12303,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SearchPageTest.php' => 
     array (
-      0 => 'c83ccaab2152356342f12620a65aeba2599ea72b',
+      0 => '85eee63f20c40cb5f12c28107738946a50227544',
       1 => 
       array (
         0 => 'tests\\unit\\searchpagetest',
@@ -12318,7 +12318,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SecurityDocumentationTest.php' => 
     array (
-      0 => '31bcd14dd27bfdb085b4b32cdea2aad3c70fa918',
+      0 => 'd4b756023d39c6d8888b87b2b05e51b2d2e4a9f6',
       1 => 
       array (
         0 => 'tests\\unit\\securitydocumentationtest',
@@ -12333,7 +12333,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SecurityScanningTest.php' => 
     array (
-      0 => '1913a35d8c0fcd8063189f3311840b8d42576c3e',
+      0 => '104db3106b4b2fd61df1361799105b63966e5768',
       1 => 
       array (
         0 => 'tests\\unit\\securityscanningtest',
@@ -12348,7 +12348,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SeedingSystemTest.php' => 
     array (
-      0 => '7900c0f7cc7dbee92452f2c39d478865a5db0430',
+      0 => '43a40fce37ef7373dfca6edaf9519675d73384cf',
       1 => 
       array (
         0 => 'tests\\unit\\seedingsystemtest',
@@ -12363,7 +12363,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionAuthorizationTest.php' => 
     array (
-      0 => '262850a17f33bcc6a9f5f90a686c5546a5e55c79',
+      0 => '55ff9d873fc70fa7d124890b67266bbe6062eae1',
       1 => 
       array (
         0 => 'tests\\unit\\sessionauthorizationtest',
@@ -12378,7 +12378,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionFixationPreventionTest.php' => 
     array (
-      0 => 'f1dd24ff4d6faf45f81c7c004120ec2a64a5a65a',
+      0 => 'd35e1f18b7cd1d820c4ec7781c573eb17ebbe3ae',
       1 => 
       array (
         0 => 'tests\\unit\\sessionfixationpreventiontest',
@@ -12393,7 +12393,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionFixationTest.php' => 
     array (
-      0 => '43e6e5306fb8fd991ba83222e2ea60c848dd027e',
+      0 => '9ad8e3f2e7e661998dee8ad67940f7da46b4ce5d',
       1 => 
       array (
         0 => 'tests\\unit\\sessionfixationtest',
@@ -12408,7 +12408,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionHijackingPreventionTest.php' => 
     array (
-      0 => '6a118de990213bc566739255c00dc140cc1332c3',
+      0 => '82f9c17820ff210f643f689342ddc62021f39d04',
       1 => 
       array (
         0 => 'tests\\unit\\sessionhijackingpreventiontest',
@@ -12423,7 +12423,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionHijackingTest.php' => 
     array (
-      0 => 'ea00474a713d9513b82c98d028deb9d713f8f270',
+      0 => '63bdf192885e817fa7f6889d2925b3db708ffcc9',
       1 => 
       array (
         0 => 'tests\\unit\\sessionhijackingtest',
@@ -12438,7 +12438,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionServiceTest.php' => 
     array (
-      0 => '2976503587c618ffefd38a8b1ef36b2ddcaf427e',
+      0 => 'b0a7321de0a96da0b28bf374ce3efd7583e841ee',
       1 => 
       array (
         0 => 'tests\\unit\\sessionservicetest',
@@ -12453,7 +12453,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SessionTimeoutTest.php' => 
     array (
-      0 => '718658ed0b374febba7fc1e329b55d7727f5c23d',
+      0 => '84c4ddb7d5c05a163501ebf1ef294485bd3c6821',
       1 => 
       array (
         0 => 'tests\\unit\\sessiontimeouttest',
@@ -12468,7 +12468,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SettingsEndpointTest.php' => 
     array (
-      0 => '816259f07a462d0d33aa134dc606acc4390eacc3',
+      0 => 'ce9620f4bb8211531b9fd6181c1da6ad8aed4d39',
       1 => 
       array (
         0 => 'tests\\unit\\settingsendpointtest',
@@ -12483,7 +12483,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SettingsPageTest.php' => 
     array (
-      0 => '41cf28fadb467b27f8b41d6a3c915cd0438eb827',
+      0 => 'bea2b9971312415157f1eced82e162137d215c69',
       1 => 
       array (
         0 => 'tests\\unit\\settingspagetest',
@@ -12498,7 +12498,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SidebarMenuTest.php' => 
     array (
-      0 => '99eb1e22810c3a026cedf402bfb8de62c47fe568',
+      0 => 'c96fed3d8e56ea205bcc825ff8fc70a7690c231d',
       1 => 
       array (
         0 => 'tests\\unit\\sidebarmenutest',
@@ -12513,7 +12513,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SingleSignOnTest.php' => 
     array (
-      0 => 'b723e6891450e457b71a65a1729fb88454b178ad',
+      0 => '1c938adb99e6d326e4160b9af46c1ed88939d298',
       1 => 
       array (
         0 => 'tests\\unit\\singlesignontest',
@@ -12528,7 +12528,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SizeValidationTest.php' => 
     array (
-      0 => '6bc1469f25741f293031c9cf539434df76c5cac2',
+      0 => '82adc83be4ccb66d837549be97c766948bfb7284',
       1 => 
       array (
         0 => 'tests\\unit\\sizevalidationtest',
@@ -12543,7 +12543,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SMSSendEndpointTest.php' => 
     array (
-      0 => '7822c613e543dc8232b27e359cb7b853b5eb039d',
+      0 => 'fc285af8a999125ef42c1748b974b052ca07d1ac',
       1 => 
       array (
         0 => 'tests\\unit\\smssendendpointtest',
@@ -12558,7 +12558,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SMSSystemTest.php' => 
     array (
-      0 => 'eaedb1a1c0a9a9e1b6ef9b9241c715dc5b9b8625',
+      0 => '3a7b32a2775684fe77340487335969faf55cbc87',
       1 => 
       array (
         0 => 'tests\\unit\\smssystemtest',
@@ -12573,7 +12573,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SocialAuthenticationTest.php' => 
     array (
-      0 => '9d1d53ce25dc1a9ab139bd8ad72d10477ff8756c',
+      0 => '661d55d37e63a741553ac0228f168e78f7d879eb',
       1 => 
       array (
         0 => 'tests\\unit\\socialauthenticationtest',
@@ -12588,7 +12588,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SocialLoginEndpointTest.php' => 
     array (
-      0 => 'c51aa6afd5d765cf504ff40446390093c618cf8c',
+      0 => '9bc4eccb3ad42959012a996e96d181477a57773a',
       1 => 
       array (
         0 => 'tests\\unit\\socialloginendpointtest',
@@ -12603,7 +12603,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SocialLoginTest.php' => 
     array (
-      0 => 'd5e172b1c9a9116c6d45d6e9ead79a286e50f210',
+      0 => '5ff7fe57ce56b98ef979fe2e29cc8962bee03628',
       1 => 
       array (
         0 => 'tests\\unit\\sociallogintest',
@@ -12618,7 +12618,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SortEndpointTest.php' => 
     array (
-      0 => '490945e123b493185082068000a189fdcfb17d8f',
+      0 => '70bda67bf44098b623379e80aa0753f9676302a1',
       1 => 
       array (
         0 => 'tests\\unit\\sortendpointtest',
@@ -12633,7 +12633,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SortFunctionalityTest.php' => 
     array (
-      0 => '783891a8c3813d1410a0c34970d3eecc18eba091',
+      0 => '85a05c2a21dfc79a1a27b317593d4b405a4e6f3c',
       1 => 
       array (
         0 => 'tests\\unit\\sortfunctionalitytest',
@@ -12648,7 +12648,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SortingFunctionalityTest.php' => 
     array (
-      0 => '48ee7d5c0c7ee803aaf6e411cc0433e813407891',
+      0 => 'fcb0e38a15ee297ce50c62ac913f34dd6daf385c',
       1 => 
       array (
         0 => 'tests\\unit\\sortingfunctionalitytest',
@@ -12663,7 +12663,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SOXComplianceTest.php' => 
     array (
-      0 => '08c9540188c05b5cac5d885a7992000c51364436',
+      0 => 'c680d88fbbfbfaf008bf59d48c3a55acfdd2ab98',
       1 => 
       array (
         0 => 'tests\\unit\\soxcompliancetest',
@@ -12678,7 +12678,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SpanishLanguageTest.php' => 
     array (
-      0 => '3c9f120f9e43a8cbf8a9e16a1ba5ce6e197cc37f',
+      0 => '8bbd8b6c00c01e4f937c6992a692a613f30b2dc3',
       1 => 
       array (
         0 => 'tests\\unit\\spanishlanguagetest',
@@ -12693,7 +12693,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SpeechRecognitionTest.php' => 
     array (
-      0 => 'cfd0dc2e40133835bb0e14454b15b7a0f33d8363',
+      0 => '6495e98c15e529bb90d6cc2bcf333b236620dd00',
       1 => 
       array (
         0 => 'tests\\unit\\speechrecognitiontest',
@@ -12708,7 +12708,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SpikeTestingTest.php' => 
     array (
-      0 => '50fa476300204cabe4cd4bc89aba1295874ea3a1',
+      0 => '204b1aa5428dc69e6691d42241426941fb3d1271',
       1 => 
       array (
         0 => 'tests\\unit\\spiketestingtest',
@@ -12723,7 +12723,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SQLInjectionPreventionTest.php' => 
     array (
-      0 => 'fe4a2788fc309fbefa6e5d527c0e12dbee6a1f16',
+      0 => '892335a34e6d3576429e51a4f65cf4da14261cde',
       1 => 
       array (
         0 => 'tests\\unit\\sqlinjectionpreventiontest',
@@ -12738,7 +12738,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StackingTechniquesTest.php' => 
     array (
-      0 => 'b2c18cba22c57ff93aba4b899117c6878727df66',
+      0 => '608a1e7ae37332744580dbafd841cc39d8bf97a0',
       1 => 
       array (
         0 => 'tests\\unit\\stackingtechniquestest',
@@ -12753,7 +12753,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StatisticsEndpointTest.php' => 
     array (
-      0 => '57b45ddab3937d35255d1fae0238d75830e1ca5b',
+      0 => '93d43bd2b29d2bc14d47566bf0deef81a32c6350',
       1 => 
       array (
         0 => 'tests\\unit\\statisticsendpointtest',
@@ -12768,7 +12768,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StorageAuthorizationTest.php' => 
     array (
-      0 => 'd5fe0e4e0ab360ab854c0d2201158164d15a62fe',
+      0 => '21525124ad31df169cc1b86c2f7f59bbb094d0bf',
       1 => 
       array (
         0 => 'tests\\unit\\storageauthorizationtest',
@@ -12783,7 +12783,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StorageOptimizationTest.php' => 
     array (
-      0 => 'adb31bfe1cfe080ae5c4ab850208363d15e7059c',
+      0 => '2f41517aa70a9a78d87b164f3e5a0b534e9e0b41',
       1 => 
       array (
         0 => 'tests\\unit\\storageoptimizationtest',
@@ -12798,7 +12798,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StorageServiceTest.php' => 
     array (
-      0 => 'c736bc5db1c564ecd7a97454aafad688e1b4afc9',
+      0 => '5a55b067f689300774fe3763f0da08dee92102a3',
       1 => 
       array (
         0 => 'tests\\unit\\storageservicetest',
@@ -12813,7 +12813,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StorageSystemTest.php' => 
     array (
-      0 => '5f38bddb87f2de67172c25366e7ba8a60e550756',
+      0 => 'f58ace9b60d4fa883f86a20fbee8ec9c28a42694',
       1 => 
       array (
         0 => 'tests\\unit\\storagesystemtest',
@@ -12828,7 +12828,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StressTestingTest.php' => 
     array (
-      0 => 'd1cb07882359c80d752ab16b40d52ebc0b7288f5',
+      0 => 'd4f3db44a41c0fb958f6d2b3fc03f25ddcd8c810',
       1 => 
       array (
         0 => 'tests\\unit\\stresstestingtest',
@@ -12843,7 +12843,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\StringValidationTest.php' => 
     array (
-      0 => '9d84c1b23b3b5c75ad8de2109c0fefb3a3bd7013',
+      0 => '09a2ea2a5d5031faaa108bb8c9e553e6b3c869be',
       1 => 
       array (
         0 => 'tests\\unit\\stringvalidationtest',
@@ -12858,7 +12858,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\SupportVectorMachineTest.php' => 
     array (
-      0 => 'c9c9f178c5e6ff9ecf7871c937bd74e88f457786',
+      0 => '02a5b22cf428a9a17aa9452a67a1b677b9fb41e0',
       1 => 
       array (
         0 => 'tests\\unit\\supportvectormachinetest',
@@ -12873,7 +12873,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TabletCompatibilityTest.php' => 
     array (
-      0 => '048d67bde6d0c2e9262dfe20eb17ff780e4bb199',
+      0 => '46fe7f952b096f5e7a63f88618181c2d61e5a672',
       1 => 
       array (
         0 => 'tests\\unit\\tabletcompatibilitytest',
@@ -12888,7 +12888,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TabsComponentTest.php' => 
     array (
-      0 => '781214cb92812eba5a07a66d63f9117fc40f74c5',
+      0 => '9f344baea8385538543d7b89092b9b958c103b2e',
       1 => 
       array (
         0 => 'tests\\unit\\tabscomponenttest',
@@ -12903,7 +12903,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TestingDocumentationTest.php' => 
     array (
-      0 => 'ba19f46d6d791102654fafe51992b44238e95761',
+      0 => 'eceb6e7532620d12e075c902b9fc6d03fa46a489',
       1 => 
       array (
         0 => 'tests\\unit\\testingdocumentationtest',
@@ -12918,7 +12918,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TextDirectionLTRTest.php' => 
     array (
-      0 => '28787f3bd03306c77df1c8d0ca613e18ce5945cf',
+      0 => 'f8d68ea4eddcda3c35d599096b4ff09ae399772c',
       1 => 
       array (
         0 => 'tests\\unit\\textdirectionltrtest',
@@ -12933,7 +12933,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TextDirectionRTLTest.php' => 
     array (
-      0 => 'e5a1f6a68721302cdcf54301b2333dec6c4cc7ac',
+      0 => '04e9529e5c6f1eccfc3298b9474e970efcee4671',
       1 => 
       array (
         0 => 'tests\\unit\\textdirectionrtltest',
@@ -12948,7 +12948,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ThousandSeparatorLocalizationTest.php' => 
     array (
-      0 => '9ca22f7e855ca9bf98c28d5cfbd8db39de57658f',
+      0 => 'f711d086cb677ffca706348d69839e63329106c3',
       1 => 
       array (
         0 => 'tests\\unit\\thousandseparatorlocalizationtest',
@@ -12963,7 +12963,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ThroughputTestingTest.php' => 
     array (
-      0 => '3678c1b1439a89da70c83802ffb13816ec3e471a',
+      0 => '671419218899c88110c7d93f5d02b5fb4b659548',
       1 => 
       array (
         0 => 'tests\\unit\\throughputtestingtest',
@@ -12978,7 +12978,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TimeFormatLocalizationTest.php' => 
     array (
-      0 => '4092e56a3b83776a2251df6c4623c1c78178eaf9',
+      0 => '342bab566f38495f4dd32ce06f4ebd75be64ef26',
       1 => 
       array (
         0 => 'tests\\unit\\timeformatlocalizationtest',
@@ -12993,7 +12993,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TimezoneLocalizationTest.php' => 
     array (
-      0 => 'd9c9c23f00a9e43fa00abe9223992714932e85d7',
+      0 => '7151803bddd29d7c15ba57b6406c1dc1a175f5e4',
       1 => 
       array (
         0 => 'tests\\unit\\timezonelocalizationtest',
@@ -13008,7 +13008,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TokenAuthenticationTest.php' => 
     array (
-      0 => 'a6dbb16741cf91f0ee71fd74b370bb3497ccf322',
+      0 => '36280445d1e3a5237b3f975f1f8c2cba02e506d3',
       1 => 
       array (
         0 => 'tests\\unit\\tokenauthenticationtest',
@@ -13023,7 +13023,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TokenServiceTest.php' => 
     array (
-      0 => '5fa1fee1a7b746e112ad676f648ba8817267b88d',
+      0 => '4a7a21c61573312fcda8ecb30041d1eac64c553a',
       1 => 
       array (
         0 => 'tests\\unit\\tokenservicetest',
@@ -13038,7 +13038,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TransferLearningTest.php' => 
     array (
-      0 => '66c21bbc6b9880d93ae54e92f20d9462ab6ffd43',
+      0 => '0307402637684bf5f97b2e43f8943fa1d6c2e725',
       1 => 
       array (
         0 => 'tests\\unit\\transferlearningtest',
@@ -13053,7 +13053,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TranslationCachingTest.php' => 
     array (
-      0 => 'a6d5cf8a1670d44d5087a97d22dbf97badf13fcc',
+      0 => '0a4ba3c2f077450aa0dcf567e4567510c3193408',
       1 => 
       array (
         0 => 'tests\\unit\\translationcachingtest',
@@ -13068,7 +13068,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TranslationFallbackTest.php' => 
     array (
-      0 => '96044bd5e7510b233e9f0ef90a583fc5e7c80e99',
+      0 => '6283996c77f1c4f6d9adb01051acd7d6e9d6ed5e',
       1 => 
       array (
         0 => 'tests\\unit\\translationfallbacktest',
@@ -13083,7 +13083,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TranslationFilesTest.php' => 
     array (
-      0 => 'f0bdacb8de58ee18aca578bfd15b1f7292dd397a',
+      0 => '47c50cee67196e95fd2354401fd3f95b1103e87d',
       1 => 
       array (
         0 => 'tests\\unit\\translationfilestest',
@@ -13098,7 +13098,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TranslationLoadingTest.php' => 
     array (
-      0 => '3ab06cec810c6a9231a5157f0ad2f22b85005c2f',
+      0 => 'ef5a2098f262275f89b506cd3c96018b7347bff8',
       1 => 
       array (
         0 => 'tests\\unit\\translationloadingtest',
@@ -13113,7 +13113,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TranslationOverridesTest.php' => 
     array (
-      0 => '53215b9f83ec48e77ac5b268b44860d5313e2792',
+      0 => 'ec75b8f4e8e3a19d0b9a69532803856c734cb7e0',
       1 => 
       array (
         0 => 'tests\\unit\\translationoverridestest',
@@ -13128,7 +13128,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TroubleshootingGuideTest.php' => 
     array (
-      0 => '84f973fc97b0e320c079f429ccf0496d5edc4869',
+      0 => '8acaf675ad9551785b350d4a5d64a34deddd981a',
       1 => 
       array (
         0 => 'tests\\unit\\troubleshootingguidetest',
@@ -13143,7 +13143,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TutorialDocumentationTest.php' => 
     array (
-      0 => '92d15cf11181d4683fb823a27f6591221d04bdfd',
+      0 => 'd65348100aafcb972a015d0901e528f695c17209',
       1 => 
       array (
         0 => 'tests\\unit\\tutorialdocumentationtest',
@@ -13158,7 +13158,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\TwoFactorAuthenticationTest.php' => 
     array (
-      0 => 'f690d61eb8a54591a5d979d58774da31d85fd7c4',
+      0 => '2ce52d683f8ee265fe8f4d143161050af4e13512',
       1 => 
       array (
         0 => 'tests\\unit\\twofactorauthenticationtest',
@@ -13173,7 +13173,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UniqueValidationTest.php' => 
     array (
-      0 => '0780066538d59b1ca5c899e519294c4983ea4e47',
+      0 => '377a6a8f19140811ea4b6c169497df6b7ff0eff7',
       1 => 
       array (
         0 => 'tests\\unit\\uniquevalidationtest',
@@ -13188,7 +13188,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\URLValidationTest.php' => 
     array (
-      0 => 'b4e8a82f85f0190293f35229b2e13aae98fba9df',
+      0 => '553a89b56d9f1d09abb7c732e210e6d7c39f22ef',
       1 => 
       array (
         0 => 'tests\\unit\\urlvalidationtest',
@@ -13203,7 +13203,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UserAuthorizationTest.php' => 
     array (
-      0 => '09f6bd5ba3dc8f5a3b10132862c6e2a2335767e3',
+      0 => '48126d60042d61e1388987408b347e283f236a63',
       1 => 
       array (
         0 => 'tests\\unit\\userauthorizationtest',
@@ -13218,7 +13218,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UserCreatePageTest.php' => 
     array (
-      0 => '4a12f35aaa0f70498b0a7b7a8acc6ad04af53b92',
+      0 => 'f0225132d1ed3df3691fc8dbfced63231ae54821',
       1 => 
       array (
         0 => 'tests\\unit\\usercreatepagetest',
@@ -13233,7 +13233,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UserEditPageTest.php' => 
     array (
-      0 => '98a3abb1f21ddd7b42b72c5d34b3b2eccca641d2',
+      0 => '24935affe14f3a885e907a55fb73234aed315e92',
       1 => 
       array (
         0 => 'tests\\unit\\usereditpagetest',
@@ -13248,7 +13248,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UserManualTest.php' => 
     array (
-      0 => '949246ec6ddb41a485513547e8aabe338b62922e',
+      0 => '2f6b3035c9444dc22f49ea532042d5824cd2949f',
       1 => 
       array (
         0 => 'tests\\unit\\usermanualtest',
@@ -13263,7 +13263,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UserRegistrationTest.php' => 
     array (
-      0 => '73750b5473c8828a84d7e0638ee8ae2411118b86',
+      0 => '31ca0566da138eefa0550d96752b3bc36a1475b9',
       1 => 
       array (
         0 => 'tests\\unit\\userregistrationtest',
@@ -13278,7 +13278,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UserServiceTest.php' => 
     array (
-      0 => '9af01723a8ff67b4b81b9358b191fbb1644344a9',
+      0 => '94f8c40d6656b2f9adb967ce2177df1b441ac85a',
       1 => 
       array (
         0 => 'tests\\unit\\userservicetest',
@@ -13293,7 +13293,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UsersListPageTest.php' => 
     array (
-      0 => '489eaf166230ccad0271e7d06b256dfe87cb8197',
+      0 => '47c33690f95a469480b54f4ade5a6060c4b51d20',
       1 => 
       array (
         0 => 'tests\\unit\\userslistpagetest',
@@ -13308,7 +13308,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\UtilityServiceTest.php' => 
     array (
-      0 => 'a715d9135abb35a6a7fb1b471b555af1b9295fd5',
+      0 => '218e062392308ac22b2ca294682a5ccfea8520e9',
       1 => 
       array (
         0 => 'tests\\unit\\utilityservicetest',
@@ -13323,7 +13323,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ValidationMessagesTest.php' => 
     array (
-      0 => 'a23b567c692bef967bb6684fa9fde1eb451ad9ca',
+      0 => '7784c6de183b2d0903c3e18b49afb6c2d3aa97d0',
       1 => 
       array (
         0 => 'tests\\unit\\validationmessagestest',
@@ -13338,7 +13338,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\ValidationServiceTest.php' => 
     array (
-      0 => '2804d1b73bfa38ffbd1dbeb68803e0d453ab2372',
+      0 => 'dfe6717854fe1fdbaa48a5a94396b47842fefe20',
       1 => 
       array (
         0 => 'tests\\unit\\validationservicetest',
@@ -13353,7 +13353,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\VersionDocumentationTest.php' => 
     array (
-      0 => 'a6d0f60069553082e2b1b9f6dcaa0d9c524938a4',
+      0 => 'c25d67e863c3290e1b41ad880f0f21620160c65a',
       1 => 
       array (
         0 => 'tests\\unit\\versiondocumentationtest',
@@ -13368,7 +13368,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\VirusScanningTest.php' => 
     array (
-      0 => '7c45e2285884387e38efb66dd5a40a547a9f546d',
+      0 => '8bc012121e05918b30617bd6d80b07da442de036',
       1 => 
       array (
         0 => 'tests\\unit\\virusscanningtest',
@@ -13383,7 +13383,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\VolumeTestingTest.php' => 
     array (
-      0 => 'd01414ea5868f1301fa68a83c220b334ac4f283f',
+      0 => '1ddd5fedf392b8e120978a53c690dfc02645e9dc',
       1 => 
       array (
         0 => 'tests\\unit\\volumetestingtest',
@@ -13398,7 +13398,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\VulnerabilityAssessmentTest.php' => 
     array (
-      0 => 'c8ca0c84593f9d73f51e8a20520066b3074826a9',
+      0 => '1482f15a440dc8cfbc470b9861be9d1f5c46a686',
       1 => 
       array (
         0 => 'tests\\unit\\vulnerabilityassessmenttest',
@@ -13413,7 +13413,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\WebAuthorizationTest.php' => 
     array (
-      0 => 'e96da574861519cc8f6dfee2b72e16a73efe33f8',
+      0 => 'dbfbe0e79e869f096ca7b187892c2b9bc021f49b',
       1 => 
       array (
         0 => 'tests\\unit\\webauthorizationtest',
@@ -13428,7 +13428,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\WebhookEndpointTest.php' => 
     array (
-      0 => '845e84f8b0c8cfdc5831abe9ca76968ecb877edf',
+      0 => 'c82da65b41e4a62c534a82fabc15ee6f723b8202',
       1 => 
       array (
         0 => 'tests\\unit\\webhookendpointtest',
@@ -13443,7 +13443,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\WebhookHandlingTest.php' => 
     array (
-      0 => '1982dd2228b36b7c783d405a3b9d5a6630cfdd0d',
+      0 => '1597fbe94505a06228adbc90bf002a8f639bd1f9',
       1 => 
       array (
         0 => 'tests\\unit\\webhookhandlingtest',
@@ -13458,7 +13458,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\XMLServiceTest.php' => 
     array (
-      0 => 'f3b16f9bba1473f633d1b10d5c27cd545970497d',
+      0 => 'd902495f79f430c3a130a2a6a97ba8991fcd55eb',
       1 => 
       array (
         0 => 'tests\\unit\\xmlservicetest',
@@ -13473,7 +13473,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\XMLValidationTest.php' => 
     array (
-      0 => 'b64a110e39934ea106887baccc64c30fada1fd0c',
+      0 => 'b9352ec98e8d1e42c35a009c42bd0018d948bf56',
       1 => 
       array (
         0 => 'tests\\unit\\xmlvalidationtest',
@@ -13488,7 +13488,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\XPathInjectionPreventionTest.php' => 
     array (
-      0 => '07dc413e122e9f9d9234e8a54478df04a0ac11e4',
+      0 => 'd7f700a027999fdc047211edf47efd9fc38862bf',
       1 => 
       array (
         0 => 'tests\\unit\\xpathinjectionpreventiontest',
@@ -13503,7 +13503,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Unit\\XSSPreventionTest.php' => 
     array (
-      0 => '44b2247babc43b2dd93c70597932ccf7c7f428e3',
+      0 => '04aa2d812d72d69290dfdef9396ec7436fb8aa52',
       1 => 
       array (
         0 => 'tests\\unit\\xsspreventiontest',

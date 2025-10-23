@@ -29,5 +29,3 @@ class TestErrorHandler extends SafeTestBase
         $this->assertLessThan(3, 2);
     }
 }
-
-

@@ -39,5 +39,3 @@ class FilteringPerformanceTest extends TestCase
         parent::tearDown();
     }
 }
-
-

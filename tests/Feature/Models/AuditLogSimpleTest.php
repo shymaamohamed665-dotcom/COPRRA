@@ -162,4 +162,3 @@ class AuditLogSimpleTest extends TestCase
         $this->assertInstanceOf(self::class, $this);
     }
 }
-

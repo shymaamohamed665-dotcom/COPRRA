@@ -39,5 +39,3 @@ class ShippingAccuracyTest extends TestCase
         parent::tearDown();
     }
 }
-
-

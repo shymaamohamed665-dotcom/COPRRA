@@ -39,5 +39,3 @@ class ProductionDeploymentTest extends TestCase
         parent::tearDown();
     }
 }
-
-

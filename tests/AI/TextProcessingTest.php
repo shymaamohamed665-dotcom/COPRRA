@@ -57,5 +57,3 @@ class TextProcessingTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(true);
     }
 }
-
-

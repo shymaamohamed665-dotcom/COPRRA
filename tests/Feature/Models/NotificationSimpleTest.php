@@ -418,4 +418,3 @@ class NotificationSimpleTest extends TestCase
         $this->assertFalse($notification->canRetry(3));
     }
 }
-

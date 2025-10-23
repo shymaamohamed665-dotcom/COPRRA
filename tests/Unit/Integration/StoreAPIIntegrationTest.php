@@ -39,5 +39,3 @@ class StoreAPIIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

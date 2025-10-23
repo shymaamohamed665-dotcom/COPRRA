@@ -45,5 +45,3 @@ class PriceSearchIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

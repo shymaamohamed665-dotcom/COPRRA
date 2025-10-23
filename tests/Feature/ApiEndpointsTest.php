@@ -45,5 +45,3 @@ class ApiEndpointsTest extends TestCase
         parent::tearDown();
     }
 }
-
-

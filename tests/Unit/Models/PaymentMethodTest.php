@@ -7,8 +7,8 @@ namespace Tests\Unit\Models;
 use App\Models\Payment;
 use App\Models\PaymentMethod;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 /**
  * Unit tests for the PaymentMethod model.

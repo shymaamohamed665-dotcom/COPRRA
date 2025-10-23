@@ -39,5 +39,3 @@ class SearchIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

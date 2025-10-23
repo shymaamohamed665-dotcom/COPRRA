@@ -41,5 +41,3 @@ class HomeControllerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

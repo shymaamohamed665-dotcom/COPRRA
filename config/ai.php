@@ -86,4 +86,4 @@ return [
     'strict_agent' => [
         'enabled' => env('AI_STRICT_AGENT_ENABLED', true),
     ],
-];
+];

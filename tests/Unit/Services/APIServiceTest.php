@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Tests\Unit\Services;
 
 use App\Services\Api\ApiInfoService;
-use App\Services\Api\ResponseBuilderService;
-use App\Services\Api\RequestParameterService;
 use App\Services\Api\PaginationService;
+use App\Services\Api\RequestParameterService;
+use App\Services\Api\ResponseBuilderService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
@@ -16,7 +16,7 @@ class APIServiceTest extends TestCase
 {
     public function test_api_info_service_version_and_urls(): void
     {
-        $service = new ApiInfoService();
+        $service = new ApiInfoService;
 
         $this->assertSame('2.0', $service->getApiVersion());
         $this->assertTrue($service->checkApiVersion());
@@ -33,7 +33,7 @@ class APIServiceTest extends TestCase
 
     public function test_response_builder_success_and_error(): void
     {
-        $builder = new ResponseBuilderService();
+        $builder = new ResponseBuilderService;
 
         $success = $builder->successResponse(['id' => 1, 'name' => 'ok'], 'Success', 200, ['meta' => 'x']);
         $this->assertSame(200, $success->status());
@@ -57,7 +57,7 @@ class APIServiceTest extends TestCase
 
     public function test_paginated_response_structure_with_collection(): void
     {
-        $builder = new ResponseBuilderService();
+        $builder = new ResponseBuilderService;
         $data = new Collection([['id' => 1], ['id' => 2]]);
         $resp = $builder->paginatedResponse($data, 'Success');
         $this->assertSame(200, $resp->status());
@@ -70,7 +70,7 @@ class APIServiceTest extends TestCase
 
     public function test_request_parameter_service_parsing(): void
     {
-        $paramsService = new RequestParameterService();
+        $paramsService = new RequestParameterService;
 
         $request = Request::create('/api/v2/items', 'GET', [
             'include' => 'user,orders',
@@ -95,7 +95,7 @@ class APIServiceTest extends TestCase
 
     public function test_pagination_service_defaults_for_non_paginator(): void
     {
-        $service = new PaginationService();
+        $service = new PaginationService;
         $pagination = $service->getPaginationData([['id' => 1], ['id' => 2]]);
 
         $this->assertArrayHasKey('current_page', $pagination);

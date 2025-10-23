@@ -204,5 +204,3 @@ class ProcessHeavyOperationTest extends TestCase
         $this->assertTrue(true); // Job completed without exception
     }
 }
-
-

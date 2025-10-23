@@ -39,5 +39,3 @@ class IsolatedStrictTest extends TestCase
         parent::tearDown();
     }
 }
-
-

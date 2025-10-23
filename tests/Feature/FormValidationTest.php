@@ -45,5 +45,3 @@ class FormValidationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

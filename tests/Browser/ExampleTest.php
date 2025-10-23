@@ -15,5 +15,3 @@ class ExampleTest extends DuskTestCase
         $this->assertTrue(true);
     }
 }
-
-

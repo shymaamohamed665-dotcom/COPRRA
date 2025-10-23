@@ -173,5 +173,3 @@ class PasswordHistoryServiceTest extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

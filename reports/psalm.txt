@@ -1,0 +1,17 @@
+
+------------------------------
+[42;2m                              [0m
+[42;30;2m       No errors found!       [0m
+[42;2m                              [0m
+------------------------------
+4042 other issues found.
+You can display them with [30;48;5;195m--show-info=true[0m
+------------------------------
+Psalm can automatically fix 718 of these issues.
+Run Psalm again with 
+[30;48;5;195m--alter --issues=InvalidReturnType,MissingOverrideAttribute,UnusedVariable,ClassMustBeFinal,PossiblyUnusedMethod,UnusedMethod --dry-run[0m
+to see what it can fix.
+------------------------------
+
+Checks took 101.08 seconds and used 848.879MB of memory
+Psalm was able to infer types for 94.8038% of the codebase

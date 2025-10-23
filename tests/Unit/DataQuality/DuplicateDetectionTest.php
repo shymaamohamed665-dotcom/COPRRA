@@ -39,5 +39,3 @@ class DuplicateDetectionTest extends TestCase
         parent::tearDown();
     }
 }
-
-

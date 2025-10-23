@@ -149,4 +149,3 @@ class UserRoleTest extends TestCase
         $this->assertNull($role);
     }
 }
-

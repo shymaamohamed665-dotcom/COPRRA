@@ -9,9 +9,8 @@ use App\Services\ExchangeRates\RateProvider;
 use App\Services\ExchangeRateService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
-use Tests\TestCase;
-
 use PHPUnit\Framework\Attributes\CoversClass;
+use Tests\TestCase;
 
 #[CoversClass(\App\Services\ExchangeRateService::class)]
 #[CoversClass(\App\Models\ExchangeRate::class)]

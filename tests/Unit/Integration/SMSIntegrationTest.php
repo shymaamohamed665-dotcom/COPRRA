@@ -39,5 +39,3 @@ class SMSIntegrationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

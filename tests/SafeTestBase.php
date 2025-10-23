@@ -86,5 +86,3 @@ class SafeTestBase extends TestCase
         $this->assertTrue(true);
     }
 }
-
-

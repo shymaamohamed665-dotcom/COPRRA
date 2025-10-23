@@ -89,7 +89,19 @@
       "Bash(git remote set-url:*)",
       "Bash(git push:*)",
       "Bash(gh:*)",
-      "Bash(vendor/bin/phpstan analyse:*)"
+      "Bash(vendor/bin/phpstan analyse:*)",
+      "Bash(git clone:*)",
+      "Read(//c/Users/Gaser/Desktop/**)",
+      "Bash(for file in pint.json phpmd.xml infection.json.dist deptrac.yaml behat.yml codeception.yml .php-cs-fixer.php rector.php)",
+      "Bash(do if [ -f \"$file\" ])",
+      "Bash(then echo \"✅ EXISTS: $file\")",
+      "Bash(else echo \"❌ MISSING: $file\")",
+      "Bash(fi)",
+      "Bash(ConvertFrom-Json)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(git config:*)",
+      "Bash(pkill -f \"git push\")",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

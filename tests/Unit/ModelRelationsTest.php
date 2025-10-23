@@ -39,5 +39,3 @@ class ModelRelationsTest extends TestCase
         parent::tearDown();
     }
 }
-
-

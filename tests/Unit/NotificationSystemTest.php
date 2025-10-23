@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests\Unit;
@@ -9,6 +10,6 @@ final class NotificationSystemTest extends TestCase
 {
     public function test_basic_truth(): void
     {
-$this->assertTrue(true);
+        $this->assertTrue(true);
     }
 }

@@ -321,4 +321,3 @@ class OrderControllerTest extends TestCase
         ], $response->getData(true));
     }
 }
-

@@ -39,5 +39,3 @@ class DataTimelinessTest extends TestCase
         parent::tearDown();
     }
 }
-
-

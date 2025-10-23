@@ -36,5 +36,3 @@ class AuthenticationSecurityTest extends TestCase
         parent::tearDown();
     }
 }
-
-

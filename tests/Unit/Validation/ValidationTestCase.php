@@ -80,5 +80,3 @@ class ValidationTestCase extends TestCase
         $this->assertNotEquals(1, 2);
     }
 }
-
-

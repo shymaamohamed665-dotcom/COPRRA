@@ -525,5 +525,3 @@ class ServiceTestFactory
         $this->testHelper->cleanup();
     }
 }
-
-

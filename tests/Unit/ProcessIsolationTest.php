@@ -39,5 +39,3 @@ class ProcessIsolationTest extends TestCase
         parent::tearDown();
     }
 }
-
-

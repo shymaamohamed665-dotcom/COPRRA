@@ -10,9 +10,9 @@ use App\Services\CacheService;
 use App\Services\WebhookService;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Psr\Log\LoggerInterface;
 use Tests\TestCase;
-use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(WebhookService::class)]
 #[CoversClass(Webhook::class)]

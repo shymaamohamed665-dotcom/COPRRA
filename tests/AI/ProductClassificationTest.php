@@ -57,5 +57,3 @@ class ProductClassificationTest extends \PHPUnit\Framework\TestCase
         $this->assertTrue(true);
     }
 }
-
-
