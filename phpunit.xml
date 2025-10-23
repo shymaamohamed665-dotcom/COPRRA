@@ -41,7 +41,29 @@
     <testsuite name="Integration">
       <directory suffix="Test.php">./tests/Integration</directory>
     </testsuite>
+    <testsuite name="Architecture">
+      <directory suffix="Test.php">./tests/Architecture</directory>
+    </testsuite>
   </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">./app</directory>
+    </include>
+    <exclude>
+      <directory>./app/Console/Commands/Stubs</directory>
+      <file>./app/Http/Kernel.php</file>
+    </exclude>
+  </source>
+  <coverage cacheDirectory=".phpunit.cache/code-coverage"
+            ignoreDeprecatedCodeUnits="true"
+            pathCoverage="false"
+            disableCodeCoverageIgnore="false">
+    <report>
+      <clover outputFile="reports/coverage.xml"/>
+      <html outputDirectory="reports/coverage" lowUpperBound="85" highLowerBound="90"/>
+      <text outputFile="php://stdout" showUncoveredFiles="false" showOnlySummary="true"/>
+    </report>
+  </coverage>
   <php>
     <env name="APP_ENV" value="testing"/>
     <env name="APP_DEBUG" value="false"/>

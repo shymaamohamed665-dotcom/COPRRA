@@ -15,6 +15,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Points & rewards system with financial transaction tracking
 - Comprehensive security (rate limiting, SQL injection protection, security headers)
 
+## Documentation
+
+**Architecture Documentation:**
+- **Architecture Decision Records (ADRs)**: `docs/architecture/decisions/` - Documents major architectural decisions with context, rationale, and trade-offs
+- **API Documentation**: `storage/api-docs/api-docs.json` - OpenAPI 3.0 specification (partial coverage, expansion ongoing)
+
+**Code Documentation:**
+- This file (CLAUDE.md) - Comprehensive developer guide
+- PHPDoc comments throughout codebase
+- Inline type hints and strict typing (`declare(strict_types=1)`)
+
 ## Development Commands
 
 ### Setup & Installation
