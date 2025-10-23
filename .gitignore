@@ -100,3 +100,7 @@ release/
 backups/
 storage/reports/
 *.out
+actionlint
+*_report.txt
+test_*.php
+coprra-release.zip

@@ -3,6 +3,17 @@
 
 echo "🚀 Running pre-commit checks with lint-staged..."
 
+# Debris Guard - auto-generated: block committing root debris files
+DEBRIS_REGEX='^([^/]+\.txt|[^/]+\.log|[^/]+\.out|test_.*\.php|actionlint|.*_report\.txt)$'
+STAGED=$(git diff --cached --name-only --diff-filter=ACM)
+if echo "$STAGED" | grep -E "$DEBRIS_REGEX" > /dev/null; then
+  echo "❌ Commit blocked: Debris files staged in repository root."
+  echo "Please run scripts/cleanup.sh or remove the files, then retry."
+  echo "Matched files:"
+  echo "$STAGED" | grep -E "$DEBRIS_REGEX"
+  exit 1
+fi
+
 # Check if vendor directory exists
 if [ ! -d "vendor" ]; then
     echo "⚠️  WARNING: vendor directory not found!"
