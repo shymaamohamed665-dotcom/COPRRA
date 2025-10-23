@@ -298,10 +298,19 @@
     <ClassMustBeFinal>
       <code><![CDATA[Kernel]]></code>
     </ClassMustBeFinal>
+    <MixedAssignment>
+      <code><![CDATA[$backupEnabled]]></code>
+    </MixedAssignment>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(bool) ($summary['overall_success'] ?? false)]]></code>
+      <code><![CDATA[(int) ($result['overall_health'] ?? 0)]]></code>
+    </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$this->app]]></code>
     </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->app->environment('testing')]]></code>
+      <code><![CDATA[$this->app->environment('testing')]]></code>
       <code><![CDATA[$this->app->environment('testing')]]></code>
     </RiskyTruthyFalsyComparison>
     <UnresolvableInclude>
@@ -549,9 +558,43 @@
     </UnusedClass>
   </file>
   <file src="app/Http/Controllers/Admin/AIControlPanelController.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$products]]></code>
+    </ArgumentTypeCoercion>
     <ClassMustBeFinal>
       <code><![CDATA[AIControlPanelController]]></code>
     </ClassMustBeFinal>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[view('admin.ai-control-panel')]]></code>
+    </LessSpecificReturnStatement>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$preferences]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code><![CDATA[$preferences]]></code>
+      <code><![CDATA[$preferences]]></code>
+      <code><![CDATA[$products]]></code>
+      <code><![CDATA[$products]]></code>
+    </MixedAssignment>
+    <MoreSpecificReturnType>
+      <code><![CDATA[View]]></code>
+    </MoreSpecificReturnType>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[analyzeImage]]></code>
+      <code><![CDATA[analyzeText]]></code>
+      <code><![CDATA[classifyProduct]]></code>
+      <code><![CDATA[generateRecommendations]]></code>
+      <code><![CDATA[getStatus]]></code>
+      <code><![CDATA[index]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantCondition>
+      <code><![CDATA[is_string($host)]]></code>
+      <code><![CDATA[is_string($ip)]]></code>
+    </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[parse_url($config['base_url'], PHP_URL_HOST)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="app/Http/Controllers/Admin/DashboardController.php">
     <InvalidOperand>
@@ -1788,6 +1831,7 @@
     </PossiblyUnusedMethod>
     <RedundantCast>
       <code><![CDATA[(float) (microtime(true) - $startRef)]]></code>
+      <code><![CDATA[(string) $e->getMessage()]]></code>
     </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$requestTime ?? time()]]></code>
@@ -1796,6 +1840,7 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$includeDatabase]]></code>
       <code><![CDATA[$includeFiles]]></code>
+      <code><![CDATA[app()->environment('testing')]]></code>
       <code><![CDATA[app()->environment('testing')]]></code>
       <code><![CDATA[app()->environment('testing')]]></code>
       <code><![CDATA[disk_free_space(base_path())]]></code>
@@ -3736,11 +3781,7 @@
       <code><![CDATA[0.0]]></code>
       <code><![CDATA[0.0]]></code>
       <code><![CDATA[0.0]]></code>
-      <code><![CDATA[0.0]]></code>
     </DocblockTypeContradiction>
-    <InvalidOperand>
-      <code><![CDATA[$price * $qty]]></code>
-    </InvalidOperand>
     <MissingParamType>
       <code><![CDATA[$value]]></code>
     </MissingParamType>
@@ -3748,23 +3789,8 @@
       <code><![CDATA[HasFactory]]></code>
     </MissingTemplateParam>
     <MixedAssignment>
-      <code><![CDATA[$connName]]></code>
-      <code><![CDATA[$items]]></code>
       <code><![CDATA[$raw]]></code>
-      <code><![CDATA[$row]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[isNotEmpty]]></code>
-      <code><![CDATA[where]]></code>
-    </MixedMethodCall>
-    <MixedPropertyFetch>
-      <code><![CDATA[$row->price]]></code>
-      <code><![CDATA[$row->quantity]]></code>
-      <code><![CDATA[$row->total]]></code>
-      <code><![CDATA[$row->total_price]]></code>
-      <code><![CDATA[$row->unit_price]]></code>
-    </MixedPropertyFetch>
     <MixedReturnStatement>
       <code><![CDATA[$this->belongsTo(User::class)]]></code>
       <code><![CDATA[$this->hasMany(OrderItem::class, 'order_id', 'id')]]></code>
@@ -3788,24 +3814,17 @@
       <code><![CDATA[(float) ($order->shipping_amount ?? 0.0)]]></code>
       <code><![CDATA[(float) ($order->subtotal ?? 0.0)]]></code>
       <code><![CDATA[(float) ($order->tax_amount ?? 0.0)]]></code>
-      <code><![CDATA[(float) ($this->subtotal ?? 0.0)]]></code>
     </RedundantCastGivenDocblockType>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$order->shipping_amount]]></code>
       <code><![CDATA[$order->subtotal]]></code>
       <code><![CDATA[$order->tax_amount]]></code>
-      <code><![CDATA[$this->subtotal]]></code>
     </RedundantConditionGivenDocblockType>
     <UndefinedClass>
       <code><![CDATA[\DB]]></code>
       <code><![CDATA[\DB]]></code>
       <code><![CDATA[\DB]]></code>
-      <code><![CDATA[\DB]]></code>
-      <code><![CDATA[\DB]]></code>
     </UndefinedClass>
-    <UndefinedMagicMethod>
-      <code><![CDATA[newQuery]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="app/Models/OrderItem.php">
     <ClassMustBeFinal>
@@ -4791,9 +4810,17 @@
      *         rule: string,
      *         message: string,
      *         details: array<int, string>,
-     *         timestamp: string]]></code>
+     *         timestamp: string
+     *     }>
+     * }]]></code>
       <code><![CDATA[is_array($results) ? $results : []]]></code>
     </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[clearAlerts]]></code>
+      <code><![CDATA[getAlertsSummary]]></code>
+      <code><![CDATA[getHealthStatus]]></code>
+      <code><![CDATA[startMonitoring]]></code>
+    </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
       <code><![CDATA[$this->alerts]]></code>
     </PropertyTypeCoercion>
@@ -4806,9 +4833,6 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[is_string($ruleId)]]></code>
     </RedundantConditionGivenDocblockType>
-    <UnusedClass>
-      <code><![CDATA[ContinuousQualityMonitor]]></code>
-    </UnusedClass>
   </file>
   <file src="app/Services/AI/HealthScoreCalculator.php">
     <DocblockTypeContradiction>
@@ -4978,46 +5002,25 @@
       <code><![CDATA[now()->toISOString()]]></code>
       <code><![CDATA[now()->toISOString()]]></code>
     </PossiblyNullArgument>
-    <UnusedClass>
-      <code><![CDATA[StrictQualityAgent]]></code>
-    </UnusedClass>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[autoFixIssues]]></code>
+      <code><![CDATA[getAllResults]]></code>
+      <code><![CDATA[getErrorsSummary]]></code>
+      <code><![CDATA[getStageStatus]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="app/Services/AIService.php">
     <ClassMustBeFinal>
       <code><![CDATA[AIService]]></code>
     </ClassMustBeFinal>
-    <LessSpecificReturnStatement>
-      <code><![CDATA[[
-            'recommendations' => $recommendations,
-            'confidence' => $confidence,
-        ]]]></code>
-    </LessSpecificReturnStatement>
-    <MixedArgument>
-      <code><![CDATA[$apiKey]]></code>
-      <code><![CDATA[$baseUrl]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$apiKey]]></code>
       <code><![CDATA[$baseUrl]]></code>
+      <code><![CDATA[$timeout]]></code>
     </MixedAssignment>
-    <MoreSpecificReturnType>
-      <code><![CDATA[list<array{
-     *     product_id: string,
-     *     score: float,
-     *     reason: string
-     * }>]]></code>
-    </MoreSpecificReturnType>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RedundantCastGivenDocblockType>
-      <code><![CDATA[(string) ($rec['product_id'] ?? '1')]]></code>
-      <code><![CDATA[(string) ($rec['reason'] ?? 'recommended')]]></code>
-    </RedundantCastGivenDocblockType>
-    <RedundantCondition>
-      <code><![CDATA[$recommendations === [] && is_array($raw)]]></code>
-      <code><![CDATA[is_array($raw)]]></code>
-    </RedundantCondition>
     <UnusedProperty>
       <code><![CDATA[$requestService]]></code>
     </UnusedProperty>
@@ -6514,7 +6517,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$oldData]]></code>
-      <code><![CDATA[$updateData]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$lowestOffer]]></code>
@@ -6759,6 +6761,35 @@
     <UnusedClass>
       <code><![CDATA[OptimizedQueryService]]></code>
     </UnusedClass>
+  </file>
+  <file src="app/Services/Order/OrderTotalsCalculator.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[0.0]]></code>
+    </DocblockTypeContradiction>
+    <InaccessibleProperty>
+      <code><![CDATA[$order->attributes]]></code>
+    </InaccessibleProperty>
+    <InvalidOperand>
+      <code><![CDATA[$price * $qty]]></code>
+    </InvalidOperand>
+    <MixedArgument>
+      <code><![CDATA[$connName]]></code>
+      <code><![CDATA[$connName]]></code>
+      <code><![CDATA[$connName]]></code>
+      <code><![CDATA[$connName]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code><![CDATA[$order->attributes['subtotal']]]></code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$connName]]></code>
+    </MixedAssignment>
+    <RedundantCastGivenDocblockType>
+      <code><![CDATA[(float) ($order->subtotal ?? 0.0)]]></code>
+    </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$order->subtotal]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="app/Services/OrderService.php">
     <ClassMustBeFinal>
@@ -9405,6 +9436,9 @@
     <MissingClosureReturnType>
       <code><![CDATA[function () {]]></code>
     </MissingClosureReturnType>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$validated['preferences']]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedMethodCall>
       <code><![CDATA[count]]></code>
       <code><![CDATA[count]]></code>

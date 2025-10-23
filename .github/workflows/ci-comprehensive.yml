@@ -107,9 +107,8 @@ jobs:
       - name: Run PHPStan (Static Analysis)
         run: ./vendor/bin/phpstan analyse --memory-limit=2G --error-format=github
 
-      - name: Run Psalm (Optional)
+      - name: Run Psalm (Static Analysis with Baseline)
         run: ./vendor/bin/psalm --output-format=github --no-cache
-        continue-on-error: true
 
   #=============================================================================
   # JOB 3: FRONTEND BUILD
@@ -136,11 +135,9 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
-        continue-on-error: true
 
       - name: Run Stylelint
         run: npm run stylelint
-        continue-on-error: true
 
       - name: Build frontend assets
         run: npm run build
@@ -363,6 +360,9 @@ jobs:
 
       - name: Run PHPMD (PHP Mess Detector)
         run: ./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode
+        # Technical Debt: PHPMD reports 500+ stylistic violations (short variables, static access to facades, coupling).
+        # PHPStan Level max already enforces strict type safety. PHPMD violations are tracked but non-blocking.
+        # TODO: Configure phpmd.xml with project-specific thresholds or remove PHPMD in favor of PHPStan-only validation.
         continue-on-error: true
 
   #=============================================================================
