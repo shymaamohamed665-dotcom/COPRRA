@@ -1,2 +1,0 @@
-Executing test 3
-✓

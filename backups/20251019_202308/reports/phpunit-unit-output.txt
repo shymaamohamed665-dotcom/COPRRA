@@ -1,8 +1,0 @@
-PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
-
-Runtime:       PHP 8.2.29 with PCOV 1.0.12
-Configuration: /var/www/html/phpunit.xml
-
-FFFFEEEEEEEEEEEEEEEEEEEEEEEE.EEE..............FFFF...........EE  63 / 784 (  8%)
-EEEEE.EEE.................EE........EEEEEEEEEEEEEEEEEEEEEEEEEEE 126 / 784 ( 16%)
-EEEEEEEEEE....EEEEEEEEEEEE.........E......EEE..........EEEE

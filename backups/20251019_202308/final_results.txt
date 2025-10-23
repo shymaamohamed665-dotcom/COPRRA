@@ -1,6 +1,0 @@
-
-[37;41m                                            [39;49m
-[37;41m  The "--testsuite" option does not exist.  [39;49m
-[37;41m                                            [39;49m
-
-[37;41mScript @php artisan config:clear handling the test event returned with error code 1[39;49m

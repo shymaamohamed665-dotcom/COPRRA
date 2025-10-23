@@ -1,7 +1,0 @@
-services:
-  coprra-app:
-    build:
-      context: .
-      dockerfile: dev-docker/Dockerfile
-    volumes:
-      - .:/var/www/html
