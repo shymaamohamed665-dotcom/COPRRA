@@ -15,6 +15,7 @@
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.0",
+        "darkaonline/l5-swagger": "^9.0",
         "darryldecode/cart": "^4.2",
         "doctrine/dbal": "^4.3",
         "guzzlehttp/guzzle": "^7.2",

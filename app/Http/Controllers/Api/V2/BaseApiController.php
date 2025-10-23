@@ -13,21 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * @OA\Info(
- *     title="COPRRA API v2",
- *     version="2.0.0",
- *     description="Enhanced API for COPRRA - Price Comparison Platform v2",
- *
- *     @OA\Contact(
- *         email="api@coprra.com",
- *         name="COPRRA API Support"
- *     ),
- *
- *     @OA\License(
- *         name="MIT",
- *         url="https://opensource.org/licenses/MIT"
- *     )
- * )
+ * Base API Controller for v2 endpoints
  *
  * @OA\Server(
  *     url="https://api.coprra.com/v2",
