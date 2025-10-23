@@ -103,5 +103,11 @@ storage/reports/
 *.out
 actionlint
 *_report.txt
+*_output.txt
+audit-*.txt
+phpstan_*.txt
+psalm_*.txt
+coverage_*.txt
 test_*.php
+temp_*.php
 coprra-release.zip
