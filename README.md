@@ -651,4 +651,458 @@ composer run format
 - `APP_DEBUG` is `true` in `.env.example` for local debugging; set `false` in production.
 - `HEALTH_CHECKS_ENDPOINT` defaults to `/api/health`.
 - For cross-origin SPA auth, set: `SESSION_SAME_SITE=none`, `SESSION_SECURE_COOKIE=true`, and align `SESSION_DOMAIN`/`SESSION_PATH` with your domains.
-
+
+## Tech Stack
+- PHP `8.2+`, Laravel `12`
+- MySQL `8.0`, Redis `7`
+- Node.js `20` with Vite
+- Docker + Docker Compose
+- CI: GitHub Actions with PHPStan, Psalm, PHPMD, Pint, Deptrac, Infection, ESLint/Stylelint/Prettier
+
+## Code Quality & Hooks
+- Pre-commit runs `lint-staged`, dependency checks, and debris guard (blocks committing root `*.txt`, `*.log`, `*.out`, `test_*.php`)
+- Pre-push runs static analysis, tests, audits, and reports
+- Bypass temporarily with `--no-verify` if required (e.g., `git commit --no-verify`) — use sparingly
+
+## Docker First
+- Prefer Docker-based setup for a consistent environment across the team
+- Quick start:
+```bash
+docker-compose up -d
+docker-compose exec app bash
+composer install && php artisan migrate --seed && php artisan key:generate
+```
+
+### Run Frontend Tests
+
+```bash
+# Run all frontend quality checks
+npm run test:frontend
+
+# Run individual frontend tools
+npm run lint
+npm run stylelint
+npm run check
+```
+
+## Code Quality and Tooling
+
+This project includes comprehensive code quality tools to maintain high standards:
+
+### Static Analysis Tools
+
+```bash
+# PHPStan (Static Analysis)
+composer run analyse:phpstan
+
+# Psalm (Static Analysis)
+composer run analyse:psalm
+
+# PHPMD (Mess Detector)
+./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode
+
+# Deptrac (Architecture Testing)
+./vendor/bin/deptrac analyse
+
+# Security Checker
+composer run analyse:security
+```
+
+### Code Formatting and Fixing
+
+```bash
+# Laravel Pint (Code Style)
+./vendor/bin/pint
+
+# Fix all code style issues
+composer run fix:all
+
+# Run all analysis tools
+composer run analyse:all
+```
+
+### Quality Assurance
+
+```bash
+# Run complete quality check
+composer run quality
+
+# Run comprehensive measurements
+composer run measure:all
+```
+
+### Frontend Code Quality
+
+```bash
+# ESLint (JavaScript linting)
+npm run lint
+
+# Fix ESLint issues
+npm run lint:fix
+
+# Stylelint (CSS linting)
+npm run stylelint
+
+# Fix Stylelint issues
+npm run stylelint:fix
+
+# Run all frontend checks
+npm run check
+```
+
+## Environment Variables
+
+The following environment variables are critical for the application to function properly:
+
+### Required Variables
+
+- `APP_NAME` - Application name (default: Laravel)
+- `APP_ENV` - Environment (local, production, testing)
+- `APP_KEY` - Application encryption key (generated automatically)
+
+## 🐳 Docker Setup
+
+### Development
+
+```bash
+# Start services
+docker-compose up -d
+
+# Run migrations
+docker-compose exec app php artisan migrate
+
+# Install dependencies
+docker-compose exec app composer install
+```
+
+### Production
+
+```bash
+# Use production compose file
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+### Services
+
+- **App:** Laravel application (PHP 8.2-FPM)
+- **Nginx:** Web server (port 80)
+- **MySQL:** Database (port 3306, exposed on 127.0.0.1:33061)
+- **Redis:** Cache & Queue (port 6379)
+- **Mailpit:** Email testing (Web UI: 8025, SMTP: 1025)
+
+### Health Checks
+
+Visit `http://localhost/api/health` to verify all services
+
+- `APP_DEBUG` - Debug mode (true/false)
+- `APP_URL` - Application URL
+- `DB_CONNECTION` - Database connection (mysql, sqlite, etc.)
+- `DB_HOST` - Database host
+- `DB_PORT` - Database port
+- `DB_DATABASE` - Database name
+- `DB_USERNAME` - Database username
+- `DB_PASSWORD` - Database password
+- `MAIL_MAILER` - Mail driver (smtp, mailgun, ses, etc.)
+- `MAIL_HOST` - Mail server host
+- `MAIL_PORT` - Mail server port
+- `MAIL_USERNAME` - Mail username
+- `MAIL_PASSWORD` - Mail password
+- `MAIL_ENCRYPTION` - Mail encryption (tls, ssl, null)
+- `MAIL_FROM_ADDRESS` - From email address
+- `MAIL_FROM_NAME` - From name
+
+### Optional Variables
+
+- `LOG_CHANNEL` - Log channel (stack, single, daily, etc.)
+- `LOG_LEVEL` - Log level (debug, info, notice, warning, error, critical, alert, emergency)
+- `CACHE_DRIVER` - Cache driver (array, database, redis, etc.)
+- `SESSION_DRIVER` - Session driver (array, database, redis, etc.)
+- `QUEUE_CONNECTION` - Queue driver (sync, database, redis, etc.)
+- `BROADCAST_DRIVER` - Broadcast driver (log, pusher, redis, etc.)
+- `FILESYSTEM_DISK` - Default filesystem disk (local, public, s3, etc.)
+- `REQUIRE_2FA` - Require two-factor authentication (true/false)
+
+## Security
+
+- Security headers enabled globally via `SecurityHeadersMiddleware`:
+    - `X-Frame-Options: SAMEORIGIN`
+    - `X-Content-Type-Options: nosniff`
+    - `Referrer-Policy: strict-origin-when-cross-origin`
+    - `Strict-Transport-Security` (applied on HTTPS)
+    - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+    - `Content-Security-Policy` (CSP) — strict, no `unsafe-inline`/`unsafe-eval`
+- CSP uses a `nonce` generated per-request by `AddCspNonce`.
+    - Scripts: include nonce in inline tags: `<script nonce="{{ $cspNonce }}">...</script>`
+    - Styles: prefer external stylesheets; if inline styles are required, add the same nonce: `<style nonce="{{ $cspNonce }}">...</style>`
+- Development allowances:
+    - When `APP_ENV=local`, CSP permits the Vite dev server (`VITE_DEV_SERVER`, default `http://localhost:5173`) and WebSocket for HMR via `connect-src`.
+
+### CORS Configuration
+
+- CORS is environment-driven (`config/cors.php`).
+    - Local: allows common dev origins (Vite/SPA and `APP_URL`).
+    - Production: restricted to `APP_URL` and `FRONTEND_URL` unless `CORS_ALLOWED_ORIGINS` is explicitly set.
+- Key variables:
+    - `CORS_ALLOWED_ORIGINS` — comma-separated origins.
+    - `CORS_ALLOWED_METHODS` — default `GET,POST,PUT,PATCH,DELETE,OPTIONS`.
+    - `CORS_ALLOWED_HEADERS` — default `Accept,Authorization,Content-Type,X-Requested-With,X-CSRF-TOKEN`.
+    - `CORS_EXPOSED_HEADERS`, `CORS_MAX_AGE`, `CORS_SUPPORTS_CREDENTIALS` — optional.
+
+### Testing & Quality
+
+- Run tests (inside container):
+
+```bash
+docker-compose exec app composer run test
+```
+
+- Static analysis:
+
+```bash
+docker-compose exec app composer run analyse
+```
+
+### Deployment Guide
+
+- See `DEPLOYMENT.md` for a comprehensive production checklist and step-by-step guide.
+
+### AI Integration Variables
+
+- `OPENAI_API_KEY` - OpenAI API key for AI features
+- `OPENAI_BASE_URL` - OpenAI API base URL (default: https://api.openai.com/v1)
+- `OPENAI_TIMEOUT` - OpenAI request timeout (default: 30)
+- `OPENAI_MAX_TOKENS` - Maximum tokens for AI responses (default: 2000)
+- `OPENAI_TEMPERATURE` - AI response creativity (default: 0.5)
+
+### Third-Party Service Variables
+
+- `MAILGUN_DOMAIN` - Mailgun domain for email services
+- `MAILGUN_SECRET` - Mailgun API secret
+- `AWS_ACCESS_KEY_ID` - AWS access key for SES
+- `AWS_SECRET_ACCESS_KEY` - AWS secret key for SES
+- `AWS_DEFAULT_REGION` - AWS region (default: us-east-1)
+- `AWS_BUCKET` - AWS S3 bucket name
+- `PUSHER_APP_ID` - Pusher app ID for real-time features
+- `PUSHER_APP_KEY` - Pusher app key
+- `PUSHER_APP_SECRET` - Pusher app secret
+- `PUSHER_HOST` - Pusher host
+- `PUSHER_PORT` - Pusher port
+- `PUSHER_SCHEME` - Pusher scheme (https/http)
+- `PUSHER_APP_CLUSTER` - Pusher cluster
+
+## Development Commands
+
+### Cache Management
+
+```bash
+# Clear all caches
+composer run clear-all
+
+# Cache all configurations
+composer run cache-all
+```
+
+### Database Commands
+
+```bash
+# Run migrations
+php artisan migrate
+
+# Rollback migrations
+php artisan migrate:rollback
+
+# Seed database
+php artisan db:seed
+
+# Fresh migration with seeding
+php artisan migrate:fresh --seed
+```
+
+### Frontend Development
+
+```bash
+# Watch for changes during development
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Clean build artifacts
+npm run clean
+```
+
+## Project Structure
+
+```
+coprra/
+├── app/                    # Application code
+│   ├── Console/           # Artisan commands
+│   ├── Http/              # Controllers, middleware, requests
+│   ├── Models/            # Eloquent models
+│   ├── Providers/         # Service providers
+│   └── Services/          # Business logic services
+├── config/                 # Configuration files
+├── database/              # Migrations, seeders, factories
+├── dev-docker/            # Docker development setup
+├── public/                # Web accessible files
+│   ├── index.php          # Application entry point
+│   ├── assets/            # Compiled assets
+│   └── storage/           # Storage symlink
+├── resources/             # Views, assets, language files
+│   ├── css/               # Stylesheets
+│   ├── js/                # JavaScript files
+│   └── views/             # Blade templates
+├── routes/                # Route definitions
+│   ├── web.php            # Web routes
+│   ├── api.php            # API routes
+│   └── console.php        # Console routes
+├── storage/               # Logs, cache, sessions
+│   ├── app/               # Application files
+│   ├── framework/         # Framework cache
+│   └── logs/              # Log files
+├── tests/                 # Test files
+│   ├── Unit/              # Unit tests
+│   ├── Feature/           # Feature tests
+│   ├── Integration/       # Integration tests
+│   ├── Performance/       # Performance tests
+│   ├── Security/          # Security tests
+│   └── AI/                # AI-related tests
+├── .github/               # GitHub workflows
+├── .husky/                # Git hooks
+├── vendor/                # Composer dependencies
+├── node_modules/          # NPM dependencies
+├── composer.json          # PHP dependencies
+├── package.json           # NPM dependencies
+├── phpunit.xml           # PHPUnit configuration
+├── phpstan.neon          # PHPStan configuration
+├── psalm.xml             # Psalm configuration
+├── phpmd.xml             # PHPMD configuration
+├── deptrac.yaml          # Deptrac configuration
+├── pint.json             # Laravel Pint configuration
+├── .stylelintrc.json     # Stylelint configuration
+├── eslint.config.js      # ESLint configuration
+└── vite.config.js        # Vite configuration
+```
+
+## Hostinger Deployment
+
+This project is optimized for deployment on Hostinger hosting. Follow these steps for a successful deployment:
+
+### Prerequisites
+
+- Hostinger hosting account with PHP 8.2+ support
+- MySQL database access
+- SSH access (recommended) or File Manager access
+- Domain name configured
+
+### Deployment Steps
+
+1. **Upload Files**
+
+    ```bash
+    # Upload all files to your domain's public_html directory
+    # Ensure .env file is properly configured for production
+    ```
+
+2. **Configure Environment**
+
+    ```bash
+    # Set production environment variables
+    APP_ENV=production
+    APP_DEBUG=false
+    APP_URL=https://yourdomain.com
+
+    # Configure database connection
+    DB_HOST=localhost
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_username
+    DB_PASSWORD=your_password
+    ```
+
+3. **Install Dependencies**
+
+    ```bash
+    composer install --optimize-autoloader --no-dev
+    npm install
+    npm run build
+    ```
+
+4. **Laravel Setup**
+
+    ```bash
+    php artisan key:generate
+    php artisan migrate --force
+    php artisan db:seed
+    php artisan storage:link
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+    ```
+
+5. **Set Permissions**
+
+    ```bash
+    chmod -R 755 storage bootstrap/cache
+    chown -R www-data:www-data storage bootstrap/cache
+    ```
+
+6. **Configure Web Server**
+    - Point document root to `/public` directory
+    - Enable URL rewriting
+    - Set proper MIME types
+
+### Production Checklist
+
+- [ ] Environment variables configured
+- [ ] Database migrated and seeded
+- [ ] Storage linked
+- [ ] Caches optimized
+- [ ] File permissions set
+- [ ] SSL certificate installed
+- [ ] Error logging configured
+- [ ] Backup strategy implemented
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run the quality checks (`composer run quality`)
+5. Run the test suite (`composer run test:all`)
+6. Commit your changes (`git commit -m 'Add amazing feature'`)
+7. Push to the branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
+
+## License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Support
+
+For support and questions, please open an issue in the repository or contact the development team.
+
+## Documentation
+
+- Start with `QUICK_START.md` for the fastest setup, then consult `README.md` for deeper context.
+- Use `DOCUMENTATION_INDEX.md` as the canonical map of all documentation.
+- Architecture references: `docs/COPRRA.md`, `docs/COPRRA_STRUCTURE.md`, and `CLAUDE.md`.
+- CI/CD overview: `docs/CI_CD_OVERVIEW.md`.
+- Operations: runbooks under `docs/runbooks/` for deployment, rollback, incidents, and cache/queue maintenance.
+
+### Static Analysis & Style
+
+```bash
+composer run analyse:phpstan
+composer run analyse:psalm
+composer run format
+```
+
+### Environment Variables
+
+- `APP_ENV` should be `local` in development and `production` in live environments.
+- `APP_DEBUG` is `true` in `.env.example` for local debugging; set `false` in production.
+- `HEALTH_CHECKS_ENDPOINT` defaults to `/api/health`.
+- For cross-origin SPA auth, set: `SESSION_SAME_SITE=none`, `SESSION_SECURE_COOKIE=true`, and align `SESSION_DOMAIN`/`SESSION_PATH` with your domains.

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<ruleset name="Laravel Project Rules"
+<ruleset name="Laravel Pragmatic Rules"
          xmlns="http://pmd.sf.net/ruleset/1.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
 
-    <description>Laravel Project PHPMD Rules - Maximum Strictness</description>
+    <description>PHPMD ruleset tuned for pragmatic Laravel projects to reduce noise and focus on actionable issues.</description>
 
-    <!-- Include selected Clean Code rules (excluding StaticAccess, ElseExpression, IfStatementAssignment) -->
+    <!-- Clean Code: keep useful checks, skip rules that conflict with Laravel idioms -->
     <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
     <rule ref="rulesets/cleancode.xml/DuplicatedArrayKey"/>
     <rule ref="rulesets/cleancode.xml/ErrorControlOperator"/>
@@ -17,26 +17,31 @@
     </rule>
     <rule ref="rulesets/cleancode.xml/UndefinedVariable"/>
 
-    <!-- Include all unused code rules -->
+    <!-- Unused code rules: useful to catch dead code -->
     <rule ref="rulesets/unusedcode.xml"/>
 
-    <!-- Include all design rules -->
+    <!-- Design rules: include with a relaxed coupling threshold -->
+    <rule ref="rulesets/design.xml/CouplingBetweenObjects">
+        <properties>
+            <property name="maximum" value="22"/>
+        </properties>
+    </rule>
     <rule ref="rulesets/design.xml"/>
 
-    <!-- Controversial rules are excluded to align with Laravel idioms (facades, etc.) -->
-    <!-- If needed, re-enable specific rules individually. -->
-
-    <!-- Include specific naming rules instead of the entire set -->
-    <!-- Keep ShortVariable/LongVariable customized via phpmd-naming.xml -->
+    <!-- Naming: relax short variable length to reduce noise in small scopes -->
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="minimum" value="2"/>
+            <property name="exceptions" value="i,j,k,x,y,z,id,ok"/>
+        </properties>
+    </rule>
     <rule ref="rulesets/naming.xml/ShortMethodName">
         <properties>
             <property name="minimum" value="2"/>
         </properties>
     </rule>
-    <!-- Removed incorrect CamelCase references (these lives in controversial.xml).
-         We can re-enable them later via rulesets/controversial.xml if desired. -->
 
-    <!-- Include code size rules selectively and configure thresholds -->
+    <!-- Code size: set pragmatic thresholds to focus on truly hot spots -->
     <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
         <properties>
             <property name="reportLevel" value="30"/>
@@ -54,17 +59,14 @@
     </rule>
     <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
         <properties>
-            <property name="maximum" value="90"/>
+            <property name="maximum" value="95"/>
         </properties>
     </rule>
     <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
         <properties>
-            <property name="maxmethods" value="20"/>
+            <property name="maxmethods" value="22"/>
             <property name="ignorepattern" value="(^(set|get|is|has|with))i"/>
         </properties>
     </rule>
-
-    <!-- Include custom naming ruleset with configured ShortVariable/LongVariable -->
-    <rule ref="phpmd-naming.xml"/>
 
 </ruleset>

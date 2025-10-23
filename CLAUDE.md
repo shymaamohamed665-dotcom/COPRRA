@@ -514,3 +514,9 @@ php artisan clean:analytics          # Clean old analytics data
 php artisan process:webhooks         # Process pending webhooks
 php artisan exchange-rates:update    # Update currency exchange rates
 ```
+
+## Updated Developer Guidance
+- Prefer Docker-first workflow; see `README.md` Docker section
+- Use `scripts/cleanup.sh` to relocate root debris (`*.txt`, `*.log`, `*.out`, `test_*.php`) into `storage/reports/`
+- Reference new operations docs under `docs/` (e.g., `docs/DEPLOYMENT.md`, runbooks)
+- Pre-commit/pre-push hooks run QA; bypass temporarily with `--no-verify` when appropriate

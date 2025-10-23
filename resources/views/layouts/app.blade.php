@@ -10,6 +10,12 @@
     <meta name="author" content="{{ config('app.name', 'COPRRA') }}">
     <meta name="theme-color" content="#3b82f6">
     <meta name="color-scheme" content="light dark">
+    <!-- Open Graph -->
+    <meta property="og:title" content="@yield('og_title', View::getSection('title') ?? config('app.name', 'COPRRA'))">
+    <meta property="og:description" content="@yield('og_description', __('messages.coprra_description'))">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="@yield('og_image', asset('apple-touch-icon.png'))">
 
     <title>@yield('title', config('app.name', 'COPRRA'))</title>
 
@@ -72,3 +78,4 @@
     @stack('scripts')
 </body>
 </html>
+

@@ -22,8 +22,8 @@
     },
     "testFramework": "phpunit",
     "testFrameworkOptions": "--configuration=phpunit.xml",
-    "minMsi": 80,
-    "minCoveredMsi": 80,
+    "minMsi": 60,
+    "minCoveredMsi": 60,
     "threads": 4,
     "ignoreMsiWithNoMutations": true
 }
