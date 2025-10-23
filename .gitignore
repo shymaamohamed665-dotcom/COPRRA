@@ -40,6 +40,7 @@ yarn-error.log*
 .phpunit.cache/
 *.cache
 .php-cs-fixer.cache
+tmp/
 
 # OS Generated Files
 .DS_Store
