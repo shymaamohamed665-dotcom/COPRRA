@@ -1,7 +1,0 @@
-Note: Using configuration file /var/www/html/phpstan.neon.
-
-In UpdateExchangeRates.php line 3:
-                                                                           
-  strict_types declaration must be the very first statement in the script  
-                                                                           
-

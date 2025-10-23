@@ -1,2 +1,0 @@
-{"command": "vendor/bin/phpunit --configuration phpunit.xml --coverage-html coverage --log-junit junit.xml", "start": "2025-10-02T03:47:39+00:00"}
-{"end": "2025-10-02T03:48:46+00:00", "exit_code": 255 }

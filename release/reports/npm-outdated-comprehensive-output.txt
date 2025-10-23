@@ -1,5 +1,0 @@
-Package      Current  Wanted  Latest  Location                  Depended by
-codecov        3.8.2   3.8.3   3.8.3  node_modules/codecov      html
-eslint        9.35.0  9.36.0  9.36.0  node_modules/eslint       html
-lint-staged   16.2.0  16.2.3  16.2.3  node_modules/lint-staged  html
-vite           7.1.5   7.1.7   7.1.7  node_modules/vite         html

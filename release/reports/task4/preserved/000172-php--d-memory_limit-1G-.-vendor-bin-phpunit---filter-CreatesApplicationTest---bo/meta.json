@@ -1,2 +1,0 @@
-{"command": "php -d memory_limit=1G ./vendor/bin/phpunit --filter CreatesApplicationTest --bootstrap tests/bootstrap.php", "start": "2025-10-02T03:20:48+00:00"}
-{"end": "2025-10-02T03:23:57+00:00", "exit_code": 255 }

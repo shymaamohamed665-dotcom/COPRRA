@@ -87,3 +87,12 @@ NUL
 @php
 IlluminateFoundation*
 /\.env\.docker
+
+# ===================================================================
+#  Repository Hygiene (Redundant/Temporary Directories)
+# ===================================================================
+# Release directory (redundant copy of entire codebase)
+/release/
+
+# Backup directories (should not be in version control)
+/backups/

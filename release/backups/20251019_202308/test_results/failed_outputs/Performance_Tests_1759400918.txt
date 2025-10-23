@@ -1,6 +1,0 @@
-Command: ./run_tests_docker.sh
-Output:
-
-Error:
-/bin/sh: 1: ./run_tests_docker.sh: not found
-

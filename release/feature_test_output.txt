@@ -1,3 +1,0 @@
-'vendor\bin\phpunit' is not recognized as an internal or external command,
-operable program or batch file.
-[37;41mScript vendor/bin/phpunit --testsuite Feature handling the test:feature event returned with error code 1[39;49m

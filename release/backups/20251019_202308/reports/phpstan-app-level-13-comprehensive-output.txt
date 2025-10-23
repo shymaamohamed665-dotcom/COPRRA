@@ -1,2 +1,0 @@
-Note: Using configuration file /var/www/html/phpstan.neon.
-Level config file phar:///var/www/html/vendor/phpstan/phpstan/phpstan.phar/conf/config.level13.neon was not found.

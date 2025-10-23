@@ -1,2 +1,0 @@
-{"command": "./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose", "start": "2025-10-02T03:52:00+00:00"}
-{"end": "2025-10-02T03:52:37+00:00", "exit_code": 16 }

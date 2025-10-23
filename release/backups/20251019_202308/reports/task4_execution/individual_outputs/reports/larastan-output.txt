@@ -1,2 +1,0 @@
-Test #3: Larastan - Laravel Static Analysis
-Status: TIMEOUT after 300s

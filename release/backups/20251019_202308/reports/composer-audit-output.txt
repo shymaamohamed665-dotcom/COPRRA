@@ -1,9 +1,0 @@
-No security vulnerability advisories found.
-Found 3 abandoned packages:
-+-------------------------+----------------------------------------------------------------------------------+
-| Abandoned Package       | Suggested Replacement                                                            |
-+-------------------------+----------------------------------------------------------------------------------+
-| sebastian/finder-facade | none                                                                             |
-| sebastian/phpcpd        | none                                                                             |
-| theseer/fdomdocument    | none                                                                             |
-+-------------------------+----------------------------------------------------------------------------------+

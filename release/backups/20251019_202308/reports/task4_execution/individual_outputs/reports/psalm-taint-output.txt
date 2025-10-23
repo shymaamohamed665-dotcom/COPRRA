@@ -1,2 +1,0 @@
-Test #5: Psalm - Taint Analysis
-Status: TIMEOUT after 300s

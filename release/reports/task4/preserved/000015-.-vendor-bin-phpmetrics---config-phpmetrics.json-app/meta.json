@@ -1,2 +1,0 @@
-{"command": "./vendor/bin/phpmetrics --config=phpmetrics.json app", "start": "2025-10-02T03:37:45+00:00"}
-{"end": "2025-10-02T03:37:46+00:00", "exit_code": 127 }
