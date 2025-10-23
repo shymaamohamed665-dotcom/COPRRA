@@ -8,7 +8,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Storage;
 
 class HealthController extends Controller
 {
@@ -67,7 +69,8 @@ class HealthController extends Controller
     private function checkDatabase(): string
     {
         try {
-            DB::connection()->getPdo();
+            // Simple query to verify connectivity
+            DB::select('SELECT 1');
 
             return 'up';
         } catch (\Throwable $e) {
@@ -95,13 +98,9 @@ class HealthController extends Controller
             if (! is_dir($dir)) {
                 mkdir($dir, 0o755, true);
             }
-
-            $file = $dir.'/probe.txt';
-            $written = file_put_contents($file, 'ok');
-            $ok = $written !== false && file_exists($file);
-            if ($ok && file_exists($file)) {
-                unlink($file);
-            }
+            // Ensure writability using Storage facade
+            $ok = Storage::disk('local')->put('health/probe.txt', 'ok');
+            Storage::disk('local')->delete('health/probe.txt');
 
             return $ok ? 'up' : 'down';
         } catch (\Throwable $e) {
@@ -116,9 +115,10 @@ class HealthController extends Controller
             if ($driver === 'redis') {
                 return Redis::connection()->ping() === 'PONG' ? 'up' : 'down';
             }
+            // For other drivers, attempt to resolve default connection
+            $defaultDriver = Queue::getDefaultDriver();
 
-            // For non-redis drivers, assume up if driver configured
-            return 'skipped';
+            return is_string($defaultDriver) && $defaultDriver !== '' ? 'up' : 'down';
         } catch (\Throwable $e) {
             return 'down';
         }
