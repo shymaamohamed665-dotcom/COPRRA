@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 # ==============================================================================
 #  CONTROL SWITCH: Set to "true" to disable all checks and push directly.
