@@ -25,9 +25,14 @@ class BackupService
 
     /**
      * @var array<string, \App\Services\Backup\Strategies\BackupStrategyInterface>
+     *
+     * @psalm-suppress UnusedProperty - Used in constructor to register strategies with manager
      */
     private array $strategies = [];
 
+    /**
+     * @psalm-suppress PossiblyUnusedMethod - Injected via service container
+     */
     public function __construct(
         BackupManagerService $backupManager,
         BackupValidatorService $validator,
@@ -194,6 +199,8 @@ class BackupService
      *
      * @psalm-return array{backup_name: string, started_at: Carbon, manifest: array{type?: string, created_at?: string, version?: string, components?: array<string, array<string, int|list<string>|string>|string>}, components: array<string, array<string, int|list<string>|string>|string>, completed_at: Carbon, status?: string}
      *
+     * @psalm-suppress PossiblyUnusedMethod - Called by BackupController
+     *
      * @throws Exception
      */
     public function restoreFromBackup(string $backupName): array
@@ -313,6 +320,8 @@ class BackupService
 
     /**
      * Clean backups older than the given number of days.
+     *
+     * @psalm-suppress PossiblyUnusedMethod - Called by artisan commands and scheduled tasks
      */
     public function cleanOldBackups(int $daysOld = 30): int
     {

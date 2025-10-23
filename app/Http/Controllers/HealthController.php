@@ -118,7 +118,7 @@ class HealthController extends Controller
             // For other drivers, attempt to resolve default connection
             $defaultDriver = Queue::getDefaultDriver();
 
-            return is_string($defaultDriver) && $defaultDriver !== '' ? 'up' : 'down';
+            return $defaultDriver !== '' ? 'up' : 'down';
         } catch (\Throwable $e) {
             return 'down';
         }
