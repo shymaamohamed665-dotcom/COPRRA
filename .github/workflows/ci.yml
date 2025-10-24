@@ -160,6 +160,19 @@ jobs:
       - name: Show Laravel config values (timezone/database)
         run: |
           php -r "require __DIR__ . '/vendor/autoload.php'; $app = require __DIR__ . '/bootstrap/app.php'; $app->make('Illuminate\\Contracts\\Console\\Kernel')->bootstrap(); echo 'App timezone: ' . config('app.timezone') . PHP_EOL; echo 'DB default: ' . config('database.default') . PHP_EOL; $def = config('database.default'); $cfg = config('database.connections.' . $def); if ($cfg) { echo 'DB host: ' . ($cfg['host'] ?? '') . PHP_EOL; echo 'DB port: ' . ($cfg['port'] ?? '') . PHP_EOL; echo 'DB database: ' . ($cfg['database'] ?? '') . PHP_EOL; echo 'DB username: ' . ($cfg['username'] ?? '') . PHP_EOL; echo 'Charset: ' . ($cfg['charset'] ?? '') . PHP_EOL; echo 'Collation: ' . ($cfg['collation'] ?? '') . PHP_EOL; }"
+       - name: Show Laravel app/env/log/cache/session/queue/filesystem settings
+         run: |
+           php -r "require __DIR__ . '/vendor/autoload.php'; $app = require __DIR__ . '/bootstrap/app.php'; $app->make('Illuminate\\Contracts\\Console\\Kernel')->bootstrap(); $logDefault = config('logging.default'); $logLevel = config('logging.channels.' . $logDefault . '.level', ''); echo 'App env: ' . config('app.env') . PHP_EOL; echo 'App debug: ' . (config('app.debug') ? 'true' : 'false') . PHP_EOL; echo 'Log channel: ' . $logDefault . PHP_EOL; echo 'Log level: ' . $logLevel . PHP_EOL; echo 'Cache driver: ' . config('cache.default') . PHP_EOL; echo 'Session driver: ' . config('session.driver') . PHP_EOL; echo 'Queue connection: ' . config('queue.default') . PHP_EOL; echo 'Filesystem default: ' . config('filesystems.default', '') . PHP_EOL;"
+       - name: Export sanitized env to reports
+         run: |
+           cp .env reports/env-sanitized.txt || true
+           sed -i -E "s/(DB_PASSWORD=).*/\1*****_/" reports/env-sanitized.txt || true
+           sed -i -E "s/(APP_KEY=).*/\1*****_/" reports/env-sanitized.txt || true
+           sed -i -E "s/(MAIL_PASSWORD=).*/\1*****_/" reports/env-sanitized.txt || true
+           sed -i -E "s/(REDIS_PASSWORD=).*/\1*****_/" reports/env-sanitized.txt || true
+           sed -i -E "s/(AWS_SECRET_ACCESS_KEY=).*/\1*****_/" reports/env-sanitized.txt || true
+           sed -i -E "s/(AWS_ACCESS_KEY_ID=).*/\1*****_/" reports/env-sanitized.txt || true
+           sed -i -E "s/(PAYPAL_SECRET=).*/\1*****_/" reports/env-sanitized.txt || true
        - name: Export Laravel about report
          run: php artisan about > reports/laravel-about.txt || true
        - name: Verify Laravel DB facade connectivity
