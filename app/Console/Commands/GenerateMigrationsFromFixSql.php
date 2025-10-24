@@ -58,9 +58,17 @@ final class GenerateMigrationsFromFixSql extends Command
             return 0;
         }
 
+        $this->line('Parsed index ops count: '.count($indexOps));
+        if (! empty($indexOps)) {
+            $this->line('First index op sample: '.json_encode($indexOps[0]));
+        }
+
         // Group by table
         $indexesByTable = [];
         foreach ($indexOps as $op) {
+            if (! is_array($op) || ! isset($op['table'], $op['index'], $op['columns'])) {
+                continue;
+            }
             $indexesByTable[$op['table']][] = $op;
         }
 
@@ -242,9 +250,15 @@ final class GenerateMigrationsFromFixSql extends Command
         $upBody = '';
         $downBody = '';
         foreach ($ops as $op) {
+            if (! is_array($op)) {
+                continue;
+            }
+            if (! isset($op['columns'], $op['index'])) {
+                continue;
+            }
             $colsArray = var_export($op['columns'], true);
-            $upBody .= "            \\$table->index({$colsArray}, '".$op['index']."');\n";
-            $downBody .= "            \\$table->dropIndex('".$op['index']."');\n";
+            $upBody .= '            $table->index('.$colsArray.", '".$op['index']."');\n";
+            $downBody .= '            $table->dropIndex(\''.$op['index'].'\');'."\n";
         }
 
         $tpl = <<<'PHP'
