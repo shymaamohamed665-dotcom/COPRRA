@@ -90,6 +90,8 @@ jobs:
           sed -i 's/^DB_DATABASE=.*/DB_DATABASE=laravel/' .env || echo "DB_DATABASE=laravel" >> .env
           sed -i 's/^DB_USERNAME=.*/DB_USERNAME=laravel/' .env || echo "DB_USERNAME=laravel" >> .env
           sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=secret/' .env || echo "DB_PASSWORD=secret" >> .env
+      - name: Clear Laravel config
+        run: php artisan config:clear || true
       - name: Ensure reports directory
         run: mkdir -p reports
       - name: Wait for MySQL and create DB
@@ -102,6 +104,8 @@ jobs:
           done
           mysql -h 127.0.0.1 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS laravel;"
           mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'%' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
+      - name: Verify PDO MySQL connectivity
+        run: php -r "\n$env = parse_ini_file('.env');\n$dsn = 'mysql:host=' . ($env['DB_HOST'] ?? '127.0.0.1') . ';port=' . ($env['DB_PORT'] ?? '3306') . ';dbname=' . ($env['DB_DATABASE'] ?? 'laravel');\ntry {\n  $pdo = new PDO($dsn, $env['DB_USERNAME'] ?? 'laravel', $env['DB_PASSWORD'] ?? 'secret');\n  echo 'PDO MySQL connection OK\\n';\n} catch (Throwable $e) {\n  fwrite(STDERR, 'PDO connection failed: ' . $e->getMessage() . "\\n");\n  exit(2);\n}\n"
       - name: Show DB env vars
         run: |
           grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
