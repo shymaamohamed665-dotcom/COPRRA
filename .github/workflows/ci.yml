@@ -112,12 +112,20 @@ jobs:
           done
           mysql -h 127.0.0.1 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS laravel;"
           mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'%' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
+          mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'localhost' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
+          mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'127.0.0.1' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
           mysql -h 127.0.0.1 -uroot -proot -e "ALTER USER 'laravel'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';"
+          mysql -h 127.0.0.1 -uroot -proot -e "ALTER USER 'laravel'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secret';"
+          mysql -h 127.0.0.1 -uroot -proot -e "ALTER USER 'laravel'@'127.0.0.1' IDENTIFIED WITH mysql_native_password BY 'secret';"
           mysql -h 127.0.0.1 -uroot -proot -e "ALTER DATABASE laravel CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
       - name: MySQL server version
         run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT VERSION();"
       - name: MySQL auth plugin for laravel user
         run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT user,host,plugin FROM mysql.user WHERE user='laravel';"
+      - name: MySQL grants for laravel user
+        run: mysql -h 127.0.0.1 -uroot -proot -e "SHOW GRANTS FOR 'laravel'@'%'; SHOW GRANTS FOR 'laravel'@'localhost'; SHOW GRANTS FOR 'laravel'@'127.0.0.1';"
+      - name: MySQL sql_mode
+        run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT @@sql_mode;"
       - name: Verify PDO MySQL connectivity
         run: php -r "\n$env = parse_ini_file('.env');\n$dsn = 'mysql:host=' . ($env['DB_HOST'] ?? '127.0.0.1') . ';port=' . ($env['DB_PORT'] ?? '3306') . ';dbname=' . ($env['DB_DATABASE'] ?? 'laravel') . ';charset=utf8mb4';\ntry {\n  $pdo = new PDO($dsn, $env['DB_USERNAME'] ?? 'laravel', $env['DB_PASSWORD'] ?? 'secret');\n  echo 'PDO MySQL connection OK\\n';\n} catch (Throwable $e) {\n  fwrite(STDERR, 'PDO connection failed: ' . $e->getMessage() . \"\\n\");\n  exit(2);\n}\n"
       - name: Show DB env vars
