@@ -272,8 +272,15 @@ jobs:
         run: |
           php -r 'try{ new PDO("mysql:host=127.0.0.1;port=3306;dbname=coprra_test","coprra","coprra"); echo "MySQL reachable"; } catch (Exception $e) { echo "MySQL not reachable: ".$e->getMessage(); exit(1); }'
 
+      - name: Show DB env before migrations
+        run: |
+          echo "DB_CONNECTION=$(grep '^DB_CONNECTION=' .env | cut -d '=' -f2)"
+          echo "DB_HOST=$(grep '^DB_HOST=' .env | cut -d '=' -f2)"
+          echo "DB_PORT=$(grep '^DB_PORT=' .env | cut -d '=' -f2)"
+          echo "DB_DATABASE=$(grep '^DB_DATABASE=' .env | cut -d '=' -f2)"
+          echo "DB_USERNAME=$(grep '^DB_USERNAME=' .env | cut -d '=' -f2)"
       - name: Run migrations
-        run: php artisan migrate --force
+        run: php artisan migrate --force --no-interaction -vvv
 
       - name: Run Unit Tests
         run: ./vendor/bin/phpunit --testsuite Unit --log-junit reports/junit-unit.xml
