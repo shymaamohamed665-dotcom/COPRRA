@@ -13516,5 +13516,20 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    'C:\\Users\\Gaser\\Desktop\\COPRRA\\tests\\Browser\\LoginTest.php' => 
+    array (
+      0 => '908acc44f40a0402c77ee1a5733dc234d6274191',
+      1 => 
+      array (
+        0 => 'tests\\browser\\logintest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\browser\\login_page_loads_and_has_form',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));

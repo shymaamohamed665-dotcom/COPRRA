@@ -1,0 +1,23 @@
+# اختبار رقم: 1
+# اسم الاختبار: PHPUnit AI Tests
+# الأمر: vendor/bin/phpunit --testsuite AI
+# التاريخ: 2025-10-02
+# الحالة: فشل في التشغيل
+
+# تفاصيل الخطأ:
+Class Tests\AI\MockAIService cannot extend final class App\Services\AIService
+File: /var/www/html/tests/AI/MockAIService.php
+Line: 11
+
+# المخرجات الكاملة:
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+Runtime: PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+# سبب الفشل:
+- الفئة App\Services\AIService معرفة كفئة نهائية (final class)
+- محاولة توريثها في ملف الاختبار غير ممكنة
+
+# الإجراء المطلوب:
+1. إما إزالة كلمة final من تعريف الفئة AIService
+2. أو تعديل طريقة الاختبار لتجنب الوراثة

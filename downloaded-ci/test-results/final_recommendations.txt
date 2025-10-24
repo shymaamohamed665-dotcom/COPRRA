@@ -1,0 +1,43 @@
+Final Audit Recommendations
+
+Summary
+- Completed static analysis: PHPStan, Psalm, PHPMD, Stylelint.
+- Reports saved: `reports/phpstan_report.txt`, `reports/psalm_report.txt`, `reports/phpmd_report.txt`, `reports/stylelint_report.txt`.
+- Additional inputs reviewed: Gitleaks, PHPUnit, npm tests, Docker build, controller/AI agent notes.
+
+Static Tools Findings
+- PHPStan (Major): Widespread type issues (mixed→string/int casts), undefined properties/methods, missing generics for `CastsAttributes`/`Collection`, incorrect argument types across console commands and data objects. Remediation: add native types/return types, introduce DTOs/generics, fix autoload and undefined members.
+- Psalm (Major): `UnusedClass`, `ClassMustBeFinal` for `OrderStatusCast`, `MissingTemplateParam`, `MissingParamType`, `MixedAssignment`, `PropertyNotSetInConstructor`, `RiskyTruthyFalsyComparison`. Remediation: add template params, explicit param types, initialize properties in constructors, replace loose truthiness with strict comparisons.
+- PHPMD (Critical/Major): Error control operators in `BackupService`/`BackupCompressionService`, excessive class/method complexity (e.g., `Order::getTotalAttribute`), high coupling (`Kernel`, `GlobalExceptionHandler`), cyclomatic/NPath explosions, unused private methods. Remediation: remove `@` and use try/catch with structured error handling; extract calculator/services; reduce coupling via interfaces and DI; prune dead code.
+- Stylelint (Minor): 23 errors in `app.scss`: `at-rule-no-unknown` for SCSS (`@mixin`, `@if`, `@include`), two `selector-no-qualifying-type`, plus one invalid option (`rule-empty-line-before`). Remediation: ensure `postcss-scss` syntax, lint only `.scss`, add `.stylelintignore` for compiled `.css`, avoid qualifying type selectors.
+
+Other Findings
+- Gitleaks (Minor): No leaks found; several "Invalid .gitleaksignore entry" warnings. Remediation: fix ignore patterns (use rooted paths, confirm directories exist).
+- PHPUnit (Major): 2491 tests, 5930 assertions; OK with 642 deprecations. Remediation: upgrade PHPUnit/annotations, replace deprecated APIs, add tests around refactored services.
+- npm tests (Major): Missing `test` script. Remediation: add `"test": "vitest"` or framework-appropriate runner; wire in CI.
+- Docker (Critical): Build failed due to invalid file request under `backups/.../public/storage`; build context >2GB. Remediation: add `backups/` and `public/storage` to `.dockerignore`, use multi-stage builds and BuildKit, verify copy paths.
+- Controller & AI agent scheduling (Major): Ensure idempotent jobs, retry/backoff, circuit-breaking for external AI calls, queue monitoring, and admin UI health page with job metrics.
+
+Severity & Implementation Order
+1) Critical: Remove `@` error control; fix Docker ignores/paths; refactor `Order::getTotalAttribute` into `OrderTotalsCalculator` with tests.
+2) Major: Add native/return types; resolve Psalm/PHPStan mixed/undefined issues; reduce coupling in `Kernel`/`GlobalExceptionHandler`; address PHPUnit deprecations; add npm `test` script.
+3) Major: Strengthen AI job scheduling and monitoring; add admin UI observability.
+4) Minor: Tighten Stylelint targeting to `.scss`; fix `.gitleaksignore` patterns.
+
+Targeted Remediation Details
+- Type safety: prefer DTOs/value objects over associative arrays; add `@template`/`@phpstan-type` for collections.
+- Complexity: split long methods into pure functions; introduce services for calculations, compression, storage management.
+- Error handling: replace `@` with try/catch; log context; return typed results.
+- Linting: `.stylelintignore` exclude compiled CSS; allow SCSS at-rules via plugin or ignore list.
+- CI/CD: jobs for PHPStan/Psalm/PHPMD/Stylelint; upload reports; fail on new issues; cache composer/npm; run tests; gate on deprecations gradually.
+- Docker: `.dockerignore` to shrink context; multi-stage; pin base images; healthchecks; secrets via env; avoid copying transient paths.
+
+Verification Steps
+- Re-run static tools and unit tests after each change; expect decreasing violations.
+- Validate Docker build with smaller context and successful image creation.
+- Confirm CI jobs pass and artifacts are attached.
+
+Status Summary
+- Static analysis tools executed; reports saved to requested paths.
+- Final recommendations compiled and saved to `reports/final_recommendations.txt`.
+- Remaining anomalies: PHPUnit deprecations, missing npm test script, Docker build failure, Stylelint invalid option and SCSS at-rule configuration; Gitleaks ignore warnings.

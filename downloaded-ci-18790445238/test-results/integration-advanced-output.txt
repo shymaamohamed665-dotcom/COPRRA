@@ -1,0 +1,21 @@
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+...                                                                 3 / 3 (100%)
+
+Time: 00:27.501, Memory: 54.50 MB
+
+Advanced Integration (Tests\Integration\AdvancedIntegration)
+ ✔ Full workflow integration
+ ✔ Api database integration
+ ✔ Frontend backend integration
+
+OK (3 tests, 6 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:17.186]
+
+Generating code coverage report in HTML format ... done [01:33.738]
+
+Generating code coverage report in PHPUnit XML format ... done [00:16.067]

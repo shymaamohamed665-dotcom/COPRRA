@@ -1,0 +1,2 @@
+{"command": "composer test:coverage", "start": "2025-10-02T03:47:44+00:00"}
+{"end": "2025-10-02T03:49:33+00:00", "exit_code": 255 }

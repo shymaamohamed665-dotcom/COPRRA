@@ -1,0 +1,23 @@
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+.....                                                               5 / 5 (100%)
+
+Time: 00:09.141, Memory: 48.50 MB
+
+Arch (Tests\Architecture\Arch)
+ ✔ Controllers architecture
+ ✔ Models architecture
+ ✔ Services architecture
+ ✔ Middleware architecture
+ ✔ Providers architecture
+
+OK (5 tests, 5 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:07.935]
+
+Generating code coverage report in HTML format ... done [00:56.521]
+
+Generating code coverage report in PHPUnit XML format ... done [00:05.543]

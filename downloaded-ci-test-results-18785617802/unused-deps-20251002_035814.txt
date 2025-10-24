@@ -1,0 +1,40 @@
+  0/16 [>---------------------------]   0%
+  2/16 [===>------------------------]  12%
+  4/16 [=======>--------------------]  25%
+  5/16 [========>-------------------]  31%
+  7/16 [============>---------------]  43%
+  8/16 [==============>-------------]  50%
+ 10/16 [=================>----------]  62%
+ 12/16 [=====================>------]  75%
+ 13/16 [======================>-----]  81%
+ 15/16 [==========================>-]  93%
+ 16/16 [============================] 100%
+
+Results
+-------
+
+Found 10 used, 6 unused, 0 ignored and 0 zombie packages
+
+ Used packages
+ ✓ php
+ ✓ saleem189/cart (https://github.com/darryldecode/laravelshoppingcart)
+ ✓ guzzlehttp/guzzle (https://github.com/guzzle/guzzle)
+ ✓ intervention/image (https://github.com/Intervention/image)
+ ✓ laravel/framework (https://github.com/laravel/framework)
+ ✓ laravel/sanctum (https://github.com/laravel/sanctum)
+ ✓ laravel/telescope (https://github.com/laravel/telescope)
+ ✓ laravel/tinker (https://github.com/laravel/tinker) (suggested by: laravel/framework)
+ ✓ srmklive/paypal (https://github.com/srmklive/laravel-paypal)
+ ✓ stripe/stripe-php (https://github.com/stripe/stripe-php)
+
+ Unused packages
+ ✗ blade-ui-kit/blade-heroicons (https://github.com/driesvints/blade-heroicons)
+ ✗ doctrine/dbal (https://github.com/doctrine/dbal)
+ ✗ laravel/cashier (https://github.com/laravel/cashier-stripe)
+ ✗ livewire/livewire (https://github.com/livewire/livewire)
+ ✗ spatie/laravel-backup (https://github.com/spatie/laravel-backup)
+ ✗ spatie/laravel-permission (https://github.com/spatie/laravel-permission)
+
+ Ignored packages
+
+ Zombies exclusions (did not match any package)

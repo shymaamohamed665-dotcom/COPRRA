@@ -1,0 +1,2 @@
+Test #6: Psalm - Dead Code Detection
+Status: TIMEOUT after 300s

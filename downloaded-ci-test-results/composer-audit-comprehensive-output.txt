@@ -1,0 +1,8 @@
+{
+    "advisories": [],
+    "abandoned": {
+        "sebastian/finder-facade": null,
+        "sebastian/phpcpd": null,
+        "theseer/fdomdocument": null
+    }
+}

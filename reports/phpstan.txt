@@ -1,6 +1,6 @@
 Note: Using configuration file C:\Users\Gaser\Desktop\COPRRA\phpstan.neon.
 
-[30;42m                                                                                                                       [39;49m
-[30;42m [OK] No errors                                                                                                        [39;49m
-[30;42m                                                                                                                       [39;49m
+[30;42m                                                                                                                        [39;49m
+[30;42m [OK] No errors                                                                                                         [39;49m
+[30;42m                                                                                                                        [39;49m
 

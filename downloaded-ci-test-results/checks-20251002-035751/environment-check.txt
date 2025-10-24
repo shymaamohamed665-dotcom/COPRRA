@@ -1,0 +1,85 @@
+[0;34m
+╔════════════════════════════════════════════════════════════╗
+║         Laravel Application Environment Check             ║
+║                                                            ║
+║  This script validates your hosting environment           ║
+╚════════════════════════════════════════════════════════════╝
+[0m
+
+[0;34m=== PHP Version ===[0m
+
+[0;34mℹ [0mCurrent PHP version: 8.2.29
+[0;34mℹ [0mRequired PHP version: >= 8.2.0
+[0;32m✓ [0mPHP version is compatible
+
+[0;34m=== Required PHP Extensions ===[0m
+
+[0;32m✓ [0mmbstring (Multibyte String Support)
+[0;32m✓ [0mxml (XML Support)
+[0;32m✓ [0mctype (Character Type Checking)
+[0;32m✓ [0miconv (Character Encoding Conversion)
+[0;31m✗ [0mintl (Internationalization) - MISSING
+[0;32m✓ [0mpdo (PHP Data Objects)
+[0;32m✓ [0mpdo_mysql (MySQL PDO Driver)
+[0;32m✓ [0mdom (DOM Document Support)
+[0;32m✓ [0mfilter (Data Filtering)
+[0;32m✓ [0mgd (Image Processing)
+[0;32m✓ [0mjson (JSON Support)
+[0;32m✓ [0mopenssl (OpenSSL Support)
+[0;32m✓ [0mcurl (cURL Support)
+[0;32m✓ [0mzip (ZIP Archive Support)
+[0;32m✓ [0mbcmath (BC Math Support)
+[0;32m✓ [0mfileinfo (File Information)
+[0;32m✓ [0mtokenizer (Tokenizer Support)
+
+[0;34m=== Recommended PHP Extensions ===[0m
+
+[1;33m⚠ [0mredis (Redis Cache Support) - Not installed (optional)
+[1;33m⚠ [0mimagick (ImageMagick Support) - Not installed (optional)
+[0;32m✓ [0mexif (EXIF Data Reading)
+[0;32m✓ [0mpcntl (Process Control)
+[0;32m✓ [0mposix (POSIX Functions)
+
+[0;34m=== PHP Configuration ===[0m
+
+[0;34mℹ [0mmemory_limit: 128M (min: 256M, recommended: 512M)
+[1;33m⚠ [0mmemory_limit is below minimum (256M)
+[0;34mℹ [0mmax_execution_time: 0 (min: 60, recommended: 300)
+[1;33m⚠ [0mmax_execution_time is below minimum (60)
+[0;34mℹ [0mupload_max_filesize: 2M (min: 10M, recommended: 50M)
+[1;33m⚠ [0mupload_max_filesize is below minimum (10M)
+[0;34mℹ [0mpost_max_size: 8M (min: 10M, recommended: 50M)
+[1;33m⚠ [0mpost_max_size is below minimum (10M)
+
+[0;34m=== Directory Permissions ===[0m
+
+[0;32m✓ [0mstorage - Writable
+[0;32m✓ [0mstorage/app - Writable
+[0;32m✓ [0mstorage/app/public - Writable
+[0;32m✓ [0mstorage/framework - Writable
+[0;32m✓ [0mstorage/framework/cache - Writable
+[0;32m✓ [0mstorage/framework/sessions - Writable
+[0;32m✓ [0mstorage/framework/views - Writable
+[0;32m✓ [0mstorage/logs - Writable
+[0;32m✓ [0mbootstrap/cache - Writable
+
+[0;34m=== Environment Configuration ===[0m
+
+[0;32m✓ [0m.env file exists
+[0;32m✓ [0mAPP_KEY is set (Application encryption key)
+[0;32m✓ [0mDB_CONNECTION is set (Database connection type)
+[0;32m✓ [0mDB_HOST is set (Database host)
+[0;32m✓ [0mDB_DATABASE is set (Database name)
+
+[0;34m=== Composer Dependencies ===[0m
+
+[0;32m✓ [0mComposer dependencies are installed
+
+[0;34m=== Database Connection ===[0m
+
+
+In UpdateExchangeRates.php line 3:
+                                                                           
+  strict_types declaration must be the very first statement in the script  
+                                                                           
+

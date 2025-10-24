@@ -1,0 +1,26 @@
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+........                                                            8 / 8 (100%)
+
+Time: 05:27.202, Memory: 36.00 MB
+
+Product Classification (Tests\AI\ProductClassification)
+ ✔ Can classify electronics
+ ✔ Can classify clothing
+ ✔ Can classify books
+ ✔ Can classify home garden
+ ✔ Can classify sports
+ ✔ Classification confidence is high
+ ✔ Can handle ambiguous products
+ ✔ Can suggest subcategories
+
+OK (8 tests, 8 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:09.862]
+
+Generating code coverage report in HTML format ... done [00:53.144]
+
+Generating code coverage report in PHPUnit XML format ... done [00:05.376]

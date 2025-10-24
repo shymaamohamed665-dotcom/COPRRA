@@ -1,0 +1,2 @@
+{"command": "composer analyse:phpstan", "start": "2025-10-02T03:47:58+00:00"}
+{"end": "2025-10-02T03:51:50+00:00", "exit_code": 255 }

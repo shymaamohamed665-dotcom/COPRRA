@@ -1,0 +1,134 @@
+Test #12: PHPMD - Naming Rules
+Command: ./vendor/bin/phpmd app text naming
+Execution Time: 53.39s
+Exit Code: 3
+================================================================================
+STDOUT:
+/var/www/html/app/Contracts/LoginAttemptService.php:29                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Contracts/LoginAttemptService.php:39                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Contracts/LoginAttemptService.php:49                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Contracts/LoginAttemptService.php:59                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:48            ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:62            ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:106           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:144           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:193           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:212           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:240           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:253           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:281           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:308           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:324           ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/AnalyticsController.php:13         LongVariable   Avoid excessively long variable names like $behaviorAnalysisService. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/BackupController.php:90            ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:136           ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:175           ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:287           ShortVariable  Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:287           ShortVariable  Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/BackupController.php:438           ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:44             ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:99             ShortVariable  Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:99             ShortVariable  Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/ErrorController.php:237            ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/PriceComparisonController.php:105  ShortVariable  Avoid variables with short names like $p. Configured minimum length is 3.
+/var/www/html/app/Http/Controllers/RecommendationController.php:14    LongVariable   Avoid excessively long variable names like $recommendationService. Keep variable name length under 20.
+/var/www/html/app/Http/Controllers/UserController.php:20              LongVariable   Avoid excessively long variable names like $passwordPolicyService. Keep variable name length under 20.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:27              ShortVariable  Avoid variables with short names like $e. Configured minimum length is 3.
+/var/www/html/app/Http/Middleware/ThrottleSensitiveOperations.php:58  ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/AI/StrictQualityAgent.php:369              ShortVariable  Avoid variables with short names like $r. Configured minimum length is 3.
+/var/www/html/app/Services/BackupService.php:275                      ShortVariable  Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/BackupService.php:275                      ShortVariable  Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Services/BehaviorAnalysisService.php:240            LongVariable   Avoid excessively long variable names like $daysSinceFirstPurchase. Keep variable name length under 20.
+/var/www/html/app/Services/CDNService.php:308                         ShortVariable  Avoid variables with short names like $id. Configured minimum length is 3.
+/var/www/html/app/Services/ExternalStoreService.php:295               ShortVariable  Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/ExternalStoreService.php:295               ShortVariable  Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:64                 ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:87                 ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/LoginAttemptService.php:120                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/PasswordPolicyService.php:17               LongVariable   Avoid excessively long variable names like $passwordHistoryService. Keep variable name length under 20.
+/var/www/html/app/Services/PasswordResetService.php:26                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/PasswordResetService.php:85                ShortVariable  Avoid variables with short names like $ip. Configured minimum length is 3.
+/var/www/html/app/Services/StorageManagementService.php:217           ShortVariable  Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/StorageManagementService.php:217           ShortVariable  Avoid variables with short names like $b. Configured minimum length is 3.
+/var/www/html/app/Services/SuspiciousActivityService.php:702          ShortVariable  Avoid variables with short names like $a. Configured minimum length is 3.
+/var/www/html/app/Services/SuspiciousActivityService.php:706          ShortVariable  Avoid variables with short names like $c. Configured minimum length is 3.
+	-	Unexpected token: roller, line: 7, col: 36, file: /var/www/html/app/Http/Controllers/Api/ProductController.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion56.php(281): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(500): PDepend\Source\Language\PHP\PHPParserVersion56->parseUseDeclarations()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+	-	Unexpected token: ts, line: 7, col: 26, file: /var/www/html/app/Http/Controllers/CartController.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion56.php(281): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(500): PDepend\Source\Language\PHP\PHPParserVersion56->parseUseDeclarations()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+	-	Unexpected token: Database, line: 8, col: 22, file: /var/www/html/app/Models/Reward.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion56.php(281): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(500): PDepend\Source\Language\PHP\PHPParserVersion56->parseUseDeclarations()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+	-	Unexpected token: namespace, line: 5, col: 1, file: /var/www/html/app/Services/StoreAdapters/EbayAdapter.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(879): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(1)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(856): PDepend\Source\Language\PHP\AbstractPHPParser->parseClassSignature()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(6702): PDepend\Source\Language\PHP\AbstractPHPParser->parseClassDeclaration()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(516): PDepend\Source\Language\PHP\AbstractPHPParser->parseOptionalStatement()
+#7 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#8 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#11 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#12 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#13 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#14 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#15 {main}
+	-	Unexpected token: StoreAdapters, line: 5, col: 30, file: /var/www/html/app/Services/StoreAdapters/NoonAdapter.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(7027): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(503): PDepend\Source\Language\PHP\AbstractPHPParser->parseNamespaceDeclaration()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+
+================================================================================
+STDERR:

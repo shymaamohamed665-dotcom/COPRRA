@@ -2,7 +2,7 @@
 # ==============================================================================
 #  CONTROL SWITCH: Set to "true" to disable all checks and push directly.
 # ==============================================================================
-DISABLE_CHECKS="true"
+DISABLE_CHECKS="false"
 
 if [ "$DISABLE_CHECKS" = "true" ]; then
     echo "✅ Pre-push checks are temporarily disabled by the control switch. Pushing directly."

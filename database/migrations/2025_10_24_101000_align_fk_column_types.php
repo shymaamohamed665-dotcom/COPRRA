@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
     private function tryModify(string $table, string $column, string $definition): void
     {
-        if (!Schema::hasTable($table) || !Schema::hasColumn($table, $column)) {
+        if (! Schema::hasTable($table) || ! Schema::hasColumn($table, $column)) {
             return;
         }
         $sql = "ALTER TABLE `{$table}` MODIFY `{$column}` {$definition}";

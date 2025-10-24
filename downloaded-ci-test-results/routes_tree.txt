@@ -1,0 +1,9 @@
+﻿
+FullName                                         
+--------                                         
+C:\Users\Gaser\Desktop\COPRRA\routes\api.php     
+C:\Users\Gaser\Desktop\COPRRA\routes\channels.php
+C:\Users\Gaser\Desktop\COPRRA\routes\console.php 
+C:\Users\Gaser\Desktop\COPRRA\routes\web.php     
+
+

@@ -1,0 +1,26 @@
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.29 with PCOV 1.0.12
+Configuration: /var/www/html/phpunit.xml
+
+........                                                            8 / 8 (100%)
+
+Time: 05:57.007, Memory: 36.00 MB
+
+Recommendation System (Tests\AI\RecommendationSystem)
+ ✔ Can generate user recommendations
+ ✔ Recommendations match user preferences
+ ✔ Can generate similar products
+ ✔ Can generate trending products
+ ✔ Can generate collaborative recommendations
+ ✔ Recommendations consider price range
+ ✔ Can generate seasonal recommendations
+ ✔ Recommendations improve with feedback
+
+OK (8 tests, 8 assertions)
+
+Generating code coverage report in Clover XML format ... done [00:25.303]
+
+Generating code coverage report in HTML format ... done [01:56.343]
+
+Generating code coverage report in PHPUnit XML format ... done [00:15.399]

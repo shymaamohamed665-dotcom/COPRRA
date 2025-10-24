@@ -1,0 +1,16 @@
+﻿
+FullName                                                                         
+--------                                                                         
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services                           
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\ContinuousQualityMonitor.php       
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\HealthScoreCalculator.php          
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\StrictQualityAgent.php             
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AIImageAnalysisService.php
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AIRequestService.php      
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AITextAnalysisService.php 
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AlertManagerService.php   
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\HealthScoreService.php    
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\RuleExecutorService.php   
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\RuleValidatorService.php  
+
+

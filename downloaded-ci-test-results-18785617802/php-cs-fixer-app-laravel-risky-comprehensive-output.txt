@@ -1,0 +1,14 @@
+PHP CS Fixer 3.88.2 Folding Bike by Fabien Potencier, Dariusz Ruminski and contributors.
+PHP runtime: 8.2.29
+Running analysis on 1 core sequentially.
+You can enable parallel runner and speed up the analysis! Please see https://cs.symfony.com/doc/usage.html for more information.
+Loaded config default.
+Using cache file ".php-cs-fixer.cache".
+   0/246 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%
+In RuleSets.php line 95:
+                                       
+  Set "@LaravelRisky" does not exist.  
+                                       
+
+fix [--path-mode PATH-MODE] [--allow-risky ALLOW-RISKY] [--config CONFIG] [--dry-run] [--rules RULES] [--using-cache USING-CACHE] [--allow-unsupported-php-version ALLOW-UNSUPPORTED-PHP-VERSION] [--cache-file CACHE-FILE] [--diff] [--format FORMAT] [--stop-on-violation] [--show-progress SHOW-PROGRESS] [--sequential] [--] [<path>...]
+

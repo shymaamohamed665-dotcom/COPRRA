@@ -1,0 +1,13 @@
+Test #23: PHP Insights - Code Quality
+Command: php artisan insights --no-interaction --min-quality=95
+Execution Time: 50.53s
+Exit Code: 1
+================================================================================
+STDOUT:
+
+   Invalid configuration 
+    • The option "preset" with value "psr12" is invalid. Accepted values are: "drupal", "laravel", "symfony", "yii", "magento2", "wordpress", "default".
+
+
+================================================================================
+STDERR:

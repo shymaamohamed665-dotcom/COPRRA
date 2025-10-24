@@ -1,0 +1,2 @@
+Test #4: Psalm - Level 1 (Maximum Strictness)
+Status: TIMEOUT after 300s

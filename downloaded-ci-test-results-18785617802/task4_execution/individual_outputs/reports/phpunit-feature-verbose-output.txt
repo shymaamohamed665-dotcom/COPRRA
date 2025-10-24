@@ -1,0 +1,12 @@
+Test #32: PHPUnit - Feature Tests Verbose
+Command: ./vendor/bin/phpunit --testsuite=Feature --verbose
+Execution Time: 4.78s
+Exit Code: 2
+================================================================================
+STDOUT:
+PHPUnit 10.5.58 by Sebastian Bergmann and contributors.
+
+Unknown option "--verbose"
+
+================================================================================
+STDERR:

@@ -1088,7 +1088,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\BackupController.php' => 
     array (
-      0 => '48ed4f34070ca84add8e9b6a2ccd678317dc9be8',
+      0 => 'c019af095caf167802eaa66234dbc3357c65f417',
       1 => 
       array (
         0 => 'app\\http\\controllers\\backupcontroller',
@@ -1220,7 +1220,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\HealthController.php' => 
     array (
-      0 => 'ad9faec7fc5540862d93e02c5ceb5c1bd4b5197f',
+      0 => '2b0dd58d3e372516a74ae2a3adb12bfb458fe28b',
       1 => 
       array (
         0 => 'app\\http\\controllers\\healthcontroller',
@@ -4827,35 +4827,6 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
-    'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php' => 
-    array (
-      0 => 'e03c32738c9cd371c8b298154aa9cafb0dce021d',
-      1 => 
-      array (
-        0 => 'app\\services\\backup\\backupservice',
-      ),
-      2 => 
-      array (
-        0 => 'app\\services\\backup\\__construct',
-        1 => 'app\\services\\backup\\createbackup',
-        2 => 'app\\services\\backup\\preparebackupconfiguration',
-        3 => 'app\\services\\backup\\createbackuparchive',
-        4 => 'app\\services\\backup\\populatebackupcontent',
-        5 => 'app\\services\\backup\\finalizebackup',
-        6 => 'app\\services\\backup\\generatebackupfilename',
-        7 => 'app\\services\\backup\\preparebackuppath',
-        8 => 'app\\services\\backup\\createziparchive',
-        9 => 'app\\services\\backup\\addbackupcontent',
-        10 => 'app\\services\\backup\\createbackupresult',
-        11 => 'app\\services\\backup\\backupdatabase',
-        12 => 'app\\services\\backup\\backupfiles',
-        13 => 'app\\services\\backup\\adddirectorytozip',
-        14 => 'app\\services\\backup\\formatbytes',
-      ),
-      3 => 
-      array (
-      ),
-    ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupValidator.php' => 
     array (
       0 => '1203461d60eb83e54370de2341fb292b8c30e214',
@@ -5082,7 +5053,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php' => 
     array (
-      0 => 'f0332c1c5a78a9f8c74cce096c5f6f8dcf76d108',
+      0 => '1d635442eb0bd728dfb42f7f71864d939a8af2e5',
       1 => 
       array (
         0 => 'app\\services\\backupservice',
@@ -5555,7 +5526,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php' => 
     array (
-      0 => '9e2120128c82bb5d21c800656b9afa0cc4b57064',
+      0 => '528394da2258c0bade49b5939221ef5914abbb65',
       1 => 
       array (
         0 => 'app\\services\\environmentchecker',
@@ -7531,6 +7502,28 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\services\\order\\calculatesubtotal',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Console\\Commands\\GenerateMigrationsFromFixSql.php' => 
+    array (
+      0 => '47219632509916781359d58591c1bc98c60db81a',
+      1 => 
+      array (
+        0 => 'app\\console\\commands\\generatemigrationsfromfixsql',
+      ),
+      2 => 
+      array (
+        0 => 'app\\console\\commands\\handle',
+        1 => 'app\\console\\commands\\parseaddindexstatements',
+        2 => 'app\\console\\commands\\parsemodifycolumnstatements',
+        3 => 'app\\console\\commands\\buildoriginaltypesmap',
+        4 => 'app\\console\\commands\\generatemigration',
+        5 => 'app\\console\\commands\\renderindexmigration',
+        6 => 'app\\console\\commands\\rendermodifymigration',
+        7 => 'app\\console\\commands\\parsecolumndefinition',
       ),
       3 => 
       array (

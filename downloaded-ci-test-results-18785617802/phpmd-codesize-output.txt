@@ -1,0 +1,143 @@
+/var/www/html/app/Console/Commands/UpdatePricesCommand.php:25        CyclomaticComplexity      The method handle() has a Cyclomatic Complexity of 17. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Console/Commands/UpdatePricesCommand.php:25        NPathComplexity           The method handle() has an NPath complexity of 400. The configured NPath complexity threshold is 200.
+/var/www/html/app/Exceptions/GlobalExceptionHandler.php:62           NPathComplexity           The method handleApiException() has an NPath complexity of 256. The configured NPath complexity threshold is 200.
+/var/www/html/app/Exceptions/Handler.php:29                          CyclomaticComplexity      The method register() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Exceptions/Handler.php:29                          NPathComplexity           The method register() has an NPath complexity of 720. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:22  CyclomaticComplexity      The method bestOffer() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:22  NPathComplexity           The method bestOffer() has an NPath complexity of 1025. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/Api/PriceSearchController.php:22  ExcessiveMethodLength     The method bestOffer() has 118 lines of code. Current threshold is set to 100. Avoid really long methods.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:37   ExcessiveClassComplexity  The class BaseApiController has an overall complexity of 54 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:103  CyclomaticComplexity      The method paginatedResponse() has a Cyclomatic Complexity of 27. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/Api/V2/BaseApiController.php:103  NPathComplexity           The method paginatedResponse() has an NPath complexity of 8192. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/BackupController.php:16           ExcessiveClassComplexity  The class BackupController has an overall complexity of 87 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/BackupController.php:251          CyclomaticComplexity      The method getBackupsList() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/BackupController.php:303          CyclomaticComplexity      The method createBackup() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/BackupController.php:303          NPathComplexity           The method createBackup() has an NPath complexity of 289. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/ErrorController.php:13            ExcessiveClassComplexity  The class ErrorController has an overall complexity of 71 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Http/Controllers/ErrorController.php:80            CyclomaticComplexity      The method getRecentErrors() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/ErrorController.php:122           CyclomaticComplexity      The method getErrorStatistics() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/SettingController.php:21          CyclomaticComplexity      The method update() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Controllers/SettingController.php:21          NPathComplexity           The method update() has an NPath complexity of 258. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Controllers/UserController.php:16             TooManyPublicMethods      The class UserController has 11 public methods. Consider refactoring UserController to keep number of public methods under 10.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:27             CyclomaticComplexity      The method handleException() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/ApiErrorHandler.php:27             NPathComplexity           The method handleException() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Middleware/SecurityHeaders.php:93             CyclomaticComplexity      The method isSuspiciousRequest() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocale.php:17                   CyclomaticComplexity      The method handle() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:22        CyclomaticComplexity      The method configureLocale() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:22        NPathComplexity           The method configureLocale() has an NPath complexity of 540. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:73        CyclomaticComplexity      The method configureCurrency() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Middleware/SetLocaleAndCurrency.php:73        NPathComplexity           The method configureCurrency() has an NPath complexity of 270. The configured NPath complexity threshold is 200.
+/var/www/html/app/Http/Middleware/ValidateApiRequest.php:64          CyclomaticComplexity      The method getValidationRules() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:28          ExcessiveMethodLength     The method rules() has 102 lines of code. Current threshold is set to 100. Avoid really long methods.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:189         CyclomaticComplexity      The method withValidator() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:251         CyclomaticComplexity      The method prepareForValidation() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Http/Requests/ProductUpdateRequest.php:251         NPathComplexity           The method prepareForValidation() has an NPath complexity of 270. The configured NPath complexity threshold is 200.
+/var/www/html/app/Providers/ViewServiceProvider.php:44               CyclomaticComplexity      The method getBreadcrumbs() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Repositories/ProductRepository.php:96              CyclomaticComplexity      The method search() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Repositories/ProductRepository.php:96              NPathComplexity           The method search() has an NPath complexity of 2592. The configured NPath complexity threshold is 200.
+/var/www/html/app/Rules/PasswordValidator.php:47                     CyclomaticComplexity      The method validatePassword() has a Cyclomatic Complexity of 15. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Rules/PasswordValidator.php:47                     NPathComplexity           The method validatePassword() has an NPath complexity of 1620. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/AI/ContinuousQualityMonitor.php:12        ExcessiveClassComplexity  The class ContinuousQualityMonitor has an overall complexity of 53 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/BackupService.php:14                      ExcessiveClassComplexity  The class BackupService has an overall complexity of 102 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/BackupService.php:172                     CyclomaticComplexity      The method restoreFromBackup() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/BackupService.php:240                     CyclomaticComplexity      The method listBackups() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/BackupService.php:539                     CyclomaticComplexity      The method restoreDatabase() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/BackupService.php:539                     NPathComplexity           The method restoreDatabase() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/CDNService.php:12                         ExcessiveClassComplexity  The class CDNService has an overall complexity of 67 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/CDNService.php:285                        CyclomaticComplexity      The method uploadToCloudflare() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/CDNService.php:285                        NPathComplexity           The method uploadToCloudflare() has an NPath complexity of 512. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/ExternalStoreService.php:104              CyclomaticComplexity      The method syncStoreProducts() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/FileCleanupService.php:13                 ExcessiveClassComplexity  The class FileCleanupService has an overall complexity of 62 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/ImageOptimizationService.php:17           CyclomaticComplexity      The method optimizeImage() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/ImageOptimizationService.php:17           NPathComplexity           The method optimizeImage() has an NPath complexity of 218. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/OptimizedQueryService.php:36              CyclomaticComplexity      The method getProductsWithDetails() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/OptimizedQueryService.php:36              NPathComplexity           The method getProductsWithDetails() has an NPath complexity of 12960. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/OptimizedQueryService.php:193             CyclomaticComplexity      The method getDashboardAnalytics() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PasswordPolicyService.php:24              CyclomaticComplexity      The method validatePassword() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PasswordPolicyService.php:24              NPathComplexity           The method validatePassword() has an NPath complexity of 19440. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/PasswordPolicyService.php:153             CyclomaticComplexity      The method calculatePasswordStrength() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PasswordPolicyService.php:153             NPathComplexity           The method calculatePasswordStrength() has an NPath complexity of 2048. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/PerformanceMonitoringService.php:217      CyclomaticComplexity      The method checkThresholds() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/PerformanceMonitoringService.php:217      NPathComplexity           The method checkThresholds() has an NPath complexity of 216. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/ReportService.php:17                      ExcessiveClassComplexity  The class ReportService has an overall complexity of 61 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/StorageManagementService.php:13           ExcessiveClassComplexity  The class StorageManagementService has an overall complexity of 99 which is very high. The configured complexity threshold is 50.
+/var/www/html/app/Services/StorageManagementService.php:209          CyclomaticComplexity      The method getStorageRecommendations() has a Cyclomatic Complexity of 16. The configured cyclomatic complexity threshold is 10.
+/var/www/html/app/Services/StorageManagementService.php:209          NPathComplexity           The method getStorageRecommendations() has an NPath complexity of 357. The configured NPath complexity threshold is 200.
+/var/www/html/app/Services/SuspiciousActivityService.php:12          ExcessiveClassComplexity  The class SuspiciousActivityService has an overall complexity of 86 which is very high. The configured complexity threshold is 50.
+	-	Unexpected token: roller, line: 7, col: 36, file: /var/www/html/app/Http/Controllers/Api/ProductController.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion56.php(281): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(500): PDepend\Source\Language\PHP\PHPParserVersion56->parseUseDeclarations()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+	-	Unexpected token: ts, line: 7, col: 26, file: /var/www/html/app/Http/Controllers/CartController.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion56.php(281): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(500): PDepend\Source\Language\PHP\PHPParserVersion56->parseUseDeclarations()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+	-	Unexpected token: Database, line: 8, col: 22, file: /var/www/html/app/Models/Reward.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/PHPParserVersion56.php(281): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(500): PDepend\Source\Language\PHP\PHPParserVersion56->parseUseDeclarations()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}
+	-	Unexpected token: namespace, line: 5, col: 1, file: /var/www/html/app/Services/StoreAdapters/EbayAdapter.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(879): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(1)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(856): PDepend\Source\Language\PHP\AbstractPHPParser->parseClassSignature()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(6702): PDepend\Source\Language\PHP\AbstractPHPParser->parseClassDeclaration()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(516): PDepend\Source\Language\PHP\AbstractPHPParser->parseOptionalStatement()
+#7 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#8 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#11 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#12 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#13 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#14 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#15 {main}
+	-	Unexpected token: StoreAdapters, line: 5, col: 30, file: /var/www/html/app/Services/StoreAdapters/NoonAdapter.php.
+#0 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8056): PDepend\Source\Parser\UnexpectedTokenException->__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8041): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedTokenException(Object(PDepend\Source\Tokenizer\Token))
+#2 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(8006): PDepend\Source\Language\PHP\AbstractPHPParser->getUnexpectedNextTokenException()
+#3 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(7027): PDepend\Source\Language\PHP\AbstractPHPParser->consumeToken(13)
+#4 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(503): PDepend\Source\Language\PHP\AbstractPHPParser->parseNamespaceDeclaration()
+#5 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(607): PDepend\Source\Language\PHP\AbstractPHPParser->parse()
+#6 /var/www/html/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(352): PDepend\Engine->performParseProcess()
+#7 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(99): PDepend\Engine->analyze()
+#8 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(264): PHPMD\Parser->parse(Object(PHPMD\Report))
+#9 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(160): PHPMD\PHPMD->processFiles('app', Array, Array, Array, Object(PHPMD\Report))
+#10 /var/www/html/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(222): PHPMD\TextUI\Command->run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#11 /var/www/html/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#12 /var/www/html/vendor/bin/phpmd(119): include('/var/www/html/v...')
+#13 {main}

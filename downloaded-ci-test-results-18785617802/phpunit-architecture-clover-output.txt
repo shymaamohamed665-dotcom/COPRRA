@@ -1,0 +1,7 @@
+PHP Fatal error:  strict_types declaration must be the very first statement in the script in /var/www/html/app/Console/Commands/UpdateExchangeRates.php on line 3
+
+In UpdateExchangeRates.php line 3:
+                                                                           
+  strict_types declaration must be the very first statement in the script  
+                                                                           
+

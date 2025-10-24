@@ -1,0 +1,37 @@
+﻿C:\Users\Gaser\Desktop\COPRRA\app\Models\Brand.php:133                                     UnusedPrivateMethod       Avoid unused private methods such as 'generateSlug'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Category.php:188                                  UnusedPrivateMethod       Avoid unused private methods such as 'handleCreatingEvent'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Category.php:199                                  UnusedPrivateMethod       Avoid unused private methods such as 'handleUpdatingEvent'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Notification.php:35                               ExcessiveClassComplexity  The class Notification has an overall complexity of 90 which is very high. The configured complexity threshold is 90.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Notification.php:35                               TooManyPublicMethods      The class Notification has 23 public methods. Consider refactoring Notification to keep number of public methods under 20.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Order.php:154                                     CyclomaticComplexity      The method getTotalAttribute() has a Cyclomatic Complexity of 43. The configured cyclomatic complexity threshold is 30.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Order.php:154                                     NPathComplexity           The method getTotalAttribute() has an NPath complexity of 1275458400. The configured NPath complexity threshold is 1000.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Order.php:154                                     ExcessiveMethodLength     The method getTotalAttribute() has 264 lines of code. Current threshold is set to 180. Avoid really long methods.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:460                                   UnusedPrivateMethod       Avoid unused private methods such as 'clearProductCachesOnUpdate'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:473                                   UnusedPrivateMethod       Avoid unused private methods such as 'deleteRelatedRecords'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Product.php:481                                   UnusedPrivateMethod       Avoid unused private methods such as 'clearProductCachesOnDelete'.
+C:\Users\Gaser\Desktop\COPRRA\app\Models\Store.php:268                                     UnusedPrivateMethod       Avoid unused private methods such as 'generateSlug'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AIRequestService.php:38             CyclomaticComplexity      The method makeRequest() has a Cyclomatic Complexity of 34. The configured cyclomatic complexity threshold is 30.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AIRequestService.php:38             NPathComplexity           The method makeRequest() has an NPath complexity of 5308425. The configured NPath complexity threshold is 1000.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\AI\Services\AITextAnalysisService.php:138       UnusedFormalParameter     Avoid unused parameters such as '$type'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Activity\Services\LocationCheckService.php:31   UnusedFormalParameter     Avoid unused parameters such as '$ipAddress'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Activity\Services\LocationCheckService.php:98   UnusedFormalParameter     Avoid unused parameters such as '$userId'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\BackupManagerService.php:152             UnusedFormalParameter     Avoid unused parameters such as '$options'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Backup\Services\BackupValidatorService.php:100  UnusedFormalParameter     Avoid unused parameters such as '$type'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\BehaviorAnalysisService.php:403                 UnusedPrivateMethod       Avoid unused private methods such as 'getUserSegments'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\FinancialTransactionService.php:158             UnusedPrivateMethod       Avoid unused private methods such as 'isLowestPriceOffer'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\PerformanceMonitoringService.php:350            UnusedPrivateMethod       Avoid unused private methods such as 'getExecutionTime'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Product\Services\ProductPriceService.php:70     UnusedFormalParameter     Avoid unused parameters such as '$oldPrice'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Product\Services\ProductPriceService.php:70     UnusedFormalParameter     Avoid unused parameters such as '$userId'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\RecommendationService.php:371                   MissingImport             Missing class import via use statement (line '371', column '24').
+C:\Users\Gaser\Desktop\COPRRA\app\Services\RecommendationService.php:402                   UnusedPrivateMethod       Avoid unused private methods such as 'getSimilarUsersByProduct'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ReportService.php:524                           UnusedPrivateMethod       Avoid unused private methods such as 'getProductDetails'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\ReportService.php:608                           UnusedPrivateMethod       Avoid unused private methods such as 'calculatePriceTrend'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Security\SecurityHeadersService.php:59          UnusedPrivateMethod       Avoid unused private methods such as 'shouldApplyHeader'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\Security\SecurityHeadersService.php:59          UnusedFormalParameter     Avoid unused parameters such as '$header'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:16                 ExcessiveClassComplexity  The class StorageManagementService has an overall complexity of 114 which is very high. The configured complexity threshold is 90.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:424                UnusedPrivateMethod       Avoid unused private methods such as 'sortDirectoriesBySize'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\StorageManagementService.php:591                UnusedLocalVariable       Avoid unused local variables such as '$name'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\SuspiciousActivityNotifier.php:158              UnusedPrivateMethod       Avoid unused private methods such as 'getNotificationConfig'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\UserBanService.php:230                          UnusedFormalParameter     Avoid unused parameters such as '$user'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\UserBanService.php:239                          UnusedFormalParameter     Avoid unused parameters such as '$newExpiry'.
+C:\Users\Gaser\Desktop\COPRRA\app\Services\UserBanService.php:255                          UnusedFormalParameter     Avoid unused parameters such as '$newExpiry'.

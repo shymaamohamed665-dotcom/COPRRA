@@ -1,0 +1,85 @@
+# Static Analysis Tools
+./vendor/bin/phpstan analyse
+./vendor/bin/psalm
+./vendor/bin/phpinsights analyse app
+./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode
+./vendor/bin/pint
+./vendor/bin/php-cs-fixer fix
+./vendor/bin/phpcpd app/
+./vendor/bin/security-checker security:check
+./vendor/bin/composer-unused
+
+# NPM/Frontend Tools
+npm run lint
+npm run lint:fix
+npm run format
+npm run stylelint
+npm run stylelint:fix
+npm run test:frontend
+npm run analyze
+npm run optimize
+npm run watch
+npm run clean
+npm run assets
+npm run check
+
+# PHPUnit Test Suites
+vendor/bin/phpunit --testsuite Unit
+vendor/bin/phpunit --testsuite Feature
+vendor/bin/phpunit --testsuite AI
+vendor/bin/phpunit --testsuite Security
+vendor/bin/phpunit --testsuite Performance
+vendor/bin/phpunit --testsuite Integration
+vendor/bin/phpunit --configuration phpunit.xml --coverage-html coverage --log-junit junit.xml
+
+# Composer Scripts
+composer analyse
+composer test
+composer test:coverage
+composer test:dusk
+composer test:infection
+composer test:all
+composer analyse:phpstan
+composer analyse:psalm
+composer analyse:insights
+composer analyse:security
+composer analyse:all
+composer fix:style
+composer fix:rector
+composer fix:all
+composer metrics
+composer quality
+
+# Shell Scripts
+./setup.sh
+./run_all_450_tests.sh
+./run_450_tests_visible.sh
+./run-all-checks.sh
+./comprehensive-audit.sh
+./comprehensive-quality-audit.sh
+./comprehensive-audit-execution.sh
+./execute_task4_individual_tests.sh
+./execute_task4_batch_runner.sh
+./execute_task4_demo.sh
+./execute-audit-phases.sh
+./cleanup-problematic-dirs.sh
+
+# Laravel Commands
+php artisan test
+php artisan test --parallel
+php artisan dusk
+php artisan route:test
+php artisan check:security
+php artisan check:performance
+php artisan insights:analyze
+php artisan test:coverage
+
+# Additional Tools & Analyzers
+./vendor/bin/phpmetrics --config=phpmetrics.json app
+./vendor/bin/rector process app
+./vendor/bin/infection --threads=max
+./vendor/bin/phpstan analyse --configuration=phpstan.neon --memory-limit=2G
+./vendor/bin/psalm --show-info=true
+./vendor/bin/phpinsights analyse app --min-quality=90 --min-complexity=85 --min-architecture=90 --min-style=90
+./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php --verbose
+./vendor/bin/phpmd app text cleancode,codesize,controversial,design,naming,unusedcode --strict

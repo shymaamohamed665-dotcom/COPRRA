@@ -1,0 +1,13 @@
+Test #24: PHP Insights - Complexity Analysis
+Command: php artisan insights --no-interaction --min-complexity=95
+Execution Time: 42.57s
+Exit Code: 1
+================================================================================
+STDOUT:
+
+   Invalid configuration 
+    • The option "preset" with value "psr12" is invalid. Accepted values are: "drupal", "laravel", "symfony", "yii", "magento2", "wordpress", "default".
+
+
+================================================================================
+STDERR:

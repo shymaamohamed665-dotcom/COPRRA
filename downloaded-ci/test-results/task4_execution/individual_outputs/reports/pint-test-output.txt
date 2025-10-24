@@ -1,0 +1,10 @@
+Test #16: Laravel Pint - Test Mode
+Command: ./vendor/bin/pint --test
+Execution Time: 0.05s
+Exit Code: 127
+================================================================================
+STDOUT:
+
+================================================================================
+STDERR:
+/bin/sh: 1: ./vendor/bin/pint: not found

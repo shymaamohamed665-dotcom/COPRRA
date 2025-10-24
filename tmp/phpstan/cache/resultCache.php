@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1761209452,
+	'lastFullAnalysisTime' => 1761331711,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.31',
@@ -19,7 +19,7 @@ return [
   ),
   'composerLocks' => 
   array (
-    'C:/Users/Gaser/Desktop/COPRRA/composer.lock' => 'c30336e3119e296c64dcf5427ba6a3a4fe077acf',
+    'C:/Users/Gaser/Desktop/COPRRA/composer.lock' => '3ccddec8868461f3cd58a26390c0a2265e21db48',
   ),
   'composerInstalled' => 
   array (
@@ -1163,6 +1163,18 @@ return [
             0 => '*',
           ),
         ),
+        'jean85/pretty-package-versions' => 
+        array (
+          'pretty_version' => '2.1.1',
+          'version' => '2.1.1.0',
+          'reference' => '4d7aa5dab42e2a76d99559706022885de0e18e1a',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../jean85/pretty-package-versions',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'jetbrains/phpstorm-stubs' => 
         array (
           'pretty_version' => 'v2024.3',
@@ -1301,7 +1313,7 @@ return [
           'aliases' => 
           array (
           ),
-          'dev_requirement' => false,
+          'dev_requirement' => true,
         ),
         'laravel/tinker' => 
         array (
@@ -1563,6 +1575,18 @@ return [
           ),
           'dev_requirement' => false,
         ),
+        'nyholm/psr7' => 
+        array (
+          'pretty_version' => '1.8.2',
+          'version' => '1.8.2.0',
+          'reference' => 'a71f2b11690f4b24d099d6b16690a90ae14fc6f3',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../nyholm/psr7',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'ondram/ci-detector' => 
         array (
           'pretty_version' => '4.2.0',
@@ -1633,6 +1657,14 @@ return [
           'provided' => 
           array (
             0 => '*',
+          ),
+        ),
+        'php-http/message-factory-implementation' => 
+        array (
+          'dev_requirement' => false,
+          'provided' => 
+          array (
+            0 => '1.0',
           ),
         ),
         'php-parallel-lint/php-console-color' => 
@@ -2481,6 +2513,30 @@ return [
           ),
           'dev_requirement' => true,
         ),
+        'sentry/sentry' => 
+        array (
+          'pretty_version' => '4.17.0',
+          'version' => '4.17.0.0',
+          'reference' => '62927369a572efc27ddbd89e466e17788329224b',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../sentry/sentry',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
+        'sentry/sentry-laravel' => 
+        array (
+          'pretty_version' => '4.18.0',
+          'version' => '4.18.0.0',
+          'reference' => 'b9a647f93f9a040eaf6f21d0684f2351310d3360',
+          'type' => 'library',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../sentry/sentry-laravel',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
+        ),
         'slevomat/coding-standard' => 
         array (
           'pretty_version' => '8.22.1',
@@ -2907,7 +2963,7 @@ return [
           'aliases' => 
           array (
           ),
-          'dev_requirement' => true,
+          'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => 
         array (
@@ -3076,6 +3132,18 @@ return [
           array (
           ),
           'dev_requirement' => true,
+        ),
+        'symfony/psr-http-message-bridge' => 
+        array (
+          'pretty_version' => 'v7.3.0',
+          'version' => '7.3.0.0',
+          'reference' => '03f2f72319e7acaf2a9f6fcbe30ef17eec51594f',
+          'type' => 'symfony-bridge',
+          'install_path' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\vendor\\composer/../symfony/psr-http-message-bridge',
+          'aliases' => 
+          array (
+          ),
+          'dev_requirement' => false,
         ),
         'symfony/routing' => 
         array (
@@ -5161,12 +5229,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Http\\Controllers\\HealthController::calculateOverallStatus() has parameter $statuses with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\HealthController.php',
-       'line' => 56,
+       'line' => 58,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\HealthController.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 56,
+       'nodeLine' => 58,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -10385,12 +10453,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Constructor of class App\\Services\\BackupService has an unused parameter $validator.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
-       'line' => 31,
+       'line' => 36,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 31,
+       'nodeLine' => 36,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'constructor.unusedParameter',
        'metadata' => 
@@ -10402,12 +10470,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #1 $value of function count expects array|Countable, int|list<string>|string given.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
-       'line' => 174,
+       'line' => 179,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 174,
+       'nodeLine' => 179,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -10419,12 +10487,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Services\\BackupService::formatBackupResult() has parameter $result with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
-       'line' => 388,
+       'line' => 397,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 388,
+       'nodeLine' => 397,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -10436,12 +10504,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Services\\BackupService::formatRestoreResult() has parameter $result with no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
-       'line' => 418,
+       'line' => 427,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 418,
+       'nodeLine' => 427,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -10453,12 +10521,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Services\\BackupService::readBackupManifest() return type has no value type specified in iterable type array.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
-       'line' => 433,
+       'line' => 442,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 433,
+       'nodeLine' => 442,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
@@ -10603,94 +10671,6 @@ return [
        'nodeLine' => 254,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-  ),
-  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\Backup\\BackupService::createBackup() should return array<string, int|string> but returns array<string, int|string|null>.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'line' => 38,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 38,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to function is_string() with string will always evaluate to true.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'line' => 103,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 103,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.alreadyNarrowedType',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\Backup\\BackupService::addBackupContent() has parameter $options with no value type specified in iterable type array.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'line' => 136,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 136,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\Backup\\BackupService::backupFiles() has parameter $options with no value type specified in iterable type array.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'line' => 205,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 205,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Possibly invalid array key type float|int.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'line' => 264,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 264,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.invalidOffset',
        'metadata' => 
       array (
       ),
@@ -11646,16 +11626,16 @@ return [
     )),
     12 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $host of method Redis::connect() expects string, bool|string given.',
+       'message' => 'Called \'env\' outside of the config directory which returns null when the config is cached, use \'config\'.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'line' => 338,
+       'line' => 356,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 338,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'nodeLine' => 356,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'larastan.noEnvCallsOutsideOfConfig',
        'metadata' => 
       array (
       ),
@@ -11682,40 +11662,6 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Called \'env\' outside of the config directory which returns null when the config is cached, use \'config\'.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'line' => 356,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 356,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'larastan.noEnvCallsOutsideOfConfig',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $host of method Memcached::addServer() expects string, bool|string given.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'line' => 356,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 356,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Called \'env\' outside of the config directory which returns null when the config is cached, use \'config\'.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
        'line' => 385,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
@@ -11729,7 +11675,7 @@ return [
       ),
        'fixedErrorDiff' => NULL,
     )),
-    17 => 
+    15 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Called \'env\' outside of the config directory which returns null when the config is cached, use \'config\'.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
@@ -11746,7 +11692,7 @@ return [
       ),
        'fixedErrorDiff' => NULL,
     )),
-    18 => 
+    16 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Called \'env\' outside of the config directory which returns null when the config is cached, use \'config\'.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
@@ -11758,23 +11704,6 @@ return [
        'nodeLine' => 405,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'larastan.noEnvCallsOutsideOfConfig',
-       'metadata' => 
-      array (
-      ),
-       'fixedErrorDiff' => NULL,
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $host of method Redis::connect() expects string, bool|string given.',
-       'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'line' => 405,
-       'canBeIgnored' => true,
-       'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 405,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
@@ -17033,6 +16962,43 @@ return [
       ),
     ),
   ),
+  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Console\\Commands\\GenerateMigrationsFromFixSql.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'preg_match_all',
+        1 => 121,
+      ),
+      1 => 
+      array (
+        0 => 'preg_match_all',
+        1 => 150,
+      ),
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 96,
+      ),
+      1 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 105,
+      ),
+      2 => 
+      array (
+        0 => 'Illuminate\\Foundation\\Console\\Kernel',
+        1 => 'call',
+        2 => 229,
+      ),
+    ),
+  ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Console\\Commands\\GenerateSitemap.php' => 
   array (
     'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
@@ -17705,6 +17671,15 @@ return [
         0 => 'App\\Http\\Controllers\\HealthController',
         1 => 'calculateOverallStatus',
         2 => 'App\\Http\\Controllers\\HealthController',
+      ),
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Connection',
+        1 => 'select',
+        2 => 73,
       ),
     ),
   ),
@@ -19761,7 +19736,7 @@ return [
       0 => 
       array (
         0 => 'usort',
-        1 => 281,
+        1 => 288,
       ),
     ),
   ),
@@ -19792,22 +19767,6 @@ return [
     'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
     array (
       0 => 'App\\Services\\Backup\\BackupManagerService',
-    ),
-  ),
-  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php' => 
-  array (
-    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
-    array (
-      0 => 'App\\Services\\Backup\\BackupService',
-    ),
-    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
-    array (
-      0 => 
-      array (
-        0 => 'Illuminate\\Foundation\\Console\\Kernel',
-        1 => 'call',
-        2 => 187,
-      ),
     ),
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\RestoreService.php' => 
@@ -21623,6 +21582,13 @@ return [
     array (
     ),
   ),
+  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Console\\Commands\\GenerateMigrationsFromFixSql.php' => 
+  array (
+    'fileHash' => '47219632509916781359d58591c1bc98c60db81a',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Console\\Commands\\GenerateSitemap.php' => 
   array (
     'fileHash' => '4397e55bb17c6fc6b49e5d20d75393d75344c703',
@@ -22004,7 +21970,7 @@ return [
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\BackupController.php' => 
   array (
-    'fileHash' => '48ed4f34070ca84add8e9b6a2ccd678317dc9be8',
+    'fileHash' => 'c019af095caf167802eaa66234dbc3357c65f417',
     'dependentFiles' => 
     array (
     ),
@@ -22096,7 +22062,7 @@ return [
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\HealthController.php' => 
   array (
-    'fileHash' => 'ad9faec7fc5540862d93e02c5ceb5c1bd4b5197f',
+    'fileHash' => '2b0dd58d3e372516a74ae2a3adb12bfb458fe28b',
     'dependentFiles' => 
     array (
     ),
@@ -24306,9 +24272,10 @@ return [
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php' => 
   array (
-    'fileHash' => 'f0332c1c5a78a9f8c74cce096c5f6f8dcf76d108',
+    'fileHash' => '1d635442eb0bd728dfb42f7f71864d939a8af2e5',
     'dependentFiles' => 
     array (
+      0 => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\BackupController.php',
     ),
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupFileService.php' => 
@@ -24333,14 +24300,6 @@ return [
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\BackupService.php',
-    ),
-  ),
-  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php' => 
-  array (
-    'fileHash' => 'e03c32738c9cd371c8b298154aa9cafb0dce021d',
-    'dependentFiles' => 
-    array (
-      0 => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Http\\Controllers\\BackupController.php',
     ),
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupValidator.php' => 
@@ -24643,7 +24602,7 @@ return [
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\EnvironmentChecker.php' => 
   array (
-    'fileHash' => '9e2120128c82bb5d21c800656b9afa0cc4b57064',
+    'fileHash' => '528394da2258c0bade49b5939221ef5914abbb65',
     'dependentFiles' => 
     array (
     ),
@@ -26549,6 +26508,117 @@ return [
               array (
               ),
             )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Console\\Commands\\GenerateMigrationsFromFixSql.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Console\\Commands\\GenerateMigrationsFromFixSql',
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-suppress UnusedClass
+ */',
+         'namespace' => 'App\\Console\\Commands',
+         'uses' => 
+        array (
+          'command' => 'Illuminate\\Console\\Command',
+          'artisan' => 'Illuminate\\Support\\Facades\\Artisan',
+          'file' => 'Illuminate\\Support\\Facades\\File',
+          'str' => 'Illuminate\\Support\\Str',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
+       'abstract' => false,
+       'final' => true,
+       'extends' => 'Illuminate\\Console\\Command',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'signature',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'description',
+          ),
+           'phpDoc' => NULL,
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'handle',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'int',
+           'parameters' => 
+          array (
           ),
            'attributes' => 
           array (
@@ -38154,9 +38224,9 @@ return [
             array (
               'backupfileservice' => 'App\\Services\\Backup\\BackupFileService',
               'backuplistservice' => 'App\\Services\\Backup\\BackupListService',
-              'backupservice' => 'App\\Services\\Backup\\BackupService',
               'backupvalidator' => 'App\\Services\\Backup\\BackupValidator',
               'restoreservice' => 'App\\Services\\Backup\\RestoreService',
+              'backupservice' => 'App\\Services\\BackupService',
               'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'request' => 'Illuminate\\Http\\Request',
               'log' => 'Illuminate\\Support\\Facades\\Log',
@@ -38192,9 +38262,9 @@ return [
             array (
               'backupfileservice' => 'App\\Services\\Backup\\BackupFileService',
               'backuplistservice' => 'App\\Services\\Backup\\BackupListService',
-              'backupservice' => 'App\\Services\\Backup\\BackupService',
               'backupvalidator' => 'App\\Services\\Backup\\BackupValidator',
               'restoreservice' => 'App\\Services\\Backup\\RestoreService',
+              'backupservice' => 'App\\Services\\BackupService',
               'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'request' => 'Illuminate\\Http\\Request',
               'log' => 'Illuminate\\Support\\Facades\\Log',
@@ -38241,9 +38311,9 @@ return [
             array (
               'backupfileservice' => 'App\\Services\\Backup\\BackupFileService',
               'backuplistservice' => 'App\\Services\\Backup\\BackupListService',
-              'backupservice' => 'App\\Services\\Backup\\BackupService',
               'backupvalidator' => 'App\\Services\\Backup\\BackupValidator',
               'restoreservice' => 'App\\Services\\Backup\\RestoreService',
+              'backupservice' => 'App\\Services\\BackupService',
               'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'request' => 'Illuminate\\Http\\Request',
               'log' => 'Illuminate\\Support\\Facades\\Log',
@@ -38290,9 +38360,9 @@ return [
             array (
               'backupfileservice' => 'App\\Services\\Backup\\BackupFileService',
               'backuplistservice' => 'App\\Services\\Backup\\BackupListService',
-              'backupservice' => 'App\\Services\\Backup\\BackupService',
               'backupvalidator' => 'App\\Services\\Backup\\BackupValidator',
               'restoreservice' => 'App\\Services\\Backup\\RestoreService',
+              'backupservice' => 'App\\Services\\BackupService',
               'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'request' => 'Illuminate\\Http\\Request',
               'log' => 'Illuminate\\Support\\Facades\\Log',
@@ -38339,9 +38409,9 @@ return [
             array (
               'backupfileservice' => 'App\\Services\\Backup\\BackupFileService',
               'backuplistservice' => 'App\\Services\\Backup\\BackupListService',
-              'backupservice' => 'App\\Services\\Backup\\BackupService',
               'backupvalidator' => 'App\\Services\\Backup\\BackupValidator',
               'restoreservice' => 'App\\Services\\Backup\\RestoreService',
+              'backupservice' => 'App\\Services\\BackupService',
               'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'request' => 'Illuminate\\Http\\Request',
               'log' => 'Illuminate\\Support\\Facades\\Log',
@@ -38388,9 +38458,9 @@ return [
             array (
               'backupfileservice' => 'App\\Services\\Backup\\BackupFileService',
               'backuplistservice' => 'App\\Services\\Backup\\BackupListService',
-              'backupservice' => 'App\\Services\\Backup\\BackupService',
               'backupvalidator' => 'App\\Services\\Backup\\BackupValidator',
               'restoreservice' => 'App\\Services\\Backup\\RestoreService',
+              'backupservice' => 'App\\Services\\BackupService',
               'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
               'request' => 'Illuminate\\Http\\Request',
               'log' => 'Illuminate\\Support\\Facades\\Log',
@@ -76597,7 +76667,27 @@ return [
         0 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => '__construct',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @psalm-suppress PossiblyUnusedMethod - Injected via service container
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'backupmanagerservice' => 'App\\Services\\Backup\\BackupManagerService',
+              'backupvalidatorservice' => 'App\\Services\\Backup\\Services\\BackupValidatorService',
+              'configurationbackupstrategy' => 'App\\Services\\Backup\\Strategies\\ConfigurationBackupStrategy',
+              'databasebackupstrategy' => 'App\\Services\\Backup\\Strategies\\DatabaseBackupStrategy',
+              'filesbackupstrategy' => 'App\\Services\\Backup\\Strategies\\FilesBackupStrategy',
+              'carbon' => 'Carbon\\Carbon',
+              'exception' => 'Exception',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -76811,6 +76901,8 @@ return [
      *
      * @psalm-return array{backup_name: string, started_at: Carbon, manifest: array{type?: string, created_at?: string, version?: string, components?: array<string, array<string, int|list<string>|string>|string>}, components: array<string, array<string, int|list<string>|string>|string>, completed_at: Carbon, status?: string}
      *
+     * @psalm-suppress PossiblyUnusedMethod - Called by BackupController
+     *
      * @throws Exception
      */',
              'namespace' => 'App\\Services',
@@ -76956,6 +77048,8 @@ return [
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
      * Clean backups older than the given number of days.
+     *
+     * @psalm-suppress PossiblyUnusedMethod - Called by artisan commands and scheduled tasks
      */',
              'namespace' => 'App\\Services',
              'uses' => 
@@ -77720,113 +77814,6 @@ return [
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'options',
-               'type' => 'array',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-      ),
-       'attributes' => 
-      array (
-      ),
-    )),
-  ),
-  'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Services\\Backup\\BackupService.php' => 
-  array (
-    0 => 
-    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
-       'name' => 'App\\Services\\Backup\\BackupService',
-       'phpDoc' => NULL,
-       'abstract' => false,
-       'final' => false,
-       'extends' => NULL,
-       'implements' => 
-      array (
-      ),
-       'usedTraits' => 
-      array (
-      ),
-       'traitUseAdaptations' => 
-      array (
-      ),
-       'statements' => 
-      array (
-        0 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => '__construct',
-           'phpDoc' => NULL,
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => NULL,
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'backupPath',
-               'type' => 'string',
-               'byRef' => false,
-               'variadic' => false,
-               'hasDefault' => false,
-               'attributes' => 
-              array (
-              ),
-            )),
-          ),
-           'attributes' => 
-          array (
-          ),
-        )),
-        1 => 
-        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
-           'name' => 'createBackup',
-           'phpDoc' => 
-          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
-             'phpDocString' => '/**
-     * Create backup with given configuration.
-     *
-     * @param  array<string, string>  $config
-     * @return array<int|string>
-     *
-     * @psalm-return array<string, int|string>
-     */',
-             'namespace' => 'App\\Services\\Backup',
-             'uses' => 
-            array (
-              'artisan' => 'Illuminate\\Support\\Facades\\Artisan',
-              'log' => 'Illuminate\\Support\\Facades\\Log',
-              'recursivedirectoryiterator' => 'RecursiveDirectoryIterator',
-              'recursiveiteratoriterator' => 'RecursiveIteratorIterator',
-              'runtimeexception' => 'RuntimeException',
-              'ziparchive' => 'ZipArchive',
-            ),
-             'constUses' => 
-            array (
-            ),
-          )),
-           'byRef' => false,
-           'public' => true,
-           'private' => false,
-           'abstract' => false,
-           'final' => false,
-           'static' => false,
-           'returnType' => 'array',
-           'parameters' => 
-          array (
-            0 => 
-            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'config',
                'type' => 'array',
                'byRef' => false,
                'variadic' => false,

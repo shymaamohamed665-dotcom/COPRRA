@@ -1,0 +1,37 @@
+﻿
+Tuesday, October 21, 2025 4:13:02 PM
+
+
+
+Name                           Value                                                                                                                            
+----                           -----                                                                                                                            
+PSVersion                      5.1.19041.6456                                                                                                                   
+PSEdition                      Desktop                                                                                                                          
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0...}                                                                                                          
+BuildVersion                   10.0.19041.6456                                                                                                                  
+CLRVersion                     4.0.30319.42000                                                                                                                  
+WSManStackVersion              3.0                                                                                                                              
+PSRemotingProtocolVersion      2.3                                                                                                                              
+SerializationVersion           1.1.0.1                                                                                                                          
+
+
+v22.20.0
+11.6.2
+PHP 8.4.13 (cli) (built: Sep 23 2025 15:17:27) (NTS Visual C++ 2022 x64)
+Copyright (c) The PHP Group
+Zend Engine v4.4.13, Copyright (c) Zend Technologies
+Composer version 2.8.12 2025-09-19 13:41:59
+php : PHP version 8.4.13 (C:\tools\php84\php.exe)
+At line:1 char:1
++ php composer.phar --version 2>&1 | Out-File -FilePath reports/env_ver ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (PHP version 8.4...\php84\php.exe):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Run the "diagnose" command to get more detailed diagnostics output.
+PHPStan - PHP Static Analysis Tool 2.1.31
+Psalm 6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51
+v9.35.0
+16.24.0
+8.28.0
+Docker version 28.5.1, build e180ab8
