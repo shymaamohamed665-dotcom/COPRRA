@@ -103,6 +103,16 @@ jobs:
           php -r "echo 'Loaded extensions: ' . implode(', ', get_loaded_extensions()) . PHP_EOL;"
       - name: Ensure reports directory
         run: mkdir -p reports
+      - name: Export PHP and MySQL info to reports
+        run: |
+          php -i > reports/php-info.txt
+          php --ini > reports/php-ini.txt
+          mysql -h 127.0.0.1 -uroot -proot -e "SHOW VARIABLES" > reports/mysql-variables.txt || true
+      - name: Check storage writability
+        run: |
+          for d in storage storage/logs storage/framework storage/framework/sessions storage/framework/views storage/framework/cache bootstrap/cache; do
+            if [ -w "$d" ]; then echo "$d writable"; else echo "$d NOT writable"; fi;
+          done
       - name: Install MySQL client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
       - name: Wait for MySQL and create DB
@@ -164,6 +174,15 @@ jobs:
           )
       - name: Migrations status
         run: php artisan migrate:status --database=mysql || true
+      - name: Capture MySQL service logs
+        run: |
+          CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
+          if [ -n "$CID" ]; then
+            docker logs "$CID" > reports/mysql-service.log || true
+          else
+            echo "MySQL container not found" > reports/mysql-service.log
+          fi
+          test -f reports/mysql-service.log || touch reports/mysql-service.log
       - name: List MySQL databases and laravel tables
         run: |
           mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW DATABASES;"
@@ -181,6 +200,13 @@ jobs:
         with:
           name: ci-test-results
           path: reports/
+          retention-days: 7
+      - name: Upload MySQL service logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-mysql-service-logs
+          path: reports/mysql-service.log
           retention-days: 7
       - name: Upload Laravel logs
         if: always()
