@@ -218,7 +218,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ env.PHP_VERSION }}
-          extensions: mbstring, xml, ctype, json, bcmath, zip, pdo_mysql, redis
+          extensions: mbstring, xml, ctype, json, bcmath, zip, pdo_mysql, redis, openssl
           coverage: xdebug
           tools: composer:v2
 
@@ -291,7 +291,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ env.PHP_VERSION }}
-          extensions: mbstring, xml, ctype, json, bcmath, zip, pdo_mysql, redis
+          extensions: mbstring, xml, ctype, json, bcmath, zip, pdo_mysql, redis, openssl
           coverage: xdebug
           tools: composer:v2
 
