@@ -245,6 +245,11 @@ jobs:
       - name: Copy .env.testing
         run: cp .env.testing .env
 
+      - name: Configure SQLite DB for migrations
+        run: |
+          sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
+          if grep -q '^DB_DATABASE=' .env; then sed -i 's/^DB_DATABASE=.*/DB_DATABASE=database\\/database.sqlite/' .env; else echo 'DB_DATABASE=database/database.sqlite' >> .env; fi
+
       - name: Verify application key
         run: |
           if grep -q '^APP_KEY=' .env; then
@@ -322,6 +327,11 @@ jobs:
 
       - name: Copy .env.testing
         run: cp .env.testing .env
+
+      - name: Configure SQLite DB for migrations
+        run: |
+          sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
+          if grep -q '^DB_DATABASE=' .env; then sed -i 's/^DB_DATABASE=.*/DB_DATABASE=database\\/database.sqlite/' .env; else echo 'DB_DATABASE=database/database.sqlite' >> .env; fi
 
       - name: Verify application key
         run: |
