@@ -335,7 +335,7 @@ class EnvironmentChecker
         if (extension_loaded('redis')) {
             try {
                 $redis = new \Redis;
-                $redis->connect(env('REDIS_HOST', '127.0.0.1'), (int) env('REDIS_PORT', '6379'));
+                $redis->connect((string) env('REDIS_HOST', '127.0.0.1'), (int) env('REDIS_PORT', '6379'));
                 $this->printSuccess('Redis connection successful');
             } catch (\Exception $e) {
                 $this->printError('Redis connection failed: '.$e->getMessage());
@@ -353,7 +353,7 @@ class EnvironmentChecker
         if (extension_loaded('memcached')) {
             try {
                 $memcached = new \Memcached;
-                $memcached->addServer(env('MEMCACHED_HOST', '127.0.0.1'), (int) env('MEMCACHED_PORT', '11211'));
+                $memcached->addServer((string) env('MEMCACHED_HOST', '127.0.0.1'), (int) env('MEMCACHED_PORT', '11211'));
                 $this->printSuccess('Memcached connection successful');
             } catch (\Exception $e) {
                 $this->printError('Memcached connection failed: '.$e->getMessage());
@@ -402,7 +402,7 @@ class EnvironmentChecker
         if (extension_loaded('redis')) {
             try {
                 $redis = new \Redis;
-                $redis->connect(env('REDIS_HOST', '127.0.0.1'), (int) env('REDIS_PORT', '6379'));
+                $redis->connect((string) env('REDIS_HOST', '127.0.0.1'), (int) env('REDIS_PORT', '6379'));
                 $this->printSuccess('Redis queue connection successful');
             } catch (\Exception $e) {
                 $this->printError('Redis queue connection failed: '.$e->getMessage());
