@@ -133,6 +133,8 @@ jobs:
         run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT @@sql_mode;"
       - name: MySQL charset and collation
         run: mysql -h 127.0.0.1 -uroot -proot -e "SHOW VARIABLES LIKE 'character_set_server'; SHOW VARIABLES LIKE 'collation_server'; SHOW VARIABLES LIKE 'lower_case_table_names';"
+      - name: MySQL laravel schema settings
+        run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT schema_name, default_character_set_name, default_collation_name FROM information_schema.SCHEMATA WHERE schema_name='laravel';"
       - name: Verify laravel user session
         run: mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT CURRENT_USER() AS current_user, @@sql_mode AS sql_mode;"
       - name: Verify PDO MySQL connectivity
@@ -140,8 +142,16 @@ jobs:
       - name: Show DB env vars
         run: |
           grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
+      - name: Verify laravel user privileges (create/drop table)
+        run: |
+          mysql -h 127.0.0.1 -ularavel -psecret -e "USE laravel; CREATE TABLE IF NOT EXISTS tmp_ci_privs (id INT PRIMARY KEY) ENGINE=InnoDB; DROP TABLE tmp_ci_privs;"
       - name: Run migrations
-        run: php artisan migrate --database=mysql --no-interaction --force -vvv
+        run: |
+          php artisan migrate --database=mysql --no-interaction --force -vvv || (
+            echo "Migrations failed; printing laravel.log" ;
+            test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
+            exit 1
+          )
       - name: Migrations status
         run: php artisan migrate:status --database=mysql || true
       - name: List MySQL databases and laravel tables
@@ -156,6 +166,13 @@ jobs:
         with:
           name: ci-test-results
           path: reports/
+          retention-days: 7
+      - name: Upload Laravel logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-laravel-logs
+          path: storage/logs/
           retention-days: 7
 
   artifacts-consumer:
