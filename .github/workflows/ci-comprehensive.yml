@@ -239,6 +239,9 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Remove Rector to avoid php-parser conflict
+        run: rm -rf vendor/rector
+
       - name: Copy .env.testing
         run: cp .env.testing .env
 
@@ -308,6 +311,9 @@ jobs:
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
+
+      - name: Remove Rector to avoid php-parser conflict
+        run: rm -rf vendor/rector
 
       - name: Copy .env.testing
         run: cp .env.testing .env
