@@ -133,6 +133,12 @@ jobs:
         run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT @@sql_mode;"
       - name: MySQL charset and collation
         run: mysql -h 127.0.0.1 -uroot -proot -e "SHOW VARIABLES LIKE 'character_set_server'; SHOW VARIABLES LIKE 'collation_server'; SHOW VARIABLES LIKE 'lower_case_table_names';"
+      - name: MySQL time zone info
+        run: |
+          mysql -h 127.0.0.1 -uroot -proot -e "SELECT @@system_time_zone AS system_tz, @@time_zone AS session_tz, NOW() AS now_local, UTC_TIMESTAMP() AS now_utc;"
+          php -r "echo 'PHP timezone: ' . date_default_timezone_get() . PHP_EOL;"
+      - name: MySQL storage engine and constraints
+        run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT @@default_storage_engine AS default_engine, @@innodb_strict_mode AS innodb_strict_mode, @@sql_require_primary_key AS require_pk, @@foreign_key_checks AS fk_checks;"
       - name: MySQL laravel schema settings
         run: mysql -h 127.0.0.1 -uroot -proot -e "SELECT schema_name, default_character_set_name, default_collation_name FROM information_schema.SCHEMATA WHERE schema_name='laravel';"
       - name: Verify laravel user session
@@ -148,9 +154,13 @@ jobs:
       - name: Run migrations
         run: |
           php artisan migrate --database=mysql --no-interaction --force -vvv || (
-            echo "Migrations failed; printing laravel.log" ;
+            echo "Migrations failed; printing laravel.log and attempting migrate:fresh" ;
             test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
-            exit 1
+            php artisan migrate:fresh --database=mysql --no-interaction --force -vvv || (
+              echo "migrate:fresh also failed; printing laravel.log again" ;
+              test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
+              exit 1
+            )
           )
       - name: Migrations status
         run: php artisan migrate:status --database=mysql || true
