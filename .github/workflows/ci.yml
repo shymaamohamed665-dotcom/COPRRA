@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   build:
@@ -34,18 +34,18 @@ jobs:
           submodules: false
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: "8.4"
           tools: composer:v2, cs2pr
           coverage: xdebug
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 'stable'
+          chrome-version: "stable"
       - name: Cache Composer cache
         uses: actions/cache@v4
         with:
@@ -56,6 +56,16 @@ jobs:
         run: |
           composer install --no-interaction --prefer-dist
           npm ci
+      - name: Create Laravel storage directories
+        run: |
+          mkdir -p storage/framework/{sessions,views,cache,testing}
+          mkdir -p storage/logs
+          mkdir -p bootstrap/cache
+          chmod -R 775 storage bootstrap/cache
+      - name: Optimize Composer autoload
+        run: composer dump-autoload --optimize --classmap-authoritative
+      - name: Remove Rector to avoid php-parser conflict
+        run: rm -rf vendor/rector || true
       - name: Validate composer
         run: composer validate --strict
       - name: Validate Nginx configuration
@@ -71,7 +81,9 @@ jobs:
       - name: Insights
         run: vendor/bin/phpinsights analyse app --no-interaction || true
       - name: Prepare env
-        run: cp .env.example .env
+        run: |
+          if [ -f .env.testing ]; then cp .env.testing .env; else cp .env.example .env; fi
+          php artisan key:generate
       - name: Ensure reports directory
         run: mkdir -p reports
       - name: Run tests with coverage
