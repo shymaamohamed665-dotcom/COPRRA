@@ -334,7 +334,75 @@ jobs:
               ) \
             ORDER BY kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION;\
           " > reports/mysql-fk-type-mismatches.txt || true
-      - name: Generate fix suggestions (indexes and column types)
+      - name: Analyze parent FK index coverage
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          : > reports/mysql-fk-parent-index-gaps.txt
+          if [ -f reports/mysql-laravel-indexes.txt ] && [ -f reports/mysql-laravel-fks.txt ]; then
+            awk -F '\t' '
+              FILENAME ~ /mysql-laravel-indexes.txt$/ {
+                if (FNR==1) next;
+                key = $1 "|" $2; # table|index
+                cols[key] = (cols[key] ? cols[key] "," $5 : $5);
+                next;
+              }
+              FILENAME ~ /mysql-laravel-fks.txt$/ {
+                if (FNR==1) next;
+                pkey = $4 "|" $1; # parent_table|constraint
+                prefcols[pkey] = (prefcols[pkey] ? prefcols[pkey] "," $5 : $5);
+              }
+              END {
+                for (k in cols) {
+                  split(k, a, "|");
+                  t = a[1];
+                  idx_list[t] = (idx_list[t] ? idx_list[t] "\n" cols[k] : cols[k]);
+                }
+                for (fk in prefcols) {
+                  split(fk, b, "|");
+                  t = b[1]; c = b[2];
+                  f = prefcols[fk];
+                  found = 0;
+                  n = split(idx_list[t], arr, "\n");
+                  for (i=1; i<=n; i++) {
+                    idxc = arr[i];
+                    if (idxc == f) { found = 1; break; }
+                    if (length(idxc) > length(f) && substr(idxc,1,length(f)) == f && substr(idxc,length(f)+1,1) == ",") { found = 1; break; }
+                  }
+                  if (!found) {
+                    printf("%s\t%s\t%s\n", t, c, f);
+                  }
+                }
+              }
+            ' reports/mysql-laravel-indexes.txt reports/mysql-laravel-fks.txt > reports/mysql-fk-parent-index-gaps.txt || true
+          fi
+      - name: Detect FK unsigned mismatches
+        run: |
+          mysql -h 127.0.0.1 -ularavel -psecret -e "\
+            SELECT \
+              kcu.CONSTRAINT_NAME, \
+              kcu.TABLE_NAME, \
+              kcu.COLUMN_NAME, \
+              kcu.REFERENCED_TABLE_NAME, \
+              kcu.REFERENCED_COLUMN_NAME, \
+              child.COLUMN_TYPE AS child_column_type, \
+              parent.COLUMN_TYPE AS parent_column_type \
+            FROM information_schema.KEY_COLUMN_USAGE kcu \
+            JOIN information_schema.COLUMNS child \
+              ON child.TABLE_SCHEMA=kcu.TABLE_SCHEMA \
+              AND child.TABLE_NAME=kcu.TABLE_NAME \
+              AND child.COLUMN_NAME=kcu.COLUMN_NAME \
+            JOIN information_schema.COLUMNS parent \
+              ON parent.TABLE_SCHEMA=kcu.REFERENCED_TABLE_SCHEMA \
+              AND parent.TABLE_NAME=kcu.REFERENCED_TABLE_NAME \
+              AND parent.COLUMN_NAME=kcu.REFERENCED_COLUMN_NAME \
+            WHERE kcu.TABLE_SCHEMA='laravel' \
+              AND kcu.REFERENCED_TABLE_SCHEMA IS NOT NULL \
+              AND ( (child.COLUMN_TYPE LIKE '%unsigned%') <> (parent.COLUMN_TYPE LIKE '%unsigned%') ) \
+            ORDER BY kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION;\
+          " > reports/mysql-fk-unsigned-mismatches.txt || true
+       - name: Generate fix suggestions (indexes and column types)
         shell: bash
         run: |
           set -euo pipefail
@@ -353,20 +421,39 @@ jobs:
             }' reports/mysql-fk-index-gaps.txt >> reports/fix-suggestions.sql
             echo >> reports/fix-suggestions.md
           fi
-          # Column type/charset/collation suggestions
-          if [ -s reports/mysql-fk-type-mismatches.txt ]; then
-            echo "## Align child column types/charset/collation with parent" >> reports/fix-suggestions.md
-            awk -F '\t' 'NR>1 { # skip header if any
-              c_name=$1; t=$2; col=$3; pt=$4; pcol=$5; child_type=$6; parent_type=$7; child_coltype=$8; parent_coltype=$9; child_charset=$10; parent_charset=$11; child_coll=$12; parent_coll=$13;
-              # prefer parent_column_type for exact definition
-              newdef=parent_coltype;
-              charset_clause=(parent_charset!="" ? " CHARACTER SET " parent_charset : "");
-              collate_clause=(parent_coll!="" ? " COLLATE " parent_coll : "");
-              printf("ALTER TABLE `%s` MODIFY `%s` %s%s%s;\n", t, col, newdef, charset_clause, collate_clause);
-              printf("- Modify `%s`.`%s` to `%s`%s%s (from `%s` %s/%s)\n", t, col, newdef, (parent_charset!=""?" CHARACTER SET " parent_charset:""), (parent_coll!=""?" COLLATE " parent_coll:""), child_coltype, child_charset, child_coll) >> "reports/fix-suggestions.md";
-            }' reports/mysql-fk-type-mismatches.txt >> reports/fix-suggestions.sql
-            echo >> reports/fix-suggestions.md
-          fi
+          # Column type/charset/collation suggestions (full type)
+           if [ -s reports/mysql-fk-type-mismatches.txt ]; then
+             echo "## Align child column types/charset/collation with parent" >> reports/fix-suggestions.md
+             awk -F '\t' 'NR>1 {
+               c_name=$1; t=$2; col=$3; pt=$4; pcol=$5; child_type=$6; parent_type=$7; child_coltype=$8; parent_coltype=$9; child_charset=$10; parent_charset=$11; child_coll=$12; parent_coll=$13;
+               newdef=parent_coltype;
+               charset_clause=(parent_charset!="" ? " CHARACTER SET " parent_charset : "");
+               collate_clause=(parent_coll!="" ? " COLLATE " parent_coll : "");
+               printf("ALTER TABLE `%s` MODIFY `%s` %s%s%s;\n", t, col, newdef, charset_clause, collate_clause);
+               printf("- Modify `%s`.`%s` to `%s`%s%s (from `%s` %s/%s)\n", t, col, newdef, (parent_charset!=""?" CHARACTER SET " parent_charset:""), (parent_coll!=""?" COLLATE " parent_coll:""), child_coltype, child_charset, child_coll) >> "reports/fix-suggestions.md";
+             }' reports/mysql-fk-type-mismatches.txt >> reports/fix-suggestions.sql
+             echo >> reports/fix-suggestions.md
+           fi
+           # Unsigned-only suggestions
+           if [ -s reports/mysql-fk-unsigned-mismatches.txt ]; then
+             echo "## Align unsigned between child and parent (numeric types)" >> reports/fix-suggestions.md
+             awk -F '\t' 'NR>1 {
+               c_name=$1; t=$2; col=$3; pt=$4; pcol=$5; child_coltype=$6; parent_coltype=$7;
+               printf("ALTER TABLE `%s` MODIFY `%s` %s;\n", t, col, parent_coltype);
+               printf("- Modify `%s`.`%s` to `%s` (from `%s`)\n", t, col, parent_coltype, child_coltype) >> "reports/fix-suggestions.md";
+             }' reports/mysql-fk-unsigned-mismatches.txt >> reports/fix-suggestions.sql
+             echo >> reports/fix-suggestions.md
+           fi
+           # Parent-side index suggestions
+           if [ -s reports/mysql-fk-parent-index-gaps.txt ]; then
+             echo "## Add indexes on referenced (parent) columns for FKs" >> reports/fix-suggestions.md
+             awk -F '\t' '{
+               pt=$1; c=$2; pcols=$3;
+               printf("ALTER TABLE `%s` ADD INDEX `idx_ref_%s` (%s);\n", pt, c, pcols);
+               printf("- Add index `idx_ref_%s` on `%s` columns (%s)\n", c, pt, pcols) >> "reports/fix-suggestions.md";
+             }' reports/mysql-fk-parent-index-gaps.txt >> reports/fix-suggestions.sql
+             echo >> reports/fix-suggestions.md
+           fi
       - name: Summarize MySQL/Laravel diagnostics
         shell: bash
         run: |
@@ -389,7 +476,7 @@ jobs:
               fi
             fi
             if [ -f reports/mysql-engines.txt ]; then
-              if grep -q "MyISAM" reports/mysql-engines.txt ]; then
+              if grep -q "MyISAM" reports/mysql-engines.txt; then
                 echo "❗ Found MyISAM tables — convert to InnoDB to support FKs"
               fi
             fi
@@ -420,8 +507,14 @@ jobs:
             if [ -s reports/mysql-fk-index-gaps.txt ]; then
               echo "❗ FK referencing columns lacking prefix index — count: $(wc -l < reports/mysql-fk-index-gaps.txt)"
             fi
+            if [ -s reports/mysql-fk-parent-index-gaps.txt ]; then
+              echo "❗ FK referenced columns lacking index — count: $(wc -l < reports/mysql-fk-parent-index-gaps.txt)"
+            fi
             if [ -s reports/mysql-fk-type-mismatches.txt ]; then
               echo "❗ FK type/charset/collation mismatches — count: $(wc -l < reports/mysql-fk-type-mismatches.txt)"
+            fi
+            if [ -s reports/mysql-fk-unsigned-mismatches.txt ]; then
+              echo "❗ FK unsigned mismatches — count: $(wc -l < reports/mysql-fk-unsigned-mismatches.txt)"
             fi
           } >> "$ALERTS"
           {
@@ -583,10 +676,14 @@ jobs:
           test -f downloaded-ci-test-results/diagnostics-summary.md && sed -n '1,200p' downloaded-ci-test-results/diagnostics-summary.md || echo "No diagnostics-summary.md"
           echo "\n== Diagnostics Alerts =="
           test -f downloaded-ci-test-results/diagnostics-alerts.md && cat downloaded-ci-test-results/diagnostics-alerts.md || echo "No diagnostics-alerts.md"
-          echo "\n== FK Index Gaps =="
+          echo "\n== FK Index Gaps (child side) =="
           test -f downloaded-ci-test-results/mysql-fk-index-gaps.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-index-gaps.txt || echo "No mysql-fk-index-gaps.txt"
+          echo "\n== FK Parent Index Gaps (parent side) =="
+          test -f downloaded-ci-test-results/mysql-fk-parent-index-gaps.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-parent-index-gaps.txt || echo "No mysql-fk-parent-index-gaps.txt"
           echo "\n== FK Type/Charset/Collation Mismatches =="
           test -f downloaded-ci-test-results/mysql-fk-type-mismatches.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-type-mismatches.txt || echo "No mysql-fk-type-mismatches.txt"
+          echo "\n== FK Unsigned Mismatches =="
+          test -f downloaded-ci-test-results/mysql-fk-unsigned-mismatches.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-unsigned-mismatches.txt || echo "No mysql-fk-unsigned-mismatches.txt"
           echo "\n== Fix Suggestions =="
           test -f downloaded-ci-test-results/fix-suggestions.md && sed -n '1,120p' downloaded-ci-test-results/fix-suggestions.md || echo "No fix-suggestions.md"
           echo "\n== Fix Suggestions (SQL) =="
