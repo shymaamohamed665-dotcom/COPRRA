@@ -203,13 +203,13 @@ jobs:
 +      - name: Export migrations table content
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT * FROM laravel.migrations ORDER BY batch, id;" > reports/mysql-migrations-table.txt || true
-+      - name: Export Laravel schema tables (engine/collation/rows)
++      - name: Export MySQL schema tables (engine/collation/rows)
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, ENGINE, TABLE_COLLATION, TABLE_ROWS FROM information_schema.TABLES WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME;" > reports/mysql-laravel-tables.txt || true
-+      - name: Export Laravel schema foreign keys
++      - name: Export MySQL schema foreign keys
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT kcu.CONSTRAINT_NAME, kcu.TABLE_NAME, kcu.COLUMN_NAME, kcu.REFERENCED_TABLE_NAME, kcu.REFERENCED_COLUMN_NAME FROM information_schema.TABLE_CONSTRAINTS tc JOIN information_schema.KEY_COLUMN_USAGE kcu ON tc.CONSTRAINT_NAME = kcu.CONSTRAINT_NAME AND tc.TABLE_SCHEMA = kcu.TABLE_SCHEMA WHERE tc.CONSTRAINT_TYPE='FOREIGN KEY' AND tc.TABLE_SCHEMA='laravel' ORDER BY kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION;" > reports/mysql-laravel-fks.txt || true
-+      - name: Export Laravel schema indexes
++      - name: Export MySQL schema indexes
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, INDEX_NAME, NON_UNIQUE, SEQ_IN_INDEX, COLUMN_NAME FROM information_schema.STATISTICS WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME, INDEX_NAME, SEQ_IN_INDEX;" > reports/mysql-laravel-indexes.txt || true
 +      - name: Export InnoDB status
@@ -218,12 +218,30 @@ jobs:
 +      - name: Export referential constraints rules
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT CONSTRAINT_NAME, TABLE_NAME, REFERENCED_TABLE_NAME, UPDATE_RULE, DELETE_RULE FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_SCHEMA='laravel' ORDER BY TABLE_NAME, CONSTRAINT_NAME;" > reports/mysql-laravel-refs.txt || true
-+      - name: Export Laravel columns collations and charset
++      - name: Export MySQL plugins
 +        run: |
-+          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, COLUMN_NAME, COLLATION_NAME, CHARACTER_SET_NAME, COLUMN_TYPE, IS_NULLABLE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME, ORDINAL_POSITION;" > reports/mysql-laravel-columns.txt || true
-+      - name: Export Laravel triggers
++          mysql -h 127.0.0.1 -uroot -proot -e "SHOW PLUGINS;" > reports/mysql-plugins.txt || true
++      - name: Export MySQL processlist
 +        run: |
-+          mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW TRIGGERS FROM laravel;" > reports/mysql-laravel-triggers.txt || true
++          mysql -h 127.0.0.1 -uroot -proot -e "SHOW FULL PROCESSLIST;" > reports/mysql-processlist.txt || true
++      - name: Export InnoDB transactions and locks
++        run: |
++          mysql -h 127.0.0.1 -uroot -proot -e "SELECT * FROM information_schema.INNODB_TRX;" > reports/mysql-innodb-trx.txt || true
++          mysql -h 127.0.0.1 -uroot -proot -e "SELECT * FROM information_schema.INNODB_LOCKS;" > reports/mysql-innodb-locks.txt || true
++          mysql -h 127.0.0.1 -uroot -proot -e "SELECT * FROM information_schema.INNODB_LOCK_WAITS;" > reports/mysql-innodb-lock-waits.txt || true
++      - name: Dump MySQL schema (no data)
++        run: |
++          mysqldump -h 127.0.0.1 -ularavel -psecret --no-data --routines --events --triggers --single-transaction --set-gtid-purged=OFF laravel > reports/mysql-schema-dump.sql || true
++      - name: Export SHOW CREATE TABLE for all laravel tables
++        shell: bash
++        run: |
++          set -euo pipefail
++          : > reports/mysql-show-create-tables.sql
++          for t in $(mysql -h 127.0.0.1 -ularavel -psecret -D laravel -N -e "SHOW TABLES" || true); do
++            echo "-- Table: $t" >> reports/mysql-show-create-tables.sql
++            mysql -h 127.0.0.1 -ularavel -psecret -D laravel -e "SHOW CREATE TABLE \`$t\`;" >> reports/mysql-show-create-tables.sql || true
++            echo >> reports/mysql-show-create-tables.sql
++          done
        - name: Capture MySQL service logs
          run: |
            CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
