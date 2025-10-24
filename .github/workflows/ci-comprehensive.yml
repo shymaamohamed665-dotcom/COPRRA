@@ -245,15 +245,19 @@ jobs:
       - name: Copy .env.testing
         run: cp .env.testing .env
 
-      - name: Configure SQLite DB for migrations
+      - name: Configure MySQL DB for migrations
         run: |
           php -r '
             $env = file(".env");
-            $env = array_filter($env, function($l){ return !preg_match("/^DB_CONNECTION=|^DB_DATABASE=/", $l); });
-            $env[] = "DB_CONNECTION=sqlite\n";
-            $env[] = "DB_DATABASE=database/database.sqlite\n";
+            $env = array_filter($env, function($l){ return !preg_match("/^DB_CONNECTION=|^DB_HOST=|^DB_PORT=|^DB_DATABASE=|^DB_USERNAME=|^DB_PASSWORD=/", $l); });
+            $env[] = "DB_CONNECTION=mysql\n";
+            $env[] = "DB_HOST=127.0.0.1\n";
+            $env[] = "DB_PORT=3306\n";
+            $env[] = "DB_DATABASE=coprra_test\n";
+            $env[] = "DB_USERNAME=coprra\n";
+            $env[] = "DB_PASSWORD=coprra\n";
             file_put_contents(".env", implode("", $env));
-            echo "DB config set to sqlite file";
+            echo "DB config set to mysql service";
           '
 
       - name: Verify application key
@@ -264,8 +268,9 @@ jobs:
             php -r "$env = file_get_contents('.env'); $key = base64_encode(random_bytes(32)); file_put_contents('.env', $env . PHP_EOL . 'APP_KEY=base64:' . $key . PHP_EOL); echo 'APP_KEY generated';"
           fi
 
-      - name: Create SQLite database
-        run: touch database/database.sqlite
+      - name: Verify MySQL connectivity
+        run: |
+          php -r 'try{ new PDO("mysql:host=127.0.0.1;port=3306;dbname=coprra_test","coprra","coprra"); echo "MySQL reachable"; } catch (Exception $e) { echo "MySQL not reachable: ".$e->getMessage(); exit(1); }'
 
       - name: Run migrations
         run: php artisan migrate --force
