@@ -246,7 +246,12 @@ jobs:
         run: cp .env.testing .env
 
       - name: Generate application key
-        run: php artisan key:generate
+        run: |
+          if grep -q '^APP_KEY=' .env; then
+            echo 'APP_KEY already set'
+          else
+            php artisan key:generate --force
+          fi
 
       - name: Create SQLite database
         run: touch database/database.sqlite
@@ -319,7 +324,12 @@ jobs:
         run: cp .env.testing .env
 
       - name: Generate application key
-        run: php artisan key:generate
+        run: |
+          if grep -q '^APP_KEY=' .env; then
+            echo 'APP_KEY already set'
+          else
+            php artisan key:generate --force
+          fi
 
       - name: Create SQLite database
         run: touch database/database.sqlite
