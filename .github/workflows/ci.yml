@@ -159,7 +159,12 @@ jobs:
           mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW DATABASES;"
           mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW TABLES FROM laravel;" || true
       - name: Run tests with coverage
-        run: vendor/bin/phpunit --log-junit reports/junit-ci.xml --coverage-clover reports/coverage-ci.xml --coverage-text
+        run: |
+          vendor/bin/phpunit --log-junit reports/junit-ci.xml --coverage-clover reports/coverage-ci.xml --coverage-text || (
+            echo "PHPUnit failed; printing laravel.log" ;
+            test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
+            exit 1
+          )
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
