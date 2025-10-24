@@ -50,6 +50,13 @@ return new class extends Migration
             AND index_name = ?
         ', [$databaseName, $table, $indexName]);
 
-        return ! empty($result) && $result[0]->count > 0;
+        if (empty($result)) {
+            return false;
+        }
+
+        /** @var object{count: int} $firstResult */
+        $firstResult = $result[0];
+
+        return $firstResult->count > 0;
     }
 };
