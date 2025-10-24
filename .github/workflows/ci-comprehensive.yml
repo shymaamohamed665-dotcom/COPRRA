@@ -245,12 +245,12 @@ jobs:
       - name: Copy .env.testing
         run: cp .env.testing .env
 
-      - name: Generate application key
+      - name: Verify application key
         run: |
           if grep -q '^APP_KEY=' .env; then
-            echo 'APP_KEY already set'
+            echo 'APP_KEY OK'
           else
-            php artisan key:generate --force
+            php -r "$env = file_get_contents('.env'); $key = base64_encode(random_bytes(32)); file_put_contents('.env', $env . PHP_EOL . 'APP_KEY=base64:' . $key . PHP_EOL); echo 'APP_KEY generated';"
           fi
 
       - name: Create SQLite database
@@ -323,12 +323,12 @@ jobs:
       - name: Copy .env.testing
         run: cp .env.testing .env
 
-      - name: Generate application key
+      - name: Verify application key
         run: |
           if grep -q '^APP_KEY=' .env; then
-            echo 'APP_KEY already set'
+            echo 'APP_KEY OK'
           else
-            php artisan key:generate --force
+            php -r "$env = file_get_contents('.env'); $key = base64_encode(random_bytes(32)); file_put_contents('.env', $env . PHP_EOL . 'APP_KEY=base64:' . $key . PHP_EOL); echo 'APP_KEY generated';"
           fi
 
       - name: Create SQLite database
