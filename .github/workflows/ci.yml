@@ -120,6 +120,12 @@ jobs:
           grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
       - name: Run migrations
         run: php artisan migrate --database=mysql --no-interaction --force -vvv
+      - name: Migrations status
+        run: php artisan migrate:status --database=mysql || true
+      - name: List MySQL databases and laravel tables
+        run: |
+          mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW DATABASES;"
+          mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW TABLES FROM laravel;" || true
       - name: Run tests with coverage
         run: vendor/bin/phpunit --log-junit reports/junit-ci.xml --coverage-clover reports/coverage-ci.xml --coverage-text
       - name: Upload test results
