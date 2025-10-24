@@ -84,6 +84,8 @@ jobs:
     name: Static Analysis (PHPStan & Pint)
     runs-on: ubuntu-latest
     needs: code-validation
+    env:
+      SENTRY_LARAVEL_DSN: null
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
