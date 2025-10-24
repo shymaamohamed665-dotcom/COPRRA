@@ -93,6 +93,8 @@ jobs:
           sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=secret/' .env || echo "DB_PASSWORD=secret" >> .env
       - name: Clear Laravel config
         run: php artisan config:clear || true
+       - name: Cache Laravel config
+         run: php artisan config:cache || true
       - name: Show PHP extensions (pdo/mysql/sqlite)
         run: |
           php -m | sort | grep -E 'pdo|mysql|sqlite' || true
@@ -158,6 +160,11 @@ jobs:
       - name: Show Laravel config values (timezone/database)
         run: |
           php -r "require __DIR__ . '/vendor/autoload.php'; $app = require __DIR__ . '/bootstrap/app.php'; $app->make('Illuminate\\Contracts\\Console\\Kernel')->bootstrap(); echo 'App timezone: ' . config('app.timezone') . PHP_EOL; echo 'DB default: ' . config('database.default') . PHP_EOL; $def = config('database.default'); $cfg = config('database.connections.' . $def); if ($cfg) { echo 'DB host: ' . ($cfg['host'] ?? '') . PHP_EOL; echo 'DB port: ' . ($cfg['port'] ?? '') . PHP_EOL; echo 'DB database: ' . ($cfg['database'] ?? '') . PHP_EOL; echo 'DB username: ' . ($cfg['username'] ?? '') . PHP_EOL; echo 'Charset: ' . ($cfg['charset'] ?? '') . PHP_EOL; echo 'Collation: ' . ($cfg['collation'] ?? '') . PHP_EOL; }"
+       - name: Export Laravel about report
+         run: php artisan about > reports/laravel-about.txt || true
+       - name: Verify Laravel DB facade connectivity
+         run: |
+           php -r "require __DIR__ . '/vendor/autoload.php'; $app = require __DIR__ . '/bootstrap/app.php'; $app->make('Illuminate\\Contracts\\Console\\Kernel')->bootstrap(); try { $v = Illuminate\\Support\\Facades\\DB::select('SELECT VERSION() AS v'); echo 'Laravel DB facade OK, version: ' . (($v && isset($v[0]) && (is_array($v[0]) ? ($v[0]['v'] ?? '') : ($v[0]->v ?? ''))) ) . PHP_EOL; } catch (Throwable $e) { fwrite(STDERR, 'Laravel DB facade failed: ' . $e->getMessage() . PHP_EOL); exit(3);}"
       - name: Show DB env vars
         run: |
           grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
