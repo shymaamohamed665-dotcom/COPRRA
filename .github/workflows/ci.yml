@@ -65,8 +65,8 @@ jobs:
           chmod -R 775 storage bootstrap/cache
       - name: Optimize Composer autoload
         run: composer dump-autoload --optimize --classmap-authoritative
-      - name: Remove Rector to avoid php-parser conflict
-        run: rm -rf vendor/rector || true
+      - name: Keep Rector (avoid autoload fatal)
+        run: echo "Keeping rector/rector to avoid missing bootstrap.php"
       - name: Validate composer
         run: composer validate --strict
       - name: Validate Nginx configuration
