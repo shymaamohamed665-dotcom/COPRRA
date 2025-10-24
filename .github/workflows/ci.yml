@@ -155,6 +155,9 @@ jobs:
         run: mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT CURRENT_USER() AS current_user, @@sql_mode AS sql_mode;"
       - name: Verify PDO MySQL connectivity
         run: php -r "\n$env = parse_ini_file('.env');\n$dsn = 'mysql:host=' . ($env['DB_HOST'] ?? '127.0.0.1') . ';port=' . ($env['DB_PORT'] ?? '3306') . ';dbname=' . ($env['DB_DATABASE'] ?? 'laravel') . ';charset=utf8mb4';\ntry {\n  $pdo = new PDO($dsn, $env['DB_USERNAME'] ?? 'laravel', $env['DB_PASSWORD'] ?? 'secret');\n  echo 'PDO MySQL connection OK\\n';\n} catch (Throwable $e) {\n  fwrite(STDERR, 'PDO connection failed: ' . $e->getMessage() . \"\\n\");\n  exit(2);\n}\n"
+      - name: Show Laravel config values (timezone/database)
+        run: |
+          php -r "require __DIR__ . '/vendor/autoload.php'; $app = require __DIR__ . '/bootstrap/app.php'; $app->make('Illuminate\\Contracts\\Console\\Kernel')->bootstrap(); echo 'App timezone: ' . config('app.timezone') . PHP_EOL; echo 'DB default: ' . config('database.default') . PHP_EOL; $def = config('database.default'); $cfg = config('database.connections.' . $def); if ($cfg) { echo 'DB host: ' . ($cfg['host'] ?? '') . PHP_EOL; echo 'DB port: ' . ($cfg['port'] ?? '') . PHP_EOL; echo 'DB database: ' . ($cfg['database'] ?? '') . PHP_EOL; echo 'DB username: ' . ($cfg['username'] ?? '') . PHP_EOL; echo 'Charset: ' . ($cfg['charset'] ?? '') . PHP_EOL; echo 'Collation: ' . ($cfg['collation'] ?? '') . PHP_EOL; }"
       - name: Show DB env vars
         run: |
           grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
