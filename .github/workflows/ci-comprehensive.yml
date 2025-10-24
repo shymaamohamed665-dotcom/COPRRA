@@ -244,22 +244,28 @@ jobs:
       - name: Keep Rector (avoid autoload fatal)
         run: echo "Keeping rector/rector to avoid missing bootstrap.php"
 
-      - name: Copy .env.testing
-        run: cp .env.testing .env
+      - name: Create .env file and generate APP_KEY
+        run: |
+          cp .env.example .env
+          php artisan key:generate
 
       - name: Configure MySQL DB for migrations
         run: |
           php -r '
             $env = file(".env");
-            $env = array_filter($env, function($l){ return !preg_match("/^DB_CONNECTION=|^DB_HOST=|^DB_PORT=|^DB_DATABASE=|^DB_USERNAME=|^DB_PASSWORD=/", $l); });
+            $env = array_filter($env, function($l){ return !preg_match("/^DB_CONNECTION=|^DB_HOST=|^DB_PORT=|^DB_DATABASE=|^DB_USERNAME=|^DB_PASSWORD=|^APP_ENV=|^CACHE_DRIVER=|^SESSION_DRIVER=|^QUEUE_CONNECTION=/", $l); });
+            $env[] = "APP_ENV=testing\n";
             $env[] = "DB_CONNECTION=mysql\n";
             $env[] = "DB_HOST=127.0.0.1\n";
             $env[] = "DB_PORT=3306\n";
             $env[] = "DB_DATABASE=coprra_test\n";
             $env[] = "DB_USERNAME=coprra\n";
             $env[] = "DB_PASSWORD=coprra\n";
+            $env[] = "CACHE_DRIVER=array\n";
+            $env[] = "SESSION_DRIVER=array\n";
+            $env[] = "QUEUE_CONNECTION=sync\n";
             file_put_contents(".env", implode("", $env));
-            echo "DB config set to mysql service";
+            echo "DB config set to mysql service with testing environment";
           '
 
       - name: Verify application key
@@ -283,6 +289,9 @@ jobs:
           echo "DB_USERNAME=$(grep '^DB_USERNAME=' .env | cut -d '=' -f2)"
       - name: Run migrations
         run: php artisan migrate --force --no-interaction -vvv
+
+      - name: Create reports directory
+        run: mkdir -p reports
 
       - name: Run Unit Tests
         run: ./vendor/bin/phpunit --testsuite Unit --log-junit reports/junit-unit.xml
