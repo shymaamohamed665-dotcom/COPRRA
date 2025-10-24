@@ -354,7 +354,8 @@ jobs:
               grep -vE "${db_coll}|${srv_coll}" reports/mysql-laravel-columns.txt | head -n 50 || true
             fi
           } > "$OUT"
-          echo "Wrote summary to $OUT and alerts to $ALERTS"      - name: Publish diagnostics to Job Summary
+          echo "Wrote summary to $OUT and alerts to $ALERTS"
+      - name: Publish diagnostics to Job Summary
         if: always()
         shell: bash
         run: |
@@ -364,6 +365,41 @@ jobs:
             cat reports/diagnostics-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "No diagnostics summary generated" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Annotate diagnostics alerts
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -s reports/diagnostics-alerts.md ]; then
+            while IFS= read -r line; do
+              case "$line" in
+                "❗ "*)
+                  echo "::error title=MySQL/Laravel Diagnostics::${line#❗ }"
+                  ;;
+                "⚠️ "*)
+                  echo "::warning title=MySQL/Laravel Diagnostics::${line#⚠️ }"
+                  ;;
+                "ℹ️ "*)
+                  echo "::notice title=MySQL/Laravel Diagnostics::${line#ℹ️ }"
+                  ;;
+                *)
+                  echo "::notice title=MySQL/Laravel Diagnostics::$line"
+                  ;;
+              esac
+            done < reports/diagnostics-alerts.md
+          fi
+      - name: Fail on critical alerts (optional)
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          FLAG="${FAIL_ON_CRITICAL_ALERTS:-false}"
+          if [ "$FLAG" = "true" ] && [ -s reports/diagnostics-alerts.md ]; then
+            if grep -q "^❗ " reports/diagnostics-alerts.md; then
+              echo "Critical diagnostics found; failing as requested."
+              exit 1
+            fi
           fi
        - name: Capture MySQL service logs
          run: |
