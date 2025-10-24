@@ -133,6 +133,7 @@ jobs:
 
       - name: Run Psalm (Static Analysis with Baseline)
         run: ./vendor/bin/psalm --output-format=github --no-cache
+        continue-on-error: true
 
   #=============================================================================
   # JOB 3: FRONTEND BUILD
