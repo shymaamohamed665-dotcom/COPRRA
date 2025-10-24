@@ -254,6 +254,55 @@ jobs:
 +            mysql -h 127.0.0.1 -ularavel -psecret -D laravel -e "SHOW CREATE TABLE \`$t\`;" >> reports/mysql-show-create-tables.sql || true
 +            echo >> reports/mysql-show-create-tables.sql
 +          done
++      - name: Summarize MySQL/Laravel diagnostics
++        shell: bash
++        run: |
++          set -euo pipefail
++          OUT="reports/diagnostics-summary.md"
++          mkdir -p reports
++          {
++            echo "# CI Diagnostics Summary"
++            echo
++            echo "## Environment"
++            if [ -f reports/mysql-variables-summary.txt ]; then
++              grep -E "version|charset_server|collation_server|charset_db|collation_db|sql_mode" reports/mysql-variables-summary.txt || true
++            fi
++            echo
++            echo "## Migration status"
++            if [ -f reports/migrate-status.txt ]; then
++              echo '```'
++              sed -n '1,100p' reports/migrate-status.txt
++              echo '```'
++            fi
++            echo
++            echo "## InnoDB status (deadlocks/lock waits)"
++            if [ -f reports/mysql-innodb-status.txt ]; then
++              grep -nE "LATEST DETECTED DEADLOCK|LATEST FOREIGN KEY ERROR|TRANSACTIONS" reports/mysql-innodb-status.txt | sed -n '1,100p' || true
++            fi
++            echo
++            echo "## Foreign keys and indexes"
++            if [ -f reports/mysql-laravel-fks.txt ]; then
++              echo "- FK count: $(wc -l < reports/mysql-laravel-fks.txt)"
++            fi
++            if [ -f reports/mysql-laravel-indexes.txt ]; then
++              echo "- Index entries: $(wc -l < reports/mysql-laravel-indexes.txt)"
++            fi
++            echo
++            echo "## Process/threads"
++            if [ -f reports/mysql-status-summary.txt ]; then
++              cat reports/mysql-status-summary.txt
++            fi
++            echo
++            echo "## Collation/charset mismatches (columns)"
++            if [ -f reports/mysql-laravel-columns.txt ] && [ -f reports/mysql-variables-summary.txt ]; then
++              srv_coll=$(awk -F'\t' '/collation_server/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
++              db_coll=$(awk -F'\t' '/collation_db/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
++              echo "- Server collation: ${srv_coll}"
++              echo "- Database collation: ${db_coll}"
++              grep -vE "${db_coll}|${srv_coll}" reports/mysql-laravel-columns.txt | head -n 50 || true
++            fi
++          } > "$OUT"
++          echo "Wrote summary to $OUT"
        - name: Capture MySQL service logs
          run: |
            CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
