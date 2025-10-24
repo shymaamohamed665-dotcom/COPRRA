@@ -98,6 +98,8 @@ jobs:
           php -m | sort | grep -E 'pdo|mysql|sqlite' || true
           php -r "echo extension_loaded('pdo_mysql') ? 'pdo_mysql loaded' : 'pdo_mysql missing'; echo PHP_EOL;"
           php -r "echo extension_loaded('pdo_sqlite') ? 'pdo_sqlite loaded' : 'pdo_sqlite missing'; echo PHP_EOL;"
+          php --ri pdo_mysql || true
+          php --ri pdo_sqlite || true
           php -r "echo 'Loaded extensions: ' . implode(', ', get_loaded_extensions()) . PHP_EOL;"
       - name: Ensure reports directory
         run: mkdir -p reports
@@ -111,6 +113,8 @@ jobs:
             fi
             echo "Waiting for MySQL..."; sleep 2;
           done
+          # Additional readiness check
+          mysql -h 127.0.0.1 -uroot -proot -e "SELECT 1;" || (echo "MySQL not ready yet" && exit 1)
           mysql -h 127.0.0.1 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS laravel;"
           mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'%' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
           mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'localhost' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
