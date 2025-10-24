@@ -387,8 +387,8 @@ PHP;
             return ['schema' => null];
         }
         $type = strtolower($m['type']);
-        $len = isset($m['len']) ? $m['len'] : '';
-        $rest = isset($m['rest']) ? strtolower($m['rest']) : '';
+        $len = $m['len'] !== '' ? $m['len'] : '';
+        $rest = strtolower($m['rest']);
 
         $unsigned = Str::contains($rest, 'unsigned');
         $nullable = Str::contains($rest, 'null') && ! Str::contains($rest, 'not null');
