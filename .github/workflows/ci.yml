@@ -181,31 +181,46 @@ jobs:
       - name: Show DB env vars
         run: |
           grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
-      - name: Verify laravel user privileges (create/drop table)
-        run: |
-          mysql -h 127.0.0.1 -ularavel -psecret -e "USE laravel; CREATE TABLE IF NOT EXISTS tmp_ci_privs (id INT PRIMARY KEY) ENGINE=InnoDB; DROP TABLE tmp_ci_privs;"
-      - name: Run migrations
-        run: |
-          php artisan migrate --database=mysql --no-interaction --force -vvv || (
-            echo "Migrations failed; printing laravel.log and attempting migrate:fresh" ;
-            test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
-            php artisan migrate:fresh --database=mysql --no-interaction --force -vvv || (
-              echo "migrate:fresh also failed; printing laravel.log again" ;
-              test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
-              exit 1
-            )
-          )
-      - name: Migrations status
-        run: php artisan migrate:status --database=mysql || true
-      - name: Capture MySQL service logs
-        run: |
-          CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
-          if [ -n "$CID" ]; then
-            docker logs "$CID" > reports/mysql-service.log || true
-          else
-            echo "MySQL container not found" > reports/mysql-service.log
-          fi
-          test -f reports/mysql-service.log || touch reports/mysql-service.log
++      - name: Generate migration SQL (pretend)
++        run: |
++          php artisan migrate --database=mysql --pretend -vvv > reports/migrate-pretend.txt || true
+       - name: Verify laravel user privileges (create/drop table)
+         run: |
+           mysql -h 127.0.0.1 -ularavel -psecret -e "USE laravel; CREATE TABLE IF NOT EXISTS tmp_ci_privs (id INT PRIMARY KEY) ENGINE=InnoDB; DROP TABLE tmp_ci_privs;"
+       - name: Run migrations
+         run: |
+           php artisan migrate --database=mysql --no-interaction --force -vvv || (
+             echo "Migrations failed; printing laravel.log and attempting migrate:fresh" ;
+             test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
+             php artisan migrate:fresh --database=mysql --no-interaction --force -vvv || (
+               echo "migrate:fresh also failed; printing laravel.log again" ;
+               test -f storage/logs/laravel.log && tail -n 500 storage/logs/laravel.log || echo "No laravel.log found" ;
+               exit 1
+             )
+           )
+       - name: Migrations status
+         run: php artisan migrate:status --database=mysql || true
++      - name: Export migrations table content
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT * FROM laravel.migrations ORDER BY batch, id;" > reports/mysql-migrations-table.txt || true
++      - name: Export Laravel schema tables (engine/collation/rows)
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, ENGINE, TABLE_COLLATION, TABLE_ROWS FROM information_schema.TABLES WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME;" > reports/mysql-laravel-tables.txt || true
++      - name: Export Laravel schema foreign keys
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT kcu.CONSTRAINT_NAME, kcu.TABLE_NAME, kcu.COLUMN_NAME, kcu.REFERENCED_TABLE_NAME, kcu.REFERENCED_COLUMN_NAME FROM information_schema.TABLE_CONSTRAINTS tc JOIN information_schema.KEY_COLUMN_USAGE kcu ON tc.CONSTRAINT_NAME = kcu.CONSTRAINT_NAME AND tc.TABLE_SCHEMA = kcu.TABLE_SCHEMA WHERE tc.CONSTRAINT_TYPE='FOREIGN KEY' AND tc.TABLE_SCHEMA='laravel' ORDER BY kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION;" > reports/mysql-laravel-fks.txt || true
++      - name: Export Laravel schema indexes
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, INDEX_NAME, NON_UNIQUE, SEQ_IN_INDEX, COLUMN_NAME FROM information_schema.STATISTICS WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME, INDEX_NAME, SEQ_IN_INDEX;" > reports/mysql-laravel-indexes.txt || true
+       - name: Capture MySQL service logs
+         run: |
+           CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
+           if [ -n "$CID" ]; then
+             docker logs "$CID" > reports/mysql-service.log || true
+           else
+             echo "MySQL container not found" > reports/mysql-service.log
+           fi
+           test -f reports/mysql-service.log || touch reports/mysql-service.log
       - name: List MySQL databases and laravel tables
         run: |
           mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW DATABASES;"
