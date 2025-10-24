@@ -180,7 +180,7 @@ final class GenerateMigrationsFromFixSql extends Command
             if (! File::exists($path)) {
                 continue;
             }
-            $lines = preg_split("/\r?\n/", File::get($path));
+            $lines = preg_split("/\r?\n/", File::get($path)) ?: [];
             foreach ($lines as $line) {
                 // Expect tab or pipe-delimited entries; try to detect child table/column/type
                 // Heuristic: child_table, child_column, child_coltype present in line
@@ -196,7 +196,7 @@ final class GenerateMigrationsFromFixSql extends Command
                     continue;
                 }
                 // Generic CSV-like format: table,column,child_type,parent_type
-                $parts = array_map('trim', preg_split('/\s*[\t|,]\s*/', $line));
+                $parts = array_map('trim', preg_split('/\s*[\t|,]\s*/', $line) ?: []);
                 if (count($parts) >= 3) {
                     $table = trim(str_replace('`', '', $parts[0]));
                     $col = trim(str_replace('`', '', $parts[1]));
@@ -374,7 +374,8 @@ PHP;
 
     /**
      * Parse a MySQL column definition into a Laravel Schema Builder call where possible.
-     * Returns ['schema' => string|null]
+     *
+     * @return array{schema: ?string}
      */
     private function parseColumnDefinition(string $def): array
     {
@@ -384,8 +385,8 @@ PHP;
             return ['schema' => null];
         }
         $type = strtolower($m['type']);
-        $len = $m['len'] ?? '';
-        $rest = strtolower($m['rest'] ?? '');
+        $len = (string) $m['len'];
+        $rest = strtolower((string) $m['rest']);
 
         $unsigned = Str::contains($rest, 'unsigned');
         $nullable = Str::contains($rest, 'null') && ! Str::contains($rest, 'not null');
