@@ -84,8 +84,29 @@ jobs:
         run: |
           if [ -f .env.testing ]; then cp .env.testing .env; else cp .env.example .env; fi
           php artisan key:generate
+          sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=mysql/' .env || echo "DB_CONNECTION=mysql" >> .env
+          sed -i 's/^DB_HOST=.*/DB_HOST=127.0.0.1/' .env || echo "DB_HOST=127.0.0.1" >> .env
+          sed -i 's/^DB_PORT=.*/DB_PORT=3306/' .env || echo "DB_PORT=3306" >> .env
+          sed -i 's/^DB_DATABASE=.*/DB_DATABASE=laravel/' .env || echo "DB_DATABASE=laravel" >> .env
+          sed -i 's/^DB_USERNAME=.*/DB_USERNAME=laravel/' .env || echo "DB_USERNAME=laravel" >> .env
+          sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=secret/' .env || echo "DB_PASSWORD=secret" >> .env
       - name: Ensure reports directory
         run: mkdir -p reports
+      - name: Wait for MySQL and create DB
+        run: |
+          for i in {1..30}; do
+            if mysqladmin ping -h 127.0.0.1 --password=root --user=root --silent; then
+              echo "MySQL is up"; break;
+            fi
+            echo "Waiting for MySQL..."; sleep 2;
+          done
+          mysql -h 127.0.0.1 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS laravel;"
+          mysql -h 127.0.0.1 -uroot -proot -e "GRANT ALL PRIVILEGES ON laravel.* TO 'laravel'@'%' IDENTIFIED BY 'secret'; FLUSH PRIVILEGES;"
+      - name: Show DB env vars
+        run: |
+          grep -E '^(DB_CONNECTION|DB_HOST|DB_PORT|DB_DATABASE|DB_USERNAME|DB_PASSWORD)=' .env || true
+      - name: Run migrations
+        run: php artisan migrate --force -vvv
       - name: Run tests with coverage
         run: vendor/bin/phpunit --log-junit reports/junit-ci.xml --coverage-clover reports/coverage-ci.xml --coverage-text
       - name: Upload test results
