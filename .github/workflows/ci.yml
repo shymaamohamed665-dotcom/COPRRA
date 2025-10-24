@@ -96,7 +96,8 @@ jobs:
       - name: Show PHP extensions (pdo/mysql)
         run: |
           php -m | sort | grep -E 'pdo|mysql' || true
-          php -r "echo 'Loaded extensions: ' . implode(', ', get_loaded_extensions()) . "\n";"
+          php -r "echo extension_loaded('pdo_mysql') ? 'pdo_mysql loaded' : 'pdo_mysql missing'; echo PHP_EOL;"
+          php -r "echo 'Loaded extensions: ' . implode(', ', get_loaded_extensions()) . PHP_EOL;"
       - name: Ensure reports directory
         run: mkdir -p reports
       - name: Install MySQL client
