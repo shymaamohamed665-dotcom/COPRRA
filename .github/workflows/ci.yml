@@ -37,6 +37,7 @@ jobs:
           php-version: "8.4"
           tools: composer:v2, cs2pr
           coverage: xdebug
+          extensions: pdo_mysql, mbstring, intl, gd
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -94,6 +95,8 @@ jobs:
         run: php artisan config:clear || true
       - name: Ensure reports directory
         run: mkdir -p reports
+      - name: Install MySQL client
+        run: sudo apt-get update && sudo apt-get install -y mysql-client
       - name: Wait for MySQL and create DB
         run: |
           for i in {1..30}; do
