@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ * @psalm-suppress UnusedClass
+ */
 final class GenerateMigrationsFromFixSql extends Command
 {
     protected $signature = 'generate:migrations-from-fix-sql {--sql=} {--reports=} {--dry-run}';
@@ -17,8 +21,11 @@ final class GenerateMigrationsFromFixSql extends Command
 
     public function handle(): int
     {
-        $sqlPath = $this->option('sql') ?: base_path('reports/fix-suggestions.sql');
-        $reportsDir = $this->option('reports') ?: base_path('reports');
+        $sqlOpt = $this->option('sql');
+        $sqlPath = is_string($sqlOpt) && $sqlOpt !== '' ? $sqlOpt : base_path('reports/fix-suggestions.sql');
+
+        $reportsOpt = $this->option('reports');
+        $reportsDir = is_string($reportsOpt) && $reportsOpt !== '' ? $reportsOpt : base_path('reports');
         $dryRun = (bool) $this->option('dry-run');
 
         $altCandidates = [
@@ -35,7 +42,7 @@ final class GenerateMigrationsFromFixSql extends Command
             }
         }
 
-        if (! $existing) {
+        if ($existing === null) {
             $this->error('fix-suggestions.sql not found. Checked:');
             foreach ($altCandidates as $c) {
                 $this->line(' - '.$c);
@@ -60,13 +67,14 @@ final class GenerateMigrationsFromFixSql extends Command
 
         $this->line('Parsed index ops count: '.count($indexOps));
         if (! empty($indexOps)) {
-            $this->line('First index op sample: '.json_encode($indexOps[0]));
+            $encoded = json_encode($indexOps[0]);
+            $this->line('First index op sample: '.($encoded !== false ? $encoded : ''));
         }
 
         // Group by table
         $indexesByTable = [];
         foreach ($indexOps as $op) {
-            if (! is_array($op) || ! isset($op['table'], $op['index'], $op['columns'])) {
+            if (! isset($op['table'], $op['index'], $op['columns'])) {
                 continue;
             }
             $indexesByTable[$op['table']][] = $op;
@@ -231,7 +239,7 @@ final class GenerateMigrationsFromFixSql extends Command
                 $target = $file->getPathname();
             }
         }
-        if (! $target) {
+        if ($target === null) {
             $this->error('Failed to locate generated migration for '.$name);
 
             return;
@@ -250,9 +258,6 @@ final class GenerateMigrationsFromFixSql extends Command
         $upBody = '';
         $downBody = '';
         foreach ($ops as $op) {
-            if (! is_array($op)) {
-                continue;
-            }
             if (! isset($op['columns'], $op['index'])) {
                 continue;
             }
@@ -290,8 +295,6 @@ PHP;
     }
 
     /**
-     * Render migration PHP content for column modifications.
-     *
      * @param  array<int, array{table:string,column:string,definition:string,charset:?string,collate:?string}>  $ops
      * @param  array<string, array<string, string>>  $originalTypes
      */
@@ -307,21 +310,20 @@ PHP;
             $def = $op['definition'];
             $parsed = $this->parseColumnDefinition($def);
 
-            if ($parsed['schema']) {
+            if ($parsed['schema'] !== null) {
                 $upSchema .= '            '.$parsed['schema']."\n";
             } else {
                 $upRaw .= "        DB::statement(\"ALTER TABLE `{$table}` MODIFY `{$col}` {$def}\");\n";
             }
-            if ($op['charset'] || $op['collate']) {
+            if ($op['charset'] !== null || $op['collate'] !== null) {
                 // Ensure charset/collation explicitly applied via raw SQL
                 $upRaw .= "        DB::statement(\"ALTER TABLE `{$table}` MODIFY `{$col}` {$def}\");\n";
             }
 
             $orig = $originalTypes[$table][$col] ?? null;
-            if ($orig) {
-                // Try to reverse via schema builder, else raw
+            if ($orig !== null) {
                 $parsedDown = $this->parseColumnDefinition($orig);
-                if ($parsedDown['schema']) {
+                if ($parsedDown['schema'] !== null) {
                     $downSchema .= '            '.$parsedDown['schema']."\n";
                 } else {
                     $downRaw .= "        DB::statement(\"ALTER TABLE `{$table}` MODIFY `{$col}` {$orig}\");\n";
@@ -385,8 +387,8 @@ PHP;
             return ['schema' => null];
         }
         $type = strtolower($m['type']);
-        $len = (string) $m['len'];
-        $rest = strtolower((string) $m['rest']);
+        $len = isset($m['len']) ? $m['len'] : '';
+        $rest = isset($m['rest']) ? strtolower($m['rest']) : '';
 
         $unsigned = Str::contains($rest, 'unsigned');
         $nullable = Str::contains($rest, 'null') && ! Str::contains($rest, 'not null');
@@ -396,69 +398,69 @@ PHP;
         }
 
         $colPlaceholder = '__COL__';
-        $call = null;
         switch ($type) {
             case 'bigint':
-                $call = $unsigned ? "\$table->unsignedBigInteger('{$colPlaceholder}')->change();" : "\$table->bigInteger('{$colPlaceholder}')->change();";
+                $generated = $unsigned ? "\$table->unsignedBigInteger('{$colPlaceholder}')->change();" : "\$table->bigInteger('{$colPlaceholder}')->change();";
                 break;
             case 'int':
             case 'integer':
-                $call = $unsigned ? "\$table->unsignedInteger('{$colPlaceholder}')->change();" : "\$table->integer('{$colPlaceholder}')->change();";
+                $generated = $unsigned ? "\$table->unsignedInteger('{$colPlaceholder}')->change();" : "\$table->integer('{$colPlaceholder}')->change();";
                 break;
             case 'smallint':
-                $call = $unsigned ? "\$table->unsignedSmallInteger('{$colPlaceholder}')->change();" : "\$table->smallInteger('{$colPlaceholder}')->change();";
+                $generated = $unsigned ? "\$table->unsignedSmallInteger('{$colPlaceholder}')->change();" : "\$table->smallInteger('{$colPlaceholder}')->change();";
                 break;
             case 'mediumint':
-                $call = $unsigned ? null : "\$table->mediumInteger('{$colPlaceholder}')->change();"; // Laravel has no unsigned mediumint
+                $generated = $unsigned ? null : "\$table->mediumInteger('{$colPlaceholder}')->change();"; // Laravel has no unsigned mediumint
                 break;
             case 'tinyint':
-                $call = $unsigned ? "\$table->unsignedTinyInteger('{$colPlaceholder}')->change();" : "\$table->tinyInteger('{$colPlaceholder}')->change();";
+                $generated = $unsigned ? "\$table->unsignedTinyInteger('{$colPlaceholder}')->change();" : "\$table->tinyInteger('{$colPlaceholder}')->change();";
                 break;
             case 'varchar':
                 $length = (int) ($len !== '' ? explode(',', $len)[0] : 255);
-                $call = "\$table->string('{$colPlaceholder}', {$length})->change();";
+                $generated = "\$table->string('{$colPlaceholder}', {$length})->change();";
                 break;
             case 'char':
                 $length = (int) ($len !== '' ? explode(',', $len)[0] : 255);
-                $call = "\$table->char('{$colPlaceholder}', {$length})->change();";
+                $generated = "\$table->char('{$colPlaceholder}', {$length})->change();";
                 break;
             case 'text':
-                $call = "\$table->text('{$colPlaceholder}')->change();";
+                $generated = "\$table->text('{$colPlaceholder}')->change();";
                 break;
             case 'mediumtext':
-                $call = "\$table->mediumText('{$colPlaceholder}')->change();";
+                $generated = "\$table->mediumText('{$colPlaceholder}')->change();";
                 break;
             case 'longtext':
-                $call = "\$table->longText('{$colPlaceholder}')->change();";
+                $generated = "\$table->longText('{$colPlaceholder}')->change();";
                 break;
             case 'decimal':
                 $parts = $len !== '' ? explode(',', $len) : [10, 0];
                 $precision = (int) $parts[0];
                 $scale = (int) ($parts[1] ?? 0);
                 // Laravel decimal() has no unsigned variant
-                $call = "\$table->decimal('{$colPlaceholder}', {$precision}, {$scale})->change();";
+                $generated = "\$table->decimal('{$colPlaceholder}', {$precision}, {$scale})->change();";
                 break;
             case 'datetime':
-                $call = "\$table->dateTime('{$colPlaceholder}')->change();";
+                $generated = "\$table->dateTime('{$colPlaceholder}')->change();";
                 break;
             case 'timestamp':
-                $call = "\$table->timestamp('{$colPlaceholder}')->change();";
+                $generated = "\$table->timestamp('{$colPlaceholder}')->change();";
                 break;
             case 'date':
-                $call = "\$table->date('{$colPlaceholder}')->change();";
+                $generated = "\$table->date('{$colPlaceholder}')->change();";
                 break;
             default:
-                $call = null;
+                $generated = null;
         }
 
-        if (! $call) {
+        $call = $generated;
+        if ($call === null) {
             return ['schema' => null];
         }
 
         if ($nullable) {
             $call = str_replace(')->change();', ')->nullable()->change();', $call);
         }
-        if ($default) {
+        if ($default !== null) {
             // naive default mapping; quotes preserved if present
             $call = str_replace(')->change();', ")->default({$default})->change();", $call);
         }
