@@ -119,6 +119,11 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Create .env file and generate APP_KEY
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
       - name: Run Laravel Pint (Code Style)
         run: ./vendor/bin/pint --test
 
