@@ -303,6 +303,17 @@ jobs:
 +            fi
 +          } > "$OUT"
 +          echo "Wrote summary to $OUT"
+      - name: Publish diagnostics to Job Summary
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f reports/diagnostics-summary.md ]; then
+            echo "## Diagnostics Summary" >> "$GITHUB_STEP_SUMMARY"
+            cat reports/diagnostics-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No diagnostics summary generated" >> "$GITHUB_STEP_SUMMARY"
+          fi
        - name: Capture MySQL service logs
          run: |
            CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
