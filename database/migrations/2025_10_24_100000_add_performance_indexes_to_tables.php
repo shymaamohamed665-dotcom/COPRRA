@@ -48,22 +48,37 @@ return new class extends Migration
 
     private function indexExists(string $table, string $indexName): bool
     {
-        $result = DB::select('
-            SELECT COUNT(*) as count 
-            FROM information_schema.statistics 
-            WHERE table_schema = DATABASE() 
-            AND table_name = ? 
-            AND index_name = ?
-        ', [$table, $indexName]);
+        $driver = DB::getDriverName();
 
-        if (empty($result)) {
+        if ($driver === 'sqlite') {
+            // For SQLite, check indexes using PRAGMA index_list
+            $result = DB::select("PRAGMA index_list({$table})");
+            foreach ($result as $index) {
+                if ($index->name === $indexName) {
+                    return true;
+                }
+            }
+
             return false;
+        } else {
+            // For MySQL and other databases, use information_schema
+            $result = DB::select('
+                SELECT COUNT(*) as count 
+                FROM information_schema.statistics 
+                WHERE table_schema = DATABASE() 
+                AND table_name = ? 
+                AND index_name = ?
+            ', [$table, $indexName]);
+
+            if (empty($result)) {
+                return false;
+            }
+
+            /** @var object{count: int} $firstResult */
+            $firstResult = $result[0];
+
+            return $firstResult->count > 0;
         }
-
-        /** @var object{count: int} $firstResult */
-        $firstResult = $result[0];
-
-        return $firstResult->count > 0;
     }
 
     private function tryDropIndex(string $table, string $indexName): void
