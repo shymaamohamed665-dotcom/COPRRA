@@ -212,6 +212,18 @@ jobs:
 +      - name: Export Laravel schema indexes
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, INDEX_NAME, NON_UNIQUE, SEQ_IN_INDEX, COLUMN_NAME FROM information_schema.STATISTICS WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME, INDEX_NAME, SEQ_IN_INDEX;" > reports/mysql-laravel-indexes.txt || true
++      - name: Export InnoDB status
++        run: |
++          mysql -h 127.0.0.1 -uroot -proot -e "SHOW ENGINE INNODB STATUS" > reports/mysql-innodb-status.txt || true
++      - name: Export referential constraints rules
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT CONSTRAINT_NAME, TABLE_NAME, REFERENCED_TABLE_NAME, UPDATE_RULE, DELETE_RULE FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE CONSTRAINT_SCHEMA='laravel' ORDER BY TABLE_NAME, CONSTRAINT_NAME;" > reports/mysql-laravel-refs.txt || true
++      - name: Export Laravel columns collations and charset
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT TABLE_NAME, COLUMN_NAME, COLLATION_NAME, CHARACTER_SET_NAME, COLUMN_TYPE, IS_NULLABLE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='laravel' ORDER BY TABLE_NAME, ORDINAL_POSITION;" > reports/mysql-laravel-columns.txt || true
++      - name: Export Laravel triggers
++        run: |
++          mysql -h 127.0.0.1 -ularavel -psecret -e "SHOW TRIGGERS FROM laravel;" > reports/mysql-laravel-triggers.txt || true
        - name: Capture MySQL service logs
          run: |
            CID=$(docker ps --format '{{.ID}} {{.Image}} {{.Names}}' | awk '/mysql:8/ {print $1; exit}')
