@@ -199,7 +199,19 @@ jobs:
              )
            )
        - name: Migrations status
-         run: php artisan migrate:status --database=mysql || true
+          run: php artisan migrate:status --database=mysql | tee reports/migrate-status.txt || true
+      - name: Export MySQL engines
+        run: |
+          mysql -h 127.0.0.1 -uroot -proot -e "SHOW ENGINES;" > reports/mysql-engines.txt || true
+      - name: Export MySQL variables summary
+        run: |
+          mysql -h 127.0.0.1 -uroot -proot -e "SELECT @@version AS version, @@version_comment AS version_comment, @@character_set_server AS charset_server, @@collation_server AS collation_server, @@character_set_database AS charset_db, @@collation_database AS collation_db, @@time_zone AS time_zone, @@transaction_isolation AS trx_isolation, @@sql_mode AS sql_mode, @@lower_case_table_names AS lower_case_table_names, @@innodb_strict_mode AS innodb_strict_mode, @@explicit_defaults_for_timestamp AS explicit_defaults_for_timestamp, @@sql_require_primary_key AS sql_require_primary_key, @@max_allowed_packet AS max_allowed_packet, @@foreign_key_checks AS foreign_key_checks;" > reports/mysql-variables-summary.txt || true
+      - name: Export MySQL status summary
+        run: |
+          mysql -h 127.0.0.1 -uroot -proot -e "SHOW GLOBAL STATUS LIKE 'Threads_running'; SHOW GLOBAL STATUS LIKE 'Threads_connected'; SHOW GLOBAL STATUS LIKE 'Uptime';" > reports/mysql-status-summary.txt || true
+      - name: Export Composer packages
+        run: |
+          composer show -D > reports/composer-packages.txt || true
 +      - name: Export migrations table content
 +        run: |
 +          mysql -h 127.0.0.1 -ularavel -psecret -e "SELECT * FROM laravel.migrations ORDER BY batch, id;" > reports/mysql-migrations-table.txt || true
