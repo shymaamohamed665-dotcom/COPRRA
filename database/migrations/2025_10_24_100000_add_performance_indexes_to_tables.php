@@ -31,6 +31,12 @@ return new class extends Migration
         if (! $this->hasColumns($table, $columns)) {
             return;
         }
+
+        // Check if index already exists
+        if ($this->indexExists($table, $indexName)) {
+            return;
+        }
+
         $cols = implode('`, `', $columns);
         $sql = "ALTER TABLE `{$table}` ADD INDEX `{$indexName}` (`{$cols}`)";
         try {
@@ -38,6 +44,26 @@ return new class extends Migration
         } catch (\Throwable $e) {
             // Ignore if index already exists or other non-fatal issues
         }
+    }
+
+    private function indexExists(string $table, string $indexName): bool
+    {
+        $result = DB::select('
+            SELECT COUNT(*) as count 
+            FROM information_schema.statistics 
+            WHERE table_schema = DATABASE() 
+            AND table_name = ? 
+            AND index_name = ?
+        ', [$table, $indexName]);
+
+        if (empty($result)) {
+            return false;
+        }
+
+        /** @var object{count: int} $firstResult */
+        $firstResult = $result[0];
+
+        return $firstResult->count > 0;
     }
 
     private function tryDropIndex(string $table, string $indexName): void
