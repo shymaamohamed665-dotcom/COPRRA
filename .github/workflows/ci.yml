@@ -254,7 +254,85 @@ jobs:
 +            mysql -h 127.0.0.1 -ularavel -psecret -D laravel -e "SHOW CREATE TABLE \`$t\`;" >> reports/mysql-show-create-tables.sql || true
 +            echo >> reports/mysql-show-create-tables.sql
 +          done
-+      - name: Summarize MySQL/Laravel diagnostics
+      - name: Analyze FK index gaps (prefix index missing)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          : > reports/mysql-fk-index-gaps.txt
+          if [ -f reports/mysql-laravel-indexes.txt ] && [ -f reports/mysql-laravel-fks.txt ]; then
+            awk -F '\t' '
+              FILENAME ~ /mysql-laravel-indexes.txt$/ {
+                if (FNR==1) next; # skip header
+                key = $1 "|" $2; # table|index
+                cols[key] = (cols[key] ? cols[key] "," $5 : $5);
+                next;
+              }
+              FILENAME ~ /mysql-laravel-fks.txt$/ {
+                if (FNR==1) next;
+                fkkey = $2 "|" $1; # table|constraint
+                fkcols[fkkey] = (fkcols[fkkey] ? fkcols[fkkey] "," $3 : $3);
+              }
+              END {
+                # materialize idx map
+                for (k in cols) {
+                  split(k, a, "|");
+                  t = a[1]; idx = a[2];
+                  idx_list[t] = (idx_list[t] ? idx_list[t] "\n" cols[k] : cols[k]);
+                }
+                # check each fk against table indexes
+                for (fk in fkcols) {
+                  split(fk, b, "|");
+                  t = b[1]; c = b[2];
+                  f = fkcols[fk];
+                  found = 0;
+                  n = split(idx_list[t], arr, "\n");
+                  for (i=1; i<=n; i++) {
+                    idxc = arr[i];
+                    if (idxc == f) { found = 1; break; }
+                    if (length(idxc) > length(f) && substr(idxc,1,length(f)) == f && substr(idxc,length(f)+1,1) == ",") { found = 1; break; }
+                  }
+                  if (!found) {
+                    printf("%s\t%s\t%s\n", t, c, f);
+                  }
+                }
+              }
+            ' reports/mysql-laravel-indexes.txt reports/mysql-laravel-fks.txt > reports/mysql-fk-index-gaps.txt || true
+          fi
+      - name: Detect FK type/collation/charset mismatches
+        run: |
+          mysql -h 127.0.0.1 -ularavel -psecret -e "\
+            SELECT \
+              kcu.CONSTRAINT_NAME, \
+              kcu.TABLE_NAME, \
+              kcu.COLUMN_NAME, \
+              kcu.REFERENCED_TABLE_NAME, \
+              kcu.REFERENCED_COLUMN_NAME, \
+              child.DATA_TYPE AS child_type, \
+              parent.DATA_TYPE AS parent_type, \
+              child.CHARACTER_SET_NAME AS child_charset, \
+              parent.CHARACTER_SET_NAME AS parent_charset, \
+              child.COLLATION_NAME AS child_collation, \
+              parent.COLLATION_NAME AS parent_collation \
+            FROM information_schema.KEY_COLUMN_USAGE kcu \
+            JOIN information_schema.COLUMNS child \
+              ON child.TABLE_SCHEMA=kcu.TABLE_SCHEMA \
+              AND child.TABLE_NAME=kcu.TABLE_NAME \
+              AND child.COLUMN_NAME=kcu.COLUMN_NAME \
+            JOIN information_schema.COLUMNS parent \
+              ON parent.TABLE_SCHEMA=kcu.REFERENCED_TABLE_SCHEMA \
+              AND parent.TABLE_NAME=kcu.REFERENCED_TABLE_NAME \
+              AND parent.COLUMN_NAME=kcu.REFERENCED_COLUMN_NAME \
+            WHERE kcu.TABLE_SCHEMA='laravel' \
+              AND kcu.REFERENCED_TABLE_SCHEMA IS NOT NULL \
+              AND ( \
+                child.DATA_TYPE <> parent.DATA_TYPE \
+                OR COALESCE(child.CHARACTER_SET_NAME,'') <> COALESCE(parent.CHARACTER_SET_NAME,'') \
+                OR COALESCE(child.COLLATION_NAME,'') <> COALESCE(parent.COLLATION_NAME,'') \
+              ) \
+            ORDER BY kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION;\
+          " > reports/mysql-fk-type-mismatches.txt || true
+      - name: Summarize MySQL/Laravel diagnostics
         shell: bash
         run: |
           set -euo pipefail
@@ -303,6 +381,12 @@ jobs:
               if grep -qE "LATEST DETECTED DEADLOCK|LATEST FOREIGN KEY ERROR" reports/mysql-innodb-status.txt; then
                 echo "❗ InnoDB reported deadlocks or FK errors"
               fi
+            fi
+            if [ -s reports/mysql-fk-index-gaps.txt ]; then
+              echo "❗ FK referencing columns lacking prefix index — count: $(wc -l < reports/mysql-fk-index-gaps.txt)"
+            fi
+            if [ -s reports/mysql-fk-type-mismatches.txt ]; then
+              echo "❗ FK type/charset/collation mismatches — count: $(wc -l < reports/mysql-fk-type-mismatches.txt)"
             fi
           } >> "$ALERTS"
           {
@@ -460,3 +544,7 @@ jobs:
           test -f downloaded-ci-test-results/diagnostics-summary.md && sed -n '1,200p' downloaded-ci-test-results/diagnostics-summary.md || echo "No diagnostics-summary.md"
           echo "\n== Diagnostics Alerts =="
           test -f downloaded-ci-test-results/diagnostics-alerts.md && cat downloaded-ci-test-results/diagnostics-alerts.md || echo "No diagnostics-alerts.md"
+          echo "\n== FK Index Gaps =="
+          test -f downloaded-ci-test-results/mysql-fk-index-gaps.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-index-gaps.txt || echo "No mysql-fk-index-gaps.txt"
+          echo "\n== FK Type/Charset/Collation Mismatches =="
+          test -f downloaded-ci-test-results/mysql-fk-type-mismatches.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-type-mismatches.txt || echo "No mysql-fk-type-mismatches.txt"
