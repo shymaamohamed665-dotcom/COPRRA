@@ -1,27 +1,34 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * @param  array<string>  $columns
+     */
     private function hasColumns(string $table, array $columns): bool
     {
-        if (!Schema::hasTable($table)) {
+        if (! Schema::hasTable($table)) {
             return false;
         }
         foreach ($columns as $column) {
-            if (!Schema::hasColumn($table, $column)) {
+            if (! Schema::hasColumn($table, $column)) {
                 return false;
             }
         }
+
         return true;
     }
 
+    /**
+     * @param  array<string>  $columns
+     */
     private function tryAddIndex(string $table, string $indexName, array $columns): void
     {
-        if (!$this->hasColumns($table, $columns)) {
+        if (! $this->hasColumns($table, $columns)) {
             return;
         }
         $cols = implode('`, `', $columns);
@@ -35,7 +42,7 @@ return new class extends Migration
 
     private function tryDropIndex(string $table, string $indexName): void
     {
-        if (!Schema::hasTable($table)) {
+        if (! Schema::hasTable($table)) {
             return;
         }
         $sql = "ALTER TABLE `{$table}` DROP INDEX `{$indexName}`";
