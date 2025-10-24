@@ -37,7 +37,7 @@ jobs:
           php-version: "8.4"
           tools: composer:v2, cs2pr
           coverage: xdebug
-          extensions: pdo_mysql, mbstring, intl, gd
+          extensions: pdo_mysql, pdo_sqlite, sqlite3, mbstring, intl, gd
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -93,10 +93,11 @@ jobs:
           sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=secret/' .env || echo "DB_PASSWORD=secret" >> .env
       - name: Clear Laravel config
         run: php artisan config:clear || true
-      - name: Show PHP extensions (pdo/mysql)
+      - name: Show PHP extensions (pdo/mysql/sqlite)
         run: |
-          php -m | sort | grep -E 'pdo|mysql' || true
+          php -m | sort | grep -E 'pdo|mysql|sqlite' || true
           php -r "echo extension_loaded('pdo_mysql') ? 'pdo_mysql loaded' : 'pdo_mysql missing'; echo PHP_EOL;"
+          php -r "echo extension_loaded('pdo_sqlite') ? 'pdo_sqlite loaded' : 'pdo_sqlite missing'; echo PHP_EOL;"
           php -r "echo 'Loaded extensions: ' . implode(', ', get_loaded_extensions()) . PHP_EOL;"
       - name: Ensure reports directory
         run: mkdir -p reports
