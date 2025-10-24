@@ -93,6 +93,10 @@ jobs:
           sed -i 's/^DB_PASSWORD=.*/DB_PASSWORD=secret/' .env || echo "DB_PASSWORD=secret" >> .env
       - name: Clear Laravel config
         run: php artisan config:clear || true
+      - name: Show PHP extensions (pdo/mysql)
+        run: |
+          php -m | sort | grep -E 'pdo|mysql' || true
+          php -r "echo 'Loaded extensions: ' . implode(', ', get_loaded_extensions()) . "\n";"
       - name: Ensure reports directory
         run: mkdir -p reports
       - name: Install MySQL client
