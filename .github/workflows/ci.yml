@@ -255,55 +255,106 @@ jobs:
 +            echo >> reports/mysql-show-create-tables.sql
 +          done
 +      - name: Summarize MySQL/Laravel diagnostics
-+        shell: bash
-+        run: |
-+          set -euo pipefail
-+          OUT="reports/diagnostics-summary.md"
-+          mkdir -p reports
-+          {
-+            echo "# CI Diagnostics Summary"
-+            echo
-+            echo "## Environment"
-+            if [ -f reports/mysql-variables-summary.txt ]; then
-+              grep -E "version|charset_server|collation_server|charset_db|collation_db|sql_mode" reports/mysql-variables-summary.txt || true
-+            fi
-+            echo
-+            echo "## Migration status"
-+            if [ -f reports/migrate-status.txt ]; then
-+              echo '```'
-+              sed -n '1,100p' reports/migrate-status.txt
-+              echo '```'
-+            fi
-+            echo
-+            echo "## InnoDB status (deadlocks/lock waits)"
-+            if [ -f reports/mysql-innodb-status.txt ]; then
-+              grep -nE "LATEST DETECTED DEADLOCK|LATEST FOREIGN KEY ERROR|TRANSACTIONS" reports/mysql-innodb-status.txt | sed -n '1,100p' || true
-+            fi
-+            echo
-+            echo "## Foreign keys and indexes"
-+            if [ -f reports/mysql-laravel-fks.txt ]; then
-+              echo "- FK count: $(wc -l < reports/mysql-laravel-fks.txt)"
-+            fi
-+            if [ -f reports/mysql-laravel-indexes.txt ]; then
-+              echo "- Index entries: $(wc -l < reports/mysql-laravel-indexes.txt)"
-+            fi
-+            echo
-+            echo "## Process/threads"
-+            if [ -f reports/mysql-status-summary.txt ]; then
-+              cat reports/mysql-status-summary.txt
-+            fi
-+            echo
-+            echo "## Collation/charset mismatches (columns)"
-+            if [ -f reports/mysql-laravel-columns.txt ] && [ -f reports/mysql-variables-summary.txt ]; then
-+              srv_coll=$(awk -F'\t' '/collation_server/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
-+              db_coll=$(awk -F'\t' '/collation_db/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
-+              echo "- Server collation: ${srv_coll}"
-+              echo "- Database collation: ${db_coll}"
-+              grep -vE "${db_coll}|${srv_coll}" reports/mysql-laravel-columns.txt | head -n 50 || true
-+            fi
-+          } > "$OUT"
-+          echo "Wrote summary to $OUT"
-      - name: Publish diagnostics to Job Summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT="reports/diagnostics-summary.md"
+          ALERTS="reports/diagnostics-alerts.md"
+          mkdir -p reports
+          : > "$ALERTS"
+          {
+            if [ -f reports/mysql-variables-summary.txt ]; then
+              sql_mode=$(awk -F'\t' '/sql_mode/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
+              if echo "$sql_mode" | grep -q "ONLY_FULL_GROUP_BY"; then
+                echo "⚠️ SQL_MODE includes ONLY_FULL_GROUP_BY — may break legacy queries"
+              fi
+              if echo "$sql_mode" | grep -q "NO_ZERO_DATE\|NO_ZERO_IN_DATE"; then
+                echo "⚠️ SQL_MODE includes NO_ZERO_DATE/NO_ZERO_IN_DATE — strict date checks"
+              fi
+              if echo "$sql_mode" | grep -q "STRICT_TRANS_TABLES\|STRICT_ALL_TABLES"; then
+                echo "ℹ️ SQL_MODE is strict — ensure migrations/data comply"
+              fi
+            fi
+            if [ -f reports/mysql-engines.txt ]; then
+              if grep -q "MyISAM" reports/mysql-engines.txt; then
+                echo "❗ Found MyISAM tables — convert to InnoDB to support FKs"
+              fi
+            fi
+            if [ -f reports/mysql-show-create-tables.sql ]; then
+              no_pk_cnt=$(awk '/CREATE TABLE/ {flag=1} flag && /PRIMARY KEY/ {pk=1} /\);/ {if(!pk){print}; flag=pk=0}' reports/mysql-show-create-tables.sql | wc -l)
+              if [ "$no_pk_cnt" -gt 0 ]; then
+                echo "❗ Tables without PRIMARY KEY detected — add PKs (count: $no_pk_cnt)"
+              fi
+            fi
+            if [ -f reports/mysql-laravel-columns.txt ] && [ -f reports/mysql-variables-summary.txt ]; then
+              srv_coll=$(awk -F'\t' '/collation_server/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
+              db_coll=$(awk -F'\t' '/collation_db/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
+              mism_cnt=$(grep -vcE "$db_coll|$srv_coll" reports/mysql-laravel-columns.txt || true)
+              if [ "$mism_cnt" -gt 0 ]; then
+                echo "⚠️ Collation/charset mismatches across columns — count: $mism_cnt"
+              fi
+            fi
+            if [ -f reports/migrate-status.txt ]; then
+              if grep -qE "Pending|down|Not installed|missing" reports/migrate-status.txt; then
+                echo "❗ Migrations not fully applied — check migrate:status"
+              fi
+            fi
+            if [ -f reports/mysql-innodb-status.txt ]; then
+              if grep -qE "LATEST DETECTED DEADLOCK|LATEST FOREIGN KEY ERROR" reports/mysql-innodb-status.txt; then
+                echo "❗ InnoDB reported deadlocks or FK errors"
+              fi
+            fi
+          } >> "$ALERTS"
+          {
+            echo "# CI Diagnostics Summary"
+            echo
+            echo "## Alerts"
+            if [ -s "$ALERTS" ]; then
+              cat "$ALERTS"
+            else
+              echo "No alerts detected"
+            fi
+            echo
+            echo "## Environment"
+            if [ -f reports/mysql-variables-summary.txt ]; then
+              grep -E "version|charset_server|collation_server|charset_db|collation_db|sql_mode" reports/mysql-variables-summary.txt || true
+            fi
+            echo
+            echo "## Migration status"
+            if [ -f reports/migrate-status.txt ]; then
+              echo '```'
+              sed -n '1,100p' reports/migrate-status.txt
+              echo '```'
+            fi
+            echo
+            echo "## InnoDB status (deadlocks/lock waits)"
+            if [ -f reports/mysql-innodb-status.txt ]; then
+              grep -nE "LATEST DETECTED DEADLOCK|LATEST FOREIGN KEY ERROR|TRANSACTIONS" reports/mysql-innodb-status.txt | sed -n '1,100p' || true
+            fi
+            echo
+            echo "## Foreign keys and indexes"
+            if [ -f reports/mysql-laravel-fks.txt ]; then
+              echo "- FK count: $(wc -l < reports/mysql-laravel-fks.txt)"
+            fi
+            if [ -f reports/mysql-laravel-indexes.txt ]; then
+              echo "- Index entries: $(wc -l < reports/mysql-laravel-indexes.txt)"
+            fi
+            echo
+            echo "## Process/threads"
+            if [ -f reports/mysql-status-summary.txt ]; then
+              cat reports/mysql-status-summary.txt
+            fi
+            echo
+            echo "## Collation/charset mismatches (columns)"
+            if [ -f reports/mysql-laravel-columns.txt ] && [ -f reports/mysql-variables-summary.txt ]; then
+              srv_coll=$(awk -F'\t' '/collation_server/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
+              db_coll=$(awk -F'\t' '/collation_db/ {print $2}' reports/mysql-variables-summary.txt | head -n1)
+              echo "- Server collation: ${srv_coll}"
+              echo "- Database collation: ${db_coll}"
+              grep -vE "${db_coll}|${srv_coll}" reports/mysql-laravel-columns.txt | head -n 50 || true
+            fi
+          } > "$OUT"
+          echo "Wrote summary to $OUT and alerts to $ALERTS"      - name: Publish diagnostics to Job Summary
         if: always()
         shell: bash
         run: |
@@ -369,3 +420,7 @@ jobs:
         run: |
           ls -la downloaded-ci-test-results
           test -f downloaded-ci-test-results/junit-ci.xml && echo "Found junit-ci.xml" || echo "Missing junit-ci.xml"
+          echo "\n== Diagnostics Summary =="
+          test -f downloaded-ci-test-results/diagnostics-summary.md && sed -n '1,200p' downloaded-ci-test-results/diagnostics-summary.md || echo "No diagnostics-summary.md"
+          echo "\n== Diagnostics Alerts =="
+          test -f downloaded-ci-test-results/diagnostics-alerts.md && cat downloaded-ci-test-results/diagnostics-alerts.md || echo "No diagnostics-alerts.md"
