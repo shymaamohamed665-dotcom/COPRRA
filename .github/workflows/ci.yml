@@ -310,6 +310,8 @@ jobs:
               kcu.REFERENCED_COLUMN_NAME, \
               child.DATA_TYPE AS child_type, \
               parent.DATA_TYPE AS parent_type, \
+              child.COLUMN_TYPE AS child_column_type, \
+              parent.COLUMN_TYPE AS parent_column_type, \
               child.CHARACTER_SET_NAME AS child_charset, \
               parent.CHARACTER_SET_NAME AS parent_charset, \
               child.COLLATION_NAME AS child_collation, \
@@ -332,6 +334,39 @@ jobs:
               ) \
             ORDER BY kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION;\
           " > reports/mysql-fk-type-mismatches.txt || true
+      - name: Generate fix suggestions (indexes and column types)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports
+          : > reports/fix-suggestions.sql
+          : > reports/fix-suggestions.md
+          echo "# Fix Suggestions" >> reports/fix-suggestions.md
+          echo >> reports/fix-suggestions.md
+          # Index suggestions for FK gaps
+          if [ -s reports/mysql-fk-index-gaps.txt ]; then
+            echo "## Add missing indexes for foreign keys" >> reports/fix-suggestions.md
+            awk -F '\t' '{
+              t=$1; c=$2; cols=$3;
+              printf("ALTER TABLE `%s` ADD INDEX `idx_fk_%s` (%s);\n", t, c, cols);
+              printf("- Add index `idx_fk_%s` on `%s` columns (%s)\n", c, t, cols) >> "reports/fix-suggestions.md";
+            }' reports/mysql-fk-index-gaps.txt >> reports/fix-suggestions.sql
+            echo >> reports/fix-suggestions.md
+          fi
+          # Column type/charset/collation suggestions
+          if [ -s reports/mysql-fk-type-mismatches.txt ]; then
+            echo "## Align child column types/charset/collation with parent" >> reports/fix-suggestions.md
+            awk -F '\t' 'NR>1 { # skip header if any
+              c_name=$1; t=$2; col=$3; pt=$4; pcol=$5; child_type=$6; parent_type=$7; child_coltype=$8; parent_coltype=$9; child_charset=$10; parent_charset=$11; child_coll=$12; parent_coll=$13;
+              # prefer parent_column_type for exact definition
+              newdef=parent_coltype;
+              charset_clause=(parent_charset!="" ? " CHARACTER SET " parent_charset : "");
+              collate_clause=(parent_coll!="" ? " COLLATE " parent_coll : "");
+              printf("ALTER TABLE `%s` MODIFY `%s` %s%s%s;\n", t, col, newdef, charset_clause, collate_clause);
+              printf("- Modify `%s`.`%s` to `%s`%s%s (from `%s` %s/%s)\n", t, col, newdef, (parent_charset!=""?" CHARACTER SET " parent_charset:""), (parent_coll!=""?" COLLATE " parent_coll:""), child_coltype, child_charset, child_coll) >> "reports/fix-suggestions.md";
+            }' reports/mysql-fk-type-mismatches.txt >> reports/fix-suggestions.sql
+            echo >> reports/fix-suggestions.md
+          fi
       - name: Summarize MySQL/Laravel diagnostics
         shell: bash
         run: |
@@ -354,7 +389,7 @@ jobs:
               fi
             fi
             if [ -f reports/mysql-engines.txt ]; then
-              if grep -q "MyISAM" reports/mysql-engines.txt; then
+              if grep -q "MyISAM" reports/mysql-engines.txt ]; then
                 echo "❗ Found MyISAM tables — convert to InnoDB to support FKs"
               fi
             fi
@@ -449,6 +484,10 @@ jobs:
             cat reports/diagnostics-summary.md >> "$GITHUB_STEP_SUMMARY"
           else
             echo "No diagnostics summary generated" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ -f reports/fix-suggestions.md ]; then
+            echo "\n## Fix Suggestions" >> "$GITHUB_STEP_SUMMARY"
+            sed -n '1,200p' reports/fix-suggestions.md >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Annotate diagnostics alerts
         if: always()
@@ -548,3 +587,7 @@ jobs:
           test -f downloaded-ci-test-results/mysql-fk-index-gaps.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-index-gaps.txt || echo "No mysql-fk-index-gaps.txt"
           echo "\n== FK Type/Charset/Collation Mismatches =="
           test -f downloaded-ci-test-results/mysql-fk-type-mismatches.txt && sed -n '1,50p' downloaded-ci-test-results/mysql-fk-type-mismatches.txt || echo "No mysql-fk-type-mismatches.txt"
+          echo "\n== Fix Suggestions =="
+          test -f downloaded-ci-test-results/fix-suggestions.md && sed -n '1,120p' downloaded-ci-test-results/fix-suggestions.md || echo "No fix-suggestions.md"
+          echo "\n== Fix Suggestions (SQL) =="
+          test -f downloaded-ci-test-results/fix-suggestions.sql && sed -n '1,60p' downloaded-ci-test-results/fix-suggestions.sql || echo "No fix-suggestions.sql"
