@@ -247,8 +247,7 @@ jobs:
 
       - name: Configure SQLite DB for migrations
         run: |
-          sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
-          if grep -q '^DB_DATABASE=' .env; then sed -i 's/^DB_DATABASE=.*/DB_DATABASE=database\\/database.sqlite/' .env; else echo 'DB_DATABASE=database/database.sqlite' >> .env; fi
+          php -r "$env = file('.env'); $env = array_filter($env, function($l){ return !preg_match('/^DB_CONNECTION=|^DB_DATABASE=/', $l); }); $env[] = 'DB_CONNECTION=sqlite' . PHP_EOL; $env[] = 'DB_DATABASE=database/database.sqlite' . PHP_EOL; file_put_contents('.env', implode('', $env)); echo 'DB config set to sqlite file';"
 
       - name: Verify application key
         run: |
@@ -330,8 +329,7 @@ jobs:
 
       - name: Configure SQLite DB for migrations
         run: |
-          sed -i 's/^DB_CONNECTION=.*/DB_CONNECTION=sqlite/' .env
-          if grep -q '^DB_DATABASE=' .env; then sed -i 's/^DB_DATABASE=.*/DB_DATABASE=database\\/database.sqlite/' .env; else echo 'DB_DATABASE=database/database.sqlite' >> .env; fi
+          php -r "$env = file('.env'); $env = array_filter($env, function($l){ return !preg_match('/^DB_CONNECTION=|^DB_DATABASE=/', $l); }); $env[] = 'DB_CONNECTION=sqlite' . PHP_EOL; $env[] = 'DB_DATABASE=database/database.sqlite' . PHP_EOL; file_put_contents('.env', implode('', $env)); echo 'DB config set to sqlite file';"
 
       - name: Verify application key
         run: |
