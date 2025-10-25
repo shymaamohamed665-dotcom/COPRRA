@@ -14,6 +14,7 @@ return new class extends Migration
 
         if ($driver === 'sqlite') {
             $results = $connection->select("PRAGMA index_list('".$table."')");
+            /** @var object $rowObj */
             foreach ($results as $rowObj) {
                 $row = (array) $rowObj;
                 if (isset($row['name']) && $row['name'] === $indexName) {
