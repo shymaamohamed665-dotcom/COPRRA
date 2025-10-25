@@ -21,6 +21,8 @@ return new class extends Migration
             // ✅ إضافة الأعمدة المفقودة وربطها بالجداول الموجودة
             $table->foreignId('brand_id')->nullable()->constrained('brands')->onDelete('set null');
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');
+            // إضافة currency_id افتراضيًا لضمان توافق الاختبارات مع RefreshDatabase
+            $table->foreignId('currency_id')->nullable()->constrained('currencies')->onDelete('set null');
             $table->timestamps();
         });
     }
