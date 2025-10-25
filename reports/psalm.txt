@@ -1,8 +1,102 @@
 
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165114_add_indexes_to_products_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165114_add_indexes_to_products_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165114_add_indexes_to_products_table_from_fix_sql.php#L19\database/migrations/[1;31m2025_10_24_165114_add_indexes_to_products_table_from_fix_sql.php:19:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165725_add_indexes_to_reviews_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165725_add_indexes_to_reviews_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165725_add_indexes_to_reviews_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165725_add_indexes_to_reviews_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_payments_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_payments_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_payments_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_payments_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_price_alerts_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_price_alerts_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_price_alerts_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_price_alerts_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_price_history_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_price_history_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_price_history_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_price_history_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_price_offers_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_price_offers_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_price_offers_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_price_offers_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_product_store_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_product_store_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_product_store_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_product_store_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
+[0;31mERROR[0m: MixedAssignment - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_wishlists_table_from_fix_sql.php#L17\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_wishlists_table_from_fix_sql.php:17:34[0m]8;;\ - Unable to determine the type that $row is being assigned to (see https://psalm.dev/032)
+            foreach ($results as [97;41m$row[0m) {
+
+  The type of $row is sourced from here - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\vendor\laravel\framework\src\Illuminate\Database\Connection.php#L393\vendor/laravel/framework/src/Illuminate/Database/[1;31mConnection.php:393:16[0m]8;;\
+     * @return [30;47marray[0m
+
+
+
+[0;31mERROR[0m: MixedPropertyFetch - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\migrations\2025_10_24_165726_add_indexes_to_wishlists_table_from_fix_sql.php#L18\database/migrations/[1;31m2025_10_24_165726_add_indexes_to_wishlists_table_from_fix_sql.php:18:28[0m]8;;\ - Cannot fetch property on mixed var $row (see https://psalm.dev/034)
+                if ((isset([97;41m$row->name[0m) && $row->name === $indexName) || (isset($row['name']) && $row['name'] === $indexName)) {
+
+
 ------------------------------
-[42;2m                              [0m
-[42;30;2m       No errors found!       [0m
-[42;2m                              [0m
+[0;31m16 errors[0m found
 ------------------------------
 4029 other issues found.
 You can display them with [30;48;5;195m--show-info=true[0m
@@ -13,5 +107,5 @@ Run Psalm again with
 to see what it can fix.
 ------------------------------
 
-Checks took 35.94 seconds and used 995.713MB of memory
-Psalm was able to infer types for 95.0086% of the codebase
+Checks took 36.99 seconds and used 996.223MB of memory
+Psalm was able to infer types for 94.8906% of the codebase
