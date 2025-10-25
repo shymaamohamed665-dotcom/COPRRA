@@ -7104,12 +7104,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Models\\Order::user() should return Illuminate\\Database\\Eloquent\\Relations\\BelongsTo<App\\Models\\User, App\\Models\\Order> but returns Illuminate\\Database\\Eloquent\\Relations\\BelongsTo<App\\Models\\User, $this(App\\Models\\Order)>.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
-       'line' => 78,
+       'line' => 80,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
        'traitFilePath' => NULL,
        'tip' => 'Template type TDeclaringModel on class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo is not covariant. Learn more: <fg=cyan>https://phpstan.org/blog/whats-up-with-template-covariant</>',
-       'nodeLine' => 78,
+       'nodeLine' => 80,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
        'metadata' => 
@@ -7121,12 +7121,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Models\\Order::items() should return Illuminate\\Database\\Eloquent\\Relations\\HasMany<App\\Models\\OrderItem, App\\Models\\Order> but returns Illuminate\\Database\\Eloquent\\Relations\\HasMany<App\\Models\\OrderItem, $this(App\\Models\\Order)>.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
-       'line' => 86,
+       'line' => 88,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
        'traitFilePath' => NULL,
        'tip' => 'Template type TDeclaringModel on class Illuminate\\Database\\Eloquent\\Relations\\HasMany is not covariant. Learn more: <fg=cyan>https://phpstan.org/blog/whats-up-with-template-covariant</>',
-       'nodeLine' => 86,
+       'nodeLine' => 88,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
        'metadata' => 
@@ -7138,12 +7138,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Models\\Order::payments() should return Illuminate\\Database\\Eloquent\\Relations\\HasMany<App\\Models\\Payment, App\\Models\\Order> but returns Illuminate\\Database\\Eloquent\\Relations\\HasMany<App\\Models\\Payment, $this(App\\Models\\Order)>.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
-       'line' => 94,
+       'line' => 96,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
        'traitFilePath' => NULL,
        'tip' => 'Template type TDeclaringModel on class Illuminate\\Database\\Eloquent\\Relations\\HasMany is not covariant. Learn more: <fg=cyan>https://phpstan.org/blog/whats-up-with-template-covariant</>',
-       'nodeLine' => 94,
+       'nodeLine' => 96,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
        'metadata' => 
@@ -7155,12 +7155,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Models\\Order::setStatusAttribute() has parameter $value with no type specified.',
        'file' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
-       'line' => 184,
+       'line' => 186,
        'canBeIgnored' => true,
        'filePath' => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 184,
+       'nodeLine' => 186,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.parameter',
        'metadata' => 
@@ -22988,7 +22988,7 @@ return [
   ),
   'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Models\\Order.php' => 
   array (
-    'fileHash' => '0ba4cc58e21d6792b291a75c7b67f117d1775a05',
+    'fileHash' => 'f8586fab9cc197e5a74bf4ad34790fcbd338f1a3',
     'dependentFiles' => 
     array (
       0 => 'C:\\Users\\Gaser\\Desktop\\COPRRA\\app\\Events\\OrderStatusChanged.php',

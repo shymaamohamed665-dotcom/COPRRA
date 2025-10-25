@@ -26,7 +26,7 @@ class OrderFactory extends Factory
      *
      * @return (UserFactory|\DateTime|float|mixed|string|string[])[]
      *
-     * @psalm-return array{order_number: string, user_id: UserFactory, status: mixed, total_amount: float, subtotal: float, tax_amount: float, shipping_amount: float, discount_amount: float, currency: 'USD', shipping_address: array{street: string, city: string, state: string, zip: string, country: string}, billing_address: array{street: string, city: string, state: string, zip: string, country: string}, notes: string, shipped_at: \DateTime, delivered_at: \DateTime}
+     * @psalm-return array{order_number: string, user_id: UserFactory, status: mixed, total_amount: float, subtotal: float, tax_amount: float, shipping_amount: float, discount_amount: float, currency: 'USD', shipping_address: array{street: string, city: string, state: string, zip: string, country: string}, billing_address: array{street: string, city: string, state: string, zip: string, country: string}, notes: string, order_date: \DateTime, shipped_at: \DateTime, delivered_at: \DateTime}
      */
     #[\Override]
     public function definition(): array
