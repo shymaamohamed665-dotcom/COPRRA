@@ -37,8 +37,17 @@ return new class extends Migration
             return;
         }
 
-        $cols = implode('`, `', $columns);
-        $sql = "ALTER TABLE `{$table}` ADD INDEX `{$indexName}` (`{$cols}`)";
+        $driver = DB::getDriverName();
+        if ($driver === 'sqlite') {
+            // SQLite uses CREATE INDEX rather than ALTER TABLE ADD INDEX
+            $cols = implode('\", \"', $columns);
+            $sql = "CREATE INDEX \"{$indexName}\" ON \"{$table}\" (\"{$cols}\")";
+        } else {
+            // MySQL and others where ALTER TABLE ADD INDEX is valid
+            $cols = implode('`, `', $columns);
+            $sql = "ALTER TABLE `{$table}` ADD INDEX `{$indexName}` (`{$cols}`)";
+        }
+
         try {
             DB::statement($sql);
         } catch (\Throwable $e) {
@@ -53,7 +62,7 @@ return new class extends Migration
         if ($driver === 'sqlite') {
             // For SQLite, check indexes using PRAGMA index_list
             /** @var array<int, object{name: string}> $result */
-            $result = DB::select("PRAGMA index_list({$table})");
+            $result = DB::select("PRAGMA index_list(\"{$table}\")");
             foreach ($result as $index) {
                 if ($index->name === $indexName) {
                     return true;
