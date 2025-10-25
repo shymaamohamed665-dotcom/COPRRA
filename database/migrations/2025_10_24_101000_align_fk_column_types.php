@@ -43,8 +43,6 @@ return new class extends Migration
 
         $this->tryModify('price_offers', 'product_id', 'BIGINT UNSIGNED NOT NULL');
 
-        $this->tryModify('price_history', 'product_id', 'BIGINT UNSIGNED NOT NULL');
-
         $this->tryModify('payments', 'order_id', 'BIGINT UNSIGNED NOT NULL');
 
         $this->tryModify('product_store', 'product_id', 'BIGINT UNSIGNED NOT NULL');
@@ -60,8 +58,6 @@ return new class extends Migration
         $this->tryModify('product_store', 'product_id', 'BIGINT NOT NULL');
 
         $this->tryModify('payments', 'order_id', 'BIGINT NOT NULL');
-
-        $this->tryModify('price_history', 'product_id', 'BIGINT NOT NULL');
 
         $this->tryModify('price_offers', 'product_id', 'BIGINT NOT NULL');
 

@@ -13,5 +13,5 @@ Run Psalm again with
 to see what it can fix.
 ------------------------------
 
-Checks took 36.19 seconds and used 996.311MB of memory
+Checks took 37.56 seconds and used 997.246MB of memory
 Psalm was able to infer types for 95.0575% of the codebase

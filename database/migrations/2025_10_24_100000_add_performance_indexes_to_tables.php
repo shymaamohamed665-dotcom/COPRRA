@@ -134,9 +134,6 @@ return new class extends Migration
         // Price offers
         $this->tryAddIndex('price_offers', 'idx_price_offers_product_id', ['product_id']);
 
-        // Price history
-        $this->tryAddIndex('price_history', 'idx_price_history_product_id', ['product_id']);
-
         // Payments
         $this->tryAddIndex('payments', 'idx_payments_order_id', ['order_id']);
 
@@ -154,8 +151,6 @@ return new class extends Migration
         $this->tryDropIndex('product_store', 'idx_product_store_product_id');
 
         $this->tryDropIndex('payments', 'idx_payments_order_id');
-
-        $this->tryDropIndex('price_history', 'idx_price_history_product_id');
 
         $this->tryDropIndex('price_offers', 'idx_price_offers_product_id');
 
