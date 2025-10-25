@@ -57,6 +57,7 @@ class OrderFactory extends Factory
                 'country' => $this->faker->country,
             ],
             'notes' => $this->faker->optional()->sentence,
+            'order_date' => $this->faker->dateTime,
             'shipped_at' => $this->faker->optional()->dateTime,
             'delivered_at' => $this->faker->optional()->dateTime,
         ];

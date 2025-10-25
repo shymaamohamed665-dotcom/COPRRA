@@ -54,6 +54,7 @@ class Order extends Model
         'shipping_address',
         'billing_address',
         'notes',
+        'order_date',
         'shipped_at',
         'delivered_at',
     ];
@@ -66,6 +67,7 @@ class Order extends Model
         'subtotal' => 'decimal:2',
         'shipping_address' => 'array',
         'billing_address' => 'array',
+        'order_date' => 'datetime',
         'shipped_at' => 'datetime',
         'delivered_at' => 'datetime',
     ];
