@@ -1,52 +1,17 @@
 
-[0;31mERROR[0m: InvalidReturnType - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\factories\OrderFactory.php#L29\database/factories/[1;31mOrderFactory.php:29:22[0m]8;;\ - The declared return type 'array{billing_address: array{city: string, country: string, state: string, street: string, zip: string}, currency: 'USD', delivered_at: DateTime, discount_amount: float, notes: string, order_number: string, shipped_at: DateTime, shipping_address: array{city: string, country: string, state: string, street: string, zip: string}, shipping_amount: float, status: mixed, subtotal: float, tax_amount: float, total_amount: float, user_id: Database\Factories\UserFactory}' for Database\Factories\OrderFactory::definition is incorrect, got 'array{billing_address: array{city: string, country: string, state: string, street: string, zip: string}, currency: 'USD', delivered_at: DateTime, discount_amount: float(0), notes: string, order_date: DateTime, order_number: non-falsy-string, shipped_at: DateTime, shipping_address: array{city: string, country: string, state: string, street: string, zip: string}, shipping_amount: float(0), status: mixed, subtotal: float(0), tax_amount: float(51), total_amount: float(0), user_id: Database\Factories\UserFactory}' which is different due to additional array shape fields (order_date) (see https://psalm.dev/011)
-     * @psalm-return [97;41marray{order_number: string, user_id: UserFactory, status: mixed, total_amount: float, subtotal: float, tax_amount: float, shipping_amount: float, discount_amount: float, currency: 'USD', shipping_address: array{street: string, city: string, state: string, zip: string, country: string}, billing_address: array{street: string, city: string, state: string, zip: string, country: string}, notes: string, shipped_at: \DateTime, delivered_at: \DateTime}[0m
-
-
-[0;31mERROR[0m: InvalidReturnStatement - ]8;;file://C:\Users\Gaser\Desktop\COPRRA\database\factories\OrderFactory.php#L34\database/factories/[1;31mOrderFactory.php:34:16[0m]8;;\ - The inferred type 'array{billing_address: array{city: string, country: string, state: string, street: string, zip: string}, currency: 'USD', delivered_at: DateTime, discount_amount: float(0), notes: string, order_date: DateTime, order_number: non-falsy-string, shipped_at: DateTime, shipping_address: array{city: string, country: string, state: string, street: string, zip: string}, shipping_amount: float(0), status: mixed, subtotal: float(0), tax_amount: float(51), total_amount: float(0), user_id: Database\Factories\UserFactory}' does not match the declared return type 'array{billing_address: array{city: string, country: string, state: string, street: string, zip: string}, currency: 'USD', delivered_at: DateTime, discount_amount: float, notes: string, order_number: string, shipped_at: DateTime, shipping_address: array{city: string, country: string, state: string, street: string, zip: string}, shipping_amount: float, status: mixed, subtotal: float, tax_amount: float, total_amount: float, user_id: Database\Factories\UserFactory}' for Database\Factories\OrderFactory::definition due to additional array shape fields (order_date) (see https://psalm.dev/128)
-        return [97;41m[
-            'order_number' => 'ORD-'.$this->faker->unique()->numberBetween(100000, 999999),
-            'user_id' => User::factory(),
-            'status' => $this->faker->randomElement(OrderStatus::cases()),
-            // Initialize monetary values deterministically; recalculated upon item changes
-            'total_amount' => 0.00,
-            'subtotal' => 0.00,
-            'tax_amount' => 51.00,
-            'shipping_amount' => 0.00,
-            'discount_amount' => 0.00,
-            'currency' => 'USD',
-            'shipping_address' => [
-                'street' => $this->faker->streetAddress,
-                'city' => $this->faker->city,
-                'state' => $this->faker->word,
-                'zip' => $this->faker->postcode,
-                'country' => $this->faker->country,
-            ],
-            'billing_address' => [
-                'street' => $this->faker->streetAddress,
-                'city' => $this->faker->city,
-                'state' => $this->faker->word,
-                'zip' => $this->faker->postcode,
-                'country' => $this->faker->country,
-            ],
-            'notes' => $this->faker->optional()->sentence,
-            'order_date' => $this->faker->dateTime,
-            'shipped_at' => $this->faker->optional()->dateTime,
-            'delivered_at' => $this->faker->optional()->dateTime,
-        ][0m;
-
-
 ------------------------------
-[0;31m2 errors[0m found
+[42;2m                              [0m
+[42;30;2m       No errors found!       [0m
+[42;2m                              [0m
 ------------------------------
 4029 other issues found.
 You can display them with [30;48;5;195m--show-info=true[0m
 ------------------------------
-Psalm can automatically fix 717 of these issues.
+Psalm can automatically fix 716 of these issues.
 Run Psalm again with 
 [30;48;5;195m--alter --issues=InvalidReturnType,MissingOverrideAttribute,UnusedVariable,ClassMustBeFinal,PossiblyUnusedMethod,UnusedMethod --dry-run[0m
 to see what it can fix.
 ------------------------------
 
-Checks took 36.39 seconds and used 996.747MB of memory
+Checks took 36.46 seconds and used 997.035MB of memory
 Psalm was able to infer types for 95.0653% of the codebase

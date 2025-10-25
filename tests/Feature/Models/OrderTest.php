@@ -144,6 +144,7 @@ class OrderTest extends TestCase
             'shipping_address',
             'billing_address',
             'notes',
+            'order_date',
             'shipped_at',
             'delivered_at',
         ];

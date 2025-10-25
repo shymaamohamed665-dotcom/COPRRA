@@ -2,7 +2,7 @@ PHPUnit 11.5.42 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.4.13
 Configuration: C:\Users\Gaser\Desktop\COPRRA\phpunit.xml
-Random Seed:   1761403891
+Random Seed:   1761405123
 
 .............................................................   61 / 2496 (  2%)
 .............................................................  122 / 2496 (  4%)
@@ -17,16 +17,9 @@ Random Seed:   1761403891
 .............................................................  671 / 2496 ( 26%)
 .............................................................  732 / 2496 ( 29%)
 .............................................................  793 / 2496 ( 31%)
-.............................................................  854 / 2496 ( 34%)
-.............................................................  915 / 2496 ( 36%)
-.............................................................  976 / 2496 ( 39%)
-............................................................. 1037 / 2496 ( 41%)
-............................................................. 1098 / 2496 ( 43%)
-............................................................. 1159 / 2496 ( 46%)
-............................................................. 1220 / 2496 ( 48%)
 .................................................[41;37mF[0m
 
-Time: 04:27.393, Memory: 168.00 MB
+Time: 10:08.821, Memory: 156.00 MB
 
 There was 1 PHPUnit test runner warning:
 
@@ -36,8 +29,22 @@ There was 1 PHPUnit test runner warning:
 
 There was 1 failure:
 
-1) Tests\Unit\DataQuality\DataValidityTest::test_order_date_format
-Failed asserting that exception of type "Illuminate\Database\QueryException" is thrown.
+1) Tests\Feature\Models\OrderTest::test_order_fillable_attributes
+Failed asserting that two arrays are equal.
+--- Expected
++++ Actual
+@@ @@
+     9 => 'shipping_address'
+     10 => 'billing_address'
+     11 => 'notes'
+-    12 => 'shipped_at'
+-    13 => 'delivered_at'
++    12 => 'order_date'
++    13 => 'shipped_at'
++    14 => 'delivered_at'
+ )
+
+C:\Users\Gaser\Desktop\COPRRA\tests\Feature\Models\OrderTest.php:155
 
 [37;41mFAILURES![0m
-[37;41mTests: 1270[0m[37;41m, Assertions: 2902[0m[37;41m, Failures: 1[0m[37;41m, PHPUnit Warnings: 1[0m[37;41m, PHPUnit Deprecations: 89[0m[37;41m.[0m
+[37;41mTests: 843[0m[37;41m, Assertions: 2599[0m[37;41m, Failures: 1[0m[37;41m, PHPUnit Warnings: 1[0m[37;41m, PHPUnit Deprecations: 464[0m[37;41m.[0m
