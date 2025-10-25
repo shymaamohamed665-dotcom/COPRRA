@@ -52,7 +52,9 @@ return new class extends Migration
 
         if ($driver === 'sqlite') {
             // For SQLite, check indexes using PRAGMA index_list
+            /** @var array<int, object{name: string}> $result */
             $result = DB::select("PRAGMA index_list({$table})");
+            /** @var object{name: string} $index */
             foreach ($result as $index) {
                 if ($index->name === $indexName) {
                     return true;
